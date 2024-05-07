@@ -1,6 +1,7 @@
 package me.vault.vaultgame.city.building.model;
 
 
+
 /**
  * The {@code Record "Position"} represents the position of an element on the screen and holds an x- and y-coordinate .
  * The x- and y-coordinate are saved as integers and don't allow floating point numbers. They're primarily used by the
