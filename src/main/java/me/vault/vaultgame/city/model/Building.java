@@ -1,6 +1,5 @@
 package me.vault.vaultgame.city.model;
 
-import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 
 import java.util.UUID;
@@ -58,17 +57,6 @@ public enum Building
 
 	}
 
-
-	/**
-	 * Elevates the {@link Building} to the next (higher) level, updates the sprite and unlocks new features based on the new level.
-	 *
-	 * @since 30.04.2024
-	 */
-	public void upgrade ()
-	{
-		this.currentLevel++;
-	}
-
 	public UUID getUuid ()
 	{
 		return this.uuid;
@@ -90,5 +78,10 @@ public enum Building
 	public int getCurrentLevel ()
 	{
 		return this.currentLevel;
+	}
+
+	public void setCurrentLevel (int i)
+	{
+		this.currentLevel = i;
 	}
 }
