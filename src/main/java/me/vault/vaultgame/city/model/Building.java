@@ -69,7 +69,6 @@ public enum Building
 		this.currentLevel++;
 	}
 
-
 	public UUID getUuid ()
 	{
 		return this.uuid;
