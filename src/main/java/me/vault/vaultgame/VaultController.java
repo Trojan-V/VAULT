@@ -32,6 +32,6 @@ public class VaultController
 	@FXML
 	protected void onHelloButtonClick ()
 	{
-		welcomeText.setText("Hello, I am sending this from the 'onHelloButtonClick' method!");
+		this.welcomeText.setText("Hello, I am sending this from the 'onHelloButtonClick' method!");
 	}
 }
