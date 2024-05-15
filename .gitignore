@@ -40,4 +40,3 @@ build/
 ### Custom ###
 javadoc-gen/
 .idea/
-target/
