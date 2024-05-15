@@ -16,7 +16,7 @@ public class BuildingController
 	 */
 	public static void upgrade (Building building)
 	{
-		int currentLevel = building.getCurrentLevel();
-		building.setCurrentLevel(++ currentLevel);
+//		int currentLevel = building.getCurrentLevel();
+//		building.setCurrentLevel(++ currentLevel);
 	}
 }
