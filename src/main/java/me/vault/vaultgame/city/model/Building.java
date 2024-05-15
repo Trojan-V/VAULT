@@ -74,7 +74,6 @@ public enum Building
 		return this.stagePosition;
 	}
 
-
 	public int getCurrentLevel ()
 	{
 		return this.currentLevel;
