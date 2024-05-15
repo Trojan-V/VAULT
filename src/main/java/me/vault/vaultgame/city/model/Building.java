@@ -2,6 +2,7 @@ package me.vault.vaultgame.city.model;
 
 import javafx.scene.image.Image;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -11,30 +12,50 @@ import java.util.UUID;
  */
 public enum Building
 {
-	/** Represents the Headquarter-Building in the city */
+
+	/**
+	 * Represents the Headquarter-Building in the city
+	 */
 	SPACESTATION(UUID.fromString("Spacestation"), "Spacestation", new Position(0, 0)),
 
-	/** Represents the Headquarter-Building in the city */
+	/**
+	 * Represents the Headquarter-Building in the city
+	 */
 	HEADQUARTER(UUID.fromString("Headquarter"), "Headquarter", new Position(0, 0)),
 
-	/** Represents the Forge-Building in the city */
+	/**
+	 * Represents the Forge-Building in the city
+	 */
 	FORGE(UUID.fromString("Forge"), "Forge", new Position(0, 0)),
 
-	/** Represents the Training-Camp-Building in the city */
+	/**
+	 * Represents the Training-Camp-Building in the city
+	 */
 	TRAINING_CAMP(UUID.fromString("Training Camp"), "Training Camp", new Position(0, 0));
 
-	/**  */
+	//------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * The displayed name of the city-building/object.
+	 */
 	private final String displayName;
 
-	/**  */
+	/**
+	 * The unique id of the city-building/object.
+	 */
 	private final UUID uuid;
 
-	/**  */
+	/**
+	 * The screen position of the city-building/object.
+	 */
 	private final Position stagePosition;
 
-	/**  */
-	private int currentLevel;
+	/**
+	 * The current Level of the city building
+	 */
+	private List<BuildingLevel> levels;
 
+	//------------------------------------------------------------------------------------------------------------------
 
 	/**
 	 * @param uuid
@@ -47,7 +68,6 @@ public enum Building
 		this.displayName = displayName;
 		this.stagePosition = stagePosition;
 	}
-
 
 	/**
 	 * @param sprite
@@ -62,25 +82,13 @@ public enum Building
 		return this.uuid;
 	}
 
-
 	public String getDisplayName ()
 	{
 		return this.displayName;
 	}
 
-
 	public Position getStagePosition ()
 	{
 		return this.stagePosition;
-	}
-
-	public int getCurrentLevel ()
-	{
-		return this.currentLevel;
-	}
-
-	public void setCurrentLevel (int i)
-	{
-		this.currentLevel = i;
 	}
 }
