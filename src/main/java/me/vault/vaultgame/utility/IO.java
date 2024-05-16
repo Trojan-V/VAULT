@@ -439,7 +439,7 @@ public final class IO
 	 * ConsoleColor is an enum that stores strings which can be printed into the console to display different colors.
 	 * <br>
 	 * These color codes are ANSI codes that can be used to display colors in the console window.
-	 * <h4><u>Example Usage</u></h4>
+	 * <u>Example Usage</u>
 	 * {@code System.out.print(ConsoleColor.RED);}
 	 * <br>
 	 * {@code System.out.print(ConsoleColor.BLACK_BACKGROUND);}
