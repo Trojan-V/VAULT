@@ -453,6 +453,7 @@ public final class IO
 	 */
 	public enum ConsoleColor
 	{
+		// issue commit #3
 		RESET("\033[0m"),
 
 		BLACK("\033[0;30m"),
