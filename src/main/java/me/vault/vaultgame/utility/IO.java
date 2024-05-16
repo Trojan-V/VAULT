@@ -84,7 +84,7 @@ public final class IO
 		{
 			return;
 		}
-
+		// ...
 		if (shouldPrefixWithTimestamp)
 		{
 			textToPrint = LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT)) + PROMPT + text;
