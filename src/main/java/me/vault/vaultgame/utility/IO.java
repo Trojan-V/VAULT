@@ -22,7 +22,7 @@ public final class IO
 	 * Prefix which gets appended when a "sender class" is supplied as second parameter to the
 	 * {@link IO#print(String, Class)} method.
 	 */
-	public static final String CLASS_SENDER_MESSAGE_PREFIX = "From ";
+	private static final String CLASS_SENDER_MESSAGE_PREFIX = "From ";
 
 
 	/**

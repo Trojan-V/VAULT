@@ -11,6 +11,7 @@ package me.vault.vaultgame.utility;
  * @version 1.0.0
  * @since 10.05.2024
  */
+@ConstantInterface
 public interface CharacterConstants
 {
 	/**

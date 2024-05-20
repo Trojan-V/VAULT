@@ -9,8 +9,11 @@ package me.vault.vaultgame.city;
  * @see
  * @since 15.05.2024
  */
-public class CityController
+public final class CityController
 {
+	private CityController () {}
+
+
 	public static void openBuildingDialog ()
 	{
 		System.out.println("Some building was opened.");

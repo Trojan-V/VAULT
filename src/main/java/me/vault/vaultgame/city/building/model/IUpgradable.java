@@ -6,13 +6,23 @@ package me.vault.vaultgame.city.building.model;
  *
  * @author Vincent Wolf
  * @version 1.0.0
- * @see
+ * @see CityBuilding
  * @since 15.05.2024
  */
 public interface IUpgradable
 {
+	/**
+	 * Returns the current level of the {@code CityBuilding} object.
+	 *
+	 * @return The current level of the object as an {@link Integer}.
+	 */
 	public abstract int getLevel ();
 
 
+	/**
+	 * Sets the current level of the {@code CityBuilding} object.
+	 *
+	 * @param level The new level of the object as an {@link Integer}.
+	 */
 	public abstract void setLevel (int level);
 }

@@ -16,49 +16,52 @@ import javafx.scene.image.Image;
 public interface IBuilding
 {
 	/**
-	 * Description
+	 * Returns an array of all display-names of the {@code CityBuilding} object.
 	 *
-	 * @return
+	 * @return A {@link String} array containing all different display names.
 	 */
 	public  abstract String[] getNames ();
 
 
 	/**
-	 * Description
+	 * Returns the current display-name of the {@code CityBuilding} object.
 	 *
-	 * @return
+	 * @return The current display-name of the object as an {@link String}.
 	 */
 	public abstract String getCurrentName ();
 
 
 	/**
-	 * Description
+	 * Returns an array of all sprites of the {@code CityBuilding} object. The current sprite of the building changes
+	 * with each new level the building is upgraded to.
 	 *
-	 * @return
+	 * @return A {@link Image} array containing all different sprites.
 	 */
 	public abstract Image[] getSprites ();
 
 
 	/**
-	 * Description
+	 * Returns the current sprite of the {@code CityBuilding} object. The current sprite of the building changes with
+	 * each new level the building is upgraded to.
 	 *
-	 * @return
+	 * @return The current spite of the object as an {@link Image}.
 	 */
 	public abstract Image getCurrentSprite ();
 
 
 	/**
-	 * Description
+	 * Returns all scenes the building can ever have. The current scene of the building changes with each new level the
+	 * building is upgraded to.
 	 *
-	 * @return
+	 * @return A {@link Scene} array containing all different GUI-scenes.
 	 */
 	public abstract Scene[] getScenes ();
 
 
 	/**
-	 * Description
+	 * Returns the current scene of the {@code CityBuilding} object.
 	 *
-	 * @return
+	 * @return The current scene of the object as an {@link Scene}.
 	 */
 	public abstract Scene getCurrentScene ();
 }

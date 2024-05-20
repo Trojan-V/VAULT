@@ -4,9 +4,17 @@ package me.vault.vaultgame.city.building.controller;
 import me.vault.vaultgame.city.building.model.CityBuilding;
 
 
+/**
+ *
+ */
 public final class CityBuildingController
 {
-	private CityBuildingController () {}
+
+	/**
+	 * Main constructor of the class is private because it's not meant to be initialized.
+	 */
+	private CityBuildingController ()
+	{}
 
 
 	/**
@@ -14,12 +22,11 @@ public final class CityBuildingController
 	 * on the new level.
 	 *
 	 * @param cityBuilding The building which is meant to be upgraded.
-	 *
 	 * @since 06.05.2024
 	 */
 	public static void upgrade (final CityBuilding cityBuilding)
 	{
-		if (!isUpgradable(cityBuilding))
+		if (! isUpgradable(cityBuilding))
 		{
 			return;
 		}

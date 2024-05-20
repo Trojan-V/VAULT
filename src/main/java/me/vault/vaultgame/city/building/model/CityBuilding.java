@@ -24,34 +24,54 @@ public enum CityBuilding implements IBuilding, IUpgradable
 	/**
 	 * Represents the Command Center {@link CityBuilding} in the city.
 	 */
-	COMMAND_CENTER(new String[]{"", "", ""}, new Image[]{null, null, null}, new Scene[]{null, null, null}),
+	COMMAND_CENTER(
+			new String[]{"Old Command-Center", "Command-Center", "Super-Command-Center"},
+			new Image[]{null, null, null},
+			new Scene[]{null, null, null}),
+
 
 	/**
 	 * Represents the Docks {@link CityBuilding} in the city.
 	 */
-	DOCKS(new String[]{"", "", ""}, new Image[]{null, null, null}, new Scene[]{null, null, null}),
+	DOCKS(
+			new String[]{"Old Docks", "Docks", "Super-Docks"},
+			new Image[]{null, null, null},
+			new Scene[]{null, null, null}),
+
 
 	/**
 	 * Represents the Space Bar {@link CityBuilding} in the city.
 	 */
-	SPACE_BAR(new String[]{"", "", ""}, new Image[]{null, null, null}, new Scene[]{null, null, null}),
+	SPACE_BAR(
+			new String[]{"Old Space-Bar", "Space-Bar", "Super-Space-Bar"},
+			new Image[]{null, null, null},
+			new Scene[]{null, null, null}),
+
 
 	/**
 	 * Represents the Training Facility {@link CityBuilding} in the city.
 	 */
-	TRAINING_FACILITY(new String[]{"", "", ""}, new Image[]{null, null, null}, new Scene[]{null, null, null}),
+	TRAINING_FACILITY(
+			new String[]{"Old Training-Facility", "Training-Facility", "Super-Training-Facility"},
+			new Image[]{null, null, null},
+			new Scene[]{null, null, null}),
+
 
 	/**
 	 * Represents the Workshop {@link CityBuilding} in the city, which can be used to upgrade and build artifacts.
 	 */
-	WORKSHOP(new String[]{"", "", ""}, new Image[]{null, null, null}, new Scene[]{null, null, null});
+	WORKSHOP(
+			new String[]{"Old Workshop", "Workshop", "Super-Workshop"},
+			new Image[]{null, null, null},
+			new Scene[]{null, null, null});
 
 
 	/**
 	 * This pattern is used by the {@link CityBuilding#toString()} method to represent the internal data structure of
 	 * this class in a human-readable format.
 	 */
-	private static final String TO_STRING_PATTERN = "CityBuilding'{'names={0}, sprites={1}, scenes={2}, currentLevel={3}'}'";
+	private static final String TO_STRING_PATTERN =
+			"CityBuilding'{'names={0}, sprites={1}, scenes={2}, currentLevel={3}'}'";
 
 
 	/**
@@ -93,9 +113,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Returns an array of all display-names of the {@code CityBuilding} object.
-	 *
-	 * @return A {@link String} array containing all different display names.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String[] getNames ()
@@ -105,9 +123,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Returns the current display-name of the {@code CityBuilding} object.
-	 *
-	 * @return The current display-name of the object as an {@link String}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getCurrentName ()
@@ -117,10 +133,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Returns all scenes the building can ever have.
-	 * The current scene of the building changes with each new level the building is upgraded to.
-	 *
-	 * @return A {@link Scene} array containing all different GUI-scenes.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Scene[] getScenes ()
@@ -130,9 +143,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Returns the current scene of the {@code CityBuilding} object.
-	 *
-	 * @return The current scene of the object as an {@link Scene}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Scene getCurrentScene ()
@@ -142,10 +153,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Returns an array of all sprites of the {@code CityBuilding} object.
-	 * The current sprite of the building changes with each new level the building is upgraded to.
-	 *
-	 * @return A {@link Image} array containing all different sprites.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Image[] getSprites ()
@@ -155,10 +163,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Returns the current sprite of the {@code CityBuilding} object.
-	 * The current sprite of the building changes with each new level the building is upgraded to.
-	 *
-	 * @return The current spite of the object as an {@link Image}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Image getCurrentSprite ()
@@ -168,9 +173,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Returns the current level of the {@code CityBuilding} object.
-	 *
-	 * @return The current level of the object as an {@link Integer}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getLevel ()
@@ -180,9 +183,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Sets the current level of the {@code CityBuilding} object.
-	 *
-	 * @param level The new level of the object as an {@link Integer}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setLevel (final int level)
@@ -192,13 +193,15 @@ public enum CityBuilding implements IBuilding, IUpgradable
 
 
 	/**
-	 * Creates a string of all attributes this class owns to provide a human-readable format of these classes instances.
+	 * Creates a string of all attributes this class owns to provide a human-readable format of these classes
+	 * instances.
 	 *
 	 * @return The internal data structure of the city building.
 	 */
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, Arrays.toString(this.names), Arrays.toString(this.sprites), Arrays.toString(this.scenes), this.currentLevel);
+		return MessageFormat.format(TO_STRING_PATTERN, Arrays.toString(this.names), Arrays.toString(this.sprites),
+				Arrays.toString(this.scenes), this.currentLevel);
 	}
 }
