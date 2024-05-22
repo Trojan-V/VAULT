@@ -16,4 +16,13 @@ public final class CurrencyController
 	 */
 	private CurrencyController ()
 	{}
+
+
+	/**
+	 * Accepts a
+	 */
+	public static void applyCurrencyTransaction (CurrencyTransaction transaction)
+	{
+
+	}
 }
