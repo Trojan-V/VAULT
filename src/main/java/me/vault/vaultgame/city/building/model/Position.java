@@ -1,8 +1,6 @@
 package me.vault.vaultgame.city.building.model;
 
 
-
-
 /**
  * The {@code Record "Position"} represents the position of an element on the screen and holds an x- and y-coordinate .
  * The x- and y-coordinate are saved as integers and don't allow floating point numbers. They're primarily used by the
@@ -10,6 +8,7 @@ package me.vault.vaultgame.city.building.model;
  *
  * @param xPos
  * @param yPos
+ *
  * @author Lasse-Leander Hillen
  * @version 1.0.0
  * @see CityBuilding
@@ -28,7 +27,8 @@ public record Position(int xPos, int yPos)
 	 * Compares the object with another object and returns a boolean values of the comparison.
 	 *
 	 * @param anotherObject the reference object with which to compare.
-	 * @return Returns {@code true}, if the compared object is an instance of {@link Position} and its attribute values
+	 *
+	 * @return Returns {@code true}, if the compared object is an instance of  and its attribute values
 	 * are the same.
 	 */
 	@Override
@@ -48,7 +48,7 @@ public record Position(int xPos, int yPos)
 		{
 			return false;
 		}
-		Position anotherPosition = (Position) anotherObject;
+		final Position anotherPosition = (Position) anotherObject;
 		return this.xPos == anotherPosition.xPos && this.yPos == anotherPosition.yPos;
 	}
 

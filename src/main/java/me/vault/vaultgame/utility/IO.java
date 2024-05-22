@@ -404,7 +404,7 @@ public final class IO
 	 * {@code -verbose} JVM argument is supplied to the program on startup.
 	 *
 	 * @param isVerboseMode If false, no message will be sent by {@link IO#print(String)}, otherwise the message
-	 *                         will be
+	 *                      will be
 	 *                      sent.
 	 */
 	public static void setVerboseMode (final boolean isVerboseMode)

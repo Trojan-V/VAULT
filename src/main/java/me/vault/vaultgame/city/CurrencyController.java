@@ -19,10 +19,17 @@ public final class CurrencyController
 
 
 	/**
-	 * Accepts a
+	 * Accepts a {@link CurrencyTransaction} as input and factors in every amount of {@link Currency} which is saved
+	 * in the transaction.
+	 *
+	 * @param transaction The {@code CurrencyTransaction} object which is meant to be factored in.
 	 */
-	public static void applyCurrencyTransaction (CurrencyTransaction transaction)
+	public static void factorCurrencyTransaction (final CurrencyTransaction transaction)
 	{
-
+		for (int i = 0; i < Currency.values().length; i++)
+		{
+			final Currency currency = Currency.values()[i];
+			currency.addAmount(transaction.getAmount(currency));
+		}
 	}
 }

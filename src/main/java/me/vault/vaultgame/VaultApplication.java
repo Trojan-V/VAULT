@@ -69,7 +69,8 @@ public class VaultApplication extends Application
 	 * starts the GUI powered by JavaFX.
 	 *
 	 * @param stage The {@link Stage} which will be displayed in the GUI window which pops up.
-	 * @throws IOException If a {@code .fxml} file can't be loaded by the {@link FXMLLoader}.
+	 *
+	 * @exception IOException If a {@code .fxml} file can't be loaded by the {@link FXMLLoader}.
 	 */
 	@Override
 	public void start (final Stage stage) throws IOException

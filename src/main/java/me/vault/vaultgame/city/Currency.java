@@ -17,62 +17,46 @@ import java.text.MessageFormat;
  */
 public enum Currency
 {
-	/**
-	 * The steel-currency, which is the main-resource used to upgrade buildings.
-	 */
+	/** The steel-currency, which is the main-resource used to upgrade buildings. */
 	STEEL(
 			0,
 			new Image("")),
 
 
-	/**
-	 * The composite-currency, which is the rarer resource used to upgrade buildings.
-	 */
+	/** The composite-currency, which is the rarer resource used to upgrade buildings. */
 	COMPOSITES(
 			0,
 			new Image("")),
 
 
-	/**
-	 * The food rations currency, which is the main-resource used to upgrade troops.
-	 */
+	/** The food rations currency, which is the main-resource used to upgrade troops. */
 	FOOD_RATIONS(
 			0,
 			new Image("")),
 
 
-	/**
-	 * The science currency, which is the rarer resource used to upgrade troops.
-	 */
+	/** The science currency, which is the rarer resource used to upgrade troops. */
 	SCIENCE(
 			0,
 			new Image("")),
 
 
-	/**
-	 * The energy-credits currency, which is the rarest resource used to upgrade troops.
-	 */
+	/** The energy-credits currency, which is the rarest resource used to upgrade troops. */
 	ENERGY_CREDITS(
 			0,
 			new Image(""));
 
 
-	/**
-	 * The current amount of the currency.
-	 */
-	private int amount = 0;
+	/** The format, which is used to display the object with its properties. */
+	private static final String STRING_FORMAT = "Currency [amount = {0,number,integer}, sprite = \"{1}\"]";
 
 
-	/**
-	 * The sprite of the currency.
-	 */
+	/** The sprite of the currency. */
 	private final Image sprite;
 
 
-	/**
-	 * The format, which is used to display the object with its properties.
-	 */
-	private static final String STRING_FORMAT = "Currency [amount = {0,number,integer}, sprite = \"{1}\"]";
+	/** The current amount of the currency. */
+	private int amount = 0;
 
 
 	/**
@@ -100,6 +84,17 @@ public enum Currency
 
 
 	/**
+	 * Sets the amount property to a specified amount.
+	 *
+	 * @param amount The amount which the amount property from the currency is set to. As an {@link Integer}.
+	 */
+	public void setAmount (final int amount)
+	{
+		this.amount = amount;
+	}
+
+
+	/**
 	 * Adds a specified amount to the currency property.
 	 *
 	 * @param amount The amount which is added to the currency as an {@link Integer}.
@@ -118,17 +113,6 @@ public enum Currency
 	public void subtractAmount (final int amount)
 	{
 		this.amount -= amount;
-	}
-
-
-	/**
-	 * Sets the amount property to a specified amount.
-	 *
-	 * @param amount The amount which the amount property from the currency is set to. As an {@link Integer}.
-	 */
-	public void setAmount (final int amount)
-	{
-		this.amount = amount;
 	}
 
 

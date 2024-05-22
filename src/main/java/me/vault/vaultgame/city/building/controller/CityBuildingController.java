@@ -22,6 +22,7 @@ public final class CityBuildingController
 	 * on the new level.
 	 *
 	 * @param cityBuilding The building which is meant to be upgraded.
+	 *
 	 * @since 06.05.2024
 	 */
 	public static void upgrade (final CityBuilding cityBuilding)
@@ -34,7 +35,7 @@ public final class CityBuildingController
 	}
 
 
-	private static boolean isUpgradable (CityBuilding cityBuilding)
+	private static boolean isUpgradable (final CityBuilding cityBuilding)
 	{
 		if (cityBuilding != null && cityBuilding.getLevel() < cityBuilding.getNames().length)
 		{

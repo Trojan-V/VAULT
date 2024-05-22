@@ -21,45 +21,36 @@ import java.util.Arrays;
  */
 public enum CityBuilding implements IBuilding, IUpgradable
 {
-	/**
-	 * Represents the Command Center {@link CityBuilding} in the city.
-	 */
+
+	/** Represents the Command Center {@link CityBuilding} in the city. */
 	COMMAND_CENTER(
 			new String[]{"Old Command-Center", "Command-Center", "Super-Command-Center"},
 			new Image[]{null, null, null},
 			new Scene[]{null, null, null}),
 
 
-	/**
-	 * Represents the Docks {@link CityBuilding} in the city.
-	 */
+	/** Represents the Docks {@link CityBuilding} in the city. */
 	DOCKS(
 			new String[]{"Old Docks", "Docks", "Super-Docks"},
 			new Image[]{null, null, null},
 			new Scene[]{null, null, null}),
 
 
-	/**
-	 * Represents the Space Bar {@link CityBuilding} in the city.
-	 */
+	/** Represents the Space Bar {@link CityBuilding} in the city. */
 	SPACE_BAR(
 			new String[]{"Old Space-Bar", "Space-Bar", "Super-Space-Bar"},
 			new Image[]{null, null, null},
 			new Scene[]{null, null, null}),
 
 
-	/**
-	 * Represents the Training Facility {@link CityBuilding} in the city.
-	 */
+	/** Represents the Training Facility {@link CityBuilding} in the city. */
 	TRAINING_FACILITY(
 			new String[]{"Old Training-Facility", "Training-Facility", "Super-Training-Facility"},
 			new Image[]{null, null, null},
 			new Scene[]{null, null, null}),
 
 
-	/**
-	 * Represents the Workshop {@link CityBuilding} in the city, which can be used to upgrade and build artifacts.
-	 */
+	/** Represents the Workshop {@link CityBuilding} in the city, which can be used to upgrade and build artifacts. */
 	WORKSHOP(
 			new String[]{"Old Workshop", "Workshop", "Super-Workshop"},
 			new Image[]{null, null, null},
@@ -73,11 +64,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 	private static final String TO_STRING_PATTERN =
 			"CityBuilding'{'names={0}, sprites={1}, scenes={2}, currentLevel={3}'}'";
 
-
-	/**
-	 * All names the building can ever have. The name of the building changes with each new level the building is
-	 * upgraded to.
-	 */
+	
 	private final String[] names;
 
 

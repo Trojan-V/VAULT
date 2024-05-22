@@ -20,7 +20,7 @@ public interface IBuilding
 	 *
 	 * @return A {@link String} array containing all different display names.
 	 */
-	public  abstract String[] getNames ();
+	public abstract String[] getNames ();
 
 
 	/**
