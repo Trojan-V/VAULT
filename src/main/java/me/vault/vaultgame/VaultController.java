@@ -2,7 +2,11 @@ package me.vault.vaultgame;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import me.vault.vaultgame.city.building.model.CityBuilding;
+
+import java.io.FileNotFoundException;
 
 
 /**
@@ -26,12 +30,17 @@ public class VaultController
 	private Label welcomeText;
 
 
+	@FXML
+	private Button testButton;
+
+
 	/**
 	 * Callback method which is invoked as soon as the "hello button" gets clicked.
 	 */
 	@FXML
-	protected void onHelloButtonClick ()
+	protected void onHelloButtonClick () throws FileNotFoundException
 	{
 		this.welcomeText.setText("Hello, I am sending this from the 'onHelloButtonClick' method!");
+		this.testButton.setGraphic(CityBuilding.WORKSHOP.getCurrentSprite());
 	}
 }

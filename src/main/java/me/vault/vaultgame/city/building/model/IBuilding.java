@@ -3,6 +3,7 @@ package me.vault.vaultgame.city.building.model;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 /**
@@ -37,7 +38,7 @@ public interface IBuilding
 	 *
 	 * @return A {@link Image} array containing all different sprites.
 	 */
-	public abstract Image[] getSprites ();
+	public abstract ImageView[] getSprites ();
 
 
 	/**
@@ -46,7 +47,7 @@ public interface IBuilding
 	 *
 	 * @return The current spite of the object as an {@link Image}.
 	 */
-	public abstract Image getCurrentSprite ();
+	public abstract ImageView getCurrentSprite ();
 
 
 	/**

@@ -3,6 +3,8 @@ package me.vault.vaultgame.city.building.model;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import me.vault.vaultgame.utility.ResourceLoader;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
@@ -25,35 +27,39 @@ public enum CityBuilding implements IBuilding, IUpgradable
 	/** Represents the Command Center {@link CityBuilding} in the city. */
 	COMMAND_CENTER(
 			new String[]{"Old Command-Center", "Command-Center", "Super-Command-Center"},
-			new Image[]{null, null, null},
+			new ImageView[]{null, null, null},
 			new Scene[]{null, null, null}),
 
 
 	/** Represents the Docks {@link CityBuilding} in the city. */
 	DOCKS(
 			new String[]{"Old Docks", "Docks", "Super-Docks"},
-			new Image[]{null, null, null},
+			new ImageView[]{null, null, null},
 			new Scene[]{null, null, null}),
 
 
 	/** Represents the Space Bar {@link CityBuilding} in the city. */
 	SPACE_BAR(
 			new String[]{"Old Space-Bar", "Space-Bar", "Super-Space-Bar"},
-			new Image[]{null, null, null},
+			new ImageView[]{null, null, null},
 			new Scene[]{null, null, null}),
 
 
 	/** Represents the Training Facility {@link CityBuilding} in the city. */
 	TRAINING_FACILITY(
 			new String[]{"Old Training-Facility", "Training-Facility", "Super-Training-Facility"},
-			new Image[]{null, null, null},
+			new ImageView[]{null, null, null},
 			new Scene[]{null, null, null}),
 
 
 	/** Represents the Workshop {@link CityBuilding} in the city, which can be used to upgrade and build artifacts. */
 	WORKSHOP(
 			new String[]{"Old Workshop", "Workshop", "Super-Workshop"},
-			new Image[]{null, null, null},
+			new ImageView[]{
+					ResourceLoader.loadImageFromRessource("src/main/resources/me/vault/vaultgame/Forge_Button_16x16" +
+														  ".png"),
+					null,
+					null},
 			new Scene[]{null, null, null});
 
 
@@ -64,11 +70,11 @@ public enum CityBuilding implements IBuilding, IUpgradable
 	private static final String TO_STRING_PATTERN =
 			"CityBuilding'{'names={0}, sprites={1}, scenes={2}, currentLevel={3}'}'";
 
-	
+
 	private final String[] names;
 
 
-	private final Image[] sprites;
+	private final ImageView[] sprites;
 
 
 	private final Scene[] scenes;
@@ -88,7 +94,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 	 *                        is the dialog that will be opened once the player clicks on the building within the city
 	 *                        and changes with each new level the building is upgraded to.
 	 */
-	CityBuilding (final String[] allDisplayNames, final Image[] sprites, final Scene[] scenes)
+	CityBuilding (final String[] allDisplayNames, final ImageView[] sprites, final Scene[] scenes)
 	{
 		// TODO: Load Level from Config
 
@@ -143,7 +149,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Image[] getSprites ()
+	public ImageView[] getSprites ()
 	{
 		return this.sprites;
 	}
@@ -153,7 +159,7 @@ public enum CityBuilding implements IBuilding, IUpgradable
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Image getCurrentSprite ()
+	public ImageView getCurrentSprite ()
 	{
 		return this.sprites[this.currentLevel];
 	}

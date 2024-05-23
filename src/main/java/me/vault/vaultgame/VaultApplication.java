@@ -59,6 +59,7 @@ public class VaultApplication extends Application
 	public static void main (final String[] args)
 	{
 		JvmArgumentParser.apply(args);
+
 		// TODO: createDefaultConfig();
 		launch();
 	}
@@ -80,6 +81,7 @@ public class VaultApplication extends Application
 		stage.setTitle(WINDOW_TITLE);
 		stage.setScene(scene);
 		stage.show();
+
 	}
 
 }
