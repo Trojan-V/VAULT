@@ -28,7 +28,7 @@ public class AbstractCityBuilding
 	private final Scene[] scenes;
 
 
-	private int currentLevel;
+	private final int currentLevel;
 
 
 	AbstractCityBuilding (final String[] allDisplayNames, final ImageView[] sprites, final Scene[] scenes)

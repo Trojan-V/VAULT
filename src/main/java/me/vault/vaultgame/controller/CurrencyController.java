@@ -1,8 +1,14 @@
 package me.vault.vaultgame.controller;
 
 
-import me.vault.vaultgame.model.Currency;
-import me.vault.vaultgame.model.CurrencyTransaction;
+import me.vault.vaultgame.exception.InvalidMapEntryException;
+import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap.Entry;
+import me.vault.vaultgame.model.currency.Currency;
+import me.vault.vaultgame.model.currency.CurrencyTransaction;
+
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 
 /**
@@ -15,6 +21,12 @@ import me.vault.vaultgame.model.CurrencyTransaction;
  */
 public final class CurrencyController
 {
+	/**
+	 * The Logger which is used to display formatted information in the console.
+	 */
+	private static final Logger LOGGER = Logger.getLogger(CurrencyController.class.getName());
+
+
 	/**
 	 * Private constructor since the class isn't supposed to be instantiated.
 	 */
@@ -34,6 +46,27 @@ public final class CurrencyController
 		{
 			final Currency currency = Currency.values()[i];
 			currency.addAmount(transaction.getAmount(currency));
+		}
+	}
+
+
+	public static CurrencyTransaction createTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount, final int foodAmount,
+		final int energyAmount)
+	{
+		try
+		{
+			return new CurrencyTransaction(
+				new Entry<>(Currency.STEEL, steelAmount),
+				new Entry<>(Currency.COMPOSITE, compositeAmount),
+				new Entry<>(Currency.SCIENCE, scienceAmount),
+				new Entry<>(Currency.FOOD_RATION, foodAmount),
+				new Entry<>(Currency.ENERGY_CREDIT, energyAmount));
+		}
+		catch (final InvalidMapEntryException ex)
+		{
+			LOGGER.log(new LogRecord(Level.SEVERE, ex.getMessage()));
+			System.exit(- 1);
+			return null;
 		}
 	}
 }

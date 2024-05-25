@@ -1,17 +1,16 @@
-package me.vault.vaultgame.model;
+package me.vault.vaultgame.model.currency;
 
+
+import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap;
+import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap.Entry;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
+import java.util.Map;
 
 
-/**
- *
- */
 public class CurrencyTransaction
 {
-
-
 	/**
 	 * The pattern that is used to have a formatted output in the {@link CurrencyTransaction#toString()} method.
 	 */
@@ -23,35 +22,29 @@ public class CurrencyTransaction
 	 * the {@code HashMap} represent the {@link Currency} enum values and the values of the {@code HashMap} the
 	 * corresponding amounts of each {@code Currency} key.
 	 */
-	private final HashMap<Currency, Integer> amountMap;
+	private final ValidatedEntriesHashMap<Currency, Integer> currencyAmountMap = new ValidatedEntriesHashMap<>();
 
 
-	/**
-	 * @param amountMap
-	 */
-	public CurrencyTransaction (final HashMap<Currency, Integer> amountMap)
+	@SafeVarargs
+	public CurrencyTransaction (final Entry<Currency, Integer>... currencyAmountEntries)
 	{
-		this.amountMap = amountMap;
+		for (final Entry<Currency, Integer> currencyAmountMapEntry : currencyAmountEntries)
+		{
+			this.currencyAmountMap.put(currencyAmountMapEntry);
+		}
 	}
 
 
-	/**
-	 * @return
-	 */
-	public HashMap<Currency, Integer> getAmountMap ()
+
+	public ValidatedEntriesHashMap<Currency, Integer> getCurrencyAmountMap ()
 	{
-		return this.amountMap;
+		return this.currencyAmountMap;
 	}
 
 
-	/**
-	 * @param currency
-	 *
-	 * @return
-	 */
 	public int getAmount (final Currency currency)
 	{
-		return this.amountMap.get(currency);
+		return this.currencyAmountMap.get(currency);
 	}
 
 
@@ -64,6 +57,7 @@ public class CurrencyTransaction
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(STRING_PATTERN, this.amountMap.toString());
+		return MessageFormat.format(STRING_PATTERN, this.currencyAmountMap.toString());
 	}
+
 }

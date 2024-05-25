@@ -1,4 +1,4 @@
-package me.vault.vaultgame.model;
+package me.vault.vaultgame.model.currency;
 
 
 import javafx.scene.image.Image;
@@ -18,6 +18,7 @@ import java.text.MessageFormat;
  */
 public enum Currency
 {
+	// TODO: Interface für Sprites
 	// TODO: Amount should either be retrieved by Serialization or JSON config file.
 	/** The steel-currency, which is the main-resource used to upgrade buildings. */
 	STEEL(
@@ -26,13 +27,13 @@ public enum Currency
 
 
 	/** The composite-currency, which is the rarer resource used to upgrade buildings. */
-	COMPOSITES(
+	COMPOSITE(
 			0,
 			new Image("")),
 
 
 	/** The food rations currency, which is the main-resource used to upgrade troops. */
-	FOOD_RATIONS(
+	FOOD_RATION(
 			0,
 			new Image("")),
 
@@ -44,7 +45,7 @@ public enum Currency
 
 
 	/** The energy-credits currency, which is the rarest resource used to upgrade troops. */
-	ENERGY_CREDITS(
+	ENERGY_CREDIT(
 			0,
 			new Image(""));
 

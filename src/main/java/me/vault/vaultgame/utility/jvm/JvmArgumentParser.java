@@ -4,7 +4,9 @@ package me.vault.vaultgame.utility.jvm;
 import me.vault.vaultgame.utility.IO;
 import me.vault.vaultgame.utility.IO.ConsoleColor;
 
+import java.util.Locale;
 
+// TODO: Konstanten
 /**
  * This class is used to apply the JVM arguments which may be passed into the program on startup.
  * <br>
@@ -44,7 +46,7 @@ public final class JvmArgumentParser
 			try
 			{
 				// Start at substring(1) to remove the leading dash.
-				final JvmArgument jvmArgument = JvmArgument.valueOf(args[i].substring(1).toUpperCase());
+				final JvmArgument jvmArgument = JvmArgument.valueOf(args[i].substring(1).toUpperCase(Locale.GERMANY));
 				switch (jvmArgument)
 				{
 					case VERBOSE:

@@ -9,54 +9,53 @@ package me.vault.vaultgame.model;
  * @see
  * @since 23.05.2024
  */
+// TODO: Kapselung shit
 public class Statistics
 {
-	private int healthPoints;
+	private final int healthPoints;
 
 
-	private int meleeDamageReduction;
+	private final int meleeDamageReduction;
 
 
 	/**
 	 * The same as magic points, but named for space environment.
 	 */
-	private int energyPoints;
+	private final int energyPoints;
 
 
-	private int meleeDamage;
+	private final int meleeDamage;
 
 
-	private int grenadeDamage;
+	private final int grenadeDamage;
 
 
-	private int grenadeAmount;
+	private final int grenadeAmount;
 
 
-	private int dodgeRate;
+	private final int dodgeRate;
 
 
 	/**
 	 * Resistence
 	 */
-	private int energyDamageReduction;
+	private final int energyDamageReduction;
 
 
-	private int movementTiles;
+	private final int movementTiles;
 
 
-	private int initiative;
+	private final int initiative;
 
 
-	private int meleeRange;
+	private final int meleeRange;
 
 
-	private int grenadeRange;
+	private final int grenadeRange;
 
 
-	public Statistics (final int healthPoints, final int meleeDamageReduction, final int energyPoints,
-		final int meleeDamage, final int grenadeDamage,
-		final int grenadeAmount, final int dodgeRate, final int energyDamageReduction, final int movementTiles,
-		final int initiative, final int meleeRange,
+	public Statistics (final int healthPoints, final int meleeDamageReduction, final int energyPoints, final int meleeDamage, final int grenadeDamage,
+		final int grenadeAmount, final int dodgeRate, final int energyDamageReduction, final int movementTiles, final int initiative, final int meleeRange,
 		final int grenadeRange)
 	{
 		this.healthPoints = healthPoints;

@@ -21,7 +21,7 @@ public @interface ConstantInterface
 	/**
 	 *
 	 */
-	@Retention (RetentionPolicy.RUNTIME)
+	@Retention (RetentionPolicy.CLASS)
 	@Target (ElementType.FIELD)
 	public static @interface Constant
 	{}

@@ -1,6 +1,6 @@
 import me.vault.vaultgame.view.CityView;
 import me.vault.vaultgame.controller.CityBuildingController;
-import me.vault.vaultgame.model.CityBuilding;
+import me.vault.vaultgame.model.citybuilding.CityBuilding;
 
 
 /**
@@ -13,7 +13,7 @@ import me.vault.vaultgame.model.CityBuilding;
  */
 public class TestCity
 {
-	public static void main (String[] args)
+	public static void main (final String[] args)
 	{
 		CityView.onBuildingButtonClick();
 		CityBuildingController.upgrade(CityBuilding.WORKSHOP);
