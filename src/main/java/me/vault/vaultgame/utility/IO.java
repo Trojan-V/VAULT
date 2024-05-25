@@ -4,7 +4,7 @@ package me.vault.vaultgame.utility;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static me.vault.vaultgame.utility.CharacterConstants.WHITESPACE;
+import static me.vault.vaultgame.utility.constant.CharacterConstants.WHITESPACE;
 
 
 /**

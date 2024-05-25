@@ -32,7 +32,7 @@ public final class ResourceLoader
 	 *
 	 * @return
 	 */
-	public static ImageView loadImageFromRessource (final String resourcePath)
+	public static ImageView loadImage (final String resourcePath)
 	{
 		try
 		{

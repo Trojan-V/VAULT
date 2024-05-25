@@ -1,4 +1,4 @@
-package me.vault.vaultgame.city;
+package me.vault.vaultgame.model;
 
 
 import java.text.MessageFormat;
@@ -19,7 +19,7 @@ public class CurrencyTransaction
 
 
 	/**
-	 * The {@link HashMap} which contains the amounts of currencies that are changed by the transaction. The keys of
+	 * The {@link HashMap} which contains the numbers of currencies that are changed by the transaction. The keys of
 	 * the {@code HashMap} represent the {@link Currency} enum values and the values of the {@code HashMap} the
 	 * corresponding amounts of each {@code Currency} key.
 	 */

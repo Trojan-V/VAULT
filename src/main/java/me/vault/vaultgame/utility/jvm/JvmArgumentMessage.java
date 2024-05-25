@@ -1,4 +1,4 @@
-package me.vault.vaultgame.jvm;
+package me.vault.vaultgame.utility.jvm;
 
 
 /**

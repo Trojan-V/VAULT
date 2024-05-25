@@ -1,9 +1,10 @@
-package me.vault.vaultgame.city.building.model;
+package me.vault.vaultgame.model.interfaces;
 
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import me.vault.vaultgame.model.CityBuilding;
 
 
 /**

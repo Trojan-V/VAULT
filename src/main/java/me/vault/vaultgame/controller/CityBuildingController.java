@@ -1,7 +1,7 @@
-package me.vault.vaultgame.city.building.controller;
+package me.vault.vaultgame.controller;
 
 
-import me.vault.vaultgame.city.building.model.CityBuilding;
+import me.vault.vaultgame.model.CityBuilding;
 
 
 /**
@@ -9,9 +9,8 @@ import me.vault.vaultgame.city.building.model.CityBuilding;
  */
 public final class CityBuildingController
 {
-
 	/**
-	 * Main constructor of the class is private because it's not meant to be initialized.
+	 * The constructor of the class is private because it's not meant to be initialized.
 	 */
 	private CityBuildingController ()
 	{}

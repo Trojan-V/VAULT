@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import me.vault.vaultgame.jvm.JvmArgumentParser;
+import me.vault.vaultgame.utility.jvm.JvmArgumentParser;
 
 import java.io.IOException;
 
@@ -81,7 +81,6 @@ public class VaultApplication extends Application
 		stage.setTitle(WINDOW_TITLE);
 		stage.setScene(scene);
 		stage.show();
-
 	}
 
 }

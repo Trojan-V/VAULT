@@ -1,4 +1,7 @@
-package me.vault.vaultgame.city.building.model;
+package me.vault.vaultgame.model.interfaces;
+
+
+import me.vault.vaultgame.model.CityBuilding;
 
 
 /**
@@ -9,14 +12,14 @@ package me.vault.vaultgame.city.building.model;
  * @see CityBuilding
  * @since 15.05.2024
  */
-public interface IUpgradable
+public interface IUpgradable<E>
 {
 	/**
 	 * Returns the current level of the {@code CityBuilding} object.
 	 *
 	 * @return The current level of the object as an {@link Integer}.
 	 */
-	public abstract int getLevel ();
+	public abstract E getLevel ();
 
 
 	/**
@@ -24,5 +27,5 @@ public interface IUpgradable
 	 *
 	 * @param level The new level of the object as an {@link Integer}.
 	 */
-	public abstract void setLevel (int level);
+	public abstract void setLevel (E level);
 }

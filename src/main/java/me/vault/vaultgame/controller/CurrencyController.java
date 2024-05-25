@@ -1,4 +1,8 @@
-package me.vault.vaultgame.city;
+package me.vault.vaultgame.controller;
+
+
+import me.vault.vaultgame.model.Currency;
+import me.vault.vaultgame.model.CurrencyTransaction;
 
 
 /**

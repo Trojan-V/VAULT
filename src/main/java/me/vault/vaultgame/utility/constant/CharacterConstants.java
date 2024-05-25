@@ -1,7 +1,7 @@
-package me.vault.vaultgame.utility;
+package me.vault.vaultgame.utility.constant;
 
 
-import me.vault.vaultgame.utility.ConstantInterface.Constant;
+import me.vault.vaultgame.utility.constant.ConstantInterface.Constant;
 
 
 /**

@@ -1,7 +1,6 @@
-import me.vault.vaultgame.city.CityController;
-import me.vault.vaultgame.city.CityView;
-import me.vault.vaultgame.city.building.controller.CityBuildingController;
-import me.vault.vaultgame.city.building.model.CityBuilding;
+import me.vault.vaultgame.view.CityView;
+import me.vault.vaultgame.controller.CityBuildingController;
+import me.vault.vaultgame.model.CityBuilding;
 
 
 /**

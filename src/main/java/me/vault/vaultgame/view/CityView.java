@@ -1,4 +1,7 @@
-package me.vault.vaultgame.city;
+package me.vault.vaultgame.view;
+
+
+import me.vault.vaultgame.controller.CityController;
 
 
 /**

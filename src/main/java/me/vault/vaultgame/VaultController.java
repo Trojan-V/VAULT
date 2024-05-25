@@ -4,7 +4,7 @@ package me.vault.vaultgame;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import me.vault.vaultgame.city.building.model.CityBuilding;
+import me.vault.vaultgame.model.CityBuilding;
 
 import java.io.FileNotFoundException;
 
@@ -32,8 +32,6 @@ public class VaultController
 
 	@FXML
 	private Button testButton;
-
-
 	/**
 	 * Callback method which is invoked as soon as the "hello button" gets clicked.
 	 */

@@ -1,4 +1,4 @@
-package me.vault.vaultgame.city;
+package me.vault.vaultgame.controller;
 
 
 /**

@@ -1,7 +1,8 @@
-package me.vault.vaultgame.city;
+package me.vault.vaultgame.model;
 
 
 import javafx.scene.image.Image;
+import me.vault.vaultgame.controller.CurrencyController;
 
 import java.text.MessageFormat;
 
@@ -17,6 +18,7 @@ import java.text.MessageFormat;
  */
 public enum Currency
 {
+	// TODO: Amount should either be retrieved by Serialization or JSON config file.
 	/** The steel-currency, which is the main-resource used to upgrade buildings. */
 	STEEL(
 			0,

@@ -1,4 +1,4 @@
-package me.vault.vaultgame.utility;
+package me.vault.vaultgame.utility.constant;
 
 
 import java.lang.annotation.ElementType;
@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  * @version 1.0.0
  * @since 15.05.2024
  */
-@Retention (RetentionPolicy.RUNTIME)
+@Retention (RetentionPolicy.CLASS)
 @Target (ElementType.TYPE)
 public @interface ConstantInterface
 {
