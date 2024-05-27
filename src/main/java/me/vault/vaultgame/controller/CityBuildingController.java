@@ -12,6 +12,9 @@ import me.vault.vaultgame.model.interfaces.IUpgrader;
  */
 public final class CityBuildingController implements IUpgrader<CityBuilding, CityBuildingLevel, CityBuildingProperties>
 {
+	private static final CityBuildingController INSTANCE = new CityBuildingController();
+
+
 	/**
 	 * The constructor of the class is private because it's not meant to be initialized.
 	 */
@@ -19,7 +22,8 @@ public final class CityBuildingController implements IUpgrader<CityBuilding, Cit
 	{}
 
 
-	private static boolean isUpgradable (final CityBuilding cityBuilding)
+	@Override
+	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
 	{
 		return false;
 	}
@@ -29,5 +33,11 @@ public final class CityBuildingController implements IUpgrader<CityBuilding, Cit
 	public void upgrade (final CityBuilding cityBuilding)
 	{
 
+	}
+
+
+	public static CityBuildingController getInstance ()
+	{
+		return INSTANCE;
 	}
 }

@@ -2,13 +2,14 @@ package me.vault.vaultgame.controller;
 
 
 import me.vault.vaultgame.exception.InvalidMapEntryException;
-import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap.Entry;
 import me.vault.vaultgame.model.currency.Currency;
 import me.vault.vaultgame.model.currency.CurrencyTransaction;
 
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
+
+import static me.vault.vaultgame.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 
 
 /**
@@ -55,17 +56,12 @@ public final class CurrencyController
 	{
 		try
 		{
-			return new CurrencyTransaction(
-				new Entry<>(Currency.STEEL, steelAmount),
-				new Entry<>(Currency.COMPOSITE, compositeAmount),
-				new Entry<>(Currency.SCIENCE, scienceAmount),
-				new Entry<>(Currency.FOOD_RATION, foodAmount),
-				new Entry<>(Currency.ENERGY_CREDIT, energyAmount));
+			return CurrencyTransaction.factory(steelAmount, compositeAmount, scienceAmount, foodAmount, energyAmount);
 		}
 		catch (final InvalidMapEntryException ex)
 		{
 			LOGGER.log(new LogRecord(Level.SEVERE, ex.getMessage()));
-			System.exit(- 1);
+			System.exit(ERROR_EXIT_CODE);
 			return null;
 		}
 	}

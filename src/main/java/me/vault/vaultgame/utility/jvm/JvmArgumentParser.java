@@ -5,8 +5,12 @@ import me.vault.vaultgame.utility.IO;
 import me.vault.vaultgame.utility.IO.ConsoleColor;
 
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 // TODO: Konstanten
+
+
 /**
  * This class is used to apply the JVM arguments which may be passed into the program on startup.
  * <br>
@@ -24,6 +28,9 @@ import java.util.Locale;
  */
 public final class JvmArgumentParser
 {
+	private static final Logger LOGGER = Logger.getLogger(JvmArgumentParser.class.getName());
+
+
 	/**
 	 * As this class is solely a collection of static methods, there is no use-case where an instantiation of this
 	 * class
@@ -59,10 +66,8 @@ public final class JvmArgumentParser
 			}
 			catch (final IllegalArgumentException ignored)
 			{
-				IO.printf(JvmArgumentMessage.INVALID, ConsoleColor.RED, ConsoleColor.BLACK_BACKGROUND, args[i], i);
-
-				IO.printf(JvmArgumentMessage.VALID_ARGUMENT_LIST, ConsoleColor.GREEN,
-						ConsoleColor.BLACK_BACKGROUND, (Object[]) JvmArgument.values());
+				LOGGER.log(Level.WARNING, JvmArgumentMessage.INVALID.toString(), new Object[]{args[i], i});
+				LOGGER.log(Level.INFO, JvmArgumentMessage.VALID_ARGUMENT_LIST.toString(), JvmArgument.values());
 			}
 		}
 
@@ -75,11 +80,17 @@ public final class JvmArgumentParser
 	 */
 	private static void printJvmArgumentStatus ()
 	{
+		LOGGER.log(Level.INFO, JvmArgumentMessage.HEADER.toString());
+		LOGGER.log(Level.INFO, JvmArgumentMessage.DIVIDER.toString());
+		LOGGER.log(Level.INFO, JvmArgumentMessage.VERBOSE.toString());
+
+
+		// TODO: Replace IO.print() invocations with LOGGER
 		/* System.out is used here instead of the MyIO class to ensure these messages will always get printed,
 		 * even if the verboseMode is set to false.
 		 */
-		IO.print(JvmArgumentMessage.HEADER, ConsoleColor.CYAN_BOLD);
-		IO.print(JvmArgumentMessage.DIVIDER, ConsoleColor.CYAN);
+		// IO.print(JvmArgumentMessage.HEADER, ConsoleColor.CYAN_BOLD);
+		// IO.print(JvmArgumentMessage.DIVIDER, ConsoleColor.CYAN);
 
 		IO.printf(JvmArgumentMessage.VERBOSE, ConsoleColor.CYAN, IO.isVerboseMode());
 		IO.printf(JvmArgumentMessage.TIMESTAMP, ConsoleColor.CYAN, IO.getShouldPrefixWithTimestamp());

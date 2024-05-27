@@ -16,6 +16,6 @@ public class TestCity
 	public static void main (final String[] args)
 	{
 		CityView.onBuildingButtonClick();
-		CityBuildingController.upgrade(CityBuilding.WORKSHOP);
+		CityBuildingController.getInstance().upgrade(CityBuilding.WORKSHOP);
 	}
 }

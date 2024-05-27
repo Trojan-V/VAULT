@@ -15,13 +15,16 @@ import me.vault.vaultgame.utility.constant.ConstantInterface.Constant;
 @ConstantInterface
 public interface CharacterConstants
 {
-
-	/** A constant which represents the default whitespace character. */
+	/**
+	 * Represents the default whitespace character.
+	 */
 	@Constant
 	public static final char WHITESPACE = ' ';
 
 
-	/** A constant which represents the dash character. */
+	/**
+	 * Represents the dash character.
+	 */
 	@Constant
 	public static final char DASH = '-';
 }

@@ -1,6 +1,12 @@
 package me.vault.vaultgame.controller;
 
 
+import me.vault.vaultgame.model.artifact.Artifact;
+import me.vault.vaultgame.model.artifact.ArtifactLevel;
+import me.vault.vaultgame.model.artifact.ArtifactProperties;
+import me.vault.vaultgame.model.interfaces.IUpgrader;
+
+
 /**
  * Description
  *
@@ -9,10 +15,32 @@ package me.vault.vaultgame.controller;
  * @see
  * @since 23.05.2024
  */
-public class ArtifactController
+public final class ArtifactController implements IUpgrader<Artifact, ArtifactLevel, ArtifactProperties>
 {
-	public static void isUpgradable ()
+
+	private static final ArtifactController INSTANCE = new ArtifactController();
+
+
+	private ArtifactController ()
+	{}
+
+
+	@Override
+	public void upgrade (final Artifact upgradable)
+	{
+
+	}
+
+
+	public boolean checkIsUpgradable (final Artifact artifact)
 	{
 		// Check if enough resources are there.
+		return false;
+	}
+
+
+	public static ArtifactController getInstance ()
+	{
+		return INSTANCE;
 	}
 }

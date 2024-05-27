@@ -27,13 +27,13 @@ public enum JvmArgumentMessage
 	 * Used by {@link JvmArgumentParser#apply(String[])} to print an error message into the console if invalid JVM
 	 * arguments have been passed into the program.
 	 */
-	INVALID("Invalid argument %s found at position %d."),
+	INVALID("Invalid argument {0} found at position {1}."),
 
 
 	/**
 	 * Message to print a list of valid JVM arguments.
 	 */
-	VALID_ARGUMENT_LIST("Valid arguments are: %s, %s"),
+	VALID_ARGUMENT_LIST("Valid arguments are: {0}, {1}"),
 
 
 	/**

@@ -53,7 +53,7 @@ public enum JvmArgument
 
 
 	/**
-	 * @return The JvmArgument in its string representation.
+	 * @return The JVM argument in its string representation.
 	 */
 	@Override
 	public String toString ()
