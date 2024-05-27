@@ -27,6 +27,10 @@ public class CityBuildingProperties
 	@Override
 	public String toString ()
 	{
-		return super.toString();
+		return "CityBuildingProperties{" +
+		       "name='" + name + '\'' +
+		       ", imageView=" + imageView +
+		       ", scene=" + scene +
+		       '}';
 	}
 }

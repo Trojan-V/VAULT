@@ -69,6 +69,5 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 			this.value = value;
 			return this.value;
 		}
-
 	}
 }

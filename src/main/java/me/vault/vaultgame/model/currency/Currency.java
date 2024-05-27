@@ -2,6 +2,7 @@ package me.vault.vaultgame.model.currency;
 
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import me.vault.vaultgame.controller.CurrencyController;
 
 import java.text.MessageFormat;
@@ -23,31 +24,31 @@ public enum Currency
 	/** The steel-currency, which is the main-resource used to upgrade buildings. */
 	STEEL(
 			0,
-			new Image("")),
+			new ImageView("")),
 
 
 	/** The composite-currency, which is the rarer resource used to upgrade buildings. */
 	COMPOSITE(
 			0,
-			new Image("")),
+			new ImageView("")),
 
 
 	/** The food rations currency, which is the main-resource used to upgrade troops. */
 	FOOD_RATION(
 			0,
-			new Image("")),
+			new ImageView("")),
 
 
 	/** The science currency, which is the rarer resource used to upgrade troops. */
 	SCIENCE(
 			0,
-			new Image("")),
+			new ImageView("")),
 
 
 	/** The energy-credits currency, which is the rarest resource used to upgrade troops. */
 	ENERGY_CREDIT(
 			0,
-			new Image(""));
+			new ImageView(""));
 
 
 	/** The format, which is used to display the object with its properties. */
@@ -55,7 +56,7 @@ public enum Currency
 
 
 	/** The sprite of the currency. */
-	private final Image sprite;
+	private final ImageView sprite;
 
 
 	/** The current amount of the currency. */
@@ -68,7 +69,7 @@ public enum Currency
 	 * @param amount The amount of the currency as an {@link Integer}.
 	 * @param sprite The sprite of the currency as an {@link Image}.
 	 */
-	Currency (final int amount, final Image sprite)
+	Currency (final int amount, final ImageView sprite)
 	{
 		this.amount = amount;
 		this.sprite = sprite;
@@ -124,7 +125,7 @@ public enum Currency
 	 *
 	 * @return The sprite property of the currency object as an {@link Image}
 	 */
-	public Image getSprite ()
+	public ImageView getSprite ()
 	{
 		return this.sprite;
 	}

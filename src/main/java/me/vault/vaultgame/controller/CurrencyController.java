@@ -36,8 +36,8 @@ public final class CurrencyController
 
 
 	/**
-	 * Accepts a {@link CurrencyTransaction} as input and factors in every amount of {@link Currency} which is saved
-	 * in the transaction.
+	 * Accepts a {@link CurrencyTransaction} as input and factors in every amount of {@link Currency} which is saved in
+	 * the transaction.
 	 *
 	 * @param transaction The {@code CurrencyTransaction} object which is meant to be factored in.
 	 */
@@ -51,8 +51,8 @@ public final class CurrencyController
 	}
 
 
-	public static CurrencyTransaction createTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount, final int foodAmount,
-		final int energyAmount)
+	public static CurrencyTransaction createTransaction (final int steelAmount, final int compositeAmount,
+		final int scienceAmount, final int foodAmount, final int energyAmount)
 	{
 		try
 		{

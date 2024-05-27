@@ -3,7 +3,6 @@ package me.vault.vaultgame.model.citybuilding;
 
 import me.vault.vaultgame.model.interfaces.IUpgradable;
 
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -75,13 +74,13 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	}});
 
 
-	private final HashMap<CityBuildingLevel, CityBuildingProperties> propertyMap;
+	private final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingProperties> propertyMap;
 
 
 	private CityBuildingLevel currentLevel;
 
 
-	CityBuilding (final HashMap<CityBuildingLevel, CityBuildingProperties> propertyMap)
+	CityBuilding (final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingProperties> propertyMap)
 	{
 		// TODO: Load Level from Config
 		this.currentLevel = CityBuildingLevel.OLD;
@@ -127,5 +126,15 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	public void setLevel (final CityBuildingLevel cityBuildingLevel)
 	{
 		this.currentLevel = cityBuildingLevel;
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return "CityBuilding{" +
+		       "propertyMap=" + propertyMap +
+		       ", currentLevel=" + currentLevel +
+		       '}';
 	}
 }

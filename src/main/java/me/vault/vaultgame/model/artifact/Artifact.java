@@ -111,4 +111,13 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 		this.currentLevel = artifactLevel;
 	}
 
+
+	@Override
+	public String toString ()
+	{
+		return "Artifact{" +
+		       "propertyMap=" + propertyMap +
+		       ", currentLevel=" + currentLevel +
+		       '}';
+	}
 }
