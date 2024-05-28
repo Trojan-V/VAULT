@@ -4,9 +4,11 @@ package me.vault.vaultgame.model.currency;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import me.vault.vaultgame.controller.CurrencyController;
+import me.vault.vaultgame.utility.ResourceLoader;
 
 import java.text.MessageFormat;
 
+import static me.vault.vaultgame.utility.constant.GameConstants.ASSETS_PATH;
 
 /**
  * The {@code Currency} class/enum represents the resources or currencies which the user can use to upgrade troops and
@@ -22,33 +24,22 @@ public enum Currency
 	// TODO: Interface für Sprites
 	// TODO: Amount should either be retrieved by Serialization or JSON config file.
 	/** The steel-currency, which is the main-resource used to upgrade buildings. */
-	STEEL(
-			0,
-			new ImageView("")),
-
+	STEEL(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
 
 	/** The composite-currency, which is the rarer resource used to upgrade buildings. */
-	COMPOSITE(
-			0,
-			new ImageView("")),
+	COMPOSITE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
 
 
 	/** The food rations currency, which is the main-resource used to upgrade troops. */
-	FOOD_RATION(
-			0,
-			new ImageView("")),
+	FOOD_RATION(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
 
 
 	/** The science currency, which is the rarer resource used to upgrade troops. */
-	SCIENCE(
-			0,
-			new ImageView("")),
+	SCIENCE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
 
 
 	/** The energy-credits currency, which is the rarest resource used to upgrade troops. */
-	ENERGY_CREDIT(
-			0,
-			new ImageView(""));
+	ENERGY_CREDIT(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png"));
 
 
 	/** The format, which is used to display the object with its properties. */

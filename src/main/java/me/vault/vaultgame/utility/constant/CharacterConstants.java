@@ -27,4 +27,16 @@ public interface CharacterConstants
 	 */
 	@Constant
 	public static final char DASH = '-';
+
+
+	@Constant
+	public static final char STARTING_BRACKET = '[';
+
+
+	@Constant
+	public static final char CLOSING_BRACKET = ']';
+
+
+	@Constant
+	public static final char PIPE = '|';
 }

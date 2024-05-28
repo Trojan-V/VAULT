@@ -1,13 +1,12 @@
 package me.vault.vaultgame.model.currency;
 
-
 import me.vault.vaultgame.exception.InvalidMapEntryException;
 import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap;
 import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap.Entry;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
-
+import java.util.logging.Logger;
 
 public class CurrencyTransaction
 {
@@ -16,12 +15,11 @@ public class CurrencyTransaction
 	 */
 	private static final String STRING_PATTERN = "CurrencyTransaction [ amountMap = {0} ]";
 
+	private static final Logger LOGGER = Logger.getLogger(CurrencyTransaction.class.getName());
 
 	/**
-	 * The {@link HashMap} which contains the numbers of currencies that are changed by the transaction. The keys of
-	 * the
-	 * {@code HashMap} represent the {@link Currency} enum values and the values of the {@code HashMap} the
-	 * corresponding amounts of each {@code Currency} key.
+	 * The {@link HashMap} which contains the numbers of currencies that are changed by the transaction. The keys of the {@code HashMap} represent the
+	 * {@link Currency} enum values and the values of the {@code HashMap} the corresponding amounts of each {@code Currency} key.
 	 */
 	private final ValidatedEntriesHashMap<Currency, Integer> currencyAmountMap = new ValidatedEntriesHashMap<>();
 
@@ -36,15 +34,12 @@ public class CurrencyTransaction
 	}
 
 
-	public static CurrencyTransaction factory (final int steelAmount, final int compositeAmount,
-		final int scienceAmount, final int foodAmount, final int energyAmount) throws InvalidMapEntryException
+	public static CurrencyTransaction factory (final int steelAmount, final int compositeAmount, final int scienceAmount, final int foodAmount,
+			final int energyAmount) throws InvalidMapEntryException
 	{
-		return new CurrencyTransaction(
-			new Entry<>(Currency.STEEL, steelAmount),
-			new Entry<>(Currency.COMPOSITE, compositeAmount),
-			new Entry<>(Currency.SCIENCE, scienceAmount),
-			new Entry<>(Currency.FOOD_RATION, foodAmount),
-			new Entry<>(Currency.ENERGY_CREDIT, energyAmount));
+		return new CurrencyTransaction(new Entry<>(Currency.STEEL, steelAmount), new Entry<>(Currency.COMPOSITE, compositeAmount),
+		                               new Entry<>(Currency.SCIENCE, scienceAmount), new Entry<>(Currency.FOOD_RATION, foodAmount),
+		                               new Entry<>(Currency.ENERGY_CREDIT, energyAmount));
 	}
 
 
@@ -61,8 +56,7 @@ public class CurrencyTransaction
 
 
 	/**
-	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with
-	 * its properties.
+	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with its properties.
 	 *
 	 * @return A {@link String} value, which represents the object with its properties.
 	 */

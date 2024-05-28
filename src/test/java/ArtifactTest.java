@@ -1,7 +1,8 @@
+import me.vault.vaultgame.controller.ArtifactController;
 import me.vault.vaultgame.model.artifact.Artifact;
+import me.vault.vaultgame.utility.Logger;
 
-import java.util.logging.Logger;
-
+import static me.vault.vaultgame.utility.constant.CharacterConstants.WHITESPACE;
 
 /**
  * Description
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
  */
 public final class ArtifactTest
 {
-	private static final Logger LOGGER = Logger.getLogger(ArtifactTest.class.getName());
+	private static final Logger LOGGER = new Logger(ArtifactTest.class.getName());
 
 
 	private ArtifactTest () {}
@@ -23,7 +24,10 @@ public final class ArtifactTest
 	{
 		for (final Artifact artifact : Artifact.values())
 		{
-			LOGGER.info(artifact.toString());
+			LOGGER.logDebug(artifact.name() + WHITESPACE + artifact.getLevel());
+			ArtifactController.getInstance().upgrade(artifact);
+			LOGGER.logDebug(artifact.name() + WHITESPACE + artifact.getLevel());
+			LOGGER.logDebug(String.valueOf(Character.LINE_SEPARATOR));
 		}
 	}
 }
