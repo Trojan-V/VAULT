@@ -3,7 +3,6 @@ import me.vault.vaultgame.model.artifact.Artifact;
 import me.vault.vaultgame.model.currency.Currency;
 import me.vault.vaultgame.utility.Logger;
 
-import static me.vault.vaultgame.utility.constant.CharacterConstants.LINE_FEED;
 import static me.vault.vaultgame.utility.constant.CharacterConstants.WHITESPACE;
 
 /**
@@ -64,7 +63,7 @@ public final class ArtifactTest
 		{
 			currencyString.append(currency.toString()).append(WHITESPACE);
 		}
-		LOGGER.logNormal(currencyString.toString() + LINE_FEED);
+		LOGGER.logNormal(currencyString.toString());
 	}
 
 }
