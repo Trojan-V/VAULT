@@ -53,8 +53,8 @@ public class InvalidMapEntryException extends Exception
 	 * Then, the key and value of this invalid entry is shown to the user in a human-readable format ({@link String}.
 	 *
 	 * @param entry The entry which was detected as invalid.
-	 * @param <K> The data type of the entry's key.
-	 * @param <V> The data type of the entry's value.
+	 * @param <K>   The data type of the entry's key.
+	 * @param <V>   The data type of the entry's value.
 	 */
 	public <K, V> InvalidMapEntryException (final Entry<K, V> entry)
 	{

@@ -22,16 +22,16 @@ import static me.vault.vaultgame.utility.constant.CharacterConstants.*;
  */
 public class Logger
 {
+	/** The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the loggers properties. */
+	private static final String TO_STRING_PATTERN = "Logger[\"{0}\" | depth = \"{1}\"]";
+
+
 	/** The colorcode, which, when printed into the console, resets the applied console-colors. */
 	private static final String COLOR_RESET = "\033[0m";
 
 
 	/** The {@link SimpleDateFormat} which is used to represent the logging-timestamps. */
 	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SS", Locale.GERMANY);
-
-
-	/** The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the loggers properties. */
-	private static final String TO_STRING_PATTERN = "Logger[\"{0}\" | depth = \"{1}\"]";
 
 
 	/** The name of the class, which the {@link Logger} is applied to. */

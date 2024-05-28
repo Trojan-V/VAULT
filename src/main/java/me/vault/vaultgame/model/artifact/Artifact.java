@@ -5,23 +5,24 @@ import me.vault.vaultgame.controller.CurrencyController;
 import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap;
 import me.vault.vaultgame.model.interfaces.IUpgradable;
 
+// TODO: Sind Literale in Enum-Eintraegen okay?
+
 
 public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 {
-	// TODO: Sind Literale in Enum-Eintraegen okay?
 	/**
 	 * The damage-artifact with its specified properties
 	 */
 	DAMAGE(
 		new ValidatedEntriesHashMap<>()
 		{{
-			this.put(ArtifactLevel.BASE, new ArtifactProperties(
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
-				1, 1, 1, 1, 1, 1, "Damage Artifact"));
+			this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
+				- 10, - 10), 1, 1, 1, 1, 1,
+				1, "Damage Artifact"));
 
-			this.put(ArtifactLevel.SUPER, new ArtifactProperties(
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
-				1, 1, 1, 1, 1, 1, "Super Damage Artifact"));
+			this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
+				- 10, - 10), 1, 1, 1, 1, 1,
+				1, "Super Damage Artifact"));
 		}}),
 
 
@@ -31,13 +32,13 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	DEFENSE(
 		new ValidatedEntriesHashMap<>()
 		{{
-			this.put(ArtifactLevel.BASE, new ArtifactProperties(
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
-				1, 1, 1, 1, 1, 1, "DEFENSE Artifact"));
+			this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
+				- 10, - 10), 1, 1, 1, 1, 1,
+				1, "Defense Artifact"));
 
-			this.put(ArtifactLevel.SUPER, new ArtifactProperties(
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
-				1, 1, 1, 1, 1, 1, "Super DEFENSE Artifact"));
+			this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
+				- 10, - 10), 1, 1, 1, 1, 1,
+				1, "Super Defense Artifact"));
 		}}),
 
 
@@ -47,13 +48,13 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	HEALTH(
 		new ValidatedEntriesHashMap<>()
 		{{
-			this.put(ArtifactLevel.BASE, new ArtifactProperties(
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
-				1, 1, 1, 1, 1, 1, "HEALTH Artifact"));
+			this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
+				- 10, - 10), 1, 1, 1, 1, 1,
+				1, "Health Artifact"));
 
-			this.put(ArtifactLevel.SUPER, new ArtifactProperties(
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
-				1, 1, 1, 1, 1, 1, "Super HEALTH Artifact"));
+			this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
+				- 10, - 10), 1, 1, 1, 1, 1,
+				1, "Super Health Artifact"));
 		}});
 
 
