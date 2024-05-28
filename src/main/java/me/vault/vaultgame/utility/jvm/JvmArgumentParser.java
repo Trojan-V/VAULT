@@ -5,6 +5,7 @@ import me.vault.vaultgame.utility.IO;
 import me.vault.vaultgame.utility.IO.ConsoleColor;
 
 import java.util.Locale;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

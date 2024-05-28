@@ -16,24 +16,60 @@ import static me.vault.vaultgame.utility.constant.CharacterConstants.*;
 //  case ALL: sendLogsFromAllLevels = true;
 //  case CRITICAL: only send critical logs, such as error (and maybe warning)}
 
-
-// TODO: Delegation der weiteren log-Methoden an eine "base" log Methode. Nur diese "base" log Methode sollte den
-//  Aufruf zu sout beinhalten.
 public class Logger
 {
 	private static final String COLOR_RESET = "\033[0m";
 
 
-	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SS",
-		Locale.GERMANY);
+	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SS", Locale.GERMANY);
 
 
 	private final String className;
+	private Level depth;
 
 
 	public Logger (final String className)
 	{
+		this(className, Level.DEBUG);
+	}
+
+	public Logger (final String className, final Level depth)
+	{
 		this.className = className;
+		this.depth = depth;
+	}
+
+
+	private void log (final Level level, final String message)
+	{
+		if (level.ordinal() >= this.depth.ordinal())
+		{
+			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
+		}
+	}
+
+
+	public void logDebug (final String message)
+	{
+		this.log(Level.DEBUG, message);
+	}
+
+
+	public void logNormal (final String message)
+	{
+		this.log(Level.NORMAL, message);
+	}
+
+
+	public void logWarning (final String message)
+	{
+		this.log(Level.WARNING, message);
+	}
+
+
+	public void logError (final String message)
+	{
+		this.log(Level.ERROR, message);
 	}
 
 
@@ -43,89 +79,15 @@ public class Logger
 	}
 
 
-	public void logDebug (final String message)
-	{
-		this.logDebug(message, Mode.VERBOSE);
-	}
-
-
-	public void logDebug (final String message, final Mode mode)
-	{
-		System.out.println(Level.DEBUG.toString() + this.buildPrefix(mode) + message + COLOR_RESET);
-	}
-
-
-	public void logNormal (final String message)
-	{
-		this.logNormal(message, Mode.VERBOSE);
-	}
-
-
-	public void logNormal (final String message, final Mode mode)
-	{
-		System.out.println(Level.NORMAL.toString() + this.buildPrefix(mode) + message + COLOR_RESET);
-	}
-
-
-	public void logWarning (final String message)
-	{
-		this.logWarning(message, Mode.VERBOSE);
-	}
-
-
-	public void logWarning (final String message, final Mode mode)
-	{
-		System.out.println(Level.WARNING.toString() + this.buildPrefix(mode) + message + COLOR_RESET);
-	}
-
-
-	public void logError (final String message)
-	{
-		this.logError(message, Mode.VERBOSE);
-	}
-
-
-	public void logError (final String message, final Mode mode)
-	{
-		System.out.println(Level.ERROR.toString() + this.buildPrefix(mode) + message + COLOR_RESET);
-	}
-
-
-	public void log (final Level level, final String message)
-	{
-		System.out.println(level.toString() + message);
-	}
-
-
-	private String buildPrefix (final Mode mode)
-	{
-		final StringBuilder prefix = new StringBuilder().append(OPENING_BRACKET);
-		if (mode == Mode.VERBOSE || mode == Mode.TIMESTAMP)
-		{
-			prefix.append(getTimestamp());
-		}
-		if (mode == Mode.VERBOSE || mode == Mode.CLASSNAME)
-		{
-			prefix.append(WHITESPACE).append(PIPE).append(WHITESPACE).append(this.getClassName());
-		}
-		prefix.append(CLOSING_BRACKET).append(WHITESPACE);
-		return prefix.toString();
-	}
-
-
 	private String getClassName ()
 	{
 		return this.className;
 	}
 
 
-	public enum Mode
+	private String getPrefix ()
 	{
-		VERBOSE,
-
-		TIMESTAMP,
-
-		CLASSNAME
+		return OPENING_BRACKET + getTimestamp() + WHITESPACE + PIPE + WHITESPACE + this.getClassName() + CLOSING_BRACKET + WHITESPACE;
 	}
 
 
