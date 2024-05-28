@@ -32,6 +32,9 @@ public interface CharacterConstants
 	public static final String NEWLINE = System.lineSeparator();
 
 
+	public static final String DIVIDER = "---------------------------------------------------------------------";
+
+
 	/**
 	 * Represents the dash character.
 	 */
@@ -77,6 +80,7 @@ public interface CharacterConstants
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Bracket">Wikipedia &ndash; Bracket types</a>
 	 */
+	@Constant
 	public static final char CLOSING_PARENTHESES = ')';
 
 

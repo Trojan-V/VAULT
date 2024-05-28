@@ -1,5 +1,6 @@
 package me.vault.vaultgame.model.currency;
 
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import me.vault.vaultgame.controller.CurrencyController;
@@ -12,10 +13,11 @@ import static me.vault.vaultgame.utility.constant.GameConstants.ASSETS_PATH;
 // TODO: Interface für Sprites
 // TODO: Amount should either be retrieved by Serialization or JSON config file.
 
+
 /**
- * The {@code Currency} class/enum represents the resources or currencies which the user can use to upgrade troops and buildings. Currencies are
- * earned by completing missions and progressing in the story. The class in controlled by the {@link CurrencyController} class, which manages mission
- * rewards and building costs.
+ * The {@code Currency} class/enum represents the resources or currencies which the user can use to upgrade troops and
+ * buildings. Currencies are earned by completing missions and progressing in the story. The class in controlled by the
+ * {@link CurrencyController} class, which manages mission rewards and building costs.
  *
  * @author Lasse-Leander Hillen
  * @see CurrencyController
@@ -23,28 +25,47 @@ import static me.vault.vaultgame.utility.constant.GameConstants.ASSETS_PATH;
  */
 public enum Currency
 {
-	/** The steel-currency, which is the main-resource used to upgrade buildings. */
+	/**
+	 * The steel-currency, which is the main-resource used to upgrade buildings.
+	 */
 	STEEL(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
 
-	/** The composite-currency, which is the rarer resource used to upgrade buildings. */
+	/**
+	 * The composite-currency, which is the rarer resource used to upgrade buildings.
+	 */
 	COMPOSITE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
 
-	/** The food rations currency, which is the main-resource used to upgrade troops. */
+	/**
+	 * The food rations currency, which is the main-resource used to upgrade troops.
+	 */
 	FOOD_RATION(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
 
-	/** The science currency, which is the rarer resource used to upgrade troops. */
+	/**
+	 * The science currency, which is the rarer resource used to upgrade troops.
+	 */
 	SCIENCE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
 
-	/** The energy-credits currency, which is the rarest resource used to upgrade troops. */
+	/**
+	 * The energy-credits currency, which is the rarest resource used to upgrade troops.
+	 */
 	ENERGY_CREDIT(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png"));
 
-	/** The format, which is used to display the object with its properties. */
+
+	/**
+	 * The format, which is used to display the object with its properties.
+	 */
 	private static final String STRING_FORMAT = "{0} [amount = {1,number,integer}]";
 
-	/** The sprite of the currency. */
+
+	/**
+	 * The sprite of the currency.
+	 */
 	private final ImageView sprite;
 
-	/** The current amount of the currency. */
+
+	/**
+	 * The current amount of the currency.
+	 */
 	private int amount = 0;
 
 
@@ -117,7 +138,8 @@ public enum Currency
 
 
 	/**
-	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with its properties.
+	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with
+	 * its properties.
 	 *
 	 * @return A {@link String} value, which represents the object with its properties.
 	 */

@@ -1,13 +1,16 @@
 package me.vault.vaultgame.utility.jvm;
 
 
-import me.vault.vaultgame.utility.IO;
-import me.vault.vaultgame.utility.IO.ConsoleColor;
+import me.vault.vaultgame.utility.Logger;
+import me.vault.vaultgame.utility.Logger.Level;
 
+import java.text.MessageFormat;
 import java.util.Locale;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import static me.vault.vaultgame.utility.Logger.Level.NORMAL;
+import static me.vault.vaultgame.utility.Logger.Level.WARNING;
+import static me.vault.vaultgame.utility.jvm.JvmArgumentMessage.*;
+
 
 // TODO: Konstanten
 
@@ -29,7 +32,7 @@ import java.util.logging.Logger;
  */
 public final class JvmArgumentParser
 {
-	private static final Logger LOGGER = Logger.getLogger(JvmArgumentParser.class.getName());
+	private static final Logger LOGGER = new Logger(JvmArgumentParser.class.getSimpleName());
 
 
 	/**
@@ -57,21 +60,27 @@ public final class JvmArgumentParser
 				final JvmArgument jvmArgument = JvmArgument.valueOf(args[i].substring(1).toUpperCase(Locale.GERMANY));
 				switch (jvmArgument)
 				{
-					case VERBOSE:
-						IO.setVerboseMode(true);
-						break;
-					case TIMESTAMP_PREFIX:
-						IO.setShouldPrefixWithTimestamp(true);
-						break;
+					case LOG_DEPTH -> {
+						if (args.length > 1)
+						{
+							final String desiredLogDepth = args[i + 1];
+							if (!desiredLogDepth.isEmpty())
+							{
+								Logger.setDepth(Level.valueOf(args[i + 1]));
+								i++;
+							}
+						}
+
+					}
 				}
 			}
 			catch (final IllegalArgumentException ignored)
 			{
-				LOGGER.log(Level.WARNING, JvmArgumentMessage.INVALID.toString(), new Object[]{args[i], i});
-				LOGGER.log(Level.INFO, JvmArgumentMessage.VALID_ARGUMENT_LIST.toString(), JvmArgument.values());
+				LOGGER.log(WARNING, MessageFormat.format(INVALID.toString(), args[i], i));
+				LOGGER.log(NORMAL, MessageFormat.format(VALID_ARGUMENT_LIST.toString(),
+					(Object[]) JvmArgument.values()));
 			}
 		}
-
 		printJvmArgumentStatus();
 	}
 
@@ -81,21 +90,9 @@ public final class JvmArgumentParser
 	 */
 	private static void printJvmArgumentStatus ()
 	{
-		LOGGER.log(Level.INFO, JvmArgumentMessage.HEADER.toString());
-		LOGGER.log(Level.INFO, JvmArgumentMessage.DIVIDER.toString());
-		LOGGER.log(Level.INFO, JvmArgumentMessage.VERBOSE.toString());
-
-
-		// TODO: Replace IO.print() invocations with LOGGER
-		/* System.out is used here instead of the MyIO class to ensure these messages will always get printed,
-		 * even if the verboseMode is set to false.
-		 */
-		// IO.print(JvmArgumentMessage.HEADER, ConsoleColor.CYAN_BOLD);
-		// IO.print(JvmArgumentMessage.DIVIDER, ConsoleColor.CYAN);
-
-		IO.printf(JvmArgumentMessage.VERBOSE, ConsoleColor.CYAN, IO.isVerboseMode());
-		IO.printf(JvmArgumentMessage.TIMESTAMP, ConsoleColor.CYAN, IO.getShouldPrefixWithTimestamp());
-
-		IO.print(JvmArgumentMessage.DIVIDER, ConsoleColor.CYAN);
+		LOGGER.log(NORMAL, HEADER.toString());
+		LOGGER.log(NORMAL, DIVIDER.toString());
+		LOGGER.log(NORMAL, MessageFormat.format(LOG_DEPTH.toString(), Logger.getDepth().name()));
+		LOGGER.log(NORMAL, DIVIDER.toString());
 	}
 }

@@ -14,24 +14,7 @@ import static me.vault.vaultgame.utility.constant.CharacterConstants.DASH;
  */
 public enum JvmArgument
 {
-	/**
-	 * Determines if the program should print a ton of debugging information into the console. If disabled, almost no
-	 * information will be printed into the console.
-	 * <p>
-	 * Pass {@code -verbose} as JVM argument to enable the verbose mode.
-	 * </p>
-	 */
-	VERBOSE("verbose"),
-
-
-	/**
-	 * Determines if every message that will be printed into the console with the
-	 * {@link me.vault.vaultgame.utility.IO#print(String)} method should be prefixed with the current timestamp.
-	 * <p>
-	 * Pass {@code -timestamp_prefix} as JVM argument to enable the verbose mode.
-	 * </p>
-	 */
-	TIMESTAMP_PREFIX("timestamp_prefix");
+	LOG_DEPTH("log_depth");
 
 
 	/**

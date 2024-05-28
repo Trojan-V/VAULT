@@ -8,13 +8,11 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 
-import static me.vault.vaultgame.utility.constant.CharacterConstants.*;
-
 
 /**
- * The {@code Logger} class provides a logging utility with different levels of log messages, which are all formatted in their respective way.
- * The provided levels are {@link Level#DEBUG},{@link Level#NORMAL},{@link Level#WARNING} and {@link Level#ERROR} and represent the different types of
- * logging messages.
+ * The {@code Logger} class provides a logging utility with different levels of log messages, which are all formatted in
+ * their respective way. The provided levels are {@link Level#DEBUG},{@link Level#NORMAL},{@link Level#WARNING} and
+ * {@link Level#ERROR} and represent the different types of logging messages.
  *
  * @author Lasse-Leander Hillen
  * @see Level
@@ -22,24 +20,41 @@ import static me.vault.vaultgame.utility.constant.CharacterConstants.*;
  */
 public class Logger
 {
-	/** The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the loggers properties. */
+	/**
+	 * The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the loggers
+	 * properties.
+	 */
 	private static final String TO_STRING_PATTERN = "Logger[\"{0}\" | depth = \"{1}\"]";
 
 
-	/** The colorcode, which, when printed into the console, resets the applied console-colors. */
+	/**
+	 * The color code, which, when printed into the console, resets the applied console-colors.
+	 */
 	private static final String COLOR_RESET = "\033[0m";
 
 
-	/** The {@link SimpleDateFormat} which is used to represent the logging-timestamps. */
-	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SS", Locale.GERMANY);
+	/**
+	 * The {@link SimpleDateFormat} which is used to represent the logging-timestamps.
+	 */
+	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SSS",
+		Locale.GERMANY);
 
 
-	/** The name of the class, which the {@link Logger} is applied to. */
+	private static final String LOG_MESSAGE_PREFIX = "[{0} | {1}] ";
+
+
+	/**
+	 * The name of the class, which the {@link Logger} is applied to.
+	 */
 	private final String className;
 
 
-	/** The depth of the {@link Logger}. Represents how deep level of the {@link Logger#log(Level, String)} calls must be to be shown in the console window. */
-	private Level depth;
+	/**
+	 * The depth of the {@link Logger}. Represents how deep level of the {@link Logger#log(Level, String)} calls
+	 * must be
+	 * to be shown in the console window.
+	 */
+	private static Level depth = Level.NORMAL;
 
 
 	/**
@@ -49,20 +64,7 @@ public class Logger
 	 */
 	public Logger (final String className)
 	{
-		this(className, Level.DEBUG);
-	}
-
-
-	/**
-	 * Constructs a Logger for a specific class name with a specified logging level.
-	 *
-	 * @param className the name of the class for which the logger is being created
-	 * @param depth     the logging level
-	 */
-	public Logger (final String className, final Level depth)
-	{
 		this.className = className;
-		this.depth = depth;
 	}
 
 
@@ -74,54 +76,10 @@ public class Logger
 	 */
 	public void log (final Level level, final String message)
 	{
-		if (level.ordinal() >= this.depth.ordinal())
+		if (level.ordinal() >= depth.ordinal())
 		{
 			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
 		}
-	}
-
-
-	/**
-	 * Logs a message at the DEBUG level.
-	 *
-	 * @param message the message to log
-	 */
-	public void logDebug (final String message)
-	{
-		this.log(Level.DEBUG, message);
-	}
-
-
-	/**
-	 * Logs a message at the NORMAL level.
-	 *
-	 * @param message the message to log
-	 */
-	public void logNormal (final String message)
-	{
-		this.log(Level.NORMAL, message);
-	}
-
-
-	/**
-	 * Logs a message at the WARNING level.
-	 *
-	 * @param message the message to log
-	 */
-	public void logWarning (final String message)
-	{
-		this.log(Level.WARNING, message);
-	}
-
-
-	/**
-	 * Logs a message at the ERROR level.
-	 *
-	 * @param message the message to log
-	 */
-	public void logError (final String message)
-	{
-		this.log(Level.ERROR, message);
 	}
 
 
@@ -137,24 +95,13 @@ public class Logger
 
 
 	/**
-	 * Gets the name of the class for which this logger is created.
-	 *
-	 * @return the class name
-	 */
-	private String getClassName ()
-	{
-		return this.className;
-	}
-
-
-	/**
 	 * Generates a prefix for log messages including timestamp and class name.
 	 *
 	 * @return the prefix for log messages
 	 */
 	private String getPrefix ()
 	{
-		return OPENING_BRACKET + getTimestamp() + WHITESPACE + PIPE + WHITESPACE + this.getClassName() + CLOSING_BRACKET + WHITESPACE;
+		return MessageFormat.format(LOG_MESSAGE_PREFIX, getTimestamp(), this.className);
 	}
 
 
@@ -163,9 +110,9 @@ public class Logger
 	 *
 	 * @return the logging level
 	 */
-	public Level getDepth ()
+	public static Level getDepth ()
 	{
-		return this.depth;
+		return depth;
 	}
 
 
@@ -174,9 +121,9 @@ public class Logger
 	 *
 	 * @param depth the new logging level
 	 */
-	public void setDepth (final Level depth)
+	public static void setDepth (final Level depth)
 	{
-		this.depth = depth;
+		Logger.depth = depth;
 	}
 
 
@@ -188,7 +135,7 @@ public class Logger
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.className, this.depth);
+		return MessageFormat.format(TO_STRING_PATTERN, this.className, depth);
 	}
 
 
@@ -197,17 +144,25 @@ public class Logger
 	 */
 	public enum Level
 	{
-		/** LOWEST: The debug logging level used to display the finest information in cyan formatting. */
-		DEBUG("\033[0;36m"),
+		/**
+		 * LOWEST: The debug logging level used to display the finest information in cyan formatting.
+		 */
+		DEBUG(ConsoleColor.CYAN.toString()),
 
-		/** NORMAL: The normal logging level used to display general information in white formatting. */
-		NORMAL("\033[0m"),
+		/**
+		 * NORMAL: The normal logging level used to display general information in white formatting.
+		 */
+		NORMAL(ConsoleColor.RESET.toString()),
 
-		/** HIGH: The normal logging level used to display warnings and important information in yellow formatting. */
-		WARNING("\033[0;33m"),
+		/**
+		 * HIGH: The normal logging level used to display warnings and important information in yellow formatting.
+		 */
+		WARNING(ConsoleColor.YELLOW.toString()),
 
-		/** HIGHEST: The error logging level used to display only error messages in red formatting. */
-		ERROR("\033[0;31m");
+		/**
+		 * HIGHEST: The error logging level used to display only error messages in red formatting.
+		 */
+		ERROR(ConsoleColor.RED.toString());
 
 
 		private final String colorCode;

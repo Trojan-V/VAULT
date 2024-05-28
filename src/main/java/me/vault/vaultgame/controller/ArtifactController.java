@@ -44,7 +44,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	public boolean checkIsUpgradable (final Artifact artifact)
 	{
 		// Checks if the artifact is already at the maximum level
-		if (artifact.getLevel() == ArtifactLevel.SUPER)
+		if (artifact.getLevel().ordinal() == ArtifactLevel.values().length - 1)
 		{
 			return false;
 		}

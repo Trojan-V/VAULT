@@ -33,21 +33,10 @@ public enum JvmArgumentMessage
 	/**
 	 * Message to print a list of valid JVM arguments.
 	 */
-	VALID_ARGUMENT_LIST("Valid arguments are: {0}, {1}"),
+	VALID_ARGUMENT_LIST("Valid arguments are: {0}"),
 
 
-	/**
-	 * Message which prints the status of the {@code verboseMode}. Check {@link JvmArgument#VERBOSE} for more
-	 * information.
-	 */
-	VERBOSE("verboseMode is %s."),
-
-
-	/**
-	 * Message which prints the status of the {@code timestamp_prefix} option. Check
-	 * {@link JvmArgument#TIMESTAMP_PREFIX} for more information.
-	 */
-	TIMESTAMP("timestamp_prefix is %s.");
+	LOG_DEPTH("logDepth is: {0}");
 
 
 	/**
