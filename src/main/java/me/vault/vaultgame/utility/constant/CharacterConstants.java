@@ -21,7 +21,7 @@ public interface CharacterConstants
 	@Constant
 	public static final char WHITESPACE = ' ';
 
-
+	public static final char NEWLINE = '\n';
 	/**
 	 * Represents the dash character.
 	 */

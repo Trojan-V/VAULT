@@ -16,11 +16,11 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 		new ValidatedEntriesHashMap<>()
 		{{
 			this.put(ArtifactLevel.BASE, new ArtifactProperties(
-				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
 				1, 1, 1, 1, 1, 1, "Damage Artifact"));
 
 			this.put(ArtifactLevel.SUPER, new ArtifactProperties(
-				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
 				1, 1, 1, 1, 1, 1, "Super Damage Artifact"));
 		}}),
 
@@ -32,11 +32,11 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 		new ValidatedEntriesHashMap<>()
 		{{
 			this.put(ArtifactLevel.BASE, new ArtifactProperties(
-				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
 				1, 1, 1, 1, 1, 1, "DEFENSE Artifact"));
 
 			this.put(ArtifactLevel.SUPER, new ArtifactProperties(
-				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
 				1, 1, 1, 1, 1, 1, "Super DEFENSE Artifact"));
 		}}),
 
@@ -48,11 +48,11 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 		new ValidatedEntriesHashMap<>()
 		{{
 			this.put(ArtifactLevel.BASE, new ArtifactProperties(
-				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
 				1, 1, 1, 1, 1, 1, "HEALTH Artifact"));
 
 			this.put(ArtifactLevel.SUPER, new ArtifactProperties(
-				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
 				1, 1, 1, 1, 1, 1, "Super HEALTH Artifact"));
 		}});
 
