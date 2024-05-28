@@ -35,6 +35,9 @@ public final class JvmArgumentParser
 	private static final Logger LOGGER = new Logger(JvmArgumentParser.class.getSimpleName());
 
 
+	private static int currentArgumentPointer = 0;
+
+
 	/**
 	 * As this class is solely a collection of static methods, there is no use-case where an instantiation of this
 	 * class
@@ -52,36 +55,51 @@ public final class JvmArgumentParser
 	 */
 	public static void apply (final String[] args)
 	{
-		for (int i = 0; i < args.length; i++)
+		try
 		{
-			try
-			{
-				// Start at substring(1) to remove the leading dash.
-				final JvmArgument jvmArgument = JvmArgument.valueOf(args[i].substring(1).toUpperCase(Locale.GERMANY));
-				switch (jvmArgument)
-				{
-					case LOG_DEPTH -> {
-						if (args.length > 1)
-						{
-							final String desiredLogDepth = args[i + 1];
-							if (!desiredLogDepth.isEmpty())
-							{
-								Logger.setDepth(Level.valueOf(args[i + 1]));
-								i++;
-							}
-						}
+			applyJvmArguments(args);
+		}
+		catch (final IllegalArgumentException ignored)
+		{
+			LOGGER.log(WARNING, MessageFormat.format(INVALID.toString(), args[currentArgumentPointer],
+				currentArgumentPointer));
+			LOGGER.log(NORMAL, MessageFormat.format(VALID_ARGUMENT_LIST.toString(),
+				(Object[]) JvmArgument.values()));
+		}
+		finally
+		{
+			printJvmArgumentStatus();
+		}
 
-					}
-				}
-			}
-			catch (final IllegalArgumentException ignored)
+	}
+
+
+	private static void applyJvmArguments (String[] args)
+	{
+		for (; currentArgumentPointer < args.length; currentArgumentPointer++)
+		{
+
+			// Start at substring(1) to remove the leading dash.
+			final JvmArgument jvmArgument = JvmArgument.valueOf(args[currentArgumentPointer].substring(1)
+				.toUpperCase(Locale.GERMANY));
+			switch (jvmArgument)
 			{
-				LOGGER.log(WARNING, MessageFormat.format(INVALID.toString(), args[i], i));
-				LOGGER.log(NORMAL, MessageFormat.format(VALID_ARGUMENT_LIST.toString(),
-					(Object[]) JvmArgument.values()));
+				case LOG_DEPTH:
+					handleLogDepth(args);
 			}
 		}
-		printJvmArgumentStatus();
+	}
+
+
+	private static void handleLogDepth (String[] args)
+	{
+		if (args.length <= 1)
+		{
+			return;
+		}
+		final String desiredLogDepth = args[currentArgumentPointer + 1];
+		Logger.setDepth(Level.valueOf(args[currentArgumentPointer + 1]));
+		currentArgumentPointer++;
 	}
 
 
