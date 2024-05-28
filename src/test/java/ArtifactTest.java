@@ -15,10 +15,10 @@ import static me.vault.vaultgame.utility.constant.CharacterConstants.WHITESPACE;
  */
 public final class ArtifactTest
 {
+	private static final int UPGRADE_TEST_AMOUNT = 1000;
+	private static final String UPGRADED_MESSAGE = "The artifact was upgraded.";
+	private static final String AMOUNTS_STARTING = "Currency-Amounts starting:";
 	private static final Logger LOGGER = new Logger(ArtifactTest.class.getName());
-	public static final String UPGRADED_MESSAGE = "The artifact was upgraded.";
-	public static final int UPGRADE_TEST_AMOUNT = 1000;
-	public static final String AMOUNTS_STARTING = "Currency-Amounts starting:";
 
 
 	private ArtifactTest () {}

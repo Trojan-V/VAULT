@@ -1,6 +1,7 @@
 package me.vault.vaultgame.utility;
 
 
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.Instant;
@@ -9,12 +10,6 @@ import java.util.Locale;
 
 import static me.vault.vaultgame.utility.constant.CharacterConstants.*;
 
-// TODO: Mode macht keinen Sinn? Mode muss per Konfigurationsmethode gesetzt werden können (z.B. JVM Argument), und
-//  sollte dann intern von den einzelnen Log-Methoden abgefragt werden, um Logging ein- oder auszuschalten zu können.
-//  Dabei sollten auch verschiedene Logging-Level aktiviert und deaktiviert werden können, das könnte folgendermaßen
-//  aussehen: switch (Mode mode) {
-//  case ALL: sendLogsFromAllLevels = true;
-//  case CRITICAL: only send critical logs, such as error (and maybe warning)}
 
 public class Logger
 {
@@ -24,7 +19,12 @@ public class Logger
 	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SS", Locale.GERMANY);
 
 
+	private static final String TO_STRING_PATTERN = "Logger[\"{0}\" | depth = \"{1}\"]";
+
+
 	private final String className;
+
+
 	private Level depth;
 
 
@@ -33,6 +33,7 @@ public class Logger
 		this(className, Level.DEBUG);
 	}
 
+
 	public Logger (final String className, final Level depth)
 	{
 		this.className = className;
@@ -40,7 +41,7 @@ public class Logger
 	}
 
 
-	private void log (final Level level, final String message)
+	public void log (final Level level, final String message)
 	{
 		if (level.ordinal() >= this.depth.ordinal())
 		{
@@ -88,6 +89,25 @@ public class Logger
 	private String getPrefix ()
 	{
 		return OPENING_BRACKET + getTimestamp() + WHITESPACE + PIPE + WHITESPACE + this.getClassName() + CLOSING_BRACKET + WHITESPACE;
+	}
+
+
+	public Level getDepth ()
+	{
+		return this.depth;
+	}
+
+
+	public void setDepth (final Level depth)
+	{
+		this.depth = depth;
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.className, this.depth);
 	}
 
 
