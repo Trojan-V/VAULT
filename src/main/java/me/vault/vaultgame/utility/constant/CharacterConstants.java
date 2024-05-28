@@ -1,7 +1,8 @@
 package me.vault.vaultgame.utility.constant;
 
 
-import me.vault.vaultgame.utility.constant.ConstantInterface.Constant;
+import me.vault.vaultgame.utility.annotation.ConstantInterface;
+import me.vault.vaultgame.utility.annotation.ConstantInterface.Constant;
 
 
 /**
@@ -21,7 +22,16 @@ public interface CharacterConstants
 	@Constant
 	public static final char WHITESPACE = ' ';
 
-	public static final char NEWLINE = '\n';
+
+	/**
+	 * Represents the line separator character for the operating system the program is executed on.
+	 *
+	 * @see System#lineSeparator() for more information.
+	 */
+	@Constant
+	public static final String NEWLINE = System.lineSeparator();
+
+
 	/**
 	 * Represents the dash character.
 	 */
@@ -29,14 +39,50 @@ public interface CharacterConstants
 	public static final char DASH = '-';
 
 
+	/**
+	 * Represents the opening bracket character.
+	 * <br>
+	 * Here, the American English standard is used to denote the names of different bracket types.
+	 */
 	@Constant
-	public static final char STARTING_BRACKET = '[';
+	public static final char OPENING_BRACKET = '[';
 
 
+	/**
+	 * Represents the closing bracket character.
+	 * <br>
+	 * Here, the American English standard is used to denote the names of different bracket types.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Bracket">Wikipedia &ndash; Bracket types</a>
+	 */
 	@Constant
 	public static final char CLOSING_BRACKET = ']';
 
 
+	/**
+	 * Represents the opening parentheses' character.
+	 * <br>
+	 * Here, the American English standard is used to denote the names of different bracket types.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Bracket">Wikipedia &ndash; Bracket types</a>
+	 */
+	@Constant
+	public static final char OPENING_PARENTHESES = '(';
+
+
+	/**
+	 * Represents the closing parentheses' character.
+	 * <br>
+	 * Here, the American English standard is used to denote the names of different bracket types.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Bracket">Wikipedia &ndash; Bracket types</a>
+	 */
+	public static final char CLOSING_PARENTHESES = ')';
+
+
+	/**
+	 * Represents the pipe character.
+	 */
 	@Constant
 	public static final char PIPE = '|';
 }

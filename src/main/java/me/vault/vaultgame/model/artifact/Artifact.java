@@ -116,8 +116,8 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	public String toString ()
 	{
 		return "Artifact{" +
-		       "propertyMap=" + propertyMap +
-		       ", currentLevel=" + currentLevel +
+		       "propertyMap=" + this.propertyMap +
+		       ", currentLevel=" + this.currentLevel +
 		       '}';
 	}
 }

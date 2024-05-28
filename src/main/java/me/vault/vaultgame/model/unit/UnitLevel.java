@@ -1,4 +1,4 @@
-package me.vault.vaultgame.model.Unit;
+package me.vault.vaultgame.model.unit;
 
 /**
  * @author Alexander Göthel

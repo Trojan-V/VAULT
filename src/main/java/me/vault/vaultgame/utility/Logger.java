@@ -1,87 +1,108 @@
 package me.vault.vaultgame.utility;
 
+
 import java.text.SimpleDateFormat;
+import java.time.Clock;
+import java.time.Instant;
 import java.util.Date;
+import java.util.Locale;
 
 import static me.vault.vaultgame.utility.constant.CharacterConstants.*;
 
+// TODO: Mode macht keinen Sinn? Mode muss per Konfigurationsmethode gesetzt werden können (z.B. JVM Argument), und
+//  sollte dann intern von den einzelnen Log-Methoden abgefragt werden, um Logging ein- oder auszuschalten zu können.
+//  Dabei sollten auch verschiedene Logging-Level aktiviert und deaktiviert werden können, das könnte folgendermaßen
+//  aussehen: switch (Mode mode) {
+//  case ALL: sendLogsFromAllLevels = true;
+//  case CRITICAL: only send critical logs, such as error (and maybe warning)}
+
+
+// TODO: Delegation der weiteren log-Methoden an eine "base" log Methode. Nur diese "base" log Methode sollte den
+//  Aufruf zu sout beinhalten.
 public class Logger
 {
 	private static final String COLOR_RESET = "\033[0m";
-	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SS");
 
-	public enum Mode
-	{
-		VERBOSE,
 
-		TIMESTAMP,
+	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SS",
+		Locale.GERMANY);
 
-		CLASSNAME
-	}
 
 	private final String className;
 
 
-	public Logger (String className)
+	public Logger (final String className)
 	{
 		this.className = className;
 	}
 
 
-	public void logDebug (String message)
+	private static String getTimestamp ()
+	{
+		return DATETIME_FORMAT.format(Date.from(Instant.now(Clock.systemDefaultZone())));
+	}
+
+
+	public void logDebug (final String message)
 	{
 		this.logDebug(message, Mode.VERBOSE);
 	}
 
 
-	public void logDebug (String message, Mode mode)
+	public void logDebug (final String message, final Mode mode)
 	{
-		System.out.println(Level.DEBUG.getColorCode() + buildPrefix(mode) + message + COLOR_RESET);
+		System.out.println(Level.DEBUG.toString() + this.buildPrefix(mode) + message + COLOR_RESET);
 	}
 
 
-	public void logNormal (String message)
+	public void logNormal (final String message)
 	{
 		this.logNormal(message, Mode.VERBOSE);
 	}
 
 
-	public void logNormal (String message, Mode mode)
+	public void logNormal (final String message, final Mode mode)
 	{
-		System.out.println(Level.NORMAL.getColorCode() + buildPrefix(mode) + message + COLOR_RESET);
+		System.out.println(Level.NORMAL.toString() + this.buildPrefix(mode) + message + COLOR_RESET);
 	}
 
 
-	public void logWarning (String message)
+	public void logWarning (final String message)
 	{
-		logWarning(message, Mode.VERBOSE);
+		this.logWarning(message, Mode.VERBOSE);
 	}
 
 
-	public void logWarning (String message, Mode mode)
+	public void logWarning (final String message, final Mode mode)
 	{
-		System.out.println(Level.WARNING.getColorCode() + buildPrefix(mode) + message + COLOR_RESET);
+		System.out.println(Level.WARNING.toString() + this.buildPrefix(mode) + message + COLOR_RESET);
 	}
 
 
-	public void logError (String message)
+	public void logError (final String message)
 	{
-		logError(message, Mode.VERBOSE);
+		this.logError(message, Mode.VERBOSE);
 	}
 
 
-	public void logError (String message, Mode mode)
+	public void logError (final String message, final Mode mode)
 	{
-		System.out.println(Level.ERROR.getColorCode() + buildPrefix(mode) + message + COLOR_RESET);
+		System.out.println(Level.ERROR.toString() + this.buildPrefix(mode) + message + COLOR_RESET);
 	}
 
 
-	private String buildPrefix (Mode mode)
+	public void log (final Level level, final String message)
 	{
-		StringBuilder prefix = new StringBuilder().append(STARTING_BRACKET);
+		System.out.println(level.toString() + message);
+	}
+
+
+	private String buildPrefix (final Mode mode)
+	{
+		final StringBuilder prefix = new StringBuilder().append(OPENING_BRACKET);
 		if (mode == Mode.VERBOSE || mode == Mode.TIMESTAMP)
 		{
-			prefix.append(getTimeStamp());
+			prefix.append(getTimestamp());
 		}
 		if (mode == Mode.VERBOSE || mode == Mode.CLASSNAME)
 		{
@@ -98,9 +119,13 @@ public class Logger
 	}
 
 
-	private static String getTimeStamp ()
+	public enum Mode
 	{
-		return DATETIME_FORMAT.format(new Date());
+		VERBOSE,
+
+		TIMESTAMP,
+
+		CLASSNAME
 	}
 
 
@@ -114,16 +139,18 @@ public class Logger
 
 		ERROR("\033[0;31m");
 
+
 		private final String colorCode;
 
 
-		Level (String colorCode)
+		Level (final String colorCode)
 		{
 			this.colorCode = colorCode;
 		}
 
 
-		public String getColorCode ()
+		@Override
+		public String toString ()
 		{
 			return this.colorCode;
 		}

@@ -1,4 +1,4 @@
-package me.vault.vaultgame.utility.constant;
+package me.vault.vaultgame.utility.annotation;
 
 
 import java.lang.annotation.ElementType;
@@ -11,10 +11,10 @@ import java.lang.annotation.Target;
  * This annotation provides a way to mark an interface as {@link ConstantInterface}, which is useful to determine if an
  * interface should be implemented by another class.
  * <br>
- * If an interface is annotated by {@link ConstantInterface}, it should never be implemented by another class.
- * The reason is that implementing an interface usually suggests that there is some API which has to be implemented.
- * Also, the class which implements the interface is of the type of the interface, which doesn't make sense because a
- * concrete will never be an instance of a {@link ConstantInterface}.
+ * If an interface is annotated by {@link ConstantInterface}, it should never be implemented by another class. The
+ * reason is that implementing an interface usually suggests that there is some API which has to be implemented. Also,
+ * the class which implements the interface is of the type of the interface, which doesn't make sense because a concrete
+ * will never be an instance of a {@link ConstantInterface}.
  * <br>
  * To allow easy access to the constants the interface provides without having to specify the fully qualified name of
  * the constant, static imports for the desired constants can be used.
@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
  */
 @Retention (RetentionPolicy.CLASS)
 @Target (ElementType.TYPE)
-@interface ConstantInterface
+public @interface ConstantInterface
 {
 	// TODO: Mit Annotations beschäftigen
 	@Retention (RetentionPolicy.CLASS)

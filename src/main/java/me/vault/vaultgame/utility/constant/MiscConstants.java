@@ -1,7 +1,8 @@
 package me.vault.vaultgame.utility.constant;
 
 
-import me.vault.vaultgame.utility.constant.ConstantInterface.Constant;
+import me.vault.vaultgame.utility.annotation.ConstantInterface;
+import me.vault.vaultgame.utility.annotation.ConstantInterface.Constant;
 
 
 /**
@@ -20,6 +21,7 @@ public interface MiscConstants
 	 * <br>
 	 * It means that an abnormal error occurred which leads to a state of the program where the continuation of the
 	 * program's execution does not make sense anymore and therefore should be stopped.
+	 *
 	 * @see me.vault.vaultgame.controller.CurrencyController#createTransaction(int, int, int, int, int)
 	 */
 	@Constant

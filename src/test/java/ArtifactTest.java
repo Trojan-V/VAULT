@@ -3,7 +3,7 @@ import me.vault.vaultgame.model.artifact.Artifact;
 import me.vault.vaultgame.model.currency.Currency;
 import me.vault.vaultgame.utility.Logger;
 
-import static me.vault.vaultgame.utility.constant.CharacterConstants.NEWLINE;
+import static me.vault.vaultgame.utility.constant.CharacterConstants.LINE_FEED;
 import static me.vault.vaultgame.utility.constant.CharacterConstants.WHITESPACE;
 
 /**
@@ -34,7 +34,7 @@ public final class ArtifactTest
 	private static void testArtifactUpgrade ()
 	{
 		// Currencies are set to specified value
-		for (Currency currency : Currency.values())
+		for (final Currency currency : Currency.values())
 		{
 			currency.setAmount(UPGRADE_TEST_AMOUNT);
 		}
@@ -59,12 +59,12 @@ public final class ArtifactTest
 
 	private static void logCurrencyAmounts ()
 	{
-		StringBuilder currencyString = new StringBuilder();
-		for (Currency currency : Currency.values())
+		final StringBuilder currencyString = new StringBuilder();
+		for (final Currency currency : Currency.values())
 		{
 			currencyString.append(currency.toString()).append(WHITESPACE);
 		}
-		LOGGER.logNormal(currencyString.toString() + NEWLINE);
+		LOGGER.logNormal(currencyString.toString() + LINE_FEED);
 	}
 
 }

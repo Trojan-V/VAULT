@@ -28,7 +28,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	@Override
 	public void upgrade (final Artifact artifact)
 	{
-		if (!checkIsUpgradable(artifact))
+		if (!this.checkIsUpgradable(artifact))
 		{
 			return;
 		}
@@ -40,6 +40,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	}
 
 
+	@Override
 	public boolean checkIsUpgradable (final Artifact artifact)
 	{
 		// Checks if the artifact is already at the maximum level
@@ -49,8 +50,8 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 		}
 
 		// Checks if the user has enough currency to purchase the upgrade
-		CurrencyTransaction upgradeCosts = artifact.getCurrentProperties().getUpgradeCosts();
-		for (Currency providedCurrency : Currency.values())
+		final CurrencyTransaction upgradeCosts = artifact.getCurrentProperties().getUpgradeCosts();
+		for (final Currency providedCurrency : Currency.values())
 		{
 			if (providedCurrency.getAmount() < upgradeCosts.getAmount(providedCurrency))
 			{

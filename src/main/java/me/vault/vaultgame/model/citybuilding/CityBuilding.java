@@ -133,8 +133,8 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	public String toString ()
 	{
 		return "CityBuilding{" +
-		       "propertyMap=" + propertyMap +
-		       ", currentLevel=" + currentLevel +
+		       "propertyMap=" + this.propertyMap +
+		       ", currentLevel=" + this.currentLevel +
 		       '}';
 	}
 }

@@ -28,9 +28,9 @@ public class CityBuildingProperties
 	public String toString ()
 	{
 		return "CityBuildingProperties{" +
-		       "name='" + name + '\'' +
-		       ", imageView=" + imageView +
-		       ", scene=" + scene +
+		       "name='" + this.name + '\'' +
+		       ", imageView=" + this.imageView +
+		       ", scene=" + this.scene +
 		       '}';
 	}
 }

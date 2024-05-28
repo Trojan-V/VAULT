@@ -1,8 +1,6 @@
-package me.vault.vaultgame.model.Unit;
+package me.vault.vaultgame.model.unit;
 
 import me.vault.vaultgame.controller.CurrencyController;
-import me.vault.vaultgame.model.artifact.ArtifactLevel;
-import me.vault.vaultgame.model.artifact.ArtifactProperties;
 import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap;
 import me.vault.vaultgame.model.interfaces.IUpgradable;
 
@@ -322,8 +320,8 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
     public String toString ()
     {
         return "Unit{" +
-                "propertyMap=" + propertyMap +
-                ", currentLevel=" + currentLevel +
-                '}';
+               "propertyMap=" + this.propertyMap +
+               ", currentLevel=" + this.currentLevel +
+               '}';
     }
 }

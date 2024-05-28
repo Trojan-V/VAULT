@@ -90,8 +90,11 @@ public class ArtifactProperties
 	@Override
 	public String toString ()
 	{
-		return "ArtifactProperties[" + name + PIPE + healthIncrease + PIPE + regenerationIncrease + PIPE + meleeDamageIncrease + PIPE +
-		       energyDamageIncrease + PIPE + dodgeIncrease + PIPE + defenseIncrease + PIPE + upgradeCosts + ']';
+		return "ArtifactProperties[" + this.name + PIPE + this.healthIncrease + PIPE + this.regenerationIncrease +
+		       PIPE +
+		       this.meleeDamageIncrease + PIPE +
+		       this.energyDamageIncrease + PIPE + this.dodgeIncrease + PIPE + this.defenseIncrease + PIPE +
+		       this.upgradeCosts + ']';
 	}
 
 }

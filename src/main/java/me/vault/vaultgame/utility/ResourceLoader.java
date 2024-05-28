@@ -13,9 +13,6 @@ import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 
-/**
- *
- */
 public final class ResourceLoader
 {
 	private static final String IMAGE_NOT_LOADED_MSG = "The image-resource \"{0}\" could not load.";
