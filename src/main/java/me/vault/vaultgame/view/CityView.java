@@ -1,8 +1,15 @@
 package me.vault.vaultgame.view;
 
 
-import javafx.scene.layout.AnchorPane;
-import me.vault.vaultgame.controller.CityController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.Objects;
+
+import static me.vault.vaultgame.utility.constant.GameConstants.WINDOW_TITLE;
 
 
 /**
@@ -15,8 +22,21 @@ import me.vault.vaultgame.controller.CityController;
  */
 public class CityView
 {
-	public static void onBuildingButtonClick ()
-	{
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
+	 * properties (color etc.) of the GUI elements.
+	 */
+	private static final String STYLESHEET_FILENAME = "cityview.fxml";
 
+
+
+	public static void showCityView (final Stage stage) throws IOException
+	{
+		// TODO: Set scene to main stage scene
+		final Parent root = FXMLLoader.load(Objects.requireNonNull(CityView.class.getResource(STYLESHEET_FILENAME)));
+		final Scene scene = new Scene(root);
+		stage.setTitle(WINDOW_TITLE);
+		stage.setScene(scene);
+		stage.show();
 	}
 }

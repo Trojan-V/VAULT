@@ -24,6 +24,24 @@ public class CityBuildingProperties
 	}
 
 
+	public String getName ()
+	{
+		return this.name;
+	}
+
+
+	public ImageView getImageView ()
+	{
+		return this.imageView;
+	}
+
+
+	public Scene getScene ()
+	{
+		return this.scene;
+	}
+
+
 	@Override
 	public String toString ()
 	{

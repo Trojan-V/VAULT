@@ -2,6 +2,7 @@ package me.vault.vaultgame.model.citybuilding;
 
 
 import me.vault.vaultgame.model.interfaces.IUpgradable;
+import me.vault.vaultgame.utility.ResourceLoader;
 
 import java.util.Map;
 
@@ -68,7 +69,7 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	 */
 	WORKSHOP(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Workshop", null, null));
+		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Workshop", ResourceLoader.loadImage("src/main/resources/me/vault/vaultgame/assets/Forge_Button_16x16.png"), null));
 		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Workshop", null, null));
 		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Workshop", null, null));
 	}});

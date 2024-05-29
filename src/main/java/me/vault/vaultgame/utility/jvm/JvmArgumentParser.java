@@ -74,7 +74,7 @@ public final class JvmArgumentParser
 	}
 
 
-	private static void applyJvmArguments (String[] args)
+	private static void applyJvmArguments (final String[] args)
 	{
 		for (; currentArgumentPointer < args.length; currentArgumentPointer++)
 		{
@@ -91,7 +91,7 @@ public final class JvmArgumentParser
 	}
 
 
-	private static void handleLogDepth (String[] args)
+	private static void handleLogDepth (final String[] args)
 	{
 		if (args.length <= 1)
 		{

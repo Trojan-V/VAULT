@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.vault.vaultgame.utility.jvm.JvmArgumentParser;
+import me.vault.vaultgame.view.CityView;
 
 import java.io.IOException;
 
@@ -76,11 +77,7 @@ public class VaultApplication extends Application
 	@Override
 	public void start (final Stage stage) throws IOException
 	{
-		final FXMLLoader fxmlLoader = new FXMLLoader(VaultApplication.class.getResource(MAIN_STYLESHEET_FILENAME));
-		final Scene scene = new Scene(fxmlLoader.load(), WINDOW_START_WIDTH, WINDOW_START_HEIGHT);
-		stage.setTitle(WINDOW_TITLE);
-		stage.setScene(scene);
-		stage.show();
+		CityView.showCityView(stage);
 	}
 
 }

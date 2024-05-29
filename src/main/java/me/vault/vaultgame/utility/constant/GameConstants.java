@@ -22,4 +22,10 @@ public interface GameConstants
 	 */
 	@Constant
 	public static final String ASSETS_PATH = "src/main/resources/me/vault/game/assets/";
+
+	/**
+	 * The window title which will be displayed in the top bar of the game window.
+	 */
+	public static final String WINDOW_TITLE = "VAULT Game - Ver. 0.1";
+
 }
