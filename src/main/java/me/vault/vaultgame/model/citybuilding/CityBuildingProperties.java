@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 
+// TODO: Rename properties to attributes to remove unclear wording due to GUI properties
 public class CityBuildingProperties
 {
 	private final String name;

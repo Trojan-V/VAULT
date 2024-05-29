@@ -15,7 +15,7 @@ public class CurrencyTransaction
 	/**
 	 * The pattern that is used to have a formatted output in the {@link CurrencyTransaction#toString()} method.
 	 */
-	private static final String STRING_PATTERN = "CurrencyTransaction [ amountMap = {0} ]";
+	private static final String STRING_PATTERN = "CurrencyTransaction[amountMap = {0}]";
 
 
 	private static final Logger LOGGER = Logger.getLogger(CurrencyTransaction.class.getName());
@@ -73,6 +73,7 @@ public class CurrencyTransaction
 	@Override
 	public String toString ()
 	{
+		System.out.println(MessageFormat.format(STRING_PATTERN, this.currencyAmountMap.toString()));
 		return MessageFormat.format(STRING_PATTERN, this.currencyAmountMap.toString());
 	}
 

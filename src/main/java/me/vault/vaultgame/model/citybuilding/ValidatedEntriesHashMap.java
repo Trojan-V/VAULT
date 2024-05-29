@@ -15,6 +15,18 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 	}
 
 
+	@Override
+	public String toString ()
+	{
+		final StringBuilder builder = new StringBuilder();
+		for (final Map.Entry<E, F> entry : this.entrySet())
+		{
+			builder.append(entry.toString());
+		}
+		return builder.toString();
+	}
+
+
 	public static class Entry<E, F> implements Map.Entry<E, F>
 	{
 		private final E key;
@@ -68,6 +80,13 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 		{
 			this.value = value;
 			return this.value;
+		}
+
+
+		@Override
+		public String toString ()
+		{
+			return "[key=" + this.key + ", value=" + this.value + "]";
 		}
 	}
 }

@@ -6,19 +6,12 @@ import me.vault.vaultgame.utility.Logger;
 import me.vault.vaultgame.utility.jvm.JvmArgumentParser;
 import org.junit.jupiter.api.Assertions;
 
-import java.text.MessageFormat;
-
-import static me.vault.vaultgame.utility.Logger.Level.DEBUG;
-import static me.vault.vaultgame.utility.Logger.Level.NORMAL;
-import static me.vault.vaultgame.utility.constant.CharacterConstants.DIVIDER;
 import static me.vault.vaultgame.utility.constant.CharacterConstants.WHITESPACE;
 
 // TODO: Logs aus der Testklasse in die richtige ArtifactController Klasse verschieben
 /**
- * Current covered tests:
- * <br>
- * - Upgrading of artifacts: {@link ArtifactController#upgrade(Artifact)}
- * <br>
+ * <u>Tests covered by this class</u> <br>
+ * - Upgrading of artifacts: {@link ArtifactController#upgrade(Artifact)} <br>
  * - Check if the artifacts are actually upgradable: {@link ArtifactController#checkIsUpgradable(Artifact)}
  *
  * @author Vincent Wolf
@@ -86,8 +79,8 @@ public final class ArtifactTest
 		for (final Artifact artifact : Artifact.values())
 		{
 			final boolean isUpgradable = ArtifactController.getInstance().checkIsUpgradable(artifact);
-			LOGGER.log(DEBUG, MessageFormat.format(ARTIFACT_CAN_BE_UPGRADED_MESSAGE, artifact.name(),
-				artifact.getLevel(), isUpgradable));
+			//			LOGGER.log(DEBUG, MessageFormat.format(ARTIFACT_CAN_BE_UPGRADED_MESSAGE, artifact.name(),
+			//				artifact.getLevel(), isUpgradable));
 			if (!isUpgradable)
 			{
 				areAllArtifactsUpgradable = false;
@@ -112,8 +105,8 @@ public final class ArtifactTest
 		setArtifactsToLevel(ArtifactLevel.BASE);
 
 		setStartingCurrencyAmounts();
-		LOGGER.log(DEBUG, AVAILABLE_CURRENCIES_MESSAGE + getCurrentCurrencyAmounts());
-		LOGGER.log(NORMAL, DIVIDER);
+		//		LOGGER.log(DEBUG, AVAILABLE_CURRENCIES_MESSAGE + getCurrentCurrencyAmounts());
+		//		LOGGER.log(NORMAL, DIVIDER);
 
 		upgradeAllArtifacts();
 		upgradeAllArtifacts();
@@ -126,7 +119,8 @@ public final class ArtifactTest
 		{
 			final ArtifactLevel previousActifactLevel = artifact.getLevel();
 
-			LOGGER.log(DEBUG, MessageFormat.format(CURRENT_ARTIFACT_MESSAGE, artifact.name(), artifact.getLevel()));
+			//			LOGGER.log(DEBUG, MessageFormat.format(CURRENT_ARTIFACT_MESSAGE, artifact.name(), artifact
+			//			.getLevel()));
 			ArtifactController.getInstance().upgrade(artifact);
 
 			// Would become more complex logic here if more than two levels would exist.
@@ -135,9 +129,10 @@ public final class ArtifactTest
 				"because either the level was upgraded if the artifact was at the base level before, or it should " +
 				"stay at " + ArtifactLevel.SUPER + " because there is no higher level than super at the moment.");
 
-			LOGGER.log(DEBUG, MessageFormat.format(UPGRADED_MESSAGE, artifact.name(), artifact.getLevel()));
-			LOGGER.log(DEBUG, AVAILABLE_CURRENCIES_MESSAGE + getCurrentCurrencyAmounts());
-			LOGGER.log(NORMAL, DIVIDER);
+			//			LOGGER.log(DEBUG, MessageFormat.format(UPGRADED_MESSAGE, artifact.name(), artifact.getLevel
+			//			()));
+			//			LOGGER.log(DEBUG, AVAILABLE_CURRENCIES_MESSAGE + getCurrentCurrencyAmounts());
+			//			LOGGER.log(NORMAL, DIVIDER);
 		}
 	}
 

@@ -13,8 +13,12 @@ public final class CityBuildingView
 	private CityBuildingView () {}
 
 
-	public static void onUpgradeArtifactLeftClick ()
+	public static final class Forge
 	{
-
+		public static void onUpgradeArtifactLeftClick ()
+		{
+			//			ArtifactController.getInstance().upgrade(artifact);
+		}
 	}
+
 }

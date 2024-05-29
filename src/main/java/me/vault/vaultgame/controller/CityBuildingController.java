@@ -25,6 +25,7 @@ public final class CityBuildingController implements IUpgrader<CityBuilding, Cit
 	@Override
 	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
 	{
+		// TODO: Implement
 		return false;
 	}
 
@@ -32,7 +33,7 @@ public final class CityBuildingController implements IUpgrader<CityBuilding, Cit
 	@Override
 	public void upgrade (final CityBuilding cityBuilding)
 	{
-
+		// TODO: Implement
 	}
 
 

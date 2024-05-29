@@ -21,7 +21,7 @@ import java.util.Locale;
 public class Logger
 {
 	/**
-	 * The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the loggers
+	 * The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the logger
 	 * properties.
 	 */
 	private static final String TO_STRING_PATTERN = "Logger[\"{0}\" | depth = \"{1}\"]";
