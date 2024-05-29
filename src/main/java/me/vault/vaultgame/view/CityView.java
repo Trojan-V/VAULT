@@ -1,6 +1,7 @@
 package me.vault.vaultgame.view;
 
 
+import javafx.scene.layout.AnchorPane;
 import me.vault.vaultgame.controller.CityController;
 
 
@@ -16,6 +17,6 @@ public class CityView
 {
 	public static void onBuildingButtonClick ()
 	{
-		CityController.openBuildingDialog();
+
 	}
 }
