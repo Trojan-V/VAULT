@@ -22,6 +22,12 @@ public final class CityBuildingController implements IUpgrader<CityBuilding, Cit
 	{}
 
 
+	public static CityBuildingController getInstance ()
+	{
+		return INSTANCE;
+	}
+
+
 	@Override
 	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
 	{
@@ -34,11 +40,5 @@ public final class CityBuildingController implements IUpgrader<CityBuilding, Cit
 	public void upgrade (final CityBuilding cityBuilding)
 	{
 		// TODO: Implement
-	}
-
-
-	public static CityBuildingController getInstance ()
-	{
-		return INSTANCE;
 	}
 }

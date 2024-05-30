@@ -54,8 +54,9 @@ public class Statistics
 	private final int grenadeRange;
 
 
-	public Statistics (final int healthPoints, final int meleeDamageReduction, final int energyPoints, final int meleeDamage, final int grenadeDamage,
-		final int grenadeAmount, final int dodgeRate, final int energyDamageReduction, final int movementTiles, final int initiative, final int meleeRange,
+	public Statistics (final int healthPoints, final int meleeDamageReduction, final int energyPoints,
+		final int meleeDamage, final int grenadeDamage, final int grenadeAmount, final int dodgeRate,
+		final int energyDamageReduction, final int movementTiles, final int initiative, final int meleeRange,
 		final int grenadeRange)
 	{
 		this.healthPoints = healthPoints;

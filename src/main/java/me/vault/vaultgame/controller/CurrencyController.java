@@ -51,8 +51,8 @@ public final class CurrencyController
 	}
 
 
-	public static CurrencyTransaction createTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount, final int foodAmount,
-		final int energyAmount)
+	public static CurrencyTransaction createTransaction (final int steelAmount, final int compositeAmount,
+		final int scienceAmount, final int foodAmount, final int energyAmount)
 	{
 		try
 		{

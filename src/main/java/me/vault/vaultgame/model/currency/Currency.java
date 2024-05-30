@@ -27,33 +27,33 @@ public enum Currency
 	/**
 	 * The steel-currency, which is the main-resource used to upgrade buildings.
 	 */
-	STEEL(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
+	STEEL(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/steel_icon.png")),
 
 	/**
 	 * The composite-currency, which is the rarer resource used to upgrade buildings.
 	 */
-	COMPOSITE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
+	COMPOSITE(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/composite_icon.png")),
 
 	/**
 	 * The food rations currency, which is the main-resource used to upgrade troops.
 	 */
-	FOOD_RATION(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
+	FOOD_RATION(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/food_ration_icon.png")),
 
 	/**
 	 * The science currency, which is the rarer resource used to upgrade troops.
 	 */
-	SCIENCE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
+	SCIENCE(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/science_icon.png")),
 
 	/**
 	 * The energy-credits currency, which is the rarest resource used to upgrade troops.
 	 */
-	ENERGY_CREDIT(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"));
+	ENERGY_CREDIT(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/credit_icon.png"));
 
 
 	/**
 	 * The format, which is used to display the object with its properties.
 	 */
-	private static final String STRING_FORMAT = "{0} [amount = {1,number,integer}]";
+	private static final String TO_STRING_FORMAT = "{0} [amount={1} | image={2}]";
 
 
 	/**
@@ -72,7 +72,7 @@ public enum Currency
 	 * The constructor of the {@code Currency} enum, which accepts an amount and a sprite.
 	 *
 	 * @param amount The amount of the currency as an {@link Integer}.
-	 * @param image The sprite of the currency as an {@link Image}.
+	 * @param image  The sprite of the currency as an {@link Image}.
 	 */
 	Currency (final int amount, final Image image)
 	{
@@ -134,6 +134,6 @@ public enum Currency
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(STRING_FORMAT, this.name(), this.amount);
+		return MessageFormat.format(TO_STRING_FORMAT, this.name(), this.amount, this.image);
 	}
 }

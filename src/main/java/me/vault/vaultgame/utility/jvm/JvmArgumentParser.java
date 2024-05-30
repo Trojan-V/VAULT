@@ -63,8 +63,7 @@ public final class JvmArgumentParser
 		{
 			LOGGER.log(WARNING, MessageFormat.format(INVALID.toString(), args[currentArgumentPointer],
 				currentArgumentPointer));
-			LOGGER.log(NORMAL, MessageFormat.format(VALID_ARGUMENT_LIST.toString(),
-				(Object[]) JvmArgument.values()));
+			LOGGER.log(NORMAL, MessageFormat.format(VALID_ARGUMENT_LIST.toString(), (Object[]) JvmArgument.values()));
 		}
 		finally
 		{

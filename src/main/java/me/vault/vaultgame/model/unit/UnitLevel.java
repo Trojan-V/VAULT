@@ -1,5 +1,6 @@
 package me.vault.vaultgame.model.unit;
 
+
 /**
  * @author Alexander Göthel
  * @version 1.0.0
@@ -7,7 +8,7 @@ package me.vault.vaultgame.model.unit;
  */
 public enum UnitLevel
 {
-    SINGEL_COMBATANT,
-    COUPLE,
-    SQUAD
+	SINGEL_COMBATANT,
+	COUPLE,
+	SQUAD
 }

@@ -1,6 +1,8 @@
 package me.vault.vaultgame.model.unit;
 
+
 import me.vault.vaultgame.model.currency.CurrencyTransaction;
+
 
 /**
  * @author Alexander Göthel
@@ -9,135 +11,150 @@ import me.vault.vaultgame.model.currency.CurrencyTransaction;
  */
 public class UnitProperties
 {
-    private final String name;
+	private final String name;
 
 
-    private final double health;
+	private final double health;
 
 
-    private final double armour;
+	private final double armour;
 
 
-    private final int energy;
+	private final int energy;
 
 
-    private final int meleeDamage;
+	private final int meleeDamage;
 
 
-    private final int grenade;
+	private final int grenade;
 
 
-    private final int grenadeAmount;
+	private final int grenadeAmount;
 
 
-    private final double dodge;
+	private final double dodge;
 
 
-    private final double resistance;
+	private final double resistance;
 
 
-    private final int movementRange;
+	private final int movementRange;
 
 
-    private final int initiative;
+	private final int initiative;
 
 
-    private final int meleeRange;
+	private final int meleeRange;
 
 
-    private final int grenadeRange;
-    private final CurrencyTransaction upgradeCosts;
+	private final int grenadeRange;
 
 
-    public UnitProperties (final CurrencyTransaction upgradeCosts, final double health, final double armour,
-        final int energy, final int meleeDamage,
-        final int grenade, final int grenadeAmount, final double dodge, final double resistance,
-        final int movementRange,
-        final int initiative, final int meleeRange, final int grenadeRange, final String name)
-    {
-        this.name = name;
-        this.upgradeCosts = upgradeCosts;
-        this.health = health;
-        this.armour = armour;
-        this.energy = energy;
-        this.meleeDamage = meleeDamage;
-        this.grenade = grenade;
-        this.grenadeAmount = grenadeAmount;
-        this.dodge = dodge;
-        this.resistance = resistance;
-        this.movementRange = movementRange;
-        this.initiative = initiative;
-        this.meleeRange = meleeRange;
-        this.grenadeRange = grenadeRange;
-    }
+	private final CurrencyTransaction upgradeCosts;
 
-    public String getName ()
-    {
-        return this.name;
-    }
 
-    public double getHealth ()
-    {
-        return this.health;
-    }
+	public UnitProperties (final CurrencyTransaction upgradeCosts, final double health, final double armour,
+		final int energy, final int meleeDamage, final int grenade, final int grenadeAmount, final double dodge,
+		final double resistance, final int movementRange, final int initiative, final int meleeRange,
+		final int grenadeRange, final String name)
+	{
+		this.name = name;
+		this.upgradeCosts = upgradeCosts;
+		this.health = health;
+		this.armour = armour;
+		this.energy = energy;
+		this.meleeDamage = meleeDamage;
+		this.grenade = grenade;
+		this.grenadeAmount = grenadeAmount;
+		this.dodge = dodge;
+		this.resistance = resistance;
+		this.movementRange = movementRange;
+		this.initiative = initiative;
+		this.meleeRange = meleeRange;
+		this.grenadeRange = grenadeRange;
+	}
 
-    public double getArmour ()
-    {
-        return this.armour;
-    }
 
-    public int getEnergy ()
-    {
-        return this.energy;
-    }
+	public String getName ()
+	{
+		return this.name;
+	}
 
-    public int getMeleeDamage ()
-    {
-        return this.meleeDamage;
-    }
 
-    public int getGrenade ()
-    {
-        return this.grenade;
-    }
+	public double getHealth ()
+	{
+		return this.health;
+	}
 
-    public int getGrenadeAmount ()
-    {
-        return this.grenadeAmount;
-    }
 
-    public double getDodge ()
-    {
-        return this.dodge;
-    }
+	public double getArmour ()
+	{
+		return this.armour;
+	}
 
-    public double getResistance ()
-    {
-        return this.resistance;
-    }
 
-    public int getMovementRange ()
-    {
-        return this.movementRange;
-    }
+	public int getEnergy ()
+	{
+		return this.energy;
+	}
 
-    public int getInitiative ()
-    {
-        return this.initiative;
-    }
 
-    public int getMeleeRange ()
-    {
-        return this.meleeRange;
-    }
+	public int getMeleeDamage ()
+	{
+		return this.meleeDamage;
+	}
 
-    public int getGrenadeRange ()
-    {
-        return this.grenadeRange;
-    }
 
-    public CurrencyTransaction getUpgradeCosts ()
-    {
-        return this.upgradeCosts;
-    }
+	public int getGrenade ()
+	{
+		return this.grenade;
+	}
+
+
+	public int getGrenadeAmount ()
+	{
+		return this.grenadeAmount;
+	}
+
+
+	public double getDodge ()
+	{
+		return this.dodge;
+	}
+
+
+	public double getResistance ()
+	{
+		return this.resistance;
+	}
+
+
+	public int getMovementRange ()
+	{
+		return this.movementRange;
+	}
+
+
+	public int getInitiative ()
+	{
+		return this.initiative;
+	}
+
+
+	public int getMeleeRange ()
+	{
+		return this.meleeRange;
+	}
+
+
+	public int getGrenadeRange ()
+	{
+		return this.grenadeRange;
+	}
+
+
+	public CurrencyTransaction getUpgradeCosts ()
+	{
+		return this.upgradeCosts;
+	}
 }

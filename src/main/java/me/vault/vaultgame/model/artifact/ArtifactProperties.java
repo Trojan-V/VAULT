@@ -1,32 +1,41 @@
 package me.vault.vaultgame.model.artifact;
 
+
 import me.vault.vaultgame.model.currency.CurrencyTransaction;
 
 import static me.vault.vaultgame.utility.constant.CharacterConstants.PIPE;
+
 
 // TODO: Kapselung der Attribute
 public class ArtifactProperties
 {
 	private final String name;
 
+
 	private final double healthIncrease;
+
 
 	private final double regenerationIncrease;
 
+
 	private final double meleeDamageIncrease;
+
 
 	private final double energyDamageIncrease;
 
+
 	private final double dodgeIncrease;
 
+
 	private final double defenseIncrease;
+
 
 	private final CurrencyTransaction upgradeCosts;
 
 
-	public ArtifactProperties (final CurrencyTransaction upgradeCosts, final double healthIncrease, final double regenerationIncrease,
-			final double meleeDamageIncrease, final double energyDamageIncrease, final double dodgeIncrease, final double defenseIncrease,
-			final String name)
+	public ArtifactProperties (final CurrencyTransaction upgradeCosts, final double healthIncrease,
+		final double regenerationIncrease, final double meleeDamageIncrease, final double energyDamageIncrease,
+		final double dodgeIncrease, final double defenseIncrease, final String name)
 	{
 		this.name = name;
 		this.upgradeCosts = upgradeCosts;
@@ -91,10 +100,8 @@ public class ArtifactProperties
 	public String toString ()
 	{
 		return "ArtifactProperties[" + this.name + PIPE + this.healthIncrease + PIPE + this.regenerationIncrease +
-		       PIPE +
-		       this.meleeDamageIncrease + PIPE +
-		       this.energyDamageIncrease + PIPE + this.dodgeIncrease + PIPE + this.defenseIncrease + PIPE +
-		       this.upgradeCosts + ']';
+		       PIPE + this.meleeDamageIncrease + PIPE + this.energyDamageIncrease + PIPE + this.dodgeIncrease + PIPE +
+		       this.defenseIncrease + PIPE + this.upgradeCosts + ']';
 	}
 
 }

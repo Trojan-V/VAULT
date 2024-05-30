@@ -3,7 +3,6 @@ package me.vault.vaultgame;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.vault.vaultgame.utility.jvm.JvmArgumentParser;
 import me.vault.vaultgame.view.CityView;

@@ -25,5 +25,5 @@ public interface MiscConstants
 	 * @see me.vault.vaultgame.controller.CurrencyController#createTransaction(int, int, int, int, int)
 	 */
 	@Constant
-	public static final int ERROR_EXIT_CODE = -1;
+	public static final int ERROR_EXIT_CODE = - 1;
 }

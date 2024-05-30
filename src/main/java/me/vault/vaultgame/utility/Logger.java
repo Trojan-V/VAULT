@@ -44,17 +44,17 @@ public class Logger
 
 
 	/**
-	 * The name of the class, which the {@link Logger} is applied to.
-	 */
-	private final String className;
-
-
-	/**
 	 * The depth of the {@link Logger}. Represents how deep level of the {@link Logger#log(Level, String)} calls
 	 * must be
 	 * to be shown in the console window.
 	 */
 	private static Level depth = Level.NORMAL;
+
+
+	/**
+	 * The name of the class, which the {@link Logger} is applied to.
+	 */
+	private final String className;
 
 
 	/**
@@ -69,21 +69,6 @@ public class Logger
 
 
 	/**
-	 * Logs a message at the specified logging level.
-	 *
-	 * @param level   the logging level
-	 * @param message the message to log
-	 */
-	public void log (final Level level, final String message)
-	{
-		if (level.ordinal() >= depth.ordinal())
-		{
-			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
-		}
-	}
-
-
-	/**
 	 * Generates a timestamp for the current date and time.
 	 *
 	 * @return a string representation of the current timestamp
@@ -91,17 +76,6 @@ public class Logger
 	private static String getTimestamp ()
 	{
 		return DATETIME_FORMAT.format(Date.from(Instant.now(Clock.systemDefaultZone())));
-	}
-
-
-	/**
-	 * Generates a prefix for log messages including timestamp and class name.
-	 *
-	 * @return the prefix for log messages
-	 */
-	private String getPrefix ()
-	{
-		return MessageFormat.format(LOG_MESSAGE_PREFIX, getTimestamp(), this.className);
 	}
 
 
@@ -124,6 +98,32 @@ public class Logger
 	public static void setDepth (final Level depth)
 	{
 		Logger.depth = depth;
+	}
+
+
+	/**
+	 * Logs a message at the specified logging level.
+	 *
+	 * @param level   the logging level
+	 * @param message the message to log
+	 */
+	public void log (final Level level, final String message)
+	{
+		if (level.ordinal() >= depth.ordinal())
+		{
+			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
+		}
+	}
+
+
+	/**
+	 * Generates a prefix for log messages including timestamp and class name.
+	 *
+	 * @return the prefix for log messages
+	 */
+	private String getPrefix ()
+	{
+		return MessageFormat.format(LOG_MESSAGE_PREFIX, getTimestamp(), this.className);
 	}
 
 

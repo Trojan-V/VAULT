@@ -10,7 +10,7 @@ import me.vault.vaultgame.utility.Logger;
 import java.io.IOException;
 import java.util.Objects;
 
-import static me.vault.vaultgame.utility.Logger.Level.*;
+import static me.vault.vaultgame.utility.Logger.Level.DEBUG;
 
 
 /**
@@ -24,7 +24,7 @@ import static me.vault.vaultgame.utility.Logger.Level.*;
 public final class CityView
 {
 	private static final Logger LOGGER = new Logger(CityView.class.getSimpleName());
-	
+
 
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the

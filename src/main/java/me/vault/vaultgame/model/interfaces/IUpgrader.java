@@ -1,5 +1,6 @@
 package me.vault.vaultgame.model.interfaces;
 
+
 // TODO: Bezeichner der Generics!!!!!!!!
 public interface IUpgrader<E extends IUpgradable<F, G>, F, G>
 {

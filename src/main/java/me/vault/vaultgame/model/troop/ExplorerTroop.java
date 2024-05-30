@@ -4,8 +4,6 @@ package me.vault.vaultgame.model.troop;
 import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap;
 import me.vault.vaultgame.model.interfaces.IUpgradable;
 
-import java.util.Map;
-
 
 public enum ExplorerTroop implements IUpgradable<ExplorerTroopLevel, ExplorerTroopProperties>
 {

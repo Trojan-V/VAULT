@@ -41,8 +41,7 @@ public class CurrencyTransaction
 
 
 	public CurrencyTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount,
-		final int foodAmount, final int energyAmount)
-		throws InvalidMapEntryException
+		final int foodAmount, final int energyAmount) throws InvalidMapEntryException
 	{
 		this.currencyAmountMap.put(new Entry<>(Currency.STEEL, steelAmount));
 		this.currencyAmountMap.put(new Entry<>(Currency.COMPOSITE, compositeAmount));

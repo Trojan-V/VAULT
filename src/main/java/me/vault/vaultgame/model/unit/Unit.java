@@ -1,8 +1,10 @@
 package me.vault.vaultgame.model.unit;
 
+
 import me.vault.vaultgame.controller.CurrencyController;
 import me.vault.vaultgame.model.citybuilding.ValidatedEntriesHashMap;
 import me.vault.vaultgame.model.interfaces.IUpgradable;
+
 
 /**
  * @author Alexander Göthel
@@ -17,42 +19,36 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	MEDIC(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Medic Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Medic Couple"));
-			this.put(UnitLevel.SQUAD,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Medic Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Medic Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Medic Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Medic Squad"));
 		}
 	}),
 
 	SNIPER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Sniper Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Sniper Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Sniper Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Sniper Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Sniper Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Sniper Squad"));
 		}
 	}),
 
 	RANGER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Ranger Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Ranger Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Ranger Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Ranger Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Ranger Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Ranger Squad"));
 		}
 	}),
 
@@ -62,42 +58,36 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	SPACE_MARINE(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Space-Marine Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Space-Marine Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Space-Marine Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Space-Marine Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Space-Marine Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Space-Marine Squad"));
 		}
 	}),
 
 	ENGINEER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Engineer Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Engineer Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Engineer Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Engineer Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Engineer Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Engineer Squad"));
 		}
 	}),
 
 	OFFICER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Officer Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Officer Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Officer Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Officer Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Officer Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Officer Squad"));
 		}
 	}),
 
@@ -107,42 +97,36 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	GUARD(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Guard Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Guard Couple"));
-			this.put(UnitLevel.SQUAD,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Guard Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Guard Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Guard Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Guard Squad"));
 		}
 	}),
 
 	GRENADIER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Grenadier Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Grenadier Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Grenadier Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Grenadier Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Grenadier Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Grenadier Squad"));
 		}
 	}),
 
 	RECRUIT(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Recruit Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Recruit Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Recruit Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Recruit Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Recruit Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Recruit Squad"));
 		}
 	}),
 
@@ -152,46 +136,42 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	INFANTRY(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Infantry Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Infantry Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Infantry Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Infantry Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Infantry Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Infantry Squad"));
 		}
 	}),
 
 	LIEUTENANT(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Lieutenant Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Lieutenant Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Lieutenant Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Lieutenant Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Lieutenant Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Lieutenant Squad"));
 		}
 	}),
 
 	PRECISION_SHOOTER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Precision Shooter Single Combatant"));
-			this.put(UnitLevel.COUPLE,
-			         new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                            "Precision Shooter Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			                                             "Precision Shooter Squad"));
+			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Precision Shooter Single Combatant"));
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Precision Shooter Couple"));
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Precision Shooter Squad"));
 		}
 	});
 
+
 	private final ValidatedEntriesHashMap<UnitLevel, UnitProperties> propertyMap;
+
 
 	private UnitLevel currentLevel;
 

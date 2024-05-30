@@ -1,5 +1,6 @@
 package me.vault.vaultgame.controller;
 
+
 import me.vault.vaultgame.model.artifact.Artifact;
 import me.vault.vaultgame.model.artifact.ArtifactLevel;
 import me.vault.vaultgame.model.artifact.ArtifactProperties;
@@ -31,11 +32,23 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	{}
 
 
+	private static boolean checkIsArtifactMaxed (final Artifact artifact)
+	{
+		return artifact.getLevel().ordinal() == ArtifactLevel.values().length - 1;
+	}
+
+
+	public static ArtifactController getInstance ()
+	{
+		return INSTANCE;
+	}
+
+
 	@Override
 	public void upgrade (final Artifact artifact)
 	{
 		LOGGER.log(Level.DEBUG, "Invoked the upgrade() method for the artifact " + artifact.name());
-		if (!this.checkIsUpgradable(artifact))
+		if (! this.checkIsUpgradable(artifact))
 		{
 			return;
 		}
@@ -56,8 +69,8 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 		// Checks if the artifact is already at the maximum level
 		if (checkIsArtifactMaxed(artifact))
 		{
-			LOGGER.log(Level.DEBUG, "The artifact is already at the maximum level and cannot be upgraded any further" +
-			                        ".");
+			LOGGER.log(Level.DEBUG,
+				"The artifact is already at the maximum level and cannot be upgraded any further" + ".");
 			return false;
 		}
 
@@ -69,30 +82,18 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 			// TODO: Rename providedCurrency to something more intuitive
 			if (providedCurrency.getAmount() < upgradeCosts.getAmount(providedCurrency))
 			{
-				LOGGER.log(Level.DEBUG, "The available amount of " + providedCurrency.name() + " is not sufficient " +
-				                        "to" +
-				                        " perform the requested upgrade. The cost for the upgrade is at " +
-				                        upgradeCosts.getAmount(providedCurrency) + " " + providedCurrency.name());
+				LOGGER.log(Level.DEBUG,
+					"The available amount of " + providedCurrency.name() + " is not sufficient " + "to" +
+					" perform the requested upgrade. The cost for the upgrade is at " +
+					upgradeCosts.getAmount(providedCurrency) + " " + providedCurrency.name());
 				return false;
 			}
 		}
 
 		// If all checks are passed, the method returns true.
-		LOGGER.log(Level.DEBUG, "The artifact can be upgraded to the next level, leaving the checkIsUpgradable() " +
-		                        "method.");
+		LOGGER.log(Level.DEBUG,
+			"The artifact can be upgraded to the next level, leaving the checkIsUpgradable() " + "method.");
 		return true;
-	}
-
-
-	private static boolean checkIsArtifactMaxed (final Artifact artifact)
-	{
-		return artifact.getLevel().ordinal() == ArtifactLevel.values().length - 1;
-	}
-
-
-	public static ArtifactController getInstance ()
-	{
-		return INSTANCE;
 	}
 
 }
