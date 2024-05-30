@@ -1,4 +1,4 @@
-import me.vault.vaultgame.model.citybuilding.CityBuilding;
+import me.vault.game.model.citybuilding.CityBuilding;
 
 
 /**

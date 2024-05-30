@@ -1,18 +1,25 @@
-import me.vault.vaultgame.controller.ArtifactController;
-import me.vault.vaultgame.model.artifact.Artifact;
-import me.vault.vaultgame.model.artifact.ArtifactLevel;
-import me.vault.vaultgame.model.currency.Currency;
-import me.vault.vaultgame.utility.Logger;
-import me.vault.vaultgame.utility.jvm.JvmArgumentParser;
+import me.vault.game.controller.ArtifactController;
+import me.vault.game.model.artifact.Artifact;
+import me.vault.game.model.artifact.ArtifactLevel;
+import me.vault.game.model.currency.Currency;
+import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.utility.jvm.JvmArgumentParser;
 import org.junit.jupiter.api.Assertions;
+import util.TestUtil;
 
-import static me.vault.vaultgame.utility.constant.CharacterConstants.WHITESPACE;
+import java.text.MessageFormat;
+
+import static me.vault.game.utility.constant.CharacterConstants.WHITESPACE;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
 
 // TODO: Logs aus der Testklasse in die richtige ArtifactController Klasse verschieben
+
+
 /**
  * <u>Tests covered by this class</u> <br>
- * - Upgrading of artifacts: {@link ArtifactController#upgrade(Artifact)} <br>
- * - Check if the artifacts are actually upgradable: {@link ArtifactController#checkIsUpgradable(Artifact)}
+ * - Upgrading of artifacts: {@link ArtifactController#upgrade(Artifact)} (Also checks if the currencies are deducted
+ * correctly after an upgrade has been made) <br> - Check if the artifacts are actually upgradable:
+ * {@link ArtifactController#checkIsUpgradable(Artifact)}
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -22,24 +29,6 @@ import static me.vault.vaultgame.utility.constant.CharacterConstants.WHITESPACE;
  */
 public final class ArtifactTest
 {
-	private static final int UPGRADE_TEST_AMOUNT = 1000;
-
-
-	private static final String UPGRADED_MESSAGE = "The artifact {0} was upgraded to the level {1}.";
-
-
-	private static final String AVAILABLE_CURRENCIES_MESSAGE = "Available currencies: ";
-
-
-	private static final Logger LOGGER = new Logger(ArtifactTest.class.getSimpleName());
-
-
-	private static final String CURRENT_ARTIFACT_MESSAGE = "Artifact {0} (Level: {1})";
-
-
-	private static final String ARTIFACT_CAN_BE_UPGRADED_MESSAGE = "The artifact {0} ({1}) can be upgraded: {2}";
-
-
 	private static final String ARTIFACTS_NOT_UPGRADABLE_AT_BASE_LEVEL_ERROR_MESSAGE =
 		"Not all artifacts were upgradable, even though all artifacts have been set to the level " +
 		ArtifactLevel.BASE.name() + " before the test was run.";
@@ -50,6 +39,19 @@ public final class ArtifactTest
 		ArtifactLevel.SUPER.name() + " before the test was run.";
 
 
+	public static final String INVALID_CURRENCY_AMOUNT_AFTER_UPGRADE_MESSAGE =
+		"The amount of {0} after the upgrade was performed was not deducted by the correct amount (Correct " +
+		" deduction amount: {1, number, integer} - Upgrade cost of the artifact). " + "\nAmount of {0} before " +
+		"the upgrade was performed = {2}; Amount of {0} after the upgrade was performed " +
+		"= {3}; Current artifact level = {4}";
+
+
+	private static final String ARTIFACT_LEVEL_IS_NOT_SUPER_AFTER_UPGRADE_MESSAGE =
+		"The artifact level is not equal to " + ArtifactLevel.SUPER + ", although it always should be, " +
+		"because either the level was upgraded if the artifact was at the base level before, or it should " +
+		"stay at " + ArtifactLevel.SUPER + " because there is no higher level than super at the moment.";
+
+
 	private ArtifactTest () {}
 
 
@@ -58,6 +60,7 @@ public final class ArtifactTest
 		JvmArgumentParser.apply(args);
 		testCheckIsArtifactUpgradable();
 		testUpgradeArtifacts();
+		testArtifactLevelGetters();
 	}
 
 
@@ -78,10 +81,7 @@ public final class ArtifactTest
 		boolean areAllArtifactsUpgradable = true;
 		for (final Artifact artifact : Artifact.values())
 		{
-			final boolean isUpgradable = ArtifactController.getInstance().checkIsUpgradable(artifact);
-			//			LOGGER.log(DEBUG, MessageFormat.format(ARTIFACT_CAN_BE_UPGRADED_MESSAGE, artifact.name(),
-			//				artifact.getLevel(), isUpgradable));
-			if (!isUpgradable)
+			if (!ArtifactController.getInstance().checkIsUpgradable(artifact))
 			{
 				areAllArtifactsUpgradable = false;
 			}
@@ -103,11 +103,7 @@ public final class ArtifactTest
 	{
 		// Set the artifact level to the base level before testing, as otherwise testing upgrading wouldn't make sense.
 		setArtifactsToLevel(ArtifactLevel.BASE);
-
-		setStartingCurrencyAmounts();
-		//		LOGGER.log(DEBUG, AVAILABLE_CURRENCIES_MESSAGE + getCurrentCurrencyAmounts());
-		//		LOGGER.log(NORMAL, DIVIDER);
-
+		TestUtil.setStartingCurrencyAmounts();
 		upgradeAllArtifacts();
 		upgradeAllArtifacts();
 	}
@@ -117,32 +113,68 @@ public final class ArtifactTest
 	{
 		for (final Artifact artifact : Artifact.values())
 		{
-			final ArtifactLevel previousActifactLevel = artifact.getLevel();
+			final int steelAmountBeforeUpgrade = Currency.STEEL.getAmount();
+			final int compositeAmountBeforeUpgrade = Currency.COMPOSITE.getAmount();
+			final int energyCreditAmountBeforeUpgrade = Currency.ENERGY_CREDIT.getAmount();
+			final int foodRationAmountBeforeUpgrade = Currency.FOOD_RATION.getAmount();
+			final int scienceAmountBeforeUpgrade = Currency.SCIENCE.getAmount();
 
-			//			LOGGER.log(DEBUG, MessageFormat.format(CURRENT_ARTIFACT_MESSAGE, artifact.name(), artifact
-			//			.getLevel()));
+			final ArtifactLevel artifactLevelBeforeUpgrade = artifact.getLevel();
+
+			final CurrencyTransaction upgradeCosts = artifact.getCurrentProperties().getUpgradeCosts();
+			final int steelUpgradeCost = upgradeCosts.getAmount(Currency.STEEL);
+			final int compositeUpgradeCost = upgradeCosts.getAmount(Currency.COMPOSITE);
+			final int energyCreditUpgradeCost = upgradeCosts.getAmount(Currency.ENERGY_CREDIT);
+			final int foodRationUpgradeCost = upgradeCosts.getAmount(Currency.FOOD_RATION);
+			final int scienceUpgradeCost = upgradeCosts.getAmount(Currency.SCIENCE);
+
 			ArtifactController.getInstance().upgrade(artifact);
 
+
 			// Would become more complex logic here if more than two levels would exist.
-			Assertions.assertEquals(ArtifactLevel.SUPER, artifact.getLevel(),
-				"The artifact level is not equal to " + ArtifactLevel.SUPER + ", although it always should be, " +
-				"because either the level was upgraded if the artifact was at the base level before, or it should " +
-				"stay at " + ArtifactLevel.SUPER + " because there is no higher level than super at the moment.");
+			Assertions.assertEquals(ArtifactLevel.SUPER, artifact.getLevel(), ARTIFACT_LEVEL_IS_NOT_SUPER_AFTER_UPGRADE_MESSAGE);
 
-			//			LOGGER.log(DEBUG, MessageFormat.format(UPGRADED_MESSAGE, artifact.name(), artifact.getLevel
-			//			()));
-			//			LOGGER.log(DEBUG, AVAILABLE_CURRENCIES_MESSAGE + getCurrentCurrencyAmounts());
-			//			LOGGER.log(NORMAL, DIVIDER);
-		}
-	}
+			// If the artifact level is already maxed, there is no point in continuing with the currency deduction
+			// assertions, as there is no further upgrade to make and therefore no currencies will be deducted in
+			// this case.
+			if (artifactLevelBeforeUpgrade == ArtifactLevel.getMaximumArtifactLevel())
+			{
+				return;
+			}
 
+			// Validate that the currency amounts have been deducted by the upgrade costs of the artifact.
+			Assertions.assertEquals(Currency.STEEL.getAmount(), steelAmountBeforeUpgrade +
+			                                                    steelUpgradeCost,
+				MessageFormat.format(INVALID_CURRENCY_AMOUNT_AFTER_UPGRADE_MESSAGE, Currency.STEEL.name(),
+					steelUpgradeCost, steelAmountBeforeUpgrade, Currency.STEEL.getAmount(), artifact.getLevel()
+				.name()));
 
-	private static void setStartingCurrencyAmounts ()
-	{
-		// Currencies are set to specified value
-		for (final Currency currency : Currency.values())
-		{
-			currency.setAmount(UPGRADE_TEST_AMOUNT);
+			Assertions.assertEquals(Currency.COMPOSITE.getAmount(), compositeAmountBeforeUpgrade +
+			                                                        compositeUpgradeCost,
+				MessageFormat.format(INVALID_CURRENCY_AMOUNT_AFTER_UPGRADE_MESSAGE, Currency.COMPOSITE.name(),
+					compositeUpgradeCost, compositeAmountBeforeUpgrade, Currency.COMPOSITE.getAmount(),
+					artifact.getLevel()
+				.name()));
+
+			Assertions.assertEquals(Currency.ENERGY_CREDIT.getAmount(), energyCreditAmountBeforeUpgrade +
+			                                                            energyCreditUpgradeCost,
+				MessageFormat.format(INVALID_CURRENCY_AMOUNT_AFTER_UPGRADE_MESSAGE, Currency.ENERGY_CREDIT.name(),
+					energyCreditUpgradeCost, energyCreditAmountBeforeUpgrade, Currency.ENERGY_CREDIT.getAmount(),
+					artifact.getLevel()
+				.name()));
+
+			Assertions.assertEquals(Currency.FOOD_RATION.getAmount(), foodRationAmountBeforeUpgrade +
+			                                                          foodRationUpgradeCost,
+				MessageFormat.format(INVALID_CURRENCY_AMOUNT_AFTER_UPGRADE_MESSAGE, Currency.FOOD_RATION.name(),
+					foodRationUpgradeCost, foodRationAmountBeforeUpgrade, Currency.FOOD_RATION.getAmount(),
+					artifact.getLevel()
+				.name()));
+
+			Assertions.assertEquals(Currency.SCIENCE.getAmount(), scienceAmountBeforeUpgrade +
+			                                                      scienceUpgradeCost,
+				MessageFormat.format(INVALID_CURRENCY_AMOUNT_AFTER_UPGRADE_MESSAGE, Currency.SCIENCE.name(),
+					scienceUpgradeCost, scienceAmountBeforeUpgrade, Currency.SCIENCE.getAmount(), artifact.getLevel()
+				.name()));
 		}
 	}
 
@@ -155,5 +187,32 @@ public final class ArtifactTest
 			currencyString.append(currency.toString()).append(WHITESPACE);
 		}
 		return currencyString.toString();
+	}
+
+
+	private static void testArtifactLevelGetters ()
+	{
+		Assertions.assertEquals(ArtifactLevel.SUPER, ArtifactLevel.getMaximumArtifactLevel(),
+			MessageFormat.format(MAX_ARTIFACT_LEVEL_NOT_SUPER_MSG, ArtifactLevel.SUPER.name(),
+				ArtifactLevel.getMaximumArtifactLevel()
+			.name()));
+
+		Assertions.assertEquals(ArtifactLevel.SUPER, ArtifactLevel.getNextHigherLevel(ArtifactLevel.BASE),
+			MessageFormat.format(NEXT_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.BASE.name(),
+				ArtifactLevel.SUPER.name(), ArtifactLevel.getNextHigherLevel(ArtifactLevel.BASE)
+			.name()));
+
+		Assertions.assertEquals(ArtifactLevel.SUPER, ArtifactLevel.getNextHigherLevel(ArtifactLevel.SUPER),
+			MessageFormat.format(NEXT_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.SUPER.name(),
+				ArtifactLevel.SUPER.name(), ArtifactLevel.getNextHigherLevel(ArtifactLevel.SUPER)
+			.name()));
+
+		Assertions.assertEquals(ArtifactLevel.BASE, ArtifactLevel.getNextLowerLevel(ArtifactLevel.BASE),
+			MessageFormat.format(PREVIOUS_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.BASE, ArtifactLevel.BASE,
+				ArtifactLevel.getNextLowerLevel(ArtifactLevel.BASE)));
+
+		Assertions.assertEquals(ArtifactLevel.BASE, ArtifactLevel.getNextLowerLevel(ArtifactLevel.SUPER),
+			MessageFormat.format(PREVIOUS_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.SUPER, ArtifactLevel.BASE,
+				ArtifactLevel.getNextLowerLevel(ArtifactLevel.SUPER)));
 	}
 }
