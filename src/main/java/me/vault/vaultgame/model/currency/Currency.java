@@ -60,7 +60,7 @@ public enum Currency
 	/**
 	 * The sprite of the currency.
 	 */
-	private final ImageView sprite;
+	private final Image image;
 
 
 	/**
@@ -73,12 +73,12 @@ public enum Currency
 	 * The constructor of the {@code Currency} enum, which accepts an amount and a sprite.
 	 *
 	 * @param amount The amount of the currency as an {@link Integer}.
-	 * @param sprite The sprite of the currency as an {@link Image}.
+	 * @param image The sprite of the currency as an {@link Image}.
 	 */
-	Currency (final int amount, final ImageView sprite)
+	Currency (final int amount, final Image image)
 	{
 		this.amount = amount;
-		this.sprite = sprite;
+		this.image = image;
 	}
 
 
@@ -131,9 +131,9 @@ public enum Currency
 	 *
 	 * @return The sprite property of the currency object as an {@link Image}
 	 */
-	public ImageView getSprite ()
+	public Image getImage ()
 	{
-		return this.sprite;
+		return this.image;
 	}
 
 

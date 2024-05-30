@@ -29,15 +29,15 @@ public final class ResourceLoader
 	 *
 	 * @return
 	 */
-	public static ImageView loadImage (final String resourcePath)
+	public static Image loadImage (final String resourcePath)
 	{
 		try
 		{
 			// Converts the parsed URL-String into a URL-object and checks if the created object is null.
 			final InputStream inputStream = new FileInputStream(resourcePath);
 
-			// Creates an ImageView from the created URL-object.
-			return new ImageView(new Image(inputStream));
+			// Creates an Image from the created URL-object.
+			return new Image(inputStream);
 		}
 		catch (final FileNotFoundException ex)
 		{

@@ -2,6 +2,7 @@ package me.vault.vaultgame.model.citybuilding;
 
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
@@ -11,16 +12,16 @@ public class CityBuildingProperties
 	private final String name;
 
 
-	private final ImageView imageView;
+	private final Image image;
 
 
 	private final Scene scene;
 
 
-	public CityBuildingProperties (final String name, final ImageView imageView, final Scene scene)
+	public CityBuildingProperties (final String name, final Image image, final Scene scene)
 	{
 		this.name = name;
-		this.imageView = imageView;
+		this.image = image;
 		this.scene = scene;
 	}
 
@@ -31,9 +32,9 @@ public class CityBuildingProperties
 	}
 
 
-	public ImageView getImageView ()
+	public Image getImage ()
 	{
-		return this.imageView;
+		return this.image;
 	}
 
 
@@ -48,7 +49,7 @@ public class CityBuildingProperties
 	{
 		return "CityBuildingProperties{" +
 		       "name='" + this.name + '\'' +
-		       ", imageView=" + this.imageView +
+		       ", imageView=" + this.image +
 		       ", scene=" + this.scene +
 		       '}';
 	}

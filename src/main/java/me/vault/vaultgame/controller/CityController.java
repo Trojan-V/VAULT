@@ -3,9 +3,15 @@ package me.vault.vaultgame.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import me.vault.vaultgame.model.currency.Currency;
+import me.vault.vaultgame.utility.ResourceLoader;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 /**
@@ -16,8 +22,11 @@ import javafx.scene.image.ImageView;
  * @see
  * @since 15.05.2024
  */
-public final class CityController
+public class CityController implements Initializable
 {
+	private static final CityController INSTANCE = new CityController();
+
+
 	@FXML
 	private Button barracksButton;
 
@@ -94,6 +103,12 @@ public final class CityController
 	private Button workshopButton;
 
 
+	public static CityController getInstance ()
+	{
+		return INSTANCE;
+	}
+
+
 	@FXML
 	void onBarracksButtonClick (final ActionEvent event)
 	{
@@ -147,5 +162,38 @@ public final class CityController
 	void onWorkshopButtonClick (final ActionEvent event)
 	{
 
+	}
+
+
+	@Override
+	@FXML
+	public void initialize (URL url, ResourceBundle resourceBundle)
+	{
+		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage("src/main/resources/me/vault/vaultgame/view/city_background.png"));
+		this.initCurrencies();
+	}
+
+
+	private void initCurrencies ()
+	{
+		// Initialisation of the STEEL Currency
+		this.steelImageView.setImage(Currency.STEEL.getImage());
+		this.steelLabel.setText(String.valueOf(Currency.STEEL.getAmount()));
+
+		// Initialisation of the COMPOSITE Currency
+		this.compositeImageView.setImage(Currency.COMPOSITE.getImage());
+		this.compositeLabel.setText(String.valueOf(Currency.COMPOSITE.getAmount()));
+
+		// Initialisation of the SCIENCE Currency
+		this.scienceImageView.setImage(Currency.SCIENCE.getImage());
+		this.scienceLabel.setText(String.valueOf(Currency.SCIENCE.getAmount()));
+
+		// Initialisation of the FOOD_RATION Currency
+		this.foodImageView.setImage(Currency.FOOD_RATION.getImage());
+		this.foodLabel.setText(String.valueOf(Currency.FOOD_RATION.getAmount()));
+
+		// Initialisation of the ENERGY_CREDIT Currency
+		this.creditImageView.setImage(Currency.ENERGY_CREDIT.getImage());
+		this.creditLabel.setText(String.valueOf(Currency.ENERGY_CREDIT.getAmount()));
 	}
 }

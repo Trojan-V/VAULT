@@ -21,11 +21,11 @@ public interface GameConstants
 	 * The top level path to the assets directory which contains all sprites used within the game.
 	 */
 	@Constant
-	public static final String ASSETS_PATH = "src/main/resources/me/vault/game/assets/";
+	public static final String ASSETS_PATH = "src/main/resources/me/vault/vaultgame/assets/";
 
 	/**
 	 * The window title which will be displayed in the top bar of the game window.
 	 */
-	public static final String WINDOW_TITLE = "VAULT Game - Ver. 0.1";
+	public static final String WINDOW_TITLE = "VA(U)LT Game";
 
 }
