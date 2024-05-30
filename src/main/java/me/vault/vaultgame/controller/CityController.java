@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import me.vault.vaultgame.model.citybuilding.CityBuilding;
 import me.vault.vaultgame.model.currency.Currency;
 import me.vault.vaultgame.utility.ResourceLoader;
 
@@ -167,10 +168,43 @@ public class CityController implements Initializable
 
 	@Override
 	@FXML
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage("src/main/resources/me/vault/vaultgame/view/city_background.png"));
 		this.initCurrencies();
+		this.initBuildingButtons();
+	}
+
+
+	private void initBuildingButtons ()
+	{
+		// Initialisation of the BARACKS Button
+		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
+		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getCurrentProperties().getImage()));
+
+		// Initialisation of the WORKSHOP Button
+		this.workshopButton.setText(CityBuilding.WORKSHOP.getCurrentProperties().getName());
+		this.workshopButton.setGraphic(new ImageView(CityBuilding.WORKSHOP.getCurrentProperties().getImage()));
+
+		// Initialisation of the COMMAND_CENTER Button
+		this.commandCenterButton.setText(CityBuilding.COMMAND_CENTER.getCurrentProperties().getName());
+		this.commandCenterButton.setGraphic(new ImageView(CityBuilding.COMMAND_CENTER.getCurrentProperties().getImage()));
+
+		// Initialisation of the MARKET Button
+		this.marketButton.setText(CityBuilding.MARKET.getCurrentProperties().getName());
+		this.marketButton.setGraphic(new ImageView(CityBuilding.MARKET.getCurrentProperties().getImage()));
+
+		// Initialisation of the BARACKS Button
+		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
+		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getCurrentProperties().getImage()));
+
+		// Initialisation of the BARACKS Button
+		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
+		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getCurrentProperties().getImage()));
+
+		// Initialisation of the BARACKS Button
+		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
+		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getCurrentProperties().getImage()));
 	}
 
 

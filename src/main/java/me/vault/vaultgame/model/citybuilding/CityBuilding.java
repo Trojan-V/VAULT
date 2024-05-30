@@ -4,7 +4,10 @@ package me.vault.vaultgame.model.citybuilding;
 import me.vault.vaultgame.model.interfaces.IUpgradable;
 import me.vault.vaultgame.utility.ResourceLoader;
 
+import java.text.MessageFormat;
 import java.util.Map;
+
+import static me.vault.vaultgame.utility.constant.GameConstants.ASSETS_PATH;
 
 
 /**
@@ -25,54 +28,112 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	COMMAND_CENTER(
 		new ValidatedEntriesHashMap<>()
 		{{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Command Center", null, null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Command Center", null, null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Command Center", null, null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Command Center",
+				ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Command Center",
+				ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Command Center",
+				ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
 		}}),
 
 
 	/**
-	 * Represents the Docks  in the city.
+	 * Represents the Docks {@link CityBuilding} in the city.
 	 */
 	DOCKS(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Docks", null, null));
-		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Docks", null, null));
-		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Docks", null, null));
+		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Docks",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Docks",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Docks",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
 	}}),
 
 
 	/**
-	 * Represents the Space Bar  in the city.
+	 * Represents the Space Bar {@link CityBuilding} in the city.
 	 */
 	SPACE_BAR(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Space Bar", null, null));
-		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Space Bar", null, null));
-		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Space Bar", null, null));
+		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Space Bar",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Space Bar",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Space Bar",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
 	}}),
 
 
 	/**
-	 * Represents the Training Facility  in the city.
+	 * Represents the Training Facility {@link CityBuilding} in the city.
 	 */
 	TRAINING_FACILITY(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Training Facility", null, null));
-		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Training Facility", null, null));
-		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Training Facility", null, null));
+		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Training Facility",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Training Facility",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Training Facility",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
 	}}),
 
 
 	/**
-	 * Represents the Workshop  in the city, which can be used to upgrade and build artifacts.
+	 * Represents the Workshop {@link CityBuilding} in the city, which can be used to upgrade and build artifacts.
 	 */
 	WORKSHOP(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Workshop", ResourceLoader.loadImage("src/main/resources/me/vault/vaultgame/assets/Forge_Button_16x16.png"), null));
-		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Workshop", null, null));
-		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Workshop", null, null));
+		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Workshop",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Workshop",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Workshop",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+	}}),
+
+	/**
+	 * Represents the Baracks {@link CityBuilding} in the city, which can be used to recruit troops.
+	 */
+	BARACKS(new ValidatedEntriesHashMap<>()
+	{{
+		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Baracks",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Baracks",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Baracks",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+	}}),
+
+	/**
+	 * Represents the Market {@link CityBuilding} in the city, which can be used to buy currencies.
+	 */
+	MARKET(new ValidatedEntriesHashMap<>()
+	{{
+		this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Market",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Market",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
+
+		this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Market",
+			ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"), null));
 	}});
+
+
+	private static final String TO_STRING_PATTERN = "{0}[currentLevel={1} | propertyMap={2}}";
 
 
 	private final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingProperties> propertyMap;
@@ -133,9 +194,6 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	@Override
 	public String toString ()
 	{
-		return "CityBuilding{" +
-		       "propertyMap=" + this.propertyMap +
-		       ", currentLevel=" + this.currentLevel +
-		       '}';
+		return MessageFormat.format(TO_STRING_PATTERN, this.name(), this.currentLevel, this.propertyMap);
 	}
 }

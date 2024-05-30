@@ -31,18 +31,6 @@ public class VaultApplication extends Application
 
 
 	/**
-	 * The GUI window will launch in the width specified here.
-	 */
-	private static final int WINDOW_START_WIDTH = 1080;
-
-
-	/**
-	 * The GUI window will launch in the height specified here.
-	 */
-	private static final int WINDOW_START_HEIGHT = 720;
-
-
-	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
@@ -78,6 +66,8 @@ public class VaultApplication extends Application
 	public void start (final Stage stage) throws IOException
 	{
 		CityView.showCityView(stage);
+		stage.setResizable(false);
+		stage.setTitle(WINDOW_TITLE);
 	}
 
 }

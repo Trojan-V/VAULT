@@ -2,7 +2,6 @@ package me.vault.vaultgame.model.currency;
 
 
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import me.vault.vaultgame.controller.CurrencyController;
 import me.vault.vaultgame.utility.ResourceLoader;
 
@@ -15,7 +14,7 @@ import static me.vault.vaultgame.utility.constant.GameConstants.ASSETS_PATH;
 
 
 /**
- * The {@code Currency} class/enum represents the resources or currencies which the user can use to upgrade troops and
+ * The {@code Currency} enum represents the resources or currencies which the user can use to upgrade troops and
  * buildings. Currencies are earned by completing missions and progressing in the story. The class in controlled by the
  * {@link CurrencyController} class, which manages mission rewards and building costs.
  *
@@ -28,27 +27,27 @@ public enum Currency
 	/**
 	 * The steel-currency, which is the main-resource used to upgrade buildings.
 	 */
-	STEEL(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
+	STEEL(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
 
 	/**
 	 * The composite-currency, which is the rarer resource used to upgrade buildings.
 	 */
-	COMPOSITE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
+	COMPOSITE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
 
 	/**
 	 * The food rations currency, which is the main-resource used to upgrade troops.
 	 */
-	FOOD_RATION(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
+	FOOD_RATION(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
 
 	/**
 	 * The science currency, which is the rarer resource used to upgrade troops.
 	 */
-	SCIENCE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png")),
+	SCIENCE(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
 
 	/**
 	 * The energy-credits currency, which is the rarest resource used to upgrade troops.
 	 */
-	ENERGY_CREDIT(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_16x16.png"));
+	ENERGY_CREDIT(0, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png"));
 
 
 	/**
@@ -112,17 +111,6 @@ public enum Currency
 	public void addAmount (final int amount)
 	{
 		this.amount += amount;
-	}
-
-
-	/**
-	 * Subtracts a specified amount from the currency property.
-	 *
-	 * @param amount The amount which is subtracted from the currency as an {@link Integer}.
-	 */
-	public void subtractAmount (final int amount)
-	{
-		this.amount -= amount;
 	}
 
 

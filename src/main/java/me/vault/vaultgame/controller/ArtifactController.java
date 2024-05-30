@@ -84,7 +84,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	}
 
 
-	private static boolean checkIsArtifactMaxed (Artifact artifact)
+	private static boolean checkIsArtifactMaxed (final Artifact artifact)
 	{
 		return artifact.getLevel().ordinal() == ArtifactLevel.values().length - 1;
 	}
