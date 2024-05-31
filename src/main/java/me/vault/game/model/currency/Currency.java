@@ -1,6 +1,10 @@
 package me.vault.game.model.currency;
 
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.image.Image;
 import me.vault.game.controller.CurrencyController;
 import me.vault.game.utility.ResourceLoader;
@@ -27,27 +31,28 @@ public enum Currency implements ICurrency
 	/**
 	 * The steel-currency, which is the main-resource used to upgrade buildings.
 	 */
-	STEEL(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/steel_icon.png")),
+	STEEL(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/steel_icon.png")),
 
 	/**
 	 * The composite-currency, which is the rarer resource used to upgrade buildings.
 	 */
-	COMPOSITE(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/composite_icon.png")),
+	COMPOSITE(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/composite_icon.png")),
 
 	/**
 	 * The food rations currency, which is the main-resource used to upgrade troops.
 	 */
-	FOOD_RATION(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/food_ration_icon.png")),
+	FOOD_RATION(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/food_ration_icon" +
+	                                                                   ".png")),
 
 	/**
 	 * The science currency, which is the rarer resource used to upgrade troops.
 	 */
-	SCIENCE(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/science_icon.png")),
+	SCIENCE(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/science_icon.png")),
 
 	/**
 	 * The energy-credits currency, which is the rarest resource used to upgrade troops.
 	 */
-	ENERGY_CREDIT(0, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/credit_icon.png"));
+	ENERGY_CREDIT(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/credit_icon.png"));
 
 
 	/**
@@ -65,7 +70,7 @@ public enum Currency implements ICurrency
 	/**
 	 * The current amount of the currency.
 	 */
-	private int amount;
+	private final SimpleIntegerProperty amount;
 
 
 	/**
@@ -74,7 +79,7 @@ public enum Currency implements ICurrency
 	 * @param amount The amount of the currency as an {@link Integer}.
 	 * @param image  The sprite of the currency as an {@link Image}.
 	 */
-	Currency (final int amount, final Image image)
+	Currency (final SimpleIntegerProperty amount, final Image image)
 	{
 		this.amount = amount;
 		this.image = image;
@@ -89,6 +94,12 @@ public enum Currency implements ICurrency
 	@Override
 	public int getAmount ()
 	{
+		return this.amount.get();
+	}
+
+
+	public IntegerProperty getAmountProperty ()
+	{
 		return this.amount;
 	}
 
@@ -101,7 +112,7 @@ public enum Currency implements ICurrency
 	@Override
 	public void setAmount (final int amount)
 	{
-		this.amount = amount;
+		this.amount.set(amount);
 	}
 
 
@@ -113,7 +124,7 @@ public enum Currency implements ICurrency
 	@Override
 	public void addAmount (final int amount)
 	{
-		this.amount += amount;
+		this.amount.set(this.amount.get() + amount);
 	}
 
 

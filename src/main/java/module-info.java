@@ -7,6 +7,7 @@ module me.vault.game {
 	opens me.vault.game to javafx.fxml;
 	opens me.vault.game.view to javafx.fxml;
 	opens me.vault.game.controller to javafx.fxml;
+	opens me.vault.game.utility to javafx.fxml;
 
 	exports me.vault.game;
 	exports me.vault.game.view;

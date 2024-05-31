@@ -2,6 +2,7 @@ package me.vault.game.model.citybuilding;
 
 
 import javafx.scene.image.Image;
+import me.vault.game.controller.CurrencyController;
 import me.vault.game.model.interfaces.IUpgradable;
 import me.vault.game.utility.ResourceLoader;
 
@@ -29,9 +30,14 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	COMMAND_CENTER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Command Center", null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Command Center", null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Command Center", null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Command Center",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Command Center",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Command Center",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/command_center_icon.png")),
 
@@ -42,9 +48,14 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	DOCKS(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Docks", null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Docks", null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Docks", null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Docks",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+			
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Docks",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Docks",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/docks_icon.png")),
 
@@ -55,9 +66,14 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	SPACE_BAR(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Space Bar", null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Space Bar", null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Space Bar", null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Space Bar",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Space Bar",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Space Bar",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png")),
 
@@ -68,9 +84,14 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	TRAINING_FACILITY(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Training Facility", null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Training Facility", null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Training Facility", null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Training Facility",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Training Facility",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Training Facility",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png")),
 
@@ -81,9 +102,14 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	WORKSHOP(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Workshop", null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Workshop", null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Workshop", null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Workshop",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Workshop",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Workshop",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/workshop_icon.png")),
 
@@ -94,9 +120,14 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	BARACKS(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Barracks", null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Baracks", null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Baracks", null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Barracks",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Baracks",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Baracks",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/barracks_icon.png")),
 
@@ -107,9 +138,14 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	MARKET(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Market", null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Market", null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Market", null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Market",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Market",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Market",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png")),
 
@@ -120,9 +156,14 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	LABORATORY(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Laboratory", null));
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Laboratory", null));
-			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Laboratory", null));
+			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Laboratory",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Laboratory",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Laboratory",
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"));
 

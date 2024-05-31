@@ -28,7 +28,7 @@ public class VaultApplication extends Application
 	 */
 	private static final String WINDOW_TITLE = "VAULT Game - Ver. 0.1";
 
-
+	private static Stage mainStage;
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
@@ -67,6 +67,12 @@ public class VaultApplication extends Application
 		CityView.showCityView(stage);
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
+		mainStage = stage;
 	}
 
+
+	public static Stage getStage ()
+	{
+		return mainStage;
+	}
 }

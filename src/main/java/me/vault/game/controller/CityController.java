@@ -7,10 +7,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import me.vault.game.VaultApplication;
 import me.vault.game.model.citybuilding.CityBuilding;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.ResourceLoader;
+import me.vault.game.view.CityBuildingView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -144,7 +147,6 @@ public class CityController implements Initializable
 	@FXML
 	void onBarracksButtonClick (final ActionEvent event)
 	{
-
 	}
 
 
@@ -158,7 +160,7 @@ public class CityController implements Initializable
 	@FXML
 	void onDocksButtonClick (final ActionEvent event)
 	{
-
+		CityBuildingController.getInstance().upgrade(CityBuilding.DOCKS);
 	}
 
 
@@ -186,14 +188,14 @@ public class CityController implements Initializable
 	@FXML
 	void onTrainingFacilityButtonClick (final ActionEvent event)
 	{
-
+		Currency.STEEL.addAmount(100000);
 	}
 
 
 	@FXML
-	void onWorkshopButtonClick (final ActionEvent event)
+	void onWorkshopButtonClick (final ActionEvent event) throws IOException
 	{
-
+		CityBuildingView.showWorkshopView(VaultApplication.getStage());
 	}
 
 
@@ -280,22 +282,23 @@ public class CityController implements Initializable
 	{
 		// Initialisation of the steel Currency
 		this.steelImageView.setImage(Currency.STEEL.getSprite());
-		this.steelAmountLabel.setText(String.valueOf(Currency.STEEL.getAmount()));
+		this.steelAmountLabel.textProperty().bind(Currency.STEEL.getAmountProperty().asString());
 
 		// Initialisation of the composite Currency
 		this.compositeImageView.setImage(Currency.COMPOSITE.getSprite());
-		this.compositeAmountLabel.setText(String.valueOf(Currency.COMPOSITE.getAmount()));
+		this.compositeAmountLabel.textProperty().bind(Currency.COMPOSITE.getAmountProperty().asString());
 
 		// Initialisation of the science Currency
 		this.scienceImageView.setImage(Currency.SCIENCE.getSprite());
-		this.scienceAmountLabel.setText(String.valueOf(Currency.SCIENCE.getAmount()));
+		this.scienceAmountLabel.textProperty().bind(Currency.SCIENCE.getAmountProperty().asString());
 
 		// Initialisation of the food ration Currency
 		this.foodImageView.setImage(Currency.FOOD_RATION.getSprite());
-		this.foodAmountLabel.setText(String.valueOf(Currency.FOOD_RATION.getAmount()));
+		this.foodAmountLabel.textProperty().bind(Currency.FOOD_RATION.getAmountProperty().asString());
 
 		// Initialisation of the energy credit Currency
 		this.creditImageView.setImage(Currency.ENERGY_CREDIT.getSprite());
-		this.creditAmountLabel.setText(String.valueOf(Currency.ENERGY_CREDIT.getAmount()));
+		this.creditAmountLabel.textProperty().bind(Currency.ENERGY_CREDIT.getAmountProperty().asString());
+
 	}
 }

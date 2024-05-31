@@ -96,6 +96,10 @@ public interface LoggingConstants
 
 	}
 
+	public static interface CityBuildingView
+	{
+		public static final String SCENCE_DISPLAY_FAILED_MSG = "Failed to load: {0} in {1}";
+	}
 
 	public static interface Currency
 	{
