@@ -1,95 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Glow?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21"
-            fx:controller="me.vault.game.controller.CityController">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.controller.CityController">
    <children>
       <ImageView fx:id="cityBackgroundImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D height="720.0" width="1280.0" />
          </viewport></ImageView>
-      <HBox layoutY="92.0" prefHeight="331.0" prefWidth="1280.0" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0">
+      <HBox layoutY="105.0" prefHeight="318.0" prefWidth="1280.0" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
          <children>
-            <Button fx:id="spaceBarButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="175.0" prefWidth="435.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Space-Bar">
+            <VBox prefHeight="200.0" prefWidth="425.0">
+               <children>
+                  <Button fx:id="spaceBarButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Space-Bar">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="spaceBarUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                  </Button>
+               </children>
                <HBox.margin>
-                  <Insets bottom="75.0" left="25.0" right="25.0" top="75.0" />
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-               <effect>
-                  <Glow level="0.1" />
-               </effect>
-            </Button>
-            <Button fx:id="workshopButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onWorkshopButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Workshop">
+            </VBox>
+            <VBox prefHeight="297.0" prefWidth="425.0">
+               <children>
+                  <Button fx:id="workshopButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onWorkshopButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Workshop">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="workshopUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                  </Button>
+               </children>
                <HBox.margin>
-                  <Insets bottom="75.0" left="25.0" right="25.0" top="75.0" />
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="commandCenterButton" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onCommandCenterButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Command Center">
+            </VBox>
+            <VBox prefHeight="297.0" prefWidth="425.0">
+               <children>
+                  <Button fx:id="commandCenterButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onCommandCenterButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Command Center">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="commandCenterUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                  </Button>
+               </children>
                <HBox.margin>
-                  <Insets bottom="75.0" left="25.0" right="25.0" top="75.0" />
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="trainingfacilityButton" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onTrainingsFacilityButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Training Facility">
+            </VBox>
+            <VBox prefHeight="297.0" prefWidth="425.0">
+               <children>
+                  <Button fx:id="trainingfacilityButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onTrainingFacilityButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Training Facility">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="trainingfacilityUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                  </Button>
+               </children>
                <HBox.margin>
-                  <Insets bottom="75.0" left="25.0" right="25.0" top="75.0" />
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Button>
+            </VBox>
          </children>
       </HBox>
-      <HBox layoutX="252.0" layoutY="755.0" prefHeight="325.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="360.0">
+      <HBox layoutX="252.0" layoutY="402.0" prefHeight="318.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="402.0">
          <children>
-            <Button fx:id="docksButton" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onDocksButtonClick" prefHeight="175.0" prefWidth="350.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Docks">
+            <VBox prefHeight="200.0" prefWidth="425.0">
+               <children>
+                  <Button fx:id="docksButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onDocksButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Docks">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="docksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                  </Button>
+               </children>
                <HBox.margin>
-                  <Insets bottom="75.0" left="25.0" right="25.0" top="75.0" />
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="marketButton" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onMarketButtonClick" prefHeight="175.0" prefWidth="350.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Market">
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="425.0">
+               <children>
+                  <Button fx:id="marketButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onMarketButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Market">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="marketUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                  </Button>
+               </children>
                <HBox.margin>
-                  <Insets bottom="75.0" left="25.0" right="25.0" top="75.0" />
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="barracksButton" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onBarracksButtonClick" prefHeight="175.0" prefWidth="350.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Barracks">
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="425.0">
+               <children>
+                  <Button fx:id="barracksButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onBarracksButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Barracks">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="barracksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                  </Button>
+               </children>
                <HBox.margin>
-                  <Insets bottom="75.0" left="25.0" right="25.0" top="75.0" />
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="laboratoryButton" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryButtonClick" prefHeight="175.0" prefWidth="350.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Laboratory">
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="425.0">
+               <children>
+                  <Button fx:id="laboratoryButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Market">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="laboratoryUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.1" />
+                     </effect>
+                  </Button>
+               </children>
                <HBox.margin>
-                  <Insets bottom="75.0" left="25.0" right="25.0" top="75.0" />
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Button>
+            </VBox>
          </children>
       </HBox>
-      <HBox layoutX="8.0" layoutY="8.0" prefHeight="110.0" prefWidth="1280.0" style="-fx-border-color: black; -fx-border-style: dotted;" AnchorPane.bottomAnchor="610.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutX="8.0" layoutY="8.0" prefHeight="106.0" prefWidth="1280.0" AnchorPane.bottomAnchor="614.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
                <children>

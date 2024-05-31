@@ -72,7 +72,7 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Training Facility", null));
 			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Training Facility", null));
 		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
+	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png")),
 
 
 	/**
@@ -111,7 +111,7 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Market", null));
 			this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Market", null));
 		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Forge_Button_32x32.png")),
+	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png")),
 
 
 	/**

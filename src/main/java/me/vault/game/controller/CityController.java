@@ -14,6 +14,8 @@ import me.vault.game.utility.ResourceLoader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+
 
 /**
  * Description
@@ -28,8 +30,15 @@ public class CityController implements Initializable
 	private static final CityController INSTANCE = new CityController();
 
 
+	private static final String BACKGROUND_FILENAME = "city_background.png";
+
+
 	@FXML
 	private Button barracksButton;
+
+
+	@FXML
+	private Button barracksUpgradeButton;
 
 
 	@FXML
@@ -38,6 +47,10 @@ public class CityController implements Initializable
 
 	@FXML
 	private Button commandCenterButton;
+
+
+	@FXML
+	private Button commandCenterUpgradeButton;
 
 
 	@FXML
@@ -61,6 +74,10 @@ public class CityController implements Initializable
 
 
 	@FXML
+	private Button docksUpgradeButton;
+
+
+	@FXML
 	private Label foodAmountLabel;
 
 
@@ -73,7 +90,15 @@ public class CityController implements Initializable
 
 
 	@FXML
+	private Button laboratoryUpgradeButton;
+
+
+	@FXML
 	private Button marketButton;
+
+
+	@FXML
+	private Button marketUpgradeButton;
 
 
 	@FXML
@@ -89,6 +114,10 @@ public class CityController implements Initializable
 
 
 	@FXML
+	private Button spaceBarUpgradeButton;
+
+
+	@FXML
 	private Label steelAmountLabel;
 
 
@@ -101,13 +130,15 @@ public class CityController implements Initializable
 
 
 	@FXML
+	private Button trainingfacilityUpgradeButton;
+
+
+	@FXML
 	private Button workshopButton;
 
 
-	public static CityController getInstance ()
-	{
-		return INSTANCE;
-	}
+	@FXML
+	private Button workshopUpgradeButton;
 
 
 	@FXML
@@ -153,7 +184,7 @@ public class CityController implements Initializable
 
 
 	@FXML
-	void onTrainingsFacilityButtonClick (final ActionEvent event)
+	void onTrainingFacilityButtonClick (final ActionEvent event)
 	{
 
 	}
@@ -170,8 +201,7 @@ public class CityController implements Initializable
 	@FXML
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(
-			"src/main/resources/me/vault/game/view" + "/city_background.png"));
+		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + BACKGROUND_FILENAME));
 		this.initCurrencies();
 		this.initBuildingButtons();
 	}
@@ -179,55 +209,92 @@ public class CityController implements Initializable
 
 	private void initBuildingButtons ()
 	{
-		// Initialization of the BARRACKS Button
-		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
-		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getIcon()));
+		this.initBarracksButton();
+		this.initWorkshopButton();
+		this.initCommandCenterButton();
+		this.initMarketButton();
+		this.initDocksButton();
+		this.initLaboratoryButton();
+		this.initSpaceBarButton();
+		this.initTrainingFacilityButton();
+	}
 
-		// Initialization of the WORKSHOP Button
-		this.workshopButton.setText(CityBuilding.WORKSHOP.getCurrentProperties().getName());
-		this.workshopButton.setGraphic(new ImageView(CityBuilding.WORKSHOP.getIcon()));
 
-		// Initialization of the COMMAND_CENTER Button
-		this.commandCenterButton.setText(CityBuilding.COMMAND_CENTER.getCurrentProperties().getName());
-		this.commandCenterButton.setGraphic(new ImageView(CityBuilding.COMMAND_CENTER.getIcon()));
-
-		// Initialization of the MARKET Button
-		this.marketButton.setText(CityBuilding.MARKET.getCurrentProperties().getName());
-		this.marketButton.setGraphic(new ImageView(CityBuilding.MARKET.getIcon()));
-
-		// Initialization of the BARRACKS Button
-		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
-		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getIcon()));
-
-		// Initialization of the BARRACKS Button
-		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
-		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getIcon()));
-
-		// Initialization of the BARRACKS Button
+	private void initBarracksButton ()
+	{
 		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
 		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getIcon()));
 	}
 
 
+	private void initWorkshopButton ()
+	{
+		this.workshopButton.setText(CityBuilding.WORKSHOP.getCurrentProperties().getName());
+		this.workshopButton.setGraphic(new ImageView(CityBuilding.WORKSHOP.getIcon()));
+	}
+
+
+	private void initCommandCenterButton ()
+	{
+		this.commandCenterButton.setText(CityBuilding.COMMAND_CENTER.getCurrentProperties().getName());
+		this.commandCenterButton.setGraphic(new ImageView(CityBuilding.COMMAND_CENTER.getIcon()));
+	}
+
+
+	private void initMarketButton ()
+	{
+		this.marketButton.setText(CityBuilding.MARKET.getCurrentProperties().getName());
+		this.marketButton.setGraphic(new ImageView(CityBuilding.MARKET.getIcon()));
+	}
+
+
+	private void initDocksButton ()
+	{
+		this.docksButton.setText(CityBuilding.DOCKS.getCurrentProperties().getName());
+		this.docksButton.setGraphic(new ImageView(CityBuilding.DOCKS.getIcon()));
+	}
+
+
+	private void initLaboratoryButton ()
+	{
+		this.laboratoryButton.setText(CityBuilding.LABORATORY.getCurrentProperties().getName());
+		this.laboratoryButton.setGraphic(new ImageView(CityBuilding.LABORATORY.getIcon()));
+	}
+
+
+	private void initSpaceBarButton ()
+	{
+		this.spaceBarButton.setText(CityBuilding.SPACE_BAR.getCurrentProperties().getName());
+		this.spaceBarButton.setGraphic(new ImageView(CityBuilding.SPACE_BAR.getIcon()));
+	}
+
+
+	private void initTrainingFacilityButton ()
+	{
+		this.trainingfacilityButton.setText(CityBuilding.TRAINING_FACILITY.getCurrentProperties().getName());
+		this.trainingfacilityButton.setGraphic(new ImageView(CityBuilding.TRAINING_FACILITY.getIcon()));
+	}
+
+
 	private void initCurrencies ()
 	{
-		// Initialisation of the STEEL Currency
+		// Initialisation of the steel Currency
 		this.steelImageView.setImage(Currency.STEEL.getSprite());
 		this.steelAmountLabel.setText(String.valueOf(Currency.STEEL.getAmount()));
 
-		// Initialisation of the COMPOSITE Currency
+		// Initialisation of the composite Currency
 		this.compositeImageView.setImage(Currency.COMPOSITE.getSprite());
 		this.compositeAmountLabel.setText(String.valueOf(Currency.COMPOSITE.getAmount()));
 
-		// Initialisation of the SCIENCE Currency
+		// Initialisation of the science Currency
 		this.scienceImageView.setImage(Currency.SCIENCE.getSprite());
 		this.scienceAmountLabel.setText(String.valueOf(Currency.SCIENCE.getAmount()));
 
-		// Initialisation of the FOOD_RATION Currency
+		// Initialisation of the food ration Currency
 		this.foodImageView.setImage(Currency.FOOD_RATION.getSprite());
 		this.foodAmountLabel.setText(String.valueOf(Currency.FOOD_RATION.getAmount()));
 
-		// Initialisation of the ENERGY_CREDIT Currency
+		// Initialisation of the energy credit Currency
 		this.creditImageView.setImage(Currency.ENERGY_CREDIT.getSprite());
 		this.creditAmountLabel.setText(String.valueOf(Currency.ENERGY_CREDIT.getAmount()));
 	}
