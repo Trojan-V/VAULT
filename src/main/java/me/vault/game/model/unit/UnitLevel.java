@@ -8,7 +8,7 @@ package me.vault.game.model.unit;
  */
 public enum UnitLevel
 {
-	SINGEL_COMBATANT,
+	SINGLE_COMBATANT,
 	COUPLE,
 	SQUAD
 }

@@ -4,6 +4,7 @@ package me.vault.game.model.unit;
 import me.vault.game.controller.CurrencyController;
 import me.vault.game.model.citybuilding.ValidatedEntriesHashMap;
 import me.vault.game.model.interfaces.IUpgradable;
+import me.vault.game.utility.constant.TroopConstants;
 
 
 /**
@@ -16,39 +17,112 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 {
 	// Explorer-Association
 
-	MEDIC(new ValidatedEntriesHashMap<>()
-	{
+	MEDIC(
+		new ValidatedEntriesHashMap<>()
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Medic Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Medic Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Medic Squad"));
-		}
-	}),
+			{
+				this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(
+					CurrencyController.createTransaction(10, 10, 10, 10, 10),
+					TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
+					TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_NONE,
+					TroopConstants.GRENADE_AMOUNT_NONE,
+					TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_LOW,
+					TroopConstants.MOVEMENT_RANGE_HIGH_PLUS, TroopConstants.INITIATIVE_MEDIUM,
+					TroopConstants.MELEE_RANGE_MEDIUM, TroopConstants.GRENADE_RANGE_NONE,
+					TroopConstants.MEDIC_SINGLE_COMBATANT));
 
-	SNIPER(new ValidatedEntriesHashMap<>()
-	{
-		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Sniper Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Sniper Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Sniper Squad"));
+				this.put(UnitLevel.COUPLE, new UnitProperties(
+					CurrencyController.createTransaction(10, 10, 10, 10, 10),
+					TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
+					TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_NONE,
+					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_LOW
+					, TroopConstants.MOVEMENT_RANGE_HIGH_PLUS, TroopConstants.INITIATIVE_MEDIUM,
+					TroopConstants.MELEE_RANGE_MEDIUM, TroopConstants.GRENADE_RANGE_NONE,
+					TroopConstants.MEDIC_COUPLE));
+				// one level higher melee damage
+
+				this.put(UnitLevel.SQUAD, new UnitProperties(
+					CurrencyController.createTransaction(10, 10, 10, 10, 10),
+					TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
+					TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
+					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_LOW,
+					TroopConstants.MOVEMENT_RANGE_HIGH_PLUS, TroopConstants.INITIATIVE_HIGH,
+					TroopConstants.MELEE_RANGE_MEDIUM, TroopConstants.GRENADE_RANGE_NONE, TroopConstants.MEDIC_SQUAD));
+				// another level higher melee damage and one level higher initiative
+			}
 		}
-	}),
+	),
+
+	SNIPER(
+		new ValidatedEntriesHashMap<>()
+		{
+			{
+				this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(
+					CurrencyController.createTransaction(10, 10, 10, 10, 10),
+					TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS, TroopConstants.ENERGY_NONE,
+					TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
+					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS,
+					TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_LOW,
+					TroopConstants.INITIATIVE_HIGH_PLUS,
+					TroopConstants.MELEE_RANGE_HIGH_PLUS, TroopConstants.GRENADE_RANGE_NONE,
+					TroopConstants.SNIPER_SINGLE_COMBATANT));
+
+				this.put(UnitLevel.COUPLE, new UnitProperties(
+					CurrencyController.createTransaction(10, 10, 10, 10, 10),
+					TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS, TroopConstants.ENERGY_NONE,
+					TroopConstants.MELEE_DAMAGE_HIGH_PLUS,
+					TroopConstants.GRENADE_DAMAGE_NONE, TroopConstants.GRENADE_AMOUNT_NONE,
+					TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
+					TroopConstants.MOVEMENT_RANGE_LOW_PLUS, TroopConstants.INITIATIVE_HIGH_PLUS,
+					TroopConstants.MELEE_RANGE_HIGH_PLUS, TroopConstants.GRENADE_RANGE_NONE,
+					TroopConstants.SNIPER_COUPLE));
+				// a higher level of movement range
+
+				this.put(UnitLevel.SQUAD, new UnitProperties(
+					CurrencyController.createTransaction(10, 10, 10, 10, 10),
+					TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS, TroopConstants.ENERGY_NONE,
+					TroopConstants.MELEE_DAMAGE_HIGH_PLUS,
+					TroopConstants.GRENADE_DAMAGE_NONE, TroopConstants.GRENADE_AMOUNT_NONE,
+					TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
+					TroopConstants.MOVEMENT_RANGE_MEDIUM, TroopConstants.INITIATIVE_HIGH_PLUS,
+					TroopConstants.MELEE_RANGE_HIGH_PLUS, TroopConstants.GRENADE_RANGE_NONE,
+					TroopConstants.SNIPER_SINGLE_COMBATANT));
+				// another higher level of movement range and a higher level
+			}
+		}
+	),
 
 	RANGER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Ranger Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Ranger Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Ranger Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(
+				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
+				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_AMOUNT_LOW_MINUS, TroopConstants.DODGE_HIGH, TroopConstants.RESISTANCE_LOW_PLUS
+				, TroopConstants.MOVEMENT_RANGE_HIGH_MINUS,
+				TroopConstants.INITIATIVE_HIGH, TroopConstants.MELEE_RANGE_HIGH, TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.RANGER_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(
+				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
+				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_AMOUNT_LOW_MINUS, TroopConstants.DODGE_HIGH, TroopConstants.RESISTANCE_LOW_PLUS
+				, TroopConstants.MOVEMENT_RANGE_HIGH_PLUS,
+				TroopConstants.INITIATIVE_HIGH, TroopConstants.MELEE_RANGE_HIGH, TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.RANGER_COUPLE));
+			// one level higher movement range
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(
+				CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
+				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_AMOUNT_LOW_MINUS, TroopConstants.DODGE_HIGH, TroopConstants.RESISTANCE_LOW_PLUS
+				, TroopConstants.MOVEMENT_RANGE_HIGH_MINUS,
+				TroopConstants.INITIATIVE_HIGH_PLUS, TroopConstants.MELEE_RANGE_HIGH,
+				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.RANGER_SQUAD));
+			// one level of initiative and health
 		}
 	}),
 
@@ -58,36 +132,101 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	SPACE_MARINE(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Space-Marine Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Space-Marine Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Space-Marine Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_HIGH_PLUS, TroopConstants.ARMOUR_HIGH_PLUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_AMOUNT_LOW, TroopConstants.DODGE_LOW, TroopConstants.RESISTANCE_LOW_PLUS,
+				TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW_MINUS, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.SPACE_MARINE_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_HIGH_PLUS, TroopConstants.ARMOUR_HIGH_PLUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_AMOUNT_LOW, TroopConstants.DODGE_LOW, TroopConstants.RESISTANCE_LOW_PLUS,
+				TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW, TroopConstants.MELEE_RANGE_MEDIUM, TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.SPACE_MARINE_COUPLE));
+			// a higher level of initiative
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_HIGH_PLUS, TroopConstants.ARMOUR_HIGH_PLUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_AMOUNT_LOW, TroopConstants.DODGE_LOW, TroopConstants.RESISTANCE_LOW_PLUS,
+				TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW_PLUS, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.SPACE_MARINE_SQUAD));
+			// another higher level of initiative and a higher level of melee damage
 		}
 	}),
 
 	ENGINEER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Engineer Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Engineer Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Engineer Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_HIGH,
+				TroopConstants.GRENADE_AMOUNT_MEDIUM, TroopConstants.DODGE_LOW_MINUS, TroopConstants.RESISTANCE_MEDIUM
+				, TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW_MINUS, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_HIGH_MINUS, TroopConstants.ENGINEER_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_HIGH,
+				TroopConstants.GRENADE_AMOUNT_HIGH_MINUS, TroopConstants.DODGE_LOW_MINUS,
+				TroopConstants.RESISTANCE_MEDIUM,
+				TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW_MINUS, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_HIGH_MINUS, TroopConstants.ENGINEER_COUPLE));
+			//  a higher level of grenade amount
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
+				TroopConstants.GRENADE_AMOUNT_HIGH_PLUS, TroopConstants.DODGE_LOW_MINUS,
+				TroopConstants.RESISTANCE_MEDIUM,
+				TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW_MINUS, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_HIGH_MINUS, TroopConstants.ENGINEER_SQUAD));
+			// another higher level of grenade amount and a higher level of grenade damage
 		}
 	}),
 
 	OFFICER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Officer Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Officer Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Officer Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_HIGH_PLUS,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_NONE,
+				TroopConstants.GRENADE_AMOUNT_NONE,
+				TroopConstants.DODGE_MEDIUM, TroopConstants.RESISTANCE_MEDIUM,
+				TroopConstants.MOVEMENT_RANGE_LOW_PLUS, TroopConstants.INITIATIVE_LOW,
+				TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_NONE, TroopConstants.OFFICER_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_HIGH_PLUS,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_NONE,
+				TroopConstants.GRENADE_AMOUNT_NONE,
+				TroopConstants.DODGE_MEDIUM, TroopConstants.RESISTANCE_MEDIUM,
+				TroopConstants.MOVEMENT_RANGE_LOW_PLUS, TroopConstants.INITIATIVE_LOW_PLUS,
+				TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_NONE, TroopConstants.OFFICER_COUPLE));
+			// a higher level of initiative
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_HIGH_PLUS,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_NONE,
+				TroopConstants.GRENADE_AMOUNT_NONE,
+				TroopConstants.DODGE_MEDIUM, TroopConstants.RESISTANCE_MEDIUM,
+				TroopConstants.MOVEMENT_RANGE_LOW_PLUS, TroopConstants.INITIATIVE_MEDIUM,
+				TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_NONE, TroopConstants.OFFICER_SQUAD));
+			// another higher level of initiativ and a higher level of armour
 		}
 	}),
 
@@ -97,36 +236,105 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	GUARD(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Guard Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Guard Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Guard Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_LOW, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_HIGH_MINUS,
+				TroopConstants.DODGE_MEDIUM, TroopConstants.RESISTANCE_HIGH_MINUS,
+				TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.OFFICER_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_HIGH_MINUS,
+				TroopConstants.DODGE_MEDIUM, TroopConstants.RESISTANCE_HIGH_MINUS,
+				TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.OFFICER_COUPLE));
+			// a higher level of health
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_HIGH_PLUS, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_HIGH_PLUS,
+				TroopConstants.DODGE_MEDIUM, TroopConstants.RESISTANCE_HIGH_MINUS,
+				TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.OFFICER_SQUAD));
+			// another higher level of health and a higher level of grenade amount
 		}
 	}),
 
 	GRENADIER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Grenadier Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Grenadier Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Grenadier Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
+				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
+				TroopConstants.GRENADE_AMOUNT_HIGH_PLUS, TroopConstants.DODGE_MEDIUM,
+				TroopConstants.RESISTANCE_HIGH_PLUS, TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_HIGH, TroopConstants.GRENADIER_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
+				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
+				TroopConstants.GRENADE_AMOUNT_HIGH_PLUS, TroopConstants.DODGE_MEDIUM,
+				TroopConstants.RESISTANCE_HIGH_PLUS, TroopConstants.MOVEMENT_RANGE_HIGH_MINUS,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_HIGH, TroopConstants.GRENADIER_COUPLE));
+			// a higher level of movement range
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_HIGH_PLUS,
+				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
+				TroopConstants.GRENADE_AMOUNT_HIGH_PLUS, TroopConstants.DODGE_HIGH_MINUS,
+				TroopConstants.RESISTANCE_HIGH_PLUS, TroopConstants.MOVEMENT_RANGE_HIGH_PLUS,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_HIGH, TroopConstants.GRENADIER_SQUAD));
+			// another level of movement range and a higher level of dodge
 		}
 	}),
 
 	RECRUIT(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Recruit Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Recruit Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Recruit Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_PLUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_AMOUNT_MEDIUM,
+				TroopConstants.DODGE_LOW, TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.RECRUIT_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_PLUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_HIGH,
+				TroopConstants.GRENADE_AMOUNT_MEDIUM,
+				TroopConstants.DODGE_LOW, TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.RECRUIT_COUPLE));
+			// a higher level of grenade damage
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_PLUS, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
+				TroopConstants.GRENADE_AMOUNT_HIGH_MINUS,
+				TroopConstants.DODGE_LOW, TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.SNIPER_SQUAD));
+			// another higher level of grenade damage and a higher level of grenade amount
 		}
 	}),
 
@@ -136,36 +344,108 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	INFANTRY(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Infantry Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Infantry Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Infantry Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_LOW_PLUS,
+				TroopConstants.DODGE_MEDIUM, TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.INFANTRY_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_LOW_PLUS,
+				TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
+				TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.INFANTRY_SINGLE_COMBATANT));
+			// a higher level of dodge
+
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_MEDIUM,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_LOW_PLUS,
+				TroopConstants.DODGE_HIGH, TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_HIGH_MINUS,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.INFANTRY_SINGLE_COMBATANT));
+			// another higher level of dodge and a higher level of melee range
 		}
 	}),
 
 	LIEUTENANT(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Lieutenant Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Lieutenant Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Lieutenant Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_LOW, TroopConstants.GRENADE_AMOUNT_LOW,
+				TroopConstants.DODGE_MEDIUM,
+				TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW_PLUS, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.LIEUTENANT_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_MEDIUM,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_LOW, TroopConstants.GRENADE_AMOUNT_LOW,
+				TroopConstants.DODGE_MEDIUM,
+				TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW_PLUS, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.LIEUTENANT_COUPLE));
+			// a higher level of armour
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_HIGH_PLUS, TroopConstants.ENERGY_MEDIUM,
+				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_LOW, TroopConstants.GRENADE_AMOUNT_LOW,
+				TroopConstants.DODGE_MEDIUM,
+				TroopConstants.RESISTANCE_MEDIUM, TroopConstants.MOVEMENT_RANGE_LOW_PLUS,
+				TroopConstants.INITIATIVE_LOW_PLUS, TroopConstants.MELEE_RANGE_MEDIUM,
+				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.LIEUTENANT_SQUAD));
+			// another higher level of armour and a higher level of health
 		}
 	}),
 
 	PRECISION_SHOOTER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGEL_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
-				10, 10), 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Precision Shooter Single Combatant"));
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Precision Shooter Couple"));
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10), 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "Precision Shooter Squad"));
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(10, 10, 10,
+				10, 10),
+				TroopConstants.HEALTH_LOW, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_HIGH,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_LOW_MINUS,
+				TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_LOW_PLUS,
+				TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_HIGH_MINUS,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.PRECISION_SHOOTER_SINGLE_COMBATANT));
+
+			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_LOW, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_HIGH,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_LOW_MINUS,
+				TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_LOW_PLUS,
+				TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_HIGH, TroopConstants.MELEE_RANGE_HIGH_MINUS,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.PRECISION_SHOOTER_COUPLE));
+			// a higher level of initiative
+
+			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(10, 10, 10, 10, 10),
+				TroopConstants.HEALTH_LOW, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
+				TroopConstants.MELEE_DAMAGE_HIGH,
+				TroopConstants.GRENADE_DAMAGE_MEDIUM, TroopConstants.GRENADE_AMOUNT_LOW_MINUS,
+				TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_LOW_PLUS,
+				TroopConstants.MOVEMENT_RANGE_MEDIUM,
+				TroopConstants.INITIATIVE_HIGH_PLUS, TroopConstants.MELEE_RANGE_HIGH_PLUS,
+				TroopConstants.GRENADE_RANGE_MEDIUM,
+				TroopConstants.PRECISION_SHOOTER_SQUAD));
+			// another higher level of initiative and a higher level of melee range
 		}
 	});
 
@@ -179,7 +459,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	Unit (final ValidatedEntriesHashMap<UnitLevel, UnitProperties> propertyMap)
 	{
 		// TODO: Load Index from Config
-		this.currentLevel = UnitLevel.SINGEL_COMBATANT;
+		this.currentLevel = UnitLevel.SINGLE_COMBATANT;
 
 		this.propertyMap = propertyMap;
 	}

@@ -1,4 +1,4 @@
-package me.vault.vaultgame.utility.constant;
+package me.vault.game.utility.constant;
 
 
 /**
@@ -36,6 +36,9 @@ public interface TroopConstants
 
 
 	public static final double ARMOUR_MEDIUM = 0.2;
+
+
+	public static final double ARMOUR_LOW_PLUS = 0.15;
 
 
 	public static final double ARMOUR_LOW = 0.1;
