@@ -28,7 +28,7 @@ public interface ICurrency
 
 
 	/**
-	 * Adds a specified amount to the currency property.
+	 * Adds the specified amount to the currency property.
 	 *
 	 * @param amount The amount which is added to the currency as an {@link Integer}.
 	 */

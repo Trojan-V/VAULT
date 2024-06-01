@@ -125,9 +125,9 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 		LOGGER.log(DEBUG, MessageFormat.format(UPGRADE_COSTS_MSG, upgradeCosts.toString()));
 		for (final Currency currency : Currency.values())
 		{
-			if (currency.getAmount() < upgradeCosts.getAmount(currency))
+			if (currency.getAmount() < upgradeCosts.getAbsoluteAmount(currency))
 			{
-				LOGGER.log(DEBUG, "The available amount of " + currency.name() + " is not sufficient " + "to" +
+				LOGGER.log(DEBUG, "The available amount of " + currency.name() + " isn't enough to" +
 				                  " perform the requested upgrade. The cost for the upgrade is at " +
 				                  upgradeCosts.getAmount(currency) + " " + currency.name());
 				return false;

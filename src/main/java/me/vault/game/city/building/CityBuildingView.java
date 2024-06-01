@@ -28,6 +28,7 @@ public final class CityBuildingView
 		// Loading the FXML-File and creating a scene from the loaded components
 		final Scene scene = CityBuilding.WORKSHOP.getCurrentProperties().getScene();
 
+
 		// New scene is set as main-scene of the passed stage
 		stage.setScene(scene);
 		stage.show();

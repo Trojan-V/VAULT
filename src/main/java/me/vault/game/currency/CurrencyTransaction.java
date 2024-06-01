@@ -53,6 +53,12 @@ public class CurrencyTransaction
 	}
 
 
+	public int getAbsoluteAmount (final Currency currency)
+	{
+		return Math.abs(this.currencyAmountMap.get(currency));
+	}
+
+
 	public int getAmount (final Currency currency)
 	{
 		return this.currencyAmountMap.get(currency);
