@@ -7,14 +7,12 @@ module me.vault.game {
 	opens me.vault.game.artifact to javafx.fxml;
 	opens me.vault.game.city to javafx.fxml;
 	opens me.vault.game.city.building to javafx.fxml;
-	opens me.vault.game.city.building.subcategory to javafx.fxml;
 
 	exports me.vault.game;
 	exports me.vault.game.interfaces;
 	exports me.vault.game.artifact;
 	exports me.vault.game.city;
 	exports me.vault.game.city.building;
-	exports me.vault.game.city.building.subcategory;
 	exports me.vault.game.currency;
 	exports me.vault.game.troop.troop;
 	exports me.vault.game.utility.struct;
