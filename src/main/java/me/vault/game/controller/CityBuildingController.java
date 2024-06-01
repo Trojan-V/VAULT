@@ -11,6 +11,8 @@ import me.vault.game.model.interfaces.IUpgrader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
+// TODO: extends für untergeordnete CityBuildingController
+
 
 /**
  *
@@ -18,6 +20,7 @@ import me.vault.game.utility.logging.Logger;
 public class CityBuildingController implements IUpgrader<CityBuilding, CityBuildingLevel, CityBuildingProperties>
 {
 	private static final CityBuildingController INSTANCE = new CityBuildingController();
+
 
 	/**
 	 * The logger object for this class used for writing to the console.
@@ -27,12 +30,26 @@ public class CityBuildingController implements IUpgrader<CityBuilding, CityBuild
 	private static final ILogger LOGGER = new Logger(CityBuildingController.class.getSimpleName());
 
 
+	public static void initCurrency (final Currency currency, final Label label, final ImageView imageView)
+	{
+		label.textProperty().bind(currency.getAmountProperty().asString());
+		imageView.setImage(currency.getSprite());
+	}
+
+
+	public static CityBuildingController getInstance ()
+	{
+		return INSTANCE;
+	}
+
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
 	{
+		// TODO: Currency Check fehlt noch, ob genug vorhanden ist.
 		return cityBuilding != null && cityBuilding.getLevel() != CityBuildingLevel.getMaximumArtifactLevel();
 	}
 
@@ -49,18 +66,5 @@ public class CityBuildingController implements IUpgrader<CityBuilding, CityBuild
 		}
 		cityBuilding.setLevel(CityBuildingLevel.getNextHigherLevel(cityBuilding.getLevel()));
 		CurrencyController.factorCurrencyTransaction(cityBuilding.getCurrentProperties().getUpgradeCost());
-	}
-
-
-	public static void initCurrency (final Currency currency, final Label label, final ImageView imageView)
-	{
-		label.textProperty().bind(currency.getAmountProperty().asString());
-		imageView.setImage(currency.getSprite());
-	}
-
-
-	public static CityBuildingController getInstance ()
-	{
-		return INSTANCE;
 	}
 }

@@ -1,9 +1,6 @@
 package me.vault.game.model.currency;
 
 
-import javafx.scene.image.Image;
-
-
 /**
  * Description
  *
@@ -37,11 +34,4 @@ public interface ICurrency
 	 */
 	public void addAmount (final int amount);
 
-
-	/**
-	 * Returns the sprite property of the currency object.
-	 *
-	 * @return The sprite property of the currency object as an {@link Image}
-	 */
-	public Image getSprite ();
 }

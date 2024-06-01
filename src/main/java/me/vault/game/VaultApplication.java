@@ -28,12 +28,15 @@ public class VaultApplication extends Application
 	 */
 	private static final String WINDOW_TITLE = "VAULT Game - Ver. 0.1";
 
-	private static Stage mainStage;
+
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
 	private static final String MAIN_STYLESHEET_FILENAME = "main.fxml";
+
+
+	private static Stage mainStage;
 
 
 	/**
@@ -53,6 +56,12 @@ public class VaultApplication extends Application
 	}
 
 
+	public static Stage getStage ()
+	{
+		return mainStage;
+	}
+
+
 	/**
 	 * Loads the {@code .fxml} files which are located in {@code ./src/main/java/resources/me/vault/vaultgame} and
 	 * starts the GUI powered by JavaFX.
@@ -64,15 +73,9 @@ public class VaultApplication extends Application
 	@Override
 	public void start (final Stage stage) throws IOException
 	{
-		CityView.showCityView(stage);
+		CityView.show(stage);
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
 		mainStage = stage;
-	}
-
-
-	public static Stage getStage ()
-	{
-		return mainStage;
 	}
 }

@@ -16,6 +16,7 @@ public enum CityBuildingLevel
 	NORMAL,
 	SUPER;
 
+
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *
@@ -70,7 +71,8 @@ public enum CityBuildingLevel
 			LOGGER.log(DEBUG, MessageFormat.format(ARTIFACT_IS_MIN_LEVEL_MSG, level.name()));
 			return level;
 		}
-		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_LOWER_LEVEL_METHOD_LEFT_MSG, values()[level.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));
+		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_LOWER_LEVEL_METHOD_LEFT_MSG, values()[level.ordinal() -
+		                                                                                      PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));
 		return values()[level.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
 	}
 

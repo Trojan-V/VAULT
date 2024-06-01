@@ -1,16 +1,15 @@
 package me.vault.game.view;
 
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import me.vault.game.utility.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.io.IOException;
-import java.util.Objects;
+import java.text.MessageFormat;
 
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -31,25 +30,20 @@ public final class CityView
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
-	private static final String STYLESHEET_URL = "city_view.fxml";
+	private static final String STYLESHEET = "city_view.fxml";
 
 
-	private static final String SHOWING_CITY_VIEW_MSG = "Showing city view";
+	private static final Scene SCENE = ResourceLoader.loadFXMLScene(CityView.class, STYLESHEET);
 
 
 	private CityView ()
 	{}
 
 
-	public static void showCityView (final Stage stage) throws IOException
+	public static void show (final Stage stage)
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		final Parent root = FXMLLoader.load(Objects.requireNonNull(CityView.class.getResource(STYLESHEET_URL)));
-		final Scene scene = new Scene(root);
-
-		// New scene is set as main-scene of the passed stage
-		stage.setScene(scene);
+		stage.setScene(SCENE);
 		stage.show();
-		LOGGER.log(DEBUG, SHOWING_CITY_VIEW_MSG);
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, CityView.class.getSimpleName()));
 	}
 }

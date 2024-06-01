@@ -24,6 +24,9 @@ public interface LoggingConstants
 	public static final String DIVIDER = "------------------------------------------------------------";
 
 
+	public static final String SHOWING_VIEW_MSG = "Showing {0} view.";
+
+
 	public static interface Artifact
 	{
 		public static final String UPGRADE_METHOD_ENTERED_MSG = "Entered the upgrade()-method for the artifact {0}.";
@@ -100,9 +103,6 @@ public interface LoggingConstants
 	public static interface CityBuildingView
 	{
 		public static final String SCENCE_DISPLAY_FAILED_MSG = "Failed to load: {0} in {1}";
-
-
-		public static final String SHOWING_BUILDING_VIEW_MSG = "Showing {0} building-view.";
 
 	}
 

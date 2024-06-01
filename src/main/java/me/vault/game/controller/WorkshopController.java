@@ -1,14 +1,19 @@
 package me.vault.game.controller;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import me.vault.game.VaultApplication;
+import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,7 +35,7 @@ public class WorkshopController implements Initializable
 
 
 	@FXML
-	private ImageView workshopBackgroundImageView;
+	private Button backToCityViewButton;
 
 
 	@FXML
@@ -50,11 +55,35 @@ public class WorkshopController implements Initializable
 
 
 	@FXML
+	private ImageView damageArtifactImageView;
+
+
+	@FXML
+	private Button damageArtifactUpgradeButton;
+
+
+	@FXML
+	private ImageView defenseArtifactIamgeView;
+
+
+	@FXML
+	private Button defenseArtifactUpgradeButton;
+
+
+	@FXML
 	private Label foodAmountLabel;
 
 
 	@FXML
 	private ImageView foodImageView;
+
+
+	@FXML
+	private ImageView healthArtifactImageView;
+
+
+	@FXML
+	private Button healthArtifactUpgradeButton;
 
 
 	@FXML
@@ -73,6 +102,38 @@ public class WorkshopController implements Initializable
 	private ImageView steelImageView;
 
 
+	@FXML
+	private ImageView workshopBackgroundImageView;
+
+
+	@FXML
+	void onBackToCityView (final ActionEvent event)
+	{
+		CityView.show(VaultApplication.getStage());
+	}
+
+
+	@FXML
+	void onDamageArtifactUpgrade (final ActionEvent event)
+	{
+		ArtifactController.getInstance().upgrade(Artifact.DAMAGE);
+	}
+
+
+	@FXML
+	void onDefenseArtifactUpgrade (final ActionEvent event)
+	{
+		ArtifactController.getInstance().upgrade(Artifact.DEFENSE);
+	}
+
+
+	@FXML
+	void onHealthArtifactUpgrade (final ActionEvent event)
+	{
+		ArtifactController.getInstance().upgrade(Artifact.HEALTH);
+	}
+
+
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
@@ -84,14 +145,9 @@ public class WorkshopController implements Initializable
 	private void initCurrencies ()
 	{
 		CityBuildingController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-
 		CityBuildingController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-
 		CityBuildingController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-
 		CityBuildingController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-
 		CityBuildingController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
 	}
-
 }

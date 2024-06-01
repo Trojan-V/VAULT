@@ -222,12 +222,6 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	}
 
 
-	public Image getIcon ()
-	{
-		return this.icon;
-	}
-
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -235,6 +229,12 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	public void setLevel (final CityBuildingLevel cityBuildingLevel)
 	{
 		this.currentLevel = cityBuildingLevel;
+	}
+
+
+	public Image getIcon ()
+	{
+		return this.icon;
 	}
 
 

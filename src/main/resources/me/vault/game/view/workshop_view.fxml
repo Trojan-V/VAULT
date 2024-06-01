@@ -2,10 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -17,7 +21,15 @@
          </viewport></ImageView>
       <HBox layoutX="8.0" layoutY="8.0" prefHeight="106.0" prefWidth="1280.0" AnchorPane.bottomAnchor="614.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
+            <Button fx:id="backToCityViewButton" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="90.0" prefWidth="185.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="ZURÜCK">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="25.0" right="5.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Segoe UI Semibold" size="20.0" />
+               </font>
+            </Button>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
                <children>
                   <ImageView fx:id="steelImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <HBox.margin>
@@ -49,10 +61,10 @@
                   </VBox>
                </children>
                <HBox.margin>
-                  <Insets bottom="10.0" left="25.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
                <children>
                   <ImageView fx:id="compositeImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
@@ -87,7 +99,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
                <children>
                   <ImageView fx:id="scienceImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
@@ -97,7 +109,7 @@
                         <Rectangle2D height="64.0" width="64.0" />
                      </viewport>
                   </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="182.0">
+                  <VBox prefHeight="86.0" prefWidth="190.0">
                      <children>
                         <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="10.0" prefWidth="100.0" text="SCIENCE" textAlignment="CENTER" wrapText="true">
                            <font>
@@ -122,7 +134,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
                <children>
                   <ImageView fx:id="foodImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
@@ -157,7 +169,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
                <children>
                   <ImageView fx:id="creditImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
@@ -194,5 +206,94 @@
             </HBox>
          </children>
       </HBox>
+      <GridPane gridLinesVisible="true" layoutX="113.0" layoutY="214.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="125.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="979.0" minWidth="10.0" prefWidth="298.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="979.0" minWidth="10.0" prefWidth="729.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="healthArtifactImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fx:id="damageArtifactImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fx:id="defenseArtifactIamgeView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </GridPane.margin>
+            </ImageView>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="HEALTH ARTIFACT (TEMP)" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets left="25.0" right="25.0" top="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="healthArtifactUpgradeButton" mnemonicParsing="false" onAction="#onHealthArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="DAMAGE ARTIFACT (TEMP)" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" right="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="damageArtifactUpgradeButton" mnemonicParsing="false" onAction="#onDamageArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="DEFENSE ARTIFACT (TEMP)" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" right="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="defenseArtifactUpgradeButton" mnemonicParsing="false" onAction="#onDefenseArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

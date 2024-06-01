@@ -195,7 +195,7 @@ public class CityController implements Initializable
 	@FXML
 	void onWorkshopButtonClick (final ActionEvent event) throws IOException
 	{
-		CityBuildingView.showWorkshopView(VaultApplication.getStage());
+		CityBuildingView.showWorkshop(VaultApplication.getStage());
 	}
 
 

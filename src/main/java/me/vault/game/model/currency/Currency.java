@@ -5,6 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.image.Image;
 import me.vault.game.controller.CurrencyController;
+import me.vault.game.model.interfaces.IDisplayable;
 import me.vault.game.utility.ResourceLoader;
 
 import java.text.MessageFormat;
@@ -24,7 +25,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * @see CurrencyController
  * @since 21.05.2024
  */
-public enum Currency implements ICurrency
+public enum Currency implements ICurrency, IDisplayable
 {
 	/**
 	 * The steel-currency, which is the main-resource used to upgrade buildings.
