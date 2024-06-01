@@ -42,7 +42,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 
 
 	/**
-	 * The logger object for this class.
+	 * The logger object for this class used for writing to the console.
 	 *
 	 * @see Logger
 	 */
@@ -88,13 +88,13 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 
 
 		// Validate that the artifact can actually be upgraded.
-		if (!this.checkIsUpgradable(artifact))
+		if (! this.checkIsUpgradable(artifact))
 		{
 			return;
 		}
 
 		// Now it's known that the artifact can be upgraded.
-		// The upgrade costs will be factored in now (see Javadoc of this method for more information).
+		// The upgrade costs are factored in now (see Javadoc of this method for more information).
 		CurrencyController.factorCurrencyTransaction(artifact.getCurrentProperties().getUpgradeCosts());
 
 
@@ -105,6 +105,9 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean checkIsUpgradable (final Artifact artifact)
 	{

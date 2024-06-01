@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.controller.CityBuildingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.controller.WorkshopController">
    <children>
-      <ImageView fx:id="cityBackgroundImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="workshopBackgroundImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D height="720.0" width="1280.0" />
          </viewport></ImageView>

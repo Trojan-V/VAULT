@@ -16,7 +16,11 @@ public enum CityBuildingLevel
 	NORMAL,
 	SUPER;
 
-
+	/**
+	 * The logger object for this class used for writing to the console.
+	 *
+	 * @see Logger
+	 */
 	private static final ILogger LOGGER = new Logger(CityBuildingLevel.class.getSimpleName());
 
 

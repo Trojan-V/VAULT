@@ -44,7 +44,7 @@ public interface LoggingConstants
 
 
 		public static final String ARTIFACT_IS_MAX_LEVEL_MSG =
-			"The artifact with the current level {0} is already at the maximum level and cannot be upgraded any " +
+			"The artifact with the current level {0} is already at the maximum level and can't be upgraded any " +
 			"further.";
 
 
@@ -61,17 +61,17 @@ public interface LoggingConstants
 
 
 		public static final String MAX_ARTIFACT_LEVEL_NOT_SUPER_MSG =
-			"The maximum artifact level is not the expected " + "level {0}, the maximum level which was returned" +
+			"The maximum artifact level isn't expected " + "level {0}, the maximum level which was returned" +
 			" is {1}.";
 
 
 		public static final String NEXT_ARTIFACT_LEVEL_INCORRECT_MSG =
-			"The next artifact level after {0} was not the " + "expected level {1}, it was {2} instead for " +
+			"The next artifact level after {0} wasn't the " + "expected level {1}, it was {2} instead for " +
 			"some reason.";
 
 
 		public static final String PREVIOUS_ARTIFACT_LEVEL_INCORRECT_MSG =
-			"The previous artifact level before {0} was not the expected level {1}, it was {2} instead for some " +
+			"The previous artifact level before {0} wasn't the expected level {1}, it was {2} instead for some " +
 			"reason.";
 
 
@@ -88,7 +88,7 @@ public interface LoggingConstants
 
 
 		public static final String GET_NEXT_LOWER_LEVEL_METHOD_ENTERED_MSG =
-			"Entered the getNextLowerLevel()-method" + " " + "for level {0}.";
+			"Entered the getNextLowerLevel()-method " + "for level {0}.";
 
 
 		public static final String GET_NEXT_LOWER_LEVEL_METHOD_LEFT_MSG =
@@ -96,15 +96,21 @@ public interface LoggingConstants
 
 	}
 
+
 	public static interface CityBuildingView
 	{
 		public static final String SCENCE_DISPLAY_FAILED_MSG = "Failed to load: {0} in {1}";
+
+
+		public static final String SHOWING_BUILDING_VIEW_MSG = "Showing {0} building-view.";
+
 	}
+
 
 	public static interface Currency
 	{
 		public static final String EXECUTION_NOT_POSSIBLE_ANYMORE_MSG =
-			"Exiting the program because a meaningful " + "execution is not possible anymore.";
+			"Exiting the program because meaningful " + "execution isn't possible anymore.";
 	}
 
 
@@ -134,7 +140,8 @@ public interface LoggingConstants
 
 
 		public static final String APPLY_JVM_ARGUMENTS_METHOD_ENTERED_MSG =
-			"Entered applyJvmArguments()-method. Starting to loop through all arguments in the args[] array...";
+			"Entered applyJvmArguments()-method. " + "Starting to loop through all arguments in" +
+			" the args[] array...";
 
 
 		public static final String ARGUMENT_AT_INDEX_MSG = "Argument at index {0}: {1}";

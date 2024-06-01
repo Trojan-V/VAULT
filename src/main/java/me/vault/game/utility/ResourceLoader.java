@@ -1,33 +1,36 @@
 package me.vault.game.utility;
 
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.MessageFormat;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
+import java.util.Objects;
+
+import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
 public final class ResourceLoader
 {
-	private static final String IMAGE_NOT_LOADED_MSG = "The image-resource \"{0}\" could not load.";
+	private static final ILogger LOGGER = new Logger(ResourceLoader.class.getSimpleName());
 
 
-	private static final Logger LOGGER = Logger.getLogger(ResourceLoader.class.getName());
+	private static final String IMAGE_NOT_LOADED_MSG = "The image-resource \"{0}\" couldn't load.";
+
+
+	private static final String SCENE_NOT_LOADED_MSG = "The scene-resource \"{0}\" couldn't load.";
 
 
 	private ResourceLoader () {}
 
 
-	/**
-	 * @param resourcePath
-	 *
-	 * @return
-	 */
 	public static Image loadImage (final String resourcePath)
 	{
 		try
@@ -38,11 +41,27 @@ public final class ResourceLoader
 			// Creates an Image from the created URL object.
 			return new Image(inputStream);
 		}
-		catch (final FileNotFoundException ex)
+		catch (final FileNotFoundException e)
 		{
 			// Logs the corrupted method call before logging the exception
-			LOGGER.log(new LogRecord(Level.SEVERE, MessageFormat.format(IMAGE_NOT_LOADED_MSG, resourcePath)));
-			LOGGER.log(new LogRecord(Level.SEVERE, ex.getMessage()));
+			LOGGER.log(ERROR, MessageFormat.format(IMAGE_NOT_LOADED_MSG, resourcePath));
+			LOGGER.log(ERROR, e.getMessage());
+			return null;
+		}
+	}
+
+
+	public static <T> Scene loadFXMLScene (final Class<T> clazz, final String resourcePath)
+	{
+		try
+		{
+			return new Scene(FXMLLoader.load(Objects.requireNonNull(clazz.getResource(resourcePath))));
+		}
+		catch (final IOException e)
+		{
+			// Logs the corrupted method call before logging the exception
+			LOGGER.log(ERROR, MessageFormat.format(SCENE_NOT_LOADED_MSG, resourcePath));
+			LOGGER.log(ERROR, e.getMessage());
 			return null;
 		}
 	}

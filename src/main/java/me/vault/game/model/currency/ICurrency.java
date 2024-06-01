@@ -14,14 +14,34 @@ import javafx.scene.image.Image;
  */
 public interface ICurrency
 {
+	/**
+	 * Gets the current amount of the currency and returns it.
+	 *
+	 * @return The amount property of the currency object as an {@link Integer}.
+	 */
 	public int getAmount ();
 
 
+	/**
+	 * Sets the amount property to a specified amount.
+	 *
+	 * @param amount The amount which the amount property from the currency is set to. As an {@link Integer}.
+	 */
 	public void setAmount (final int amount);
 
 
+	/**
+	 * Adds a specified amount to the currency property.
+	 *
+	 * @param amount The amount which is added to the currency as an {@link Integer}.
+	 */
 	public void addAmount (final int amount);
 
 
+	/**
+	 * Returns the sprite property of the currency object.
+	 *
+	 * @return The sprite property of the currency object as an {@link Image}
+	 */
 	public Image getSprite ();
 }

@@ -3,8 +3,6 @@ package me.vault.game.model.currency;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.image.Image;
 import me.vault.game.controller.CurrencyController;
 import me.vault.game.utility.ResourceLoader;
@@ -41,8 +39,8 @@ public enum Currency implements ICurrency
 	/**
 	 * The food rations currency, which is the main-resource used to upgrade troops.
 	 */
-	FOOD_RATION(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/food_ration_icon" +
-	                                                                   ".png")),
+	FOOD_RATION(new SimpleIntegerProperty(0), ResourceLoader.loadImage(
+		ASSETS_PATH + "Item_Pack/food_ration_icon" + ".png")),
 
 	/**
 	 * The science currency, which is the rarer resource used to upgrade troops.
@@ -86,10 +84,14 @@ public enum Currency implements ICurrency
 	}
 
 
+	public IntegerProperty getAmountProperty ()
+	{
+		return this.amount;
+	}
+
+
 	/**
-	 * Gets the current amount of the currency and returns it.
-	 *
-	 * @return The amount property of the currency object as an {@link Integer}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getAmount ()
@@ -98,16 +100,8 @@ public enum Currency implements ICurrency
 	}
 
 
-	public IntegerProperty getAmountProperty ()
-	{
-		return this.amount;
-	}
-
-
 	/**
-	 * Sets the amount property to a specified amount.
-	 *
-	 * @param amount The amount which the amount property from the currency is set to. As an {@link Integer}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setAmount (final int amount)
@@ -117,9 +111,7 @@ public enum Currency implements ICurrency
 
 
 	/**
-	 * Adds a specified amount to the currency property.
-	 *
-	 * @param amount The amount which is added to the currency as an {@link Integer}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void addAmount (final int amount)
@@ -129,9 +121,7 @@ public enum Currency implements ICurrency
 
 
 	/**
-	 * Returns the sprite property of the currency object.
-	 *
-	 * @return The sprite property of the currency object as an {@link Image}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Image getSprite ()
