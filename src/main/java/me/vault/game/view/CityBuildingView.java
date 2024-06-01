@@ -1,14 +1,14 @@
 package me.vault.game.view;
 
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import me.vault.game.model.citybuilding.CityBuilding;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.io.IOException;
-import java.util.Objects;
+import static me.vault.game.utility.constant.LoggingConstants.CityBuildingView.SHOWING_BUILDING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -16,24 +16,21 @@ import java.util.Objects;
  */
 public final class CityBuildingView
 {
-	private static final Logger LOGGER = new Logger(CityBuildingView.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(CityBuildingView.class.getSimpleName());
 
 
 	private CityBuildingView () {}
 
 
-	static final String STYLESHEET_URL = "workshop_view.fxml";
-
-
-	public static void showWorkshopView (final Stage stage) throws IOException
+	public static void showWorkshopView (final Stage stage)
 	{
 		// Loading the FXML-File and creating a scene from the loaded components
-		final Parent root = FXMLLoader.load(Objects.requireNonNull(CityView.class.getResource(STYLESHEET_URL)));
-		final Scene scene = new Scene(root);
+		final Scene scene = CityBuilding.WORKSHOP.getCurrentProperties().getScene();
 
 		// New scene is set as main-scene of the passed stage
 		stage.setScene(scene);
 		stage.show();
+		LOGGER.log(DEBUG, SHOWING_BUILDING_VIEW_MSG);
 	}
 }
 

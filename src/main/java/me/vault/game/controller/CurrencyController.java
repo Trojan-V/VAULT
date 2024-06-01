@@ -4,6 +4,7 @@ package me.vault.game.controller;
 import me.vault.game.exception.InvalidMapEntryException;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import static me.vault.game.utility.constant.LoggingConstants.Currency.EXECUTION_NOT_POSSIBLE_ANYMORE_MSG;
@@ -22,7 +23,12 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 // TODO: Logging einbauen
 public final class CurrencyController
 {
-	private static final Logger LOGGER = new Logger(CurrencyController.class.getSimpleName());
+	/**
+	 * The logger object for this class used for writing to the console.
+	 *
+	 * @see Logger
+	 */
+	private static final ILogger LOGGER = new Logger(CurrencyController.class.getSimpleName());
 
 
 	/**

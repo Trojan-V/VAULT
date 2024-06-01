@@ -11,6 +11,8 @@ module me.vault.game {
 
 	exports me.vault.game;
 	exports me.vault.game.view;
+	exports me.vault.game.model.citybuilding;
+	exports me.vault.game.model.currency;
 	exports me.vault.game.model.interfaces;
 	exports me.vault.game.model.artifact;
 	exports me.vault.game.controller;

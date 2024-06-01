@@ -46,6 +46,6 @@ public class CityBuildingProperties
 
 	public CurrencyTransaction getUpgradeCost ()
 	{
-		return upgradeCost;
+		return this.upgradeCost;
 	}
 }

@@ -28,7 +28,7 @@ public class InvalidMapEntryException extends Exception
 
 	/**
 	 * If the invalid entry was provided within the constructor of this exception {@code throw new
-	 * InvalidMapEntryException(Entry<K, V> entry)}, this appendix will be appended as message suffix to the default
+	 * InvalidMapEntryException(Entry<K, V> entry)}, this appendix is appended as message suffix to the default
 	 * {@link InvalidMapEntryException#EXCEPTION_MESSAGE}.
 	 * <br>
 	 *

@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import me.vault.game.controller.CurrencyController;
 import me.vault.game.model.interfaces.IUpgradable;
 import me.vault.game.utility.ResourceLoader;
+import me.vault.game.view.CityBuildingView;
 
 import java.text.MessageFormat;
 import java.util.Map;
@@ -50,7 +51,7 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Docks",
 				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
-			
+
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Docks",
 				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
 
@@ -103,7 +104,8 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Workshop",
-				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10),
+				ResourceLoader.loadFXMLScene(CityBuildingView.class, "workshop_view.fxml")));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Workshop",
 				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
