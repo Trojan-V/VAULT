@@ -3,9 +3,10 @@ package me.vault.game.city.building;
 
 import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyController;
-import me.vault.game.utility.struct.ValidatedEntriesHashMap;
+import me.vault.game.interfaces.IDisplayable;
 import me.vault.game.interfaces.IUpgradable;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
 import java.text.MessageFormat;
 import java.util.Map;
@@ -23,7 +24,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * @see IUpgradable
  * @since 02.05.2024
  */
-public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingProperties>
+public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingProperties>, IDisplayable
 {
 	/**
 	 * Represents the Command Center {@link CityBuilding} in the city.
@@ -119,7 +120,7 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	/**
 	 * Represents the Baracks {@link CityBuilding} in the city, which can be used to recruit troops.
 	 */
-	BARACKS(new ValidatedEntriesHashMap<>()
+	BARRACKS(new ValidatedEntriesHashMap<>()
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Barracks",
@@ -232,12 +233,19 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	}
 
 
-	public Image getIcon ()
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Image getSprite ()
 	{
 		return this.icon;
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString ()
 	{

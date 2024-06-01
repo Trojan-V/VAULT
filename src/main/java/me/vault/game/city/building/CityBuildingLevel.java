@@ -65,6 +65,7 @@ public enum CityBuildingLevel
 	{
 		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_LOWER_LEVEL_METHOD_ENTERED_MSG, level.name()));
 
+
 		// Check if the artifact level is already the lowest level.
 		if (checkIsMinimumLevel(level))
 		{

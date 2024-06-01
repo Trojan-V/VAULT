@@ -13,11 +13,9 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	 */
 	DAMAGE(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10,
-			-10), 1, 1, 1, 1, 1, 1, "Damage Artifact"));
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10, -10), 1, 1, 1, 1, 1, 1, "Damage Artifact", null));
 
-		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10,
-			-10), 1, 1, 1, 1, 1, 1, "Super Damage Artifact"));
+		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10, -10), 1, 1, 1, 1, 1, 1, "Super Damage Artifact", null));
 	}}),
 
 
@@ -26,11 +24,9 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	 */
 	DEFENSE(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10,
-			-10), 1, 1, 1, 1, 1, 1, "Defense Artifact"));
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10, -10), 1, 1, 1, 1, 1, 1, "Defense Artifact", null));
 
-		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10,
-			-10), 1, 1, 1, 1, 1, 1, "Super Defense Artifact"));
+		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10, -10), 1, 1, 1, 1, 1, 1, "Super Defense Artifact", null));
 	}}),
 
 
@@ -39,11 +35,10 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	 */
 	HEALTH(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10,
-			-10), 1, 1, 1, 1, 1, 1, "Health Artifact"));
+		// TODO: Richtiges Sprite hinzufügen anstelle von 'null'.
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10, -10), 1, 1, 1, 1, 1, 1, "Health Artifact", null));
 
-		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10,
-			-10), 1, 1, 1, 1, 1, 1, "Super Health Artifact"));
+		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(-10, -10, -10, -10, -10), 1, 1, 1, 1, 1, 1, "Super Health Artifact", null));
 	}});
 
 
@@ -101,6 +96,7 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	}
 
 
+	// FIXME
 	@Override
 	public String toString ()
 	{

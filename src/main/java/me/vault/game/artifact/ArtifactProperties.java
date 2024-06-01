@@ -1,15 +1,18 @@
 package me.vault.game.artifact;
 
 
+import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyTransaction;
-
-import static me.vault.game.utility.constant.CharacterConstants.PIPE;
+import me.vault.game.interfaces.IDisplayable;
 
 
 // TODO: Kapselung der Attribute in Buff/Debuff Kategorien
-public class ArtifactProperties
+public class ArtifactProperties implements IDisplayable
 {
 	private final String name;
+
+
+	private final Image sprite;
 
 
 	private final double healthIncrease;
@@ -35,7 +38,7 @@ public class ArtifactProperties
 
 	public ArtifactProperties (final CurrencyTransaction upgradeCosts, final double healthIncrease,
 		final double regenerationIncrease, final double meleeDamageIncrease, final double energyDamageIncrease,
-		final double dodgeIncrease, final double defenseIncrease, final String name)
+		final double dodgeIncrease, final double defenseIncrease, final String name, final Image sprite)
 	{
 		this.name = name;
 		this.upgradeCosts = upgradeCosts;
@@ -45,6 +48,7 @@ public class ArtifactProperties
 		this.energyDamageIncrease = energyDamageIncrease;
 		this.dodgeIncrease = dodgeIncrease;
 		this.defenseIncrease = defenseIncrease;
+		this.sprite = sprite;
 	}
 
 
@@ -97,12 +101,12 @@ public class ArtifactProperties
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public String toString ()
+	public Image getSprite ()
 	{
-		return "ArtifactProperties[" + this.name + PIPE + this.healthIncrease + PIPE + this.regenerationIncrease +
-		       PIPE + this.meleeDamageIncrease + PIPE + this.energyDamageIncrease + PIPE + this.dodgeIncrease + PIPE +
-		       this.defenseIncrease + PIPE + this.upgradeCosts + ']';
+		return this.sprite;
 	}
-
 }

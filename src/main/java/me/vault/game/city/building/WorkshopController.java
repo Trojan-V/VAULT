@@ -10,11 +10,11 @@ import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.artifact.Artifact;
 import me.vault.game.artifact.ArtifactController;
+import me.vault.game.city.CityView;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.city.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -108,28 +108,28 @@ public class WorkshopController implements Initializable
 
 
 	@FXML
-	void onBackToCityView (final ActionEvent event)
+	private void onBackToCityView (final ActionEvent event)
 	{
 		CityView.show(VaultApplication.getStage());
 	}
 
 
 	@FXML
-	void onDamageArtifactUpgrade (final ActionEvent event)
+	private void onDamageArtifactUpgrade (final ActionEvent event)
 	{
 		ArtifactController.getInstance().upgrade(Artifact.DAMAGE);
 	}
 
 
 	@FXML
-	void onDefenseArtifactUpgrade (final ActionEvent event)
+	private void onDefenseArtifactUpgrade (final ActionEvent event)
 	{
 		ArtifactController.getInstance().upgrade(Artifact.DEFENSE);
 	}
 
 
 	@FXML
-	void onHealthArtifactUpgrade (final ActionEvent event)
+	private void onHealthArtifactUpgrade (final ActionEvent event)
 	{
 		ArtifactController.getInstance().upgrade(Artifact.HEALTH);
 	}

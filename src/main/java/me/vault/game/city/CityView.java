@@ -21,6 +21,8 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see
  * @since 15.05.2024
  */
+
+// TODO: AbstractView which provides the show method and an abstract method to provide the scene of the view.
 public final class CityView
 {
 	private static final ILogger LOGGER = new Logger(CityView.class.getSimpleName());

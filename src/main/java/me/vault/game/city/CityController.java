@@ -8,11 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
-import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.city.building.CityBuilding;
+import me.vault.game.city.building.CityBuildingController;
+import me.vault.game.city.building.CityBuildingView;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.city.building.CityBuildingView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -186,10 +186,11 @@ public class CityController implements Initializable
 	}
 
 
-	@FXML
-	void onTrainingFacilityButtonClick (final ActionEvent event)
+	private static void initCityBuildingButton (final Button button, final CityBuilding cityBuilding)
 	{
-		Currency.STEEL.addAmount(100000);
+		// TODO: Bindings
+		button.setText(cityBuilding.getCurrentProperties().getName());
+		button.setGraphic(new ImageView(cityBuilding.getSprite()));
 	}
 
 
@@ -210,75 +211,31 @@ public class CityController implements Initializable
 	}
 
 
+	// TODO: parameter event zu ignored
+	@FXML
+	void onTrainingFacilityButtonClick (final ActionEvent event)
+	{
+		for (final Currency currency : Currency.values())
+		{
+			currency.addAmount(100000);
+		}
+	}
+
+
 	private void initBuildingButtons ()
 	{
-		this.initBarracksButton();
-		this.initWorkshopButton();
-		this.initCommandCenterButton();
-		this.initMarketButton();
-		this.initDocksButton();
-		this.initLaboratoryButton();
-		this.initSpaceBarButton();
-		this.initTrainingFacilityButton();
+		initCityBuildingButton(this.barracksButton, CityBuilding.BARRACKS);
+		initCityBuildingButton(this.commandCenterButton, CityBuilding.COMMAND_CENTER);
+		initCityBuildingButton(this.marketButton, CityBuilding.MARKET);
+		initCityBuildingButton(this.docksButton, CityBuilding.DOCKS);
+		initCityBuildingButton(this.laboratoryButton, CityBuilding.LABORATORY);
+		initCityBuildingButton(this.spaceBarButton, CityBuilding.SPACE_BAR);
+		initCityBuildingButton(this.trainingfacilityButton, CityBuilding.TRAINING_FACILITY);
+		initCityBuildingButton(this.workshopButton, CityBuilding.WORKSHOP);
 	}
 
 
-	private void initBarracksButton ()
-	{
-		this.barracksButton.setText(CityBuilding.BARACKS.getCurrentProperties().getName());
-		this.barracksButton.setGraphic(new ImageView(CityBuilding.BARACKS.getIcon()));
-	}
-
-
-	private void initWorkshopButton ()
-	{
-		this.workshopButton.setText(CityBuilding.WORKSHOP.getCurrentProperties().getName());
-		this.workshopButton.setGraphic(new ImageView(CityBuilding.WORKSHOP.getIcon()));
-	}
-
-
-	private void initCommandCenterButton ()
-	{
-		this.commandCenterButton.setText(CityBuilding.COMMAND_CENTER.getCurrentProperties().getName());
-		this.commandCenterButton.setGraphic(new ImageView(CityBuilding.COMMAND_CENTER.getIcon()));
-	}
-
-
-	private void initMarketButton ()
-	{
-		this.marketButton.setText(CityBuilding.MARKET.getCurrentProperties().getName());
-		this.marketButton.setGraphic(new ImageView(CityBuilding.MARKET.getIcon()));
-	}
-
-
-	private void initDocksButton ()
-	{
-		this.docksButton.setText(CityBuilding.DOCKS.getCurrentProperties().getName());
-		this.docksButton.setGraphic(new ImageView(CityBuilding.DOCKS.getIcon()));
-	}
-
-
-	private void initLaboratoryButton ()
-	{
-		this.laboratoryButton.setText(CityBuilding.LABORATORY.getCurrentProperties().getName());
-		this.laboratoryButton.setGraphic(new ImageView(CityBuilding.LABORATORY.getIcon()));
-	}
-
-
-	private void initSpaceBarButton ()
-	{
-		this.spaceBarButton.setText(CityBuilding.SPACE_BAR.getCurrentProperties().getName());
-		this.spaceBarButton.setGraphic(new ImageView(CityBuilding.SPACE_BAR.getIcon()));
-	}
-
-
-	private void initTrainingFacilityButton ()
-	{
-		this.trainingfacilityButton.setText(CityBuilding.TRAINING_FACILITY.getCurrentProperties().getName());
-		this.trainingfacilityButton.setGraphic(new ImageView(CityBuilding.TRAINING_FACILITY.getIcon()));
-	}
-
-
+	// TODO: Selbe Methodik wie bei initCityBuildingButton() anwenden für die Kapselung.
 	private void initCurrencies ()
 	{
 		// Initialisation of the steel Currency

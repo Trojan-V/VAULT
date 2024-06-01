@@ -37,7 +37,7 @@ public class VaultController
 	 * Callback method which is invoked as soon as the "hello button" gets clicked.
 	 */
 	@FXML
-	protected void onHelloButtonClick () throws FileNotFoundException
+	void onHelloButtonClick () throws FileNotFoundException
 	{
 		this.welcomeText.setText("Hello, I am sending this from the 'onHelloButtonClick' method!");
 	}

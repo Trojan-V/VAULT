@@ -33,6 +33,7 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 	}
 
 
+	// TODO: IValidator interface
 	public static class Entry<E, F> implements Map.Entry<E, F>
 	{
 		private final E key;

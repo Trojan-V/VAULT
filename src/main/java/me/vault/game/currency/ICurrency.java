@@ -1,6 +1,6 @@
 package me.vault.game.currency;
 
-
+// TODO: Interface ist für die EA an sich unnötig.
 /**
  * Description
  *
@@ -33,5 +33,4 @@ public interface ICurrency
 	 * @param amount The amount which is added to the currency as an {@link Integer}.
 	 */
 	public void addAmount (final int amount);
-
 }
