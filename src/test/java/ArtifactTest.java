@@ -1,8 +1,8 @@
-import me.vault.game.controller.ArtifactController;
-import me.vault.game.model.artifact.Artifact;
-import me.vault.game.model.artifact.ArtifactLevel;
-import me.vault.game.model.currency.Currency;
-import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.artifact.ArtifactController;
+import me.vault.game.artifact.Artifact;
+import me.vault.game.artifact.ArtifactLevel;
+import me.vault.game.currency.Currency;
+import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.utility.jvm.JvmArgumentParser;
 import org.junit.jupiter.api.Assertions;
 import util.TestUtil;

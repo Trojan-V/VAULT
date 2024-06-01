@@ -1,8 +1,7 @@
 package me.vault.game.utility.constant;
 
 
-import me.vault.game.utility.annotation.ConstantInterface;
-import me.vault.game.utility.annotation.ConstantInterface.Constant;
+import me.vault.game.utility.constant.ConstantInterface.Constant;
 
 
 /**

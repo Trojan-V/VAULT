@@ -1,11 +1,11 @@
-import me.vault.game.controller.CurrencyController;
-import me.vault.game.model.currency.Currency;
-import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.currency.CurrencyController;
+import me.vault.game.currency.Currency;
+import me.vault.game.currency.CurrencyTransaction;
 import org.junit.jupiter.api.Assertions;
 
 import java.text.MessageFormat;
 
-import static me.vault.game.model.currency.Currency.*;
+import static me.vault.game.currency.Currency.*;
 import static util.TestUtil.TEST_CURRENCY_STARTING_AMOUNT;
 import static util.TestUtil.setStartingCurrencyAmounts;
 
