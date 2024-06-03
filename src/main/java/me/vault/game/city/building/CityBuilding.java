@@ -51,7 +51,8 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Docks",
-				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));
+				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10),
+				ResourceLoader.loadFXMLScene(CityBuildingView.class, "docks_view.fxml")));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Docks",
 				CurrencyController.createTransaction(- 10, - 10, - 10, - 10, - 10), null));

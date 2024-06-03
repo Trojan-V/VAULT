@@ -1,6 +1,5 @@
 package me.vault.game.city;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.city.building.CityBuilding;
-import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.city.building.CityBuildingView;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -19,7 +17,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-
 
 /**
  * Description
@@ -33,113 +30,85 @@ public class CityController implements Initializable
 {
 	private static final CityController INSTANCE = new CityController();
 
-
 	private static final String BACKGROUND_FILENAME = "city_background.png";
-
 
 	@FXML
 	private Button barracksButton;
 
-
 	@FXML
 	private Button barracksUpgradeButton;
-
 
 	@FXML
 	private ImageView cityBackgroundImageView;
 
-
 	@FXML
 	private Button commandCenterButton;
-
 
 	@FXML
 	private Button commandCenterUpgradeButton;
 
-
 	@FXML
 	private Label compositeAmountLabel;
-
 
 	@FXML
 	private ImageView compositeImageView;
 
-
 	@FXML
 	private Label creditAmountLabel;
-
 
 	@FXML
 	private ImageView creditImageView;
 
-
 	@FXML
 	private Button docksButton;
-
 
 	@FXML
 	private Button docksUpgradeButton;
 
-
 	@FXML
 	private Label foodAmountLabel;
-
 
 	@FXML
 	private ImageView foodImageView;
 
-
 	@FXML
 	private Button laboratoryButton;
-
 
 	@FXML
 	private Button laboratoryUpgradeButton;
 
-
 	@FXML
 	private Button marketButton;
-
 
 	@FXML
 	private Button marketUpgradeButton;
 
-
 	@FXML
 	private Label scienceAmountLabel;
-
 
 	@FXML
 	private ImageView scienceImageView;
 
-
 	@FXML
 	private Button spaceBarButton;
-
 
 	@FXML
 	private Button spaceBarUpgradeButton;
 
-
 	@FXML
 	private Label steelAmountLabel;
-
 
 	@FXML
 	private ImageView steelImageView;
 
-
 	@FXML
 	private Button trainingfacilityButton;
-
 
 	@FXML
 	private Button trainingfacilityUpgradeButton;
 
-
 	@FXML
 	private Button workshopButton;
-
 
 	@FXML
 	private Button workshopUpgradeButton;
@@ -159,9 +128,9 @@ public class CityController implements Initializable
 
 
 	@FXML
-	void onDocksButtonClick (final ActionEvent event)
+	void onDocksButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingController.getInstance().upgrade(CityBuilding.DOCKS);
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.DOCKS);
 	}
 
 
@@ -186,18 +155,18 @@ public class CityController implements Initializable
 	}
 
 
-	private static void initCityBuildingButton (final Button button, final CityBuilding cityBuilding)
+	// TODO: parameter event zu ignored
+	@FXML
+	void onTrainingFacilityButtonClick (final ActionEvent ignored)
 	{
-		// TODO: Bindings
-		button.setText(cityBuilding.getCurrentProperties().getName());
-		button.setGraphic(new ImageView(cityBuilding.getSprite()));
+
 	}
 
 
 	@FXML
 	void onWorkshopButtonClick (final ActionEvent event) throws IOException
 	{
-		CityBuildingView.showWorkshop(VaultApplication.getStage());
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.WORKSHOP);
 	}
 
 
@@ -211,14 +180,11 @@ public class CityController implements Initializable
 	}
 
 
-	// TODO: parameter event zu ignored
-	@FXML
-	void onTrainingFacilityButtonClick (final ActionEvent event)
+	private static void initCityBuildingButton (final Button button, final CityBuilding cityBuilding)
 	{
-		for (final Currency currency : Currency.values())
-		{
-			currency.addAmount(100000);
-		}
+		// TODO: Bindings
+		button.setText(cityBuilding.getCurrentProperties().getName());
+		button.setGraphic(new ImageView(cityBuilding.getSprite()));
 	}
 
 
@@ -259,4 +225,5 @@ public class CityController implements Initializable
 		this.creditAmountLabel.textProperty().bind(Currency.ENERGY_CREDIT.getAmountProperty().asString());
 
 	}
+
 }
