@@ -28,4 +28,7 @@ public interface GameConstants
 	 */
 	public static final String WINDOW_TITLE = "VAULT Game";
 
+
+	public static final String CITY_BACKGROUND_FILENAME = "city_background.png";
+
 }

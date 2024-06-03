@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.city.CityView;
@@ -65,6 +66,9 @@ public class DocksController implements Initializable
 	@FXML
 	private ImageView workshopBackgroundImageView;
 
+	@FXML
+	private TabPane factionsTabPane;
+
 
 	@FXML
 	void onBackToCityView (ActionEvent event)
@@ -77,6 +81,7 @@ public class DocksController implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + BACKGROUND_FILENAME));
+		this.factionsTabPane.getStyleClass().add("floating");
 		this.initCurrencies();
 	}
 

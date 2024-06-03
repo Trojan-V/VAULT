@@ -9,6 +9,8 @@ import me.vault.game.city.CityView;
 
 import java.io.IOException;
 
+import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
+
 
 /**
  * The entry point of the VAULT game application. This class launches the GUI window the player will interact with to.
@@ -23,12 +25,6 @@ import java.io.IOException;
  */
 public class VaultApplication extends Application
 {
-	/**
-	 * The window title which will be displayed in the top bar of the game window.
-	 */
-	private static final String WINDOW_TITLE = "VAULT Game - Ver. 0.1";
-
-
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
