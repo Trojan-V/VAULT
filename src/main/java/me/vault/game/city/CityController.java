@@ -159,7 +159,7 @@ public class CityController implements Initializable
 	@FXML
 	void onTrainingFacilityButtonClick (final ActionEvent ignored)
 	{
-
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.TRAINING_FACILITY);
 	}
 
 

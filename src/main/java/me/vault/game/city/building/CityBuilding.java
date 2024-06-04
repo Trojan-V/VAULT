@@ -78,7 +78,7 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 
             this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Training Facility", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
         }
-    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png"), null),
+    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png"), ResourceLoader.loadFXMLScene(CityBuilding.class, "training_facility_view.fxml")),
 
 
     /**
@@ -155,7 +155,7 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingP
 
     private final Scene scene;
 
-    
+
     private CityBuildingLevel currentLevel;
 
 

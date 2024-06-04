@@ -32,21 +32,6 @@ public final class CityBuildingView
 		stage.show();
 		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, cityBuilding.name()));
 	}
-
-
-	public static void showWorkshop (final Stage stage)
-	{
-
-		// Loading the FXML-File and creating a scene from the loaded components
-		final Scene scene = CityBuilding.WORKSHOP.getScene();
-
-
-		// New scene is set as main-scene of the passed stage
-		stage.setScene(scene);
-		stage.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, CityBuilding.WORKSHOP.name()));
-	}
-
 }
 
 
