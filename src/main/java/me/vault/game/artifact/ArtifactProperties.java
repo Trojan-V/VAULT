@@ -1,54 +1,36 @@
 package me.vault.game.artifact;
 
-
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyTransaction;
-import me.vault.game.interfaces.IDisplayable;
-
 
 // TODO: Kapselung der Attribute in Buff/Debuff Kategorien
-public class ArtifactProperties implements IDisplayable
+public class ArtifactProperties
 {
 	private final String name;
 
+	private final SimpleObjectProperty<Image> imageProperty;
 
-	private final Image sprite;
+	private double healthIncrease;
 
+	private double regenerationIncrease;
 
-	private final double healthIncrease;
+	private double meleeDamageIncrease;
 
+	private double energyDamageIncrease;
 
-	private final double regenerationIncrease;
+	private double dodgeIncrease;
 
-
-	private final double meleeDamageIncrease;
-
-
-	private final double energyDamageIncrease;
-
-
-	private final double dodgeIncrease;
-
-
-	private final double defenseIncrease;
-
+	private double defenseIncrease;
 
 	private final CurrencyTransaction upgradeCosts;
 
 
-	public ArtifactProperties (final CurrencyTransaction upgradeCosts, final double healthIncrease,
-		final double regenerationIncrease, final double meleeDamageIncrease, final double energyDamageIncrease,
-		final double dodgeIncrease, final double defenseIncrease, final String name, final Image sprite)
+	public ArtifactProperties (final String name, final SimpleObjectProperty<Image> imageProperty, final CurrencyTransaction upgradeCosts)
 	{
 		this.name = name;
 		this.upgradeCosts = upgradeCosts;
-		this.healthIncrease = healthIncrease;
-		this.regenerationIncrease = regenerationIncrease;
-		this.meleeDamageIncrease = meleeDamageIncrease;
-		this.energyDamageIncrease = energyDamageIncrease;
-		this.dodgeIncrease = dodgeIncrease;
-		this.defenseIncrease = defenseIncrease;
-		this.sprite = sprite;
+		this.imageProperty = imageProperty;
 	}
 
 
@@ -56,42 +38,6 @@ public class ArtifactProperties implements IDisplayable
 	public String getName ()
 	{
 		return this.name;
-	}
-
-
-	public double getHealthIncrease ()
-	{
-		return this.healthIncrease;
-	}
-
-
-	public double getRegenerationIncrease ()
-	{
-		return this.regenerationIncrease;
-	}
-
-
-	public double getMeleeDamageIncrease ()
-	{
-		return this.meleeDamageIncrease;
-	}
-
-
-	public double getEnergyDamageIncrease ()
-	{
-		return this.energyDamageIncrease;
-	}
-
-
-	public double getDodgeIncrease ()
-	{
-		return this.dodgeIncrease;
-	}
-
-
-	public double getDefenseIncrease ()
-	{
-		return this.defenseIncrease;
 	}
 
 
@@ -104,9 +50,9 @@ public class ArtifactProperties implements IDisplayable
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
-	public Image getSprite ()
+	public SimpleObjectProperty<Image> getSprite ()
 	{
-		return this.sprite;
+		return this.imageProperty;
 	}
+
 }

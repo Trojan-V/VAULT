@@ -1,6 +1,5 @@
 package me.vault.game.city.building;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-
+import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
 public class WorkshopController implements Initializable
 {
@@ -31,77 +30,56 @@ public class WorkshopController implements Initializable
 	 */
 	private static final ILogger LOGGER = new Logger(WorkshopController.class.getSimpleName());
 
-
-	private static final String BACKGROUND_FILENAME = "city_background.png";
-
-
 	@FXML
 	private Button backToCityViewButton;
-
 
 	@FXML
 	private Label compositeAmountLabel;
 
-
 	@FXML
 	private ImageView compositeImageView;
-
 
 	@FXML
 	private Label creditAmountLabel;
 
-
 	@FXML
 	private ImageView creditImageView;
-
 
 	@FXML
 	private ImageView damageArtifactImageView;
 
-
 	@FXML
 	private Button damageArtifactUpgradeButton;
 
-
 	@FXML
-	private ImageView defenseArtifactIamgeView;
-
+	private ImageView defenseArtifactImageView;
 
 	@FXML
 	private Button defenseArtifactUpgradeButton;
 
-
 	@FXML
 	private Label foodAmountLabel;
-
 
 	@FXML
 	private ImageView foodImageView;
 
-
 	@FXML
 	private ImageView healthArtifactImageView;
-
 
 	@FXML
 	private Button healthArtifactUpgradeButton;
 
-
 	@FXML
 	private Label scienceAmountLabel;
-
 
 	@FXML
 	private ImageView scienceImageView;
 
-
 	@FXML
 	private Label steelAmountLabel;
 
-
 	@FXML
 	private ImageView steelImageView;
-
 
 	@FXML
 	private ImageView workshopBackgroundImageView;
@@ -138,8 +116,17 @@ public class WorkshopController implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + BACKGROUND_FILENAME));
+		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 		this.initCurrencies();
+		this.bindArtifactViews();
+	}
+
+
+	private void bindArtifactViews ()
+	{
+		this.healthArtifactImageView.imageProperty().bind(Artifact.HEALTH.getCurrentProperties().getSprite());
+		this.damageArtifactImageView.imageProperty().bind(Artifact.DAMAGE.getCurrentProperties().getSprite());
+		this.defenseArtifactImageView.imageProperty().bind(Artifact.DEFENSE.getCurrentProperties().getSprite());
 	}
 
 
@@ -151,4 +138,5 @@ public class WorkshopController implements Initializable
 		CityBuildingController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
 		CityBuildingController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
 	}
+
 }

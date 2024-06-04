@@ -24,7 +24,7 @@ public final class CityBuildingView
 	public static void showCityBuilding (final Stage stage, CityBuilding cityBuilding)
 	{
 		// Loading the FXML-File and creating a scene from the loaded components
-		final Scene scene = cityBuilding.getCurrentProperties().getScene();
+		final Scene scene = cityBuilding.getScene();
 
 
 		// New scene is set as main-scene of the passed stage
@@ -38,7 +38,7 @@ public final class CityBuildingView
 	{
 
 		// Loading the FXML-File and creating a scene from the loaded components
-		final Scene scene = CityBuilding.WORKSHOP.getCurrentProperties().getScene();
+		final Scene scene = CityBuilding.WORKSHOP.getScene();
 
 
 		// New scene is set as main-scene of the passed stage

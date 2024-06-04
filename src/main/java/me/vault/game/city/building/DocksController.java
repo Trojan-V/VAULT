@@ -71,7 +71,7 @@ public class DocksController implements Initializable
 
 
 	@FXML
-	void onBackToCityView (ActionEvent event)
+	void onBackToCityView (ActionEvent ignored)
 	{
 		CityView.show(VaultApplication.getStage());
 	}

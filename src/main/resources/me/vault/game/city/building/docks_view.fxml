@@ -210,7 +210,7 @@
       </HBox>
       <TabPane fx:id="factionsTabPane" layoutX="26.0" layoutY="106.0" prefHeight="591.0" prefWidth="1229.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
         <tabs>
-          <Tab closable="false" style="-fx-pref-width: 302; -fx-pref-height: 30;" text="Military Government">
+          <Tab closable="false" style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="Military Government">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
                      <children>
@@ -310,7 +310,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab style="-fx-pref-width: 302; -fx-pref-height: 30;" text="Explorer">
+          <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="Explorer">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
                      <children>
@@ -410,7 +410,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30;" text="Mega Concern">
+            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="Mega Concern">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
                      <children>
@@ -510,7 +510,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30;" text="New Terra">
+            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="New Terra">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
                      <children>
@@ -592,6 +592,9 @@
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
                               </Label>
                               <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="1178.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Auswählen" GridPane.rowIndex="3">
                                  <GridPane.margin>

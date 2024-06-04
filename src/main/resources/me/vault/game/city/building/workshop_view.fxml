@@ -218,19 +218,19 @@
           <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="healthArtifactImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="healthArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                <GridPane.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                </GridPane.margin>
             </ImageView>
-            <ImageView fx:id="damageArtifactImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+            <ImageView fx:id="damageArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                </GridPane.margin>
             </ImageView>
-            <ImageView fx:id="defenseArtifactIamgeView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+            <ImageView fx:id="defenseArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                </GridPane.margin>
             </ImageView>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
