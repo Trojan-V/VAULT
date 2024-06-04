@@ -18,6 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 public class DocksController implements Initializable
 {
@@ -81,7 +82,7 @@ public class DocksController implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + BACKGROUND_FILENAME));
-		this.factionsTabPane.getStyleClass().add("floating");
+		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.initCurrencies();
 	}
 

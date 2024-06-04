@@ -17,13 +17,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.city.building.TrainingFacilityController">
    <children>
-      <ImageView fx:id="workshopBackgroundImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="trainingFacilityBackgroundImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D height="720.0" width="1280.0" />
          </viewport></ImageView>
       <HBox layoutX="8.0" layoutY="8.0" prefHeight="106.0" prefWidth="1280.0" AnchorPane.bottomAnchor="614.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="backToCityViewButton" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="90.0" prefWidth="185.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="ZURÜCK">
+            <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="90.0" prefWidth="185.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="ZURÜCK">
                <HBox.margin>
                   <Insets bottom="10.0" left="25.0" right="5.0" top="10.0" />
                </HBox.margin>
@@ -208,9 +208,9 @@
             </HBox>
          </children>
       </HBox>
-      <TabPane layoutX="-1.0" layoutY="114.0" prefHeight="581.0" prefWidth="1230.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="114.0">
+      <TabPane fx:id="factionsTabPane" layoutX="-1.0" layoutY="114.0" prefHeight="581.0" prefWidth="1230.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="114.0">
         <tabs>
-          <Tab style="-fx-pref-width: 302; -fx-pref-height: 30;" text="Militaristic Government">
+          <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 18;" text="Militaristic Government">
                <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="1235.0">
                      <children>
@@ -226,24 +226,24 @@
                             <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ImageView fx:id="healthArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="spaceMarineImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <ImageView fx:id="damageArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="engineerImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <ImageView fx:id="defenseArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                              <ImageView fx:id="officerImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="TROOP 1 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="SPACE MARINE (TEMP)" textAlignment="CENTER">
                                        <VBox.margin>
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
@@ -251,7 +251,7 @@
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="healthArtifactUpgradeButton" mnemonicParsing="false" onAction="#onHealthArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="spaceMarineUpgradeButton" mnemonicParsing="false" onAction="#onSpaceMarineUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -263,7 +263,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="TROOP 2 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="ENGINEER (TEMP)" textAlignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
@@ -271,7 +271,7 @@
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="damageArtifactUpgradeButton" mnemonicParsing="false" onAction="#onDamageArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="engineerUpgradeButton" mnemonicParsing="false" onAction="#onEngineerUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -283,7 +283,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="TROOP 3 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="OFFICER (TEMP)" textAlignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
@@ -291,7 +291,7 @@
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="defenseArtifactUpgradeButton" mnemonicParsing="false" onAction="#onDefenseArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="officerUpgradeButton" mnemonicParsing="false" onAction="#onOfficerUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -327,12 +327,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="The pinnacle of evolution. A super soldier who works like an one-man-army. Takes up a lot of space." wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -482,12 +482,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.rowIndex="1">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="A government agent who is specialized in the usage of energy based weapons and utilities." wrapText="true" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -637,12 +637,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.rowIndex="1">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="A high-grade party member who descended to the lower ranks to help his soldiers accomplish their goals." wrapText="true" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -772,7 +772,7 @@
                   </AnchorPane>
                </content>
           </Tab>
-          <Tab style="-fx-pref-width: 302; -fx-pref-height: 30;" text="Explorer-Association">
+          <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-size: 18; -fx-font-family: Arial;" text="Explorer-Association">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -788,24 +788,24 @@
                               <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <ImageView fx:id="healthArtifactImageView1" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="medicImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <ImageView fx:id="damageArtifactImageView1" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="sniperImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <ImageView fx:id="defenseArtifactImageView1" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                              <ImageView fx:id="rangerImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="TROOP 1 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="MEDIC (TEMP)" textAlignment="CENTER">
                                        <VBox.margin>
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
@@ -813,7 +813,7 @@
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="healthArtifactUpgradeButton1" mnemonicParsing="false" onAction="#onHealthArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="medicUpgradeButton" mnemonicParsing="false" onAction="#onMedicUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -825,7 +825,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="TROOP 2 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="SNIPER (TEMP)" textAlignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
@@ -833,7 +833,7 @@
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="damageArtifactUpgradeButton1" mnemonicParsing="false" onAction="#onDamageArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="sniperUpgradeButton" mnemonicParsing="false" onAction="#onSniperUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -845,7 +845,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="TROOP 3 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="RANGER (TEMP)" textAlignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
@@ -853,7 +853,7 @@
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="defenseArtifactUpgradeButton1" mnemonicParsing="false" onAction="#onDefenseArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="rangerUpgradeButton" mnemonicParsing="false" onAction="#onRangerUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -889,12 +889,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="An explorer soldier who is able to heal allies. Not as robust as other units." textAlignment="JUSTIFY" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -1017,6 +1017,9 @@
                                        </children>
                                     </HBox>
                                  </children>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
                               </GridPane>
                               <GridPane gridLinesVisible="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <columnConstraints>
@@ -1044,12 +1047,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.rowIndex="1">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="An explorer soldier who is able to fight over great distances. Not as robust as other units." wrapText="true" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -1199,12 +1202,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.rowIndex="1">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="An explorer soldier who is able to move very quickly and far. Not as robust as other units." wrapText="true" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -1334,7 +1337,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30;" text="Mega Corporation">
+            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-size: 18; -fx-font-family: Arial;" text="Mega Corporation">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -1350,24 +1353,24 @@
                               <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <ImageView fx:id="healthArtifactImageView2" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="guardImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <ImageView fx:id="damageArtifactImageView2" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="grenadierImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <ImageView fx:id="defenseArtifactImageView2" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                              <ImageView fx:id="recruitImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="TROOP 1 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="GUARD (TEMP)" textAlignment="CENTER">
                                        <VBox.margin>
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
@@ -1375,7 +1378,7 @@
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="healthArtifactUpgradeButton2" mnemonicParsing="false" onAction="#onHealthArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="guardUpgradeButton" mnemonicParsing="false" onAction="#onGuardUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -1387,7 +1390,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="TROOP 2 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="GRENADIER (TEMP)" textAlignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
@@ -1395,7 +1398,7 @@
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="damageArtifactUpgradeButton2" mnemonicParsing="false" onAction="#onDamageArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="grenadierUpgradeButton" mnemonicParsing="false" onAction="#onGrenadierUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -1407,7 +1410,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="TROOP 3 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="RECRUIT (TEMP)" textAlignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
@@ -1415,7 +1418,7 @@
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="defenseArtifactUpgradeButton2" mnemonicParsing="false" onAction="#onDefenseArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="recruitUpgradeButton" mnemonicParsing="false" onAction="#onRecruitUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -1451,12 +1454,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="A trained soldier who is good at guarding stuff. The soldier is still waiting for his payment from the corporation..." wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -1611,7 +1614,7 @@
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -1768,6 +1771,9 @@
                                        <GridPane.margin>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </GridPane.margin>
+                                       <padding>
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                       </padding>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
@@ -1896,7 +1902,7 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30;" text="New-Terra">
+            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 18;" text="New-Terra">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -1912,24 +1918,24 @@
                               <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <ImageView fx:id="healthArtifactImageView3" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="infantryImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <ImageView fx:id="damageArtifactImageView3" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="lieutenantImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
-                              <ImageView fx:id="defenseArtifactImageView3" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                              <ImageView fx:id="precisionShooterImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                                  </GridPane.margin>
                               </ImageView>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="TROOP 1 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="INFANTRY (TEMP)" textAlignment="CENTER">
                                        <VBox.margin>
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
@@ -1937,7 +1943,7 @@
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="healthArtifactUpgradeButton3" mnemonicParsing="false" onAction="#onHealthArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="infantryUpgradeButton" mnemonicParsing="false" onAction="#onInfantryUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -1949,7 +1955,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="TROOP 2 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="249.0" text="LIEUTENANT (TEMP)" textAlignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
@@ -1957,7 +1963,7 @@
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="damageArtifactUpgradeButton3" mnemonicParsing="false" onAction="#onDamageArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="lieutenantUpgradeButton" mnemonicParsing="false" onAction="#onLieutenantUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -1969,7 +1975,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="TROOP 3 (TEMP)" textAlignment="CENTER">
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="249.0" text="PRECISION-SHOOTER (TEMP)" textAlignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="18.0" />
                                        </font>
@@ -1977,7 +1983,7 @@
                                           <Insets left="25.0" right="25.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="defenseArtifactUpgradeButton3" mnemonicParsing="false" onAction="#onDefenseArtifactUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
+                                    <Button fx:id="precisionShooterUpgradeButton" mnemonicParsing="false" onAction="#onPrecisionShooterUpgrade" prefHeight="112.0" prefWidth="249.0" style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="20.0" />
                                        </font>
@@ -2013,12 +2019,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="A well-rounded soldier who isn't afraid to give everything for his cause." wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -2168,12 +2174,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.rowIndex="1">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="A commanding officer who will give everything to return to his homeworld." wrapText="true" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -2323,12 +2329,12 @@
                                           <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTT" wrapText="true" GridPane.rowIndex="1">
+                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="244.0" text="An elite-soldier who excells the other soldiers in his group with his outstanding aim." wrapText="true" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                        <GridPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
