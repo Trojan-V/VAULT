@@ -36,7 +36,7 @@ public final class ArtifactTest
 
 	private static final String ARTIFACTS_UPGRADABLE_AT_SUPER_LEVEL_ERROR_MESSAGE =
 		"At least one Artifact was upgradable, even though all artifacts have been set to the level " +
-		ArtifactLevel.SUPER.name() + " before the test was run.";
+		ArtifactLevel.Improved.name() + " before the test was run.";
 
 
 	public static final String INVALID_CURRENCY_AMOUNT_AFTER_UPGRADE_MESSAGE =
@@ -47,9 +47,9 @@ public final class ArtifactTest
 
 
 	private static final String ARTIFACT_LEVEL_IS_NOT_SUPER_AFTER_UPGRADE_MESSAGE =
-		"The artifact level is not equal to " + ArtifactLevel.SUPER + ", although it always should be, " +
+		"The artifact level is not equal to " + ArtifactLevel.Improved + ", although it always should be, " +
 		"because either the level was upgraded if the artifact was at the base level before, or it should " +
-		"stay at " + ArtifactLevel.SUPER + " because there is no higher level than super at the moment.";
+		"stay at " + ArtifactLevel.Improved + " because there is no higher level than super at the moment.";
 
 
 	private ArtifactTest () {}
@@ -71,7 +71,7 @@ public final class ArtifactTest
 		Assertions.assertTrue(checkIfArtifactsAreUpgradable(), ARTIFACTS_NOT_UPGRADABLE_AT_BASE_LEVEL_ERROR_MESSAGE);
 
 		// Test case for super artifacts
-		setArtifactsToLevel(ArtifactLevel.SUPER);
+		setArtifactsToLevel(ArtifactLevel.Improved);
 		Assertions.assertFalse(checkIfArtifactsAreUpgradable(), ARTIFACTS_UPGRADABLE_AT_SUPER_LEVEL_ERROR_MESSAGE);
 	}
 
@@ -132,7 +132,8 @@ public final class ArtifactTest
 
 
 			// Would become more complex logic here if more than two levels would exist.
-			Assertions.assertEquals(ArtifactLevel.SUPER, artifact.getLevel(), ARTIFACT_LEVEL_IS_NOT_SUPER_AFTER_UPGRADE_MESSAGE);
+			Assertions.assertEquals(ArtifactLevel.Improved, artifact.getLevel(),
+				ARTIFACT_LEVEL_IS_NOT_SUPER_AFTER_UPGRADE_MESSAGE);
 
 			// If the artifact level is already maxed, there is no point in continuing with the currency deduction
 			// assertions, as there is no further upgrade to make and therefore no currencies will be deducted in
@@ -192,27 +193,27 @@ public final class ArtifactTest
 
 	private static void testArtifactLevelGetters ()
 	{
-		Assertions.assertEquals(ArtifactLevel.SUPER, ArtifactLevel.getMaximumArtifactLevel(),
-			MessageFormat.format(MAX_ARTIFACT_LEVEL_NOT_SUPER_MSG, ArtifactLevel.SUPER.name(),
+		Assertions.assertEquals(ArtifactLevel.Improved, ArtifactLevel.getMaximumArtifactLevel(),
+			MessageFormat.format(MAX_ARTIFACT_LEVEL_NOT_SUPER_MSG, ArtifactLevel.Improved.name(),
 				ArtifactLevel.getMaximumArtifactLevel()
 			.name()));
 
-		Assertions.assertEquals(ArtifactLevel.SUPER, ArtifactLevel.getNextHigherLevel(ArtifactLevel.BASE),
+		Assertions.assertEquals(ArtifactLevel.Improved, ArtifactLevel.getNextHigherLevel(ArtifactLevel.BASE),
 			MessageFormat.format(NEXT_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.BASE.name(),
-				ArtifactLevel.SUPER.name(), ArtifactLevel.getNextHigherLevel(ArtifactLevel.BASE)
+				ArtifactLevel.Improved.name(), ArtifactLevel.getNextHigherLevel(ArtifactLevel.BASE)
 			.name()));
 
-		Assertions.assertEquals(ArtifactLevel.SUPER, ArtifactLevel.getNextHigherLevel(ArtifactLevel.SUPER),
-			MessageFormat.format(NEXT_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.SUPER.name(),
-				ArtifactLevel.SUPER.name(), ArtifactLevel.getNextHigherLevel(ArtifactLevel.SUPER)
+		Assertions.assertEquals(ArtifactLevel.Improved, ArtifactLevel.getNextHigherLevel(ArtifactLevel.Improved),
+			MessageFormat.format(NEXT_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.Improved.name(),
+				ArtifactLevel.Improved.name(), ArtifactLevel.getNextHigherLevel(ArtifactLevel.Improved)
 			.name()));
 
 		Assertions.assertEquals(ArtifactLevel.BASE, ArtifactLevel.getNextLowerLevel(ArtifactLevel.BASE),
 			MessageFormat.format(PREVIOUS_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.BASE, ArtifactLevel.BASE,
 				ArtifactLevel.getNextLowerLevel(ArtifactLevel.BASE)));
 
-		Assertions.assertEquals(ArtifactLevel.BASE, ArtifactLevel.getNextLowerLevel(ArtifactLevel.SUPER),
-			MessageFormat.format(PREVIOUS_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.SUPER, ArtifactLevel.BASE,
-				ArtifactLevel.getNextLowerLevel(ArtifactLevel.SUPER)));
+		Assertions.assertEquals(ArtifactLevel.BASE, ArtifactLevel.getNextLowerLevel(ArtifactLevel.Improved),
+			MessageFormat.format(PREVIOUS_ARTIFACT_LEVEL_INCORRECT_MSG, ArtifactLevel.Improved, ArtifactLevel.BASE,
+				ArtifactLevel.getNextLowerLevel(ArtifactLevel.Improved)));
 	}
 }

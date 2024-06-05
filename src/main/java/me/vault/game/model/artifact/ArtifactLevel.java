@@ -13,7 +13,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 public enum ArtifactLevel
 {
 	BASE,
-	SUPER;
+	Improved;
 
 
 	/**

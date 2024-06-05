@@ -4,47 +4,101 @@ package me.vault.game.model.artifact;
 import me.vault.game.controller.CurrencyController;
 import me.vault.game.model.citybuilding.ValidatedEntriesHashMap;
 import me.vault.game.model.interfaces.IUpgradable;
+import me.vault.game.utility.constant.ArtifactConstants;
 
+
+/**
+ * @author Lasse-Leander Hillen , Vincent Wolf, Alexander Göthel
+ * @version 1.0.0
+ * @see IUpgradable
+ * @since 25.05.2024
+ */
 
 public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 {
 	/**
-	 * The damage-artifact with its specified properties
+	 * The health-artifact with its specified properties
 	 */
-	DAMAGE(new ValidatedEntriesHashMap<>()
+	HEALTH(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
-			- 10, - 10), 1, 1, 1, 1, 1, 1, "Damage Artifact"));
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(
+			-10, -10, -10, -10, -10),
+			ArtifactConstants.HEALTH_BASE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE,
+			(int) ArtifactConstants.NO_CHANGE, ArtifactConstants.HEALTH_ARTIFACT));
 
-		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
-			- 10, - 10), 1, 1, 1, 1, 1, 1, "Super Damage Artifact"));
+		this.put(ArtifactLevel.Improved, new ArtifactProperties(CurrencyController.createTransaction(
+			-10, -10, -10, -10, -10),
+			ArtifactConstants.HEALTH_IMPROVED, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE,
+			(int) ArtifactConstants.NO_CHANGE, ArtifactConstants.IMPROVED_HEALTH_ARTIFACT));
 	}}),
-
 
 	/**
 	 * The defense-artifact with its specified properties
 	 */
 	DEFENSE(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
-			- 10, - 10), 1, 1, 1, 1, 1, 1, "Defense Artifact"));
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(
+			-10, -10, -10, -10, -10),
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.ARMOUR_BASE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.RESISTENZ_BASE,
+			(int) ArtifactConstants.NO_CHANGE, ArtifactConstants.DEFENSE_ARTIFACT));
 
-		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
-			- 10, - 10), 1, 1, 1, 1, 1, 1, "Super Defense Artifact"));
+		this.put(ArtifactLevel.Improved, new ArtifactProperties(CurrencyController.createTransaction(
+			-10, -10, -10, -10, -10),
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.ARMOUR_IMPROVED, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.RESISTENZ_IMPROVED,
+			(int) ArtifactConstants.NO_CHANGE, ArtifactConstants.DEFENSE_ARTIFACT));
 	}}),
 
 
 	/**
-	 * The health-artifact with its specified properties
+	 * The damage-artifact with its specified properties
 	 */
-	HEALTH(new ValidatedEntriesHashMap<>()
+	DAMAGE(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
-			- 10, - 10), 1, 1, 1, 1, 1, 1, "Health Artifact"));
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(
+			-10, -10, -10, -10, -10),
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.MELEE_DAMAGE_BASE,
+			ArtifactConstants.GRENADE_DAMAGE_BASE, ArtifactConstants.ENERGY_DAMAGE_BASE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, (int) ArtifactConstants.NO_CHANGE, ArtifactConstants.DAMAGE_ARTIFACT));
 
-		this.put(ArtifactLevel.SUPER, new ArtifactProperties(CurrencyController.createTransaction(- 10, - 10, - 10,
-			- 10, - 10), 1, 1, 1, 1, 1, 1, "Super Health Artifact"));
+		this.put(ArtifactLevel.Improved, new ArtifactProperties(CurrencyController.createTransaction(
+			-10, -10, -10, -10, -10),
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.MELEE_DAMAGE_IMPROVED,
+			ArtifactConstants.GRENADE_DAMAGE_IMPROVED, ArtifactConstants.ENERGY_DAMAGE_IMPROVED,
+			ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, (int) ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.IMPROVED_DAMAGE_ARTIFACT));
+	}}),
+
+	/**
+	 * The mobility-artifact with its specified properties
+	 */
+	MOBILITY(new ValidatedEntriesHashMap<>()
+	{{
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(CurrencyController.createTransaction(
+			-10, -10, -10, -10, -10),
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.DODGE_BASE, ArtifactConstants.NO_CHANGE,
+			(int) ArtifactConstants.MOVEMENT_RANGE_BASE,
+			ArtifactConstants.MOBILITY_ARTIFACT));
+
+		this.put(ArtifactLevel.Improved, new ArtifactProperties(CurrencyController.createTransaction(
+			-10, -10, -10, -10, -10),
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.DODGE_IMPROVED, ArtifactConstants.NO_CHANGE,
+			(int) ArtifactConstants.MOVEMENT_RANGE_IMPROVED, ArtifactConstants.IMPROVED_MOBILITY_ARTIFACT));
 	}});
+
+
 
 
 	private final ValidatedEntriesHashMap<ArtifactLevel, ArtifactProperties> propertyMap;

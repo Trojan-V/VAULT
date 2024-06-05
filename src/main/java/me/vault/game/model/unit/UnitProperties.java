@@ -3,8 +3,12 @@ package me.vault.game.model.unit;
 
 import me.vault.game.model.currency.CurrencyTransaction;
 
+import static me.vault.game.utility.constant.CharacterConstants.PIPE;
+
 
 /**
+ * This class provides the attributes for the units of the game.
+ *
  * @author Alexander Göthel
  * @version 1.0.0
  * @since 28.05.2024
@@ -156,5 +160,15 @@ public class UnitProperties
 	public CurrencyTransaction getUpgradeCosts ()
 	{
 		return this.upgradeCosts;
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return "ArtifactProperties[" + this.name + PIPE + this.health + PIPE + this.armour +
+		       PIPE + this.meleeDamage + PIPE + this.grenade + PIPE + this.grenadeAmount + PIPE +
+		       this.dodge + PIPE + this.resistance + PIPE + this.movementRange + PIPE + this.initiative +
+		       PIPE + this.meleeRange + PIPE + this.grenadeRange + PIPE + this.upgradeCosts + ']';
 	}
 }
