@@ -13,7 +13,6 @@ public interface ArtifactConstants
 {
 	public static final double NO_CHANGE = 0;
 
-
 	//-------------------------------
 	// health addition
 	public static final double HEALTH_BASE = 10;
@@ -54,13 +53,6 @@ public interface ArtifactConstants
 	public static final double ENERGY_DAMAGE_IMPROVED = 15;
 
 
-	//--------------------------------
-	// dodge addition
-	public static final double DODGE_BASE = 0.1;
-
-
-	public static final double DODGE_IMPROVED = 0.2;
-
 
 	//--------------------------------
 	// resistenz addition
@@ -69,13 +61,6 @@ public interface ArtifactConstants
 
 	public static final double RESISTENZ_IMPROVED = 0.12;
 
-
-	//--------------------------------
-	// movement range addition
-	public static final double MOVEMENT_RANGE_BASE = 1;
-
-
-	public static final double MOVEMENT_RANGE_IMPROVED = 2;
 
 
 	//--------------------------------
@@ -90,12 +75,6 @@ public interface ArtifactConstants
 
 
 	public static final String IMPROVED_DEFENSE_ARTIFACT = "Improved Defense Artifact";
-
-
-	public static final String MOBILITY_ARTIFACT = "Mobility Artifact";
-
-
-	public static final String IMPROVED_MOBILITY_ARTIFACT = "Improve Mobility Artifact";
 
 
 	public static final String HEALTH_ARTIFACT = "Health Artifact";

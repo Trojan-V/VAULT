@@ -11,33 +11,88 @@ public class ArtifactProperties
 
 	private final SimpleObjectProperty<Image> imageProperty;
 
-	private double healthIncrease;
 
-	private double regenerationIncrease;
+	private final double healthIncrease;
 
-	private double meleeDamageIncrease;
 
-	private double energyDamageIncrease;
+	private final double armourIncrease;
 
-	private double dodgeIncrease;
 
-	private double defenseIncrease;
+	private final double meleeDamageIncrease;
+
+
+	private final double grenadeDamageIncrease;
+
+
+	private final double energyDamageIncrease;
+
+
+	private final double resistenzIncrease;
+
 
 	private final CurrencyTransaction upgradeCosts;
 
 
-	public ArtifactProperties (final String name, final SimpleObjectProperty<Image> imageProperty, final CurrencyTransaction upgradeCosts)
+	public ArtifactProperties (final String name, final SimpleObjectProperty<Image> imageProperty,
+		final double healthIncrease,
+		final double armourIncrease, final double meleeDamageIncrease, final double grenadeDamageIncrease,
+		final double energyDamageIncrease,
+		final double resistenzIncrease, final CurrencyTransaction upgradeCosts)
 	{
 		this.name = name;
-		this.upgradeCosts = upgradeCosts;
 		this.imageProperty = imageProperty;
+		this.healthIncrease = healthIncrease;
+		this.armourIncrease = armourIncrease;
+		this.meleeDamageIncrease = meleeDamageIncrease;
+		this.grenadeDamageIncrease = grenadeDamageIncrease;
+		this.energyDamageIncrease = energyDamageIncrease;
+		this.resistenzIncrease = resistenzIncrease;
+		this.upgradeCosts = upgradeCosts;
 	}
 
 
 	// TODO: Interface für diese Methoden?
+
+
 	public String getName ()
 	{
 		return this.name;
+	}
+
+
+	public double getHealthIncrease ()
+	{
+		return this.healthIncrease;
+	}
+
+
+	public double getArmourIncrease ()
+	{
+		return this.armourIncrease;
+	}
+
+
+	public double getMeleeDamageIncrease ()
+	{
+		return this.meleeDamageIncrease;
+	}
+
+
+	public double getGrenadeDamageIncrease ()
+	{
+		return this.grenadeDamageIncrease;
+	}
+
+
+	public double getEnergyDamageIncrease ()
+	{
+		return this.energyDamageIncrease;
+	}
+
+
+	public double getResistenzIncrease ()
+	{
+		return this.resistenzIncrease;
 	}
 
 

@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyController;
 import me.vault.game.interfaces.IUpgradable;
+import me.vault.game.utility.constant.ArtifactConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
@@ -11,18 +12,20 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 {
-	/**
-	 * The damage-artifact with its specified properties
-	 */
 	DAMAGE(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ArtifactLevel.BASE, new ArtifactProperties("Damage Artifact",
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(ArtifactConstants.DAMAGE_ARTIFACT,
 			new SimpleObjectProperty<Image>(ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/damage_artifact_icon.png")),
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.MELEE_DAMAGE_BASE,
+			ArtifactConstants.GRENADE_DAMAGE_BASE, ArtifactConstants.ENERGY_DAMAGE_BASE, ArtifactConstants.NO_CHANGE,
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-		this.put(ArtifactLevel.SUPER, new ArtifactProperties("Super Damage Artifact",
+		this.put(ArtifactLevel.IMPROVED, new ArtifactProperties(ArtifactConstants.IMPROVED_DAMAGE_ARTIFACT,
 			new SimpleObjectProperty<Image>(ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/damage_artifact_icon.png")),
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.MELEE_DAMAGE_IMPROVED,
+			ArtifactConstants.GRENADE_DAMAGE_IMPROVED, ArtifactConstants.ENERGY_DAMAGE_IMPROVED,
+			ArtifactConstants.NO_CHANGE,
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 	}}),
 
 
@@ -31,15 +34,18 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	 */
 	DEFENSE(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ArtifactLevel.BASE, new ArtifactProperties("Defense Artifact",
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(ArtifactConstants.DEFENSE_ARTIFACT,
 			new SimpleObjectProperty<Image>(ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/defense_artifact_icon.png")),
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.ARMOUR_BASE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.RESISTENZ_BASE,
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-		this.put(ArtifactLevel.SUPER,new ArtifactProperties("Super Defense Artifact",
+		this.put(ArtifactLevel.IMPROVED, new ArtifactProperties(ArtifactConstants.IMPROVED_DEFENSE_ARTIFACT,
 			new SimpleObjectProperty<Image>(ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/defense_artifact_icon.png")),
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.ARMOUR_IMPROVED, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.RESISTENZ_IMPROVED,
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 	}}),
-
 
 	/**
 	 * The health-artifact with its specified properties
@@ -47,13 +53,18 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 	HEALTH(new ValidatedEntriesHashMap<>()
 	{{
 		// TODO: Richtiges Sprite hinzufügen anstelle von 'null'.
-		this.put(ArtifactLevel.BASE, new ArtifactProperties("Health Artifact",
+		this.put(ArtifactLevel.BASE, new ArtifactProperties(ArtifactConstants.HEALTH_ARTIFACT,
 			new SimpleObjectProperty<Image>(ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/health_artifact_icon.png")),
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			ArtifactConstants.HEALTH_BASE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-		this.put(ArtifactLevel.SUPER, new ArtifactProperties("Super Health Artifact",
+		this.put(ArtifactLevel.IMPROVED, new ArtifactProperties(ArtifactConstants.IMPROVED_HEALTH_ARTIFACT,
 			new SimpleObjectProperty<Image>(ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/health_artifact_icon.png")),
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			ArtifactConstants.HEALTH_IMPROVED, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 	}});
 
 
