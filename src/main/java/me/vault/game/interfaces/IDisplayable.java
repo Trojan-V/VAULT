@@ -14,8 +14,5 @@ public interface IDisplayable
 	public abstract Image getSprite ();
 
 
-	public default void setSprite (final Image sprite) {}
-
-
 	public abstract void updateProperties ();
 }

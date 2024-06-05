@@ -1,5 +1,6 @@
 package me.vault.game.city.building;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -173,7 +174,7 @@ public class WorkshopController implements Initializable
 	}
 
 
-	private void bindArtifactModifiers (Artifact artifact, Label damageModifierLabel, Label defenseModifierLabel, Label healthModifierLabel)
+	private void bindArtifactModifiers (final Artifact artifact, final Label damageModifierLabel, final Label defenseModifierLabel, final Label healthModifierLabel)
 	{
 	}
 
