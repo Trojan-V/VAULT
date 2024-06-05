@@ -13,7 +13,7 @@ import static me.vault.game.utility.constant.CharacterConstants.PIPE;
  * @version 1.0.0
  * @since 28.05.2024
  */
-public class UnitProperties
+public class UnitAttributes
 {
 	private final String name;
 
@@ -57,7 +57,7 @@ public class UnitProperties
 	private final CurrencyTransaction upgradeCosts;
 
 
-	public UnitProperties (final CurrencyTransaction upgradeCosts, final double health, final double armour,
+	public UnitAttributes (final CurrencyTransaction upgradeCosts, final double health, final double armour,
 		final int energy, final int meleeDamage, final int grenade, final int grenadeAmount, final double dodge,
 		final double resistance, final int movementRange, final int initiative, final int meleeRange,
 		final int grenadeRange, final String name)

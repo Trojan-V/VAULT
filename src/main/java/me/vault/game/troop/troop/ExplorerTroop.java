@@ -1,43 +1,43 @@
 package me.vault.game.troop.troop;
 
 
-import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import me.vault.game.interfaces.IUpgradable;
+import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
 
-public enum ExplorerTroop implements IUpgradable<ExplorerTroopLevel, ExplorerTroopProperties>
+public enum ExplorerTroop implements IUpgradable<ExplorerTroopLevel, ExplorerTroopAttributes>
 {
 	MEDIC(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ExplorerTroopLevel.ONE, new ExplorerTroopProperties());
-		this.put(ExplorerTroopLevel.TWO, new ExplorerTroopProperties());
-		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopProperties());
+		this.put(ExplorerTroopLevel.ONE, new ExplorerTroopAttributes());
+		this.put(ExplorerTroopLevel.TWO, new ExplorerTroopAttributes());
+		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopAttributes());
 	}}),
 
 
 	SHARPSHOOTER(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ExplorerTroopLevel.ONE, new ExplorerTroopProperties());
-		this.put(ExplorerTroopLevel.TWO, new ExplorerTroopProperties());
-		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopProperties());
+		this.put(ExplorerTroopLevel.ONE, new ExplorerTroopAttributes());
+		this.put(ExplorerTroopLevel.TWO, new ExplorerTroopAttributes());
+		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopAttributes());
 	}}),
 
 
 	RANGER(new ValidatedEntriesHashMap<>()
 	{{
-		this.put(ExplorerTroopLevel.ONE, new ExplorerTroopProperties());
-		this.put(ExplorerTroopLevel.TWO, new ExplorerTroopProperties());
-		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopProperties());
+		this.put(ExplorerTroopLevel.ONE, new ExplorerTroopAttributes());
+		this.put(ExplorerTroopLevel.TWO, new ExplorerTroopAttributes());
+		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopAttributes());
 	}});
 
 
-	private final ValidatedEntriesHashMap<ExplorerTroopLevel, ExplorerTroopProperties> propertyMap;
+	private final ValidatedEntriesHashMap<ExplorerTroopLevel, ExplorerTroopAttributes> propertyMap;
 
 
 	private ExplorerTroopLevel currentLevel;
 
 
-	ExplorerTroop (final ValidatedEntriesHashMap<ExplorerTroopLevel, ExplorerTroopProperties> propertyMap)
+	ExplorerTroop (final ValidatedEntriesHashMap<ExplorerTroopLevel, ExplorerTroopAttributes> propertyMap)
 	{
 		// TODO: Load Level from Config
 		this.currentLevel = ExplorerTroopLevel.ONE;
@@ -47,14 +47,14 @@ public enum ExplorerTroop implements IUpgradable<ExplorerTroopLevel, ExplorerTro
 
 
 	@Override
-	public ValidatedEntriesHashMap<ExplorerTroopLevel, ExplorerTroopProperties> getAllProperties ()
+	public ValidatedEntriesHashMap<ExplorerTroopLevel, ExplorerTroopAttributes> getAllAttributes ()
 	{
 		return this.propertyMap;
 	}
 
 
 	@Override
-	public ExplorerTroopProperties getCurrentProperties ()
+	public ExplorerTroopAttributes getCurrentAttributes ()
 	{
 		return this.propertyMap.get(this.currentLevel);
 	}

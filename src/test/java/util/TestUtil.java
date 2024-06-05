@@ -14,7 +14,7 @@ import me.vault.game.currency.Currency;
  */
 public class TestUtil
 {
-	public static final int TEST_CURRENCY_STARTING_AMOUNT = 1000;
+	public static final int TEST_CURRENCY_STARTING_AMOUNT = 100000;
 
 
 	public static void setStartingCurrencyAmounts ()

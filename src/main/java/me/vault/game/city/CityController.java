@@ -183,8 +183,10 @@ public class CityController implements Initializable
 	private static void initCityBuildingButton (final Button button, final CityBuilding cityBuilding)
 	{
 		// TODO: Bindings
-		button.setText(cityBuilding.getCurrentProperties().getName());
-		button.setGraphic(new ImageView(cityBuilding.getSprite()));
+		button.setText(cityBuilding.getCurrentAttributes().getName());
+		final ImageView imageView = new ImageView();
+		imageView.imageProperty().bind(cityBuilding.getSpriteProperty());
+		button.setGraphic(imageView);
 	}
 
 
@@ -205,25 +207,24 @@ public class CityController implements Initializable
 	private void initCurrencies ()
 	{
 		// Initialisation of the steel Currency
-		this.steelImageView.setImage(Currency.STEEL.getSprite());
+		this.steelImageView.imageProperty().bind(Currency.STEEL.getSpriteProperty());
 		this.steelAmountLabel.textProperty().bind(Currency.STEEL.getAmountProperty().asString());
 
 		// Initialisation of the composite Currency
-		this.compositeImageView.setImage(Currency.COMPOSITE.getSprite());
+		this.compositeImageView.imageProperty().bind(Currency.COMPOSITE.getSpriteProperty());
 		this.compositeAmountLabel.textProperty().bind(Currency.COMPOSITE.getAmountProperty().asString());
 
 		// Initialisation of the science Currency
-		this.scienceImageView.setImage(Currency.SCIENCE.getSprite());
+		this.scienceImageView.imageProperty().bind(Currency.SCIENCE.getSpriteProperty());
 		this.scienceAmountLabel.textProperty().bind(Currency.SCIENCE.getAmountProperty().asString());
 
 		// Initialisation of the food ration Currency
-		this.foodImageView.setImage(Currency.FOOD_RATION.getSprite());
+		this.foodImageView.imageProperty().bind(Currency.FOOD_RATION.getSpriteProperty());
 		this.foodAmountLabel.textProperty().bind(Currency.FOOD_RATION.getAmountProperty().asString());
 
 		// Initialisation of the energy credit Currency
-		this.creditImageView.setImage(Currency.ENERGY_CREDIT.getSprite());
+		this.creditImageView.imageProperty().bind(Currency.ENERGY_CREDIT.getSpriteProperty());
 		this.creditAmountLabel.textProperty().bind(Currency.ENERGY_CREDIT.getAmountProperty().asString());
-
 	}
 
 }

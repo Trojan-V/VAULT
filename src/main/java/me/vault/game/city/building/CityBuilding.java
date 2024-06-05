@@ -1,6 +1,7 @@
 package me.vault.game.city.building;
 
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyController;
@@ -25,204 +26,271 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * @see IUpgradable
  * @since 02.05.2024
  */
-public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingProperties>, IDisplayable {
-    /**
-     * Represents the Command Center {@link CityBuilding} in the city.
-     */
-    COMMAND_CENTER(new ValidatedEntriesHashMap<>() {
-        {
-            this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Command Center", CurrencyController.createTransaction(-250, -250, -125, 0, 0)));
+public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingAttributes>, IDisplayable
+{
+	/**
+	 * Represents the Command Center {@link CityBuilding} in the city.
+	 */
+	COMMAND_CENTER(new ValidatedEntriesHashMap<>()
+	{
+		{
+			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Command Center",
+				CurrencyController.createTransaction(-250, -250, -125, 0, 0)));
 
-            this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Command Center", CurrencyController.createTransaction(-500, -500, -1000, 0, 0)));
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Command Center",
+				CurrencyController.createTransaction(-500, -500, -1000, 0, 0)));
 
-            this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Command Center", CurrencyController.createTransaction(-1000, -1000, -2000, 0, 0)));
-        }
-    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/command_center_icon.png"), null),
-
-
-    /**
-     * Represents the Docks {@link CityBuilding} in the city.
-     */
-    DOCKS(new ValidatedEntriesHashMap<>() {{
-        this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Docks", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-        this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Docks", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-        this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Docks", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-    }}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/docks_icon.png"), ResourceLoader.loadFXMLScene(CityBuilding.class, "docks_view.fxml")),
+			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Command Center",
+				CurrencyController.createTransaction(-1000, -1000, -2000, 0, 0)));
+		}
+	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/command_center_icon.png"), null),
 
 
-    /**
-     * Represents the Space Bar {@link CityBuilding} in the city.
-     */
-    SPACE_BAR(new ValidatedEntriesHashMap<>() {
-        {
-            this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Space Bar", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+	/**
+	 * Represents the Docks {@link CityBuilding} in the city.
+	 */
+	DOCKS(new ValidatedEntriesHashMap<>()
+	{{
+		this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Docks",
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-            this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Space Bar", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+		this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Docks",
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-            this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Space Bar", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-        }
-    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"), null),
+		this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Docks",
+			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-
-    /**
-     * Represents the Training Facility {@link CityBuilding} in the city.
-     */
-    TRAINING_FACILITY(new ValidatedEntriesHashMap<>() {
-        {
-            this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Training Facility", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-            this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Training Facility", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-            this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Training Facility", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-        }
-    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png"), ResourceLoader.loadFXMLScene(CityBuilding.class, "training_facility_view.fxml")),
+	}}, ResourceLoader.loadImage(
+		ASSETS_PATH + "Item_Pack/docks_icon.png"), ResourceLoader.loadFXMLScene(CityBuilding.class,
+		"docks_view" + ".fxml")),
 
 
-    /**
-     * Represents the Workshop {@link CityBuilding} in the city, which can be used to upgrade and build artifacts.
-     */
-    WORKSHOP(new ValidatedEntriesHashMap<>() {
-        {
-            this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Workshop", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+	/**
+	 * Represents the Space Bar {@link CityBuilding} in the city.
+	 */
+	SPACE_BAR(new ValidatedEntriesHashMap<>()
+	{
+		{
+			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Space Bar",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-            this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Workshop", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Space Bar",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-            this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Workshop", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-        }
-    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/workshop_icon.png"), ResourceLoader.loadFXMLScene(CityBuilding.class, "workshop_view.fxml")),
-
-
-    /**
-     * Represents the Baracks {@link CityBuilding} in the city, which can be used to recruit troops.
-     */
-    BARRACKS(new ValidatedEntriesHashMap<>() {
-        {
-            this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Barracks", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-            this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Baracks", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-            this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Baracks", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-        }
-    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/barracks_icon.png"), null),
+			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Space Bar",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+		}
+	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"), null),
 
 
-    /**
-     * Represents the Market {@link CityBuilding} in the city, which can be used to buy currencies.
-     */
-    MARKET(new ValidatedEntriesHashMap<>() {
-        {
-            this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Market", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+	/**
+	 * Represents the Training Facility {@link CityBuilding} in the city.
+	 */
+	TRAINING_FACILITY(new ValidatedEntriesHashMap<>()
+	{
+		{
+			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Training Facility",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-            this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Market", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Training Facility",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
 
-            this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Market", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-        }
-    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png"), null),
-
-
-    /**
-     * Represents the Laboratory {@link CityBuilding} in the city.
-     */
-    LABORATORY(new ValidatedEntriesHashMap<>() {
-        {
-            this.put(CityBuildingLevel.OLD, new CityBuildingProperties("Old Laboratory", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-            this.put(CityBuildingLevel.NORMAL, new CityBuildingProperties("Laboratory", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-
-            this.put(CityBuildingLevel.SUPER, new CityBuildingProperties("Super Laboratory", CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
-        }
-    }, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"), null);
-
-    //------------------------------------------------------------------------------------------------------------------
-
-    /**
-     * The {@link MessageFormat} pattern, which is used to display the object in the console.
-     */
-    private static final String TO_STRING_PATTERN = "{0}[currentLevel={1} | propertyMap={2}}";
+			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Training Facility",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+		}
+	}, ResourceLoader.loadImage(ASSETS_PATH +
+	                            "Item_Pack/training_facility_icon.png"),
+		ResourceLoader.loadFXMLScene(CityBuilding.class, "training_facility_view.fxml")),
 
 
-    /**
-     * The hashmap, which contains the buildings properties corresponding to each building level.
-     */
-    private final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingProperties> propertyMap;
+	/**
+	 * Represents the Workshop {@link CityBuilding} in the city, which can be used to upgrade and build artifacts.
+	 */
+	WORKSHOP(new ValidatedEntriesHashMap<>()
+	{
+		{
+			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Workshop",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Workshop",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Workshop",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+		}
+	}, ResourceLoader.loadImage(ASSETS_PATH +
+	                            "Item_Pack/workshop_icon.png"), ResourceLoader.loadFXMLScene(CityBuilding.class,
+		"workshop_view.fxml")),
 
 
-    private final Image icon;
+	/**
+	 * Represents the Baracks {@link CityBuilding} in the city, which can be used to recruit troops.
+	 */
+	BARRACKS(new ValidatedEntriesHashMap<>()
+	{
+		{
+			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Barracks",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Baracks",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Baracks",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+		}
+	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/barracks_icon.png"), null),
 
 
-    private final Scene scene;
+	/**
+	 * Represents the Market {@link CityBuilding} in the city, which can be used to buy currencies.
+	 */
+	MARKET(new ValidatedEntriesHashMap<>()
+	{
+		{
+			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Market",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Market",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Market",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+		}
+	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png"), null),
 
 
-    private CityBuildingLevel currentLevel;
+	/**
+	 * Represents the Laboratory {@link CityBuilding} in the city.
+	 */
+	LABORATORY(new ValidatedEntriesHashMap<>()
+	{
+		{
+			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Laboratory",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+
+			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Laboratory",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+
+			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Laboratory",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+		}
+	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"), null);
+
+	//------------------------------------------------------------------------------------------------------------------
 
 
-    CityBuilding(final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingProperties> propertyMap, final Image icon, Scene scene) {
-        // TODO: Load Level from Config
-        this.currentLevel = CityBuildingLevel.OLD;
-        this.propertyMap = propertyMap;
-        this.scene = scene;
-        this.icon = icon;
-    }
+	/**
+	 * The {@link MessageFormat} pattern, which is used to display the object in the console.
+	 */
+	private static final String TO_STRING_PATTERN = "{0}[currentLevel={1} | propertyMap={2}}";
 
 
-    public Scene getScene() {
-        return scene;
-    }
+	/**
+	 * The hashmap, which contains the buildings properties corresponding to each building level.
+	 */
+	private final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingAttributes> propertyMap;
 
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Map<CityBuildingLevel, CityBuildingProperties> getAllProperties() {
-        return this.propertyMap;
-    }
+	private final SimpleObjectProperty<Image> spriteProperty;
 
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public CityBuildingProperties getCurrentProperties() {
-        return this.propertyMap.get(this.currentLevel);
-    }
+	private final Scene scene;
 
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public CityBuildingLevel getLevel() {
-        return this.currentLevel;
-    }
+	private CityBuildingLevel currentLevel;
 
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setLevel(final CityBuildingLevel cityBuildingLevel) {
-        this.currentLevel = cityBuildingLevel;
-    }
+	CityBuilding (final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingAttributes> propertyMap,
+		final Image sprite, final Scene scene)
+	{
+		// TODO: Load Level from Config
+		this.currentLevel = CityBuildingLevel.OLD;
+		this.propertyMap = propertyMap;
+		this.scene = scene;
+		this.spriteProperty = new SimpleObjectProperty<>(sprite);
+	}
 
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Image getSprite() {
-        return this.icon;
-    }
+	public Scene getScene ()
+	{
+		return this.scene;
+	}
 
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString() {
-        return MessageFormat.format(TO_STRING_PATTERN, this.name(), this.currentLevel, this.propertyMap);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Map<CityBuildingLevel, CityBuildingAttributes> getAllAttributes ()
+	{
+		return this.propertyMap;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CityBuildingAttributes getCurrentAttributes ()
+	{
+		return this.propertyMap.get(this.currentLevel);
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CityBuildingLevel getLevel ()
+	{
+		return this.currentLevel;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setLevel (final CityBuildingLevel cityBuildingLevel)
+	{
+		this.currentLevel = cityBuildingLevel;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public SimpleObjectProperty<Image> getSpriteProperty ()
+	{
+		return this.spriteProperty;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.name(), this.currentLevel, this.propertyMap);
+	}
+
+
+	/**
+	 * Returns the sprite property of the displayable object.
+	 *
+	 * @return The sprite property of the displayable object as an {@link Image}
+	 */
+	@Override
+	public Image getSprite ()
+	{
+		return this.spriteProperty.get();
+	}
+
+
+	@Override
+	public void updateProperties ()
+	{
+		// TODO: Implement
+	}
 }

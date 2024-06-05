@@ -1,8 +1,8 @@
 package me.vault.game.artifact;
 
 
-import me.vault.game.currency.CurrencyController;
 import me.vault.game.currency.Currency;
+import me.vault.game.currency.CurrencyController;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.interfaces.IUpgrader;
 import me.vault.game.utility.logging.ILogger;
@@ -26,10 +26,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @version 1.0.0
  * @see Artifact
  * @see ArtifactLevel
- * @see ArtifactProperties
+ * @see ArtifactAttributes
  * @since 23.05.2024
  */
-public final class ArtifactController implements IUpgrader<Artifact, ArtifactLevel, ArtifactProperties>
+public final class ArtifactController implements IUpgrader<Artifact, ArtifactLevel, ArtifactAttributes>
 {
 	/**
 	 * Singleton instance, as there will never be a reason to have more than one {@link ArtifactController}.
@@ -93,12 +93,13 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 
 		// Now it's known that the artifact can be upgraded.
 		// The upgrade costs are factored in now (see Javadoc of this method for more information).
-		CurrencyController.factorCurrencyTransaction(artifact.getCurrentProperties().getUpgradeCosts());
+		CurrencyController.factorCurrencyTransaction(artifact.getCurrentAttributes().getUpgradeCosts());
 
 
 		// The level of the artifact is changed to the next level, so it's getting upgraded now.
 		LOGGER.log(DEBUG, MessageFormat.format(CURRENT_ARTIFACT_LEVEL_MSG, artifact.getLevel().toString()));
 		artifact.setLevel(ArtifactLevel.getNextHigherLevel(artifact.getLevel()));
+		artifact.updateProperties();
 		LOGGER.log(DEBUG, MessageFormat.format(UPGRADED_ARTIFACT_LEVEL_MSG, artifact.getLevel().toString()));
 	}
 
@@ -121,7 +122,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 
 		// Checks if the user has enough of each required currency to purchase the upgrade. If the amount of at least
 		// one currency isn't enough, the artifact can't be upgraded.
-		final CurrencyTransaction upgradeCosts = artifact.getCurrentProperties().getUpgradeCosts();
+		final CurrencyTransaction upgradeCosts = artifact.getCurrentAttributes().getUpgradeCosts();
 		LOGGER.log(DEBUG, MessageFormat.format(UPGRADE_COSTS_MSG, upgradeCosts.toString()));
 		for (final Currency currency : Currency.values())
 		{

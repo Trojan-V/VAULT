@@ -2,6 +2,7 @@ package me.vault.game.currency;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
 import me.vault.game.interfaces.IDisplayable;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -10,7 +11,6 @@ import java.text.MessageFormat;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
-// TODO: Interface für Sprites
 // TODO: Amount should either be retrieved by Serialization or JSON config file.
 
 /**
@@ -58,10 +58,8 @@ public enum Currency implements ICurrency, IDisplayable
 	 */
 	private static final String TO_STRING_FORMAT = "{0} [amount={1} | image={2}]";
 
-	/**
-	 * The sprite of the currency.
-	 */
-	private final Image image;
+
+	private final SimpleObjectProperty<Image> spriteProperty;
 
 	/**
 	 * The current amount of the currency.
@@ -78,7 +76,7 @@ public enum Currency implements ICurrency, IDisplayable
 	Currency (final SimpleIntegerProperty amount, final Image image)
 	{
 		this.amount = amount;
-		this.image = image;
+		this.spriteProperty = new SimpleObjectProperty<>(image);
 	}
 
 
@@ -121,10 +119,23 @@ public enum Currency implements ICurrency, IDisplayable
 	/**
 	 * {@inheritDoc}
 	 */
+	public SimpleObjectProperty<Image> getSpriteProperty ()
+	{
+		return this.spriteProperty;
+	}
+
+
 	@Override
 	public Image getSprite ()
 	{
-		return this.image;
+		return this.spriteProperty.get();
+	}
+
+
+	@Override
+	public void updateProperties ()
+	{
+		// TODO: Probably unnötig, wo ist der Sinn? Sinn erfinden!!!
 	}
 
 
@@ -136,6 +147,6 @@ public enum Currency implements ICurrency, IDisplayable
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_FORMAT, this.name(), this.amount, this.image);
+		return MessageFormat.format(TO_STRING_FORMAT, this.name(), this.amount, this.spriteProperty.get());
 	}
 }

@@ -11,9 +11,11 @@ public interface IDisplayable
 	 *
 	 * @return The sprite property of the displayable object as an {@link Image}
 	 */
-	public Image getSprite ();
+	public abstract Image getSprite ();
 
 
-	public default void setSprite (final Image sprite)
-	{}
+	public default void setSprite (final Image sprite) {}
+
+
+	public abstract void updateProperties ();
 }

@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public interface IUpgradable<K, V>
 {
-	public abstract Map<K, V> getAllProperties ();
+	public abstract Map<K, V> getAllAttributes ();
 
 
 	/**
@@ -24,7 +24,7 @@ public interface IUpgradable<K, V>
 	 *
 	 * @return The current level of the object as an {@link Integer}.
 	 */
-	public abstract V getCurrentProperties ();
+	public abstract V getCurrentAttributes ();
 
 
 	public abstract K getLevel ();

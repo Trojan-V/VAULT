@@ -1,5 +1,5 @@
-import me.vault.game.artifact.ArtifactController;
 import me.vault.game.artifact.Artifact;
+import me.vault.game.artifact.ArtifactController;
 import me.vault.game.artifact.ArtifactLevel;
 import me.vault.game.currency.Currency;
 import me.vault.game.currency.CurrencyTransaction;
@@ -58,6 +58,7 @@ public final class ArtifactTest
 	public static void main (final String[] args)
 	{
 		JvmArgumentParser.apply(args);
+		TestUtil.setStartingCurrencyAmounts();
 		testCheckIsArtifactUpgradable();
 		testUpgradeArtifacts();
 		testArtifactLevelGetters();
@@ -103,7 +104,6 @@ public final class ArtifactTest
 	{
 		// Set the artifact level to the base level before testing, as otherwise testing upgrading wouldn't make sense.
 		setArtifactsToLevel(ArtifactLevel.BASE);
-		TestUtil.setStartingCurrencyAmounts();
 		upgradeAllArtifacts();
 		upgradeAllArtifacts();
 	}
@@ -121,7 +121,7 @@ public final class ArtifactTest
 
 			final ArtifactLevel artifactLevelBeforeUpgrade = artifact.getLevel();
 
-			final CurrencyTransaction upgradeCosts = artifact.getCurrentProperties().getUpgradeCosts();
+			final CurrencyTransaction upgradeCosts = artifact.getCurrentAttributes().getUpgradeCosts();
 			final int steelUpgradeCost = upgradeCosts.getAmount(Currency.STEEL);
 			final int compositeUpgradeCost = upgradeCosts.getAmount(Currency.COMPOSITE);
 			final int energyCreditUpgradeCost = upgradeCosts.getAmount(Currency.ENERGY_CREDIT);

@@ -1,6 +1,8 @@
 package me.vault.game.utility.jvm;
 
 
+import me.vault.game.Cache;
+import me.vault.game.currency.Currency;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.ILogger.Level;
 import me.vault.game.utility.logging.Logger;
@@ -8,6 +10,7 @@ import me.vault.game.utility.logging.Logger;
 import java.text.MessageFormat;
 import java.util.Locale;
 
+import static me.vault.game.utility.constant.CharacterConstants.DASH;
 import static me.vault.game.utility.constant.LoggingConstants.DIVIDER;
 import static me.vault.game.utility.constant.LoggingConstants.JvmArgument.*;
 import static me.vault.game.utility.logging.ILogger.Level.*;
@@ -29,6 +32,9 @@ public final class JvmArgumentParser
 
 
 	private static final int NEXT_ARGUMENT_ADDITION_INDEX = 1;
+
+
+	private static final int CHEAT_CURRENCY_STARTING_AMOUNT = 100000;
 
 
 	private static int currentArgumentIndex = 0;
@@ -76,12 +82,12 @@ public final class JvmArgumentParser
 			String currentArgument = args[currentArgumentIndex];
 
 			// Remove the leading dash if it's present for the current argument to proceed evaluating the argument.
-			if (currentArgument.startsWith("-"))
+			if (currentArgument.startsWith(String.valueOf(DASH)))
 			{
 				currentArgument = currentArgument.substring(REMOVE_LEADING_DASH_SUBSTRING_INDEX);
 			}
 
-			if (! checkIsValidJvmArgument(currentArgument))
+			if (!checkIsValidJvmArgument(currentArgument))
 			{
 				LOGGER.log(WARNING, MessageFormat.format(INVALID_ARGUMENT_AT_POSITION_MSG, args[currentArgumentIndex],
 					currentArgumentIndex));
@@ -97,7 +103,11 @@ public final class JvmArgumentParser
 			// Should be replaced by a switch-statement if there are more arguments in the future.
 			if (jvmArgument == JvmArgument.LOG_DEPTH)
 			{
-				handleLogDepth(args);
+				handleLogDepthArgument(args);
+			}
+			else if (jvmArgument == JvmArgument.CHEATS)
+			{
+				handleCheatsArgument();
 			}
 		}
 	}
@@ -116,7 +126,7 @@ public final class JvmArgumentParser
 	}
 
 
-	private static void handleLogDepth (final String[] args)
+	private static void handleLogDepthArgument (final String[] args)
 	{
 		LOGGER.log(DEBUG, HANDLE_LOG_DEPTH_METHOD_ENTERED_MSG);
 		if (args.length <= 1)
@@ -128,7 +138,7 @@ public final class JvmArgumentParser
 		final Level[] logLevels = values();
 		for (final Level level : logLevels)
 		{
-			if (! checkIsValidLogDepthArgument(args, level))
+			if (!checkIsValidLogDepthArgument(args, level))
 			{
 				LOGGER.log(DEBUG, MessageFormat.format(INVALID_LOG_DEPTH_ARGUMENT_MSG, args[currentArgumentIndex +
 				                                                                            NEXT_ARGUMENT_ADDITION_INDEX], Logger.getDepth()
@@ -149,6 +159,17 @@ public final class JvmArgumentParser
 	}
 
 
+	private static void handleCheatsArgument ()
+	{
+		// Currencies are set to specified value
+		for (final Currency currency : Currency.values())
+		{
+			currency.setAmount(CHEAT_CURRENCY_STARTING_AMOUNT);
+		}
+		Cache.setAreCheatsEnabled(true);
+	}
+
+
 	private static boolean checkIsValidLogDepthArgument (final String[] args, final Level level)
 	{
 		return args[currentArgumentIndex + NEXT_ARGUMENT_ADDITION_INDEX].equalsIgnoreCase(level.name());
@@ -163,6 +184,7 @@ public final class JvmArgumentParser
 		LOGGER.log(NORMAL, DIVIDER);
 		LOGGER.log(NORMAL, HEADER);
 		LOGGER.log(NORMAL, MessageFormat.format(LOG_DEPTH_STATUS_MSG, Logger.getDepth().name()));
+		LOGGER.log(NORMAL, MessageFormat.format(CHEATS_STATUS_MSG, Cache.getAreCheatsEnabled()));
 		LOGGER.log(NORMAL, DIVIDER);
 	}
 }

@@ -13,7 +13,10 @@ import static me.vault.game.utility.constant.CharacterConstants.DASH;
  */
 public enum JvmArgument
 {
-	LOG_DEPTH("log_depth");
+	LOG_DEPTH("log_depth"),
+
+
+	CHEATS("cheats");
 
 
 	/**

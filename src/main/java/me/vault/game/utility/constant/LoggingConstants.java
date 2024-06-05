@@ -110,7 +110,7 @@ public interface LoggingConstants
 	public static interface Currency
 	{
 		public static final String EXECUTION_NOT_POSSIBLE_ANYMORE_MSG =
-			"Exiting the program because meaningful " + "execution isn't possible anymore.";
+			"Exiting the program because a meaningful execution isn't possible anymore.";
 	}
 
 
@@ -159,6 +159,10 @@ public interface LoggingConstants
 
 		public static final String LOG_DEPTH_STATUS_MSG =
 			ConsoleColor.MAGENTA_BOLD.toString() + "logDepth is set to: {0}" + ConsoleColor.RESET.toString();
+
+
+		public static final String CHEATS_STATUS_MSG =
+			ConsoleColor.MAGENTA_BOLD.toString() + "Cheats are set to: {0}" + ConsoleColor.RESET.toString();
 
 
 		public static final String JVM_ARGUMENT_CONSTRUCTION_ERROR_MSG =

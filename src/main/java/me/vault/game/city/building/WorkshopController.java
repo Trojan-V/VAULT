@@ -48,11 +48,19 @@ public class WorkshopController implements Initializable
 	@FXML
 	private ImageView damageArtifactImageView;
 
+
+	@FXML
+	private Label damageArtifactLabel;
+
 	@FXML
 	private Button damageArtifactUpgradeButton;
 
 	@FXML
 	private ImageView defenseArtifactImageView;
+
+
+	@FXML
+	private Label defenseArtifactLabel;
 
 	@FXML
 	private Button defenseArtifactUpgradeButton;
@@ -68,6 +76,10 @@ public class WorkshopController implements Initializable
 
 	@FXML
 	private Button healthArtifactUpgradeButton;
+
+
+	@FXML
+	private Label healthArtifactLabel;
 
 	@FXML
 	private Label scienceAmountLabel;
@@ -119,14 +131,23 @@ public class WorkshopController implements Initializable
 		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 		this.initCurrencies();
 		this.bindArtifactViews();
+		this.bindArtifactNames();
 	}
 
 
 	private void bindArtifactViews ()
 	{
-		this.healthArtifactImageView.imageProperty().bind(Artifact.HEALTH.getCurrentProperties().getSprite());
-		this.damageArtifactImageView.imageProperty().bind(Artifact.DAMAGE.getCurrentProperties().getSprite());
-		this.defenseArtifactImageView.imageProperty().bind(Artifact.DEFENSE.getCurrentProperties().getSprite());
+		this.healthArtifactImageView.imageProperty().bind(Artifact.HEALTH.getSpriteProperty());
+		this.damageArtifactImageView.imageProperty().bind(Artifact.DAMAGE.getSpriteProperty());
+		this.defenseArtifactImageView.imageProperty().bind(Artifact.DEFENSE.getSpriteProperty());
+	}
+
+
+	private void bindArtifactNames ()
+	{
+		this.healthArtifactLabel.textProperty().bind(Artifact.HEALTH.getCurrentNameProperty());
+		this.defenseArtifactLabel.textProperty().bind(Artifact.DEFENSE.getCurrentNameProperty());
+		this.damageArtifactLabel.textProperty().bind(Artifact.DAMAGE.getCurrentNameProperty());
 	}
 
 

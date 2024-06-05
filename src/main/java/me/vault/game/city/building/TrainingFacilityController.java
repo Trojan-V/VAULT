@@ -130,91 +130,91 @@ public class TrainingFacilityController implements Initializable
 
 
 	@FXML
-	void onEngineerUpgrade (ActionEvent event)
+	void onEngineerUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onGrenadierUpgrade (ActionEvent event)
+	void onGrenadierUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onGuardUpgrade (ActionEvent event)
+	void onGuardUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onInfantryUpgrade (ActionEvent event)
+	void onInfantryUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onLieutenantUpgrade (ActionEvent event)
+	void onLieutenantUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onMedicUpgrade (ActionEvent event)
+	void onMedicUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onOfficerUpgrade (ActionEvent event)
+	void onOfficerUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onPrecisionShooterUpgrade (ActionEvent event)
+	void onPrecisionShooterUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onRangerUpgrade (ActionEvent event)
+	void onRangerUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onRecruitUpgrade (ActionEvent event)
+	void onRecruitUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onSniperUpgrade (ActionEvent event)
+	void onSniperUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onSpaceMarineUpgrade (ActionEvent event)
+	void onSpaceMarineUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onBackToCityView (ActionEvent ignored)
+	void onBackToCityView (final ActionEvent ignored)
 	{
 		CityView.show(VaultApplication.getStage());
 	}
@@ -225,7 +225,7 @@ public class TrainingFacilityController implements Initializable
 	 * @param resourceBundle
 	 */
 	@Override
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);

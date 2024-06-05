@@ -2,9 +2,9 @@ package me.vault.game.troop.unit;
 
 
 import me.vault.game.currency.CurrencyController;
-import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import me.vault.game.interfaces.IUpgradable;
 import me.vault.game.utility.constant.TroopConstants;
+import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
 
 /**
@@ -13,7 +13,7 @@ import me.vault.game.utility.constant.TroopConstants;
  * @see IUpgradable
  * @since 28.05.2024
  */
-public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
+public enum Unit implements IUpgradable<UnitLevel, UnitAttributes>
 {
 	// Explorer-Association
 
@@ -21,7 +21,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 		new ValidatedEntriesHashMap<>()
 		{
 			{
-				this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+				this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 					10, 10, 10, 10, 10),
 					TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
 					TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_NONE,
@@ -31,7 +31,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 					TroopConstants.MELEE_RANGE_MEDIUM, TroopConstants.GRENADE_RANGE_NONE,
 					TroopConstants.MEDIC_SINGLE_COMBATANT));
 
-				this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+				this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 					10, 10, 10, 10, 10),
 					TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
 					TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_NONE,
@@ -41,7 +41,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 					TroopConstants.MEDIC_COUPLE));
 				// one level higher melee damage
 
-				this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+				this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 					10, 10, 10, 10, 10),
 					TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
 					TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
@@ -57,7 +57,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 		new ValidatedEntriesHashMap<>()
 		{
 			{
-				this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+				this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 					10, 10, 10, 10, 10),
 					TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS, TroopConstants.ENERGY_NONE,
 					TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
@@ -67,7 +67,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 					TroopConstants.MELEE_RANGE_HIGH_PLUS, TroopConstants.GRENADE_RANGE_NONE,
 					TroopConstants.SNIPER_SINGLE_COMBATANT));
 
-				this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+				this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 					10, 10, 10, 10, 10),
 					TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS, TroopConstants.ENERGY_NONE,
 					TroopConstants.MELEE_DAMAGE_HIGH_PLUS,
@@ -78,7 +78,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 					TroopConstants.SNIPER_COUPLE));
 				// a higher level of movement range
 
-				this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+				this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 					10, 10, 10, 10, 10),
 					TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS, TroopConstants.ENERGY_NONE,
 					TroopConstants.MELEE_DAMAGE_HIGH_PLUS,
@@ -95,7 +95,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	RANGER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(
 				CurrencyController.createTransaction(10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
 				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_MEDIUM,
@@ -104,7 +104,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.INITIATIVE_HIGH, TroopConstants.MELEE_RANGE_HIGH, TroopConstants.GRENADE_RANGE_MEDIUM,
 				TroopConstants.RANGER_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
 				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_MEDIUM,
@@ -114,7 +114,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.RANGER_COUPLE));
 			// one level higher movement range
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
 				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_MEDIUM,
@@ -132,7 +132,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	SPACE_MARINE(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH_PLUS, TroopConstants.ARMOUR_HIGH_PLUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_MEDIUM,
@@ -141,7 +141,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.INITIATIVE_LOW_MINUS, TroopConstants.MELEE_RANGE_MEDIUM,
 				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.SPACE_MARINE_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH_PLUS, TroopConstants.ARMOUR_HIGH_PLUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_MEDIUM,
@@ -151,7 +151,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.SPACE_MARINE_COUPLE));
 			// a higher level of initiative
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH_PLUS, TroopConstants.ARMOUR_HIGH_PLUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_MEDIUM,
@@ -166,7 +166,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	ENGINEER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_HIGH,
@@ -175,7 +175,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.INITIATIVE_LOW_MINUS, TroopConstants.MELEE_RANGE_MEDIUM,
 				TroopConstants.GRENADE_RANGE_HIGH_MINUS, TroopConstants.ENGINEER_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_HIGH,
@@ -186,7 +186,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.GRENADE_RANGE_HIGH_MINUS, TroopConstants.ENGINEER_COUPLE));
 			//  a higher level of grenade amount
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_HIGH, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
@@ -202,7 +202,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	OFFICER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_HIGH_PLUS,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_NONE,
@@ -212,7 +212,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.MELEE_RANGE_MEDIUM,
 				TroopConstants.GRENADE_RANGE_NONE, TroopConstants.OFFICER_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_HIGH_PLUS,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_NONE,
@@ -223,7 +223,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.GRENADE_RANGE_NONE, TroopConstants.OFFICER_COUPLE));
 			// a higher level of initiative
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_HIGH_PLUS,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_NONE,
@@ -242,7 +242,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	GUARD(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_LOW, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_MEDIUM,
@@ -253,7 +253,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.GRENADE_RANGE_MEDIUM,
 				TroopConstants.OFFICER_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_MEDIUM,
@@ -265,7 +265,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.OFFICER_COUPLE));
 			// a higher level of health
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH_PLUS, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_MEDIUM,
@@ -282,7 +282,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	GRENADIER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
 				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
@@ -291,7 +291,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.INITIATIVE_MEDIUM, TroopConstants.MELEE_RANGE_MEDIUM,
 				TroopConstants.GRENADE_RANGE_HIGH, TroopConstants.GRENADIER_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
 				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
@@ -301,7 +301,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.GRENADE_RANGE_HIGH, TroopConstants.GRENADIER_COUPLE));
 			// a higher level of movement range
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_HIGH_PLUS,
 				TroopConstants.MELEE_DAMAGE_MEDIUM, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
@@ -316,7 +316,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	RECRUIT(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_PLUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_MEDIUM,
@@ -326,7 +326,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.GRENADE_RANGE_MEDIUM,
 				TroopConstants.RECRUIT_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_PLUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_HIGH,
@@ -337,7 +337,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.RECRUIT_COUPLE));
 			// a higher level of grenade damage
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_PLUS, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_HIGH_PLUS,
@@ -356,7 +356,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	INFANTRY(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_MEDIUM,
@@ -366,7 +366,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.GRENADE_RANGE_MEDIUM,
 				TroopConstants.INFANTRY_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_MEDIUM,
@@ -378,7 +378,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.INFANTRY_SINGLE_COMBATANT));
 			// a higher level of dodge
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_LOW, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_MEDIUM,
@@ -394,7 +394,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	LIEUTENANT(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_MEDIUM,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_LOW, TroopConstants.GRENADE_AMOUNT_LOW,
@@ -403,7 +403,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.INITIATIVE_LOW_PLUS, TroopConstants.MELEE_RANGE_MEDIUM,
 				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.LIEUTENANT_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_MEDIUM, TroopConstants.ARMOUR_HIGH_MINUS, TroopConstants.ENERGY_MEDIUM,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_LOW, TroopConstants.GRENADE_AMOUNT_LOW,
@@ -413,7 +413,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.GRENADE_RANGE_MEDIUM, TroopConstants.LIEUTENANT_COUPLE));
 			// a higher level of armour
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_HIGH, TroopConstants.ARMOUR_HIGH_PLUS, TroopConstants.ENERGY_MEDIUM,
 				TroopConstants.MELEE_DAMAGE_LOW, TroopConstants.GRENADE_DAMAGE_LOW, TroopConstants.GRENADE_AMOUNT_LOW,
@@ -428,7 +428,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	PRECISION_SHOOTER(new ValidatedEntriesHashMap<>()
 	{
 		{
-			this.put(UnitLevel.SINGLE_COMBATANT, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SINGLE_COMBATANT, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_LOW, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_HIGH,
@@ -439,7 +439,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.GRENADE_RANGE_MEDIUM,
 				TroopConstants.PRECISION_SHOOTER_SINGLE_COMBATANT));
 
-			this.put(UnitLevel.COUPLE, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.COUPLE, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_LOW, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_HIGH,
@@ -451,7 +451,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 				TroopConstants.PRECISION_SHOOTER_COUPLE));
 			// a higher level of initiative
 
-			this.put(UnitLevel.SQUAD, new UnitProperties(CurrencyController.createTransaction(
+			this.put(UnitLevel.SQUAD, new UnitAttributes(CurrencyController.createTransaction(
 				10, 10, 10, 10, 10),
 				TroopConstants.HEALTH_LOW, TroopConstants.ARMOUR_MEDIUM, TroopConstants.ENERGY_NONE,
 				TroopConstants.MELEE_DAMAGE_HIGH,
@@ -466,13 +466,13 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	});
 
 
-	private final ValidatedEntriesHashMap<UnitLevel, UnitProperties> propertyMap;
+	private final ValidatedEntriesHashMap<UnitLevel, UnitAttributes> propertyMap;
 
 
 	private UnitLevel currentLevel;
 
 
-	Unit (final ValidatedEntriesHashMap<UnitLevel, UnitProperties> propertyMap)
+	Unit (final ValidatedEntriesHashMap<UnitLevel, UnitAttributes> propertyMap)
 	{
 		// TODO: Load Index from Config
 		this.currentLevel = UnitLevel.SINGLE_COMBATANT;
@@ -484,7 +484,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ValidatedEntriesHashMap<UnitLevel, UnitProperties> getAllProperties ()
+	public ValidatedEntriesHashMap<UnitLevel, UnitAttributes> getAllAttributes ()
 	{
 		return this.propertyMap;
 	}
@@ -494,7 +494,7 @@ public enum Unit implements IUpgradable<UnitLevel, UnitProperties>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public UnitProperties getCurrentProperties ()
+	public UnitAttributes getCurrentAttributes ()
 	{
 		return this.propertyMap.get(this.currentLevel);
 	}

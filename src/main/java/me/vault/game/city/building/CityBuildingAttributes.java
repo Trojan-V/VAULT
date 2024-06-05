@@ -1,17 +1,16 @@
 package me.vault.game.city.building;
 
-import javafx.scene.Scene;
 import me.vault.game.currency.CurrencyTransaction;
 
 // TODO: Rename properties to attributes to remove unclear wording due to GUI properties
-public class CityBuildingProperties
+public class CityBuildingAttributes
 {
 	private final String name;
 
 	private final CurrencyTransaction upgradeCost;
 
 
-	public CityBuildingProperties (final String name, final CurrencyTransaction upgradeCost)
+	public CityBuildingAttributes (final String name, final CurrencyTransaction upgradeCost)
 	{
 		this.name = name;
 		this.upgradeCost = upgradeCost;
