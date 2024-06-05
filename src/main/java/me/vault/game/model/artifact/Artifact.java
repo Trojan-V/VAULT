@@ -28,7 +28,7 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 			ArtifactConstants.NO_CHANGE,
 			(int) ArtifactConstants.NO_CHANGE, ArtifactConstants.HEALTH_ARTIFACT));
 
-		this.put(ArtifactLevel.Improved, new ArtifactProperties(CurrencyController.createTransaction(
+		this.put(ArtifactLevel.IMPROVED, new ArtifactProperties(CurrencyController.createTransaction(
 			-10, -10, -10, -10, -10),
 			ArtifactConstants.HEALTH_IMPROVED, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
 			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
@@ -48,7 +48,7 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 			ArtifactConstants.RESISTENZ_BASE,
 			(int) ArtifactConstants.NO_CHANGE, ArtifactConstants.DEFENSE_ARTIFACT));
 
-		this.put(ArtifactLevel.Improved, new ArtifactProperties(CurrencyController.createTransaction(
+		this.put(ArtifactLevel.IMPROVED, new ArtifactProperties(CurrencyController.createTransaction(
 			-10, -10, -10, -10, -10),
 			ArtifactConstants.NO_CHANGE, ArtifactConstants.ARMOUR_IMPROVED, ArtifactConstants.NO_CHANGE,
 			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
@@ -68,7 +68,7 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 			ArtifactConstants.GRENADE_DAMAGE_BASE, ArtifactConstants.ENERGY_DAMAGE_BASE, ArtifactConstants.NO_CHANGE,
 			ArtifactConstants.NO_CHANGE, (int) ArtifactConstants.NO_CHANGE, ArtifactConstants.DAMAGE_ARTIFACT));
 
-		this.put(ArtifactLevel.Improved, new ArtifactProperties(CurrencyController.createTransaction(
+		this.put(ArtifactLevel.IMPROVED, new ArtifactProperties(CurrencyController.createTransaction(
 			-10, -10, -10, -10, -10),
 			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.MELEE_DAMAGE_IMPROVED,
 			ArtifactConstants.GRENADE_DAMAGE_IMPROVED, ArtifactConstants.ENERGY_DAMAGE_IMPROVED,
@@ -90,7 +90,7 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactProperties>
 			(int) ArtifactConstants.MOVEMENT_RANGE_BASE,
 			ArtifactConstants.MOBILITY_ARTIFACT));
 
-		this.put(ArtifactLevel.Improved, new ArtifactProperties(CurrencyController.createTransaction(
+		this.put(ArtifactLevel.IMPROVED, new ArtifactProperties(CurrencyController.createTransaction(
 			-10, -10, -10, -10, -10),
 			ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE, ArtifactConstants.NO_CHANGE,
 			ArtifactConstants.NO_CHANGE,
