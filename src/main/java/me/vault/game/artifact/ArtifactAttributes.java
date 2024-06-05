@@ -41,4 +41,10 @@ public class ArtifactAttributes
 	{
 		return this.attributeModifiers;
 	}
+
+
+	public void updateProperties ()
+	{
+
+	}
 }

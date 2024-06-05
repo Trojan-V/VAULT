@@ -100,6 +100,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 		LOGGER.log(DEBUG, MessageFormat.format(CURRENT_ARTIFACT_LEVEL_MSG, artifact.getLevel().toString()));
 		artifact.setLevel(ArtifactLevel.getNextHigherLevel(artifact.getLevel()));
 		artifact.updateProperties();
+
 		LOGGER.log(DEBUG, MessageFormat.format(UPGRADED_ARTIFACT_LEVEL_MSG, artifact.getLevel().toString()));
 	}
 

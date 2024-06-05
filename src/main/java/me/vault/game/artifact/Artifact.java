@@ -13,17 +13,30 @@ import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
+/**
+ * This enum provides all possible artifacts that can be instantiated.
+ *
+ * @author Vincent Wolf
+ * @author Lasse-Leander Hillen
+ * @version 1.0.0
+ * @see ArtifactAttributes
+ * @see ArtifactLevel
+ * @see ArtifactController
+ * @since 05.06.2024
+ */
 public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactAttributes>, IDisplayable
 {
 	DAMAGE(ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/damage_artifact_icon.png"),
 		new ValidatedEntriesHashMap<>()
-	{{
-		this.put(ArtifactLevel.BASE, new ArtifactAttributes("Damage Artifact",
-			CurrencyController.createTransaction(-10, -10, -10, -10, -10), new AttributeModifiers(1.5, 1.5, 1.5)));
+		{{
+			this.put(ArtifactLevel.BASE, new ArtifactAttributes("Damage Artifact",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
+				new AttributeModifiers(1.5, 1.5, 1.5)));
 
-		this.put(ArtifactLevel.IMPROVED, new ArtifactAttributes("Improved Damage Artifact",
-			CurrencyController.createTransaction(-10, -10, -10, -10, -10), new AttributeModifiers(1.5, 1.5, 1.5)));
-	}}),
+			this.put(ArtifactLevel.IMPROVED, new ArtifactAttributes("Improved Damage Artifact",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10),
+				new AttributeModifiers(1.5, 1.5, 1.5)));
+		}}),
 
 
 	/**
@@ -44,13 +57,13 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactAttributes>, 
 	 */
 	HEALTH(ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/health_artifact_icon.png"),
 		new ValidatedEntriesHashMap<>()
-	{{
-		this.put(ArtifactLevel.BASE, new ArtifactAttributes("Health Artifact",
-			CurrencyController.createTransaction(-10, -10, -10, -10, -10), new AttributeModifiers(1.5, 1.5, 1.5)));
+		{{
+			this.put(ArtifactLevel.BASE, new ArtifactAttributes("Health Artifact",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10), new AttributeModifiers(1.5, 1.5, 1.5)));
 
-		this.put(ArtifactLevel.IMPROVED, new ArtifactAttributes("Improved Health Artifact",
-			CurrencyController.createTransaction(-10, -10, -10, -10, -10), new AttributeModifiers(1.5, 1.5, 1.5)));
-	}});
+			this.put(ArtifactLevel.IMPROVED, new ArtifactAttributes("Improved Health Artifact",
+				CurrencyController.createTransaction(-10, -10, -10, -10, -10), new AttributeModifiers(1.5, 1.5, 1.5)));
+		}});
 
 
 	private final ValidatedEntriesHashMap<ArtifactLevel, ArtifactAttributes> attributeMap;
@@ -132,6 +145,7 @@ public enum Artifact implements IUpgradable<ArtifactLevel, ArtifactAttributes>, 
 	public void updateProperties ()
 	{
 		this.currentName.setValue(this.attributeMap.get(this.currentLevel).getName());
+		//		this.getCurrentAttributes().setName();
 	}
 
 
