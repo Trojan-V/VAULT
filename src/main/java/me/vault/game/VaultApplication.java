@@ -5,9 +5,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import me.vault.game.utility.jvm.JvmArgumentParser;
-import me.vault.game.view.CityView;
+import me.vault.game.city.CityView;
 
 import java.io.IOException;
+
+import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
 
 
 /**
@@ -24,16 +26,13 @@ import java.io.IOException;
 public class VaultApplication extends Application
 {
 	/**
-	 * The window title which will be displayed in the top bar of the game window.
-	 */
-	private static final String WINDOW_TITLE = "VAULT Game - Ver. 0.1";
-
-	private static Stage mainStage;
-	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
 	private static final String MAIN_STYLESHEET_FILENAME = "main.fxml";
+
+
+	private static Stage mainStage;
 
 
 	/**
@@ -53,6 +52,12 @@ public class VaultApplication extends Application
 	}
 
 
+	public static Stage getStage ()
+	{
+		return mainStage;
+	}
+
+
 	/**
 	 * Loads the {@code .fxml} files which are located in {@code ./src/main/java/resources/me/vault/vaultgame} and
 	 * starts the GUI powered by JavaFX.
@@ -64,15 +69,9 @@ public class VaultApplication extends Application
 	@Override
 	public void start (final Stage stage) throws IOException
 	{
-		CityView.showCityView(stage);
+		CityView.show(stage);
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
 		mainStage = stage;
-	}
-
-
-	public static Stage getStage ()
-	{
-		return mainStage;
 	}
 }

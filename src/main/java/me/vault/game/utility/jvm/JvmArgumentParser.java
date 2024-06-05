@@ -81,7 +81,7 @@ public final class JvmArgumentParser
 				currentArgument = currentArgument.substring(REMOVE_LEADING_DASH_SUBSTRING_INDEX);
 			}
 
-			if (!checkIsValidJvmArgument(currentArgument))
+			if (! checkIsValidJvmArgument(currentArgument))
 			{
 				LOGGER.log(WARNING, MessageFormat.format(INVALID_ARGUMENT_AT_POSITION_MSG, args[currentArgumentIndex],
 					currentArgumentIndex));
@@ -128,7 +128,7 @@ public final class JvmArgumentParser
 		final Level[] logLevels = values();
 		for (final Level level : logLevels)
 		{
-			if (!checkIsValidLogDepthArgument(args, level))
+			if (! checkIsValidLogDepthArgument(args, level))
 			{
 				LOGGER.log(DEBUG, MessageFormat.format(INVALID_LOG_DEPTH_ARGUMENT_MSG, args[currentArgumentIndex +
 				                                                                            NEXT_ARGUMENT_ADDITION_INDEX], Logger.getDepth()

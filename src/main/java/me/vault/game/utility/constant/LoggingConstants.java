@@ -1,7 +1,7 @@
 package me.vault.game.utility.constant;
 
 
-import me.vault.game.utility.annotation.ConstantInterface;
+import me.vault.game.artifact.ArtifactController;
 import me.vault.game.utility.logging.ConsoleColor;
 import me.vault.game.utility.logging.Logger;
 
@@ -13,7 +13,7 @@ import java.util.Arrays;
  *
  * @author Vincent Wolf
  * @version 1.0.0
- * @see me.vault.game.controller.ArtifactController
+ * @see ArtifactController
  * @see Logger
  * @see java.text.MessageFormat#format(String, Object...)
  * @since 30.05.2024
@@ -22,6 +22,9 @@ import java.util.Arrays;
 public interface LoggingConstants
 {
 	public static final String DIVIDER = "------------------------------------------------------------";
+
+
+	public static final String SHOWING_VIEW_MSG = "Showing {0} view.";
 
 
 	public static interface Artifact
@@ -100,9 +103,6 @@ public interface LoggingConstants
 	public static interface CityBuildingView
 	{
 		public static final String SCENCE_DISPLAY_FAILED_MSG = "Failed to load: {0} in {1}";
-
-
-		public static final String SHOWING_BUILDING_VIEW_MSG = "Showing {0} building-view.";
 
 	}
 

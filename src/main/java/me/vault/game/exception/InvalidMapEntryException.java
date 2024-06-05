@@ -1,19 +1,21 @@
 package me.vault.game.exception;
 
 
+import me.vault.game.utility.struct.ValidatedEntriesHashMap;
+
 import java.text.MessageFormat;
 import java.util.Map.Entry;
 
 
 /**
  * This exception is thrown when an invalid map entry was entered into the
- * {@link me.vault.game.model.citybuilding.ValidatedEntriesHashMap} data structure.
+ * {@link ValidatedEntriesHashMap} data structure.
  * <br>
  * Only entries that contain valid data for both the key and the value can be entered.
  *
  * @author Vincent Wolf
  * @version 1.0.0
- * @see me.vault.game.model.citybuilding.ValidatedEntriesHashMap
+ * @see ValidatedEntriesHashMap
  * @since 28.05.2024
  */
 public class InvalidMapEntryException extends Exception

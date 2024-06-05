@@ -17,14 +17,14 @@ package me.vault.game.utility.logging;
  * {@code System.out.print(ConsoleColor.RESET);}
  *
  * @author Prof. Dr. Ing. Heiko Mosemann
- * @author Vincent Wolf (added Javadoc)
+ * @author Vincent Wolf
  */
 public enum ConsoleColor
 {
 	/**
 	 * Represents the ANSI code for a reset text and background color.
 	 * <br>
-	 * Printing this character will reset the printed color to the default color.
+	 * Printing this character resets the printed color to the default color.
 	 */
 	RESET("\033[0m"),
 

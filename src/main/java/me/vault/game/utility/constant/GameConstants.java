@@ -1,8 +1,7 @@
 package me.vault.game.utility.constant;
 
 
-import me.vault.game.utility.annotation.ConstantInterface;
-import me.vault.game.utility.annotation.ConstantInterface.Constant;
+import me.vault.game.utility.constant.ConstantInterface.Constant;
 
 
 /**
@@ -28,5 +27,8 @@ public interface GameConstants
 	 * The window title which will be displayed in the top bar of the game window.
 	 */
 	public static final String WINDOW_TITLE = "VAULT Game";
+
+
+	public static final String CITY_BACKGROUND_FILENAME = "city_background.png";
 
 }

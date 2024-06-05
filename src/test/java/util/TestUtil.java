@@ -1,7 +1,7 @@
 package util;
 
 
-import me.vault.game.model.currency.Currency;
+import me.vault.game.currency.Currency;
 
 
 /**
