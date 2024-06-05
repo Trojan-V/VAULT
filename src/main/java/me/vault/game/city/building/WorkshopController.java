@@ -31,9 +31,6 @@ public class WorkshopController implements Initializable
 	private static final ILogger LOGGER = new Logger(WorkshopController.class.getSimpleName());
 
 	@FXML
-	private Button backToCityViewButton;
-
-	@FXML
 	private Label compositeAmountLabel;
 
 	@FXML
@@ -46,8 +43,16 @@ public class WorkshopController implements Initializable
 	private ImageView creditImageView;
 
 	@FXML
-	private ImageView damageArtifactImageView;
+	private Label damageArtifactDamageModifierLabel;
 
+	@FXML
+	private Label damageArtifactDefenseModifierLabel;
+
+	@FXML
+	private Label damageArtifactHealthModifierLabel;
+
+	@FXML
+	private ImageView damageArtifactImageView;
 
 	@FXML
 	private Label damageArtifactLabel;
@@ -56,8 +61,16 @@ public class WorkshopController implements Initializable
 	private Button damageArtifactUpgradeButton;
 
 	@FXML
-	private ImageView defenseArtifactImageView;
+	private Label defenseArtifactDamageModifierLabel;
 
+	@FXML
+	private Label defenseArtifactDefenseModifierLabel;
+
+	@FXML
+	private Label defenseArtifactHealthModifierLabel;
+
+	@FXML
+	private ImageView defenseArtifactImageView;
 
 	@FXML
 	private Label defenseArtifactLabel;
@@ -72,14 +85,22 @@ public class WorkshopController implements Initializable
 	private ImageView foodImageView;
 
 	@FXML
+	private Label healthArtifactDamageModifierLabel;
+
+	@FXML
+	private Label healthArtifactDefenseModifierLabel;
+
+	@FXML
+	private Label healthArtifactHealthModifierLabel;
+
+	@FXML
 	private ImageView healthArtifactImageView;
 
 	@FXML
-	private Button healthArtifactUpgradeButton;
-
+	private Label healthArtifactLabel;
 
 	@FXML
-	private Label healthArtifactLabel;
+	private Button healthArtifactUpgradeButton;
 
 	@FXML
 	private Label scienceAmountLabel;
@@ -135,6 +156,7 @@ public class WorkshopController implements Initializable
 	}
 
 
+
 	private void bindArtifactViews ()
 	{
 		this.healthArtifactImageView.imageProperty().bind(Artifact.HEALTH.getSpriteProperty());
@@ -148,6 +170,11 @@ public class WorkshopController implements Initializable
 		this.healthArtifactLabel.textProperty().bind(Artifact.HEALTH.getCurrentNameProperty());
 		this.defenseArtifactLabel.textProperty().bind(Artifact.DEFENSE.getCurrentNameProperty());
 		this.damageArtifactLabel.textProperty().bind(Artifact.DAMAGE.getCurrentNameProperty());
+	}
+
+
+	private void bindArtifactModifiers (Artifact artifact, Label damageModifierLabel, Label defenseModifierLabel, Label healthModifierLabel)
+	{
 	}
 
 
