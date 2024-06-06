@@ -36,6 +36,7 @@ public class DamageArtifact extends AbsArtifact
 
 
 	private static final Map<ArtifactLevel, Map<Type, Double>> MODIFIERS = new HashMap<>();
+
 	static
 	{
 		UPGRADE_COSTS.put(ArtifactLevel.BASE, CurrencyController.createTransaction(-10, -10, -10, -10, -10));
