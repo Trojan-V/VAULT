@@ -4,7 +4,7 @@ package me.vault.game.city.building;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import me.vault.game.currency.CurrencyController;
+import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.interfaces.IUpgradable;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
@@ -34,13 +34,13 @@ public enum CityBuilding
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Command Center",
-				CurrencyController.createTransaction(-250, -250, -125, 0, 0)));
+				new CurrencyTransaction(-250, -250, -125, 0, 0)));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Command Center",
-				CurrencyController.createTransaction(-500, -500, -1000, 0, 0)));
+				new CurrencyTransaction(-500, -500, -1000, 0, 0)));
 
 			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Command Center",
-				CurrencyController.createTransaction(-1000, -1000, -2000, 0, 0)));
+				new CurrencyTransaction(-1000, -1000, -2000, 0, 0)));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/command_center_icon.png"), null),
 
@@ -51,16 +51,16 @@ public enum CityBuilding
 	DOCKS(new ValidatedEntriesHashMap<>()
 	{{
 		this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Docks",
-			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 		this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Docks",
-			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 		this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Docks",
-			CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+			new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 	}}, ResourceLoader.loadImage(
-		ASSETS_PATH + "Item_Pack/docks_icon.png"), ResourceLoader.loadFXMLScene(CityBuilding.class,
+		ASSETS_PATH + "Item_Pack/docks_icon.png"), ResourceLoader.loadScene(CityBuilding.class,
 		"docks_view" + ".fxml")),
 
 
@@ -71,13 +71,13 @@ public enum CityBuilding
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Space Bar",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Space Bar",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Space Bar",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"), null),
 
@@ -89,17 +89,17 @@ public enum CityBuilding
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Training Facility",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Training Facility",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Training Facility",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH +
 	                            "Item_Pack/training_facility_icon.png"),
-		ResourceLoader.loadFXMLScene(CityBuilding.class, "training_facility_view.fxml")),
+		ResourceLoader.loadScene(CityBuilding.class, "training_facility_view.fxml")),
 
 
 	/**
@@ -109,16 +109,16 @@ public enum CityBuilding
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Workshop",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Workshop",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Workshop",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH +
-	                            "Item_Pack/workshop_icon.png"), ResourceLoader.loadFXMLScene(CityBuilding.class,
+	                            "Item_Pack/workshop_icon.png"), ResourceLoader.loadScene(CityBuilding.class,
 		"workshop_view.fxml")),
 
 
@@ -129,13 +129,13 @@ public enum CityBuilding
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Barracks",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Baracks",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Baracks",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/barracks_icon.png"), null),
 
@@ -147,13 +147,13 @@ public enum CityBuilding
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Market",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Market",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Market",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png"), null),
 
@@ -165,13 +165,13 @@ public enum CityBuilding
 	{
 		{
 			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Laboratory",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Laboratory",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Laboratory",
-				CurrencyController.createTransaction(-10, -10, -10, -10, -10)));
+				new CurrencyTransaction(-10, -10, -10, -10, -10)));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"), null);
 

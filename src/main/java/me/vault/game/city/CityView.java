@@ -35,7 +35,7 @@ public final class CityView
 	private static final String STYLESHEET = "city_view.fxml";
 
 
-	private static final Scene SCENE = ResourceLoader.loadFXMLScene(CityView.class, STYLESHEET);
+	private static final Scene SCENE = ResourceLoader.loadScene(CityView.class, STYLESHEET);
 
 
 	private CityView ()

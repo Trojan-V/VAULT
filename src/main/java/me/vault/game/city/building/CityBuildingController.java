@@ -46,7 +46,7 @@ public class CityBuildingController
 	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
 	{
 		// TODO: Currency Check fehlt noch, ob genug vorhanden ist.
-		return cityBuilding != null && cityBuilding.getLevel() != CityBuildingLevel.getMaximumArtifactLevel();
+		return cityBuilding != null && cityBuilding.getLevel() != CityBuildingLevel.getMaximumCityBuildingLevel();
 	}
 
 

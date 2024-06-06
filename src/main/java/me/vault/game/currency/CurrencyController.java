@@ -1,13 +1,8 @@
 package me.vault.game.currency;
 
 
-import me.vault.game.exception.InvalidMapEntryException;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-
-import static me.vault.game.utility.constant.LoggingConstants.Currency.EXECUTION_NOT_POSSIBLE_ANYMORE_MSG;
-import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
-import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
 /**
@@ -48,23 +43,6 @@ public final class CurrencyController
 		{
 			final Currency currency = Currency.values()[i];
 			currency.addAmount(transaction.getAmount(currency));
-		}
-	}
-
-
-	public static CurrencyTransaction createTransaction (final int steelAmount, final int compositeAmount,
-		final int scienceAmount, final int foodAmount, final int energyAmount)
-	{
-		try
-		{
-			return new CurrencyTransaction(steelAmount, compositeAmount, scienceAmount, foodAmount, energyAmount);
-		}
-		catch (final InvalidMapEntryException e)
-		{
-			LOGGER.log(ERROR, e.getMessage());
-			LOGGER.log(ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE_MSG);
-			System.exit(ERROR_EXIT_CODE);
-			return null;
 		}
 	}
 }

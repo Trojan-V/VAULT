@@ -1,7 +1,7 @@
 package me.vault.game.utility.constant;
 
 
-import me.vault.game.currency.CurrencyController;
+import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.utility.constant.ConstantInterface.Constant;
 
 
@@ -22,7 +22,7 @@ public interface MiscConstants
 	 * It means that an abnormal error occurred which leads to a state of the program where the continuation of the
 	 * program's execution does not make sense anymore and therefore should be stopped.
 	 *
-	 * @see CurrencyController#createTransaction(int, int, int, int, int)
+	 * @see CurrencyTransaction#CurrencyTransaction(int, int, int, int, int)
 	 */
 	@Constant
 	public static final int ERROR_EXIT_CODE = - 1;

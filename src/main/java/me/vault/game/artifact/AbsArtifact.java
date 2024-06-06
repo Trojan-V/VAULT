@@ -11,6 +11,7 @@ import me.vault.game.artifact.impl.HealthArtifact;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.interfaces.IDisplayable;
 import me.vault.game.interfaces.IUpgradableNew;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
@@ -18,7 +19,8 @@ import java.util.Map;
 /**
  * This class provides a blueprint for artifacts, which provide different buffs or de-buffs to the player.
  * <br>
- * <b>Important technical note:</b> any subclass of this class must ensure that the data the abstract methods provide is
+ * <b>Important technical note:</b> any subclass of this class must ensure that the data the abstract methods provide
+ * is
  * available before the constructor of this abstract class is invoked. The constructor of this class relies on this data
  * being available at construction time.
  * <br> <br>
@@ -67,8 +69,9 @@ public abstract class AbsArtifact implements IDisplayable, IUpgradableNew<Artifa
 
 
 	/**
-	 * This field contains the attribute modifiers, which are the status effects the player receives in form of buffs
-	 * or de-buffs depending on the equipped artifact.
+	 * This field contains the attribute modifiers, which are the status effects the player receives in form of
+	 * buffs or
+	 * de-buffs depending on the equipped artifact.
 	 *
 	 * @see AttributeModifiers
 	 */
@@ -88,18 +91,26 @@ public abstract class AbsArtifact implements IDisplayable, IUpgradableNew<Artifa
 
 
 	/**
-	 * This field contains the resource price to upgrade the artifact to the next level.
-	 * The price is always denoted in negative numbers within the {@link CurrencyTransaction} instance.
+	 * This field contains the resource price to upgrade the artifact to the next level. The price is always denoted in
+	 * negative numbers within the {@link CurrencyTransaction} instance.
 	 * <br>
-	 * It's important to keep that into account to ensure no algebraic sign issues are coming up.
-	 * It's not hard to mess that up, as upgrade costs could be thought about with a positive algebraic sign instead
-	 * of a negative one.
+	 * It's important to keep that into account to ensure no algebraic sign issues are coming up. It's not hard to mess
+	 * that up, as upgrade costs could be thought about with a positive algebraic sign instead of a negative one.
 	 *
 	 * @see CurrencyTransaction
 	 */
 	private CurrencyTransaction currentUpgradeCost;
 
 
+	/**
+	 * Constructs an instance of this class.
+	 * <br>
+	 * It's important to note that the constructor accesses overridable methods of the subclass. These methods provide
+	 * the data for the artifact, which can then be accessed and used by using the {@link AbsArtifact#currentLevel} as
+	 * key to retrieve the correct data for the current level.
+	 * <br>
+	 * To understand the side effects of these method invocations, read the documentation of this class.
+	 */
 	protected AbsArtifact ()
 	{
 		// TODO: currentLevel aus Config einlesen
@@ -165,15 +176,19 @@ public abstract class AbsArtifact implements IDisplayable, IUpgradableNew<Artifa
 	}
 
 
+	@NotNull
 	protected abstract Map<ArtifactLevel, CurrencyTransaction> getUpgradeCosts ();
 
 
+	@NotNull
 	protected abstract Map<ArtifactLevel, String> getNames ();
 
 
+	@NotNull
 	protected abstract Map<ArtifactLevel, Image> getSprites ();
 
 
+	@NotNull
 	protected abstract Map<ArtifactLevel, Map<Type, Double>> getModifiers ();
 
 

@@ -34,7 +34,14 @@ public enum CityBuildingLevel
 	private static final int PREVIOUS_LEVEL_SUBTRACTION_ORDINAL = 1;
 
 
-	public static CityBuildingLevel getMaximumArtifactLevel ()
+	public static CityBuildingLevel getMinimumCityBuildingLevel ()
+	{
+		// TODO: Logging Messages
+		return values()[MINIMUM_LEVEL_ORDINAL];
+	}
+
+
+	public static CityBuildingLevel getMaximumCityBuildingLevel ()
 	{
 		LOGGER.log(DEBUG, MessageFormat.format(GET_MAXIMUM_LEVEL_METHOD_ENTERED_MSG, values()[values().length -
 		                                                                                      PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));

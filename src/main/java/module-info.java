@@ -28,4 +28,6 @@ module me.vault.game {
 	opens me.vault.game.currency to javafx.fxml;
 	exports me.vault.game.artifact.impl;
 	opens me.vault.game.artifact.impl to javafx.fxml;
+	exports me.vault.game.city.building.impl;
+	opens me.vault.game.city.building.impl to javafx.fxml;
 }

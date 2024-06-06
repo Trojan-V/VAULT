@@ -5,9 +5,9 @@ import javafx.scene.image.Image;
 import me.vault.game.artifact.AbsArtifact;
 import me.vault.game.artifact.ArtifactLevel;
 import me.vault.game.artifact.AttributeModifiers.Type;
-import me.vault.game.currency.CurrencyController;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,14 +27,16 @@ public final class DamageArtifact extends AbsArtifact
 {
 	private static final DamageArtifact INSTANCE;
 
-	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
 	private static final Map<ArtifactLevel, String> NAMES = new HashMap<>();
 	private static final Map<ArtifactLevel, Image> SPRITES = new HashMap<>();
 	private static final Map<ArtifactLevel, Map<Type, Double>> MODIFIERS = new HashMap<>();
 
+
+	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
+
 	static
 	{
-		UPGRADE_COSTS.put(ArtifactLevel.BASE, CurrencyController.createTransaction(-10, -10, -10, -10, -10));
+		UPGRADE_COSTS.put(ArtifactLevel.BASE, new CurrencyTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(ArtifactLevel.IMPROVED, null);
 
 		NAMES.put(ArtifactLevel.BASE, "Damage Artifact");
@@ -76,28 +78,28 @@ public final class DamageArtifact extends AbsArtifact
 
 
 	@Override
-	protected Map<ArtifactLevel, CurrencyTransaction> getUpgradeCosts ()
+	protected @NotNull Map<ArtifactLevel, CurrencyTransaction> getUpgradeCosts ()
 	{
 		return UPGRADE_COSTS;
 	}
 
 
 	@Override
-	protected Map<ArtifactLevel, String> getNames ()
+	protected @NotNull Map<ArtifactLevel, String> getNames ()
 	{
 		return NAMES;
 	}
 
 
 	@Override
-	protected Map<ArtifactLevel, Image> getSprites ()
+	protected @NotNull Map<ArtifactLevel, Image> getSprites ()
 	{
 		return SPRITES;
 	}
 
 
 	@Override
-	protected Map<ArtifactLevel, Map<Type, Double>> getModifiers ()
+	protected @NotNull Map<ArtifactLevel, Map<Type, Double>> getModifiers ()
 	{
 		return MODIFIERS;
 	}

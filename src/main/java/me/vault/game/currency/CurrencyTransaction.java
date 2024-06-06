@@ -2,15 +2,23 @@ package me.vault.game.currency;
 
 
 import me.vault.game.exception.InvalidMapEntryException;
+import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap.Entry;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
 
+import static me.vault.game.utility.constant.LoggingConstants.Currency.EXECUTION_NOT_POSSIBLE_ANYMORE_MSG;
+import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
+import static me.vault.game.utility.logging.ILogger.Level.ERROR;
+
 
 public class CurrencyTransaction
 {
+	public static final CurrencyTransaction EMPTY = new CurrencyTransaction(0, 0, 0, 0, 0);
+
+
 	/**
 	 * The pattern that is used to have a formatted output in the {@link CurrencyTransaction#toString()} method.
 	 */
@@ -26,6 +34,9 @@ public class CurrencyTransaction
 	private final ValidatedEntriesHashMap<Currency, Integer> currencyAmountMap = new ValidatedEntriesHashMap<>();
 
 
+	private static final Logger LOGGER = new Logger(CurrencyTransaction.class.getSimpleName());
+
+
 	@SafeVarargs
 	public CurrencyTransaction (final Entry<Currency, Integer>... currencyAmountEntries)
 	{
@@ -37,13 +48,22 @@ public class CurrencyTransaction
 
 
 	public CurrencyTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount,
-		final int foodAmount, final int energyAmount) throws InvalidMapEntryException
+		final int foodAmount, final int energyAmount)
 	{
-		this.currencyAmountMap.put(new Entry<>(Currency.STEEL, steelAmount));
-		this.currencyAmountMap.put(new Entry<>(Currency.COMPOSITE, compositeAmount));
-		this.currencyAmountMap.put(new Entry<>(Currency.SCIENCE, scienceAmount));
-		this.currencyAmountMap.put(new Entry<>(Currency.FOOD_RATION, foodAmount));
-		this.currencyAmountMap.put(new Entry<>(Currency.ENERGY_CREDIT, energyAmount));
+		try
+		{
+			this.currencyAmountMap.put(new Entry<>(Currency.STEEL, steelAmount));
+			this.currencyAmountMap.put(new Entry<>(Currency.COMPOSITE, compositeAmount));
+			this.currencyAmountMap.put(new Entry<>(Currency.SCIENCE, scienceAmount));
+			this.currencyAmountMap.put(new Entry<>(Currency.FOOD_RATION, foodAmount));
+			this.currencyAmountMap.put(new Entry<>(Currency.ENERGY_CREDIT, energyAmount));
+		}
+		catch (final InvalidMapEntryException e)
+		{
+			LOGGER.log(ERROR, e.getMessage());
+			LOGGER.log(ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE_MSG);
+			System.exit(ERROR_EXIT_CODE);
+		}
 	}
 
 

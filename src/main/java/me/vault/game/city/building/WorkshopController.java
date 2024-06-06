@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.artifact.ArtifactController;
+import me.vault.game.artifact.AttributeModifiers;
 import me.vault.game.artifact.impl.DamageArtifact;
 import me.vault.game.artifact.impl.DefenseArtifact;
 import me.vault.game.artifact.impl.HealthArtifact;
@@ -24,6 +25,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
+
 public class WorkshopController implements Initializable
 {
 	/**
@@ -33,89 +35,118 @@ public class WorkshopController implements Initializable
 	 */
 	private static final ILogger LOGGER = new Logger(WorkshopController.class.getSimpleName());
 
+
 	@FXML
 	private Label compositeAmountLabel;
+
 
 	@FXML
 	private ImageView compositeImageView;
 
+
 	@FXML
 	private Label creditAmountLabel;
+
 
 	@FXML
 	private ImageView creditImageView;
 
+
 	@FXML
 	private Label damageArtifactDamageModifierLabel;
+
 
 	@FXML
 	private Label damageArtifactDefenseModifierLabel;
 
+
 	@FXML
 	private Label damageArtifactHealthModifierLabel;
+
 
 	@FXML
 	private ImageView damageArtifactImageView;
 
+
 	@FXML
 	private Label damageArtifactLabel;
+
 
 	@FXML
 	private Button damageArtifactUpgradeButton;
 
+
 	@FXML
 	private Label defenseArtifactDamageModifierLabel;
+
 
 	@FXML
 	private Label defenseArtifactDefenseModifierLabel;
 
+
 	@FXML
 	private Label defenseArtifactHealthModifierLabel;
+
 
 	@FXML
 	private ImageView defenseArtifactImageView;
 
+
 	@FXML
 	private Label defenseArtifactLabel;
+
 
 	@FXML
 	private Button defenseArtifactUpgradeButton;
 
+
 	@FXML
 	private Label foodAmountLabel;
+
 
 	@FXML
 	private ImageView foodImageView;
 
+
 	@FXML
 	private Label healthArtifactDamageModifierLabel;
+
 
 	@FXML
 	private Label healthArtifactDefenseModifierLabel;
 
+
 	@FXML
 	private Label healthArtifactHealthModifierLabel;
+
 
 	@FXML
 	private ImageView healthArtifactImageView;
 
+
 	@FXML
 	private Label healthArtifactLabel;
+
 
 	@FXML
 	private Button healthArtifactUpgradeButton;
 
+
 	@FXML
 	private Label scienceAmountLabel;
+
 
 	@FXML
 	private ImageView scienceImageView;
 
+
 	@FXML
 	private Label steelAmountLabel;
 
+
 	@FXML
 	private ImageView steelImageView;
+
 
 	@FXML
 	private ImageView workshopBackgroundImageView;
@@ -154,6 +185,7 @@ public class WorkshopController implements Initializable
 	{
 		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 		this.initCurrencies();
+
 		this.bindArtifactViews();
 		this.bindArtifactNames();
 		this.bindArtifactAttributeModifiers();
@@ -178,26 +210,29 @@ public class WorkshopController implements Initializable
 
 	private void bindArtifactAttributeModifiers ()
 	{
+		final AttributeModifiers healthArtifactModifiers = HealthArtifact.getInstance().getAttributeModifiers();
 		this.healthArtifactDamageModifierLabel.textProperty()
-			.bind(HealthArtifact.getInstance().getAttributeModifiers().getDamageMultiplierProperty().asString());
+			.bind(healthArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.healthArtifactDefenseModifierLabel.textProperty()
-			.bind(HealthArtifact.getInstance().getAttributeModifiers().getDefenseMultiplierProperty().asString());
+			.bind(healthArtifactModifiers.getDefenseMultiplierProperty().asString());
 		this.healthArtifactHealthModifierLabel.textProperty()
-			.bind(HealthArtifact.getInstance().getAttributeModifiers().getHealthMultiplierProperty().asString());
+			.bind(healthArtifactModifiers.getHealthMultiplierProperty().asString());
 
+		final AttributeModifiers damageArtifactModifiers = DamageArtifact.getInstance().getAttributeModifiers();
 		this.damageArtifactDamageModifierLabel.textProperty()
-			.bind(DamageArtifact.getInstance().getAttributeModifiers().getDamageMultiplierProperty().asString());
+			.bind(damageArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.damageArtifactDefenseModifierLabel.textProperty()
-			.bind(DamageArtifact.getInstance().getAttributeModifiers().getDefenseMultiplierProperty().asString());
+			.bind(damageArtifactModifiers.getDefenseMultiplierProperty().asString());
 		this.damageArtifactHealthModifierLabel.textProperty()
-			.bind(DamageArtifact.getInstance().getAttributeModifiers().getHealthMultiplierProperty().asString());
+			.bind(damageArtifactModifiers.getHealthMultiplierProperty().asString());
 
+		final AttributeModifiers defenseArtifactModifiers = DefenseArtifact.getInstance().getAttributeModifiers();
 		this.defenseArtifactDamageModifierLabel.textProperty()
-			.bind(DefenseArtifact.getInstance().getAttributeModifiers().getDamageMultiplierProperty().asString());
+			.bind(defenseArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.defenseArtifactDefenseModifierLabel.textProperty()
-			.bind(DefenseArtifact.getInstance().getAttributeModifiers().getDefenseMultiplierProperty().asString());
+			.bind(defenseArtifactModifiers.getDefenseMultiplierProperty().asString());
 		this.defenseArtifactHealthModifierLabel.textProperty()
-			.bind(DefenseArtifact.getInstance().getAttributeModifiers().getHealthMultiplierProperty().asString());
+			.bind(defenseArtifactModifiers.getHealthMultiplierProperty().asString());
 	}
 
 

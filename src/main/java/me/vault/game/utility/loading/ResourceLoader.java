@@ -51,16 +51,16 @@ public final class ResourceLoader
 	}
 
 
-	public static <T> Scene loadFXMLScene (final Class<T> clazz, final String resourcePath)
+	public static <T> Scene loadScene (final Class<T> clazz, final String fxmlResourcePath)
 	{
 		try
 		{
-			return new Scene(FXMLLoader.load(Objects.requireNonNull(clazz.getResource(resourcePath))));
+			return new Scene(FXMLLoader.load(Objects.requireNonNull(clazz.getResource(fxmlResourcePath))));
 		}
 		catch (final IOException e)
 		{
 			// Logs the corrupted method call before logging the exception
-			LOGGER.log(ERROR, MessageFormat.format(SCENE_NOT_LOADED_MSG, resourcePath));
+			LOGGER.log(ERROR, MessageFormat.format(SCENE_NOT_LOADED_MSG, fxmlResourcePath));
 			LOGGER.log(ERROR, e.getMessage());
 			return null;
 		}
