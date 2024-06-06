@@ -43,6 +43,9 @@ public class Logger implements ILogger
 	private static final String LOG_MESSAGE_PREFIX = "[{0} | {1}] ";
 
 
+	private static final int STACKTRACE_METHOD_INDEX = 2;
+
+
 	/**
 	 * The depth of the {@link Logger}. Represents how deep level of the {@link Logger#log(Level, String)} calls
 	 * must be
@@ -101,6 +104,12 @@ public class Logger implements ILogger
 	}
 
 
+	public static String getMethodName ()
+	{
+		return Thread.currentThread().getStackTrace()[STACKTRACE_METHOD_INDEX].getMethodName();
+	}
+
+
 	/**
 	 * Logs a message at the specified logging level.
 	 *
@@ -112,6 +121,16 @@ public class Logger implements ILogger
 	{
 		if (level.ordinal() >= depth.ordinal())
 		{
+			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
+		}
+	}
+
+
+	public void logf (final Level level, final String pattern, final String... arguments)
+	{
+		if (level.ordinal() >= depth.ordinal())
+		{
+			final String message = MessageFormat.format(pattern, (Object[]) arguments);
 			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
 		}
 	}

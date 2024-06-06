@@ -62,24 +62,6 @@ public class AttributeModifiers
 	}
 
 
-	public void setDamageMultiplier (final double multiplier)
-	{
-		this.damageMultiplierProperty.set(multiplier);
-	}
-
-
-	public void setHealthMultiplier (final double multiplier)
-	{
-		this.healthMultiplierProperty.set(multiplier);
-	}
-
-
-	public void setDefenseMultiplier (final double multiplier)
-	{
-		this.defenseMultiplierProperty.set(multiplier);
-	}
-
-
 	public SimpleDoubleProperty getDamageMultiplierProperty ()
 	{
 		return this.damageMultiplierProperty;
@@ -98,7 +80,7 @@ public class AttributeModifiers
 	}
 
 
-	public void updateProperties (final Map<Type, Double> modifiers)
+	public void updatePropertyValues (final Map<Type, Double> modifiers)
 	{
 		this.damageMultiplierProperty.set(modifiers.get(Type.DAMAGE));
 		this.defenseMultiplierProperty.set(modifiers.get(Type.DEFENSE));

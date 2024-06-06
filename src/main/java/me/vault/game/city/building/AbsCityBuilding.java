@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyTransaction;
-import me.vault.game.interfaces.IDisplayable;
+import me.vault.game.interfaces.Displayable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -20,7 +20,7 @@ import java.util.Map;
  * @see
  * @since 06.06.2024
  */
-public abstract class AbsCityBuilding implements IDisplayable
+public abstract class AbsCityBuilding implements Displayable
 {
 	/**
 	 * This property is used to store and dynamically display the name of the city building. If the name is updated
@@ -49,7 +49,7 @@ public abstract class AbsCityBuilding implements IDisplayable
 	 * attributes the city building consists of.
 	 * <br>
 	 * Check the constructor {@link AbsCityBuilding#AbsCityBuilding()} and the
-	 * {@link AbsCityBuilding#updateProperties()} method to see the control flow.
+	 * {@link AbsCityBuilding#updatePropertyValues()} method to see the control flow.
 	 *
 	 * @see CityBuildingLevel
 	 */
@@ -134,7 +134,9 @@ public abstract class AbsCityBuilding implements IDisplayable
 
 	// TODO: Mosemann fragen, ob diese updateProperties() als Geschäftslogik im Modell ok sind, oder ob sie in eine
 	//  dedizierte Controller-Klasse ausgelagert werden sollen.
-	public void updateProperties ()
+	@Override
+	@Override
+	public void updatePropertyValues ()
 	{
 		this.nameProperty.set(this.getNames().get(this.currentLevel));
 		this.spriteProperty.set(this.getSprites().get(this.currentLevel));

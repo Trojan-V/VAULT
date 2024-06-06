@@ -1,11 +1,11 @@
 package me.vault.game.troop.troop;
 
 
-import me.vault.game.interfaces.IUpgradable;
+import me.vault.game.interfaces.Upgradable;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
 
-public enum ExplorerTroop implements IUpgradable<ExplorerTroopLevel, ExplorerTroopAttributes>
+public enum ExplorerTroop implements Upgradable<ExplorerTroopLevel, ExplorerTroopAttributes>
 {
 	MEDIC(new ValidatedEntriesHashMap<>()
 	{{

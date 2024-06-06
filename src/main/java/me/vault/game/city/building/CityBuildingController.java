@@ -53,7 +53,7 @@ public class CityBuildingController
 	/**
 	 * {@inheritDoc}
 	 */
-	public void upgrade (final CityBuilding cityBuilding)
+	public void upgradeBuilding (final CityBuilding cityBuilding)
 	{
 		if (cityBuilding == null || !getInstance().checkIsUpgradable(cityBuilding))
 		{

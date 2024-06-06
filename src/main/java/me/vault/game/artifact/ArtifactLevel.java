@@ -33,14 +33,14 @@ public enum ArtifactLevel
 	private static final int PREVIOUS_LEVEL_SUBTRACTION_ORDINAL = 1;
 
 
-	public static ArtifactLevel getMinimumArtifactLevel ()
+	public static ArtifactLevel getMinimum ()
 	{
 		// TODO: Logger statement here
 		return values()[MINIMUM_LEVEL_ORDINAL];
 	}
 
 
-	public static ArtifactLevel getMaximumArtifactLevel ()
+	public static ArtifactLevel getMaximum ()
 	{
 		LOGGER.log(DEBUG, MessageFormat.format(GET_MAXIMUM_LEVEL_METHOD_ENTERED_MSG, values()[values().length -
 		                                                                                      PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));

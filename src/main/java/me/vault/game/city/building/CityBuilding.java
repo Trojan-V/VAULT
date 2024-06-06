@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyTransaction;
-import me.vault.game.interfaces.IUpgradable;
+import me.vault.game.interfaces.Upgradable;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
@@ -22,7 +22,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  *
  * @author Lasse-Leander Hillen
  * @version 1.0.0
- * @see IUpgradable
+ * @see Upgradable
  * @since 02.05.2024
  */
 public enum CityBuilding

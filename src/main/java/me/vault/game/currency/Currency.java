@@ -4,7 +4,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
-import me.vault.game.interfaces.IDisplayable;
+import me.vault.game.interfaces.Displayable;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.text.MessageFormat;
@@ -22,7 +22,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * @see CurrencyController
  * @since 21.05.2024
  */
-public enum Currency implements ICurrency, IDisplayable
+public enum Currency implements ICurrency, Displayable
 {
 	/**
 	 * The steel-currency, which is the main-resource used to upgrade buildings.
@@ -133,7 +133,9 @@ public enum Currency implements ICurrency, IDisplayable
 	}
 
 
-	public void updateProperties ()
+	@Override
+	@Override
+	public void updatePropertyValues ()
 	{
 		// TODO: Probably unnötig, wo ist der Sinn? Sinn erfinden!!!
 	}

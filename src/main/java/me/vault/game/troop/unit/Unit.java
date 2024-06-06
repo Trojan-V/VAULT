@@ -2,7 +2,7 @@ package me.vault.game.troop.unit;
 
 
 import me.vault.game.currency.CurrencyTransaction;
-import me.vault.game.interfaces.IUpgradable;
+import me.vault.game.interfaces.Upgradable;
 import me.vault.game.utility.constant.TroopConstants;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
@@ -10,10 +10,10 @@ import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 /**
  * @author Alexander Göthel
  * @version 1.0.0
- * @see IUpgradable
+ * @see Upgradable
  * @since 28.05.2024
  */
-public enum Unit implements IUpgradable<UnitLevel, UnitAttributes>
+public enum Unit implements Upgradable<UnitLevel, UnitAttributes>
 {
 	// Explorer-Association
 

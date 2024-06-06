@@ -14,7 +14,7 @@ import java.util.Map;
  * @see CityBuilding
  * @since 15.05.2024
  */
-public interface IUpgradable<K, V>
+public interface Upgradable<K, V>
 {
 	public abstract Map<K, V> getAllAttributes ();
 

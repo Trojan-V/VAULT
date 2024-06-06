@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
 
 
-public interface IDisplayable
+public interface Displayable
 {
 	/**
 	 * Returns the sprite property of the displayable object.
@@ -16,4 +16,7 @@ public interface IDisplayable
 
 
 	public abstract SimpleObjectProperty<Image> getSpriteProperty ();
+
+
+	public abstract void updatePropertyValues ();
 }

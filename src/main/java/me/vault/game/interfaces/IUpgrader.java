@@ -1,7 +1,7 @@
 package me.vault.game.interfaces;
 
 
-public interface IUpgrader<T extends IUpgradableNew<E>, E>
+public interface IUpgrader<T extends UpgradableNew<E>, E>
 {
 	public abstract void upgrade (T upgradable);
 
