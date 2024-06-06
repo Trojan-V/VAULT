@@ -120,7 +120,6 @@ public enum Currency implements ICurrency, IDisplayable
 	 * {@inheritDoc}
 	 */
 	@Override
-	@Override
 	public SimpleObjectProperty<Image> getSpriteProperty ()
 	{
 		return this.spriteProperty;
