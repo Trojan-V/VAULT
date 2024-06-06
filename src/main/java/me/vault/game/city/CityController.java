@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.city.barracks.Barracks;
 import me.vault.game.city.building.AbsCityBuilding;
+import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.city.building.CityBuildingView;
 import me.vault.game.city.commandcenter.CommandCenter;
 import me.vault.game.city.docks.Docks;
@@ -202,7 +203,7 @@ public class CityController implements Initializable
 	@FXML
 	void onWorkshopUpgrade (ActionEvent event)
 	{
-
+		// WorkshopController.getInstance().upgrade();
 	}
 
 

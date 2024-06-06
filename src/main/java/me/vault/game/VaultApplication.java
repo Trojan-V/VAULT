@@ -67,11 +67,11 @@ public class VaultApplication extends Application
 	 * @exception IOException If a {@code .fxml} file can't be loaded by the {@link FXMLLoader}.
 	 */
 	@Override
-	public void start (final Stage stage) throws IOException
+	public void start (final Stage stage)
 	{
-		CityView.show(stage);
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
+		MainMenuView.show(stage);
 		mainStage = stage;
 	}
 }
