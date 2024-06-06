@@ -135,23 +135,23 @@ public class CityController implements Initializable
 
 
 	@FXML
-	void onLaboratoryButtonClick (final ActionEvent event)
+	void onLaboratoryButtonClick (final ActionEvent ignored)
 	{
-
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.LABORATORY);
 	}
 
 
 	@FXML
-	void onMarketButtonClick (final ActionEvent event)
+	void onMarketButtonClick (final ActionEvent ignored)
 	{
-
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.MARKET);
 	}
 
 
 	@FXML
-	void onSpaceBarButtonClick (final ActionEvent event)
+	void onSpaceBarButtonClick (final ActionEvent ignored)
 	{
-
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.WORKSHOP);
 	}
 
 
@@ -164,7 +164,7 @@ public class CityController implements Initializable
 
 
 	@FXML
-	void onWorkshopButtonClick (final ActionEvent event) throws IOException
+	void onWorkshopButtonClick (final ActionEvent ignored)
 	{
 		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.WORKSHOP);
 	}
@@ -206,25 +206,22 @@ public class CityController implements Initializable
 	// TODO: Selbe Methodik wie bei initCityBuildingButton() anwenden für die Kapselung.
 	private void initCurrencies ()
 	{
-		// Initialisation of the steel Currency
-		this.steelImageView.imageProperty().bind(Currency.STEEL.getSpriteProperty());
-		this.steelAmountLabel.textProperty().bind(Currency.STEEL.getAmountProperty().asString());
+		initCurrencyView(Currency.STEEL, this.steelImageView, this.steelAmountLabel);
 
-		// Initialisation of the composite Currency
-		this.compositeImageView.imageProperty().bind(Currency.COMPOSITE.getSpriteProperty());
-		this.compositeAmountLabel.textProperty().bind(Currency.COMPOSITE.getAmountProperty().asString());
+		initCurrencyView(Currency.COMPOSITE, this.compositeImageView, this.compositeAmountLabel);
 
-		// Initialisation of the science Currency
-		this.scienceImageView.imageProperty().bind(Currency.SCIENCE.getSpriteProperty());
-		this.scienceAmountLabel.textProperty().bind(Currency.SCIENCE.getAmountProperty().asString());
+		initCurrencyView(Currency.SCIENCE, this.scienceImageView, this.scienceAmountLabel);
 
-		// Initialisation of the food ration Currency
-		this.foodImageView.imageProperty().bind(Currency.FOOD_RATION.getSpriteProperty());
-		this.foodAmountLabel.textProperty().bind(Currency.FOOD_RATION.getAmountProperty().asString());
+		initCurrencyView(Currency.FOOD_RATION, this.foodImageView, this.foodAmountLabel);
 
-		// Initialisation of the energy credit Currency
-		this.creditImageView.imageProperty().bind(Currency.ENERGY_CREDIT.getSpriteProperty());
-		this.creditAmountLabel.textProperty().bind(Currency.ENERGY_CREDIT.getAmountProperty().asString());
+		initCurrencyView(Currency.ENERGY_CREDIT, this.creditImageView, this.creditAmountLabel);
+	}
+
+
+	public static void initCurrencyView ( Currency steel, ImageView steelImageView, Label steelAmountLabel)
+	{
+		steelImageView.imageProperty().bind(steel.getSpriteProperty());
+		steelAmountLabel.textProperty().bind(steel.getAmountProperty().asString());
 	}
 
 }

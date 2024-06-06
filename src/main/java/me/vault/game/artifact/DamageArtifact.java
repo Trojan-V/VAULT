@@ -42,7 +42,7 @@ public class DamageArtifact extends AbsArtifact
 		UPGRADE_COSTS.put(ArtifactLevel.IMPROVED, null);
 
 		NAMES.put(ArtifactLevel.BASE, "Damage Artifact");
-		NAMES.put(ArtifactLevel.BASE, "Improved Damage Artifact");
+		NAMES.put(ArtifactLevel.IMPROVED, "Improved Damage Artifact");
 
 		SPRITES.put(ArtifactLevel.BASE, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/damage_artifact_icon.png"));
 

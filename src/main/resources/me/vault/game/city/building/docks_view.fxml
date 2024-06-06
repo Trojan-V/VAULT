@@ -210,7 +210,7 @@
       </HBox>
       <TabPane fx:id="factionsTabPane" layoutX="26.0" layoutY="106.0" prefHeight="591.0" prefWidth="1229.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
         <tabs>
-          <Tab closable="false" style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="Military Government">
+          <Tab closable="false" style="-fx-pref-width: 605; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="Military Government">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
                      <children>
@@ -225,7 +225,7 @@
                             <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label prefHeight="11.0" prefWidth="363.0" text="NAME DER FRAKTION ALS TITEL" underline="true" GridPane.columnSpan="2147483647">
+                              <Label prefHeight="35.0" prefWidth="375.0" text="DOCKS: MILITARY GOVERNMENT" underline="true" GridPane.columnSpan="2147483647">
                                  <font>
                                     <Font name="Segoe UI Semibold" size="24.0" />
                                  </font>
@@ -292,6 +292,9 @@
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
                               </Label>
                               <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="1178.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Auswählen" GridPane.rowIndex="3">
                                  <GridPane.margin>
@@ -310,7 +313,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="Explorer">
+          <Tab style="-fx-pref-width: 605; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="Explorer-Association">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
                      <children>
@@ -325,7 +328,7 @@
                               <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Label prefHeight="11.0" prefWidth="363.0" text="NAME DER FRAKTION ALS TITEL" underline="true" GridPane.columnSpan="2147483647">
+                              <Label prefHeight="35.0" prefWidth="374.0" text="DOCKS: EXPLORER-ASSOCIATION" underline="true" GridPane.columnSpan="2147483647">
                                  <font>
                                     <Font name="Segoe UI Semibold" size="24.0" />
                                  </font>
@@ -392,6 +395,9 @@
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
                               </Label>
                               <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="1178.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Auswählen" GridPane.rowIndex="3">
                                  <GridPane.margin>
@@ -410,209 +416,6 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="Mega Concern">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
-                     <children>
-                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints maxHeight="182.0" minHeight="0.0" prefHeight="64.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="458.0" minHeight="10.0" prefHeight="322.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label prefHeight="11.0" prefWidth="363.0" text="NAME DER FRAKTION ALS TITEL" underline="true" GridPane.columnSpan="2147483647">
-                                 <font>
-                                    <Font name="Segoe UI Semibold" size="24.0" />
-                                 </font>
-                                 <GridPane.margin>
-                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <GridPane GridPane.rowIndex="2">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="154.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="166.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="164.0" prefWidth="409.0" style="-fx-border-color: grey;" text="Beschreibung der zweiten Einheit" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="164.0" prefWidth="409.0" style="-fx-border-color: grey;" text="Beschreibung der dritten Einheit" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="165.0" prefWidth="410.0" style="-fx-border-color: grey;" text="Beschreibung der ersten Einheit" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                 </children>
-                              </GridPane>
-                              <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="87.0" prefWidth="1178.0" style="-fx-background-color: lightgrey; -fx-border-color: grey;" text="Beschreibung der Fraktion und ihrer Rolle in der Story" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="25.0" right="25.0" />
-                                 </GridPane.margin>
-                                 <font>
-                                    <Font name="Segoe UI" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="1178.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Auswählen" GridPane.rowIndex="3">
-                                 <GridPane.margin>
-                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                 </GridPane.margin>
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                                 <font>
-                                    <Font name="Segoe UI Semibold" size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab style="-fx-pref-width: 302; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 16;" text="New Terra">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
-                     <children>
-                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints maxHeight="182.0" minHeight="0.0" prefHeight="64.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="458.0" minHeight="10.0" prefHeight="322.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label prefHeight="11.0" prefWidth="363.0" text="NAME DER FRAKTION ALS TITEL" underline="true" GridPane.columnSpan="2147483647">
-                                 <font>
-                                    <Font name="Segoe UI Semibold" size="24.0" />
-                                 </font>
-                                 <GridPane.margin>
-                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <GridPane GridPane.rowIndex="2">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="154.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="166.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="164.0" prefWidth="409.0" style="-fx-border-color: grey;" text="Beschreibung der zweiten Einheit" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="164.0" prefWidth="409.0" style="-fx-border-color: grey;" text="Beschreibung der dritten Einheit" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="165.0" prefWidth="410.0" style="-fx-border-color: grey;" text="Beschreibung der ersten Einheit" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-                                       <GridPane.margin>
-                                          <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                 </children>
-                              </GridPane>
-                              <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="87.0" prefWidth="1178.0" style="-fx-background-color: lightgrey; -fx-border-color: grey;" text="Beschreibung der Fraktion und ihrer Rolle in der Story" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="25.0" right="25.0" />
-                                 </GridPane.margin>
-                                 <font>
-                                    <Font name="Segoe UI" size="18.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </padding>
-                              </Label>
-                              <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="1178.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Auswählen" GridPane.rowIndex="3">
-                                 <GridPane.margin>
-                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                 </GridPane.margin>
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                                 <font>
-                                    <Font name="Segoe UI Semibold" size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
         </tabs>
          <opaqueInsets>
             <Insets />

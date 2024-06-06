@@ -87,7 +87,6 @@ public abstract class AbsArtifact implements IDisplayable
 
 	// TODO: Mosemann fragen, ob diese updateProperties() als Geschäftslogik im Modell ok sind, oder ob sie in eine dedizierte Controller-Klasse ausgelagert werden sollen.
 	@Override
-	@Override
 	public void updateProperties ()
 	{
 		this.nameProperty.set(this.getNameMap().get(this.currentLevel));
