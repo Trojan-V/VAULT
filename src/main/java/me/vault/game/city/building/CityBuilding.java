@@ -5,7 +5,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyController;
-import me.vault.game.interfaces.IDisplayable;
 import me.vault.game.interfaces.IUpgradable;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
@@ -26,7 +25,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * @see IUpgradable
  * @since 02.05.2024
  */
-public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingAttributes>, IDisplayable
+public enum CityBuilding
 {
 	/**
 	 * Represents the Command Center {@link CityBuilding} in the city.
@@ -220,7 +219,6 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingA
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public Map<CityBuildingLevel, CityBuildingAttributes> getAllAttributes ()
 	{
 		return this.propertyMap;
@@ -230,7 +228,6 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingA
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public CityBuildingAttributes getCurrentAttributes ()
 	{
 		return this.propertyMap.get(this.currentLevel);
@@ -240,7 +237,6 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingA
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public CityBuildingLevel getLevel ()
 	{
 		return this.currentLevel;
@@ -250,7 +246,6 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingA
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public void setLevel (final CityBuildingLevel cityBuildingLevel)
 	{
 		this.currentLevel = cityBuildingLevel;
@@ -281,14 +276,12 @@ public enum CityBuilding implements IUpgradable<CityBuildingLevel, CityBuildingA
 	 *
 	 * @return The sprite property of the displayable object as an {@link Image}
 	 */
-	@Override
 	public Image getSprite ()
 	{
 		return this.spriteProperty.get();
 	}
 
 
-	@Override
 	public void updateProperties ()
 	{
 		// TODO: Implement

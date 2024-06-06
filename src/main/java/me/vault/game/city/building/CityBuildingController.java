@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.currency.Currency;
 import me.vault.game.currency.CurrencyController;
-import me.vault.game.interfaces.IUpgrader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -15,7 +14,7 @@ import me.vault.game.utility.logging.Logger;
 /**
  *
  */
-public class CityBuildingController implements IUpgrader<CityBuilding, CityBuildingLevel, CityBuildingAttributes>
+public class CityBuildingController
 {
 	private static final CityBuildingController INSTANCE = new CityBuildingController();
 
@@ -44,7 +43,6 @@ public class CityBuildingController implements IUpgrader<CityBuilding, CityBuild
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
 	{
 		// TODO: Currency Check fehlt noch, ob genug vorhanden ist.
@@ -55,7 +53,6 @@ public class CityBuildingController implements IUpgrader<CityBuilding, CityBuild
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public void upgrade (final CityBuilding cityBuilding)
 	{
 		if (cityBuilding == null || ! getInstance().checkIsUpgradable(cityBuilding))

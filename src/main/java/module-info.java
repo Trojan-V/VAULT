@@ -1,6 +1,7 @@
 module me.vault.game {
 	requires javafx.controls;
 	requires javafx.fxml;
+	requires org.jetbrains.annotations;
 
 	opens me.vault.game to javafx.fxml;
 	opens me.vault.game.utility.loading to javafx.fxml;
@@ -25,4 +26,6 @@ module me.vault.game {
 	exports me.vault.game.utility.loading;
 
 	opens me.vault.game.currency to javafx.fxml;
+	exports me.vault.game.artifact.impl;
+	opens me.vault.game.artifact.impl to javafx.fxml;
 }

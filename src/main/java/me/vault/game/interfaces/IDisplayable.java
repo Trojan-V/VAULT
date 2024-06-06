@@ -1,6 +1,7 @@
 package me.vault.game.interfaces;
 
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
 
 
@@ -14,5 +15,5 @@ public interface IDisplayable
 	public abstract Image getSprite ();
 
 
-	public abstract void updateProperties ();
+	public abstract SimpleObjectProperty<Image> getSpriteProperty ();
 }

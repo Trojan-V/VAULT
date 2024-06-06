@@ -8,8 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
-import me.vault.game.artifact.Artifact;
 import me.vault.game.artifact.ArtifactController;
+import me.vault.game.artifact.impl.DamageArtifact;
+import me.vault.game.artifact.impl.DefenseArtifact;
+import me.vault.game.artifact.impl.HealthArtifact;
 import me.vault.game.city.CityView;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -129,21 +131,21 @@ public class WorkshopController implements Initializable
 	@FXML
 	private void onDamageArtifactUpgrade (final ActionEvent event)
 	{
-		ArtifactController.getInstance().upgrade(Artifact.DAMAGE);
+		ArtifactController.getInstance().upgrade(DamageArtifact.getInstance());
 	}
 
 
 	@FXML
 	private void onDefenseArtifactUpgrade (final ActionEvent event)
 	{
-		ArtifactController.getInstance().upgrade(Artifact.DEFENSE);
+		ArtifactController.getInstance().upgrade(DefenseArtifact.getInstance());
 	}
 
 
 	@FXML
 	private void onHealthArtifactUpgrade (final ActionEvent event)
 	{
-		ArtifactController.getInstance().upgrade(Artifact.HEALTH);
+		ArtifactController.getInstance().upgrade(HealthArtifact.getInstance());
 	}
 
 
@@ -154,28 +156,48 @@ public class WorkshopController implements Initializable
 		this.initCurrencies();
 		this.bindArtifactViews();
 		this.bindArtifactNames();
+		this.bindArtifactAttributeModifiers();
 	}
-
 
 
 	private void bindArtifactViews ()
 	{
-		this.healthArtifactImageView.imageProperty().bind(Artifact.HEALTH.getSpriteProperty());
-		this.damageArtifactImageView.imageProperty().bind(Artifact.DAMAGE.getSpriteProperty());
-		this.defenseArtifactImageView.imageProperty().bind(Artifact.DEFENSE.getSpriteProperty());
+		this.healthArtifactImageView.imageProperty().bind(HealthArtifact.getInstance().getSpriteProperty());
+		this.damageArtifactImageView.imageProperty().bind(DamageArtifact.getInstance().getSpriteProperty());
+		this.defenseArtifactImageView.imageProperty().bind(DefenseArtifact.getInstance().getSpriteProperty());
 	}
 
 
 	private void bindArtifactNames ()
 	{
-		this.healthArtifactLabel.textProperty().bind(Artifact.HEALTH.getCurrentNameProperty());
-		this.defenseArtifactLabel.textProperty().bind(Artifact.DEFENSE.getCurrentNameProperty());
-		this.damageArtifactLabel.textProperty().bind(Artifact.DAMAGE.getCurrentNameProperty());
+		this.healthArtifactLabel.textProperty().bind(HealthArtifact.getInstance().getNameProperty());
+		this.defenseArtifactLabel.textProperty().bind(DefenseArtifact.getInstance().getNameProperty());
+		this.damageArtifactLabel.textProperty().bind(DamageArtifact.getInstance().getNameProperty());
 	}
 
 
-	private void bindArtifactModifiers (final Artifact artifact, final Label damageModifierLabel, final Label defenseModifierLabel, final Label healthModifierLabel)
+	private void bindArtifactAttributeModifiers ()
 	{
+		this.healthArtifactDamageModifierLabel.textProperty()
+			.bind(HealthArtifact.getInstance().getAttributeModifiers().getDamageMultiplierProperty().asString());
+		this.healthArtifactDefenseModifierLabel.textProperty()
+			.bind(HealthArtifact.getInstance().getAttributeModifiers().getDefenseMultiplierProperty().asString());
+		this.healthArtifactHealthModifierLabel.textProperty()
+			.bind(HealthArtifact.getInstance().getAttributeModifiers().getHealthMultiplierProperty().asString());
+
+		this.damageArtifactDamageModifierLabel.textProperty()
+			.bind(DamageArtifact.getInstance().getAttributeModifiers().getDamageMultiplierProperty().asString());
+		this.damageArtifactDefenseModifierLabel.textProperty()
+			.bind(DamageArtifact.getInstance().getAttributeModifiers().getDefenseMultiplierProperty().asString());
+		this.damageArtifactHealthModifierLabel.textProperty()
+			.bind(DamageArtifact.getInstance().getAttributeModifiers().getHealthMultiplierProperty().asString());
+
+		this.defenseArtifactDamageModifierLabel.textProperty()
+			.bind(DefenseArtifact.getInstance().getAttributeModifiers().getDamageMultiplierProperty().asString());
+		this.defenseArtifactDefenseModifierLabel.textProperty()
+			.bind(DefenseArtifact.getInstance().getAttributeModifiers().getDefenseMultiplierProperty().asString());
+		this.defenseArtifactHealthModifierLabel.textProperty()
+			.bind(DefenseArtifact.getInstance().getAttributeModifiers().getHealthMultiplierProperty().asString());
 	}
 
 

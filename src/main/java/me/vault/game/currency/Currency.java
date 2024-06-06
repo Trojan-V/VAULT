@@ -119,6 +119,8 @@ public enum Currency implements ICurrency, IDisplayable
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
+	@Override
 	public SimpleObjectProperty<Image> getSpriteProperty ()
 	{
 		return this.spriteProperty;
@@ -132,7 +134,6 @@ public enum Currency implements ICurrency, IDisplayable
 	}
 
 
-	@Override
 	public void updateProperties ()
 	{
 		// TODO: Probably unnötig, wo ist der Sinn? Sinn erfinden!!!

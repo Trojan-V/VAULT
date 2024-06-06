@@ -15,21 +15,9 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * This class is the controller class for {@link Artifact}'s. It's responsible for any (complex) logic regarding the
- * management of {@link Artifact}'s.
- * <br>
- * It currently provides a method to upgrade artifacts to the next level.
- * <br>
- * The {@link ArtifactController#upgrade(Artifact)} method is exposed by the {@link IUpgrader} interface.
- *
- * @author Vincent Wolf
- * @version 1.0.0
- * @see Artifact
- * @see ArtifactLevel
- * @see ArtifactAttributes
  * @since 23.05.2024
  */
-public final class ArtifactController implements IUpgrader<Artifact, ArtifactLevel, ArtifactAttributes>
+public final class ArtifactController implements IUpgrader<AbsArtifact, ArtifactLevel>
 {
 	/**
 	 * Singleton instance, as there will never be a reason to have more than one {@link ArtifactController}.
@@ -56,9 +44,9 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	{}
 
 
-	private static boolean checkIsArtifactMaxed (final Artifact artifact)
+	private static boolean checkIsArtifactMaxed (final AbsArtifact artifact)
 	{
-		return artifact.getLevel().ordinal() == ArtifactLevel.values().length - 1;
+		return artifact.getLevel() == ArtifactLevel.getMaximumArtifactLevel();
 	}
 
 
@@ -68,21 +56,10 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	}
 
 
-	/**
-	 * Attempts to upgrade an artifact to the next {@link ArtifactLevel}.
-	 * <br>
-	 * Before upgrading, it checks if the artifact can actually be upgraded. For that, the
-	 * {@link ArtifactController#checkIsUpgradable(Artifact)} method is invoked.
-	 * <br>
-	 * If the artifact can be upgraded, the upgrade costs will be factored in (which means that the amount of currency
-	 * the player owns will be deducted by this amount for each currency).
-	 *
-	 * @param artifact The {@link Artifact} which should be upgraded.
-	 */
 	@Override
-	public void upgrade (final Artifact artifact)
+	public void upgrade (final AbsArtifact artifact)
 	{
-		LOGGER.log(DEBUG, MessageFormat.format(UPGRADE_METHOD_ENTERED_MSG, artifact.name()));
+		LOGGER.log(DEBUG, MessageFormat.format(UPGRADE_METHOD_ENTERED_MSG, artifact.getName()));
 
 
 		// Validate that the artifact can actually be upgraded.
@@ -93,11 +70,13 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 
 		// Now it's known that the artifact can be upgraded.
 		// The upgrade costs are factored in now (see Javadoc of this method for more information).
-		CurrencyController.factorCurrencyTransaction(artifact.getCurrentAttributes().getUpgradeCosts());
+		CurrencyController.factorCurrencyTransaction(artifact.getCurrentUpgradeCost());
 
 
 		// The level of the artifact is changed to the next level, so it's getting upgraded now.
 		LOGGER.log(DEBUG, MessageFormat.format(CURRENT_ARTIFACT_LEVEL_MSG, artifact.getLevel().toString()));
+
+
 		artifact.setLevel(ArtifactLevel.getNextHigherLevel(artifact.getLevel()));
 		artifact.updateProperties();
 
@@ -105,13 +84,10 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public boolean checkIsUpgradable (final Artifact artifact)
+	public boolean checkIsUpgradable (final AbsArtifact artifact)
 	{
-		LOGGER.log(DEBUG, MessageFormat.format(CHECK_IS_UPGRADABLE_METHOD_ENTERED_MSG, artifact.name()));
+		LOGGER.log(DEBUG, MessageFormat.format(CHECK_IS_UPGRADABLE_METHOD_ENTERED_MSG, artifact.getName()));
 
 
 		// Checks if the artifact is already at the maximum level. If yes, it can't be upgraded any further.
@@ -123,7 +99,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 
 		// Checks if the user has enough of each required currency to purchase the upgrade. If the amount of at least
 		// one currency isn't enough, the artifact can't be upgraded.
-		final CurrencyTransaction upgradeCosts = artifact.getCurrentAttributes().getUpgradeCosts();
+		final CurrencyTransaction upgradeCosts = artifact.getCurrentUpgradeCost();
 		LOGGER.log(DEBUG, MessageFormat.format(UPGRADE_COSTS_MSG, upgradeCosts.toString()));
 		for (final Currency currency : Currency.values())
 		{
@@ -138,7 +114,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 
 		// If all checks are passed, the method returns true.
 		LOGGER.log(DEBUG,
-			"The artifact can be upgraded to the next level, leaving the checkIsUpgradable() " + "method.");
+			"The artifact can be upgraded to the next level, leaving the checkIsUpgradable() method.");
 		return true;
 	}
 }

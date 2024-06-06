@@ -1,7 +1,9 @@
-package me.vault.game.artifact;
+package me.vault.game.artifact.impl;
 
 
 import javafx.scene.image.Image;
+import me.vault.game.artifact.AbsArtifact;
+import me.vault.game.artifact.ArtifactLevel;
 import me.vault.game.artifact.AttributeModifiers.Type;
 import me.vault.game.currency.CurrencyController;
 import me.vault.game.currency.CurrencyTransaction;
@@ -19,11 +21,11 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * @author Vincent Wolf
  * @version 1.0.0
  * @see
- * @since 05.06.2024
+ * @since 06.06.2024
  */
-public class DamageArtifact extends AbsArtifact
+public final class HealthArtifact extends AbsArtifact
 {
-	private static final DamageArtifact INSTANCE = new DamageArtifact();
+	private static final HealthArtifact INSTANCE;
 
 
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
@@ -36,67 +38,71 @@ public class DamageArtifact extends AbsArtifact
 
 
 	private static final Map<ArtifactLevel, Map<Type, Double>> MODIFIERS = new HashMap<>();
-
 	static
 	{
 		UPGRADE_COSTS.put(ArtifactLevel.BASE, CurrencyController.createTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(ArtifactLevel.IMPROVED, null);
 
-		NAMES.put(ArtifactLevel.BASE, "Damage Artifact");
-		NAMES.put(ArtifactLevel.IMPROVED, "Improved Damage Artifact");
+		NAMES.put(ArtifactLevel.BASE, "Health Artifact");
+		NAMES.put(ArtifactLevel.IMPROVED, "Improved Health Artifact");
 
-		SPRITES.put(ArtifactLevel.BASE, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/damage_artifact_icon.png"));
+		SPRITES.put(ArtifactLevel.BASE, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/health_artifact_icon.png"));
+		SPRITES.put(ArtifactLevel.IMPROVED, ResourceLoader.loadImage(
+			ASSETS_PATH + "Item_Pack/health_artifact_icon.png"));
 
-		final HashMap<Type, Double> baseLevelModifiers = new HashMap<>();
+		final Map<Type, Double> baseLevelModifiers = new HashMap<>();
 		baseLevelModifiers.put(Type.DAMAGE, 1.5D);
 		baseLevelModifiers.put(Type.DEFENSE, 1.5D);
 		baseLevelModifiers.put(Type.HEALTH, 1.5D);
 
 		MODIFIERS.put(ArtifactLevel.BASE, baseLevelModifiers);
 
-		final HashMap<Type, Double> improvedLevelModifiers = new HashMap<>();
+		final Map<Type, Double> improvedLevelModifiers = new HashMap<>();
 		improvedLevelModifiers.put(Type.DAMAGE, 2.0D);
 		improvedLevelModifiers.put(Type.DEFENSE, 2.0D);
 		improvedLevelModifiers.put(Type.HEALTH, 2.0D);
 
 		MODIFIERS.put(ArtifactLevel.IMPROVED, improvedLevelModifiers);
+
+
+		// Ensure the instance is created after static fields are initialized
+		INSTANCE = new HealthArtifact();
 	}
 
 
-	private DamageArtifact ()
-	{}
+	private HealthArtifact () {}
 
 
-	public static DamageArtifact getInstance ()
+	public static HealthArtifact getInstance ()
 	{
 		return INSTANCE;
 	}
 
 
 	@Override
-	protected Map<ArtifactLevel, CurrencyTransaction> getUpgradeCostMap ()
+	protected Map<ArtifactLevel, CurrencyTransaction> getUpgradeCosts ()
 	{
 		return UPGRADE_COSTS;
 	}
 
 
 	@Override
-	protected Map<ArtifactLevel, Map<Type, Double>> getAttributeModifiersMap ()
-	{
-		return MODIFIERS;
-	}
-
-
-	@Override
-	protected Map<ArtifactLevel, String> getNameMap ()
+	protected Map<ArtifactLevel, String> getNames ()
 	{
 		return NAMES;
 	}
 
 
 	@Override
-	protected Map<ArtifactLevel, Image> getSpriteMap ()
+	protected Map<ArtifactLevel, Image> getSprites ()
 	{
 		return SPRITES;
+	}
+
+
+	@Override
+	protected Map<ArtifactLevel, Map<Type, Double>> getModifiers ()
+	{
+		return MODIFIERS;
 	}
 }
