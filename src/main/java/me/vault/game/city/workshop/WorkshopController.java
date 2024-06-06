@@ -27,7 +27,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
 
-public class WorkshopController implements Initializable
+public class WorkshopController extends CityBuildingController implements Initializable
 {
 	/**
 	 * The logger object for this class used for writing to the console.

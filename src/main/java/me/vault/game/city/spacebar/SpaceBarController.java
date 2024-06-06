@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.city.CityController;
 import me.vault.game.city.CityView;
+import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 
@@ -17,7 +18,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
-public class SpaceBarController implements Initializable
+public class SpaceBarController extends CityBuildingController implements Initializable
 {
 
 	@FXML

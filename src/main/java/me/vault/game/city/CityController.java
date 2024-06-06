@@ -18,6 +18,7 @@ import me.vault.game.city.market.Market;
 import me.vault.game.city.spacebar.SpaceBar;
 import me.vault.game.city.trainingfacility.TrainingFacility;
 import me.vault.game.city.workshop.Workshop;
+import me.vault.game.city.workshop.WorkshopController;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 
