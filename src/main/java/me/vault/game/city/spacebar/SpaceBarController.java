@@ -1,4 +1,4 @@
-package me.vault.game.city.building;
+package me.vault.game.city.spacebar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,8 +17,11 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
-public class BarracksController implements Initializable
+public class SpaceBarController implements Initializable
 {
+
+	@FXML
+	private ImageView backgroundImageView;
 
 	@FXML
 	private Label compositeAmountLabel;
@@ -50,9 +53,6 @@ public class BarracksController implements Initializable
 	@FXML
 	private ImageView steelImageView;
 
-	@FXML
-	private ImageView backgroundImageView;
-
 
 	@FXML
 	void onBackToCityView (ActionEvent ignored)
@@ -71,11 +71,11 @@ public class BarracksController implements Initializable
 
 	private void initCurrencies ()
 	{
-		CityController.initCurrencyView(Currency.STEEL, this.steelImageView, steelAmountLabel);
-		CityController.initCurrencyView(Currency.COMPOSITE, this.compositeImageView, compositeAmountLabel);
-		CityController.initCurrencyView(Currency.SCIENCE, this.scienceImageView, scienceAmountLabel);
-		CityController.initCurrencyView(Currency.FOOD_RATION, this.foodImageView, foodAmountLabel);
-		CityController.initCurrencyView(Currency.ENERGY_CREDIT, this.creditImageView, creditAmountLabel);
+		CityController.initCurrency(Currency.STEEL, this.steelImageView, steelAmountLabel);
+		CityController.initCurrency(Currency.COMPOSITE, this.compositeImageView, compositeAmountLabel);
+		CityController.initCurrency(Currency.SCIENCE, this.scienceImageView, scienceAmountLabel);
+		CityController.initCurrency(Currency.FOOD_RATION, this.foodImageView, foodAmountLabel);
+		CityController.initCurrency(Currency.ENERGY_CREDIT, this.creditImageView, creditAmountLabel);
 
 	}
 

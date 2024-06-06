@@ -32,7 +32,7 @@
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="spaceBarUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                  <Button fx:id="spaceBarUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -55,7 +55,7 @@
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="workshopUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                  <Button fx:id="workshopUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onWorkshopUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -78,7 +78,7 @@
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="commandCenterUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                  <Button fx:id="commandCenterUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onCommandCenterUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -101,7 +101,7 @@
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="trainingfacilityUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                  <Button fx:id="trainingfacilityUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onTrainingFacilityUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -131,7 +131,7 @@
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="docksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                  <Button fx:id="docksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onDocksUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -157,7 +157,7 @@
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="marketUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                  <Button fx:id="marketUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onMarketUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -183,7 +183,7 @@
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="barracksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                  <Button fx:id="barracksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onBarracksUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -198,7 +198,7 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="425.0">
                <children>
-                  <Button fx:id="laboratoryButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Market">
+                  <Button fx:id="laboratoryButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Laboratory">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -209,7 +209,7 @@
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="laboratoryUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
+                  <Button fx:id="laboratoryUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>

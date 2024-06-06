@@ -1,4 +1,4 @@
-package me.vault.game.city.building;
+package me.vault.game.city.workshop;
 
 
 import javafx.event.ActionEvent;
@@ -14,6 +14,7 @@ import me.vault.game.artifact.impl.DamageArtifact;
 import me.vault.game.artifact.impl.DefenseArtifact;
 import me.vault.game.artifact.impl.HealthArtifact;
 import me.vault.game.city.CityView;
+import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;

@@ -1,4 +1,4 @@
-package me.vault.game.city.building;
+package me.vault.game.city.trainingfacility;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +9,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.city.CityView;
+import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 

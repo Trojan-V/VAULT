@@ -8,10 +8,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
+import me.vault.game.city.barracks.Barracks;
 import me.vault.game.city.building.AbsCityBuilding;
-import me.vault.game.city.building.CityBuilding;
 import me.vault.game.city.building.CityBuildingView;
-import me.vault.game.city.building.impl.Workshop;
+import me.vault.game.city.commandcenter.CommandCenter;
+import me.vault.game.city.docks.Docks;
+import me.vault.game.city.laboratory.Laboratory;
+import me.vault.game.city.market.Market;
+import me.vault.game.city.spacebar.SpaceBar;
+import me.vault.game.city.trainingfacility.TrainingFacility;
+import me.vault.game.city.workshop.Workshop;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 
@@ -19,6 +25,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
 
 /**
@@ -32,9 +39,6 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 public class CityController implements Initializable
 {
 	private static final CityController INSTANCE = new CityController();
-
-
-	private static final String BACKGROUND_FILENAME = "city_background.png";
 
 
 	@FXML
@@ -146,66 +150,122 @@ public class CityController implements Initializable
 
 
 	@FXML
-	void onBarracksButtonClick (final ActionEvent event)
+	void onBarracksUpgrade (ActionEvent event)
 	{
+
 	}
 
 
 	@FXML
-	void onCommandCenterButtonClick (final ActionEvent event)
+	void onCommandCenterUpgrade (ActionEvent event)
 	{
 
+	}
+
+
+	@FXML
+	void onDocksUpgrade (ActionEvent event)
+	{
+
+	}
+
+
+	@FXML
+	void onLaboratoryUpgrade (ActionEvent event)
+	{
+
+	}
+
+
+	@FXML
+	void onMarketUpgrade (ActionEvent event)
+	{
+
+	}
+
+
+	@FXML
+	void onSpaceBarUpgrade (ActionEvent event)
+	{
+
+	}
+
+
+	@FXML
+	void onTrainingFacilityUpgrade (ActionEvent event)
+	{
+
+	}
+
+
+	@FXML
+	void onWorkshopUpgrade (ActionEvent event)
+	{
+
+	}
+
+
+	@FXML
+	void onBarracksButtonClick (final ActionEvent ignored)
+	{
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Barracks.getInstance());
+	}
+
+
+	@FXML
+	void onCommandCenterButtonClick (final ActionEvent ignored)
+	{
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CommandCenter.getInstance());
 	}
 
 
 	@FXML
 	void onDocksButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.DOCKS);
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Docks.getInstance());
 	}
 
 
 	@FXML
 	void onLaboratoryButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.LABORATORY);
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Laboratory.getInstance());
 	}
 
 
 	@FXML
 	void onMarketButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.MARKET);
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Market.getInstance());
 	}
 
 
 	@FXML
 	void onSpaceBarButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.WORKSHOP);
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), SpaceBar.getInstance());
 	}
 
 
-	// TODO: parameter event zu ignored
 	@FXML
 	void onTrainingFacilityButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.TRAINING_FACILITY);
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), TrainingFacility.getInstance());
 	}
 
 
 	@FXML
 	void onWorkshopButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CityBuilding.WORKSHOP);
+		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Workshop.getInstance());
 	}
 
 
-	@Override
 	@FXML
+	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + BACKGROUND_FILENAME));
+		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 		this.initCurrencies();
 		this.initBuildingButtons();
 	}
@@ -223,31 +283,33 @@ public class CityController implements Initializable
 	}
 
 
-	public static void initCurrencyView (final Currency steel, final ImageView steelImageView, final Label steelAmountLabel)
+	public static void initCurrency (final Currency steel, final ImageView steelImageView, final Label steelAmountLabel)
 	{
 		steelImageView.imageProperty().bind(steel.getSpriteProperty());
 		steelAmountLabel.textProperty().bind(steel.getAmountProperty().asString());
 	}
 
 
-	// TODO: Selbe Methodik wie bei initCityBuildingButton() anwenden für die Kapselung.
 	private void initCurrencies ()
 	{
-		initCurrencyView(Currency.STEEL, this.steelImageView, this.steelAmountLabel);
-
-		initCurrencyView(Currency.COMPOSITE, this.compositeImageView, this.compositeAmountLabel);
-
-		initCurrencyView(Currency.SCIENCE, this.scienceImageView, this.scienceAmountLabel);
-
-		initCurrencyView(Currency.FOOD_RATION, this.foodImageView, this.foodAmountLabel);
-
-		initCurrencyView(Currency.ENERGY_CREDIT, this.creditImageView, this.creditAmountLabel);
+		initCurrency(Currency.STEEL, this.steelImageView, this.steelAmountLabel);
+		initCurrency(Currency.COMPOSITE, this.compositeImageView, this.compositeAmountLabel);
+		initCurrency(Currency.SCIENCE, this.scienceImageView, this.scienceAmountLabel);
+		initCurrency(Currency.FOOD_RATION, this.foodImageView, this.foodAmountLabel);
+		initCurrency(Currency.ENERGY_CREDIT, this.creditImageView, this.creditAmountLabel);
 	}
 
 
 	private void initBuildingButtons ()
 	{
 		initCityBuildingButton(this.workshopButton, Workshop.getInstance());
+		initCityBuildingButton(this.barracksButton, Barracks.getInstance());
+		initCityBuildingButton(this.laboratoryButton, Laboratory.getInstance());
+		initCityBuildingButton(this.spaceBarButton, SpaceBar.getInstance());
+		initCityBuildingButton(this.marketButton, Market.getInstance());
+		initCityBuildingButton(this.docksButton, Docks.getInstance());
+		initCityBuildingButton(this.commandCenterButton, CommandCenter.getInstance());
+		initCityBuildingButton(this.trainingfacilityButton, TrainingFacility.getInstance());
 	}
 
 }

@@ -55,7 +55,7 @@ public class CityBuildingController
 	 */
 	public void upgrade (final CityBuilding cityBuilding)
 	{
-		if (cityBuilding == null || ! getInstance().checkIsUpgradable(cityBuilding))
+		if (cityBuilding == null || !getInstance().checkIsUpgradable(cityBuilding))
 		{
 			return;
 		}

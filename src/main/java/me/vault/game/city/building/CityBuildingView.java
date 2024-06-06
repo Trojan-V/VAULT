@@ -21,7 +21,7 @@ public final class CityBuildingView
 	private CityBuildingView () {}
 
 
-	public static void showCityBuilding (final Stage stage, final CityBuilding cityBuilding)
+	public static void showCityBuilding (final Stage stage, final AbsCityBuilding cityBuilding)
 	{
 		// Loading the FXML-File and creating a scene from the loaded components
 		final Scene scene = cityBuilding.getScene();
@@ -30,7 +30,7 @@ public final class CityBuildingView
 		// New scene is set as main-scene of the passed stage
 		stage.setScene(scene);
 		stage.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, cityBuilding.name()));
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, cityBuilding.getName()));
 	}
 }
 
