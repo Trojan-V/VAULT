@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Glow?>
@@ -31,14 +32,17 @@
                      <VBox.margin>
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="spaceBarUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
                <HBox.margin>
@@ -62,6 +66,9 @@
                      <effect>
                         <Glow level="0.1" />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
                <HBox.margin>
@@ -77,14 +84,17 @@
                      <VBox.margin>
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="commandCenterUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onCommandCenterUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
                <HBox.margin>
@@ -100,14 +110,17 @@
                      <VBox.margin>
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="trainingfacilityUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onTrainingFacilityUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
                <HBox.margin>
@@ -124,20 +137,20 @@
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
                      <VBox.margin>
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="docksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onDocksUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
                <HBox.margin>
@@ -150,12 +163,12 @@
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
                      <VBox.margin>
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="marketUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onMarketUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
@@ -176,20 +189,20 @@
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
                      <VBox.margin>
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="barracksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onBarracksUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
                <HBox.margin>
@@ -202,12 +215,12 @@
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
-                     <effect>
-                        <Glow level="0.1" />
-                     </effect>
                      <VBox.margin>
                         <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="laboratoryUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
                      <font>

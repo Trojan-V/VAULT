@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -34,7 +36,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <GridPane layoutX="14.0" layoutY="35.0" prefHeight="686.0" prefWidth="1274.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="35.0">
+      <GridPane layoutX="14.0" layoutY="35.0" prefHeight="686.0" prefWidth="1274.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="414.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="511.0" />
@@ -52,39 +54,60 @@
                   <Font name="Segoe UI Semibold" size="32.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" onContextMenuRequested="#onMediumDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Medium" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="Segoe UI Semibold" size="32.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" onMouseClicked="#onEasyDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Easy" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="Segoe UI Semibold" size="32.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" onContextMenuRequested="#onHardDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Hard" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="Segoe UI Semibold" size="32.0" />
-               </font>
-            </Label>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="225.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
                <children>
-                  <ImageView fx:id="easyDifficultyImageView" fitHeight="170.0" fitWidth="170.0" onMouseClicked="#onEasyDifficultyClick" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="easyDifficultyImageView" fitHeight="170.0" fitWidth="170.0" onMouseClicked="#onEasyDifficultyClick" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ImageView>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </AnchorPane>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <children>
-                  <ImageView fx:id="mediumDifficultyImageView" fitHeight="170.0" fitWidth="170.0" onMouseClicked="#onEasyDifficultyClick" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="mediumDifficultyImageView" fitHeight="170.0" fitWidth="170.0" onMouseClicked="#onMediumDifficultyClick" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ImageView>
                </children>
             </AnchorPane>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="225.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <children>
-                  <ImageView fx:id="hardDifficultyImageView" fitHeight="170.0" fitWidth="170.0" onMouseClicked="#onEasyDifficultyClick" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="hardDifficultyImageView" fitHeight="170.0" fitWidth="170.0" onMouseClicked="#onHardDifficultyClick" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ImageView>
                </children>
             </AnchorPane>
+            <Button mnemonicParsing="false" onAction="#onEasyDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Easy" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="32.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onHardDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Hard" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="32.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onMediumDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Medium" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="32.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </GridPane>
    </children>

@@ -1,12 +1,10 @@
 package me.vault.game;
 
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.MouseEvent;
-import me.vault.game.city.CityView;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
@@ -68,7 +66,7 @@ public final class DifficultyController implements Initializable
 
 
 	@FXML
-	void onEasyDifficultyClick (final MouseEvent ignored)
+	void onEasyDifficultyClick (final Event ignored)
 	{
 		setDifficultyModifier(EASY_MODE_DIFFICULTY_MODIFIER);
 		TutorialView.show(VaultApplication.getStage());
@@ -76,18 +74,18 @@ public final class DifficultyController implements Initializable
 
 
 	@FXML
-	void onMediumDifficultyClick (final ContextMenuEvent ignored)
+	void onMediumDifficultyClick (final Event ignored)
 	{
 		setDifficultyModifier(MEDIUM_MODE_DIFFICULTY_MODIFIER);
-		CityView.show(VaultApplication.getStage());
+		TutorialView.show(VaultApplication.getStage());
 	}
 
 
 	@FXML
-	void onHardDifficultyClick (final ContextMenuEvent ignored)
+	void onHardDifficultyClick (final Event ignored)
 	{
 		setDifficultyModifier(HARD_MODE_DIFFICULTY_MODIFIER);
-		CityView.show(VaultApplication.getStage());
+		TutorialView.show(VaultApplication.getStage());
 	}
 
 

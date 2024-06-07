@@ -2,6 +2,7 @@ module me.vault.game {
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires org.jetbrains.annotations;
+	requires java.desktop;
 
 	opens me.vault.game to javafx.fxml;
 	opens me.vault.game.utility.loading to javafx.fxml;
