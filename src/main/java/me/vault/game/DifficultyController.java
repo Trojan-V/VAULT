@@ -71,7 +71,7 @@ public final class DifficultyController implements Initializable
 	void onEasyDifficultyClick (final MouseEvent ignored)
 	{
 		setDifficultyModifier(EASY_MODE_DIFFICULTY_MODIFIER);
-		CityView.show(VaultApplication.getStage());
+		TutorialView.show(VaultApplication.getStage());
 	}
 
 
