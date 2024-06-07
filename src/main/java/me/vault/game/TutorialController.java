@@ -4,17 +4,20 @@ package me.vault.game;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
-import me.vault.game.city.CityView;
+import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
-public class TutorialController implements Initializable
+
+public final class TutorialController implements Initializable
 {
+
 	private static final int LAST_PAGE_INDEX_SHIFT = 1;
 
 
@@ -26,10 +29,6 @@ public class TutorialController implements Initializable
 
 
 	@FXML
-	private Button nextButton;
-
-
-	@FXML
 	private TabPane tutorialTabPane;
 
 
@@ -38,7 +37,7 @@ public class TutorialController implements Initializable
 	{
 		if (this.tutorialTabPane.getSelectionModel().getSelectedIndex() == this.tutorialTabPane.getTabs().size() - LAST_PAGE_INDEX_SHIFT)
 		{
-			CityView.show(VaultApplication.getStage());
+			PrologueView.show(VaultApplication.getStage());
 		}
 		else
 		{
@@ -50,7 +49,6 @@ public class TutorialController implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-
-
+		this.tutorialMenuImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 	}
 }
