@@ -2,12 +2,11 @@ package me.vault.game.city.commandcenter;
 
 
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import me.vault.game.city.building.AbsCityBuilding;
 import me.vault.game.city.building.CityBuildingLevel;
-import me.vault.game.city.docks.Docks;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -27,7 +26,7 @@ public class CommandCenter extends AbsCityBuilding
 	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();
 
 
-	private static final Map<CityBuildingLevel, Image> SPRITES = new HashMap<>();
+	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new HashMap<>();
 
 
 	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
@@ -70,7 +69,7 @@ public class CommandCenter extends AbsCityBuilding
 
 
 	@Override
-	protected @NotNull Map<CityBuildingLevel, Image> getSprites ()
+	protected @NotNull Map<CityBuildingLevel, MetaDataImage> getSprites ()
 	{
 		return SPRITES;
 	}

@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 {
-	private static final String TO_STRING_PATTERN = "[({0}) key = {1}; value = {2}]; ";
+	private static final String TO_STRING_PATTERN = "[{0}={1}]; ";
 
 
 	public F put (final Entry<E, F> entry)
@@ -23,11 +23,9 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 	public String toString ()
 	{
 		final StringBuilder builder = new StringBuilder();
-		int i = 0;
 		for (final Map.Entry<E, F> entry : this.entrySet())
 		{
-			builder.append(MessageFormat.format(TO_STRING_PATTERN, i, entry.getKey(), entry.getValue()));
-			i++;
+			builder.append(MessageFormat.format(TO_STRING_PATTERN, entry.getKey(), entry.getValue()));
 		}
 		return builder.toString();
 	}

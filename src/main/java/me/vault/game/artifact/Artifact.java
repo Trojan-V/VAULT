@@ -13,16 +13,20 @@ import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Namable;
 import me.vault.game.interfaces.UpgradableNew;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET;
 import static me.vault.game.utility.constant.NewLoggingConstants.*;
+import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
+import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
+import static me.vault.game.utility.logging.Logger.ProcedureType;
 
 
 /**
@@ -46,12 +50,12 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
  * <br> <br>
  * To do so, a static initializer can be used whose last statement is {@code INSTANCE = new AbsArtifact();}.
  *
- * @author Vincent Wolf
- * @version 1.0.0
+ * @author Vincent Wolf, Lasse-Leander Hillen
+ * @version 2.0.0
  * @see DamageArtifact
  * @see DefenseArtifact
  * @see HealthArtifact
- * @see AttributeModifiers
+ * @see AttributeMultiplier
  * @see ArtifactController
  * @see ArtifactLevel
  * @since 05.06.2024
@@ -64,6 +68,10 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * @see Logger
 	 */
 	private static final Logger LOGGER = new Logger(Artifact.class.getSimpleName());
+
+
+	private static final String TO_STRING_PATTERN =
+		"Artifact[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
 
 
 	/**
@@ -80,18 +88,18 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * within this property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 *
 	 * @see SimpleObjectProperty
-	 * @see Image
+	 * @see MetaDataImage
 	 */
-	private final SimpleObjectProperty<Image> spriteProperty;
+	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
 
 	/**
 	 * This field contains the attribute modifiers, which are the status effects the player receives in the form of
 	 * buffs or de-buffs depending on the equipped artifact.
 	 *
-	 * @see AttributeModifiers
+	 * @see AttributeMultiplier
 	 */
-	private final AttributeModifiers attributeModifiers;
+	private final AttributeMultiplier attributeMultiplier;
 
 
 	/**
@@ -129,26 +137,26 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
 	 */
+	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected Artifact ()
 	{
-		LOGGER.logf(NORMAL, CONSTRUCTOR_ENTERED, Artifact.class.getSimpleName());
+		LOGGER.logEntered(ProcedureType.CONSTRUCTOR);
 
 		// TODO: currentLevel aus Config einlesen
 		this.currentLevel = ArtifactLevel.getMinimum();
 
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
-		this.attributeModifiers = new AttributeModifiers(this.getAllModifiers().get(ArtifactLevel.getMinimum()));
+		this.attributeMultiplier = new AttributeMultiplier(this.getAllModifiers().get(ArtifactLevel.getMinimum()));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
-
 
 		// Logging outputs
 		LOGGER.logf(DEBUG, LEVEL_SET, this.currentLevel.name());
 		LOGGER.logf(DEBUG, UPGRADE_COST_SET, this.currentUpgradeCost.toString());
-		LOGGER.logf(DEBUG, ATTRIBUTE_MODIFIERS_SET, this.attributeModifiers.toString());
-		LOGGER.logf(DEBUG, SPRITE_SET, this.spriteProperty.toString());
-		LOGGER.logf(DEBUG, NAME_SET, this.nameProperty.get());
-		LOGGER.logf(NORMAL, CONSTRUCTOR_LEFT, Artifact.class.getSimpleName());
+		LOGGER.logf(DEBUG, ATTRIBUTE_MODIFIERS_SET, this.attributeMultiplier.toString());
+		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, this.spriteProperty.toString());
+		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, this.nameProperty.get());
+		LOGGER.logLeft(ProcedureType.CONSTRUCTOR);
 	}
 
 
@@ -157,17 +165,16 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 *
 	 * @return The attribute modifiers of the artifact, which are the status effects the player receives in the form of
 	 * buffs or de-buffs depending on the equipped artifact.
-	 * @see AttributeModifiers
+	 * @see AttributeMultiplier
 	 */
-	public AttributeModifiers getAttributeModifiers ()
+	public AttributeMultiplier getAttributeModifiers ()
 	{
-		return this.attributeModifiers;
+		return this.attributeMultiplier;
 	}
 
 
 	/**
 	 * Returns the current price to upgrade the artifact.
-	 * <br>
 	 *
 	 * @return The current price to upgrade the artifact to the next level.
 	 * @see CurrencyTransaction
@@ -223,7 +230,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * @see Image
 	 */
 	@Override
-	public SimpleObjectProperty<Image> getSpriteProperty ()
+	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
 	{
 		return this.spriteProperty;
 	}
@@ -323,7 +330,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * @see Image
 	 */
 	@NotNull
-	protected abstract Map<ArtifactLevel, Image> getAllSprites ();
+	protected abstract Map<ArtifactLevel, MetaDataImage> getAllSprites ();
 
 
 	/**
@@ -336,10 +343,10 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * it's level.
 	 * @see Map
 	 * @see ArtifactLevel
-	 * @see AttributeModifiers.Type
+	 * @see AttributeMultiplier.Type
 	 */
 	@NotNull
-	protected abstract Map<ArtifactLevel, Map<AttributeModifiers.Type, Double>> getAllModifiers ();
+	protected abstract Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ();
 
 
 	/**
@@ -351,24 +358,27 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	@Override
 	public void updatePropertyValues ()
 	{
-		LOGGER.logf(NORMAL, METHOD_ENTERED, Logger.getMethodName());
+		LOGGER.logEntered(ProcedureType.METHOD);
+
 		this.nameProperty.set(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty.set(this.getAllSprites().get(this.currentLevel));
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
-
-		// TODO: updateProperties in der AttributeModifiers Klasse lassen, oder nach hier oben verschieben? Eine
-		//  Verschiebung würde erlauben, die updateProperties-Methode über ein Interface zu injizieren, da die
-		//  Methodensignatur dann nicht mehr unterschiedlich ist.
-		this.attributeModifiers.updatePropertyValues(this.getAllModifiers().get(this.currentLevel));
+		this.attributeMultiplier.updatePropertyValues(this.getAllModifiers().get(this.currentLevel));
 
 
 		// Logging output
-		LOGGER.logf(DEBUG, NAME_SET, this.nameProperty.get());
-
-
-		// TODO: Pfad ausgeben, anstelle von kryptischen Werten für das Sprite.
-		LOGGER.logf(DEBUG, SPRITE_SET, this.spriteProperty.get().toString());
+		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, this.nameProperty.get());
+		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, this.spriteProperty.get().toString());
 		LOGGER.logf(DEBUG, UPGRADE_COST_SET, this.currentUpgradeCost.toString());
-		LOGGER.logf(NORMAL, METHOD_LEFT, Logger.getMethodName());
+		LOGGER.logLeft(ProcedureType.METHOD);
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.currentLevel.name(), this.nameProperty.get(),
+			this.spriteProperty.get().toString(),
+			this.attributeMultiplier.toString(), this.currentUpgradeCost.toString());
 	}
 }

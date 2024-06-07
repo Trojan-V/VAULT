@@ -9,10 +9,12 @@ package me.vault.game.utility.logging;
  * @see Logger
  * @since 30.05.2024
  */
-@FunctionalInterface
 public interface ILogger
 {
 	public void log (final Level level, final String message);
+
+
+	public void logf (final Level level, final String pattern, final String... arguments);
 
 
 	/**

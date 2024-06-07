@@ -8,6 +8,9 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 
+import static me.vault.game.utility.constant.NewLoggingConstants.*;
+import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
+
 
 /**
  * The {@code Logger} class provides a logging utility with different levels of log messages, which are all formatted in
@@ -43,7 +46,16 @@ public class Logger implements ILogger
 	private static final String LOG_MESSAGE_PREFIX = "[{0} | {1}] ";
 
 
-	private static final int STACKTRACE_METHOD_INDEX = 2;
+	private static final int STACKTRACE_METHOD_INDEX = 4;
+
+
+	private static final String CLASS_NOT_FOUND = "Class not found";
+
+
+	private static final String SIMPLE_CLASS_NAME_DELIMITER = ".";
+
+
+	private static final byte SIMPLE_CLASS_NAME_REMOVE_DOT_INDEX = 1;
 
 
 	/**
@@ -51,7 +63,7 @@ public class Logger implements ILogger
 	 * must be
 	 * to be shown in the console window.
 	 */
-	private static Level depth = Level.NORMAL;
+	private static Level depth = NORMAL;
 
 
 	/**
@@ -104,9 +116,20 @@ public class Logger implements ILogger
 	}
 
 
+	// TODO: Make private
 	public static String getMethodName ()
 	{
+		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 		return Thread.currentThread().getStackTrace()[STACKTRACE_METHOD_INDEX].getMethodName();
+	}
+
+
+	private static String getClassName ()
+	{
+		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+		final String className = Thread.currentThread().getStackTrace()[STACKTRACE_METHOD_INDEX].getClassName();
+		return className.substring(
+			className.lastIndexOf(SIMPLE_CLASS_NAME_DELIMITER) + SIMPLE_CLASS_NAME_REMOVE_DOT_INDEX);
 	}
 
 
@@ -126,6 +149,8 @@ public class Logger implements ILogger
 	}
 
 
+	@Override
+	@Override
 	public void logf (final Level level, final String pattern, final String... arguments)
 	{
 		if (level.ordinal() >= depth.ordinal())
@@ -133,6 +158,39 @@ public class Logger implements ILogger
 			final String message = MessageFormat.format(pattern, (Object[]) arguments);
 			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
 		}
+	}
+
+
+	private static String getMessageForProcedure (final ProcedureType procedureType, final TraverseType traverseType)
+	{
+		return switch (procedureType)
+		{
+			case METHOD -> MessageFormat.format(traverseType == TraverseType.ENTERED ? METHOD_ENTERED : METHOD_LEFT,
+				getMethodName());
+			case CONSTRUCTOR ->
+				MessageFormat.format(traverseType == TraverseType.ENTERED ? CONSTRUCTOR_ENTERED : CONSTRUCTOR_LEFT,
+					getClassName());
+			case INITIALIZER ->
+				MessageFormat.format(traverseType == TraverseType.ENTERED ? INITIALIZER_ENTERED : INITIALIZER_LEFT,
+					getClassName());
+			case STATIC_INITIALIZER -> MessageFormat.format(
+				traverseType == TraverseType.ENTERED ? STATIC_INITIALIZER_ENTERED : STATIC_INITIALIZER_LEFT,
+				getClassName());
+		};
+	}
+
+
+	public void logEntered (final ProcedureType procedureType)
+	{
+		System.out.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT.toString() + this.getPrefix() +
+		                   getMessageForProcedure(procedureType, TraverseType.ENTERED) + COLOR_RESET);
+	}
+
+
+	public void logLeft (final ProcedureType procedureType)
+	{
+		System.out.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT.toString() + this.getPrefix() +
+		                   getMessageForProcedure(procedureType, TraverseType.LEFT) + COLOR_RESET);
 	}
 
 
@@ -156,5 +214,21 @@ public class Logger implements ILogger
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.className, depth);
+	}
+
+
+	public enum ProcedureType
+	{
+		CONSTRUCTOR,
+		STATIC_INITIALIZER,
+		INITIALIZER,
+		METHOD
+	}
+
+
+	private enum TraverseType
+	{
+		ENTERED,
+		LEFT
 	}
 }

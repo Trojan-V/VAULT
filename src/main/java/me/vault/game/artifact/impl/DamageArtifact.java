@@ -4,19 +4,20 @@ package me.vault.game.artifact.impl;
 import javafx.scene.image.Image;
 import me.vault.game.artifact.Artifact;
 import me.vault.game.artifact.ArtifactLevel;
-import me.vault.game.artifact.AttributeModifiers;
-import me.vault.game.artifact.AttributeModifiers.Type;
+import me.vault.game.artifact.AttributeMultiplier;
 import me.vault.game.currency.CurrencyTransaction;
-import me.vault.game.utility.constant.NewLoggingConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.ArtifactConstants.*;
+import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+import static me.vault.game.utility.logging.Logger.ProcedureType;
 
 
 /**
@@ -24,16 +25,21 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br>
  * As this specification is a damage artifact, it mainly provides positive attribute modifiers towards the damage
  * attribute.
- * Other attribute modifiers might be affected as well by the damage attribute, the highest multiplier is for the
+ * Other attribute modifiers might be affected as well by the damage artifact, the highest multiplier is for the
  * damage though for obvious reasons.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 1.0.0
  * @see Artifact
  * @since 05.06.2024
  */
 public final class DamageArtifact extends Artifact
 {
+	/**
+	 * The logger object for this class used for writing to the console.
+	 *
+	 * @see Logger
+	 */
 	private static final Logger LOGGER = new Logger(DamageArtifact.class.getSimpleName());
 
 
@@ -51,7 +57,7 @@ public final class DamageArtifact extends Artifact
 	 * @see Map
 	 * @see ArtifactLevel
 	 */
-	private static final Map<ArtifactLevel, String> NAMES = new HashMap<>();
+	private static final Map<ArtifactLevel, String> NAMES;
 
 
 	/**
@@ -62,7 +68,7 @@ public final class DamageArtifact extends Artifact
 	 * @see ArtifactLevel
 	 * @see Image
 	 */
-	private static final Map<ArtifactLevel, Image> SPRITES = new HashMap<>();
+	private static final Map<ArtifactLevel, MetaDataImage> SPRITES;
 
 
 	/**
@@ -71,9 +77,9 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
-	 * @see AttributeModifiers.Type
+	 * @see AttributeMultiplier.Type
 	 */
-	private static final Map<ArtifactLevel, Map<Type, Double>> MODIFIERS = new HashMap<>();
+	private static final Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> MODIFIERS;
 
 
 	/**
@@ -85,63 +91,166 @@ public final class DamageArtifact extends Artifact
 	 * @see ArtifactLevel
 	 * @see CurrencyTransaction
 	 */
-	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
+	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 
 
 	static
 	{
-		LOGGER.logf(DEBUG, NewLoggingConstants.STATIC_INITIALIZER_ENTERED, DamageArtifact.class.getSimpleName());
+		/*
+		 * To ensure that the static fields are initialized in the correct order, a static initializer is used
+		 * instead of a direct initialization behind the declaration.
+		 */
+		LOGGER.logEntered(ProcedureType.STATIC_INITIALIZER);
 
+		// Fill the maps with the corresponding data.
+		NAMES = initNamesMap();
+		SPRITES = initSpritesMap();
+		MODIFIERS = initModifiersMap();
+		UPGRADE_COSTS = initUpgradeCostsMap();
 
-		// Fill the map with the different upgrade cost transactions.
-		UPGRADE_COSTS.put(ArtifactLevel.BASE, Damage.BASE_TO_IMPROVED_UPGRADE_COSTS);
-		UPGRADE_COSTS.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_TO_NONE_UPGRADE_COSTS);
-
-		//		LOGGER.logf(DEBUG, "The map with the entire upgrade costs for the level {0} was set to: {1}",
-		//			UPGRADE_COSTS., );
-
-		// Fill the map with the names.
-		NAMES.put(ArtifactLevel.BASE, Damage.BASE_NAME);
-		NAMES.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_NAME);
-
-
-		// Fill the map with the sprites.
-		SPRITES.put(ArtifactLevel.BASE, ResourceLoader.loadImage(Damage.BASE_SPRITE_PATH));
-		SPRITES.put(ArtifactLevel.IMPROVED, ResourceLoader.loadImage(Damage.IMPROVED_SPRITE_PATH));
-
-
-		// Create and fill the map with modifiers for the BASE artifact level.
-		final Map<Type, Double> baseLevelModifiers = new HashMap<>();
-		baseLevelModifiers.put(Type.DAMAGE, MULTIPLIER_HIGH);
-		baseLevelModifiers.put(Type.DEFENSE, MULTIPLIER_MINIMUM);
-		baseLevelModifiers.put(Type.HEALTH, MULTIPLIER_DEFAULT);
-
-
-		// Insert the map of modifiers for the BASE artifact level into the map of modifiers which stores all modifier
-		// maps for the different artifact levels.
-		MODIFIERS.put(ArtifactLevel.BASE, baseLevelModifiers);
-
-
-		// Create and fill the map with modifiers for the IMPROVED artifact level.
-		final Map<Type, Double> improvedLevelModifiers = new HashMap<>();
-		improvedLevelModifiers.put(Type.DAMAGE, MULTIPLIER_MAXIMUM);
-		improvedLevelModifiers.put(Type.DEFENSE, MULTIPLIER_LOW);
-		improvedLevelModifiers.put(Type.HEALTH, MULTIPLIER_DEFAULT);
-
-
-		// Insert the map of modifiers for the IMPROVED artifact level into the map of modifiers which stores all
-		// modifier maps for the different artifact levels.
-		MODIFIERS.put(ArtifactLevel.IMPROVED, improvedLevelModifiers);
-
-
-		// Ensure the instance is created after the static fields are initialized. For more reasoning, check the
-		// Javadoc of the Artifact class.
+		// Ensure the instance is created after all the other static fields are initialized.
 		INSTANCE = new DamageArtifact();
 
+		System.out.println(INSTANCE.toString());
+
+		LOGGER.logLeft(ProcedureType.STATIC_INITIALIZER);
+	}
+
+
+	/**
+	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the damage
+	 * artifact.
+	 * <br>
+	 * This map is created once and then stored in the {@link DamageArtifact#NAMES} field to be able to re-use it
+	 * when needed.
+	 * <br>
+	 * This method is invoked in the static initializer of this class.
+	 *
+	 * @return The map of upgrade costs for the damage artifact.
+	 * @see Map
+	 * @see ArtifactLevel
+	 * @see CurrencyTransaction
+	 */
+	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
+	{
+		LOGGER.logEntered(ProcedureType.METHOD);
+
+		// Fill the map with the different upgrade cost transactions.
+		final Map<ArtifactLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
+		upgradeCostsMap.put(ArtifactLevel.BASE, Damage.BASE_TO_IMPROVED_UPGRADE_COSTS);
+		upgradeCostsMap.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
+		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET, upgradeCostsMap.toString());
+		LOGGER.logLeft(ProcedureType.METHOD);
 
-		LOGGER.logf(DEBUG, NewLoggingConstants.STATIC_INITIALIZER_LEFT, DamageArtifact.class.getSimpleName());
+		return upgradeCostsMap;
+	}
+
+
+	/**
+	 * Initializes and returns the map of attribute modifiers, which contains all different attribute modifiers for the
+	 * damage artifact.
+	 * <br>
+	 * This map is created once and then stored in the {@link DamageArtifact#MODIFIERS} field to be able to re-use it
+	 * when needed.
+	 * <br>
+	 * This method is invoked in the static initializer of this class.
+	 *
+	 * @return The map of attribute modifiers for the damage artifact.
+	 * @see Map
+	 * @see ArtifactLevel
+	 * @see AttributeMultiplier.Type
+	 */
+	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
+	{
+		LOGGER.logEntered(ProcedureType.METHOD);
+
+		// Create and fill the map with modifiers for the BASE artifact level.
+		final Map<AttributeMultiplier.Type, Double> baseLevelModifiers = new HashMap<>();
+		baseLevelModifiers.put(AttributeMultiplier.Type.DAMAGE, MULTIPLIER_HIGH);
+		baseLevelModifiers.put(AttributeMultiplier.Type.DEFENSE, MULTIPLIER_MINIMUM);
+		baseLevelModifiers.put(AttributeMultiplier.Type.HEALTH, MULTIPLIER_DEFAULT);
+
+		// Create and fill the map with modifiers for the IMPROVED artifact level.
+		final Map<AttributeMultiplier.Type, Double> improvedLevelModifiers = new HashMap<>();
+		improvedLevelModifiers.put(AttributeMultiplier.Type.DAMAGE, MULTIPLIER_MAXIMUM);
+		improvedLevelModifiers.put(AttributeMultiplier.Type.DEFENSE, MULTIPLIER_LOW);
+		improvedLevelModifiers.put(AttributeMultiplier.Type.HEALTH, MULTIPLIER_DEFAULT);
+
+		// Insert the map of modifiers for the BASE and IMPROVED artifact level into the map of modifiers which stores
+		// all modifier maps for the different artifact levels.
+		final Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> attributeModifiersMap = new HashMap<>();
+		attributeModifiersMap.put(ArtifactLevel.BASE, baseLevelModifiers);
+		attributeModifiersMap.put(ArtifactLevel.IMPROVED, improvedLevelModifiers);
+
+		// Logging output
+		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET, attributeModifiersMap.toString());
+		LOGGER.logLeft(ProcedureType.METHOD);
+
+		return attributeModifiersMap;
+	}
+
+
+	/**
+	 * Initializes and returns the map of names, which contains all different names for the
+	 * damage artifact.
+	 * <br>
+	 * This map is created once and then stored in the {@link DamageArtifact#MODIFIERS} field to be able to re-use it
+	 * when needed.
+	 * <br>
+	 * This method is invoked in the static initializer of this class.
+	 *
+	 * @return The map of names for the damage artifact.
+	 * @see Map
+	 * @see ArtifactLevel
+	 * @see AttributeMultiplier.Type
+	 */
+	private static Map<ArtifactLevel, String> initNamesMap ()
+	{
+		LOGGER.logEntered(ProcedureType.METHOD);
+
+		// Fill the map with the names.
+		final Map<ArtifactLevel, String> namesMap = new HashMap<>();
+		namesMap.put(ArtifactLevel.BASE, Damage.BASE_NAME);
+		namesMap.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_NAME);
+
+		// Logging output
+		LOGGER.logf(DEBUG, NAME_MAP_SET, namesMap.toString());
+		LOGGER.logLeft(ProcedureType.METHOD);
+
+		return namesMap;
+	}
+
+
+	/**
+	 * Initializes and returns the map of sprites, which contains all different names for the
+	 * damage artifact.
+	 * <br>
+	 * This map is created once and then stored in the {@link DamageArtifact#MODIFIERS} field to be able to re-use it
+	 * when needed.
+	 * <br>
+	 * This method is invoked in the static initializer of this class.
+	 *
+	 * @return The map of sprites for the damage artifact.
+	 * @see Map
+	 * @see ArtifactLevel
+	 * @see AttributeMultiplier.Type
+	 */
+	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
+	{
+		LOGGER.logEntered(ProcedureType.METHOD);
+
+		// Fill the map with the sprites.
+		final Map<ArtifactLevel, MetaDataImage> spritesMap = new HashMap<>();
+		spritesMap.put(ArtifactLevel.BASE, ResourceLoader.loadImage(Damage.BASE_SPRITE_PATH));
+		spritesMap.put(ArtifactLevel.IMPROVED, ResourceLoader.loadImage(Damage.IMPROVED_SPRITE_PATH));
+
+		// Logging output
+		LOGGER.logf(DEBUG, SPRITE_MAP_SET, spritesMap.toString());
+		LOGGER.logLeft(ProcedureType.METHOD);
+
+		return spritesMap;
 	}
 
 
@@ -187,7 +296,7 @@ public final class DamageArtifact extends Artifact
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<ArtifactLevel, Image> getAllSprites ()
+	protected @NotNull Map<ArtifactLevel, MetaDataImage> getAllSprites ()
 	{
 		return SPRITES;
 	}
@@ -197,7 +306,7 @@ public final class DamageArtifact extends Artifact
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<ArtifactLevel, Map<Type, Double>> getAllModifiers ()
+	protected @NotNull Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ()
 	{
 		return MODIFIERS;
 	}

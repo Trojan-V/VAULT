@@ -1,6 +1,10 @@
 package me.vault.game.currency;
 
 // TODO: Interface ist für die EA an sich unnötig.
+
+import javafx.beans.property.SimpleIntegerProperty;
+
+
 /**
  * Description
  *
@@ -17,6 +21,9 @@ public interface ICurrency
 	 * @return The amount property of the currency object as an {@link Integer}.
 	 */
 	public int getAmount ();
+
+
+	public SimpleIntegerProperty getAmountProperty ();
 
 
 	/**

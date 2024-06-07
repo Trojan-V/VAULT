@@ -8,7 +8,10 @@ import me.vault.game.utility.struct.ValidatedEntriesHashMap.Entry;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
+import static me.vault.game.utility.constant.CharacterConstants.*;
 import static me.vault.game.utility.constant.LoggingConstants.Currency.EXECUTION_NOT_POSSIBLE_ANYMORE_MSG;
 import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
@@ -23,6 +26,9 @@ public class CurrencyTransaction
 	 * The pattern that is used to have a formatted output in the {@link CurrencyTransaction#toString()} method.
 	 */
 	private static final String STRING_PATTERN = "CurrencyTransaction[amountMap = {0}]";
+
+
+	private static final String TO_STRING_PATTERN = "CurrencyTransaction[{0}]";
 
 
 	/**
@@ -94,7 +100,17 @@ public class CurrencyTransaction
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(STRING_PATTERN, this.currencyAmountMap.toString());
+		final StringBuilder stringBuilder = new StringBuilder();
+		final Iterator<Map.Entry<Currency, Integer>> entryIterator = this.currencyAmountMap.entrySet().iterator();
+		while (entryIterator.hasNext())
+		{
+			final Map.Entry<Currency, Integer> entry = entryIterator.next();
+			stringBuilder.append(entry.getKey().name()).append(EQUALS).append(entry.getValue());
+			if (entryIterator.hasNext())
+			{
+				stringBuilder.append(SEMICOLON).append(WHITESPACE);
+			}
+		}
+		return MessageFormat.format(TO_STRING_PATTERN, stringBuilder.toString());
 	}
-
 }

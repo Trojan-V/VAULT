@@ -94,30 +94,31 @@ public final class CurrencyTest
 		CurrencyController.factorCurrencyTransaction(transaction);
 
 		Assertions.assertEquals(TEST_CURRENCY_STARTING_AMOUNT +
-		                        transaction.getAmount(STEEL), STEEL.getAmount(),
+		                        transaction.getAmount(STEEL), STEEL.getAmountProperty(),
 			MessageFormat.format(INCORRECT_CURRENCY_AMOUNT_AFTER_TRANSACTION_FACTORING_MESSAGE, STEEL,
-			TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(STEEL), STEEL.getAmount()));
+				TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(STEEL), STEEL.getAmountProperty()));
 
 		Assertions.assertEquals(TEST_CURRENCY_STARTING_AMOUNT +
-		                        transaction.getAmount(COMPOSITE), COMPOSITE.getAmount(),
+		                        transaction.getAmount(COMPOSITE), COMPOSITE.getAmountProperty(),
 			MessageFormat.format(INCORRECT_CURRENCY_AMOUNT_AFTER_TRANSACTION_FACTORING_MESSAGE, COMPOSITE,
-			TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(COMPOSITE), COMPOSITE.getAmount()));
+				TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(COMPOSITE), COMPOSITE.getAmountProperty()));
 
 
 		Assertions.assertEquals(TEST_CURRENCY_STARTING_AMOUNT +
-		                        transaction.getAmount(ENERGY_CREDIT), ENERGY_CREDIT.getAmount(),
+		                        transaction.getAmount(ENERGY_CREDIT), ENERGY_CREDIT.getAmountProperty(),
 			MessageFormat.format(INCORRECT_CURRENCY_AMOUNT_AFTER_TRANSACTION_FACTORING_MESSAGE, ENERGY_CREDIT,
-			TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(ENERGY_CREDIT), ENERGY_CREDIT.getAmount()));
+				TEST_CURRENCY_STARTING_AMOUNT +
+				transaction.getAmount(ENERGY_CREDIT), ENERGY_CREDIT.getAmountProperty()));
 
 		Assertions.assertEquals(TEST_CURRENCY_STARTING_AMOUNT +
-		                        transaction.getAmount(FOOD_RATION), FOOD_RATION.getAmount(),
+		                        transaction.getAmount(FOOD_RATION), FOOD_RATION.getAmountProperty(),
 			MessageFormat.format(INCORRECT_CURRENCY_AMOUNT_AFTER_TRANSACTION_FACTORING_MESSAGE, FOOD_RATION,
-			TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(FOOD_RATION), FOOD_RATION.getAmount()));
+				TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(FOOD_RATION), FOOD_RATION.getAmountProperty()));
 
 		Assertions.assertEquals(TEST_CURRENCY_STARTING_AMOUNT +
-		                        transaction.getAmount(SCIENCE), SCIENCE.getAmount(),
+		                        transaction.getAmount(SCIENCE), SCIENCE.getAmountProperty(),
 			MessageFormat.format(INCORRECT_CURRENCY_AMOUNT_AFTER_TRANSACTION_FACTORING_MESSAGE, SCIENCE,
-			TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(SCIENCE), SCIENCE.getAmount()));
+				TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(SCIENCE), SCIENCE.getAmountProperty()));
 
 	}
 }

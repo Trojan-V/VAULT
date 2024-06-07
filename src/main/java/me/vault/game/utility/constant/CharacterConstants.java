@@ -72,6 +72,14 @@ public interface CharacterConstants
 	public static final char OPENING_PARENTHESES = '(';
 
 
+	@Constant
+	public static final char EQUALS = '=';
+
+
+	@Constant
+	public static final char SEMICOLON = ';';
+
+
 	/**
 	 * Represents the closing parentheses' character.
 	 * <br>
@@ -88,4 +96,8 @@ public interface CharacterConstants
 	 */
 	@Constant
 	public static final char PIPE = '|';
+
+
+	@Constant
+	public static final String EMPTY_STRING = "";
 }

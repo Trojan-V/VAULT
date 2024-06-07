@@ -3,18 +3,19 @@ package me.vault.game.utility.loading;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.struct.MetaDataImage;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.MessageFormat;
 import java.util.Objects;
 
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
+import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 public final class ResourceLoader
@@ -31,21 +32,17 @@ public final class ResourceLoader
 	private ResourceLoader () {}
 
 
-	public static Image loadImage (final String resourcePath)
+	public static MetaDataImage loadImage (final String resourcePath)
 	{
 		try
 		{
-			// Converts the parsed URL-String into a URL object and checks if the created object is null.
-			final InputStream inputStream = new FileInputStream(resourcePath);
-
-			// Creates an Image from the created URL object.
-			return new Image(inputStream);
+			return new MetaDataImage(new FileInputStream(resourcePath), new File(resourcePath));
 		}
 		catch (final FileNotFoundException e)
 		{
 			// Logs the corrupted method call before logging the exception
-			LOGGER.log(ERROR, MessageFormat.format(IMAGE_NOT_LOADED_MSG, resourcePath));
-			LOGGER.log(ERROR, e.getMessage());
+			LOGGER.log(WARNING, MessageFormat.format(IMAGE_NOT_LOADED_MSG, resourcePath));
+			LOGGER.log(WARNING, e.getMessage());
 			return null;
 		}
 	}

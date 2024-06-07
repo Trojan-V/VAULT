@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.artifact.ArtifactController;
-import me.vault.game.artifact.AttributeModifiers;
+import me.vault.game.artifact.AttributeMultiplier;
 import me.vault.game.artifact.impl.DamageArtifact;
 import me.vault.game.artifact.impl.DefenseArtifact;
 import me.vault.game.artifact.impl.HealthArtifact;
@@ -211,7 +211,7 @@ public class WorkshopController extends CityBuildingController implements Initia
 
 	private void bindArtifactAttributeModifiers ()
 	{
-		final AttributeModifiers healthArtifactModifiers = HealthArtifact.getInstance().getAttributeModifiers();
+		final AttributeMultiplier healthArtifactModifiers = HealthArtifact.getInstance().getAttributeModifiers();
 		this.healthArtifactDamageModifierLabel.textProperty()
 			.bind(healthArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.healthArtifactDefenseModifierLabel.textProperty()
@@ -219,7 +219,7 @@ public class WorkshopController extends CityBuildingController implements Initia
 		this.healthArtifactHealthModifierLabel.textProperty()
 			.bind(healthArtifactModifiers.getHealthMultiplierProperty().asString());
 
-		final AttributeModifiers damageArtifactModifiers = DamageArtifact.getInstance().getAttributeModifiers();
+		final AttributeMultiplier damageArtifactModifiers = DamageArtifact.getInstance().getAttributeModifiers();
 		this.damageArtifactDamageModifierLabel.textProperty()
 			.bind(damageArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.damageArtifactDefenseModifierLabel.textProperty()
@@ -227,7 +227,7 @@ public class WorkshopController extends CityBuildingController implements Initia
 		this.damageArtifactHealthModifierLabel.textProperty()
 			.bind(damageArtifactModifiers.getHealthMultiplierProperty().asString());
 
-		final AttributeModifiers defenseArtifactModifiers = DefenseArtifact.getInstance().getAttributeModifiers();
+		final AttributeMultiplier defenseArtifactModifiers = DefenseArtifact.getInstance().getAttributeModifiers();
 		this.defenseArtifactDamageModifierLabel.textProperty()
 			.bind(defenseArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.defenseArtifactDefenseModifierLabel.textProperty()
@@ -239,10 +239,10 @@ public class WorkshopController extends CityBuildingController implements Initia
 
 	private void initCurrencies ()
 	{
-		CityBuildingController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-		CityBuildingController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-		CityBuildingController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-		CityBuildingController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-		CityBuildingController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
+		initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
+		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
+		initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
+		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
+		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
 	}
 }

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.interfaces.Displayable;
+import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -36,9 +37,9 @@ public abstract class AbsCityBuilding implements Displayable
 	 * within this property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 *
 	 * @see SimpleObjectProperty
-	 * @see Image
+	 * @see MetaDataImage
 	 */
-	private final SimpleObjectProperty<Image> spriteProperty;
+	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
 
 	private final Scene scene;
@@ -102,7 +103,7 @@ public abstract class AbsCityBuilding implements Displayable
 
 
 	@Override
-	public SimpleObjectProperty<Image> getSpriteProperty ()
+	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
 	{
 		return this.spriteProperty;
 	}
@@ -125,7 +126,7 @@ public abstract class AbsCityBuilding implements Displayable
 
 
 	@NotNull
-	protected abstract Map<CityBuildingLevel, Image> getSprites ();
+	protected abstract Map<CityBuildingLevel, MetaDataImage> getSprites ();
 
 
 	@NotNull
