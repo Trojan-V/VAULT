@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import me.vault.game.utility.jvm.JvmArgumentParser;
-import me.vault.game.city.CityView;
 
 import java.io.IOException;
 
@@ -71,7 +70,7 @@ public class VaultApplication extends Application
 	{
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
-		MainMenuView.show(stage);
+		MainMenuView.showMainMenu(stage);
 		mainStage = stage;
 	}
 }

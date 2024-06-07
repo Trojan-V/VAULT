@@ -42,37 +42,37 @@ public class MainMenuController implements Initializable
 
 
 	@FXML
-	void onArenaModeClick (ActionEvent event)
+	void onArenaModeClick (final ActionEvent ignored)
 	{
 
 	}
 
 
 	@FXML
-	void onContinueClick (ActionEvent event)
+	void onContinueClick (final ActionEvent ignored)
 	{
 
 	}
 
 
 	@FXML
-	void onExitGameClick (ActionEvent event)
+	void onExitGameClick (final ActionEvent ignored)
 	{
 
 	}
 
 
 	@FXML
-	void onLoadGameClick (ActionEvent event)
+	void onLoadGameClick (final ActionEvent ignored)
 	{
 
 	}
 
 
 	@FXML
-	void onNewGameClick (ActionEvent event)
+	void onNewGameClick (final ActionEvent ignored)
 	{
-		DifficultyMenuView.show(VaultApplication.getStage());
+		MainMenuView.showDifficultyMenu(VaultApplication.getStage());
 	}
 
 

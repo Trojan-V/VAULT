@@ -59,7 +59,7 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLevel>, Namable
 {
 	/**
-	 * The logger object for this class used for writing to the console.
+	 * The logger object for this class used for writing formatted outputs into the console.
 	 *
 	 * @see Logger
 	 */

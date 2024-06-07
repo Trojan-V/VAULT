@@ -12,8 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.DifficultyMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.DifficultyController">
    <children>
+      <ImageView fx:id="difficultyMenuImageView" fitHeight="720.0" fitWidth="1280.0" layoutX="150.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <MenuBar layoutX="7.0" layoutY="14.0" prefHeight="35.0" prefWidth="1280.0" style="-fx-font-size: 16;" AnchorPane.bottomAnchor="685.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -33,7 +34,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ImageView fx:id="backgroundImageView" fitHeight="720.0" fitWidth="1280.0" layoutX="150.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <GridPane layoutX="14.0" layoutY="35.0" prefHeight="686.0" prefWidth="1274.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="35.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="414.0" />
@@ -52,17 +52,17 @@
                   <Font name="Segoe UI Semibold" size="32.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Medium" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Label alignment="CENTER" onContextMenuRequested="#onMediumDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Medium" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font name="Segoe UI Semibold" size="32.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Easy" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Label alignment="CENTER" onMouseClicked="#onEasyDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Easy" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font name="Segoe UI Semibold" size="32.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Hard" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Label alignment="CENTER" onContextMenuRequested="#onHardDifficultyClick" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: lightcyan; -fx-border-color: lightgrey;" text="Hard" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font name="Segoe UI Semibold" size="32.0" />
                </font>

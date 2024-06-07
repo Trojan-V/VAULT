@@ -62,6 +62,7 @@ public final class ResourceLoader
 			// Logs the corrupted method call before logging the exception
 			LOGGER.log(ERROR, MessageFormat.format(SCENE_NOT_LOADED_MSG, fxmlResourcePath));
 			LOGGER.log(ERROR, e.getMessage());
+			e.printStackTrace();
 			return null;
 		}
 	}
