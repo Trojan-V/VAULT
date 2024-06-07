@@ -134,7 +134,6 @@ public enum Currency implements ICurrency, Displayable
 
 
 	@Override
-	@Override
 	public void updatePropertyValues ()
 	{
 		// TODO: Probably unnötig, wo ist der Sinn? Sinn erfinden!!!

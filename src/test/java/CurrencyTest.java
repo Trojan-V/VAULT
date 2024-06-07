@@ -1,5 +1,5 @@
-import me.vault.game.currency.CurrencyController;
 import me.vault.game.currency.Currency;
+import me.vault.game.currency.CurrencyController;
 import me.vault.game.currency.CurrencyTransaction;
 import org.junit.jupiter.api.Assertions;
 
@@ -12,7 +12,6 @@ import static util.TestUtil.setStartingCurrencyAmounts;
 
 /**
  * <u>Tests covered by this class</u> <br>
- * -
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -60,7 +59,7 @@ public final class CurrencyTest
 	private static void testCreateCurrencyTransaction ()
 	{
 		final CurrencyTransaction transaction =
-			CurrencyController.createTransaction(TEST_STEEL_AMOUNT, TEST_COMPOSITE_AMOUNT, TEST_SCIENCE_AMOUNT,
+			new CurrencyTransaction(TEST_STEEL_AMOUNT, TEST_COMPOSITE_AMOUNT, TEST_SCIENCE_AMOUNT,
 				TEST_FOOD_RATION_AMOUNT, TEST_ENERGY_CREDIT_AMOUNT);
 
 		Assertions.assertEquals(TEST_STEEL_AMOUNT, transaction.getAmount(STEEL),
@@ -89,7 +88,7 @@ public final class CurrencyTest
 	{
 		setStartingCurrencyAmounts();
 		final CurrencyTransaction transaction =
-			CurrencyController.createTransaction(TEST_STEEL_AMOUNT, TEST_COMPOSITE_AMOUNT, TEST_SCIENCE_AMOUNT,
+			new CurrencyTransaction(TEST_STEEL_AMOUNT, TEST_COMPOSITE_AMOUNT, TEST_SCIENCE_AMOUNT,
 				TEST_FOOD_RATION_AMOUNT, TEST_ENERGY_CREDIT_AMOUNT);
 
 		CurrencyController.factorCurrencyTransaction(transaction);

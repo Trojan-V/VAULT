@@ -97,6 +97,8 @@ public final class DamageArtifact extends Artifact
 		UPGRADE_COSTS.put(ArtifactLevel.BASE, Damage.BASE_TO_IMPROVED_UPGRADE_COSTS);
 		UPGRADE_COSTS.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
+		//		LOGGER.logf(DEBUG, "The map with the entire upgrade costs for the level {0} was set to: {1}",
+		//			UPGRADE_COSTS., );
 
 		// Fill the map with the names.
 		NAMES.put(ArtifactLevel.BASE, Damage.BASE_NAME);
@@ -136,6 +138,8 @@ public final class DamageArtifact extends Artifact
 		// Javadoc of the Artifact class.
 		INSTANCE = new DamageArtifact();
 
+
+		// Logging output
 
 		LOGGER.logf(DEBUG, NewLoggingConstants.STATIC_INITIALIZER_LEFT, DamageArtifact.class.getSimpleName());
 	}

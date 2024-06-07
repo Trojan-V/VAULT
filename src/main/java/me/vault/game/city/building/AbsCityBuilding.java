@@ -135,7 +135,6 @@ public abstract class AbsCityBuilding implements Displayable
 	// TODO: Mosemann fragen, ob diese updateProperties() als Geschäftslogik im Modell ok sind, oder ob sie in eine
 	//  dedizierte Controller-Klasse ausgelagert werden sollen.
 	@Override
-	@Override
 	public void updatePropertyValues ()
 	{
 		this.nameProperty.set(this.getNames().get(this.currentLevel));

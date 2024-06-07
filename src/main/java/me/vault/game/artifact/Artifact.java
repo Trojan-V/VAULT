@@ -67,15 +67,6 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 
 
 	/**
-	 * This is the index of the method the JVM is currently executing and is used to dynamically get the name of the
-	 * current method.
-	 * The method at index 0 is the {@code Thread.currentThread().getStackTrace()} call, which isn't interesting for
-	 * the logger outputs though, hence why index 1 is accessed.
-	 */
-	private static final int STACKTRACE_METHOD_INDEX = 1;
-
-
-	/**
 	 * This property is used to store and dynamically display the name of the artifact. If the name is updated within
 	 * this property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 *
