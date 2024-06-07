@@ -22,7 +22,7 @@ public class TestUtil
 		// Currencies are set to specified value
 		for (final Currency currency : Currency.values())
 		{
-			currency.setAmountProperty(TEST_CURRENCY_STARTING_AMOUNT);
+			currency.setAmount(TEST_CURRENCY_STARTING_AMOUNT);
 		}
 	}
 }
