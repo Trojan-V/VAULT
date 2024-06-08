@@ -2,11 +2,10 @@ package me.vault.game;
 
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import me.vault.game.utility.jvm.JvmArgumentParser;
-
-import java.io.IOException;
+import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.logging.Logger.ProcedureType;
 
 import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
 
@@ -24,6 +23,14 @@ import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
  */
 public class VaultApplication extends Application
 {
+	/**
+	 * The logger object for this class used for writing formatted outputs into the console.
+	 *
+	 * @see Logger
+	 */
+	private static final Logger LOGGER = new Logger(VaultApplication.class.getSimpleName());
+
+
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
@@ -44,9 +51,8 @@ public class VaultApplication extends Application
 	 */
 	public static void main (final String[] args)
 	{
-		JvmArgumentParser.apply(args);
-
 		// TODO: createDefaultConfig();
+		JvmArgumentParser.apply(args);
 		launch();
 	}
 
@@ -62,8 +68,6 @@ public class VaultApplication extends Application
 	 * starts the GUI powered by JavaFX.
 	 *
 	 * @param stage The {@link Stage} which will be displayed in the GUI window which pops up.
-	 *
-	 * @exception IOException If a {@code .fxml} file can't be loaded by the {@link FXMLLoader}.
 	 */
 	@Override
 	public void start (final Stage stage)

@@ -26,7 +26,6 @@ import static me.vault.game.utility.constant.NewLoggingConstants.*;
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-import static me.vault.game.utility.logging.Logger.ProcedureType;
 
 
 /**
@@ -140,7 +139,6 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected Artifact ()
 	{
-		LOGGER.logEntered(ProcedureType.CONSTRUCTOR);
 
 		// TODO: currentLevel aus Config einlesen
 		this.currentLevel = ArtifactLevel.getMinimum();
@@ -156,7 +154,6 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 		LOGGER.logf(DEBUG, ATTRIBUTE_MODIFIERS_SET, this.attributeMultiplier.toString());
 		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, this.spriteProperty.toString());
 		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, this.nameProperty.get());
-		LOGGER.logLeft(ProcedureType.CONSTRUCTOR);
 	}
 
 
@@ -358,8 +355,6 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	@Override
 	public void updatePropertyValues ()
 	{
-		LOGGER.logEntered(ProcedureType.METHOD);
-
 		this.nameProperty.set(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty.set(this.getAllSprites().get(this.currentLevel));
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
@@ -370,7 +365,6 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, this.nameProperty.get());
 		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, this.spriteProperty.get().toString());
 		LOGGER.logf(DEBUG, UPGRADE_COST_SET, this.currentUpgradeCost.toString());
-		LOGGER.logLeft(ProcedureType.METHOD);
 	}
 
 

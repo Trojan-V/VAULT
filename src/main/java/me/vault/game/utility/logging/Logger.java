@@ -8,7 +8,9 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 
+import static me.vault.game.utility.constant.CharacterConstants.NEWLINE;
 import static me.vault.game.utility.constant.NewLoggingConstants.*;
+import static me.vault.game.utility.logging.ConsoleColor.*;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 
 
@@ -39,11 +41,11 @@ public class Logger implements ILogger
 	/**
 	 * The {@link SimpleDateFormat} which is used to represent the logging-timestamps.
 	 */
-	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss:SSS",
+	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("HH:mm:ss:SSS",
 		Locale.GERMANY);
 
 
-	private static final String LOG_MESSAGE_PREFIX = "[{0} | {1}] ";
+	private static final String LOG_MESSAGE_PREFIX = "[{0} | {1}.{2}] ";
 
 
 	private static final int STACKTRACE_METHOD_INDEX = 4;
@@ -150,7 +152,6 @@ public class Logger implements ILogger
 
 
 	@Override
-	@Override
 	public void logf (final Level level, final String pattern, final String... arguments)
 	{
 		if (level.ordinal() >= depth.ordinal())
@@ -161,39 +162,6 @@ public class Logger implements ILogger
 	}
 
 
-	private static String getMessageForProcedure (final ProcedureType procedureType, final TraverseType traverseType)
-	{
-		return switch (procedureType)
-		{
-			case METHOD -> MessageFormat.format(traverseType == TraverseType.ENTERED ? METHOD_ENTERED : METHOD_LEFT,
-				getMethodName());
-			case CONSTRUCTOR ->
-				MessageFormat.format(traverseType == TraverseType.ENTERED ? CONSTRUCTOR_ENTERED : CONSTRUCTOR_LEFT,
-					getClassName());
-			case INITIALIZER ->
-				MessageFormat.format(traverseType == TraverseType.ENTERED ? INITIALIZER_ENTERED : INITIALIZER_LEFT,
-					getClassName());
-			case STATIC_INITIALIZER -> MessageFormat.format(
-				traverseType == TraverseType.ENTERED ? STATIC_INITIALIZER_ENTERED : STATIC_INITIALIZER_LEFT,
-				getClassName());
-		};
-	}
-
-
-	public void logEntered (final ProcedureType procedureType)
-	{
-		System.out.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT.toString() + this.getPrefix() +
-		                   getMessageForProcedure(procedureType, TraverseType.ENTERED) + COLOR_RESET);
-	}
-
-
-	public void logLeft (final ProcedureType procedureType)
-	{
-		System.out.println(ConsoleColor.BLACK_BACKGROUND_BRIGHT.toString() + this.getPrefix() +
-		                   getMessageForProcedure(procedureType, TraverseType.LEFT) + COLOR_RESET);
-	}
-
-
 	/**
 	 * Generates a prefix for log messages including timestamp and class name.
 	 *
@@ -201,7 +169,7 @@ public class Logger implements ILogger
 	 */
 	private String getPrefix ()
 	{
-		return MessageFormat.format(LOG_MESSAGE_PREFIX, getTimestamp(), this.className);
+		return MessageFormat.format(LOG_MESSAGE_PREFIX, getTimestamp(), this.className, getMethodName());
 	}
 
 
@@ -219,16 +187,25 @@ public class Logger implements ILogger
 
 	public enum ProcedureType
 	{
-		CONSTRUCTOR,
-		STATIC_INITIALIZER,
-		INITIALIZER,
-		METHOD
-	}
+		CONSTRUCTOR(RESET),
+		STATIC_INITIALIZER(RESET),
+		INITIALIZER(RESET),
+		METHOD(RESET);
 
 
-	private enum TraverseType
-	{
-		ENTERED,
-		LEFT
+		private final ConsoleColor color;
+
+
+		ProcedureType (final ConsoleColor color)
+		{
+			this.color = color;
+		}
+
+
+		@Override
+		public String toString ()
+		{
+			return this.color.toString();
+		}
 	}
 }

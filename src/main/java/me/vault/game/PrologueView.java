@@ -4,13 +4,13 @@ package me.vault.game;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.logging.Logger.ProcedureType;
 
 import java.text.MessageFormat;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 
 
 public class PrologueView
@@ -20,23 +20,24 @@ public class PrologueView
 	 *
 	 * @see Logger
 	 */
-	private static final ILogger LOGGER = new Logger(PrologueView.class.getSimpleName());
+	private static final Logger LOGGER = new Logger(PrologueView.class.getSimpleName());
 
 
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
-	private static final String TUTORIAL_VIEW_FXML = "prologue_view.fxml";
+	private static final String PROLOGUE_VIEW_FXML = "prologue_view.fxml";
 
 
-	private static final Scene TUTORIAL_MENU_SCENE = ResourceLoader.loadScene(PrologueView.class, TUTORIAL_VIEW_FXML);
+	private static final Scene PROLOGUE_SCENE = ResourceLoader.loadScene(PrologueView.class, PROLOGUE_VIEW_FXML);
 
 
 	public static void show (final Stage stage)
 	{
-		stage.setScene(TUTORIAL_MENU_SCENE);
+		// Changes the scene of the stage to the prologue scene
+		stage.setScene(PROLOGUE_SCENE);
 		stage.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, PrologueView.class.getSimpleName()));
+		LOGGER.log(NORMAL, MessageFormat.format(SHOWING_VIEW_MSG, PrologueView.class.getSimpleName()));
 	}
 }

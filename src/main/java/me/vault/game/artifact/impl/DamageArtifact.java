@@ -17,7 +17,6 @@ import java.util.Map;
 import static me.vault.game.utility.constant.ArtifactConstants.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-import static me.vault.game.utility.logging.Logger.ProcedureType;
 
 
 /**
@@ -100,8 +99,6 @@ public final class DamageArtifact extends Artifact
 		 * To ensure that the static fields are initialized in the correct order, a static initializer is used
 		 * instead of a direct initialization behind the declaration.
 		 */
-		LOGGER.logEntered(ProcedureType.STATIC_INITIALIZER);
-
 		// Fill the maps with the corresponding data.
 		NAMES = initNamesMap();
 		SPRITES = initSpritesMap();
@@ -112,8 +109,6 @@ public final class DamageArtifact extends Artifact
 		INSTANCE = new DamageArtifact();
 
 		System.out.println(INSTANCE.toString());
-
-		LOGGER.logLeft(ProcedureType.STATIC_INITIALIZER);
 	}
 
 
@@ -133,8 +128,6 @@ public final class DamageArtifact extends Artifact
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
-		LOGGER.logEntered(ProcedureType.METHOD);
-
 		// Fill the map with the different upgrade cost transactions.
 		final Map<ArtifactLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
 		upgradeCostsMap.put(ArtifactLevel.BASE, Damage.BASE_TO_IMPROVED_UPGRADE_COSTS);
@@ -142,7 +135,6 @@ public final class DamageArtifact extends Artifact
 
 		// Logging output
 		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET, upgradeCostsMap.toString());
-		LOGGER.logLeft(ProcedureType.METHOD);
 
 		return upgradeCostsMap;
 	}
@@ -164,8 +156,6 @@ public final class DamageArtifact extends Artifact
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
-		LOGGER.logEntered(ProcedureType.METHOD);
-
 		// Create and fill the map with modifiers for the BASE artifact level.
 		final Map<AttributeMultiplier.Type, Double> baseLevelModifiers = new HashMap<>();
 		baseLevelModifiers.put(AttributeMultiplier.Type.DAMAGE, MULTIPLIER_HIGH);
@@ -186,7 +176,6 @@ public final class DamageArtifact extends Artifact
 
 		// Logging output
 		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET, attributeModifiersMap.toString());
-		LOGGER.logLeft(ProcedureType.METHOD);
 
 		return attributeModifiersMap;
 	}
@@ -208,8 +197,6 @@ public final class DamageArtifact extends Artifact
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
-		LOGGER.logEntered(ProcedureType.METHOD);
-
 		// Fill the map with the names.
 		final Map<ArtifactLevel, String> namesMap = new HashMap<>();
 		namesMap.put(ArtifactLevel.BASE, Damage.BASE_NAME);
@@ -217,7 +204,6 @@ public final class DamageArtifact extends Artifact
 
 		// Logging output
 		LOGGER.logf(DEBUG, NAME_MAP_SET, namesMap.toString());
-		LOGGER.logLeft(ProcedureType.METHOD);
 
 		return namesMap;
 	}
@@ -239,8 +225,6 @@ public final class DamageArtifact extends Artifact
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
-		LOGGER.logEntered(ProcedureType.METHOD);
-
 		// Fill the map with the sprites.
 		final Map<ArtifactLevel, MetaDataImage> spritesMap = new HashMap<>();
 		spritesMap.put(ArtifactLevel.BASE, ResourceLoader.loadImage(Damage.BASE_SPRITE_PATH));
@@ -248,7 +232,6 @@ public final class DamageArtifact extends Artifact
 
 		// Logging output
 		LOGGER.logf(DEBUG, SPRITE_MAP_SET, spritesMap.toString());
-		LOGGER.logLeft(ProcedureType.METHOD);
 
 		return spritesMap;
 	}
