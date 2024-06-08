@@ -53,12 +53,14 @@ public class PrologueController implements Initializable
 	@FXML
 	void continueButtonClick (final MouseEvent ignored)
 	{
+		this.buttonContinue.setFill(Color.BLACK);
 		CityView.show(VaultApplication.getStage());
 	}
 
 	@FXML
 	void backButtonClick (final MouseEvent ignored)
 	{
+		this.buttonBack.setFill(Color.BLACK);
 		MainMenuView.showMainMenu(VaultApplication.getStage());
 	}
 
