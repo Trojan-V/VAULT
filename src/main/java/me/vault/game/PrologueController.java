@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import me.vault.game.city.CityView;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -23,7 +24,7 @@ public class PrologueController implements Initializable
 	private ImageView prologueImageView;
 
 	@FXML
-	private Label storyText;
+	private Text storyText;
 
 
 	@FXML
