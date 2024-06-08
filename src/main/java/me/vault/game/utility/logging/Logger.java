@@ -8,9 +8,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 
-import static me.vault.game.utility.constant.CharacterConstants.NEWLINE;
-import static me.vault.game.utility.constant.NewLoggingConstants.*;
-import static me.vault.game.utility.logging.ConsoleColor.*;
+import static me.vault.game.utility.logging.ConsoleColor.RESET;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 
 
@@ -152,11 +150,11 @@ public class Logger implements ILogger
 
 
 	@Override
-	public void logf (final Level level, final String pattern, final String... arguments)
+	public void logf (final Level level, final String pattern, final Object... arguments)
 	{
 		if (level.ordinal() >= depth.ordinal())
 		{
-			final String message = MessageFormat.format(pattern, (Object[]) arguments);
+			final String message = MessageFormat.format(pattern, arguments);
 			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
 		}
 	}

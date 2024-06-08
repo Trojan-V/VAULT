@@ -26,4 +26,16 @@ public interface MiscConstants
 	 */
 	@Constant
 	public static final int ERROR_EXIT_CODE = - 1;
+
+
+	public static final int MINIMUM_LEVEL_ORDINAL = 0;
+
+
+	public static final int NEXT_LEVEL_ADDITION_ORDINAL = 1;
+
+
+	public static final int PREVIOUS_LEVEL_SUBTRACTION_ORDINAL = 1;
+
+
+	public static final int ZERO_INDEXED_LENGTH_CORRECTION = 1;
 }

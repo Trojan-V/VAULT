@@ -38,13 +38,26 @@ public interface NewLoggingConstants
 	String LEVEL_SET = "currentLevel was set to: {0}";
 
 
+	String RETURNING_TRUE = "Returning true.";
+
+
+	String RETURNING_FALSE = "Returning false.";
+
+
 	String UPGRADE_COST_SET = "currentUpgradeCost was set to: {0}";
+
+
+	String UPGRADE_COST = "Upgrade costs: {0}";
 
 
 	String SPRITE_PROPERTY_SET = "spriteProperty was set to: {0}";
 
 
 	String NAME_PROPERTY_SET = "nameProperty was set to: {0}";
+
+
+	String INSUFFICIENT_CURRENCY_AMOUNT =
+		"Not enough {0} to perform the requested upgrade. Cost: {1} {0}";
 
 
 	interface Artifact
@@ -62,5 +75,17 @@ public interface NewLoggingConstants
 
 
 		String MODIFIERS_MAP_SET = "Map of attribute modifiers was set to: {0}";
+
+
+		String ARTIFACT_MAXED = "The artifact {0} is maxed, can't upgrade any further.";
+
+
+		String ARTIFACT_IS_LOWEST = "The artifact {0} is at the lowest level.";
+
+
+		String CURRENT_ARTIFACT_LEVEL = "Current artifact level: {0}";
+
+
+		String UPGRADED_ARTIFACT_LEVEL = "Upgraded the artifact to the level: {0}";
 	}
 }

@@ -12,7 +12,7 @@ import javafx.beans.property.SimpleStringProperty;
  * @see
  * @since 06.06.2024
  */
-public interface Namable
+public interface Nameable
 {
 	public abstract SimpleStringProperty getNameProperty ();
 

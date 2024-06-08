@@ -7,6 +7,7 @@ import me.vault.game.artifact.ArtifactLevel;
 import me.vault.game.artifact.AttributeMultiplier;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
@@ -39,7 +40,7 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @see Logger
 	 */
-	private static final Logger LOGGER = new Logger(DamageArtifact.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(DamageArtifact.class.getSimpleName());
 
 
 	/**
@@ -99,6 +100,7 @@ public final class DamageArtifact extends Artifact
 		 * To ensure that the static fields are initialized in the correct order, a static initializer is used
 		 * instead of a direct initialization behind the declaration.
 		 */
+
 		// Fill the maps with the corresponding data.
 		NAMES = initNamesMap();
 		SPRITES = initSpritesMap();
@@ -107,8 +109,6 @@ public final class DamageArtifact extends Artifact
 
 		// Ensure the instance is created after all the other static fields are initialized.
 		INSTANCE = new DamageArtifact();
-
-		System.out.println(INSTANCE.toString());
 	}
 
 

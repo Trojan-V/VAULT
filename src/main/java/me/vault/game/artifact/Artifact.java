@@ -10,8 +10,9 @@ import me.vault.game.artifact.impl.HealthArtifact;
 import me.vault.game.city.workshop.WorkshopController;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.interfaces.Displayable;
-import me.vault.game.interfaces.Namable;
+import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.UpgradableNew;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
@@ -59,16 +60,19 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see ArtifactLevel
  * @since 05.06.2024
  */
-public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLevel>, Namable
+public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLevel>, Nameable
 {
 	/**
-	 * The logger object for this class used for writing formatted outputs into the console.
+	 * The logger object for this class used for writing to the console.
 	 *
 	 * @see Logger
 	 */
-	private static final Logger LOGGER = new Logger(Artifact.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(Artifact.class.getSimpleName());
 
 
+	/**
+	 * The pattern used to create the string which describes the class in a human-readable format.
+	 */
 	private static final String TO_STRING_PATTERN =
 		"Artifact[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
 
@@ -139,7 +143,6 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected Artifact ()
 	{
-
 		// TODO: currentLevel aus Config einlesen
 		this.currentLevel = ArtifactLevel.getMinimum();
 
@@ -349,7 +352,8 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	/**
 	 * This method is invoked by the {@link ArtifactController#upgrade(Artifact)} method.
 	 * <br>
-	 * This method updates the properties which are bound to the GUI to ensure the correct data is shown after an
+	 * This method updates the properties of this class which are bound to the GUI to ensure the correct data is shown
+	 * after an
 	 * upgrade happened.
 	 */
 	@Override
@@ -368,6 +372,14 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	}
 
 
+	/**
+	 * Returns the instance of this class in a human-readable format by creating a string.
+	 *
+	 * @return The message in its string representation.
+	 * @precondition None.
+	 * @postcondition The internal data structure of the artifact was taken,
+	 * was compiled into a string and was returned.
+	 */
 	@Override
 	public String toString ()
 	{

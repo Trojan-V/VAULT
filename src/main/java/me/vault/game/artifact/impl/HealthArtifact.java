@@ -7,6 +7,7 @@ import me.vault.game.artifact.ArtifactLevel;
 import me.vault.game.artifact.AttributeMultiplier;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +18,6 @@ import java.util.Map;
 import static me.vault.game.utility.constant.ArtifactConstants.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-import static me.vault.game.utility.logging.Logger.ProcedureType;
 
 
 /**
@@ -40,7 +40,7 @@ public final class HealthArtifact extends Artifact
 	 *
 	 * @see Logger
 	 */
-	private static final Logger LOGGER = new Logger(HealthArtifact.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(HealthArtifact.class.getSimpleName());
 
 
 	/**
@@ -100,6 +100,7 @@ public final class HealthArtifact extends Artifact
 		 * To ensure that the static fields are initialized in the correct order, a static initializer is used
 		 * instead of a direct initialization behind the declaration.
 		 */
+
 		// Fill the maps with the corresponding data.
 		NAMES = initNamesMap();
 		SPRITES = initSpritesMap();

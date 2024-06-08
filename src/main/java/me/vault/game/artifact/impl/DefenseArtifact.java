@@ -94,12 +94,14 @@ public final class DefenseArtifact extends Artifact
 	 */
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 
+
 	static
 	{
 		/*
 		 * To ensure that the static fields are initialized in the correct order, a static initializer is used
 		 * instead of a direct initialization behind the declaration.
 		 */
+
 		// Fill the maps with the corresponding data.
 		NAMES = initNamesMap();
 		SPRITES = initSpritesMap();
@@ -109,6 +111,7 @@ public final class DefenseArtifact extends Artifact
 		// Ensure the instance is created after all the other static fields are initialized.
 		INSTANCE = new DefenseArtifact();
 	}
+
 
 	/**
 	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the defense
@@ -126,7 +129,6 @@ public final class DefenseArtifact extends Artifact
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
-
 		// Fill the map with the different upgrade cost transactions.
 		final Map<ArtifactLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
 		upgradeCostsMap.put(ArtifactLevel.BASE, Defense.BASE_TO_IMPROVED_UPGRADE_COSTS);
@@ -174,7 +176,7 @@ public final class DefenseArtifact extends Artifact
 		attributeModifiersMap.put(ArtifactLevel.IMPROVED, improvedLevelModifiers);
 
 		// Logging output
-		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET, attributeModifiersMap.toString());
+		LOGGER.logf(NORMAL, MODIFIERS_MAP_SET, attributeModifiersMap.toString());
 
 		return attributeModifiersMap;
 	}
@@ -224,7 +226,6 @@ public final class DefenseArtifact extends Artifact
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
-
 		// Fill the map with the sprites.
 		final Map<ArtifactLevel, MetaDataImage> spritesMap = new HashMap<>();
 		spritesMap.put(ArtifactLevel.BASE, ResourceLoader.loadImage(Defense.BASE_SPRITE_PATH));

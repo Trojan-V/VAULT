@@ -14,7 +14,7 @@ public interface ILogger
 	public void log (final Level level, final String message);
 
 
-	public void logf (final Level level, final String pattern, final String... arguments);
+	public void logf (final Level level, final String pattern, final Object... arguments);
 
 
 	/**
