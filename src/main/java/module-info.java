@@ -1,3 +1,6 @@
+/**
+ * Exports all required modules to the JavaFX framework, so JavaFX is able to use these classes.
+ */
 module me.vault.game {
 	requires javafx.controls;
 	requires javafx.fxml;
