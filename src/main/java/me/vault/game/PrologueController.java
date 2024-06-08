@@ -57,6 +57,12 @@ public class PrologueController implements Initializable
 	}
 
 	@FXML
+	void backButtonClick (final MouseEvent ignored)
+	{
+		MainMenuView.showMainMenu(VaultApplication.getStage());
+	}
+
+	@FXML
 	void changeButtonTextColor (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
@@ -74,7 +80,7 @@ public class PrologueController implements Initializable
 			this.backButtonBackground.setImage(ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
-			this.continueButtonBackground.setImage(ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName);
+			this.continueButtonBackground.setImage(ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 
 	}

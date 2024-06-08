@@ -105,6 +105,7 @@
                         <Button fx:id="buttonPrologueBack" maxHeight="1.7976931348623157E308"
                                 maxWidth="1.7976931348623157E308" mnemonicParsing="false"
                                 onMouseEntered="#changeButtonBackground" onMousePressed="#changeButtonTextColor"
+                                onMouseReleased="#backButtonClick"
                                 onMouseExited="#returnButtonBackgroundToNormal" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
                            <graphic>
                               <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
