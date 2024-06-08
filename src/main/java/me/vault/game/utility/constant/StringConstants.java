@@ -14,4 +14,10 @@ public interface StringConstants
 		"Wie bei vielen in der Vergangenheit erkundeten Systemen war auch Proxima Tau schon bereits bev\u00F6lkert. Doch schon bald entdeckte das Team eine schwerwiegendes Problem. " +
 		"Das Transportsystem auf das das Team " +
 		"f\u00FCr ihre R\u00FCckreise angewiesen waren, hatte eine Fehlst\u00F6rung und muss repariert werden.";
+
+	public static String buttonRoundImageName = "button_round.png";
+	public static String buttonImageName = "button.png";
+
+	public static String colorLightBlue = "1584AD";
+
 }
