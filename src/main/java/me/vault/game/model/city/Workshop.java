@@ -28,7 +28,7 @@ public class Workshop extends AbsCityBuilding
 	private static final Workshop INSTANCE;
 
 
-	private static final Scene SCENE = ResourceLoader.loadScene(Workshop.class, "workshop_view.fxml");
+	private static final Scene SCENE = ResourceLoader.loadScene(Workshop.class, "./view/workshop_view.fxml");
 
 
 	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();

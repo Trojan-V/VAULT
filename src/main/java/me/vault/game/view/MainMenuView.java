@@ -27,7 +27,7 @@ public class MainMenuView
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/game} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
-	private static final String MAIN_MENU_VIEW_FXML = "main_menu_view.fxml";
+	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
 
 
 	/**

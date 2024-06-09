@@ -100,6 +100,7 @@ public class PrologueDelegate implements Initializable
 		}
 	}
 
+
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
