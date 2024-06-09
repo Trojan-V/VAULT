@@ -15,7 +15,29 @@ public interface StringConstants
 		"Das Transportsystem auf das das Team " +
 		"f\u00FCr ihre R\u00FCckreise angewiesen waren, hatte eine Fehlst\u00F6rung und muss repariert werden.";
 
+
+	public static String NEW_TERRA_FACTION_DESCRIPTION = "The government of New Terra is a major faction in the " +
+	                                                     "political landscape with its capital of Terra, formally " +
+	                                                     "know as earth. The egalitarian government ascended as the " +
+	                                                     "victor of the last Sol-war as the last governmental " +
+	                                                     "entity which was still";
+
+
+	public static String NEW_TERRA_FACTION_SLOGAN = "Sovereignty is our strength";
+
+
+	public static String Infantry = "A well-rounded soldier who isn't afraid to give everything for his cause.";
+
+
+	public static String LIEUTENANT = "A commanding officer who will give everything to return to his homeworld.";
+
+
+	public static String PRECISION_SHOOTER =
+		"An elite-soldier who excels the other soldiers in his group with his outstanding aim.";
+
 	public static String buttonRoundImageName = "button_round.png";
+
+
 	public static String buttonImageName = "button.png";
 
 	public static String colorLightBlue = "1584AD";
