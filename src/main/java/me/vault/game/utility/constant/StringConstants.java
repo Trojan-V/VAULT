@@ -69,11 +69,33 @@ public interface StringConstants
 		"An explorer soldier who is able to move very quickly and far. Not as robust as other units.";
 
 
+	public static String MEGA_CORPORATION_FACTION_DESCRITION = "The fusion of multiple corporations did create a " +
+	                                                           "hyper capitalist organisation which values money " +
+	                                                           "over all. One climbs the proverbial ladder by " +
+	                                                           "abandoning one`s morality and serving only " +
+	                                                           "themselves. Here you can buy it if it exists. " +
+	                                                           "Everything.";
+
+
+	public static String MEGA_CORPORATION_FACTION_SLOGAN = "as long as your willing to pay the price";
+
+
+	public static String GUARD =
+		"A trained soldier who is good at guarding stuff. The soldier is still waiting for his payment from the " +
+		"corporation.";
+
+
+	public static String GRENADIER =
+		"An explosive expert who is only there because he's allowed to blow things up. Left the company, because they " +
+		"didn't pay him his salary.";
+
+
+	public static String RECRUIT =
+		"A young soldier, who's just happy to be there and is willing to work extra for you, if the payment is right.";
+
 	public static String HEALTH_ARTIFACT = "An artifact which improves the health and vitality of your troops.";
 
-
 	public static String DAMAGE_ARTIFACT = "An artifact which improves the attacks of all your troops.";
-
 
 	public static String DEFENCE_ARTIFACT = "An artifact which improves the defense attribute of your troops.";
 
