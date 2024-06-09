@@ -23,7 +23,7 @@ public interface StringConstants
 	                                                     "entity which was still";
 
 
-	public static String NEW_TERRA_FACTION_SLOGAN = "Sovereignty is our strength";
+	public static String NEW_TERRA_FACTION_SLOGAN = "sovereignty is our strength";
 
 
 	public static String INFANTRY = "A well-rounded soldier who isn't afraid to give everything for his cause.";
@@ -45,7 +45,7 @@ public interface StringConstants
 	                                                              "precursor of New Terra.";
 
 
-	public static String MILITARY_GOVERMENT_FACTION_SLOGAN = "For the Emperor";
+	public static String MILITARY_GOVERMENT_FACTION_SLOGAN = "for the Emperor";
 
 
 	public static String SPACE_MARINE = "The pinnacle of evolution. A super soldier who works like an one-man-army. " +
@@ -58,6 +58,29 @@ public interface StringConstants
 
 	public static String OFFICER = "A high-grade party member who descended to the lower ranks to help his soldiers " +
 	                               "accomplish their goals.";
+
+
+	public static String EXPLORER_ASSOCIATION_FACTION_DESCRIPTION = "The Explorer-Association did form around 2357 " +
+	                                                                "after the first failed exploration into the " +
+	                                                                "kepler system. Since the establishment of the " +
+	                                                                "Association its consists of independent " +
+	                                                                "adventures spirited people who delve into the " +
+	                                                                "unknown space of the void.";
+
+
+	public static String EXPLORER_ASSOCIATION_FACTION_SLOGAN = "to the new wonders of the void";
+
+
+	public static String MEDIC =
+		"A high-grade party member who descended to the lower ranks to help his soldiers accomplish their goals.";
+
+
+	public static String SNIPER =
+		"An explorer soldier who is able to fight over great distances. Not as robust as other units.";
+
+
+	public static String RANGER =
+		"An explorer soldier who is able to move very quickly and far. Not as robust as other units.";
 
 	public static String buttonRoundImageName = "button_round.png";
 
