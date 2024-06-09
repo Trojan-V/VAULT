@@ -3,18 +3,30 @@ package me.vault.game.utility.constant;
 
 public interface StringConstants
 {
-	public static String prologue =
-		"Wir schreiben das Jahr 2341 und die Menschheit hat sich in den letzten Jahrhunderten in der Galaxie " +
-		"ausgebreitet. W\u00E4hrend dieser Zeit wurden die viele neue Systeme erforscht und wissenschaftliche Entdeckungen" +
-		" gemacht. Eine der relevantesten Entdeckungen war die Entdeckung" +
-		" der technologisch fortschrittlichen Zivilsation \"Hitani\", die unter anderem ein weitreichendes " +
-		"galaktisches Teleportationssystem entwickelt haben. Mit der Erschlie\u00DFung " +
-		"dieser Technologie konnten die Menschen weitere Systeme entdecken und erkunden. Vor kurzem wurde ein neues Sonnensystem, Proxima Tau, entdeckt und eine Mission unter der Leitung von " +
-		"James Vault wurde entsand um diese neuen Welten zu erkunden. Nach der Ankunft in Proxima Tau ankommen stellt James Vault fest, dass er sich auf einer hitanischen Raumstation befindet. " +
-		"Wie bei vielen in der Vergangenheit erkundeten Systemen war auch Proxima Tau schon bereits bev\u00F6lkert. Doch schon bald entdeckte das Team eine schwerwiegendes Problem. " +
-		"Das Transportsystem auf das das Team " +
-		"f\u00FCr ihre R\u00FCckreise angewiesen waren, hatte eine Fehlst\u00F6rung und muss repariert werden.";
+	/**
+	 * The following String contains the texts for the story of the game.
+	 */
+	public static String prologue = "The year is 2341 and humanity has spread across the galaxy over the last few " +
+	                                "centuries. During this time, many new systems have been explored and scientific" +
+	                                " " +
+	                                "discoveries have been made. One of the most relevant discoveries has been the " +
+	                                "single-celled existence of a technologically advanced civilization, the Hitani," +
+	                                " " +
+	                                "who have developed, among other things, an extensive galactic teleportation " +
+	                                "system. With the development of this technology, humans were able to discover " +
+	                                "and explore other systems. Recently, a new solar system, Proxima Tau, was " +
+	                                "discovered and a mission led by the player was dispatched to explore these new " +
+	                                "worlds. When the team arrives at Proxima Tau, they discover that they are on a " +
+	                                "Hitanian space station. As with many systems explored in the past, Proxima Tau " +
+	                                "was already populated. But the team soon discovered a serious problem. The " +
+	                                "transportation system that the team relied on for their return journey had " +
+	                                "malfunctioned and needed to be repaired.";
 
+
+	/**
+	 * The following Strings contains the texts for New Terra. There used in the docks and
+	 * training facility.
+	 */
 	public static String NEW_TERRA_FACTION_DESCRIPTION = "The government of New Terra is a major faction in the " +
 	                                                     "political landscape with its capital of Terra, formally " +
 	                                                     "know as earth. The egalitarian government ascended as the " +
@@ -30,6 +42,11 @@ public interface StringConstants
 	public static String PRECISION_SHOOTER = "An elite-soldier who excels the other soldiers in his group with his " +
 	                                         "outstanding aim.";
 
+
+	/**
+	 * The following Strings contains the texts for the Military Government. There used in the docks and
+	 * training facility.
+	 */
 	public static String MILITARY_GOVERMENT_FACTION_DESCRIPTION = "The military government were one of the first " +
 	                                                              "factions in this new system. Shortly before the " +
 	                                                              "system was cut off, they did immediately " +
@@ -50,6 +67,11 @@ public interface StringConstants
 	public static String OFFICER = "A high-grade party member who descended to the lower ranks to help his soldiers " +
 	                               "accomplish their goals.";
 
+
+	/**
+	 * The following Strings contains the texts for the Explorer Association. There used in the docks and
+	 * training facility.
+	 */
 	public static String EXPLORER_ASSOCIATION_FACTION_DESCRIPTION = "The Explorer-Association did form around 2357 " +
 	                                                                "after the first failed exploration into the " +
 	                                                                "kepler system. Since the establishment of the " +
@@ -69,6 +91,10 @@ public interface StringConstants
 		"An explorer soldier who is able to move very quickly and far. Not as robust as other units.";
 
 
+	/**
+	 * The following Strings contains the texts for the Mega Corporation. There used in the space-bar and
+	 * training facility.
+	 */
 	public static String MEGA_CORPORATION_FACTION_DESCRITION = "The fusion of multiple corporations did create a " +
 	                                                           "hyper capitalist organisation which values money " +
 	                                                           "over all. One climbs the proverbial ladder by " +
@@ -76,28 +102,58 @@ public interface StringConstants
 	                                                           "themselves. Here you can buy it if it exists. " +
 	                                                           "Everything.";
 
-
 	public static String MEGA_CORPORATION_FACTION_SLOGAN = "as long as your willing to pay the price";
-
 
 	public static String GUARD =
 		"A trained soldier who is good at guarding stuff. The soldier is still waiting for his payment from the " +
 		"corporation.";
 
-
 	public static String GRENADIER =
 		"An explosive expert who is only there because he's allowed to blow things up. Left the company, because they " +
 		"didn't pay him his salary.";
 
-
 	public static String RECRUIT =
 		"A young soldier, who's just happy to be there and is willing to work extra for you, if the payment is right.";
 
+
+	/**
+	 * The following Strings contains the texts for the artifacts. There used in the laboratory and workshop.
+	 */
 	public static String HEALTH_ARTIFACT = "An artifact which improves the health and vitality of your troops.";
 
 	public static String DAMAGE_ARTIFACT = "An artifact which improves the attacks of all your troops.";
 
 	public static String DEFENCE_ARTIFACT = "An artifact which improves the defense attribute of your troops.";
+
+
+	/**
+	 * The following Strings describe to the Player what the mission entails.
+	 */
+
+	public static String STORY_MISSION_ONE = "Collect blueprints - This mission involves searching for the " +
+	                                         "blueprints for the broken transport system. You will need these later " +
+	                                         "to repair the system and find a way home. During the mission you can " +
+	                                         "get science and artifacts.";
+
+
+	public static String STORY_MISSION_TWO = "Extract VIP - In this mission, a group of people must be rescued after" +
+	                                         " " +
+	                                         "the transportation system is operational again. This mission is the " +
+	                                         "last one in the game. After completing the mission, the game ends.";
+
+
+	public static String REPEATABLE_MISSION_ONE = "Material procurement - The purpose of this mission is to give the" +
+	                                              " " +
+	                                              "player resources to unlock and upgrade buildings, recruit " +
+	                                              "mercenaries, etc. On this mission you will find all steel, " +
+	                                              "composites, food rations, energy credits.";
+
+
+	public static String REPEATABLE_MISSION_TWO = "Raid - In the Raid mission, the player acquires the resource " +
+	                                              "Science. However, the opponents in this mission are stronger than" +
+	                                              " " +
+	                                              "normal opponents.";
+
 
 	public static String buttonRoundImageName = "button_round.png";
 
