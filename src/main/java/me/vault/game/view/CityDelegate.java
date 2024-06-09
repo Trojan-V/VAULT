@@ -9,8 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.model.city.Barracks;
-import me.vault.game.city.building.AbsCityBuilding;
-import me.vault.game.city.building.CityBuildingView;
+import me.vault.game.model.building.AbsCityBuilding;
 import me.vault.game.model.city.CommandCenter;
 import me.vault.game.model.city.Docks;
 import me.vault.game.model.city.Laboratory;
@@ -18,7 +17,7 @@ import me.vault.game.model.city.Market;
 import me.vault.game.model.city.SpaceBar;
 import me.vault.game.model.city.TrainingFacility;
 import me.vault.game.model.city.Workshop;
-import me.vault.game.currency.Currency;
+import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;

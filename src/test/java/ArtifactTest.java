@@ -1,4 +1,4 @@
-import me.vault.game.artifact.ArtifactController;
+import me.vault.game.control.ArtifactController;
 
 // TODO: Logs aus der Testklasse in die richtige ArtifactController Klasse verschieben
 

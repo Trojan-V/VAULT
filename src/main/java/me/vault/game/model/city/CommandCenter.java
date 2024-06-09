@@ -2,9 +2,9 @@ package me.vault.game.model.city;
 
 
 import javafx.scene.Scene;
-import me.vault.game.city.building.AbsCityBuilding;
-import me.vault.game.city.building.CityBuildingLevel;
-import me.vault.game.currency.CurrencyTransaction;
+import me.vault.game.model.building.AbsCityBuilding;
+import me.vault.game.model.building.CityBuildingLevel;
+import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
@@ -76,7 +76,8 @@ public class CommandCenter extends AbsCityBuilding
 
 
 	@Override
-	protected @NotNull Scene getScene ()
+	@NotNull
+	public Scene getScene ()
 	{
 		return SCENE;
 	}
