@@ -50,24 +50,34 @@ public class PrologueDelegate implements Initializable
 	@FXML
 	void continueButtonClick (final MouseEvent ignored)
 	{
-		ViewUtils.setButtonColor(buttonContinue, Color.BLACK);
+		ViewUtils.setButtonColor(this.buttonContinue, Color.BLACK);
 		CityView.show(VaultApplication.getStage());
 	}
 
 	@FXML
-	void backButtonClick (final MouseEvent ignored)
+	void buttonClick (final MouseEvent mouseEvent)
 	{
-		ViewUtils.setButtonColor(buttonBack, Color.BLACK);
-		MainMenuView.showMainMenu(VaultApplication.getStage());
+		if (mouseEvent.getSource().equals(this.buttonPrologueBack))
+		{
+			ViewUtils.setButtonColor(this.buttonBack, Color.BLACK);
+			MainMenuView.showMainMenu(VaultApplication.getStage());
+		}
+		else if (mouseEvent.getSource().equals(this.buttonPrologueWeiter))
+		{
+			ViewUtils.setButtonColor(this.buttonBack, Color.BLACK);
+			CityView.show(VaultApplication.getStage());
+		}
 	}
 
 	@FXML
 	void changeButtonTextColor (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
+		if (mouseEvent.getSource().equals(this.buttonPrologueBack))
+		{
 			ViewUtils.setButtonColor(this.buttonBack, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
+		else if (mouseEvent.getSource().equals(this.buttonPrologueWeiter))
+		{
 			ViewUtils.setButtonColor(this.buttonContinue, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
@@ -75,11 +85,13 @@ public class PrologueDelegate implements Initializable
 	@FXML
 	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
+		if (mouseEvent.getSource().equals(this.buttonPrologueBack))
+		{
 			ViewUtils.changeImage(this.backButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
+		else if (mouseEvent.getSource().equals(this.buttonPrologueWeiter))
+		{
 			ViewUtils.changeImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
@@ -89,12 +101,13 @@ public class PrologueDelegate implements Initializable
 	@FXML
 	public void returnButtonBackgroundToNormal(final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(buttonPrologueWeiter))
+		if (mouseEvent.getSource().equals(this.buttonPrologueWeiter))
 		{
 			ViewUtils.changeImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
-		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
+		else if (mouseEvent.getSource().equals(this.buttonPrologueBack))
+		{
 			ViewUtils.changeImage(this.backButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}

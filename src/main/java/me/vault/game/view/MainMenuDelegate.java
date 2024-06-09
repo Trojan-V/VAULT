@@ -98,27 +98,27 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(continueButton)) {
+		if (mouseEvent.getSource().equals(this.continueButton)) {
 			ViewUtils.changeImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		else if (mouseEvent.getSource().equals(newGameButton)) {
+		else if (mouseEvent.getSource().equals(this.newGameButton)) {
 			ViewUtils.changeImage(this.newGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		else if (mouseEvent.getSource().equals(loadGameButton)) {
+		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
 			ViewUtils.changeImage(this.loadGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		else if (mouseEvent.getSource().equals(settingsButton)) {
+		else if (mouseEvent.getSource().equals(this.settingsButton)) {
 			ViewUtils.changeImage(this.settingsButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		else if (mouseEvent.getSource().equals(exitGameButton)) {
+		else if (mouseEvent.getSource().equals(this.exitGameButton)) {
 			ViewUtils.changeImage(this.exitGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		else if (mouseEvent.getSource().equals(arenaButton)) {
+		else if (mouseEvent.getSource().equals(this.arenaButton)) {
 			ViewUtils.changeImage(this.arenaButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
@@ -127,28 +127,28 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	public void returnButtonBackgroundToNormal (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(continueButton))
+		if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			ViewUtils.changeImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
-		else if (mouseEvent.getSource().equals(newGameButton)) {
+		else if (mouseEvent.getSource().equals(this.newGameButton)) {
 			ViewUtils.changeImage(this.newGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
-		else if (mouseEvent.getSource().equals(loadGameButton)) {
+		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
 			ViewUtils.changeImage(this.loadGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
-		else if (mouseEvent.getSource().equals(settingsButton)) {
+		else if (mouseEvent.getSource().equals(this.settingsButton)) {
 			ViewUtils.changeImage(this.settingsButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
-		else if (mouseEvent.getSource().equals(exitGameButton)) {
+		else if (mouseEvent.getSource().equals(this.exitGameButton)) {
 			ViewUtils.changeImage(this.exitGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
-		else if (mouseEvent.getSource().equals(arenaButton)) {
+		else if (mouseEvent.getSource().equals(this.arenaButton)) {
 			ViewUtils.changeImage(this.arenaButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
@@ -157,22 +157,22 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	void changeButtonTextColor (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(continueButton)) {
+		if (mouseEvent.getSource().equals(this.continueButton)) {
 			ViewUtils.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		else if (mouseEvent.getSource().equals(newGameButton)) {
+		else if (mouseEvent.getSource().equals(this.newGameButton)) {
 			ViewUtils.setButtonColor(this.newGameButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		else if (mouseEvent.getSource().equals(loadGameButton)) {
+		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
 			ViewUtils.setButtonColor(this.loadGameButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		else if (mouseEvent.getSource().equals(settingsButton)) {
+		else if (mouseEvent.getSource().equals(this.settingsButton)) {
 			ViewUtils.setButtonColor(this.settingsButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		else if (mouseEvent.getSource().equals(exitGameButton)) {
+		else if (mouseEvent.getSource().equals(this.exitGameButton)) {
 			ViewUtils.setButtonColor(this.exitGameButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		else if (mouseEvent.getSource().equals(arenaButton)) {
+		else if (mouseEvent.getSource().equals(this.arenaButton)) {
 			ViewUtils.setButtonColor(this.arenaButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
@@ -180,22 +180,23 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(continueButton)) {
+		if (mouseEvent.getSource().equals(this.continueButton)) {
 			ViewUtils.setButtonColor(this.continueButtonText, Color.BLACK);
 		}
-		else if (mouseEvent.getSource().equals(newGameButton)) {
+		else if (mouseEvent.getSource().equals(this.newGameButton)) {
 			ViewUtils.setButtonColor(this.newGameButtonText, Color.BLACK);
+			PrologueView.show(VaultApplication.getStage());
 		}
-		else if (mouseEvent.getSource().equals(loadGameButton)) {
+		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
 			ViewUtils.setButtonColor(this.loadGameButtonText, Color.BLACK);
 		}
-		else if (mouseEvent.getSource().equals(settingsButton)) {
+		else if (mouseEvent.getSource().equals(this.settingsButton)) {
 			ViewUtils.setButtonColor(this.settingsButtonText, Color.BLACK);
 		}
-		else if (mouseEvent.getSource().equals(exitGameButton)) {
+		else if (mouseEvent.getSource().equals(this.exitGameButton)) {
 			ViewUtils.setButtonColor(this.exitGameButtonText, Color.BLACK);
 		}
-		else if (mouseEvent.getSource().equals(arenaButton)) {
+		else if (mouseEvent.getSource().equals(this.arenaButton)) {
 			ViewUtils.setButtonColor(this.arenaButtonText, Color.BLACK);
 		}
 	}
@@ -203,6 +204,6 @@ public class MainMenuDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		ViewUtils.changeImage(backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		ViewUtils.changeImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 	}
 }

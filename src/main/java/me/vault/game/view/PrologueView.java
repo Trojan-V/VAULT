@@ -26,7 +26,7 @@ public class PrologueView
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
-	private static final String PROLOGUE_VIEW_FXML = "1080p_prologue.fxml";
+	private static final String PROLOGUE_VIEW_FXML = "prologue.fxml";
 
 
 	private static final Scene PROLOGUE_SCENE = ResourceLoader.loadScene(PrologueView.class, PROLOGUE_VIEW_FXML);
