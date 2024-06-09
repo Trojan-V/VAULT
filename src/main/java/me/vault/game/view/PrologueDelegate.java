@@ -1,4 +1,4 @@
-package me.vault.game;
+package me.vault.game.view;
 
 
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import me.vault.game.city.CityView;
+import me.vault.game.VaultApplication;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
@@ -19,7 +19,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
 
-public class PrologueController implements Initializable
+public class PrologueDelegate implements Initializable
 {
 	@FXML
 	private ImageView prologueImageView;
@@ -50,14 +50,14 @@ public class PrologueController implements Initializable
 	@FXML
 	void continueButtonClick (final MouseEvent ignored)
 	{
-		ControllerActions.setButtonColor(buttonContinue, Color.BLACK);
+		ViewUtils.setButtonColor(buttonContinue, Color.BLACK);
 		CityView.show(VaultApplication.getStage());
 	}
 
 	@FXML
 	void backButtonClick (final MouseEvent ignored)
 	{
-		ControllerActions.setButtonColor(buttonBack, Color.BLACK);
+		ViewUtils.setButtonColor(buttonBack, Color.BLACK);
 		MainMenuView.showMainMenu(VaultApplication.getStage());
 	}
 
@@ -65,10 +65,10 @@ public class PrologueController implements Initializable
 	void changeButtonTextColor (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			ControllerActions.setButtonColor(this.buttonBack, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtils.setButtonColor(this.buttonBack, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
-			ControllerActions.setButtonColor(this.buttonContinue, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtils.setButtonColor(this.buttonContinue, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
 
@@ -76,11 +76,11 @@ public class PrologueController implements Initializable
 	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			ControllerActions.changeImage(this.backButtonBackground,
+			ViewUtils.changeImage(this.backButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
-			ControllerActions.changeImage(this.continueButtonBackground,
+			ViewUtils.changeImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 
@@ -91,11 +91,11 @@ public class PrologueController implements Initializable
 	{
 		if (mouseEvent.getSource().equals(buttonPrologueWeiter))
 		{
-			ControllerActions.changeImage(this.continueButtonBackground,
+			ViewUtils.changeImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			ControllerActions.changeImage(this.backButtonBackground,
+			ViewUtils.changeImage(this.backButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
@@ -104,6 +104,6 @@ public class PrologueController implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.prologueImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
-		ControllerActions.setText(this.storyText, StringConstants.prologue);
+		ViewUtils.setText(this.storyText, StringConstants.prologue);
 	}
 }

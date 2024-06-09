@@ -1,4 +1,4 @@
-package me.vault.game.city.workshop;
+package me.vault.game.view;
 
 
 import javafx.event.ActionEvent;
@@ -13,7 +13,6 @@ import me.vault.game.artifact.AttributeMultiplier;
 import me.vault.game.artifact.impl.DamageArtifact;
 import me.vault.game.artifact.impl.DefenseArtifact;
 import me.vault.game.artifact.impl.HealthArtifact;
-import me.vault.game.city.CityView;
 import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -27,14 +26,14 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
 
-public class WorkshopController extends CityBuildingController implements Initializable
+public class WorkshopDelegate extends CityBuildingController implements Initializable
 {
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *
 	 * @see Logger
 	 */
-	private static final ILogger LOGGER = new Logger(WorkshopController.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(WorkshopDelegate.class.getSimpleName());
 
 
 	@FXML

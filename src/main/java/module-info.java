@@ -16,7 +16,6 @@ module me.vault.game {
 	exports me.vault.game;
 	exports me.vault.game.artifact;
 	exports me.vault.game.interfaces;
-	exports me.vault.game.city;
 	exports me.vault.game.city.building;
 	exports me.vault.game.currency;
 	exports me.vault.game.troop.troop;
@@ -32,14 +31,13 @@ module me.vault.game {
 	opens me.vault.game.currency to javafx.fxml;
 	exports me.vault.game.artifact.impl;
 	opens me.vault.game.artifact.impl to javafx.fxml;
-	exports me.vault.game.city.workshop;
 	opens me.vault.game.city.workshop to javafx.fxml;
-	exports me.vault.game.city.docks;
 	opens me.vault.game.city.docks to javafx.fxml;
-	exports me.vault.game.city.barracks;
 	opens me.vault.game.city.barracks to javafx.fxml;
-	exports me.vault.game.city.spacebar;
 	opens me.vault.game.city.spacebar to javafx.fxml;
-	exports me.vault.game.city.trainingfacility;
 	opens me.vault.game.city.trainingfacility to javafx.fxml;
+	opens me.vault.game.model.city to javafx.fxml;
+	exports me.vault.game.model.city;
+	exports me.vault.game.view;
+	opens me.vault.game.view to javafx.fxml;
 }

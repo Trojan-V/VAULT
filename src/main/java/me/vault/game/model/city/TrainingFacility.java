@@ -1,4 +1,4 @@
-package me.vault.game.city.market;
+package me.vault.game.model.city;
 
 
 import javafx.scene.Scene;
@@ -15,12 +15,12 @@ import java.util.Map;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
-public class Market extends AbsCityBuilding
+public class TrainingFacility extends AbsCityBuilding
 {
-	private static final Market INSTANCE;
+	private static final TrainingFacility INSTANCE;
 
 
-	private static final Scene SCENE = ResourceLoader.loadScene(Market.class, "market_view.fxml");
+	private static final Scene SCENE = ResourceLoader.loadScene(TrainingFacility.class, "training_facility_view.fxml");
 
 
 	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();
@@ -33,22 +33,22 @@ public class Market extends AbsCityBuilding
 
 	static
 	{
-		NAMES.put(CityBuildingLevel.OLD, "Old Market");
-		NAMES.put(CityBuildingLevel.NORMAL, "Market");
-		NAMES.put(CityBuildingLevel.SUPER, "Super Market");
+		NAMES.put(CityBuildingLevel.OLD, "Old Training Facility");
+		NAMES.put(CityBuildingLevel.NORMAL, "Training Facility");
+		NAMES.put(CityBuildingLevel.SUPER, "Super Training Facility");
 
-		SPRITES.put(CityBuildingLevel.OLD, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png"));
-		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png"));
-		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png"));
+		SPRITES.put(CityBuildingLevel.OLD, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png"));
+		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png"));
+		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png"));
 
 		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
-		INSTANCE = new Market();
+		INSTANCE = new TrainingFacility();
 	}
 
-	public static Market getInstance ()
+	public static TrainingFacility getInstance ()
 	{
 		return INSTANCE;
 	}

@@ -1,4 +1,4 @@
-package me.vault.game.city.trainingfacility;
+package me.vault.game.view;
 
 
 import javafx.event.ActionEvent;
@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
-import me.vault.game.city.CityView;
 import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -20,7 +19,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.*;
 
 
-public class TrainingFacilityController extends CityBuildingController implements Initializable
+public class TrainingFacilityDelegate extends CityBuildingController implements Initializable
 {
 
 	@FXML

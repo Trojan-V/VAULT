@@ -1,10 +1,11 @@
-package me.vault.game;
+package me.vault.game.view;
 
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import me.vault.game.VaultApplication;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
@@ -14,7 +15,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
 
-public final class DifficultyController implements Initializable
+public final class DifficultyDelegate implements Initializable
 {
 
 	@FXML
@@ -61,7 +62,7 @@ public final class DifficultyController implements Initializable
 	 */
 	private static void setDifficultyModifier (final double difficultyModifier)
 	{
-		DifficultyController.difficultyModifier = difficultyModifier;
+		DifficultyDelegate.difficultyModifier = difficultyModifier;
 	}
 
 

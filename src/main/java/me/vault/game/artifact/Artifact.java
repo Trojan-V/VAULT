@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import me.vault.game.artifact.impl.DamageArtifact;
 import me.vault.game.artifact.impl.DefenseArtifact;
 import me.vault.game.artifact.impl.HealthArtifact;
-import me.vault.game.city.workshop.WorkshopController;
+import me.vault.game.view.WorkshopDelegate;
 import me.vault.game.currency.CurrencyTransaction;
 import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
@@ -190,11 +190,11 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * Returns the property that contains the name of the artifact.
 	 * <br>
 	 * This property is bound to an element in the GUI. Check
-	 * {@link WorkshopController#initialize(URL, ResourceBundle)}
+	 * {@link WorkshopDelegate#initialize(URL, ResourceBundle)}
 	 * to see the binding process.
 	 *
 	 * @return The property that contains the name of the artifact.
-	 * @see WorkshopController
+	 * @see WorkshopDelegate
 	 * @see SimpleStringProperty
 	 */
 	@Override
@@ -222,7 +222,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * doesn't change visually in that case.
 	 * <br>
 	 * This property is bound to an element in the GUI. Check
-	 * {@link WorkshopController#initialize(URL, ResourceBundle)}
+	 * {@link WorkshopDelegate#initialize(URL, ResourceBundle)}
 	 * to see the binding process.
 	 *
 	 * @return The current sprite property of the artifact.

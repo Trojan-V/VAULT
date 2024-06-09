@@ -1,4 +1,4 @@
-package me.vault.game.city.market;
+package me.vault.game.view;
 
 
 import javafx.fxml.Initializable;
@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class MarketController extends CityBuildingController implements Initializable
+public class LaboratoryDelegate extends CityBuildingController implements Initializable
 {
 	@Override
 	public void initialize (URL url, ResourceBundle resourceBundle)

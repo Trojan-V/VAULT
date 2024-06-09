@@ -1,4 +1,4 @@
-package me.vault.game.city;
+package me.vault.game.view;
 
 
 import javafx.event.ActionEvent;
@@ -8,18 +8,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
-import me.vault.game.city.barracks.Barracks;
+import me.vault.game.model.city.Barracks;
 import me.vault.game.city.building.AbsCityBuilding;
-import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.city.building.CityBuildingView;
-import me.vault.game.city.commandcenter.CommandCenter;
-import me.vault.game.city.docks.Docks;
-import me.vault.game.city.laboratory.Laboratory;
-import me.vault.game.city.market.Market;
-import me.vault.game.city.spacebar.SpaceBar;
-import me.vault.game.city.trainingfacility.TrainingFacility;
-import me.vault.game.city.workshop.Workshop;
-import me.vault.game.city.workshop.WorkshopController;
+import me.vault.game.model.city.CommandCenter;
+import me.vault.game.model.city.Docks;
+import me.vault.game.model.city.Laboratory;
+import me.vault.game.model.city.Market;
+import me.vault.game.model.city.SpaceBar;
+import me.vault.game.model.city.TrainingFacility;
+import me.vault.game.model.city.Workshop;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 
@@ -38,9 +36,9 @@ import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILEN
  * @see
  * @since 15.05.2024
  */
-public class CityController implements Initializable
+public class CityDelegate implements Initializable
 {
-	private static final CityController INSTANCE = new CityController();
+	private static final CityDelegate INSTANCE = new CityDelegate();
 
 
 	@FXML

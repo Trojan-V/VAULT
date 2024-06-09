@@ -1,4 +1,4 @@
-package me.vault.game.city.docks;
+package me.vault.game.view;
 
 
 import javafx.event.ActionEvent;
@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
-import me.vault.game.city.CityView;
 import me.vault.game.city.building.CityBuildingController;
 import me.vault.game.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -22,14 +21,14 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 
-public class DocksController extends CityBuildingController implements Initializable
+public class DocksDelegate extends CityBuildingController implements Initializable
 {
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *
 	 * @see Logger
 	 */
-	private static final ILogger LOGGER = new Logger(DocksController.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(DocksDelegate.class.getSimpleName());
 
 
 	private static final String BACKGROUND_FILENAME = "city_background.png";

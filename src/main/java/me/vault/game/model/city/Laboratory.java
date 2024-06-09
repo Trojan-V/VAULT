@@ -1,4 +1,4 @@
-package me.vault.game.city.commandcenter;
+package me.vault.game.model.city;
 
 
 import javafx.scene.Scene;
@@ -15,12 +15,12 @@ import java.util.Map;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
-public class CommandCenter extends AbsCityBuilding
+public class Laboratory extends AbsCityBuilding
 {
-	private static final CommandCenter INSTANCE;
+	private static final Laboratory INSTANCE;
 
 
-	private static final Scene SCENE = ResourceLoader.loadScene(CommandCenter.class, "command_center_view.fxml");
+	private static final Scene SCENE = ResourceLoader.loadScene(Laboratory.class, "laboratory_view.fxml");
 
 
 	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();
@@ -33,22 +33,22 @@ public class CommandCenter extends AbsCityBuilding
 
 	static
 	{
-		NAMES.put(CityBuildingLevel.OLD, "Old Command Center");
-		NAMES.put(CityBuildingLevel.NORMAL, "Command Center");
-		NAMES.put(CityBuildingLevel.SUPER, "Super Command Center");
+		NAMES.put(CityBuildingLevel.OLD, "Old Laboratory");
+		NAMES.put(CityBuildingLevel.NORMAL, "Laboratory");
+		NAMES.put(CityBuildingLevel.SUPER, "Super Laboratory");
 
-		SPRITES.put(CityBuildingLevel.OLD, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/command_center_icon.png"));
-		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/command_center_icon.png"));
-		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/command_center_icon.png"));
+		SPRITES.put(CityBuildingLevel.OLD, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"));
+		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"));
+		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"));
 
 		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
-		INSTANCE = new CommandCenter();
+		INSTANCE = new Laboratory();
 	}
 
-	public static CommandCenter getInstance ()
+	public static Laboratory getInstance ()
 	{
 		return INSTANCE;
 	}

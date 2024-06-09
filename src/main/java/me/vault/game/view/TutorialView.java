@@ -1,4 +1,4 @@
-package me.vault.game;
+package me.vault.game.view;
 
 
 import javafx.scene.Scene;
@@ -31,7 +31,6 @@ public class TutorialView
 
 
 	private static final Scene TUTORIAL_MENU_SCENE = ResourceLoader.loadScene(TutorialView.class, TUTORIAL_VIEW_FXML);
-
 
 	public static void show (final Stage stage)
 	{

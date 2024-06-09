@@ -1,4 +1,4 @@
-package me.vault.game;
+package me.vault.game.view;
 
 
 import javafx.scene.image.Image;
@@ -8,7 +8,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
 
-public class ControllerActions
+public class ViewUtils
 {
 	public static void setButtonColor (Text text, Color color)
 	{

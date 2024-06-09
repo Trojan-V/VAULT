@@ -1,4 +1,4 @@
-package me.vault.game.city;
+package me.vault.game.view;
 
 
 import javafx.scene.Scene;

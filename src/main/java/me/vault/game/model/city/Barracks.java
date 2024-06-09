@@ -1,4 +1,4 @@
-package me.vault.game.city.spacebar;
+package me.vault.game.model.city;
 
 
 import javafx.scene.Scene;
@@ -15,12 +15,12 @@ import java.util.Map;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
-public class SpaceBar extends AbsCityBuilding
+public class Barracks extends AbsCityBuilding
 {
-	private static final SpaceBar INSTANCE;
+	private static final Barracks INSTANCE;
 
 
-	private static final Scene SCENE = ResourceLoader.loadScene(SpaceBar.class, "space_bar_view.fxml");
+	private static final Scene SCENE = ResourceLoader.loadScene(Barracks.class, "barracks_view.fxml");
 
 
 	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();
@@ -33,22 +33,22 @@ public class SpaceBar extends AbsCityBuilding
 
 	static
 	{
-		NAMES.put(CityBuildingLevel.OLD, "Old Space-Bar");
-		NAMES.put(CityBuildingLevel.NORMAL, "Space-Bar");
-		NAMES.put(CityBuildingLevel.SUPER, "Super Space-Bar");
+		NAMES.put(CityBuildingLevel.OLD, "Old Barracks");
+		NAMES.put(CityBuildingLevel.NORMAL, "Barracks");
+		NAMES.put(CityBuildingLevel.SUPER, "Super Barracks");
 
-		SPRITES.put(CityBuildingLevel.OLD, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"));
-		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"));
-		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"));
+		SPRITES.put(CityBuildingLevel.OLD, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/barracks_icon.png"));
+		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/barracks_icon.png"));
+		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/barracks_icon.png"));
 
 		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
-		INSTANCE = new SpaceBar();
+		INSTANCE = new Barracks();
 	}
 
-	public static SpaceBar getInstance ()
+	public static Barracks getInstance ()
 	{
 		return INSTANCE;
 	}
