@@ -114,7 +114,7 @@ public final class DamageArtifact extends Artifact
 	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the damage
 	 * artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DamageArtifact#NAMES} field to be able to re-use it
+	 * This map is created once and then stored in the {@link DamageArtifact#UPGRADE_COSTS} field to be able to re-use it
 	 * when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
@@ -183,7 +183,7 @@ public final class DamageArtifact extends Artifact
 	 * Initializes and returns the map of names, which contains all different names for the
 	 * damage artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DamageArtifact#MODIFIERS} field to be able to re-use it
+	 * This map is created once and then stored in the {@link DamageArtifact#NAMES} field to be able to re-use it
 	 * when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
@@ -191,7 +191,6 @@ public final class DamageArtifact extends Artifact
 	 * @return The map of names for the damage artifact.
 	 * @see Map
 	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -211,7 +210,7 @@ public final class DamageArtifact extends Artifact
 	 * Initializes and returns the map of sprites, which contains all different names for the
 	 * damage artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DamageArtifact#MODIFIERS} field to be able to re-use it
+	 * This map is created once and then stored in the {@link DamageArtifact#SPRITES} field to be able to re-use it
 	 * when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
@@ -219,7 +218,6 @@ public final class DamageArtifact extends Artifact
 	 * @return The map of sprites for the damage artifact.
 	 * @see Map
 	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{

@@ -115,7 +115,7 @@ public final class DefenseArtifact extends Artifact
 	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the defense
 	 * artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DefenseArtifact#NAMES} field to be able to re-use it
+	 * This map is created once and then stored in the {@link DefenseArtifact#UPGRADE_COSTS} field to be able to re-use it
 	 * when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
@@ -184,7 +184,7 @@ public final class DefenseArtifact extends Artifact
 	 * Initializes and returns the map of names, which contains all different names for the
 	 * defense artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DefenseArtifact#MODIFIERS} field to be able to re-use it
+	 * This map is created once and then stored in the {@link DefenseArtifact#NAMES} field to be able to re-use it
 	 * when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
@@ -192,7 +192,6 @@ public final class DefenseArtifact extends Artifact
 	 * @return The map of names for the defense artifact.
 	 * @see Map
 	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -212,7 +211,7 @@ public final class DefenseArtifact extends Artifact
 	 * Initializes and returns the map of sprites, which contains all different names for the
 	 * defense artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DefenseArtifact#MODIFIERS} field to be able to re-use it
+	 * This map is created once and then stored in the {@link DefenseArtifact#SPRITES} field to be able to re-use it
 	 * when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
@@ -220,7 +219,6 @@ public final class DefenseArtifact extends Artifact
 	 * @return The map of sprites for the defense artifact.
 	 * @see Map
 	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
