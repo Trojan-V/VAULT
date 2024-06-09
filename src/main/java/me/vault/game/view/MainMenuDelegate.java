@@ -4,25 +4,33 @@ package me.vault.game.view;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import me.vault.game.VaultApplication;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public class MainMenuDelegate implements Initializable
 {
-	//------------------------- Buttons ------------------------------------------------
+	// Buttons ------------------------------------------------------------------------------------------------------------------
+
 	@FXML
 	private Button continueButton;
 
@@ -41,7 +49,7 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private Button arenaButton;
 
-	//------------------------- ImageViews ------------------------------------------------
+	//ImageViews ------------------------------------------------------------------------------------------------------------
 
 	@FXML
 	private ImageView backgroundImageView;
@@ -64,7 +72,7 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private ImageView arenaButtonBackground;
 
-	//------------------------- Texts ------------------------------------------------
+	// Texts -------------------------------------------------------------------------------------------------------------
 
 	@FXML
 	private Text continueButtonText;
@@ -85,7 +93,7 @@ public class MainMenuDelegate implements Initializable
 	private Text arenaButtonText;
 
 
-	//------------------------- Actions ------------------------------------------------
+	// Actions ------------------------------------------------------------------------------------------------------------
 
 	@FXML
 	void changeButtonBackground (final MouseEvent mouseEvent)
