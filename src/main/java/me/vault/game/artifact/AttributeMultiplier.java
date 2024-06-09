@@ -115,7 +115,7 @@ public class AttributeMultiplier
 	 * Zero damage or defense could technically be valid in niche cases, hence why this check is not performed as
 	 * part of the validation.
 	 *
-	 * @throws InvalidAttributeModifierException When one of the supplied modifiers was invalid.
+	 * @exception InvalidAttributeModifierException When one of the supplied modifiers was invalid.
 	 */
 	private void validate () throws InvalidAttributeModifierException
 	{
@@ -193,16 +193,11 @@ public class AttributeMultiplier
 	 * Returns the instance of this class in a human-readable format by creating a string.
 	 *
 	 * @return The message in its string representation.
-	 * @precondition None.
-	 * @postcondition The internal data structure of the attribute multipliers was taken,
-	 * was compiled into a string and was returned.
 	 */
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.damageMultiplierProperty.get(),
-			this.healthMultiplierProperty.get(),
-			this.defenseMultiplierProperty.get());
+		return MessageFormat.format(TO_STRING_PATTERN, this.damageMultiplierProperty.get(), this.healthMultiplierProperty.get(), this.defenseMultiplierProperty.get());
 	}
 
 
@@ -217,19 +212,19 @@ public class AttributeMultiplier
 	public enum Type
 	{
 		/**
-		 * Attribute multiplier type for the damage multiplier.
+		 * Attribute-multiplier type for the damage multiplier.
 		 */
 		DAMAGE,
 
 
 		/**
-		 * Attribute multiplier type for the health multiplier.
+		 * Attribute-multiplier type for the health multiplier.
 		 */
 		HEALTH,
 
 
 		/**
-		 * Attribute multiplier type for the defense multiplier.
+		 * Attribute-multiplier type for the defense multiplier.
 		 */
 		DEFENSE
 	}

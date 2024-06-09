@@ -3,6 +3,7 @@ package me.vault.game;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import me.vault.game.utility.jvm.JvmArgumentParser;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.logging.Logger.ProcedureType;

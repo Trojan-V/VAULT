@@ -29,6 +29,8 @@ module me.vault.game {
 	exports me.vault.game.utility.logging;
 	exports me.vault.game.utility.loading;
 
+	opens me.vault.game.city.commandcenter to javafx.fxml;
+	exports me.vault.game.city.commandcenter;
 	opens me.vault.game.currency to javafx.fxml;
 	exports me.vault.game.artifact.impl;
 	opens me.vault.game.artifact.impl to javafx.fxml;

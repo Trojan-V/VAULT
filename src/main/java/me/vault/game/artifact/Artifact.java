@@ -73,8 +73,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */
-	private static final String TO_STRING_PATTERN =
-		"Artifact[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
+	private static final String TO_STRING_PATTERN = "Artifact[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
 
 
 	/**
@@ -277,6 +276,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * Sets the level of the artifact to a new level.
 	 *
 	 * @param currentLevel The new level of the artifact in form of an instance of {@link ArtifactLevel}.
+	 *
 	 * @see ArtifactLevel
 	 */
 	@Override
@@ -376,15 +376,11 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * Returns the instance of this class in a human-readable format by creating a string.
 	 *
 	 * @return The message in its string representation.
-	 * @precondition None.
-	 * @postcondition The internal data structure of the artifact was taken,
-	 * was compiled into a string and was returned.
 	 */
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.currentLevel.name(), this.nameProperty.get(),
-			this.spriteProperty.get().toString(),
-			this.attributeMultiplier.toString(), this.currentUpgradeCost.toString());
+		return MessageFormat.format(TO_STRING_PATTERN, this.currentLevel.name(), this.nameProperty.get(), this.spriteProperty.get()
+			.toString(), this.attributeMultiplier.toString(), this.currentUpgradeCost.toString());
 	}
 }

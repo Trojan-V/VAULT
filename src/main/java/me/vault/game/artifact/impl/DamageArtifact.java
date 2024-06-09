@@ -93,7 +93,6 @@ public final class DamageArtifact extends Artifact
 	 */
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 
-
 	static
 	{
 		/*
@@ -110,7 +109,6 @@ public final class DamageArtifact extends Artifact
 		// Ensure the instance is created after all the other static fields are initialized.
 		INSTANCE = new DamageArtifact();
 	}
-
 
 	/**
 	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the damage

@@ -78,6 +78,7 @@ public enum ArtifactLevel implements ILevel
 	 * Checks if the supplied artifact level is the minimum level.
 	 *
 	 * @param level The level which is checked.
+	 *
 	 * @return True if the supplied level is the minimum level, otherwise false.
 	 */
 	private static boolean checkIsMinimumLevel (final ArtifactLevel level)
@@ -90,6 +91,7 @@ public enum ArtifactLevel implements ILevel
 	 * Checks if the supplied artifact level is the maximum level.
 	 *
 	 * @param level The level which is checked.
+	 *
 	 * @return True if the supplied level is the maximum level, otherwise false.
 	 */
 	private static boolean checkIsMaximumLevel (final ArtifactLevel level)

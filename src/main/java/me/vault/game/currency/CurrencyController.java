@@ -1,8 +1,19 @@
 package me.vault.game.currency;
 
 
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import me.vault.game.city.building.CityBuildingController;
+import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 /**
@@ -13,8 +24,7 @@ import me.vault.game.utility.logging.Logger;
  * @see Currency
  * @since 21.05.2024
  */
-// TODO: Logging einbauen
-public final class CurrencyController
+public final class CurrencyController implements Initializable
 {
 	/**
 	 * The logger object for this class used for writing to the console.
@@ -24,11 +34,55 @@ public final class CurrencyController
 	private static final ILogger LOGGER = new Logger(CurrencyController.class.getSimpleName());
 
 
-	/**
-	 * Private constructor since the class isn't supposed to be instantiated.
-	 */
-	private CurrencyController ()
-	{}
+	private static final Scene SCENE = ResourceLoader.loadScene(CurrencyController.class, "currency_view.fxml");
+
+
+	@FXML
+	private Label steelAmountLabel;
+
+
+	@FXML
+	private Label compositeAmountLabel;
+
+
+	@FXML
+	private Label scienceAmountLabel;
+
+
+	@FXML
+	private Label foodAmountLabel;
+
+
+	@FXML
+	private Label creditAmountLabel;
+
+
+	@FXML
+	private ImageView steelImageView;
+
+
+	@FXML
+	private ImageView compositeImageView;
+
+
+	@FXML
+	private ImageView scienceImageView;
+
+
+	@FXML
+	private ImageView foodImageView;
+
+
+	@FXML
+	private ImageView creditImageView;
+
+
+	@Override
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
+	{
+		this.initCurrencies();
+	}
+
 
 
 	/**
@@ -45,4 +99,21 @@ public final class CurrencyController
 			currency.addAmount(transaction.getAmount(currency));
 		}
 	}
+
+
+	private void initCurrencies ()
+	{
+		CityBuildingController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
+		CityBuildingController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
+		CityBuildingController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
+		CityBuildingController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
+		CityBuildingController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
+	}
+
+
+	public static Scene getCurrencyBannerScene ()
+	{
+		return SCENE;
+	}
+
 }

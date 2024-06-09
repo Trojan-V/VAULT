@@ -93,7 +93,6 @@ public final class HealthArtifact extends Artifact
 	 */
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 
-
 	static
 	{
 		/*
@@ -110,7 +109,6 @@ public final class HealthArtifact extends Artifact
 		// Ensure the instance is created after all the other static fields are initialized.
 		INSTANCE = new HealthArtifact();
 	}
-
 
 	/**
 	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the health

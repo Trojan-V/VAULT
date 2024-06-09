@@ -1,218 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.city.barracks.BarracksController">
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.city.commandcenter.CommandCenterController">
    <children>
       <ImageView fx:id="backgroundImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D height="720.0" width="1280.0" />
          </viewport></ImageView>
-      <HBox layoutX="8.0" layoutY="8.0" prefHeight="106.0" prefWidth="1280.0" AnchorPane.bottomAnchor="614.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="90.0" prefWidth="185.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="ZURÜCK">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="25.0" right="5.0" top="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Segoe UI Semibold" size="20.0" />
-               </font>
-            </Button>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="steelImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="158.0">
-                     <children>
-                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="STEEL" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="steelAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="compositeImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="184.0">
-                     <children>
-                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="11.0" prefWidth="124.0" text="COMPOSITES" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="compositeAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="scienceImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="190.0">
-                     <children>
-                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="10.0" prefWidth="100.0" text="SCIENCE" textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="scienceAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="foodImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="163.0">
-                     <children>
-                        <Label prefHeight="11.0" prefWidth="115.0" text="FOOD RATIONS" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="foodAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="190.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="creditImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="170.0">
-                     <children>
-                        <Label prefHeight="25.0" prefWidth="145.0" text="ENERGY CREDITS" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="creditAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="25.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-         </children>
-      </HBox>
-      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="125.0">
+      <SubScene fx:id="currencySubScene" height="100.0" width="1280.0" AnchorPane.bottomAnchor="620.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <root>
+          <Region />
+        </root>
+      </SubScene>
+      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="1230.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="115.0">
          <children>
             <GridPane gridLinesVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="182.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="458.0" minHeight="10.0" prefHeight="322.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="521.0" minHeight="10.0" prefHeight="515.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label prefHeight="11.0" prefWidth="363.0" text="BARRACKS: NEW-TERRA" underline="true" GridPane.columnSpan="2147483647">
+                  <Label prefHeight="55.0" prefWidth="447.0" text="Command Center: Fight your way back" underline="true" GridPane.columnSpan="2147483647">
                      <font>
                         <Font name="Segoe UI Semibold" size="24.0" />
                      </font>
@@ -223,116 +46,198 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <GridPane gridLinesVisible="true" GridPane.rowIndex="2">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="154.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="166.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="515.0" minHeight="10.0" prefHeight="505.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="164.0" prefWidth="409.0" style="-fx-border-color: grey; -fx-background-color: lightcyan;" text="A commanding officer who will give everything to return to his homeworld." wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
+                        <GridPane gridLinesVisible="true">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="449.0" minHeight="98.0" prefHeight="139.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="404.0" minHeight="108.0" prefHeight="147.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="404.0" minHeight="130.0" prefHeight="145.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Inventory-Overview" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <GridPane GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="250.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="198.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="166.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Selected Faction:" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <ImageView fx:id="selectedFactionImageView" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onFactionClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <Label fx:id="selectedFactionLabel" onMouseClicked="#onFactionClick" text="FACTION (TEMP)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.rowIndex="2">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="250.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="198.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="166.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="152.0" minHeight="152.0" prefHeight="152.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Selected Artifact:" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <ImageView fx:id="selectedArtifactImageView" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onArtifactClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <Label fx:id="selectedArtifactLabel" onMouseClicked="#onArtifactClick" text="ARTIFACT (TEMP)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.rowIndex="3">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="250.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="198.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="166.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Mercenaries bought:" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onMegaCorpClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <Label onMouseClicked="#onMegaCorpClick" text="MEGA-CORP (TEMP)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                        <GridPane gridLinesVisible="true" GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="449.0" minHeight="82.0" prefHeight="134.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="404.0" minHeight="123.0" prefHeight="284.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="35.0" prefWidth="158.0" text="Mission-Board" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <Label fx:id="currentNewsLabel" alignment="TOP_LEFT" prefHeight="64.0" prefWidth="594.0" text="NEWS (TEMP): DA WAR EINMAL EIN FUCHS, LALALALALALALA" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="38.0" prefWidth="597.0" text="Current News:" underline="true" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Button fx:id="goToMissionBoardButton" mnemonicParsing="false" onAction="#onGoToMissionBoard" prefHeight="269.0" prefWidth="570.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select Mission" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
                            <GridPane.margin>
-                              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                              <Insets />
                            </GridPane.margin>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </Label>
-                        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="164.0" prefWidth="409.0" style="-fx-border-color: grey; -fx-background-color: lightcyan;" text="An elite-soldier who excells the other soldiers in his group with his outstanding aim." wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                           </GridPane.margin>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </Label>
-                        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="165.0" prefWidth="410.0" style="-fx-border-color: grey; -fx-background-color: lightcyan;" text="A well-rounded soldier who isn't afraid to give everything for his cause." wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                           </GridPane.margin>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </Label>
-                        <ImageView fitHeight="128.0" fitWidth="128.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                           <GridPane.margin>
-                              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                           <GridPane.margin>
-                              <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                           <GridPane.margin>
-                              <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="125.0" prefWidth="205.0" style="-fx-background-color: lightcyan; -fx-border-color: grey;" text="Infantry" wrapText="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="24.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" left="25.0" top="10.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="125.0" prefWidth="205.0" style="-fx-background-color: lightcyan; -fx-border-color: grey;" text="Lieutenant" wrapText="true" GridPane.columnIndex="1">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="24.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" left="25.0" top="10.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="125.0" prefWidth="205.0" style="-fx-background-color: lightcyan; -fx-border-color: grey;" text="Precision Shooter" wrapText="true" GridPane.columnIndex="2">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="24.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" left="25.0" top="10.0" />
-                           </GridPane.margin>
-                        </Label>
+                        </GridPane>
                      </children>
                   </GridPane>
-                  <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="87.0" prefWidth="1178.0" style="-fx-background-color: lightcyan; -fx-border-color: grey;" text="Beschreibung der Fraktion und ihrer Rolle in der Story" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets left="25.0" right="25.0" />
-                     </GridPane.margin>
-                     <font>
-                        <Font name="Segoe UI" size="18.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </Label>
-                  <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="1178.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Auswählen" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                     </GridPane.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                  </Button>
                </children>
             </GridPane>
          </children>
       </AnchorPane>
+      <Button layoutX="25.0" layoutY="655.0" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: lightsalmon; -fx-border-color: salmon;" text="Back" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="640.0">
+         <font>
+            <Font name="Segoe UI" size="22.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

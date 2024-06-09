@@ -10,17 +10,17 @@ import javafx.scene.text.Text;
 
 public class ControllerActions
 {
-	public static void setButtonColor (Text text, Color color)
+	public static void setButtonColor (final Text text, final Color color)
 	{
 		text.setFill(Paint.valueOf(color.toString()));
 	}
 
-	public static void changeImage (ImageView imageView, Image image)
+	public static void changeImage (final ImageView imageView, final Image image)
 	{
 		imageView.setImage(image);
 	}
 
-	public static void setText (Text textElement, String text)
+	public static void setText (final Text textElement, final String text)
 	{
 		textElement.setText(text);
 	}
