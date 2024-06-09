@@ -50,14 +50,14 @@ public class PrologueController implements Initializable
 	@FXML
 	void continueButtonClick (final MouseEvent ignored)
 	{
-		this.buttonContinue.setFill(Color.BLACK);
+		ControllerActions.setButtonColor(buttonContinue, Color.BLACK);
 		CityView.show(VaultApplication.getStage());
 	}
 
 	@FXML
 	void backButtonClick (final MouseEvent ignored)
 	{
-		this.buttonBack.setFill(Color.BLACK);
+		ControllerActions.setButtonColor(buttonBack, Color.BLACK);
 		MainMenuView.showMainMenu(VaultApplication.getStage());
 	}
 
@@ -65,10 +65,10 @@ public class PrologueController implements Initializable
 	void changeButtonTextColor (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			this.buttonBack.setFill(Color.valueOf(StringConstants.colorLightBlue));
+			ControllerActions.setButtonColor(this.buttonBack, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
-			this.buttonContinue.setFill(Color.valueOf(StringConstants.colorLightBlue));
+			ControllerActions.setButtonColor(this.buttonContinue, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
 
@@ -76,10 +76,12 @@ public class PrologueController implements Initializable
 	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			this.backButtonBackground.setImage(ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ControllerActions.changeImage(this.backButtonBackground,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
-			this.continueButtonBackground.setImage(ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ControllerActions.changeImage(this.continueButtonBackground,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 
 	}
@@ -87,11 +89,14 @@ public class PrologueController implements Initializable
 	@FXML
 	public void returnButtonBackgroundToNormal(final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
-			this.continueButtonBackground.setImage(ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+		if (mouseEvent.getSource().equals(buttonPrologueWeiter))
+		{
+			ControllerActions.changeImage(this.continueButtonBackground,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			this.backButtonBackground.setImage(ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ControllerActions.changeImage(this.backButtonBackground,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
 
@@ -99,6 +104,6 @@ public class PrologueController implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.prologueImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
-		this.storyText.setText(StringConstants.prologue);
+		ControllerActions.setText(this.storyText, StringConstants.prologue);
 	}
 }
