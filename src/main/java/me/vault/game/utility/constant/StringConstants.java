@@ -15,26 +15,20 @@ public interface StringConstants
 		"Das Transportsystem auf das das Team " +
 		"f\u00FCr ihre R\u00FCckreise angewiesen waren, hatte eine Fehlst\u00F6rung und muss repariert werden.";
 
-
 	public static String NEW_TERRA_FACTION_DESCRIPTION = "The government of New Terra is a major faction in the " +
 	                                                     "political landscape with its capital of Terra, formally " +
 	                                                     "know as earth. The egalitarian government ascended as the " +
 	                                                     "victor of the last Sol-war as the last governmental " +
 	                                                     "entity which was still";
 
-
 	public static String NEW_TERRA_FACTION_SLOGAN = "sovereignty is our strength";
-
 
 	public static String INFANTRY = "A well-rounded soldier who isn't afraid to give everything for his cause.";
 
-
 	public static String LIEUTENANT = "A commanding officer who will give everything to return to his homeworld.";
-
 
 	public static String PRECISION_SHOOTER = "An elite-soldier who excels the other soldiers in his group with his " +
 	                                         "outstanding aim.";
-
 
 	public static String MILITARY_GOVERMENT_FACTION_DESCRIPTION = "The military government were one of the first " +
 	                                                              "factions in this new system. Shortly before the " +
@@ -44,21 +38,17 @@ public interface StringConstants
 	                                                              "Bernard Star where it did split from a distant " +
 	                                                              "precursor of New Terra.";
 
-
 	public static String MILITARY_GOVERMENT_FACTION_SLOGAN = "for the Emperor";
 
 
 	public static String SPACE_MARINE = "The pinnacle of evolution. A super soldier who works like an one-man-army. " +
 	                                    "Takes up a lot of space.";
 
-
 	public static String ENGINEER = "A government agent who is specialized in the usage of energy based weapons and " +
 	                                "utilities.";
 
-
 	public static String OFFICER = "A high-grade party member who descended to the lower ranks to help his soldiers " +
 	                               "accomplish their goals.";
-
 
 	public static String EXPLORER_ASSOCIATION_FACTION_DESCRIPTION = "The Explorer-Association did form around 2357 " +
 	                                                                "after the first failed exploration into the " +
@@ -67,23 +57,27 @@ public interface StringConstants
 	                                                                "adventures spirited people who delve into the " +
 	                                                                "unknown space of the void.";
 
-
 	public static String EXPLORER_ASSOCIATION_FACTION_SLOGAN = "to the new wonders of the void";
-
 
 	public static String MEDIC =
 		"A high-grade party member who descended to the lower ranks to help his soldiers accomplish their goals.";
 
-
 	public static String SNIPER =
 		"An explorer soldier who is able to fight over great distances. Not as robust as other units.";
-
 
 	public static String RANGER =
 		"An explorer soldier who is able to move very quickly and far. Not as robust as other units.";
 
-	public static String buttonRoundImageName = "button_round.png";
 
+	public static String HEALTH_ARTIFACT = "An artifact which improves the health and vitality of your troops.";
+
+
+	public static String DAMAGE_ARTIFACT = "An artifact which improves the attacks of all your troops.";
+
+
+	public static String DEFENCE_ARTIFACT = "An artifact which improves the defense attribute of your troops.";
+
+	public static String buttonRoundImageName = "button_round.png";
 
 	public static String buttonImageName = "button.png";
 
