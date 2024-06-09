@@ -26,14 +26,38 @@ public interface StringConstants
 	public static String NEW_TERRA_FACTION_SLOGAN = "Sovereignty is our strength";
 
 
-	public static String Infantry = "A well-rounded soldier who isn't afraid to give everything for his cause.";
+	public static String INFANTRY = "A well-rounded soldier who isn't afraid to give everything for his cause.";
 
 
 	public static String LIEUTENANT = "A commanding officer who will give everything to return to his homeworld.";
 
 
-	public static String PRECISION_SHOOTER =
-		"An elite-soldier who excels the other soldiers in his group with his outstanding aim.";
+	public static String PRECISION_SHOOTER = "An elite-soldier who excels the other soldiers in his group with his " +
+	                                         "outstanding aim.";
+
+
+	public static String MILITARY_GOVERMENT_FACTION_DESCRIPTION = "The military government were one of the first " +
+	                                                              "factions in this new system. Shortly before the " +
+	                                                              "system was cut off, they did immediately " +
+	                                                              "claim a planetoid. The government originates from" +
+	                                                              " " +
+	                                                              "Bernard Star where it did split from a distant " +
+	                                                              "precursor of New Terra.";
+
+
+	public static String MILITARY_GOVERMENT_FACTION_SLOGAN = "For the Emperor";
+
+
+	public static String SPACE_MARINE = "The pinnacle of evolution. A super soldier who works like an one-man-army. " +
+	                                    "Takes up a lot of space.";
+
+
+	public static String ENGINEER = "A government agent who is specialized in the usage of energy based weapons and " +
+	                                "utilities.";
+
+
+	public static String OFFICER = "A high-grade party member who descended to the lower ranks to help his soldiers " +
+	                               "accomplish their goals.";
 
 	public static String buttonRoundImageName = "button_round.png";
 
