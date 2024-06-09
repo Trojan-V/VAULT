@@ -1,11 +1,10 @@
-package me.vault.game;
+package me.vault.game.views;
 
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.logging.Logger.ProcedureType;
 
 import java.text.MessageFormat;
 

@@ -1,4 +1,4 @@
-package me.vault.game;
+package me.vault.game.controller;
 
 
 import javafx.event.ActionEvent;
@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import me.vault.game.views.MainMenuView;
+import me.vault.game.VaultApplication;
 import me.vault.game.city.CityView;
 import me.vault.game.utility.loading.ResourceLoader;
 

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.Cursor?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.PrologueController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.controller.PrologueController">
    <children>
       <ImageView fx:id="prologueImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" />
       <GridPane prefHeight="720.0" prefWidth="1280.0">
@@ -41,7 +41,7 @@
                      <children>
                         <ImageView fitHeight="145.0" fitWidth="633.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@./assets/button.png" />
+                              <Image url="@../assets/button.png" />
                            </image>
                         </ImageView>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prologue">
@@ -90,7 +90,7 @@
                                  <children>
                                     <ImageView fx:id="continueButtonBackground" fitHeight="83.0" fitWidth="334.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@./assets/button.png" />
+                                          <Image url="@../assets/button.png" />
                                        </image>
                                     </ImageView>
                                     <Text fx:id="buttonContinue" strokeType="OUTSIDE" strokeWidth="0.0" text="weiter"
@@ -124,7 +124,7 @@
                                                pickOnBounds="true"
                                                preserveRatio="true">
                                        <image>
-                                          <Image url="@./assets/button.png" />
+                                          <Image url="@../assets/button.png" />
                                        </image>
                                     </ImageView>
                                     <Text fx:id="buttonBack" strokeType="OUTSIDE" strokeWidth="0.0" text="zurück"

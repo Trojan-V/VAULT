@@ -1,10 +1,12 @@
-package me.vault.game;
+package me.vault.game.controller;
 
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import me.vault.game.views.TutorialView;
+import me.vault.game.VaultApplication;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
