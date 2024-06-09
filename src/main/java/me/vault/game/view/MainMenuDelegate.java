@@ -98,7 +98,7 @@ public class MainMenuDelegate implements Initializable
 			ViewUtils.changeImage(this.newGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		if (mouseEvent.getSource().equals(loadGameButton)) {
+		else if (mouseEvent.getSource().equals(loadGameButton)) {
 			ViewUtils.changeImage(this.loadGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
@@ -106,7 +106,7 @@ public class MainMenuDelegate implements Initializable
 			ViewUtils.changeImage(this.settingsButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		if (mouseEvent.getSource().equals(exitGameButton)) {
+		else if (mouseEvent.getSource().equals(exitGameButton)) {
 			ViewUtils.changeImage(this.exitGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
@@ -152,19 +152,19 @@ public class MainMenuDelegate implements Initializable
 		if (mouseEvent.getSource().equals(continueButton)) {
 			ViewUtils.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		if (mouseEvent.getSource().equals(newGameButton)) {
+		else if (mouseEvent.getSource().equals(newGameButton)) {
 			ViewUtils.setButtonColor(this.newGameButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		if (mouseEvent.getSource().equals(loadGameButton)) {
+		else if (mouseEvent.getSource().equals(loadGameButton)) {
 			ViewUtils.setButtonColor(this.loadGameButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		if (mouseEvent.getSource().equals(settingsButton)) {
+		else if (mouseEvent.getSource().equals(settingsButton)) {
 			ViewUtils.setButtonColor(this.settingsButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		if (mouseEvent.getSource().equals(exitGameButton)) {
+		else if (mouseEvent.getSource().equals(exitGameButton)) {
 			ViewUtils.setButtonColor(this.exitGameButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
-		if (mouseEvent.getSource().equals(arenaButton)) {
+		else if (mouseEvent.getSource().equals(arenaButton)) {
 			ViewUtils.setButtonColor(this.arenaButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
@@ -175,19 +175,19 @@ public class MainMenuDelegate implements Initializable
 		if (mouseEvent.getSource().equals(continueButton)) {
 			ViewUtils.setButtonColor(this.continueButtonText, Color.BLACK);
 		}
-		if (mouseEvent.getSource().equals(newGameButton)) {
+		else if (mouseEvent.getSource().equals(newGameButton)) {
 			ViewUtils.setButtonColor(this.newGameButtonText, Color.BLACK);
 		}
-		if (mouseEvent.getSource().equals(loadGameButton)) {
+		else if (mouseEvent.getSource().equals(loadGameButton)) {
 			ViewUtils.setButtonColor(this.loadGameButtonText, Color.BLACK);
 		}
-		if (mouseEvent.getSource().equals(settingsButton)) {
+		else if (mouseEvent.getSource().equals(settingsButton)) {
 			ViewUtils.setButtonColor(this.settingsButtonText, Color.BLACK);
 		}
-		if (mouseEvent.getSource().equals(exitGameButton)) {
+		else if (mouseEvent.getSource().equals(exitGameButton)) {
 			ViewUtils.setButtonColor(this.exitGameButtonText, Color.BLACK);
 		}
-		if (mouseEvent.getSource().equals(arenaButton)) {
+		else if (mouseEvent.getSource().equals(arenaButton)) {
 			ViewUtils.setButtonColor(this.arenaButtonText, Color.BLACK);
 		}
 	}
