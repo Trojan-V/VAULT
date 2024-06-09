@@ -1,4 +1,4 @@
-package me.vault.game.controller;
+package me.vault.game;
 
 
 import javafx.event.ActionEvent;
@@ -6,10 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
-import me.vault.game.views.PrologueView;
-import me.vault.game.VaultApplication;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.logging.Logger.ProcedureType;
 
 import java.net.URL;
 import java.util.ResourceBundle;

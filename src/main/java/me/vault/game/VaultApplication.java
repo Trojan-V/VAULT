@@ -3,10 +3,9 @@ package me.vault.game;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import me.vault.game.controller.VaultController;
 import me.vault.game.utility.jvm.JvmArgumentParser;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.views.MainMenuView;
+import me.vault.game.utility.logging.Logger.ProcedureType;
 
 import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
 

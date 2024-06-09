@@ -17,7 +17,7 @@
    <children>
       <ImageView id="background" fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true">
          <image>
-            <Image url="@../assets/city_background.png" />
+            <Image url="@./assets/city_background.png" />
          </image>
       </ImageView>
       <BorderPane prefHeight="1080.0" prefWidth="1920.0">
@@ -46,7 +46,7 @@
                            <children>
                               <ImageView fitHeight="145.0" fitWidth="633.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/button.png" />
+                                    <Image url="@./assets/button.png" />
                                  </image>
                               </ImageView>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Schwierigkeitsgrad">
@@ -70,7 +70,7 @@
                                        <children>
                                           <ImageView fitHeight="332.0" fitWidth="366.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../assets/easy_difficulty_icon.png" />
+                                                <Image url="@./assets/easy_difficulty_icon.png" />
                                              </image>
                                           </ImageView>
                                           <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
@@ -83,7 +83,7 @@
                                              <children>
                                                 <ImageView fitHeight="83.0" fitWidth="334.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../assets/button.png" />
+                                                      <Image url="@./assets/button.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Einfach" wrappingWidth="102.2640609741211">
@@ -109,7 +109,7 @@
                                        <children>
                                           <ImageView fitHeight="332.0" fitWidth="366.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../assets/medium_difficulty_icon.png" />
+                                                <Image url="@./assets/medium_difficulty_icon.png" />
                                              </image>
                                           </ImageView>
                                           <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
@@ -122,7 +122,7 @@
                                              <children>
                                                 <ImageView fitHeight="83.0" fitWidth="334.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../assets/button.png" />
+                                                      <Image url="@./assets/button.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Normal" wrappingWidth="102.2640609741211">
@@ -148,7 +148,7 @@
                                        <children>
                                           <ImageView fitHeight="332.0" fitWidth="366.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../assets/hard_difficulty_icon.png" />
+                                                <Image url="@./assets/hard_difficulty_icon.png" />
                                              </image>
                                           </ImageView>
                                           <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
@@ -161,7 +161,7 @@
                                              <children>
                                                 <ImageView fitHeight="83.0" fitWidth="334.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../assets/button.png" />
+                                                      <Image url="@./assets/button.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Schwer" wrappingWidth="102.2640609741211">
@@ -190,7 +190,7 @@
                      <children>
                         <ImageView id="imageHint" fitHeight="92.0" fitWidth="613.0" opacity="0.5" pickOnBounds="true">
                            <image>
-                              <Image url="@../assets/button.png" />
+                              <Image url="@./assets/button.png" />
                            </image>
                         </ImageView>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Der Schwierigkeitsgrad kann im Verlauf des Spiels angepasst werden">
@@ -226,7 +226,7 @@
                            <children>
                               <ImageView fitHeight="71.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/button.png" />
+                                    <Image url="@./assets/button.png" />
                                  </image>
                               </ImageView>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="zurück" wrappingWidth="85.93073272705078">

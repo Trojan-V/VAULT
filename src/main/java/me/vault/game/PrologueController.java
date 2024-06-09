@@ -1,4 +1,4 @@
-package me.vault.game.controller;
+package me.vault.game;
 
 
 import javafx.fxml.FXML;
@@ -8,8 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import me.vault.game.views.MainMenuView;
-import me.vault.game.VaultApplication;
 import me.vault.game.city.CityView;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
