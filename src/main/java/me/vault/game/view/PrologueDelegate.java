@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import me.vault.game.VaultApplication;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -113,6 +114,12 @@ public class PrologueDelegate implements Initializable
 		}
 	}
 
+	/**
+	 * The logger object for this class used for writing formatted outputs into the console.
+	 *
+	 * @see Logger
+	 */
+	private static final Logger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
