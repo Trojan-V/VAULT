@@ -15,6 +15,11 @@ import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 public class ViewUtils
 {
+	/**
+	 *
+	 * @param text the text
+	 * @param color
+	 */
 	public static void setButtonColor (Text text, Color color)
 	{
 		text.setFill(Paint.valueOf(color.toString()));
