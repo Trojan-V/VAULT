@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
+import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
 
 public class WorkshopDelegate extends CityBuildingController implements Initializable
@@ -183,7 +183,7 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.initCurrencies();
 
 		this.bindArtifactViews();

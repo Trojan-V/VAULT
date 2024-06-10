@@ -10,7 +10,6 @@ import java.text.MessageFormat;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 
 
 public class PrologueView

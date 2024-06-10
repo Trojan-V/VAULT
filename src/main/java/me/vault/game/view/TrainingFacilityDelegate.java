@@ -264,7 +264,8 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH +
+		                                                                           GENERAL_BACKGROUND_FILENAME));
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.initCurrencies();
 	}

@@ -30,7 +30,7 @@ public class DifficultyView
 
 	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(MainMenuView.class, DIFFICULTY_VIEW_FXML);
 
-	public static void showDifficultyMenu (final Stage stage)
+	public static void show (final Stage stage)
 	{
 		stage.setScene(DIFFICULTY_MENU_SCENE);
 		stage.show();
