@@ -2,21 +2,29 @@ package me.vault.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 
+import javafx.stage.Stage;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public final class DifficultyDelegate implements Initializable
@@ -115,16 +123,16 @@ public final class DifficultyDelegate implements Initializable
 	void changeButtonTextColor (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton)) {
-			ViewUtils.setButtonColor(this.easyDifficultyButtonText, javafx.scene.paint.Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtils.setButtonColor(this.easyDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton)) {
-			ViewUtils.setButtonColor(this.normalDifficultyButtonText, javafx.scene.paint.Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtils.setButtonColor(this.normalDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton)) {
-			ViewUtils.setButtonColor(this.hardDifficultyButtonText, javafx.scene.paint.Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtils.setButtonColor(this.hardDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.backButton)) {
-			ViewUtils.setButtonColor(this.backButtonText, javafx.scene.paint.Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtils.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
 
@@ -132,24 +140,24 @@ public final class DifficultyDelegate implements Initializable
 	void buttonClick (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton)) {
-			ViewUtils.setButtonColor(this.easyDifficultyButtonText, javafx.scene.paint.Color.BLACK);
+			ViewUtils.setButtonColor(this.easyDifficultyButtonText, Color.BLACK);
 			GameController.getInstance().setDifficultyModifyer(GameDifficulty.EASY_MODE);
-			PrologueView.show(VaultApplication.getStage());
+			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton)) {
-			ViewUtils.setButtonColor(this.normalDifficultyButtonText, javafx.scene.paint.Color.BLACK);
-			DifficultyView.show(VaultApplication.getStage());
+			ViewUtils.setButtonColor(this.normalDifficultyButtonText, Color.BLACK);
+			DifficultyDelegate.show(VaultApplication.getStage());
 			GameController.getInstance().setDifficultyModifyer(GameDifficulty.NORMAL_MODE);
-			PrologueView.show(VaultApplication.getStage());
+			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton)) {
-			ViewUtils.setButtonColor(this.hardDifficultyButtonText, javafx.scene.paint.Color.BLACK);
+			ViewUtils.setButtonColor(this.hardDifficultyButtonText, Color.BLACK);
 			GameController.getInstance().setDifficultyModifyer(GameDifficulty.HARD_MODE);
-			PrologueView.show(VaultApplication.getStage());
+			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.backButton)) {
-			ViewUtils.setButtonColor(this.backButtonText, javafx.scene.paint.Color.BLACK);
-			MainMenuView.show(VaultApplication.getStage());
+			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
+			MainMenuDelegate.show(VaultApplication.getStage());
 		}
 	}
 
@@ -158,5 +166,27 @@ public final class DifficultyDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 
+	}
+
+	/**
+	 * The logger object for this class used for writing formatted outputs into the console.
+	 *
+	 * @see Logger
+	 */
+	private static final ILogger LOGGER = new Logger(DifficultyDelegate.class.getSimpleName());
+
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
+	 * properties (color etc.) of the GUI elements.
+	 */
+	private static final String DIFFICULTY_VIEW_FXML = "difficulty.fxml";
+
+	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(DifficultyDelegate.class, DIFFICULTY_VIEW_FXML);
+
+	public static void show (final Stage stage)
+	{
+		stage.setScene(DIFFICULTY_MENU_SCENE);
+		stage.show();
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, DifficultyDelegate.class.getSimpleName()));
 	}
 }

@@ -78,7 +78,7 @@ public abstract class AbsCityBuilding implements Displayable
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
 	 */
-	public AbsCityBuilding ()
+	protected AbsCityBuilding ()
 	{
 		// TODO: currentLevel aus Config einlesen
 		this.currentLevel = CityBuildingLevel.getMinimumCityBuildingLevel();

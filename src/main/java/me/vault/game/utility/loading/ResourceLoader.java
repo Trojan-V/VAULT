@@ -68,12 +68,12 @@ public final class ResourceLoader
 		}
 	}
 
-	public static File getDirectory (String filePath)
+	public static File getDirectory (final String filePath)
 	{
 		return new File(filePath);
 	}
 
-	public static ArrayList<File> collectFiles (String filePath)
+	public static ArrayList<File> collectFiles (final String filePath)
 	{
 		return new ArrayList<File>(List.of(new File(filePath).listFiles()));
 	}

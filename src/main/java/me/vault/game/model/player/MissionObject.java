@@ -3,7 +3,7 @@ package me.vault.game.model.player;
 
 public abstract class MissionObject
 {
-	private Tile tile;
+	private final Tile tile;
 
 
 	protected MissionObject (final Tile tile)

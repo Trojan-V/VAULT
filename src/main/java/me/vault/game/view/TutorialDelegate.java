@@ -3,22 +3,29 @@ package me.vault.game.view;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import me.vault.game.VaultApplication;
 import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.*;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public final class TutorialDelegate implements Initializable
@@ -125,7 +132,7 @@ public final class TutorialDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
 			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
-			PrologueView.show(VaultApplication.getStage());
+			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
@@ -146,7 +153,35 @@ public final class TutorialDelegate implements Initializable
 		ViewUtils.setText(this.tutorialFactionsText, StringConstants.tutorialFactsions);
 		ViewUtils.setText(this.tutorialMissionsText, StringConstants.tutorialMissions);
 		ViewUtils.setText(this.tutorialFightsText, StringConstants.tutorialFights);
-		ViewUtils.setTabPaneStyle(tutorialTabPane,TAB_PANE_STYLE);
+		ViewUtils.setTabPaneStyle(this.tutorialTabPane,TAB_PANE_STYLE);
 
+	}
+
+	/**
+	 * The logger object for this class used for writing formatted outputs into the console.
+	 *
+	 * @see Logger
+	 */
+	private static final ILogger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
+
+	private static final String cssFilePath = "./css/style.css";
+
+
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
+	 * properties (color etc.) of the GUI elements.
+	 */
+	private static final String TUTORIAL_VIEW_FXML = "tutorial.fxml";
+
+
+
+	private static final Scene TUTORIAL_MENU_SCENE = ResourceLoader.loadScene(TutorialDelegate.class, TUTORIAL_VIEW_FXML);
+
+	public static void show (final Stage stage)
+	{
+		stage.setScene(TUTORIAL_MENU_SCENE);
+
+		stage.show();
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, TutorialDelegate.class.getSimpleName()));
 	}
 }

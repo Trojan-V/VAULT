@@ -56,14 +56,14 @@ public class SpaceBarDelegate extends CityBuildingController implements Initiali
 
 
 	@FXML
-	void onBackToCityView (ActionEvent ignored)
+	void onBackToCityView (final ActionEvent ignored)
 	{
 		CityView.show(VaultApplication.getStage());
 	}
 
 
 	@Override
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.initCurrencies();
@@ -72,11 +72,11 @@ public class SpaceBarDelegate extends CityBuildingController implements Initiali
 
 	private void initCurrencies ()
 	{
-		CityDelegate.initCurrency(Currency.STEEL, this.steelImageView, steelAmountLabel);
-		CityDelegate.initCurrency(Currency.COMPOSITE, this.compositeImageView, compositeAmountLabel);
-		CityDelegate.initCurrency(Currency.SCIENCE, this.scienceImageView, scienceAmountLabel);
-		CityDelegate.initCurrency(Currency.FOOD_RATION, this.foodImageView, foodAmountLabel);
-		CityDelegate.initCurrency(Currency.ENERGY_CREDIT, this.creditImageView, creditAmountLabel);
+		CityDelegate.initCurrency(Currency.STEEL, this.steelImageView, this.steelAmountLabel);
+		CityDelegate.initCurrency(Currency.COMPOSITE, this.compositeImageView, this.compositeAmountLabel);
+		CityDelegate.initCurrency(Currency.SCIENCE, this.scienceImageView, this.scienceAmountLabel);
+		CityDelegate.initCurrency(Currency.FOOD_RATION, this.foodImageView, this.foodAmountLabel);
+		CityDelegate.initCurrency(Currency.ENERGY_CREDIT, this.creditImageView, this.creditAmountLabel);
 
 	}
 

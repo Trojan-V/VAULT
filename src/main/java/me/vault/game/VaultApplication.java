@@ -3,10 +3,9 @@ package me.vault.game;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import me.vault.game.utility.jvm.JvmArgumentParser;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.MainMenuView;
+import me.vault.game.view.MainMenuDelegate;
 import me.vault.game.view.VaultDelegate;
 
 import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
@@ -76,7 +75,7 @@ public class VaultApplication extends Application
 	{
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
-		MainMenuView.show(stage);
+		MainMenuDelegate.show(stage);
 		mainStage = stage;
 	}
 }

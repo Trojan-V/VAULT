@@ -9,9 +9,9 @@ import java.io.File;
 
 public class FileChooserView
 {
-	public static File show (Stage stage, String initialFolderFilePath, String title)
+	public static File show (final Stage stage, final String initialFolderFilePath, final String title)
 	{
-		FileChooser fileChooser = new FileChooser();
+		final FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle(title);
 		fileChooser.setInitialDirectory(ResourceLoader.getDirectory(initialFolderFilePath));
 		return fileChooser.showOpenDialog(stage);

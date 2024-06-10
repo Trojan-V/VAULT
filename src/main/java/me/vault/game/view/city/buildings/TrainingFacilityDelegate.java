@@ -274,11 +274,11 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 
 	private void initCurrencies ()
 	{
-		CityBuildingController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-		CityBuildingController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-		CityBuildingController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-		CityBuildingController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-		CityBuildingController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
+		initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
+		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
+		initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
+		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
+		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
 	}
 
 }

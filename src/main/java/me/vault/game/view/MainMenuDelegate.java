@@ -1,9 +1,11 @@
 package me.vault.game.view;
 
 
+import com.sun.tools.javac.Main;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
@@ -11,10 +13,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import me.vault.game.VaultApplication;
 import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 import javax.swing.text.View;
 import java.awt.event.ActionEvent;
@@ -22,9 +27,12 @@ import java.beans.EventHandler;
 import java.io.File;
 import java.net.URL;
 import java.nio.channels.FileChannel;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.*;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public class MainMenuDelegate implements Initializable
@@ -204,7 +212,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton)) {
 			ViewUtils.setButtonColor(this.newGameButtonText, Color.BLACK);
-			DifficultyView.show(VaultApplication.getStage());
+			DifficultyDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
 			ViewUtils.setButtonColor(this.loadGameButtonText, Color.BLACK);
@@ -228,7 +236,7 @@ public class MainMenuDelegate implements Initializable
 
 	}
 	else if (actionEvent.getSource().equals(this.newGameMenuItem)) {
-		DifficultyView.show(VaultApplication.getStage());
+		DifficultyDelegate.show(VaultApplication.getStage());
 	}
 	else if (actionEvent.getSource().equals(this.loadGameMenuItem))
 	{
@@ -249,8 +257,8 @@ public class MainMenuDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		ViewUtils.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
-		initializeContinue();
-		initializeLoadGame();
+		this.initializeContinue();
+		this.initializeLoadGame();
 
 	}
 
@@ -272,5 +280,28 @@ public class MainMenuDelegate implements Initializable
 			ViewUtils.setMenuItemInactive(this.loadGameMenuItem);
 			ViewUtils.setButtonInactive(this.loadGameButton);
 		}
+	}
+
+	/**
+	 * The logger object for this class used for writing formatted outputs into the console.
+	 *
+	 * @see Logger
+	 */
+	private static final ILogger LOGGER = new Logger(MainMenuDelegate.class.getSimpleName());
+
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/game} and defines the
+	 * properties (color etc.) of the GUI elements.
+	 */
+	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
+
+	private static final Scene MAIN_MENU_SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
+
+
+	public static void show (final Stage stage)
+	{
+		stage.setScene(MAIN_MENU_SCENE);
+		stage.show();
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, MainMenuDelegate.class.getSimpleName()));
 	}
 }

@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public class LaboratoryDelegate extends CityBuildingController implements Initializable
 {
 	@Override
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 
 	}

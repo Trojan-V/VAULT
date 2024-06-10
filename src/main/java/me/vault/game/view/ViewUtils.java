@@ -20,42 +20,42 @@ public class ViewUtils
 	 * @param text the text
 	 * @param color
 	 */
-	public static void setButtonColor (Text text, Color color)
+	public static void setButtonColor (final Text text, final Color color)
 	{
 		text.setFill(Paint.valueOf(color.toString()));
 	}
 
-	public static void setImage (ImageView imageView, Image image)
+	public static void setImage (final ImageView imageView, final Image image)
 	{
 		imageView.setImage(image);
 	}
 
-	public static void setText (Text textElement, String text)
+	public static void setText (final Text textElement, final String text)
 	{
 		textElement.setText(text);
 	}
 
-	public static void setTabPaneStyle ( TabPane tabPane, String style)
+	public static void setTabPaneStyle ( final TabPane tabPane, final String style)
 	{
 		tabPane.getStyleClass().add(style);
 	}
 
-	public static void setButtonInactive (Button button)
+	public static void setButtonInactive (final Button button)
 	{
 		button.setDisable(true);
 	}
 
-	public static void setButtonActive (Button button)
+	public static void setButtonActive (final Button button)
 	{
 		button.setDisable(false);
 	}
 
-	public static void setMenuItemInactive (MenuItem menuItem)
+	public static void setMenuItemInactive (final MenuItem menuItem)
 	{
 		menuItem.setDisable(true);
 	}
 
-	public static void setMenuItemActive (MenuItem menuItem)
+	public static void setMenuItemActive (final MenuItem menuItem)
 	{
 		menuItem.setDisable(false);
 	}

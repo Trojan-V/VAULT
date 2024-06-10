@@ -150,56 +150,56 @@ public class CityDelegate implements Initializable
 
 
 	@FXML
-	void onBarracksUpgrade (ActionEvent event)
+	void onBarracksUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onCommandCenterUpgrade (ActionEvent event)
+	void onCommandCenterUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onDocksUpgrade (ActionEvent event)
+	void onDocksUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onLaboratoryUpgrade (ActionEvent event)
+	void onLaboratoryUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onMarketUpgrade (ActionEvent event)
+	void onMarketUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onSpaceBarUpgrade (ActionEvent event)
+	void onSpaceBarUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onTrainingFacilityUpgrade (ActionEvent event)
+	void onTrainingFacilityUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onWorkshopUpgrade (ActionEvent event)
+	void onWorkshopUpgrade (final ActionEvent event)
 	{
 		// WorkshopController.getInstance().upgrade();
 	}

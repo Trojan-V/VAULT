@@ -61,14 +61,14 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 
 
 	@FXML
-	void onBackToCityView (ActionEvent event)
+	void onBackToCityView (final ActionEvent event)
 	{
 		CityView.show(VaultApplication.getStage());
 	}
 
 
 	@Override
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 
 	}

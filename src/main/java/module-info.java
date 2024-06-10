@@ -6,6 +6,7 @@ module me.vault.game {
 	requires javafx.fxml;
 	requires org.jetbrains.annotations;
 	requires java.desktop;
+	requires jdk.compiler;
 
 	opens me.vault.game to javafx.fxml;
 	opens me.vault.game.utility.loading to javafx.fxml;

@@ -27,7 +27,7 @@ public class BarracksDelegate implements Initializable
 
 
 	@FXML
-	void onBackToCityView (ActionEvent event)
+	void onBackToCityView (final ActionEvent event)
 	{
 		CityView.show(VaultApplication.getStage());
 	}

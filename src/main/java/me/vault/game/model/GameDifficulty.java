@@ -7,10 +7,10 @@ public enum GameDifficulty
 	NORMAL_MODE ("normal",1.5),
 	HARD_MODE ("hard",2);
 
-	private String difficulty;
-	private double modifyer;
+	private final String difficulty;
+	private final double modifyer;
 
-	GameDifficulty (String difficulty, double modifyer)
+	GameDifficulty (final String difficulty, final double modifyer)
 	{
 		this.difficulty = difficulty;
 		this.modifyer = modifyer;
