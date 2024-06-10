@@ -1,10 +1,7 @@
 package me.vault.game.view;
 
-
-import javafx.scene.Scene;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import me.vault.game.VaultApplication;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.io.File;

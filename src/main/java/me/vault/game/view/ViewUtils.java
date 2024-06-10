@@ -2,6 +2,7 @@ package me.vault.game.view;
 
 
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,5 +43,15 @@ public class ViewUtils
 	public static void setButtonActive (Button button)
 	{
 		button.setDisable(false);
+	}
+
+	public static void setMenuItemInactive (MenuItem menuItem)
+	{
+		menuItem.setDisable(true);
+	}
+
+	public static void setMenuItemActive (MenuItem menuItem)
+	{
+		menuItem.setDisable(false);
 	}
 }

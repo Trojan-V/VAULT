@@ -16,6 +16,7 @@ import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
+import javax.swing.text.View;
 import java.awt.event.ActionEvent;
 import java.beans.EventHandler;
 import java.io.File;
@@ -207,6 +208,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
 			ViewUtils.setButtonColor(this.loadGameButtonText, Color.BLACK);
+			FileChooserView.show(VaultApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH, StringConstants.chooseGameFile);
 		}
 		else if (mouseEvent.getSource().equals(this.settingsButton)) {
 			ViewUtils.setButtonColor(this.settingsButtonText, Color.BLACK);
@@ -248,6 +250,7 @@ public class MainMenuDelegate implements Initializable
 	{
 		ViewUtils.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		initializeContinue();
+		initializeLoadGame();
 
 	}
 
@@ -256,8 +259,18 @@ public class MainMenuDelegate implements Initializable
 	{
 		if (ResourceLoader.collectFiles(GAME_SAVE_FOLDER_FILE_PATH).isEmpty())
 		{
-			this.continueMenuItem.setDisable(true);
+			ViewUtils.setMenuItemInactive(this.continueMenuItem);
 			ViewUtils.setButtonInactive(this.continueButton);
+		}
+	}
+
+	@FXML
+	private void initializeLoadGame ()
+	{
+		if (ResourceLoader.collectFiles(GAME_SAVE_FOLDER_FILE_PATH).isEmpty())
+		{
+			ViewUtils.setMenuItemInactive(this.loadGameMenuItem);
+			ViewUtils.setButtonInactive(this.loadGameButton);
 		}
 	}
 }
