@@ -10,17 +10,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import me.vault.game.VaultApplication;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.awt.event.ActionEvent;
 import java.beans.EventHandler;
+import java.io.File;
 import java.net.URL;
+import java.nio.channels.FileChannel;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
+import static me.vault.game.utility.constant.GameConstants.*;
 
 
 public class MainMenuDelegate implements Initializable
@@ -225,8 +228,9 @@ public class MainMenuDelegate implements Initializable
 	else if (actionEvent.getSource().equals(this.newGameMenuItem)) {
 		DifficultyView.show(VaultApplication.getStage());
 	}
-	else if (actionEvent.getSource().equals(this.loadGameMenuItem)) {
-
+	else if (actionEvent.getSource().equals(this.loadGameMenuItem))
+	{
+		FileChooserView.show(VaultApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH, StringConstants.chooseGameFile);
 	}
 	else if (actionEvent.getSource().equals(this.settingsMenuItem)) {
 
@@ -243,5 +247,17 @@ public class MainMenuDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		ViewUtils.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
+		initializeContinue();
+
+	}
+
+	@FXML
+	private void initializeContinue ()
+	{
+		if (ResourceLoader.collectFiles(GAME_SAVE_FOLDER_FILE_PATH).isEmpty())
+		{
+			this.continueMenuItem.setDisable(true);
+			ViewUtils.setButtonInactive(this.continueButton);
+		}
 	}
 }

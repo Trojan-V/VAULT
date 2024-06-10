@@ -28,4 +28,6 @@ public interface StringConstants
 
 	public static String colorLightBlue = "1584AD";
 
+	public static String chooseGameFile = "Choose a gamefile to load";
+
 }

@@ -10,14 +10,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import me.vault.game.VaultApplication;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
+import static me.vault.game.utility.constant.GameConstants.*;
 
 
 public final class TutorialDelegate implements Initializable
@@ -144,5 +144,7 @@ public final class TutorialDelegate implements Initializable
 		ViewUtils.setText(this.tutorialFactionsText, StringConstants.tutorialFactsions);
 		ViewUtils.setText(this.tutorialMissionsText, StringConstants.tutorialMissions);
 		ViewUtils.setText(this.tutorialFightsText, StringConstants.tutorialFights);
+		ViewUtils.setTabPaneStyle(tutorialTabPane,TAB_PANE_STYLE);
+
 	}
 }
