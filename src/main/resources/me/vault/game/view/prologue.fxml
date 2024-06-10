@@ -102,7 +102,8 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button fx:id="buttonPrologueWeiter" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.columnIndex="2">
+                              <Button fx:id="continueButton" maxHeight="1.7976931348623157E308"
+                                      maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.columnIndex="2">
                                  <graphic>
                                     <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
                                        <columnConstraints>
@@ -129,7 +130,9 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonPrologueBack" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+                              <Button fx:id="backButton" maxHeight="1.7976931348623157E308"
+                                      maxWidth="1.7976931348623157E308"
+                                      mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
                                  <graphic>
                                     <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
                                        <columnConstraints>
