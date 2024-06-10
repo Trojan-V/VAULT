@@ -44,4 +44,7 @@ module me.vault.game {
 	opens me.vault.game.city.spacebar to javafx.fxml;
 	exports me.vault.game.city.trainingfacility;
 	opens me.vault.game.city.trainingfacility to javafx.fxml;
+	exports me.vault.game.city.market;
+	opens me.vault.game.city.market to javafx.fxml;
+
 }

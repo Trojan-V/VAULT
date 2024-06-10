@@ -113,7 +113,7 @@ public final class CurrencyController implements Initializable
 
 	public static Scene getCurrencyBannerScene ()
 	{
-		return SCENE;
+		return ResourceLoader.loadScene(CurrencyController.class, "currency_view.fxml");
 	}
 
 }

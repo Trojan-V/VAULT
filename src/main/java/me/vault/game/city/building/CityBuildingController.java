@@ -27,6 +27,7 @@ public class CityBuildingController
 	private static final ILogger LOGGER = new Logger(CityBuildingController.class.getSimpleName());
 
 
+	// TODO: Auslagern in Currency-Controller
 	public static void initCurrency (final Currency currency, final Label label, final ImageView imageView)
 	{
 		label.textProperty().bind(currency.getAmountProperty().asString());

@@ -28,9 +28,6 @@ import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILEN
 
 public class CommandCenterController implements Initializable
 {
-	@FXML
-	private SubScene currencySubScene;
-
 
 	@FXML
 	private ImageView backgroundImageView;
@@ -104,6 +101,13 @@ public class CommandCenterController implements Initializable
 	{
 		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.bindPlayerSelections();
+	}
+
+
+	private void bindPlayerSelections ()
+	{
+
 	}
 
 }
