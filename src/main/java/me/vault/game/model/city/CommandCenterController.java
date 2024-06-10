@@ -1,29 +1,28 @@
-package me.vault.game.city.commandcenter;
+package me.vault.game.model.city;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
-import me.vault.game.city.CityView;
-import me.vault.game.city.building.CityBuildingView;
-import me.vault.game.city.docks.Docks;
-import me.vault.game.city.spacebar.SpaceBar;
-import me.vault.game.city.workshop.Workshop;
-import me.vault.game.currency.CurrencyController;
+import me.vault.game.control.CurrencyController;
+import me.vault.game.model.city.Docks;
+import me.vault.game.model.city.SpaceBar;
+import me.vault.game.model.city.Workshop;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.buildings.CityBuildingView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
 
 public class CommandCenterController implements Initializable
@@ -99,7 +98,7 @@ public class CommandCenterController implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GameConstants.GENERAL_BACKGROUND_FILENAME));
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.bindPlayerSelections();
 	}

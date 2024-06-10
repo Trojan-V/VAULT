@@ -1,7 +1,7 @@
 package me.vault.game.utility.constant;
 
 
-import me.vault.game.currency.CurrencyTransaction;
+import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
