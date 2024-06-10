@@ -24,6 +24,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class ArtifactController implements IUpgrader<Artifact, ArtifactLevel>
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link ArtifactController}.
 	 * <br>
