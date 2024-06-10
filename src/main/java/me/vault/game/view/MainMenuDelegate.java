@@ -1,9 +1,11 @@
 package me.vault.game.view;
 
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -12,6 +14,8 @@ import me.vault.game.VaultApplication;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
+import java.awt.event.ActionEvent;
+import java.beans.EventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -84,6 +88,25 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private Text arenaButtonText;
 
+	// MenuItems --------------------------------------------------------------------------------------------------------
+
+	@FXML
+	private MenuItem continueMenuItem;
+
+	@FXML
+	private MenuItem newGameMenuItem;
+
+	@FXML
+	private MenuItem loadGameMenuItem;
+
+	@FXML
+	private MenuItem settingsMenuItem;
+
+	@FXML
+	private MenuItem exitGameMenuItem;
+
+	@FXML
+	private MenuItem arenaMenuItem;
 
 	// Actions ------------------------------------------------------------------------------------------------------------
 
@@ -191,6 +214,29 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.arenaButton)) {
 			ViewUtils.setButtonColor(this.arenaButtonText, Color.BLACK);
 		}
+	}
+
+	@FXML
+	void buttonClickMenu (final Event actionEvent)
+	{
+		if (actionEvent.getSource().equals(this.continueMenuItem)) {
+
+	}
+	else if (actionEvent.getSource().equals(this.newGameMenuItem)) {
+		DifficultyView.show(VaultApplication.getStage());
+	}
+	else if (actionEvent.getSource().equals(this.loadGameMenuItem)) {
+
+	}
+	else if (actionEvent.getSource().equals(this.settingsMenuItem)) {
+
+	}
+	else if (actionEvent.getSource().equals(this.exitGameMenuItem)) {
+
+	}
+	else if (actionEvent.getSource().equals(this.arenaMenuItem)) {
+
+	}
 	}
 
 	@Override

@@ -8,6 +8,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -227,13 +228,16 @@
          <menus>
             <Menu fx:id="menu" mnemonicParsing="false" text="menu">
                <items>
-                  <MenuItem mnemonicParsing="false" text="continue" />
-                  <MenuItem mnemonicParsing="false" text="new game" />
-                  <MenuItem mnemonicParsing="false" text="load game" />
-                  <MenuItem mnemonicParsing="false" text="settings" />
-                  <MenuItem mnemonicParsing="false" text="exit game" />
-                  <MenuItem mnemonicParsing="false" text="arena" />
+                  <MenuItem fx:id="continueMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="continue" />
+                  <MenuItem fx:id="newGameMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="new game" />
+                  <MenuItem fx:id="loadGameMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="load game" />
+                  <MenuItem fx:id="settingsMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="settings" />
+                  <MenuItem fx:id="exitGameMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="exit game" />
+                  <MenuItem fx:id="arenaMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="arena" />
                </items>
+               <accelerator>
+                  <KeyCodeCombination alt="UP" code="M" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
             </Menu>
          </menus>
       </MenuBar>
