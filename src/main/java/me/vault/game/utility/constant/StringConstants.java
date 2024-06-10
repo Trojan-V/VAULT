@@ -155,6 +155,35 @@ public interface StringConstants
 	                                              "normal opponents.";
 
 
+	/**
+	 * The following Strings contain the texts for the command center. The first is before the first story mission
+	 * and the rest don't have an order for appearing.
+	 */
+	public static String COMMAND_CENTER_SLOGAN = "Fight your way back";
+
+
+	public static String COMMAND_CENTER_NEWS_BEFORE_STORY_MISSION_ONE = "Breaking: The System is cut off from the " +
+	                                                                    "rest of the galaxy. Tensions are high with " +
+	                                                                    "small skirmishes occurring.";
+
+
+	public static String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_ONE = "Despite rising tension in the system the" +
+	                                                                       " " +
+	                                                                       "Explorer-Association announces that it " +
+	                                                                       "members find more and more hints that " +
+	                                                                       "this was a major Hitani system.";
+
+
+	public static String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_TWO = "The various factions in the system seems" +
+	                                                                       " " +
+	                                                                       "to employ the Mega Corporation soldiers " +
+	                                                                       "more and more.";
+
+
+	public static String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_THREE = "The skirmishes escalate and now it " +
+	                                                                         "moves to capturing of outposts from " +
+	                                                                         "each other.";
+
 	public static String buttonRoundImageName = "button_round.png";
 
 	public static String buttonImageName = "button.png";
