@@ -1,30 +1,22 @@
 package me.vault.game.view;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import me.vault.game.VaultApplication;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public class MainMenuDelegate implements Initializable
@@ -99,27 +91,27 @@ public class MainMenuDelegate implements Initializable
 	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.continueButton)) {
-			ViewUtils.changeImage(this.continueButtonBackground,
+			ViewUtils.setImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton)) {
-			ViewUtils.changeImage(this.newGameButtonBackground,
+			ViewUtils.setImage(this.newGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
-			ViewUtils.changeImage(this.loadGameButtonBackground,
+			ViewUtils.setImage(this.loadGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.settingsButton)) {
-			ViewUtils.changeImage(this.settingsButtonBackground,
+			ViewUtils.setImage(this.settingsButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.exitGameButton)) {
-			ViewUtils.changeImage(this.exitGameButtonBackground,
+			ViewUtils.setImage(this.exitGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.arenaButton)) {
-			ViewUtils.changeImage(this.arenaButtonBackground,
+			ViewUtils.setImage(this.arenaButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 	}
@@ -129,27 +121,27 @@ public class MainMenuDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.changeImage(this.continueButtonBackground,
+			ViewUtils.setImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton)) {
-			ViewUtils.changeImage(this.newGameButtonBackground,
+			ViewUtils.setImage(this.newGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
-			ViewUtils.changeImage(this.loadGameButtonBackground,
+			ViewUtils.setImage(this.loadGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.settingsButton)) {
-			ViewUtils.changeImage(this.settingsButtonBackground,
+			ViewUtils.setImage(this.settingsButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.exitGameButton)) {
-			ViewUtils.changeImage(this.exitGameButtonBackground,
+			ViewUtils.setImage(this.exitGameButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.arenaButton)) {
-			ViewUtils.changeImage(this.arenaButtonBackground,
+			ViewUtils.setImage(this.arenaButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
@@ -204,6 +196,6 @@ public class MainMenuDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		ViewUtils.changeImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		ViewUtils.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
 	}
 }

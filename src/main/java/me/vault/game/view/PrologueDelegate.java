@@ -11,7 +11,6 @@ import javafx.scene.text.Text;
 import me.vault.game.VaultApplication;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,10 +46,10 @@ public class PrologueDelegate implements Initializable
 	private Text storyText;
 
 	@FXML
-	private Text buttonBack;
+	private Text backButtonText;
 
 	@FXML
-	private Text buttonContinue;
+	private Text continueButtonText;
 
 	//Actions ----------------------------------------------------------------------------------------------------------
 
@@ -59,12 +58,12 @@ public class PrologueDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.changeImage(this.backButtonBackground,
+			ViewUtils.setImage(this.backButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.changeImage(this.continueButtonBackground,
+			ViewUtils.setImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 
@@ -75,12 +74,12 @@ public class PrologueDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.changeImage(this.continueButtonBackground,
+			ViewUtils.setImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.changeImage(this.backButtonBackground,
+			ViewUtils.setImage(this.backButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
@@ -90,11 +89,11 @@ public class PrologueDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setButtonColor(this.buttonBack, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtils.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setButtonColor(this.buttonContinue, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtils.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
 
@@ -103,12 +102,12 @@ public class PrologueDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setButtonColor(this.buttonBack, Color.BLACK);
-			MainMenuView.showMainMenu(VaultApplication.getStage());
+			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
+			MainMenuView.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setButtonColor(this.buttonBack, Color.BLACK);
+			ViewUtils.setButtonColor(this.continueButtonText, Color.BLACK);
 			TutorialView.show(VaultApplication.getStage());
 		}
 	}

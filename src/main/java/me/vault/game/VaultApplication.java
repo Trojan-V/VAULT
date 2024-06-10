@@ -75,7 +75,7 @@ public class VaultApplication extends Application
 	{
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
-		MainMenuView.showMainMenu(stage);
+		MainMenuView.show(stage);
 		mainStage = stage;
 	}
 }

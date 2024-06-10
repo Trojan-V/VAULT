@@ -9,6 +9,7 @@ import me.vault.game.utility.logging.Logger;
 import java.text.MessageFormat;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 
 
@@ -37,6 +38,6 @@ public class PrologueView
 		// Changes the scene of the stage to the prologue scene
 		stage.setScene(PROLOGUE_SCENE);
 		stage.show();
-		LOGGER.log(NORMAL, MessageFormat.format(SHOWING_VIEW_MSG, PrologueView.class.getSimpleName()));
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, PrologueView.class.getSimpleName()));
 	}
 }

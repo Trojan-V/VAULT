@@ -15,7 +15,7 @@ public class ViewUtils
 		text.setFill(Paint.valueOf(color.toString()));
 	}
 
-	public static void changeImage (ImageView imageView, Image image)
+	public static void setImage (ImageView imageView, Image image)
 	{
 		imageView.setImage(image);
 	}

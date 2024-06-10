@@ -34,8 +34,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="backgroundImageView" fitHeight="690.0" fitWidth="1280.0" pickOnBounds="true"
-                       style="-fx-scale-x: 100%;" >
+            <ImageView fx:id="backgroundImageView" fitHeight="690.0" fitWidth="1280.0" pickOnBounds="true" style="-fx-scale-x: 100%;">
             <image>
                <Image url="@../assets/general_background.png" />
             </image>
@@ -86,7 +85,7 @@
                                  <center>
                                     <Text fx:id="storyText" fontSmoothingType="LCD" lineSpacing="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="655.0" BorderPane.alignment="TOP_CENTER">
                                        <font>
-                                          <Font name="Cantarell Bold" size="16.0" />
+                                          <Font name="Cantarell Regular" size="16.0" />
                                        </font>
                                     </Text>
                                  </center>
@@ -103,8 +102,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button fx:id="continueButton" maxHeight="1.7976931348623157E308"
-                                      maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.columnIndex="2">
+                              <Button fx:id="continueButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.columnIndex="2">
                                  <graphic>
                                     <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
                                        <columnConstraints>
@@ -119,7 +117,7 @@
                                                 <Image url="@../assets/button.png" />
                                              </image>
                                           </ImageView>
-                                          <Text fx:id="buttonContinue" strokeType="OUTSIDE" strokeWidth="0.0" text="weiter" wrappingWidth="86.2640609741211">
+                                          <Text fx:id="continueButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="weiter" wrappingWidth="86.2640609741211">
                                              <font>
                                                 <Font size="26.0" />
                                              </font>
@@ -131,9 +129,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="backButton" maxHeight="1.7976931348623157E308"
-                                      maxWidth="1.7976931348623157E308"
-                                      mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+                              <Button fx:id="backButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
                                  <graphic>
                                     <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
                                        <columnConstraints>
@@ -148,7 +144,7 @@
                                                 <Image url="@../assets/button.png" />
                                              </image>
                                           </ImageView>
-                                          <Text fx:id="buttonBack" strokeType="OUTSIDE" strokeWidth="0.0" text="zurück" wrappingWidth="94.2640609741211">
+                                          <Text fx:id="backButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="zurück" wrappingWidth="94.2640609741211">
                                              <font>
                                                 <Font size="26.0" />
                                              </font>

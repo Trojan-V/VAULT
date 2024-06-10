@@ -81,12 +81,12 @@
                               <Insets />
                            </opaqueInsets>
                         </GridPane>
-                        <TabPane prefHeight="481.0" prefWidth="880.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane id="tutorialTabPane" prefHeight="481.0" prefWidth="880.0" tabClosingPolicy="UNAVAILABLE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <tabs>
-                              <Tab style="-fx-padding: 1 10 1 10;" text="introduction">
+                              <Tab fx:id="tabIntroduction" style="-fx-padding: 1 10 1 10; -fx-font-size: 18;" text="introduction">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="880.0">
                                        <children>
@@ -94,7 +94,7 @@
                                              <content>
                                                 <Text fx:id="tutorialIntroductionText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="862.0">
                                                    <font>
-                                                      <Font size="40.0" />
+                                                      <Font name="Cantarell Regular" size="16.0" />
                                                    </font>
                                                 </Text>
                                              </content>
@@ -103,7 +103,7 @@
                                     </AnchorPane>
                                 </content>
                               </Tab>
-                              <Tab style="-fx-padding: 1 10 1 10;" text="city">
+                              <Tab id="tabCity" style="-fx-padding: 1 10 1 10; -fx-font-size: 18;" text="city">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -111,7 +111,7 @@
                                              <content>
                                                 <Text fx:id="tutorialCityText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="862.0">
                                                    <font>
-                                                      <Font size="40.0" />
+                                                      <Font name="Cantarell Regular" size="16.0" />
                                                    </font>
                                                 </Text>
                                              </content>
@@ -120,7 +120,7 @@
                                     </AnchorPane>
                                  </content>
                               </Tab>
-                              <Tab style="-fx-padding: 1 10 1 10;" text="artefacts">
+                              <Tab id="tabArtefacts" style="-fx-padding: 1 10 1 10; -fx-font-size: 18;" text="artefacts">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -128,7 +128,7 @@
                                              <content>
                                                 <Text fx:id="tutorialArtefactsText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="862.0">
                                                    <font>
-                                                      <Font size="40.0" />
+                                                      <Font name="Cantarell Regular" size="16.0" />
                                                    </font>
                                                 </Text>
                                              </content>
@@ -137,15 +137,15 @@
                                     </AnchorPane>
                                  </content>
                               </Tab>
-                              <Tab style="-fx-padding: 1 10 1 10;" text="factions">
+                              <Tab id="tabFactions" style="-fx-padding: 1 10 1 10; -fx-font-size: 18;" text="factions">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
                                           <ScrollPane prefHeight="349.0" prefWidth="880.0">
                                              <content>
-                                                <Text fx:id="TutorialFactionsText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="862.0">
+                                                <Text fx:id="tutorialFactionsText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="862.0">
                                                    <font>
-                                                      <Font size="40.0" />
+                                                      <Font name="Cantarell Regular" size="16.0" />
                                                    </font>
                                                 </Text>
                                              </content>
@@ -154,7 +154,7 @@
                                     </AnchorPane>
                                  </content>
                               </Tab>
-                              <Tab style="-fx-padding: 1 10 1 10;" text="missions">
+                              <Tab id="tabMissions" style="-fx-font-size: 18; -fx-padding: 1 10 1 10;" text="missions">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -162,7 +162,7 @@
                                              <content>
                                                 <Text fx:id="tutorialMissionsText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="862.0">
                                                    <font>
-                                                      <Font size="40.0" />
+                                                      <Font name="Cantarell Regular" size="16.0" />
                                                    </font>
                                                 </Text>
                                              </content>
@@ -171,7 +171,7 @@
                                     </AnchorPane>
                                  </content>
                               </Tab>
-                              <Tab style="-fx-padding: 1 10 1 10;" text="fights">
+                              <Tab id="tabFights" style="-fx-padding: 1 10 1 10; -fx-font-size: 18;" text="fights">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -179,7 +179,7 @@
                                              <content>
                                                 <Text fx:id="tutorialFightsText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="862.0">
                                                    <font>
-                                                      <Font size="40.0" />
+                                                      <Font name="Cantarell Regular" size="16.0" />
                                                    </font>
                                                 </Text>
                                              </content>

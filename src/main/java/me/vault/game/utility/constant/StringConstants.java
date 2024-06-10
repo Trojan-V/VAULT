@@ -15,6 +15,14 @@ public interface StringConstants
 		"Das Transportsystem auf das das Team " +
 		"f\u00FCr ihre R\u00FCckreise angewiesen waren, hatte eine Fehlst\u00F6rung und muss repariert werden.";
 
+	public static String tutorialIntroduction = "Text for the introduction";
+	public static String tutorialCity = "Text for the city";
+	public static String tutorialArtefacts = "Text for the artefacts";
+	public static String tutorialFactsions = "Text for the factions";
+	public static String tutorialMissions = "Text for the missions";
+	public static String tutorialFights = "Text for the fights";
+
+
 	public static String buttonRoundImageName = "button_round.png";
 	public static String buttonImageName = "button.png";
 
