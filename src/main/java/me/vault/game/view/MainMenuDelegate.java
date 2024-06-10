@@ -177,7 +177,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton)) {
 			ViewUtils.setButtonColor(this.newGameButtonText, Color.BLACK);
-			PrologueView.show(VaultApplication.getStage());
+			DifficultyView.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.loadGameButton)) {
 			ViewUtils.setButtonColor(this.loadGameButtonText, Color.BLACK);

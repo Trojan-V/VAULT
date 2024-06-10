@@ -103,7 +103,7 @@ public class PrologueDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
 			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
-			MainMenuView.show(VaultApplication.getStage());
+			DifficultyView.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{

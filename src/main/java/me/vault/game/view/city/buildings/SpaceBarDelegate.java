@@ -1,4 +1,4 @@
-package me.vault.game.view;
+package me.vault.game.view.city.buildings;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +9,8 @@ import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.city.CityDelegate;
+import me.vault.game.view.city.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;

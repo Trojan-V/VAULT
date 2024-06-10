@@ -1,4 +1,4 @@
-package me.vault.game.view;
+package me.vault.game.view.city.buildings;
 
 
 import javafx.fxml.Initializable;

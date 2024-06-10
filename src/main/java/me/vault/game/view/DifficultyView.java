@@ -26,7 +26,7 @@ public class DifficultyView
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
-	private static final String DIFFICULTY_VIEW_FXML = "difficulty_view.fxml";
+	private static final String DIFFICULTY_VIEW_FXML = "difficulty.fxml";
 
 	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(MainMenuView.class, DIFFICULTY_VIEW_FXML);
 
