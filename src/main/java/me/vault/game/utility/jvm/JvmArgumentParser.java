@@ -2,7 +2,7 @@ package me.vault.game.utility.jvm;
 
 
 import me.vault.game.Cache;
-import me.vault.game.currency.Currency;
+import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.ILogger.Level;
 import me.vault.game.utility.logging.Logger;

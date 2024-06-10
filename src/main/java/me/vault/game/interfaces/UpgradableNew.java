@@ -1,7 +1,7 @@
 package me.vault.game.interfaces;
 
 
-import me.vault.game.currency.CurrencyTransaction;
+import me.vault.game.model.currency.CurrencyTransaction;
 
 
 /**

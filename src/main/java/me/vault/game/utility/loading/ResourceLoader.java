@@ -3,6 +3,7 @@ package me.vault.game.utility.loading;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import me.vault.game.VaultApplication;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -11,7 +12,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
@@ -62,5 +66,15 @@ public final class ResourceLoader
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public static File getDirectory (String filePath)
+	{
+		return new File(filePath);
+	}
+
+	public static ArrayList<File> collectFiles (String filePath)
+	{
+		return new ArrayList<File>(List.of(new File(filePath).listFiles()));
 	}
 }

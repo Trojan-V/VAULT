@@ -6,7 +6,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import me.vault.game.utility.jvm.JvmArgumentParser;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.logging.Logger.ProcedureType;
+import me.vault.game.view.MainMenuView;
+import me.vault.game.view.VaultDelegate;
 
 import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
 
@@ -14,12 +15,12 @@ import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
 /**
  * The entry point of the VAULT game application. This class launches the GUI window the player will interact with to.
  * The class which inherits from {@link Application} is responsible for loading any {@code .fxml} files. The
- * {@code .fxml} file creates the connection between {@link VaultApplication} and {@link VaultController}.
+ * {@code .fxml} file creates the connection between {@link VaultApplication} and {@link VaultDelegate}.
  *
  * @author Vincent Wolf
  * @version 1.0.0
  * @see Application
- * @see VaultController
+ * @see VaultDelegate
  * @since 24.04.2024
  */
 public class VaultApplication extends Application
@@ -75,7 +76,7 @@ public class VaultApplication extends Application
 	{
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
-		MainMenuView.showMainMenu(stage);
+		MainMenuView.show(stage);
 		mainStage = stage;
 	}
 }

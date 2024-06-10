@@ -184,10 +184,20 @@ public interface StringConstants
 	                                                                         "moves to capturing of outposts from " +
 	                                                                         "each other.";
 
+	public static String tutorialIntroduction = "Text for the introduction";
+	public static String tutorialCity = "Text for the city";
+	public static String tutorialArtefacts = "Text for the artefacts";
+	public static String tutorialFactsions = "Text for the factions";
+	public static String tutorialMissions = "Text for the missions";
+	public static String tutorialFights = "Text for the fights";
+
+
 	public static String buttonRoundImageName = "button_round.png";
 
 	public static String buttonImageName = "button.png";
 
 	public static String colorLightBlue = "1584AD";
+
+	public static String chooseGameFile = "Choose a gamefile to load";
 
 }

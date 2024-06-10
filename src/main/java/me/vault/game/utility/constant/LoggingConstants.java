@@ -1,7 +1,7 @@
 package me.vault.game.utility.constant;
 
 
-import me.vault.game.artifact.ArtifactController;
+import me.vault.game.control.ArtifactController;
 import me.vault.game.utility.logging.ConsoleColor;
 import me.vault.game.utility.logging.Logger;
 
