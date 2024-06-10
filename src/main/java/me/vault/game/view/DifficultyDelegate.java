@@ -1,101 +1,162 @@
 package me.vault.game.view;
 
-
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.scene.control.Button;
+
 import me.vault.game.VaultApplication;
+import me.vault.game.control.GameController;
+import me.vault.game.model.GameDifficulty;
+import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
 
 
 public final class DifficultyDelegate implements Initializable
 {
+	//Buttons ----------------------------------------------------------------------------------------------------------
 
 	@FXML
-	private ImageView difficultyMenuImageView;
-
-
-	@FXML
-	private ImageView easyDifficultyImageView;
-
+	private Button easyDifficultyButton;
 
 	@FXML
-	private ImageView hardDifficultyImageView;
-
+	private Button normalDifficultyButton;
 
 	@FXML
-	private ImageView mediumDifficultyImageView;
+	private Button hardDifficultyButton;
 
+	@FXML
+	private Button backButton;
 
-	private static final double EASY_MODE_DIFFICULTY_MODIFIER = 1;
+	//ImageViews ------------------------------------------------------------------------------------------------------------
 
+	@FXML
+	private ImageView backgroundImageView;
 
-	private static final double MEDIUM_MODE_DIFFICULTY_MODIFIER = 1.5;
+	@FXML
+	private ImageView easyDifficultyButtonImageView;
 
+	@FXML
+	private ImageView normalDifficultyButtonImageView;
 
-	private static final double HARD_MODE_DIFFICULTY_MODIFIER = 2;
+	@FXML
+	private ImageView hardDifficultyButtonImageView;
 
+	@FXML
+	private ImageView backButtonImageView;
 
-	private static double difficultyModifier = EASY_MODE_DIFFICULTY_MODIFIER;
+	//Texts ------------------------------------------------------------------------------------------------------------
 
+	@FXML
+	private Text easyDifficultyButtonText;
 
-	/**
-	 * Returns the value of the current difficulty modifier.
-	 *
-	 * @return a double value, which represents the current difficulty modifier.
-	 */
-	public static double getDifficultyModifier ()
+	@FXML
+	private Text normalDifficultyButtonText;
+
+	@FXML
+	private Text hardDifficultyButtonText;
+
+	@FXML
+	private Text backButtonText;
+
+	//Actions----------------------------------------------------------------------------------------------------------
+
+	@FXML
+	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
-		return difficultyModifier;
+		if (mouseEvent.getSource().equals(this.easyDifficultyButton)) {
+			ViewUtils.setImage(this.easyDifficultyButtonImageView,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+		}
+		else if (mouseEvent.getSource().equals(this.normalDifficultyButton)) {
+			ViewUtils.setImage(this.normalDifficultyButtonImageView,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+		}
+		else if (mouseEvent.getSource().equals(this.hardDifficultyButton)) {
+			ViewUtils.setImage(this.hardDifficultyButtonImageView,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+		}
+		else if (mouseEvent.getSource().equals(this.backButton)) {
+			ViewUtils.setImage(this.backButtonImageView,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+		}
 	}
 
-
-	/**
-	 * Sets the value of the current difficulty modifier.
-	 */
-	private static void setDifficultyModifier (final double difficultyModifier)
+	@FXML
+	public void returnButtonBackgroundToNormal (final MouseEvent mouseEvent)
 	{
-		DifficultyDelegate.difficultyModifier = difficultyModifier;
+		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
+		{
+			ViewUtils.setImage(this.easyDifficultyButtonImageView,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+		}
+		else if (mouseEvent.getSource().equals(this.normalDifficultyButton)) {
+			ViewUtils.setImage(this.normalDifficultyButtonImageView,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+		}
+		else if (mouseEvent.getSource().equals(this.hardDifficultyButton)) {
+			ViewUtils.setImage(this.hardDifficultyButtonImageView,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+		}
+		else if (mouseEvent.getSource().equals(this.backButton)) {
+			ViewUtils.setImage(this.backButtonImageView,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+		}
 	}
 
-
 	@FXML
-	void onEasyDifficultyClick (final Event ignored)
+	void changeButtonTextColor (final MouseEvent mouseEvent)
 	{
-		setDifficultyModifier(EASY_MODE_DIFFICULTY_MODIFIER);
-		TutorialView.show(VaultApplication.getStage());
+		if (mouseEvent.getSource().equals(this.easyDifficultyButton)) {
+			ViewUtils.setButtonColor(this.easyDifficultyButtonText, javafx.scene.paint.Color.valueOf(StringConstants.colorLightBlue));
+		}
+		else if (mouseEvent.getSource().equals(this.normalDifficultyButton)) {
+			ViewUtils.setButtonColor(this.normalDifficultyButtonText, javafx.scene.paint.Color.valueOf(StringConstants.colorLightBlue));
+		}
+		else if (mouseEvent.getSource().equals(this.hardDifficultyButton)) {
+			ViewUtils.setButtonColor(this.hardDifficultyButtonText, javafx.scene.paint.Color.valueOf(StringConstants.colorLightBlue));
+		}
+		else if (mouseEvent.getSource().equals(this.backButton)) {
+			ViewUtils.setButtonColor(this.backButtonText, javafx.scene.paint.Color.valueOf(StringConstants.colorLightBlue));
+		}
 	}
 
-
 	@FXML
-	void onMediumDifficultyClick (final Event ignored)
+	void buttonClick (final MouseEvent mouseEvent)
 	{
-		setDifficultyModifier(MEDIUM_MODE_DIFFICULTY_MODIFIER);
-		TutorialView.show(VaultApplication.getStage());
-	}
-
-
-	@FXML
-	void onHardDifficultyClick (final Event ignored)
-	{
-		setDifficultyModifier(HARD_MODE_DIFFICULTY_MODIFIER);
-		TutorialView.show(VaultApplication.getStage());
+		if (mouseEvent.getSource().equals(this.easyDifficultyButton)) {
+			ViewUtils.setButtonColor(this.easyDifficultyButtonText, javafx.scene.paint.Color.BLACK);
+			GameController.getInstance().setDifficultyModifyer(GameDifficulty.EASY_MODE);
+			PrologueView.show(VaultApplication.getStage());
+		}
+		else if (mouseEvent.getSource().equals(this.normalDifficultyButton)) {
+			ViewUtils.setButtonColor(this.normalDifficultyButtonText, javafx.scene.paint.Color.BLACK);
+			DifficultyView.show(VaultApplication.getStage());
+			GameController.getInstance().setDifficultyModifyer(GameDifficulty.NORMAL_MODE);
+			PrologueView.show(VaultApplication.getStage());
+		}
+		else if (mouseEvent.getSource().equals(this.hardDifficultyButton)) {
+			ViewUtils.setButtonColor(this.hardDifficultyButtonText, javafx.scene.paint.Color.BLACK);
+			GameController.getInstance().setDifficultyModifyer(GameDifficulty.HARD_MODE);
+			PrologueView.show(VaultApplication.getStage());
+		}
+		else if (mouseEvent.getSource().equals(this.backButton)) {
+			ViewUtils.setButtonColor(this.backButtonText, javafx.scene.paint.Color.BLACK);
+			MainMenuView.show(VaultApplication.getStage());
+		}
 	}
 
 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.difficultyMenuImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
-		this.easyDifficultyImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + "easy_difficulty_icon.png"));
-		this.mediumDifficultyImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + "medium_difficulty_icon.png"));
-		this.hardDifficultyImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + "hard_difficulty_icon.png"));
+
 	}
 }

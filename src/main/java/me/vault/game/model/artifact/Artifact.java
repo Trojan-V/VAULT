@@ -8,7 +8,7 @@ import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.control.ArtifactController;
-import me.vault.game.view.WorkshopDelegate;
+import me.vault.game.view.city.buildings.WorkshopDelegate;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;

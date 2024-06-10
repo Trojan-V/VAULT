@@ -9,7 +9,7 @@ import me.vault.game.utility.logging.Logger;
 import java.text.MessageFormat;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public class PrologueView
@@ -26,7 +26,7 @@ public class PrologueView
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
 	 * properties (color etc.) of the GUI elements.
 	 */
-	private static final String PROLOGUE_VIEW_FXML = "1080p_prologue.fxml";
+	private static final String PROLOGUE_VIEW_FXML = "prologue.fxml";
 
 
 	private static final Scene PROLOGUE_SCENE = ResourceLoader.loadScene(PrologueView.class, PROLOGUE_VIEW_FXML);
@@ -37,6 +37,6 @@ public class PrologueView
 		// Changes the scene of the stage to the prologue scene
 		stage.setScene(PROLOGUE_SCENE);
 		stage.show();
-		LOGGER.log(NORMAL, MessageFormat.format(SHOWING_VIEW_MSG, PrologueView.class.getSimpleName()));
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, PrologueView.class.getSimpleName()));
 	}
 }

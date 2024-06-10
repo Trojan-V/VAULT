@@ -1,56 +1,137 @@
 package me.vault.game.view;
 
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
+import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import me.vault.game.VaultApplication;
+import me.vault.game.utility.constant.GameConstants;
+import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.city.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
+import static me.vault.game.utility.constant.GameConstants.*;
 
 
 public final class TutorialDelegate implements Initializable
 {
-	/**
-	 * The logger object for this class used for writing formatted outputs into the console.
-	 *
-	 * @see Logger
-	 */
-	private static final Logger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
-
-
-	private static final int LAST_PAGE_INDEX_SHIFT = 1;
-
-
-	private static final int NEXT_PAGE_INDEX_SHIFT = 1;
-
+	//Buttons ----------------------------------------------------------------------------------------------------------
 
 	@FXML
-	private ImageView tutorialMenuImageView;
+	private Button continueButton;
 
+	@FXML
+	private Button backButton;
+
+	//ImageViews -----------------------------------------------------------------------------------------------------------
+
+	@FXML
+	private ImageView backgroundImageView;
+
+	@FXML
+	private ImageView continueButtonBackground;
+
+	@FXML
+	private ImageView backButtonBackground;
+
+	//Texts -----------------------------------------------------------------------------------------------------------
+
+	@FXML
+	private Text tutorialIntroductionText;
+
+	@FXML
+	private Text tutorialCityText;
+
+	@FXML
+	private Text tutorialArtefactsText;
+
+	@FXML
+	private Text tutorialFactionsText;
+
+	@FXML
+	private Text tutorialMissionsText;
+
+	@FXML
+	private Text tutorialFightsText;
+
+	@FXML
+	private Text continueButtonText;
+
+	@FXML
+	private Text backButtonText;
+
+	//TabPane ----------------------------------------------------------------------------------------------------------
 
 	@FXML
 	private TabPane tutorialTabPane;
 
 
+	//Actions ----------------------------------------------------------------------------------------------------------
 	@FXML
-	void nextButtonClick (final ActionEvent ignored)
+	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
-		if (this.tutorialTabPane.getSelectionModel().getSelectedIndex() == this.tutorialTabPane.getTabs().size() - LAST_PAGE_INDEX_SHIFT)
+		if (mouseEvent.getSource().equals(this.backButton))
 		{
+			ViewUtils.setImage(this.backButtonBackground,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+		}
+		else if (mouseEvent.getSource().equals(this.continueButton))
+		{
+			ViewUtils.setImage(this.continueButtonBackground,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+		}
+
+	}
+
+	@FXML
+	public void returnButtonBackgroundToNormal(final MouseEvent mouseEvent)
+	{
+		if (mouseEvent.getSource().equals(this.continueButton))
+		{
+			ViewUtils.setImage(this.continueButtonBackground,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+		}
+		else if (mouseEvent.getSource().equals(this.backButton))
+		{
+			ViewUtils.setImage(this.backButtonBackground,
+				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+		}
+	}
+
+	@FXML
+	void changeButtonTextColor (final MouseEvent mouseEvent)
+	{
+		if (mouseEvent.getSource().equals(this.backButton))
+		{
+			ViewUtils.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
+		}
+		else if (mouseEvent.getSource().equals(this.continueButton))
+		{
+			ViewUtils.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
+		}
+	}
+
+	@FXML
+	void buttonClick (final MouseEvent mouseEvent)
+	{
+		if (mouseEvent.getSource().equals(this.backButton))
+		{
+			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
 			PrologueView.show(VaultApplication.getStage());
 		}
-		else
+		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			this.tutorialTabPane.getSelectionModel().select(this.tutorialTabPane.getSelectionModel().getSelectedIndex() + NEXT_PAGE_INDEX_SHIFT);
+			ViewUtils.setButtonColor(this.continueButtonText, Color.BLACK);
+			// TutorialView.show(VaultApplication.getStage());
+			CityView.show(VaultApplication.getStage());
 		}
 	}
 
@@ -58,6 +139,14 @@ public final class TutorialDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.tutorialMenuImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		ViewUtils.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
+		ViewUtils.setText(this.tutorialIntroductionText, StringConstants.tutorialIntroduction);
+		ViewUtils.setText(this.tutorialCityText, StringConstants.tutorialCity);
+		ViewUtils.setText(this.tutorialArtefactsText, StringConstants.tutorialArtefacts);
+		ViewUtils.setText(this.tutorialFactionsText, StringConstants.tutorialFactsions);
+		ViewUtils.setText(this.tutorialMissionsText, StringConstants.tutorialMissions);
+		ViewUtils.setText(this.tutorialFightsText, StringConstants.tutorialFights);
+		ViewUtils.setTabPaneStyle(tutorialTabPane,TAB_PANE_STYLE);
+
 	}
 }

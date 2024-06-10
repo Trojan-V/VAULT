@@ -28,11 +28,10 @@ public class MainMenuView
 	 */
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
 
-
 	private static final Scene MAIN_MENU_SCENE = ResourceLoader.loadScene(MainMenuView.class, MAIN_MENU_VIEW_FXML);
 
 
-	public static void showMainMenu (final Stage stage)
+	public static void show (final Stage stage)
 	{
 		stage.setScene(MAIN_MENU_SCENE);
 		stage.show();

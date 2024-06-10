@@ -1,4 +1,4 @@
-package me.vault.game.view;
+package me.vault.game.view.city.buildings;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,12 +9,14 @@ import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.city.CityDelegate;
+import me.vault.game.view.city.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
+import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
 public class SpaceBarDelegate extends CityBuildingController implements Initializable
 {
@@ -63,7 +65,7 @@ public class SpaceBarDelegate extends CityBuildingController implements Initiali
 	@Override
 	public void initialize (URL url, ResourceBundle resourceBundle)
 	{
-		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.initCurrencies();
 	}
 

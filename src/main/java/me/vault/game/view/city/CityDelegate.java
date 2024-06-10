@@ -1,4 +1,4 @@
-package me.vault.game.view;
+package me.vault.game.view.city;
 
 
 import javafx.event.ActionEvent;
@@ -19,12 +19,13 @@ import me.vault.game.model.city.TrainingFacility;
 import me.vault.game.model.city.Workshop;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.city.buildings.CityBuildingView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
+import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
 
 /**
@@ -264,7 +265,7 @@ public class CityDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.initCurrencies();
 		this.initBuildingButtons();
 	}

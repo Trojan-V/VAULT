@@ -1,4 +1,4 @@
-package me.vault.game.view;
+package me.vault.game.view.city.buildings;
 
 
 import javafx.event.ActionEvent;
@@ -12,6 +12,7 @@ import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.city.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -264,7 +265,8 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH +
+		                                                                           GENERAL_BACKGROUND_FILENAME));
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.initCurrencies();
 	}

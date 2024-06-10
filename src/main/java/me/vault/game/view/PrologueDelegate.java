@@ -16,16 +16,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.CITY_BACKGROUND_FILENAME;
+import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
 
 public class PrologueDelegate implements Initializable
 {
-	@FXML
-	private ImageView prologueImageView;
+	// Buttons ------------------------------------------------------------------------------------------------------------------
 
 	@FXML
-	private Text storyText;
+	private Button continueButton;
+
+	@FXML
+	private Button backButton;
+
+	//ImageViews -----------------------------------------------------------------------------------------------------------
+
+	@FXML
+	private ImageView backgroundImageView;
 
 	@FXML
 	private ImageView continueButtonBackground;
@@ -33,54 +40,30 @@ public class PrologueDelegate implements Initializable
 	@FXML
 	private ImageView backButtonBackground;
 
-	@FXML
-	private Button buttonPrologueWeiter;
+	//Texts -----------------------------------------------------------------------------------------------------------
 
 	@FXML
-	private Button buttonPrologueBack;
+	private Text storyText;
 
 	@FXML
-	private Text buttonBack;
+	private Text backButtonText;
 
 	@FXML
-	private Text buttonContinue;
+	private Text continueButtonText;
 
-
-
-	@FXML
-	void continueButtonClick (final MouseEvent ignored)
-	{
-		ViewUtils.setButtonColor(buttonContinue, Color.BLACK);
-		CityView.show(VaultApplication.getStage());
-	}
-
-	@FXML
-	void backButtonClick (final MouseEvent ignored)
-	{
-		ViewUtils.setButtonColor(buttonBack, Color.BLACK);
-		MainMenuView.showMainMenu(VaultApplication.getStage());
-	}
-
-	@FXML
-	void changeButtonTextColor (final MouseEvent mouseEvent)
-	{
-		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			ViewUtils.setButtonColor(this.buttonBack, Color.valueOf(StringConstants.colorLightBlue));
-		}
-		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
-			ViewUtils.setButtonColor(this.buttonContinue, Color.valueOf(StringConstants.colorLightBlue));
-		}
-	}
+	//Actions ----------------------------------------------------------------------------------------------------------
 
 	@FXML
 	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			ViewUtils.changeImage(this.backButtonBackground,
+		if (mouseEvent.getSource().equals(this.backButton))
+		{
+			ViewUtils.setImage(this.backButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
-		if (mouseEvent.getSource().equals(buttonPrologueWeiter)) {
-			ViewUtils.changeImage(this.continueButtonBackground,
+		else if (mouseEvent.getSource().equals(this.continueButton))
+		{
+			ViewUtils.setImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 
@@ -89,22 +72,50 @@ public class PrologueDelegate implements Initializable
 	@FXML
 	public void returnButtonBackgroundToNormal(final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(buttonPrologueWeiter))
+		if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.changeImage(this.continueButtonBackground,
+			ViewUtils.setImage(this.continueButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
-		if (mouseEvent.getSource().equals(buttonPrologueBack)) {
-			ViewUtils.changeImage(this.backButtonBackground,
+		else if (mouseEvent.getSource().equals(this.backButton))
+		{
+			ViewUtils.setImage(this.backButtonBackground,
 				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
 
+	@FXML
+	void changeButtonTextColor (final MouseEvent mouseEvent)
+	{
+		if (mouseEvent.getSource().equals(this.backButton))
+		{
+			ViewUtils.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
+		}
+		else if (mouseEvent.getSource().equals(this.continueButton))
+		{
+			ViewUtils.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
+		}
+	}
+
+	@FXML
+	void buttonClick (final MouseEvent mouseEvent)
+	{
+		if (mouseEvent.getSource().equals(this.backButton))
+		{
+			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
+			DifficultyView.show(VaultApplication.getStage());
+		}
+		else if (mouseEvent.getSource().equals(this.continueButton))
+		{
+			ViewUtils.setButtonColor(this.continueButtonText, Color.BLACK);
+			TutorialView.show(VaultApplication.getStage());
+		}
+	}
 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.prologueImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + CITY_BACKGROUND_FILENAME));
+		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		ViewUtils.setText(this.storyText, StringConstants.prologue);
 	}
 }

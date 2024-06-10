@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.DifficultyDelegate">
+   <top>
+      <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="1280.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="980.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="backgroundImageView" fitHeight="690.0" fitWidth="1280.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assets/general_background.png" />
+               </image>
+            </ImageView>
+            <BorderPane prefHeight="680.0" prefWidth="1280.0">
+               <center>
+                  <GridPane prefHeight="1080.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="50.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" prefHeight="200.0" valignment="TOP" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox fx:id="elementContainer" alignment="TOP_CENTER" prefHeight="463.0" prefWidth="1180.0" spacing="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                           <children>
+                              <GridPane prefHeight="135.0" prefWidth="872.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="93.0" fitWidth="467.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../assets/button.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </GridPane>
+                              <HBox alignment="CENTER" prefHeight="260.0" prefWidth="872.0" spacing="50.0">
+                                 <children>
+                                    <Button fx:id="easyDifficultyButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="235.0" prefWidth="334.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <GridPane prefHeight="298.0" prefWidth="300.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <ImageView fitHeight="298.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/easy_difficulty_icon.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <GridPane alignment="CENTER" prefHeight="241.0" prefWidth="340.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <ImageView fx:id="easyDifficultyButtonImageView" fitHeight="83.0" fitWidth="334.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../assets/button.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text fx:id="easyDifficultyButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="easy" wrappingWidth="64.2640609741211">
+                                                         <font>
+                                                            <Font size="26.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </GridPane>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="normalDifficultyButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="260.0" prefWidth="341.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <GridPane prefHeight="298.0" prefWidth="300.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <ImageView fitHeight="298.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/medium_difficulty_icon.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <ImageView fx:id="normalDifficultyButtonImageView" fitHeight="83.0" fitWidth="334.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../assets/button.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text fx:id="normalDifficultyButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="normal" wrappingWidth="94.2640609741211">
+                                                         <font>
+                                                            <Font size="26.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </GridPane>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="hardDifficultyButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="260.0" prefWidth="339.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <GridPane prefHeight="298.0" prefWidth="300.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <ImageView fitHeight="298.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/hard_difficulty_icon.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <GridPane alignment="CENTER" prefHeight="298.0" prefWidth="380.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <ImageView fx:id="hardDifficultyButtonImageView" fitHeight="83.0" fitWidth="334.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../assets/button.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text fx:id="hardDifficultyButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="hard" wrappingWidth="62.264060974121094">
+                                                         <font>
+                                                            <Font size="26.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </GridPane>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <GridPane id="hint" prefHeight="200.0" prefWidth="1890.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <ImageView id="imageHint" fitHeight="63.0" fitWidth="557.0" opacity="0.75" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../assets/button.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="The game difficulty can be adjustend during gameplay">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </center>
+               <top>
+                  <GridPane prefHeight="55.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="300.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button fx:id="backButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="50.0" prefWidth="289.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.rowIndex="1">
+                           <graphic>
+                              <GridPane alignment="CENTER" prefHeight="39.0" prefWidth="284.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fx:id="backButtonImageView" fitHeight="60.0" fitWidth="288.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../assets/button.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text fx:id="backButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="back" wrappingWidth="61.93073272705078">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </GridPane>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </top>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

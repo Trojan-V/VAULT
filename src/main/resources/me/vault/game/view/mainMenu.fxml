@@ -8,6 +8,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -20,7 +21,7 @@
    <center>
       <AnchorPane prefHeight="690.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="backgroundImageView" fitHeight="690.0" fitWidth="1280.0" pickOnBounds="true" style="-fx-scale-x: 100%; -fx-scale-y: 100%;">
+            <ImageView fx:id="backgroundImageView" fitHeight="690.0" fitWidth="1280.0" pickOnBounds="true">
                <image>
                   <Image url="@../assets/general_background.png" />
                </image>
@@ -65,7 +66,7 @@
                                           <Image url="@../assets/button.png" />
                                        </image>
                                     </ImageView>
-                                    <Text fx:id="continueButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="Fortsetzen" wrappingWidth="141.80224609375">
+                                    <Text fx:id="continueButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="continue" wrappingWidth="115.80224609375">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
@@ -92,7 +93,7 @@
                                           <Image url="@../assets/button.png" />
                                        </image>
                                     </ImageView>
-                                    <Text fx:id="newGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="Neues Spiel" wrappingWidth="164.80224609375">
+                                    <Text fx:id="newGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="new game" wrappingWidth="140.80224609375">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
@@ -119,7 +120,7 @@
                                           <Image url="@../assets/button.png" />
                                        </image>
                                     </ImageView>
-                                    <Text fx:id="loadGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="Spiel laden" wrappingWidth="145.80224609375">
+                                    <Text fx:id="loadGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="load game" wrappingWidth="138.80224609375">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
@@ -146,7 +147,7 @@
                                           <Image url="@../assets/button.png" />
                                        </image>
                                     </ImageView>
-                                    <Text fx:id="settingsButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="Einstellungen" wrappingWidth="177.80224609375">
+                                    <Text fx:id="settingsButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="settings" wrappingWidth="107.80224609375">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
@@ -173,7 +174,7 @@
                                           <Image url="@../assets/button.png" />
                                        </image>
                                     </ImageView>
-                                    <Text fx:id="exitGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="Spiel beenden" wrappingWidth="196.80224609375">
+                                    <Text fx:id="exitGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="exit game" wrappingWidth="135.80224609375">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
@@ -200,7 +201,7 @@
                                           <Image url="@../assets/button.png" />
                                        </image>
                                     </ImageView>
-                                    <Text fx:id="arenaButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="Arena" wrappingWidth="77.46890258789062">
+                                    <Text fx:id="arenaButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="arena" wrappingWidth="77.46890258789062">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
@@ -225,15 +226,18 @@
    <top>
       <MenuBar fx:id="menubar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
          <menus>
-            <Menu fx:id="menu" mnemonicParsing="false" text="Menü">
+            <Menu fx:id="menu" mnemonicParsing="false" text="menu">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Fortsetzen" />
-                  <MenuItem mnemonicParsing="false" text="Neues Spiel" />
-                  <MenuItem mnemonicParsing="false" text="Spiel laden" />
-                  <MenuItem mnemonicParsing="false" text="Einstellungen" />
-                  <MenuItem mnemonicParsing="false" text="Spiel beenden" />
-                  <MenuItem mnemonicParsing="false" text="Arena" />
+                  <MenuItem fx:id="continueMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="continue" />
+                  <MenuItem fx:id="newGameMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="new game" />
+                  <MenuItem fx:id="loadGameMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="load game" />
+                  <MenuItem fx:id="settingsMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="settings" />
+                  <MenuItem fx:id="exitGameMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="exit game" />
+                  <MenuItem fx:id="arenaMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="arena" />
                </items>
+               <accelerator>
+                  <KeyCodeCombination alt="UP" code="M" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
             </Menu>
          </menus>
       </MenuBar>
