@@ -34,7 +34,8 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="prologueImageView" fitHeight="690.0" fitWidth="1280.0" pickOnBounds="true" style="-fx-scale-x: 100%;" >
+            <ImageView fx:id="backgroundImageView" fitHeight="690.0" fitWidth="1280.0" pickOnBounds="true"
+                       style="-fx-scale-x: 100%;" >
             <image>
                <Image url="@../assets/general_background.png" />
             </image>

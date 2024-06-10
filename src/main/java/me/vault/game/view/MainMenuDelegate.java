@@ -201,13 +201,6 @@ public class MainMenuDelegate implements Initializable
 		}
 	}
 
-	/**
-	 * The logger object for this class used for writing formatted outputs into the console.
-	 *
-	 * @see Logger
-	 */
-	private static final Logger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
-
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
