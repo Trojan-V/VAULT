@@ -36,68 +36,91 @@ public class MainMenuDelegate implements Initializable
 	 * @see Logger
 	 */
 	private static final ILogger LOGGER = new Logger(MainMenuDelegate.class.getSimpleName());
+
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/game} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
+
 	private static final Scene MAIN_MENU_SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
+
 	@FXML
 	private Button continueButton;
+
 	@FXML
 	private Button newGameButton;
+
 	@FXML
 	private Button loadGameButton;
 
 	//ImageViews ------------------------------------------------------------------------------------------------------------
 	@FXML
 	private Button settingsButton;
+
 	@FXML
 	private Button exitGameButton;
+
 	@FXML
 	private Button arenaButton;
+
 	@FXML
 	private ImageView backgroundImageView;
+
 	@FXML
 	private ImageView continueButtonBackground;
+
 	@FXML
 	private ImageView newGameButtonBackground;
+
 	@FXML
 	private ImageView loadGameButtonBackground;
 
 	// Texts -------------------------------------------------------------------------------------------------------------
 	@FXML
 	private ImageView settingsButtonBackground;
+
 	@FXML
 	private ImageView exitGameButtonBackground;
+
 	@FXML
 	private ImageView arenaButtonBackground;
+
 	@FXML
 	private Text continueButtonText;
+
 	@FXML
 	private Text newGameButtonText;
+
 	@FXML
 	private Text loadGameButtonText;
 
 	// MenuItems --------------------------------------------------------------------------------------------------------
 	@FXML
 	private Text settingsButtonText;
+
 	@FXML
 	private Text exitGameButtonText;
+
 	@FXML
 	private Text arenaButtonText;
+
 	@FXML
 	private MenuItem continueMenuItem;
+
 	@FXML
 	private MenuItem newGameMenuItem;
+
 	@FXML
 	private MenuItem loadGameMenuItem;
 
 	// Actions ------------------------------------------------------------------------------------------------------------
 	@FXML
 	private MenuItem settingsMenuItem;
+
 	@FXML
 	private MenuItem exitGameMenuItem;
+
 	@FXML
 	private MenuItem arenaMenuItem;
 

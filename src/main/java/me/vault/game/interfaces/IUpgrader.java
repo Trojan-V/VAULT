@@ -24,6 +24,7 @@ public interface IUpgrader<T extends UpgradableNew<E>, E>
 	 */
 	void upgrade (T upgradable);
 
+
 	/**
 	 * Checks if the {@link UpgradableNew} instance can be upgraded to the next level.
 	 * <br>

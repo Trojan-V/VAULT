@@ -5,6 +5,7 @@ public enum GameDifficulty
 	EASY_MODE("easy", 1.0), NORMAL_MODE("normal", 1.5), HARD_MODE("hard", 2);
 
 	private final String difficulty;
+
 	private final double modifyer;
 
 

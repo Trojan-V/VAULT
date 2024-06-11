@@ -21,6 +21,7 @@ public interface ICurrency
 	 */
 	int getAmount ();
 
+
 	/**
 	 * Sets the amount property to a specified amount.
 	 *
@@ -28,7 +29,9 @@ public interface ICurrency
 	 */
 	void setAmount (final int amount);
 
+
 	SimpleIntegerProperty getAmountProperty ();
+
 
 	/**
 	 * Adds the specified amount to the currency property.

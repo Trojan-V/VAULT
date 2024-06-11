@@ -55,8 +55,7 @@ public interface LoggingConstants
 		String PREVIOUS_ARTIFACT_LEVEL_INCORRECT_MSG =
 				"The previous artifact level before {0} wasn't the expected level {1}, it was {2} instead for some " + "reason.";
 
-		String GET_MAXIMUM_LEVEL_METHOD_ENTERED_MSG =
-				"Entered the getMaximumArtifactLevel()" + "-method and leaving it, returning {0}.";
+		String GET_MAXIMUM_LEVEL_METHOD_ENTERED_MSG = "Entered the getMaximumArtifactLevel()" + "-method and leaving it, returning {0}.";
 
 		String GET_NEXT_HIGHER_LEVEL_METHOD_ENTERED_MSG = "Entered the getNextHigherLevel()-method" + " for level {0}.";
 
@@ -90,8 +89,7 @@ public interface LoggingConstants
 
 		String NO_LOG_DEPTH_ARGUMENT_MSG = "No argument found after -log_depth, the default depth " + "value {0} is now applied.";
 
-		String INVALID_LOG_DEPTH_ARGUMENT_MSG =
-				"Invalid argument {0} found after -log_depth, the default depth value {1} is now " + "applied.";
+		String INVALID_LOG_DEPTH_ARGUMENT_MSG = "Invalid argument {0} found after -log_depth, the default depth value {1} is now " + "applied.";
 
 		String LOG_DEPTH_HAS_BEEN_SET_TO_MSG = "The log depth has been set to {0}";
 
@@ -104,14 +102,11 @@ public interface LoggingConstants
 
 		String INVALID_ARGUMENT_AT_POSITION_MSG = "Invalid argument {0} found at position {1}.";
 
-		String VALID_ARGUMENT_LIST_MSG =
-				"Valid arguments are: " + Arrays.toString(me.vault.game.utility.jvm.JvmArgument.values());
+		String VALID_ARGUMENT_LIST_MSG = "Valid arguments are: " + Arrays.toString(me.vault.game.utility.jvm.JvmArgument.values());
 
-		String LOG_DEPTH_STATUS_MSG =
-				ConsoleColor.MAGENTA_BOLD + "logDepth is set to: {0}" + ConsoleColor.RESET;
+		String LOG_DEPTH_STATUS_MSG = ConsoleColor.MAGENTA_BOLD + "logDepth is set to: {0}" + ConsoleColor.RESET;
 
-		String CHEATS_STATUS_MSG =
-				ConsoleColor.MAGENTA_BOLD + "Cheats are set to: {0}" + ConsoleColor.RESET;
+		String CHEATS_STATUS_MSG = ConsoleColor.MAGENTA_BOLD + "Cheats are set to: {0}" + ConsoleColor.RESET;
 
 		String JVM_ARGUMENT_CONSTRUCTION_ERROR_MSG =
 				"The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" + " | actual = {1}]";

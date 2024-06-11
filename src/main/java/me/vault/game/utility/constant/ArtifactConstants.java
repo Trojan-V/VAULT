@@ -22,31 +22,50 @@ public interface ArtifactConstants
 	double MULTIPLIER_HIGH = 1.25D;
 
 	double MULTIPLIER_MAXIMUM = 1.5D;
+
 	double NO_CHANGE = 0;
+
 	// health addition
 	double HEALTH_BASE = 10;
+
 	double HEALTH_IMPROVED = 22;
+
 	// armour addition
 	double ARMOUR_BASE = 0.05;
+
 	double ARMOUR_IMPROVED = 0.12;
+
 	// melee damage addition
 	double MELEE_DAMAGE_BASE = 6;
+
 	double MELEE_DAMAGE_IMPROVED = 112;
+
 	// grenade damage addition
 	double GRENADE_DAMAGE_BASE = 6;
+
 	double GRENADE_DAMAGE_IMPROVED = 15;
+
 	// energy damage addition
 	double ENERGY_DAMAGE_BASE = 6;
+
 	double ENERGY_DAMAGE_IMPROVED = 15;
+
 	// resistenz addition
 	double RESISTENZ_BASE = 0.05;
+
 	double RESISTENZ_IMPROVED = 0.12;
+
 	// artifact names
 	String DAMAGE_ARTIFACT = "Damage Artifact";
+
 	String IMPROVED_DAMAGE_ARTIFACT = "Improved Damage Artifact";
+
 	String DEFENSE_ARTIFACT = "Defense Artifact";
+
 	String IMPROVED_DEFENSE_ARTIFACT = "Improved Defense Artifact";
+
 	String HEALTH_ARTIFACT = "Health Artifact";
+
 	String IMPROVED_HEALTH_ARTIFACT = "Improved Health Artifact";
 
 	interface Defense

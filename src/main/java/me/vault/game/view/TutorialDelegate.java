@@ -35,45 +35,60 @@ public final class TutorialDelegate implements Initializable
 	 * @see Logger
 	 */
 	private static final ILogger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
+
 	private static final String cssFilePath = "./css/style.css";
 
 	//ImageViews -----------------------------------------------------------------------------------------------------------
+
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
 	private static final String TUTORIAL_VIEW_FXML = "tutorial.fxml";
+
 	private static final Scene TUTORIAL_MENU_SCENE = ResourceLoader.loadScene(TutorialDelegate.class, TUTORIAL_VIEW_FXML);
+
 	@FXML
 	private Button continueButton;
 
 	//Texts -----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Button backButton;
+
 	@FXML
 	private ImageView backgroundImageView;
+
 	@FXML
 	private ImageView continueButtonBackground;
+
 	@FXML
 	private ImageView backButtonBackground;
+
 	@FXML
 	private Text tutorialIntroductionText;
+
 	@FXML
 	private Text tutorialCityText;
+
 	@FXML
 	private Text tutorialArtefactsText;
+
 	@FXML
 	private Text tutorialFactionsText;
 
 	//TabPane ----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Text tutorialMissionsText;
+
 	@FXML
 	private Text tutorialFightsText;
+
 	@FXML
 	private Text continueButtonText;
+
 	@FXML
 	private Text backButtonText;
+
 	@FXML
 	private TabPane tutorialTabPane;
 

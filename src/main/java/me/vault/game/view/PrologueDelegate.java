@@ -33,6 +33,7 @@ public class PrologueDelegate implements Initializable
 	 * @see Logger
 	 */
 	private static final Logger LOGGER = new Logger(PrologueDelegate.class.getSimpleName());
+
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
 	 * elements.
@@ -41,24 +42,30 @@ public class PrologueDelegate implements Initializable
 
 	//ImageViews -----------------------------------------------------------------------------------------------------------
 	private static final Scene PROLOGUE_SCENE = ResourceLoader.loadScene(PrologueDelegate.class, PROLOGUE_VIEW_FXML);
+
 	@FXML
 	private Button continueButton;
+
 	@FXML
 	private Button backButton;
 
 	//Texts -----------------------------------------------------------------------------------------------------------
 	@FXML
 	private ImageView backgroundImageView;
+
 	@FXML
 	private ImageView continueButtonBackground;
+
 	@FXML
 	private ImageView backButtonBackground;
 
 	//Actions ----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Text storyText;
+
 	@FXML
 	private Text backButtonText;
+
 	@FXML
 	private Text continueButtonText;
 

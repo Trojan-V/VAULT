@@ -87,13 +87,6 @@ public enum Currency implements ICurrency, Displayable
 	}
 
 
-	@Override
-	public SimpleIntegerProperty getAmountProperty ()
-	{
-		return this.amountProperty;
-	}
-
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -101,6 +94,13 @@ public enum Currency implements ICurrency, Displayable
 	public void setAmount (final int amount)
 	{
 		this.amountProperty.set(amount);
+	}
+
+
+	@Override
+	public SimpleIntegerProperty getAmountProperty ()
+	{
+		return this.amountProperty;
 	}
 
 

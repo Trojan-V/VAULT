@@ -16,6 +16,7 @@ public interface Upgradable<K, V>
 {
 	Map<K, V> getAllAttributes ();
 
+
 	/**
 	 * Returns the current level of the {@code CityBuilding} object.
 	 *
@@ -23,7 +24,9 @@ public interface Upgradable<K, V>
 	 */
 	V getCurrentAttributes ();
 
+
 	K getLevel ();
+
 
 	/**
 	 * Sets the current level of the {@code CityBuilding} object.

@@ -14,12 +14,14 @@ public interface UpgradableNew<E>
 {
 	E getLevel ();
 
+
 	/**
 	 * Sets the current level of the {@code CityBuilding} object.
 	 *
 	 * @param currentLevel The new level of the object as an {@link Integer}.
 	 */
 	void setLevel (E currentLevel);
+
 
 	CurrencyTransaction getCurrentUpgradeCosts ();
 

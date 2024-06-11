@@ -20,6 +20,7 @@ public interface ILevel
 	 */
 	ILevel getNextLowerLevel ();
 
+
 	/**
 	 * Returns the next higher level for the current level instance.
 	 *

@@ -21,7 +21,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALISED;
 
 /**
- * The {@code DocksDelegate} handles the control and view of the {@link me.vault.game.model.city.Barracks} city building. On the one hand it
+ * The {@code BarracksDelegate} handles the control and view of the {@link me.vault.game.model.city.Barracks} city building. On the one hand it
  * initialises the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model
  * to the {@link me.vault.game.model.city.Barracks} cty building.
  *

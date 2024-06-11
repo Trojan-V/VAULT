@@ -6,14 +6,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.control.CityBuildingController;
+import me.vault.game.control.CurrencyController;
 import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
-import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -25,26 +26,26 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
+/**
+ * The {@code DocksDelegate} handles the control and view of the {@link me.vault.game.model.city.Workshop} city building. On the one hand it
+ * initialises the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model
+ * to the {@link me.vault.game.model.city.Workshop} cty building.
+ *
+ * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @see CityBuildingController
+ * @see Initializable
+ * @see me.vault.game.model.city.Workshop
+ * @since 11.06.2024
+ */
 public class WorkshopDelegate extends CityBuildingController implements Initializable
 {
 	/**
-	 * The logger object for this class used for writing to the console.
-	 *
-	 * @see Logger
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(WorkshopDelegate.class.getSimpleName());
 
 	@FXML
-	private Label compositeAmountLabel;
-
-	@FXML
-	private ImageView compositeImageView;
-
-	@FXML
-	private Label creditAmountLabel;
-
-	@FXML
-	private ImageView creditImageView;
+	private ImageView backgroundImageView;
 
 	@FXML
 	private Label damageArtifactDamageModifierLabel;
@@ -83,12 +84,6 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	private Button defenseArtifactUpgradeButton;
 
 	@FXML
-	private Label foodAmountLabel;
-
-	@FXML
-	private ImageView foodImageView;
-
-	@FXML
 	private Label healthArtifactDamageModifierLabel;
 
 	@FXML
@@ -107,44 +102,32 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	private Button healthArtifactUpgradeButton;
 
 	@FXML
-	private Label scienceAmountLabel;
-
-	@FXML
-	private ImageView scienceImageView;
-
-	@FXML
-	private Label steelAmountLabel;
-
-	@FXML
-	private ImageView steelImageView;
-
-	@FXML
-	private ImageView workshopBackgroundImageView;
+	private AnchorPane workshopAnchorPane;
 
 
 	@FXML
-	private void onBackToCityView (final ActionEvent event)
+	private void onBackToCityView (final ActionEvent ignored)
 	{
 		CityView.show(VaultApplication.getStage());
 	}
 
 
 	@FXML
-	private void onDamageArtifactUpgrade (final ActionEvent event)
+	private void onDamageArtifactUpgrade (final ActionEvent ignored)
 	{
 		ArtifactController.getInstance().upgrade(DamageArtifact.getInstance());
 	}
 
 
 	@FXML
-	private void onDefenseArtifactUpgrade (final ActionEvent event)
+	private void onDefenseArtifactUpgrade (final ActionEvent ignored)
 	{
 		ArtifactController.getInstance().upgrade(DefenseArtifact.getInstance());
 	}
 
 
 	@FXML
-	private void onHealthArtifactUpgrade (final ActionEvent event)
+	private void onHealthArtifactUpgrade (final ActionEvent ignored)
 	{
 		ArtifactController.getInstance().upgrade(HealthArtifact.getInstance());
 	}
@@ -153,24 +136,22 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
-		this.initCurrencies();
+		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
+		this.workshopAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.bindArtifactProperties();
 
-		this.bindArtifactViews();
-		this.bindArtifactNames();
-		this.bindArtifactAttributeModifiers();
 	}
 
 
-	private void bindArtifactViews ()
+	private void bindArtifactProperties ()
 	{
-		this.healthArtifactImageView.imageProperty().bind(HealthArtifact.getInstance().getSpriteProperty());
-		this.damageArtifactImageView.imageProperty().bind(DamageArtifact.getInstance().getSpriteProperty());
-		this.defenseArtifactImageView.imageProperty().bind(DefenseArtifact.getInstance().getSpriteProperty());
+		this.bindArtifactTextProperties();
+		this.bindArtifactImageProperties();
+		this.bindArtifactMultiplierTextProperties();
 	}
 
 
-	private void bindArtifactNames ()
+	private void bindArtifactTextProperties ()
 	{
 		this.healthArtifactLabel.textProperty().bind(HealthArtifact.getInstance().getNameProperty());
 		this.defenseArtifactLabel.textProperty().bind(DefenseArtifact.getInstance().getNameProperty());
@@ -178,7 +159,15 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	}
 
 
-	private void bindArtifactAttributeModifiers ()
+	private void bindArtifactImageProperties ()
+	{
+		this.healthArtifactImageView.imageProperty().bind(HealthArtifact.getInstance().getSpriteProperty());
+		this.damageArtifactImageView.imageProperty().bind(DamageArtifact.getInstance().getSpriteProperty());
+		this.defenseArtifactImageView.imageProperty().bind(DefenseArtifact.getInstance().getSpriteProperty());
+	}
+
+
+	private void bindArtifactMultiplierTextProperties ()
 	{
 		final AttributeMultiplier healthArtifactModifiers = HealthArtifact.getInstance().getAttributeModifiers();
 		this.healthArtifactDamageModifierLabel.textProperty().bind(healthArtifactModifiers.getDamageMultiplierProperty().asString());
@@ -191,21 +180,9 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 		this.damageArtifactHealthModifierLabel.textProperty().bind(damageArtifactModifiers.getHealthMultiplierProperty().asString());
 
 		final AttributeMultiplier defenseArtifactModifiers = DefenseArtifact.getInstance().getAttributeModifiers();
-
 		this.defenseArtifactDamageModifierLabel.textProperty().bind(defenseArtifactModifiers.getDamageMultiplierProperty().asString());
-
 		this.defenseArtifactDefenseModifierLabel.textProperty().bind(defenseArtifactModifiers.getDefenseMultiplierProperty().asString());
 		this.defenseArtifactHealthModifierLabel.textProperty().bind(defenseArtifactModifiers.getHealthMultiplierProperty().asString());
-	}
-
-
-	private void initCurrencies ()
-	{
-		initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-		initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
 	}
 
 }

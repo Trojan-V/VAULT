@@ -25,7 +25,9 @@ public class CurrencyTransaction
 	private static final String STRING_PATTERN = "CurrencyTransaction[amountMap = {0}]";
 
 	private static final String TO_STRING_PATTERN = "CurrencyTransaction[{0}]";
+
 	private static final Logger LOGGER = new Logger(CurrencyTransaction.class.getSimpleName());
+
 	/**
 	 * The {@link HashMap} which contains the numbers of currencies that are changed by the transaction. The keys of the {@code HashMap} represent the
 	 * {@link Currency} enum values and the values of the {@code HashMap} the corresponding amounts of each {@code Currency} key.

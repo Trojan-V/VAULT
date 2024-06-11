@@ -14,6 +14,7 @@ public interface Nameable
 {
 	SimpleStringProperty getNameProperty ();
 
+
 	String getName ();
 
 }

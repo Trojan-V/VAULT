@@ -35,42 +35,54 @@ public final class DifficultyDelegate implements Initializable
 	 * @see Logger
 	 */
 	private static final ILogger LOGGER = new Logger(DifficultyDelegate.class.getSimpleName());
+
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
 	private static final String DIFFICULTY_VIEW_FXML = "difficulty.fxml";
+
 	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(DifficultyDelegate.class, DIFFICULTY_VIEW_FXML);
+
 	@FXML
 	private Button easyDifficultyButton;
 
 	// ImageViews ------------------------------------------------------------------------------------------------------------
 	@FXML
 	private Button normalDifficultyButton;
+
 	@FXML
 	private Button hardDifficultyButton;
+
 	@FXML
 	private Button backButton;
+
 	@FXML
 	private ImageView backgroundImageView;
+
 	@FXML
 	private ImageView easyDifficultyButtonImageView;
 
 	// Texts ------------------------------------------------------------------------------------------------------------
 	@FXML
 	private ImageView normalDifficultyButtonImageView;
+
 	@FXML
 	private ImageView hardDifficultyButtonImageView;
+
 	@FXML
 	private ImageView backButtonImageView;
+
 	@FXML
 	private Text easyDifficultyButtonText;
 
 	// Actions----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Text normalDifficultyButtonText;
+
 	@FXML
 	private Text hardDifficultyButtonText;
+
 	@FXML
 	private Text backButtonText;
 

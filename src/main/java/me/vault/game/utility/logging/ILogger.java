@@ -12,7 +12,9 @@ public interface ILogger
 {
 	void log (final Level level, final String message);
 
+
 	void logf (final Level level, final String pattern, final Object... arguments);
+
 
 	/**
 	 * Enum representing logging levels with associated color codes.
