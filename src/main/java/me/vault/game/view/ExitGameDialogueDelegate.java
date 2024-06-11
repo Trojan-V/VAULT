@@ -15,11 +15,21 @@ import me.vault.game.utility.loading.ResourceLoader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+
 
 public class ExitGameDialogueDelegate implements Initializable
 {
+
+
+	private static final String ICON_PATH = ASSETS_PATH + "Item_Pack/armor_icon.png";
+
+
 	@FXML
 	private DialogPane exitGameDialogPane;
+
+
+	private static final String WINDOW_TITLE = "Exit Game?";
 
 
 	private static final Stage exitGameStage = new Stage();
@@ -41,13 +51,28 @@ public class ExitGameDialogueDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
+		exitGameStage.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
+		exitGameStage.setTitle(WINDOW_TITLE);
 		exitGameStage.setResizable(false);
 		exitGameStage.initModality(Modality.APPLICATION_MODAL);
-		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> {
+		this.setButtonActions();
+	}
+
+
+	private void setButtonActions ()
+	{
+		// Closes the different stages of the program if the user presses YES
+		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ ->
+		{
 			exitGameStage.close();
 			VaultApplication.getStage().close();
 			Platform.exit();
 		});
-		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(_ -> exitGameStage.close());
+
+		// Closes the dialog if the user presses NO
+		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(_ ->
+		{
+			exitGameStage.close();
+		});
 	}
 }

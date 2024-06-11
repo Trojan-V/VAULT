@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.MainMenuDelegate">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.MainMenuDelegate">
    <center>
       <AnchorPane prefHeight="690.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
@@ -224,9 +224,9 @@
       </AnchorPane>
    </center>
    <top>
-      <MenuBar fx:id="menubar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menubar" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
          <menus>
-            <Menu fx:id="menu" mnemonicParsing="false" text="menu">
+            <Menu fx:id="menu" mnemonicParsing="false" style="-fx-font-size: 12;" text="Menu">
                <items>
                   <MenuItem fx:id="continueMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="continue" />
                   <MenuItem fx:id="newGameMenuItem" mnemonicParsing="false" onAction="#buttonClickMenu" text="new game" />
@@ -240,6 +240,9 @@
                </accelerator>
             </Menu>
          </menus>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
       </MenuBar>
    </top>
 </BorderPane>

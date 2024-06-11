@@ -12,10 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<DialogPane fx:id="exitGameDialogPane" expanded="true" headerText="Do you really want to exit the game without saving?"
-            prefHeight="197.0"
-            prefWidth="463.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="me.vault.game.view.ExitGameDialogueDelegate">
+<DialogPane fx:id="exitGameDialogPane" expanded="true" headerText="Do you really want to exit the game without saving?" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.ExitGameDialogueDelegate">
    <header>
       <GridPane>
         <columnConstraints>
@@ -29,7 +26,7 @@
          <children>
             <ImageView fitHeight="63.0" fitWidth="301.0" pickOnBounds="true" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../../../../../../../../../Downloads/button.png" />
+                  <Image url="@../assets/button.png" />
                </image>
             </ImageView>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Exit Game?" GridPane.rowIndex="1">

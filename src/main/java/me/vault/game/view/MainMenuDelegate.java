@@ -1,5 +1,6 @@
 package me.vault.game.view;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -230,6 +231,7 @@ public class MainMenuDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			ViewUtils.setButtonColor(this.continueButtonText, Color.BLACK);
+			CityView.show(VaultApplication.getStage()); // TODO: nur temporär zum testen
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton))
 		{
@@ -258,11 +260,11 @@ public class MainMenuDelegate implements Initializable
 
 
 	@FXML
-	void buttonClickMenu (final Event actionEvent)
+	void buttonClickMenu (final ActionEvent actionEvent)
 	{
 		if (actionEvent.getSource().equals(this.continueMenuItem))
 		{
-			CityView.show(VaultApplication.getStage()); // TODO: nur temporär zum testen
+
 		}
 		else if (actionEvent.getSource().equals(this.newGameMenuItem))
 		{
@@ -278,7 +280,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.exitGameMenuItem))
 		{
-
+			ExitGameDialogueDelegate.show();
 		}
 		else if (actionEvent.getSource().equals(this.arenaMenuItem))
 		{
