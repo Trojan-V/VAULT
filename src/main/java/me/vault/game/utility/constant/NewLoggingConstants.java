@@ -38,7 +38,7 @@ public interface NewLoggingConstants
 
 	String SPRITE_PROPERTY_SET = "spriteProperty was set to: {0}";
 
-	String NAME_PROPERTY_SET = "nameProperty was set to: {0}";
+	String NAME_PROPERTY_SET = "namePropertyProperty was set to: {0}";
 
 	String INSUFFICIENT_CURRENCY_AMOUNT = "Not enough {0} to perform the requested upgrade. Cost: {1} {0}";
 
