@@ -42,6 +42,8 @@ public interface NewLoggingConstants
 
 	String INSUFFICIENT_CURRENCY_AMOUNT = "Not enough {0} to perform the requested upgrade. Cost: {1} {0}";
 
+	String CLASS_INITIALISED = "{0} initialised.";
+
 	interface Artifact
 	{
 		String ATTRIBUTE_MODIFIERS_SET = "attributeModifiers was set to: {0}";
