@@ -184,13 +184,89 @@ public interface StringConstants
 	                                                                         "moves to capturing of outposts from " +
 	                                                                         "each other.";
 
+
+	/**
+	 * The following Strings contain the texts for the energy ability's of the troops.
+	 */
+	public static String MILITARISTIC_GOVERNMENT_DIG_IN = "The soldier digs in two be better protected. Ten percent " +
+	                                                      "more armour and five percent more resistenz but can`t " +
+	                                                      "move" +
+	                                                      " for an energy cost of three energy and lasts two rounds";
+
+
+	public static String MILITARISTIC_GOVERNMENT_DOUBLE_TIME = "You motivate one soldier to act one more time this " +
+	                                                           "round. A cost of five energy.";
+
+
+	public static String EXPLORER_ASSOCIATION_OVERCHARGE_WEAPON = "The Ranger overcharges his weapon. Deals six " +
+	                                                              "points more damage for an energy cost of two " +
+	                                                              "energy and lasts one rounds. ";
+
+
+	public static String EXPLORER_ASSOCIATION_OVERCHARGE_EXOSKELETT = "The Exoskelett lets the Ranger be quickened " +
+	                                                                  "and agiler. One more movement range and " +
+	                                                                  "Initiative, dodge increases for five percent " +
+	                                                                  "for a three energy cost and lasts two rounds.";
+
+
+	public static String MEGA_CORPORATION_ENERGYFLASH = "A bright flash emits of one off the thrown grenade right " +
+	                                                    "before an enemy. A debuff for minus ten percent of dodge " +
+	                                                    "and" +
+	                                                    " a minus two to initiative for three energy and lasts one " +
+	                                                    "round.";
+
+
+	public static String MEGA_CORPORATION_ACID_GRENADE = "The acid grenade weakens the armour off the poor soul that" +
+	                                                     " " +
+	                                                     "was hit with it. Minus ten percent off armour for two " +
+	                                                     "energy and one round.";
+
+
+	public static String NEW_TERRA_COMBAT_OVERLAY = "The Combat overlay allows the soldier to aim true at a greater " +
+	                                                "distant. Plus one damage range for two energy and two rounds.";
+
+
+	public static String NEW_TERRA_ADVANCED_DEFENCE_SYSTEM = "The Advanced Defence System once deployed intercept " +
+	                                                         "projectiles form hostile entity's. Add`s fifteen " +
+	                                                         "percent off additional resistance for an cost of three" +
+	                                                         " " +
+	                                                         "energy and last one round.";
+
+
+	/**
+	 * The following Strings contain the texts for the energy ability's of the player.
+	 */
+	public static String ENERGY_DAMAGE_ABILITY = "This Energy beam damages one enemy unit and deals moderate damage." +
+	                                             " " +
+	                                             "16 damage for an energy cost of 3 energy.";
+
+
+	public static String ENERGY_BUFF_INITIATIVE = "Through activating this ability a friendly unit reacts faster." +
+	                                              "Gets a plus three one initiative for an energy cost of four " +
+	                                              "energy" +
+	                                              " and it lasts five rounds.";
+
+
+	public static String ENERGY_BONUS_TURN = "You transmit energy to one of your troops which lets them act one more" +
+	                                         " " +
+	                                         "time this round. A cost of five energy.";
+
+
+	public static String ENERGY_BUFF_DAMAGE = "The selected troop becomes deadlier. Deals six points more damage for" +
+	                                          " " +
+	                                          "an energy cost of two energy and lasts two rounds. ";
+
+
+	public static String ENERGY_BUFF_MOVEMENT_RANGE = "You motivate one of your troops to do double time. The " +
+	                                                  "affected troop get three more movement range for an energy " +
+	                                                  "cost of four energy and two rounds.";
+
 	public static String tutorialIntroduction = "Text for the introduction";
 	public static String tutorialCity = "Text for the city";
 	public static String tutorialArtefacts = "Text for the artefacts";
 	public static String tutorialFactsions = "Text for the factions";
 	public static String tutorialMissions = "Text for the missions";
 	public static String tutorialFights = "Text for the fights";
-
 
 	public static String buttonRoundImageName = "button_round.png";
 
