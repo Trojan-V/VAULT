@@ -12,7 +12,7 @@ public abstract class GameMap
 	private final Scene scene;
 
 
-	protected GameMap (TileMap tileMap, Image background, Scene scene)
+	protected GameMap (final TileMap tileMap, final Image background, final Scene scene)
 	{
 		this.tileMap = tileMap;
 		this.background = background;

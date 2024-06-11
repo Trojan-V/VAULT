@@ -1,13 +1,16 @@
 package me.vault.game;
 
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import me.vault.game.utility.jvm.JvmArgumentParser;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.ExitGameDialogueDelegate;
 import me.vault.game.view.MainMenuDelegate;
 import me.vault.game.view.VaultDelegate;
 
 import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
+
 
 /**
  * The entry point of the VAULT game application. This class launches the GUI window the player will interact with to. The class which inherits from
@@ -29,11 +32,13 @@ public class VaultApplication extends Application
 	 */
 	private static final Logger LOGGER = new Logger(VaultApplication.class.getSimpleName());
 
+
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
 	private static final String MAIN_STYLESHEET_FILENAME = "main.fxml";
+
 
 	private static Stage mainStage;
 
@@ -70,6 +75,18 @@ public class VaultApplication extends Application
 		stage.setTitle(WINDOW_TITLE);
 		MainMenuDelegate.show(stage);
 		mainStage = stage;
+
+		stage.setOnCloseRequest(evt -> {
+			evt.consume();
+			ExitGameDialogueDelegate.show();
+		});
+	}
+
+
+	@Override
+	public void stop ()
+	{
+		// System.out.println("Stage is closing");
 	}
 
 }
