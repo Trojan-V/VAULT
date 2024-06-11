@@ -261,12 +261,44 @@ public interface StringConstants
 	                                                  "affected troop get three more movement range for an energy " +
 	                                                  "cost of four energy and two rounds.";
 
+
+	/**
+	 *
+	 */
 	public static String tutorialIntroduction = "Text for the introduction";
+
 	public static String tutorialCity = "Text for the city";
-	public static String tutorialArtefacts = "Text for the artefacts";
-	public static String tutorialFactsions = "Text for the factions";
-	public static String tutorialMissions = "Text for the missions";
-	public static String tutorialFights = "Text for the fights";
+
+
+	public static String tutorialArtifacts = "Artifacts are mysterious pieces of equipment that were left behind by " +
+	                                         "the Hitani and survived the tests of time. These strange pieces of " +
+	                                         "equipment seem to affect troops in battle positively. Artifacts are " +
+	                                         "selected by the player per mission and buff damage, defence or health " +
+	                                         "for the troops that go one that mission.";
+
+
+	public static String tutorialFactsions = "In the system there are three faction besides to player-faction. The " +
+	                                         "troops of the factions can be used through different means and at " +
+	                                         "different points in the game. At the same time these factions also " +
+	                                         "pose" +
+	                                         " as the enemy combatants in the game, so it dose pay off to learn more" +
+	                                         " " +
+	                                         "about these once your in the game proper.";
+
+
+	public static String tutorialMissions = "The missions in this game are divided in two categories. The first kind" +
+	                                        " " +
+	                                        "of missions are the story-missions. In these missions you drive the " +
+	                                        "story forward and get special rewards which one can`t get in the other " +
+	                                        "category of missions. The other category of missions are the repeatable" +
+	                                        " " +
+	                                        "missions in which one can get needed resources for upgrades. In the " +
+	                                        "missions you move on a map where you collect resources, troops and have" +
+	                                        " " +
+	                                        "to fight enemy's.";
+
+
+	public static String tutorialFights = "When you encounter ";
 
 	public static String buttonRoundImageName = "button_round.png";
 

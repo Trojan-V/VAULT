@@ -1,8 +1,8 @@
 package me.vault.game.view;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
@@ -12,7 +12,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import me.vault.game.VaultApplication;
-import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -149,7 +148,7 @@ public final class TutorialDelegate implements Initializable
 		ViewUtils.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		ViewUtils.setText(this.tutorialIntroductionText, StringConstants.tutorialIntroduction);
 		ViewUtils.setText(this.tutorialCityText, StringConstants.tutorialCity);
-		ViewUtils.setText(this.tutorialArtefactsText, StringConstants.tutorialArtefacts);
+		ViewUtils.setText(this.tutorialArtefactsText, StringConstants.tutorialArtifacts);
 		ViewUtils.setText(this.tutorialFactionsText, StringConstants.tutorialFactsions);
 		ViewUtils.setText(this.tutorialMissionsText, StringConstants.tutorialMissions);
 		ViewUtils.setText(this.tutorialFightsText, StringConstants.tutorialFights);
