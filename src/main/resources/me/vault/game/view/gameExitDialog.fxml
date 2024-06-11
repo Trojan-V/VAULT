@@ -12,7 +12,10 @@
 <?import javafx.scene.text.Text?>
 
 
-<DialogPane expanded="true" headerText="Do you really want to exit the game without saving?" prefHeight="197.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane fx:id="exitGameDialogPane" expanded="true" headerText="Do you really want to exit the game without saving?"
+            prefHeight="197.0"
+            prefWidth="463.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="me.vault.game.view.ExitGameDialogueDelegate">
    <header>
       <GridPane>
         <columnConstraints>

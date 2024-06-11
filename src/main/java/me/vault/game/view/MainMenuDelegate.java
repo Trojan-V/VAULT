@@ -127,8 +127,9 @@ public class MainMenuDelegate implements Initializable
 
 	public static void show (final Stage stage)
 	{
-		stage.setScene(MAIN_MENU_SCENE);
-		stage.show();
+		ViewUtils.show(stage, MAIN_MENU_SCENE);
+		//stage.setScene(MAIN_MENU_SCENE);
+		//stage.show();
 		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, MainMenuDelegate.class.getSimpleName()));
 	}
 
@@ -247,6 +248,7 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.exitGameButton))
 		{
 			ViewUtils.setButtonColor(this.exitGameButtonText, Color.BLACK);
+			ExitGameDialogueDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
