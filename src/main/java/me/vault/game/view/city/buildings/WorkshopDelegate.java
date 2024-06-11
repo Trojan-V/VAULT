@@ -1,6 +1,5 @@
 package me.vault.game.view.city.buildings;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,11 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.ArtifactController;
+import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
-import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -26,7 +25,6 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
-
 public class WorkshopDelegate extends CityBuildingController implements Initializable
 {
 	/**
@@ -36,118 +34,89 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	 */
 	private static final ILogger LOGGER = new Logger(WorkshopDelegate.class.getSimpleName());
 
-
 	@FXML
 	private Label compositeAmountLabel;
-
 
 	@FXML
 	private ImageView compositeImageView;
 
-
 	@FXML
 	private Label creditAmountLabel;
-
 
 	@FXML
 	private ImageView creditImageView;
 
-
 	@FXML
 	private Label damageArtifactDamageModifierLabel;
-
 
 	@FXML
 	private Label damageArtifactDefenseModifierLabel;
 
-
 	@FXML
 	private Label damageArtifactHealthModifierLabel;
-
 
 	@FXML
 	private ImageView damageArtifactImageView;
 
-
 	@FXML
 	private Label damageArtifactLabel;
-
 
 	@FXML
 	private Button damageArtifactUpgradeButton;
 
-
 	@FXML
 	private Label defenseArtifactDamageModifierLabel;
-
 
 	@FXML
 	private Label defenseArtifactDefenseModifierLabel;
 
-
 	@FXML
 	private Label defenseArtifactHealthModifierLabel;
-
 
 	@FXML
 	private ImageView defenseArtifactImageView;
 
-
 	@FXML
 	private Label defenseArtifactLabel;
-
 
 	@FXML
 	private Button defenseArtifactUpgradeButton;
 
-
 	@FXML
 	private Label foodAmountLabel;
-
 
 	@FXML
 	private ImageView foodImageView;
 
-
 	@FXML
 	private Label healthArtifactDamageModifierLabel;
-
 
 	@FXML
 	private Label healthArtifactDefenseModifierLabel;
 
-
 	@FXML
 	private Label healthArtifactHealthModifierLabel;
-
 
 	@FXML
 	private ImageView healthArtifactImageView;
 
-
 	@FXML
 	private Label healthArtifactLabel;
-
 
 	@FXML
 	private Button healthArtifactUpgradeButton;
 
-
 	@FXML
 	private Label scienceAmountLabel;
-
 
 	@FXML
 	private ImageView scienceImageView;
 
-
 	@FXML
 	private Label steelAmountLabel;
 
-
 	@FXML
 	private ImageView steelImageView;
-
 
 	@FXML
 	private ImageView workshopBackgroundImageView;
@@ -212,28 +181,21 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	private void bindArtifactAttributeModifiers ()
 	{
 		final AttributeMultiplier healthArtifactModifiers = HealthArtifact.getInstance().getAttributeModifiers();
-		this.healthArtifactDamageModifierLabel.textProperty()
-			.bind(healthArtifactModifiers.getDamageMultiplierProperty().asString());
-		this.healthArtifactDefenseModifierLabel.textProperty()
-			.bind(healthArtifactModifiers.getDefenseMultiplierProperty().asString());
-		this.healthArtifactHealthModifierLabel.textProperty()
-			.bind(healthArtifactModifiers.getHealthMultiplierProperty().asString());
+		this.healthArtifactDamageModifierLabel.textProperty().bind(healthArtifactModifiers.getDamageMultiplierProperty().asString());
+		this.healthArtifactDefenseModifierLabel.textProperty().bind(healthArtifactModifiers.getDefenseMultiplierProperty().asString());
+		this.healthArtifactHealthModifierLabel.textProperty().bind(healthArtifactModifiers.getHealthMultiplierProperty().asString());
 
 		final AttributeMultiplier damageArtifactModifiers = DamageArtifact.getInstance().getAttributeModifiers();
-		this.damageArtifactDamageModifierLabel.textProperty()
-			.bind(damageArtifactModifiers.getDamageMultiplierProperty().asString());
-		this.damageArtifactDefenseModifierLabel.textProperty()
-			.bind(damageArtifactModifiers.getDefenseMultiplierProperty().asString());
-		this.damageArtifactHealthModifierLabel.textProperty()
-			.bind(damageArtifactModifiers.getHealthMultiplierProperty().asString());
+		this.damageArtifactDamageModifierLabel.textProperty().bind(damageArtifactModifiers.getDamageMultiplierProperty().asString());
+		this.damageArtifactDefenseModifierLabel.textProperty().bind(damageArtifactModifiers.getDefenseMultiplierProperty().asString());
+		this.damageArtifactHealthModifierLabel.textProperty().bind(damageArtifactModifiers.getHealthMultiplierProperty().asString());
 
 		final AttributeMultiplier defenseArtifactModifiers = DefenseArtifact.getInstance().getAttributeModifiers();
-		this.defenseArtifactDamageModifierLabel.textProperty()
-			.bind(defenseArtifactModifiers.getDamageMultiplierProperty().asString());
-		this.defenseArtifactDefenseModifierLabel.textProperty()
-			.bind(defenseArtifactModifiers.getDefenseMultiplierProperty().asString());
-		this.defenseArtifactHealthModifierLabel.textProperty()
-			.bind(defenseArtifactModifiers.getHealthMultiplierProperty().asString());
+
+		this.defenseArtifactDamageModifierLabel.textProperty().bind(defenseArtifactModifiers.getDamageMultiplierProperty().asString());
+
+		this.defenseArtifactDefenseModifierLabel.textProperty().bind(defenseArtifactModifiers.getDefenseMultiplierProperty().asString());
+		this.defenseArtifactHealthModifierLabel.textProperty().bind(defenseArtifactModifiers.getHealthMultiplierProperty().asString());
 	}
 
 
@@ -245,4 +207,5 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
 		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
 	}
+
 }

@@ -1,6 +1,5 @@
 package me.vault.game.model.building;
 
-
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -9,13 +8,9 @@ import java.text.MessageFormat;
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-
 public enum CityBuildingLevel
 {
-	OLD,
-	NORMAL,
-	SUPER;
-
+	OLD, NORMAL, SUPER;
 
 	/**
 	 * The logger object for this class used for writing to the console.
@@ -24,12 +19,9 @@ public enum CityBuildingLevel
 	 */
 	private static final ILogger LOGGER = new Logger(CityBuildingLevel.class.getSimpleName());
 
-
 	private static final int MINIMUM_LEVEL_ORDINAL = 0;
 
-
 	private static final int NEXT_LEVEL_ADDITION_ORDINAL = 1;
-
 
 	private static final int PREVIOUS_LEVEL_SUBTRACTION_ORDINAL = 1;
 
@@ -43,8 +35,8 @@ public enum CityBuildingLevel
 
 	public static CityBuildingLevel getMaximumCityBuildingLevel ()
 	{
-		LOGGER.log(DEBUG, MessageFormat.format(GET_MAXIMUM_LEVEL_METHOD_ENTERED_MSG, values()[values().length -
-		                                                                                      PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));
+		LOGGER.log(DEBUG,
+		           MessageFormat.format(GET_MAXIMUM_LEVEL_METHOD_ENTERED_MSG, values()[values().length - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));
 		return values()[values().length - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
 	}
 
@@ -62,8 +54,8 @@ public enum CityBuildingLevel
 			return currentArtifactLevel;
 		}
 
-		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_HIGHER_LEVEL_METHOD_LEFT_MSG, values()[
-			currentArtifactLevel.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL].name()));
+		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_HIGHER_LEVEL_METHOD_LEFT_MSG,
+		                                       values()[currentArtifactLevel.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL].name()));
 		return values()[currentArtifactLevel.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL];
 	}
 
@@ -79,8 +71,8 @@ public enum CityBuildingLevel
 			LOGGER.log(DEBUG, MessageFormat.format(ARTIFACT_IS_MIN_LEVEL_MSG, level.name()));
 			return level;
 		}
-		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_LOWER_LEVEL_METHOD_LEFT_MSG, values()[level.ordinal() -
-		                                                                                      PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));
+		LOGGER.log(DEBUG,
+		           MessageFormat.format(GET_NEXT_LOWER_LEVEL_METHOD_LEFT_MSG, values()[level.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));
 		return values()[level.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
 	}
 

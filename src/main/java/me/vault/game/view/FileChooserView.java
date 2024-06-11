@@ -6,7 +6,6 @@ import me.vault.game.utility.loading.ResourceLoader;
 
 import java.io.File;
 
-
 public class FileChooserView
 {
 	public static File show (final Stage stage, final String initialFolderFilePath, final String title)
@@ -17,4 +16,5 @@ public class FileChooserView
 		return fileChooser.showOpenDialog(stage);
 
 	}
+
 }

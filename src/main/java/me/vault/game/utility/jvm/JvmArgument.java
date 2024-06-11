@@ -1,8 +1,6 @@
 package me.vault.game.utility.jvm;
 
-
 import static me.vault.game.utility.constant.CharacterConstants.DASH;
-
 
 /**
  * This enum stores all JVM arguments supported by the program.
@@ -15,9 +13,7 @@ public enum JvmArgument
 {
 	LOG_DEPTH("log_depth"),
 
-
 	CHEATS("cheats");
-
 
 	/**
 	 * The argument as string. This is how the argument has to be passed into the program.

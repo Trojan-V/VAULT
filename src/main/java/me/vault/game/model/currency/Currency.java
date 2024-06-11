@@ -1,6 +1,5 @@
 package me.vault.game.model.currency;
 
-
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
@@ -55,12 +54,9 @@ public enum Currency implements ICurrency, Displayable
 	 */
 	ENERGY_CREDIT(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/credit_icon.png"));
 
-
 	private static final String TO_STRING_PATTERN = "{0}[{1}]";
 
-
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
-
 
 	/**
 	 * The current amount of the currency.
@@ -72,19 +68,12 @@ public enum Currency implements ICurrency, Displayable
 	 * The constructor of the {@code Currency} enum, which accepts an amount and a sprite.
 	 *
 	 * @param amountProperty The amount of the currency as an {@link Integer}.
-	 * @param image  The sprite of the currency as an {@link Image}.
+	 * @param image          The sprite of the currency as an {@link Image}.
 	 */
 	Currency (final SimpleIntegerProperty amountProperty, final MetaDataImage image)
 	{
 		this.amountProperty = amountProperty;
 		this.spriteProperty = new SimpleObjectProperty<>(image);
-	}
-
-
-	@Override
-	public SimpleIntegerProperty getAmountProperty ()
-	{
-		return this.amountProperty;
 	}
 
 
@@ -95,6 +84,13 @@ public enum Currency implements ICurrency, Displayable
 	public int getAmount ()
 	{
 		return this.amountProperty.get();
+	}
+
+
+	@Override
+	public SimpleIntegerProperty getAmountProperty ()
+	{
+		return this.amountProperty;
 	}
 
 
@@ -118,6 +114,13 @@ public enum Currency implements ICurrency, Displayable
 	}
 
 
+	@Override
+	public Image getSprite ()
+	{
+		return this.spriteProperty.get();
+	}
+
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -125,13 +128,6 @@ public enum Currency implements ICurrency, Displayable
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
 	{
 		return this.spriteProperty;
-	}
-
-
-	@Override
-	public Image getSprite ()
-	{
-		return this.spriteProperty.get();
 	}
 
 

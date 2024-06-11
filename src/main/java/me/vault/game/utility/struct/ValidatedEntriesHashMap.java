@@ -1,12 +1,10 @@
 package me.vault.game.utility.struct;
 
-
 import me.vault.game.exception.InvalidMapEntryException;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 {
@@ -35,7 +33,6 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 	public static class Entry<E, F> implements Map.Entry<E, F>
 	{
 		private final E key;
-
 
 		private F value;
 
@@ -86,5 +83,7 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 			this.value = value;
 			return this.value;
 		}
+
 	}
+
 }

@@ -1,6 +1,5 @@
 package me.vault.game.model.artifact.impl;
 
-
 import javafx.scene.image.Image;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
@@ -19,14 +18,11 @@ import static me.vault.game.utility.constant.ArtifactConstants.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-
 /**
  * This class is an implementation of {@link Artifact}.
  * <br>
- * As this specification is a health artifact, it mainly provides positive attribute modifiers towards the health
- * attribute.
- * Other attribute modifiers might be affected as well by the health artifact, the highest multiplier is for the
- * health though for obvious reasons.
+ * As this specification is a health artifact, it mainly provides positive attribute modifiers towards the health attribute. Other attribute modifiers
+ * might be affected as well by the health artifact, the highest multiplier is for the health though for obvious reasons.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 1.0.0
@@ -42,27 +38,24 @@ public final class HealthArtifact extends Artifact
 	 */
 	private static final ILogger LOGGER = new Logger(HealthArtifact.class.getSimpleName());
 
-
 	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link HealthArtifact}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 * Singleton instance, as there's never a reason to have more than one {@link HealthArtifact}. Instead of using a singleton, the entire class
+	 * could've been created using solely static methods and fields.
 	 */
 	private static final HealthArtifact INSTANCE;
 
-
 	/**
-	 * All possible names of the health artifact are stored in this map, with the {@link HealthArtifact} as key to
-	 * denote which name corresponds to which {@link HealthArtifact}.
+	 * All possible names of the health artifact are stored in this map, with the {@link HealthArtifact} as key to denote which name corresponds to
+	 * which {@link HealthArtifact}.
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
 	 */
 	private static final Map<ArtifactLevel, String> NAMES;
 
-
 	/**
-	 * All possible sprites of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to
-	 * denote which sprite corresponds to which {@link ArtifactLevel}.
+	 * All possible sprites of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which sprite corresponds to
+	 * which {@link ArtifactLevel}.
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
@@ -70,10 +63,9 @@ public final class HealthArtifact extends Artifact
 	 */
 	private static final Map<ArtifactLevel, MetaDataImage> SPRITES;
 
-
 	/**
-	 * All possible modifier sets of the health artifact are stored in this map, with the {@link ArtifactLevel} as
-	 * key to denote which set of modifiers corresponds to which {@link ArtifactLevel}.
+	 * All possible modifier sets of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which set of
+	 * modifiers corresponds to which {@link ArtifactLevel}.
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
@@ -81,11 +73,9 @@ public final class HealthArtifact extends Artifact
 	 */
 	private static final Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> MODIFIERS;
 
-
 	/**
-	 * All possible upgrade cost {@link CurrencyTransaction}'s of the health artifact are stored in this map, with the
-	 * {@link ArtifactLevel} as
-	 * key to denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to
+	 * denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
@@ -111,11 +101,15 @@ public final class HealthArtifact extends Artifact
 	}
 
 	/**
-	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the health
-	 * artifact.
+	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 */
+	private HealthArtifact () {}
+
+
+	/**
+	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the health artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link HealthArtifact#UPGRADE_COSTS} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link HealthArtifact#UPGRADE_COSTS} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -139,11 +133,9 @@ public final class HealthArtifact extends Artifact
 
 
 	/**
-	 * Initializes and returns the map of attribute modifiers, which contains all different attribute modifiers for the
-	 * health artifact.
+	 * Initializes and returns the map of attribute modifiers, which contains all different attribute modifiers for the health artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link HealthArtifact#MODIFIERS} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link HealthArtifact#MODIFIERS} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -180,11 +172,9 @@ public final class HealthArtifact extends Artifact
 
 
 	/**
-	 * Initializes and returns the map of names, which contains all different names for the
-	 * damage artifact.
+	 * Initializes and returns the map of names, which contains all different names for the damage artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link HealthArtifact#NAMES} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link HealthArtifact#NAMES} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -207,11 +197,9 @@ public final class HealthArtifact extends Artifact
 
 
 	/**
-	 * Initializes and returns the map of sprites, which contains all different names for the
-	 * health artifact.
+	 * Initializes and returns the map of sprites, which contains all different names for the health artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link HealthArtifact#SPRITES} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link HealthArtifact#SPRITES} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -231,13 +219,6 @@ public final class HealthArtifact extends Artifact
 
 		return spritesMap;
 	}
-
-
-	/**
-	 * As this class is a singleton, no other class should be able to instantiate it,
-	 * hence why a private constructor is used here to prohibit that.
-	 */
-	private HealthArtifact () {}
 
 
 	/**
@@ -289,4 +270,5 @@ public final class HealthArtifact extends Artifact
 	{
 		return MODIFIERS;
 	}
+
 }

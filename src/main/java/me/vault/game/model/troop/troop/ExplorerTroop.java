@@ -1,9 +1,7 @@
 package me.vault.game.model.troop.troop;
 
-
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
-
 
 public enum ExplorerTroop implements Upgradable<ExplorerTroopLevel, ExplorerTroopAttributes>
 {
@@ -14,14 +12,12 @@ public enum ExplorerTroop implements Upgradable<ExplorerTroopLevel, ExplorerTroo
 		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopAttributes());
 	}}),
 
-
 	SHARPSHOOTER(new ValidatedEntriesHashMap<>()
 	{{
 		this.put(ExplorerTroopLevel.ONE, new ExplorerTroopAttributes());
 		this.put(ExplorerTroopLevel.TWO, new ExplorerTroopAttributes());
 		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopAttributes());
 	}}),
-
 
 	RANGER(new ValidatedEntriesHashMap<>()
 	{{
@@ -30,9 +26,7 @@ public enum ExplorerTroop implements Upgradable<ExplorerTroopLevel, ExplorerTroo
 		this.put(ExplorerTroopLevel.THREE, new ExplorerTroopAttributes());
 	}});
 
-
 	private final ValidatedEntriesHashMap<ExplorerTroopLevel, ExplorerTroopAttributes> propertyMap;
-
 
 	private ExplorerTroopLevel currentLevel;
 

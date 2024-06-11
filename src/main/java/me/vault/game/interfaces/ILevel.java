@@ -1,8 +1,6 @@
 package me.vault.game.interfaces;
 
-
 import me.vault.game.model.artifact.ArtifactLevel;
-
 
 /**
  * An interface for levels which provides some methods that every level enum/class should provide.
@@ -20,13 +18,13 @@ public interface ILevel
 	 *
 	 * @return The next lower level for the current level instance.
 	 */
-	public ILevel getNextLowerLevel ();
-
+	ILevel getNextLowerLevel ();
 
 	/**
 	 * Returns the next higher level for the current level instance.
 	 *
 	 * @return The next higher level for the current level instance.
 	 */
-	public ILevel getNextHigherLevel ();
+	ILevel getNextHigherLevel ();
+
 }

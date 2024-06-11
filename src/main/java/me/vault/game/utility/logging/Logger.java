@@ -1,6 +1,5 @@
 package me.vault.game.utility.logging;
 
-
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
@@ -11,11 +10,10 @@ import java.util.Locale;
 import static me.vault.game.utility.logging.ConsoleColor.RESET;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 
-
 /**
- * The {@code Logger} class provides a logging utility with different levels of log messages, which are all formatted in
- * their respective way. The provided levels are {@link Level#DEBUG},{@link Level#NORMAL},{@link Level#WARNING} and
- * {@link Level#ERROR} and represent the different types of logging messages.
+ * The {@code Logger} class provides a logging utility with different levels of log messages, which are all formatted in their respective way. The
+ * provided levels are {@link Level#DEBUG},{@link Level#NORMAL},{@link Level#WARNING} and {@link Level#ERROR} and represent the different types of
+ * logging messages.
  *
  * @author Lasse-Leander Hillen
  * @see Level
@@ -24,47 +22,35 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 public class Logger implements ILogger
 {
 	/**
-	 * The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the logger
-	 * properties.
+	 * The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the logger properties.
 	 */
 	private static final String TO_STRING_PATTERN = "Logger[\"{0}\" | depth = \"{1}\"]";
-
 
 	/**
 	 * The color code, which, when printed into the console, resets the applied console-colors.
 	 */
 	private static final String COLOR_RESET = "\033[0m";
 
-
 	/**
 	 * The {@link SimpleDateFormat} which is used to represent the logging-timestamps.
 	 */
-	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("HH:mm:ss:SSS",
-		Locale.GERMANY);
-
+	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("HH:mm:ss:SSS", Locale.GERMANY);
 
 	private static final String LOG_MESSAGE_PREFIX = "[{0} | {1}.{2}] ";
 
-
 	private static final int STACKTRACE_METHOD_INDEX = 4;
-
 
 	private static final String CLASS_NOT_FOUND = "Class not found";
 
-
 	private static final String SIMPLE_CLASS_NAME_DELIMITER = ".";
-
 
 	private static final byte SIMPLE_CLASS_NAME_REMOVE_DOT_INDEX = 1;
 
-
 	/**
-	 * The depth of the {@link Logger}. Represents how deep level of the {@link Logger#log(Level, String)} calls
-	 * must be
-	 * to be shown in the console window.
+	 * The depth of the {@link Logger}. Represents how deep level of the {@link Logger#log(Level, String)} calls must be to be shown in the console
+	 * window.
 	 */
 	private static Level depth = NORMAL;
-
 
 	/**
 	 * The name of the class, which the {@link Logger} is applied to.
@@ -128,8 +114,7 @@ public class Logger implements ILogger
 	{
 		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 		final String className = Thread.currentThread().getStackTrace()[STACKTRACE_METHOD_INDEX].getClassName();
-		return className.substring(
-			className.lastIndexOf(SIMPLE_CLASS_NAME_DELIMITER) + SIMPLE_CLASS_NAME_REMOVE_DOT_INDEX);
+		return className.substring(className.lastIndexOf(SIMPLE_CLASS_NAME_DELIMITER) + SIMPLE_CLASS_NAME_REMOVE_DOT_INDEX);
 	}
 
 
@@ -144,7 +129,7 @@ public class Logger implements ILogger
 	{
 		if (level.ordinal() >= depth.ordinal())
 		{
-			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
+			System.out.println(level + this.getPrefix() + message + COLOR_RESET);
 		}
 	}
 
@@ -155,7 +140,7 @@ public class Logger implements ILogger
 		if (level.ordinal() >= depth.ordinal())
 		{
 			final String message = MessageFormat.format(pattern, arguments);
-			System.out.println(level.toString() + this.getPrefix() + message + COLOR_RESET);
+			System.out.println(level + this.getPrefix() + message + COLOR_RESET);
 		}
 	}
 
@@ -185,11 +170,7 @@ public class Logger implements ILogger
 
 	public enum ProcedureType
 	{
-		CONSTRUCTOR(RESET),
-		STATIC_INITIALIZER(RESET),
-		INITIALIZER(RESET),
-		METHOD(RESET);
-
+		CONSTRUCTOR(RESET), STATIC_INITIALIZER(RESET), INITIALIZER(RESET), METHOD(RESET);
 
 		private final ConsoleColor color;
 
@@ -206,4 +187,5 @@ public class Logger implements ILogger
 			return this.color.toString();
 		}
 	}
+
 }

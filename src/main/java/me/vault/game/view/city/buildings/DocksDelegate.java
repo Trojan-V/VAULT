@@ -1,6 +1,5 @@
 package me.vault.game.view.city.buildings;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +20,6 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
-
 public class DocksDelegate extends CityBuildingController implements Initializable
 {
 	/**
@@ -31,53 +29,40 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	 */
 	private static final ILogger LOGGER = new Logger(DocksDelegate.class.getSimpleName());
 
-
 	private static final String BACKGROUND_FILENAME = "city_background.png";
-
 
 	@FXML
 	private Label compositeAmountLabel;
 
-
 	@FXML
 	private ImageView compositeImageView;
-
 
 	@FXML
 	private Label creditAmountLabel;
 
-
 	@FXML
 	private ImageView creditImageView;
-
 
 	@FXML
 	private Label foodAmountLabel;
 
-
 	@FXML
 	private ImageView foodImageView;
-
 
 	@FXML
 	private Label scienceAmountLabel;
 
-
 	@FXML
 	private ImageView scienceImageView;
-
 
 	@FXML
 	private Label steelAmountLabel;
 
-
 	@FXML
 	private ImageView steelImageView;
 
-
 	@FXML
 	private ImageView workshopBackgroundImageView;
-
 
 	@FXML
 	private TabPane factionsTabPane;

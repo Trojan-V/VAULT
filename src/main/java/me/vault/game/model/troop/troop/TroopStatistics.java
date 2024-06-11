@@ -1,6 +1,5 @@
 package me.vault.game.model.troop.troop;
 
-
 /**
  * Description
  *
@@ -14,50 +13,38 @@ public class TroopStatistics
 {
 	private final int healthPoints;
 
-
 	private final int meleeDamageReduction;
-
 
 	/**
 	 * The same as magic points, but named for space environment.
 	 */
 	private final int energyPoints;
 
-
 	private final int meleeDamage;
-
 
 	private final int grenadeDamage;
 
-
 	private final int grenadeAmount;
 
-
 	private final int dodgeRate;
-
 
 	/**
 	 * Resistence
 	 */
 	private final int energyDamageReduction;
 
-
 	private final int movementTiles;
-
 
 	private final int initiative;
 
-
 	private final int meleeRange;
-
 
 	private final int grenadeRange;
 
 
-	public TroopStatistics (final int healthPoints, final int meleeDamageReduction, final int energyPoints,
-		final int meleeDamage, final int grenadeDamage, final int grenadeAmount, final int dodgeRate,
-		final int energyDamageReduction, final int movementTiles, final int initiative, final int meleeRange,
-		final int grenadeRange)
+	public TroopStatistics (final int healthPoints, final int meleeDamageReduction, final int energyPoints, final int meleeDamage,
+			final int grenadeDamage, final int grenadeAmount, final int dodgeRate, final int energyDamageReduction, final int movementTiles,
+			final int initiative, final int meleeRange, final int grenadeRange)
 	{
 		this.healthPoints = healthPoints;
 		this.meleeDamageReduction = meleeDamageReduction;
@@ -72,4 +59,5 @@ public class TroopStatistics
 		this.meleeRange = meleeRange;
 		this.grenadeRange = grenadeRange;
 	}
+
 }

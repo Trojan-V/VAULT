@@ -1,6 +1,5 @@
 package me.vault.game.view.city;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,15 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.VaultApplication;
-import me.vault.game.model.city.Barracks;
 import me.vault.game.model.building.AbsCityBuilding;
-import me.vault.game.model.city.CommandCenter;
-import me.vault.game.model.city.Docks;
-import me.vault.game.model.city.Laboratory;
-import me.vault.game.model.city.Market;
-import me.vault.game.model.city.SpaceBar;
-import me.vault.game.model.city.TrainingFacility;
-import me.vault.game.model.city.Workshop;
+import me.vault.game.model.city.*;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.city.buildings.CityBuildingView;
@@ -26,7 +18,6 @@ import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
-
 
 /**
  * Description
@@ -40,113 +31,105 @@ public class CityDelegate implements Initializable
 {
 	private static final CityDelegate INSTANCE = new CityDelegate();
 
-
 	@FXML
 	private Button barracksButton;
-
 
 	@FXML
 	private Button barracksUpgradeButton;
 
-
 	@FXML
 	private ImageView cityBackgroundImageView;
-
 
 	@FXML
 	private Button commandCenterButton;
 
-
 	@FXML
 	private Button commandCenterUpgradeButton;
-
 
 	@FXML
 	private Label compositeAmountLabel;
 
-
 	@FXML
 	private ImageView compositeImageView;
-
 
 	@FXML
 	private Label creditAmountLabel;
 
-
 	@FXML
 	private ImageView creditImageView;
-
 
 	@FXML
 	private Button docksButton;
 
-
 	@FXML
 	private Button docksUpgradeButton;
-
 
 	@FXML
 	private Label foodAmountLabel;
 
-
 	@FXML
 	private ImageView foodImageView;
-
 
 	@FXML
 	private Button laboratoryButton;
 
-
 	@FXML
 	private Button laboratoryUpgradeButton;
-
 
 	@FXML
 	private Button marketButton;
 
-
 	@FXML
 	private Button marketUpgradeButton;
-
 
 	@FXML
 	private Label scienceAmountLabel;
 
-
 	@FXML
 	private ImageView scienceImageView;
-
 
 	@FXML
 	private Button spaceBarButton;
 
-
 	@FXML
 	private Button spaceBarUpgradeButton;
-
 
 	@FXML
 	private Label steelAmountLabel;
 
-
 	@FXML
 	private ImageView steelImageView;
-
 
 	@FXML
 	private Button trainingfacilityButton;
 
-
 	@FXML
 	private Button trainingfacilityUpgradeButton;
-
 
 	@FXML
 	private Button workshopButton;
 
-
 	@FXML
 	private Button workshopUpgradeButton;
+
+
+	private static void initCityBuildingButton (final Button button, final AbsCityBuilding cityBuilding)
+	{
+		// Sprite property gets bound to the button.
+		final ImageView imageView = new ImageView();
+		imageView.imageProperty().bind(cityBuilding.getSpriteProperty());
+		button.setGraphic(imageView);
+
+		// Name property gets bound to the button.
+		button.textProperty().bind(cityBuilding.getNameProperty());
+	}
+
+
+	public static void initCurrency (final Currency steel, final ImageView steelImageView, final Label steelAmountLabel)
+	{
+		steelImageView.imageProperty().bind(steel.getSpriteProperty());
+		steelAmountLabel.textProperty().bind(steel.getAmountProperty().asString());
+	}
 
 
 	@FXML
@@ -268,25 +251,6 @@ public class CityDelegate implements Initializable
 		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.initCurrencies();
 		this.initBuildingButtons();
-	}
-
-
-	private static void initCityBuildingButton (final Button button, final AbsCityBuilding cityBuilding)
-	{
-		// Sprite property gets bound to the button.
-		final ImageView imageView = new ImageView();
-		imageView.imageProperty().bind(cityBuilding.getSpriteProperty());
-		button.setGraphic(imageView);
-
-		// Name property gets bound to the button.
-		button.textProperty().bind(cityBuilding.getNameProperty());
-	}
-
-
-	public static void initCurrency (final Currency steel, final ImageView steelImageView, final Label steelAmountLabel)
-	{
-		steelImageView.imageProperty().bind(steel.getSpriteProperty());
-		steelAmountLabel.textProperty().bind(steel.getAmountProperty().asString());
 	}
 
 

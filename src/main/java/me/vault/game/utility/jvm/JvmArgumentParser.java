@@ -1,6 +1,5 @@
 package me.vault.game.utility.jvm;
 
-
 import me.vault.game.Cache;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.logging.ILogger;
@@ -15,7 +14,6 @@ import static me.vault.game.utility.constant.LoggingConstants.DIVIDER;
 import static me.vault.game.utility.constant.LoggingConstants.JvmArgument.*;
 import static me.vault.game.utility.logging.ILogger.Level.*;
 
-
 /**
  * This class is used to apply the JVM arguments which may be passed into the program on startup.
  *
@@ -27,33 +25,27 @@ public final class JvmArgumentParser
 {
 	private static final ILogger LOGGER = new Logger(JvmArgumentParser.class.getSimpleName());
 
-
 	private static final int REMOVE_LEADING_DASH_SUBSTRING_INDEX = 1;
-
 
 	private static final int NEXT_ARGUMENT_ADDITION_INDEX = 1;
 
-
 	private static final int CHEAT_CURRENCY_STARTING_AMOUNT = 100000;
-
 
 	private static int currentArgumentIndex = 0;
 
 
 	/**
-	 * As this class is solely a collection of static methods, there is no use-case where an instantiation of this
-	 * class
-	 * would be beneficial, hence why a private constructor is used here to prohibit that.
+	 * As this class is solely a collection of static methods, there is no use-case where an instantiation of this class would be beneficial, hence
+	 * why a private constructor is used here to prohibit that.
 	 */
 	private JvmArgumentParser () {}
 
 
 	/**
-	 * Iterates through all JVM arguments supplied to the program, and if a valid argument is found, the proper actions
-	 * will be executed, such as enabling the verboseMode or adding the timestamp prefix in front of console output.
+	 * Iterates through all JVM arguments supplied to the program, and if a valid argument is found, the proper actions will be executed, such as
+	 * enabling the verboseMode or adding the timestamp prefix in front of console output.
 	 *
-	 * @param args The JVM arguments passed into the program at startup. These have to be acquired through the main
-	 *             method of the program.
+	 * @param args The JVM arguments passed into the program at startup. These have to be acquired through the main method of the program.
 	 */
 	public static void apply (final String[] args)
 	{
@@ -63,8 +55,7 @@ public final class JvmArgumentParser
 		}
 		catch (final IllegalArgumentException ignored)
 		{
-			LOGGER.log(WARNING, MessageFormat.format(INVALID_ARGUMENT_AT_POSITION_MSG, args[currentArgumentIndex],
-				currentArgumentIndex));
+			LOGGER.log(WARNING, MessageFormat.format(INVALID_ARGUMENT_AT_POSITION_MSG, args[currentArgumentIndex], currentArgumentIndex));
 			LOGGER.log(NORMAL, MessageFormat.format(VALID_ARGUMENT_LIST_MSG, (Object[]) JvmArgument.values()));
 		}
 		finally
@@ -89,15 +80,13 @@ public final class JvmArgumentParser
 
 			if (!checkIsValidJvmArgument(currentArgument))
 			{
-				LOGGER.log(WARNING, MessageFormat.format(INVALID_ARGUMENT_AT_POSITION_MSG, args[currentArgumentIndex],
-					currentArgumentIndex));
+				LOGGER.log(WARNING, MessageFormat.format(INVALID_ARGUMENT_AT_POSITION_MSG, args[currentArgumentIndex], currentArgumentIndex));
 				continue;
 			}
 
 			final JvmArgument jvmArgument = JvmArgument.valueOf(currentArgument.toUpperCase(Locale.GERMANY));
 
-			LOGGER.log(DEBUG, MessageFormat.format(ARGUMENT_AT_INDEX_MSG, currentArgumentIndex,
-				args[currentArgumentIndex]));
+			LOGGER.log(DEBUG, MessageFormat.format(ARGUMENT_AT_INDEX_MSG, currentArgumentIndex, args[currentArgumentIndex]));
 
 			// As there's only one JVM argument at the moment, an if-statement is used here.
 			// Should be replaced by a switch-statement if there are more arguments in the future.
@@ -140,9 +129,8 @@ public final class JvmArgumentParser
 		{
 			if (!checkIsValidLogDepthArgument(args, level))
 			{
-				LOGGER.log(DEBUG, MessageFormat.format(INVALID_LOG_DEPTH_ARGUMENT_MSG, args[currentArgumentIndex +
-				                                                                            NEXT_ARGUMENT_ADDITION_INDEX], Logger.getDepth()
-					.name()));
+				LOGGER.log(DEBUG, MessageFormat.format(INVALID_LOG_DEPTH_ARGUMENT_MSG, args[currentArgumentIndex + NEXT_ARGUMENT_ADDITION_INDEX],
+				                                       Logger.getDepth().name()));
 				currentArgumentIndex++;
 				return;
 			}
@@ -187,4 +175,5 @@ public final class JvmArgumentParser
 		LOGGER.log(NORMAL, MessageFormat.format(CHEATS_STATUS_MSG, Cache.getAreCheatsEnabled()));
 		LOGGER.log(NORMAL, DIVIDER);
 	}
+
 }

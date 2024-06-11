@@ -1,6 +1,5 @@
 package me.vault.game.utility.logging;
 
-
 /**
  * Description
  *
@@ -11,16 +10,14 @@ package me.vault.game.utility.logging;
  */
 public interface ILogger
 {
-	public void log (final Level level, final String message);
+	void log (final Level level, final String message);
 
-
-	public void logf (final Level level, final String pattern, final Object... arguments);
-
+	void logf (final Level level, final String pattern, final Object... arguments);
 
 	/**
 	 * Enum representing logging levels with associated color codes.
 	 */
-	public static enum Level
+	enum Level
 	{
 		/**
 		 * LOWEST: The debug logging level used to display the finest information in cyan formatting.
@@ -41,7 +38,6 @@ public interface ILogger
 		 * HIGHEST: The error logging level used to display only error messages in red formatting.
 		 */
 		ERROR(ConsoleColor.RED.toString());
-
 
 		private final String colorCode;
 
@@ -68,4 +64,5 @@ public interface ILogger
 			return this.colorCode;
 		}
 	}
+
 }

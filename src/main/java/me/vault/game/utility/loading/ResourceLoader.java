@@ -1,9 +1,7 @@
 package me.vault.game.utility.loading;
 
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import me.vault.game.VaultApplication;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -12,7 +10,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +18,11 @@ import java.util.Objects;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
-
 public final class ResourceLoader
 {
 	private static final ILogger LOGGER = new Logger(ResourceLoader.class.getSimpleName());
 
-
 	private static final String IMAGE_NOT_LOADED_MSG = "The image-resource \"{0}\" couldn't load.";
-
 
 	private static final String SCENE_NOT_LOADED_MSG = "The scene-resource \"{0}\" couldn't load.";
 
@@ -68,13 +62,16 @@ public final class ResourceLoader
 		}
 	}
 
+
 	public static File getDirectory (final String filePath)
 	{
 		return new File(filePath);
 	}
 
+
 	public static ArrayList<File> collectFiles (final String filePath)
 	{
 		return new ArrayList<File>(List.of(new File(filePath).listFiles()));
 	}
+
 }

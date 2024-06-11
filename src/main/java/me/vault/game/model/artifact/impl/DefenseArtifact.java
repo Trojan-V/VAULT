@@ -1,6 +1,5 @@
 package me.vault.game.model.artifact.impl;
 
-
 import javafx.scene.image.Image;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
@@ -20,14 +19,11 @@ import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 
-
 /**
  * This class is an implementation of {@link Artifact}.
  * <br>
- * As this specification is a defense artifact, it mainly provides positive attribute modifiers towards the defense
- * attribute.
- * Other attribute modifiers might be affected as well by the defense artifact, the highest multiplier is for the
- * defense though for obvious reasons.
+ * As this specification is a defense artifact, it mainly provides positive attribute modifiers towards the defense attribute. Other attribute
+ * modifiers might be affected as well by the defense artifact, the highest multiplier is for the defense though for obvious reasons.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 1.0.0
@@ -43,27 +39,24 @@ public final class DefenseArtifact extends Artifact
 	 */
 	private static final ILogger LOGGER = new Logger(DefenseArtifact.class.getSimpleName());
 
-
 	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link DefenseArtifact}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 * Singleton instance, as there's never a reason to have more than one {@link DefenseArtifact}. Instead of using a singleton, the entire class
+	 * could've been created using solely static methods and fields.
 	 */
 	private static final DefenseArtifact INSTANCE;
 
-
 	/**
-	 * All possible names of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to
-	 * denote which name corresponds to which {@link ArtifactLevel}.
+	 * All possible names of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which name corresponds to
+	 * which {@link ArtifactLevel}.
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
 	 */
 	private static final Map<ArtifactLevel, String> NAMES;
 
-
 	/**
-	 * All possible sprites of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to
-	 * denote which sprite corresponds to which {@link ArtifactLevel}.
+	 * All possible sprites of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which sprite corresponds
+	 * to which {@link ArtifactLevel}.
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
@@ -71,10 +64,9 @@ public final class DefenseArtifact extends Artifact
 	 */
 	private static final Map<ArtifactLevel, MetaDataImage> SPRITES;
 
-
 	/**
-	 * All possible modifier sets of the defense artifact are stored in this map, with the {@link ArtifactLevel} as
-	 * key to denote which set of modifiers corresponds to which {@link ArtifactLevel}.
+	 * All possible modifier sets of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which set of
+	 * modifiers corresponds to which {@link ArtifactLevel}.
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
@@ -82,11 +74,9 @@ public final class DefenseArtifact extends Artifact
 	 */
 	private static final Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> MODIFIERS;
 
-
 	/**
-	 * All possible upgrade cost {@link CurrencyTransaction}'s of the defense artifact are stored in this map, with the
-	 * {@link ArtifactLevel} as
-	 * key to denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key
+	 * to denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
@@ -112,11 +102,15 @@ public final class DefenseArtifact extends Artifact
 	}
 
 	/**
-	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the defense
-	 * artifact.
+	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 */
+	private DefenseArtifact () {}
+
+
+	/**
+	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the defense artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DefenseArtifact#UPGRADE_COSTS} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link DefenseArtifact#UPGRADE_COSTS} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -140,11 +134,9 @@ public final class DefenseArtifact extends Artifact
 
 
 	/**
-	 * Initializes and returns the map of attribute modifiers, which contains all different attribute modifiers for the
-	 * defense artifact.
+	 * Initializes and returns the map of attribute modifiers, which contains all different attribute modifiers for the defense artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DefenseArtifact#MODIFIERS} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link DefenseArtifact#MODIFIERS} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -181,11 +173,9 @@ public final class DefenseArtifact extends Artifact
 
 
 	/**
-	 * Initializes and returns the map of names, which contains all different names for the
-	 * defense artifact.
+	 * Initializes and returns the map of names, which contains all different names for the defense artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DefenseArtifact#NAMES} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link DefenseArtifact#NAMES} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -208,11 +198,9 @@ public final class DefenseArtifact extends Artifact
 
 
 	/**
-	 * Initializes and returns the map of sprites, which contains all different names for the
-	 * defense artifact.
+	 * Initializes and returns the map of sprites, which contains all different names for the defense artifact.
 	 * <br>
-	 * This map is created once and then stored in the {@link DefenseArtifact#SPRITES} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link DefenseArtifact#SPRITES} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -232,13 +220,6 @@ public final class DefenseArtifact extends Artifact
 
 		return spritesMap;
 	}
-
-
-	/**
-	 * As this class is a singleton, no other class should be able to instantiate it,
-	 * hence why a private constructor is used here to prohibit that.
-	 */
-	private DefenseArtifact () {}
 
 
 	/**
@@ -290,4 +271,5 @@ public final class DefenseArtifact extends Artifact
 	{
 		return MODIFIERS;
 	}
+
 }

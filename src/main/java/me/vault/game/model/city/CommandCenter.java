@@ -1,6 +1,5 @@
 package me.vault.game.model.city;
 
-
 import javafx.scene.Scene;
 import me.vault.game.model.building.AbsCityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
@@ -16,12 +15,10 @@ import java.util.Map;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
-
 /**
  * This class is an implementation of {@link AbsCityBuilding}.
  * <br>
- * The {@link CommandCenter} city building is used by the player to select and start missions,
- * where he can collect currencies and artifacts.
+ * The {@link CommandCenter} city building is used by the player to select and start missions, where he can collect currencies and artifacts.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 2.0.0
@@ -38,41 +35,36 @@ public class CommandCenter extends AbsCityBuilding
 	 */
 	private static final ILogger LOGGER = new Logger(CommandCenter.class.getSimpleName());
 
-
 	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link CommandCenter} city building.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 * Singleton instance, as there's never a reason to have more than one {@link CommandCenter} city building. Instead of using a singleton, the
+	 * entire class could've been created using solely static methods and fields.
 	 */
 	private static final CommandCenter INSTANCE;
 
-
 	/**
-	 * The {@link Scene} of the {@link CommandCenter} city building, which is extracted from the related .fxml-file with the
-	 * {@link ResourceLoader} class.
+	 * The {@link Scene} of the {@link CommandCenter} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader}
+	 * class.
 	 */
 	private static final Scene FXML_SCENE = ResourceLoader.loadScene(CommandCenter.class, "command_center_view.fxml");
 
-
 	/**
-	 * All possible names of the {@link CommandCenter} city building are stored in this map, with the {@link CityBuildingLevel} as key to
-	 * denote which name corresponds to which {@link CityBuildingLevel}.
+	 * All possible names of the {@link CommandCenter} city building are stored in this map, with the {@link CityBuildingLevel} as key to denote which
+	 * name corresponds to which {@link CityBuildingLevel}.
 	 *
 	 * @see Map
 	 * @see CityBuildingLevel
 	 */
 	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();
 
-
 	/**
-	 * All possible sprites of the {@link CommandCenter} city building are stored in this map, with the {@link CityBuildingLevel} as key to
-	 * denote which sprite corresponds to which {@link CityBuildingLevel}.
+	 * All possible sprites of the {@link CommandCenter} city building are stored in this map, with the {@link CityBuildingLevel} as key to denote
+	 * which sprite corresponds to which {@link CityBuildingLevel}.
 	 *
 	 * @see Map
 	 * @see CityBuildingLevel
 	 * @see Image
 	 */
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new HashMap<>();
-
 
 	/**
 	 * All possible upgrade cost {@link CurrencyTransaction}'s of the {@link CommandCenter} city building are stored in this map, with the
@@ -151,4 +143,5 @@ public class CommandCenter extends AbsCityBuilding
 	{
 		return FXML_SCENE;
 	}
+
 }

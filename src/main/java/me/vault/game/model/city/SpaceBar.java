@@ -1,6 +1,5 @@
 package me.vault.game.model.city;
 
-
 import javafx.scene.Scene;
 import me.vault.game.model.building.AbsCityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
@@ -14,20 +13,15 @@ import java.util.Map;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
-
 public class SpaceBar extends AbsCityBuilding
 {
 	private static final SpaceBar INSTANCE;
 
-
 	private static final Scene SCENE = ResourceLoader.loadScene(SpaceBar.class, "space_bar_view.fxml");
-
 
 	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();
 
-
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new HashMap<>();
-
 
 	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
 
@@ -81,4 +75,5 @@ public class SpaceBar extends AbsCityBuilding
 	{
 		return SCENE;
 	}
+
 }

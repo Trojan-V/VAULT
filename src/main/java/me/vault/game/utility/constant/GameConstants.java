@@ -18,17 +18,17 @@ public interface GameConstants
 	 * The top level path to the assets directory which contains all sprites used within the game.
 	 */
 	@Constant
-	public static final String ASSETS_PATH = "src/main/resources/me/vault/game/assets/";
+	String ASSETS_PATH = "src/main/resources/me/vault/game/assets/";
 
 	/**
 	 * The window title which will be displayed in the top bar of the game window.
 	 */
-	public static final String WINDOW_TITLE = "VAULT Game";
+	String WINDOW_TITLE = "VAULT Game";
 
-	public static final String GENERAL_BACKGROUND_FILENAME = "general_background.png";
+	String GENERAL_BACKGROUND_FILENAME = "general_background.png";
 
-	public static final String TAB_PANE_STYLE = "floating";
+	String TAB_PANE_STYLE = "floating";
 
-	public static final String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/save_files";
+	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/save_files";
 
 }

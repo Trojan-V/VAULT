@@ -33,6 +33,7 @@ public final class CityBuildingView
 		stage.show();
 		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, cityBuilding.getName()));
 	}
+
 }
 
 

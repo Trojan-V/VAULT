@@ -1,6 +1,5 @@
 package me.vault.game.model.city;
 
-
 import javafx.scene.Scene;
 import me.vault.game.model.building.AbsCityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
@@ -14,7 +13,6 @@ import java.util.Map;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
-
 /**
  * Description
  *
@@ -27,15 +25,11 @@ public class Workshop extends AbsCityBuilding
 {
 	private static final Workshop INSTANCE;
 
-
 	private static final Scene SCENE = ResourceLoader.loadScene(Workshop.class, "workshop_view.fxml");
-
 
 	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();
 
-
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new HashMap<>();
-
 
 	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
 
@@ -89,4 +83,5 @@ public class Workshop extends AbsCityBuilding
 	{
 		return SCENE;
 	}
+
 }

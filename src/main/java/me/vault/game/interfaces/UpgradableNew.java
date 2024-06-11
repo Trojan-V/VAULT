@@ -1,8 +1,6 @@
 package me.vault.game.interfaces;
 
-
 import me.vault.game.model.currency.CurrencyTransaction;
-
 
 /**
  * Description
@@ -14,16 +12,15 @@ import me.vault.game.model.currency.CurrencyTransaction;
  */
 public interface UpgradableNew<E>
 {
-	public abstract E getLevel ();
-
+	E getLevel ();
 
 	/**
 	 * Sets the current level of the {@code CityBuilding} object.
 	 *
 	 * @param currentLevel The new level of the object as an {@link Integer}.
 	 */
-	public abstract void setLevel (E currentLevel);
+	void setLevel (E currentLevel);
 
+	CurrencyTransaction getCurrentUpgradeCosts ();
 
-	public abstract CurrencyTransaction getCurrentUpgradeCosts ();
 }

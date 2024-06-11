@@ -1,6 +1,5 @@
 package me.vault.game.utility.logging;
 
-
 /**
  * ConsoleColor is an enum that stores strings which can be printed into the console to display different colors.
  * <br>
@@ -363,10 +362,9 @@ public enum ConsoleColor
 	 */
 	WHITE_BACKGROUND_BRIGHT("\033[0;107m");
 
-
 	/**
-	 * The value of the console color. This value gets assigned as soon as an enum entry has been called, as the
-	 * constructor is invoked automatically as soon as someone uses an entry from the enum.
+	 * The value of the console color. This value gets assigned as soon as an enum entry has been called, as the constructor is invoked automatically
+	 * as soon as someone uses an entry from the enum.
 	 */
 	private final String code;
 

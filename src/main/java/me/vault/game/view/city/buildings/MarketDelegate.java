@@ -1,6 +1,5 @@
 package me.vault.game.view.city.buildings;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,48 +12,37 @@ import me.vault.game.view.city.CityView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 public class MarketDelegate extends CityBuildingController implements Initializable
 {
 	@FXML
 	private ImageView backgroundImageView;
 
-
 	@FXML
 	private Label compositeAmountLabel;
-
 
 	@FXML
 	private ImageView compositeImageView;
 
-
 	@FXML
 	private Label creditAmountLabel;
-
 
 	@FXML
 	private ImageView creditImageView;
 
-
 	@FXML
 	private Label foodAmountLabel;
-
 
 	@FXML
 	private ImageView foodImageView;
 
-
 	@FXML
 	private Label scienceAmountLabel;
-
 
 	@FXML
 	private ImageView scienceImageView;
 
-
 	@FXML
 	private Label steelAmountLabel;
-
 
 	@FXML
 	private ImageView steelImageView;
@@ -72,4 +60,5 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 	{
 
 	}
+
 }

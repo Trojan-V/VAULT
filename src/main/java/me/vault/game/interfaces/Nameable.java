@@ -1,8 +1,6 @@
 package me.vault.game.interfaces;
 
-
 import javafx.beans.property.SimpleStringProperty;
-
 
 /**
  * Description
@@ -14,8 +12,8 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public interface Nameable
 {
-	public abstract SimpleStringProperty getNameProperty ();
+	SimpleStringProperty getNameProperty ();
 
+	String getName ();
 
-	public abstract String getName ();
 }

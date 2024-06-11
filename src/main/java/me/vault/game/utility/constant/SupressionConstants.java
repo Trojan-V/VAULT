@@ -1,6 +1,5 @@
 package me.vault.game.utility.constant;
 
-
 /**
  * Description
  *
@@ -12,7 +11,6 @@ package me.vault.game.utility.constant;
 public interface SupressionConstants
 {
 	String OVERRIDDEN_METHOD_CALL = "OverriddenMethodCallDuringObjectConstruction";
-
 
 	String OVERRIDABLE_METHOD_CALL = "OverridableMethodCallDuringObjectConstruction";
 

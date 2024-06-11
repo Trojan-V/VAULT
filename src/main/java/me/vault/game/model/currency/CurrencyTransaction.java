@@ -1,6 +1,5 @@
 package me.vault.game.model.currency;
 
-
 import me.vault.game.exception.InvalidMapEntryException;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
@@ -16,31 +15,22 @@ import static me.vault.game.utility.constant.LoggingConstants.Currency.EXECUTION
 import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
-
 public class CurrencyTransaction
 {
 	public static final CurrencyTransaction EMPTY = new CurrencyTransaction(0, 0, 0, 0, 0);
-
 
 	/**
 	 * The pattern that is used to have a formatted output in the {@link CurrencyTransaction#toString()} method.
 	 */
 	private static final String STRING_PATTERN = "CurrencyTransaction[amountMap = {0}]";
 
-
 	private static final String TO_STRING_PATTERN = "CurrencyTransaction[{0}]";
-
-
+	private static final Logger LOGGER = new Logger(CurrencyTransaction.class.getSimpleName());
 	/**
-	 * The {@link HashMap} which contains the numbers of currencies that are changed by the transaction. The keys of
-	 * the
-	 * {@code HashMap} represent the {@link Currency} enum values and the values of the {@code HashMap} the
-	 * corresponding amounts of each {@code Currency} key.
+	 * The {@link HashMap} which contains the numbers of currencies that are changed by the transaction. The keys of the {@code HashMap} represent the
+	 * {@link Currency} enum values and the values of the {@code HashMap} the corresponding amounts of each {@code Currency} key.
 	 */
 	private final ValidatedEntriesHashMap<Currency, Integer> currencyAmountMap = new ValidatedEntriesHashMap<>();
-
-
-	private static final Logger LOGGER = new Logger(CurrencyTransaction.class.getSimpleName());
 
 
 	@SafeVarargs
@@ -53,8 +43,8 @@ public class CurrencyTransaction
 	}
 
 
-	public CurrencyTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount,
-		final int foodAmount, final int energyAmount)
+	public CurrencyTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount, final int foodAmount,
+			final int energyAmount)
 	{
 		try
 		{
@@ -92,8 +82,7 @@ public class CurrencyTransaction
 
 
 	/**
-	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with
-	 * its properties.
+	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with its properties.
 	 *
 	 * @return A {@link String} value, which represents the object with its properties.
 	 */
@@ -113,4 +102,5 @@ public class CurrencyTransaction
 		}
 		return MessageFormat.format(TO_STRING_PATTERN, stringBuilder.toString());
 	}
+
 }

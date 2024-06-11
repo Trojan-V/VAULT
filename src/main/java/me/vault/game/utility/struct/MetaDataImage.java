@@ -1,11 +1,9 @@
 package me.vault.game.utility.struct;
 
-
 import javafx.scene.image.Image;
 
 import java.io.File;
 import java.io.InputStream;
-
 
 /**
  * Description
@@ -32,4 +30,5 @@ public class MetaDataImage extends Image
 	{
 		return this.file.getName();
 	}
+
 }

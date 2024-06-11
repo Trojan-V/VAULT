@@ -1,6 +1,5 @@
 package me.vault.game.view;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -26,58 +25,66 @@ import static me.vault.game.utility.constant.GameConstants.*;
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-
 public final class TutorialDelegate implements Initializable
 {
 	//Buttons ----------------------------------------------------------------------------------------------------------
 
+	/**
+	 * The logger object for this class used for writing formatted outputs into the console.
+	 *
+	 * @see Logger
+	 */
+	private static final ILogger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
+	private static final String cssFilePath = "./css/style.css";
+
+	//ImageViews -----------------------------------------------------------------------------------------------------------
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
+	 * elements.
+	 */
+	private static final String TUTORIAL_VIEW_FXML = "tutorial.fxml";
+	private static final Scene TUTORIAL_MENU_SCENE = ResourceLoader.loadScene(TutorialDelegate.class, TUTORIAL_VIEW_FXML);
 	@FXML
 	private Button continueButton;
 
+	//Texts -----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Button backButton;
-
-	//ImageViews -----------------------------------------------------------------------------------------------------------
-
 	@FXML
 	private ImageView backgroundImageView;
-
 	@FXML
 	private ImageView continueButtonBackground;
-
 	@FXML
 	private ImageView backButtonBackground;
-
-	//Texts -----------------------------------------------------------------------------------------------------------
-
 	@FXML
 	private Text tutorialIntroductionText;
-
 	@FXML
 	private Text tutorialCityText;
-
 	@FXML
 	private Text tutorialArtefactsText;
-
 	@FXML
 	private Text tutorialFactionsText;
 
+	//TabPane ----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Text tutorialMissionsText;
-
 	@FXML
 	private Text tutorialFightsText;
-
 	@FXML
 	private Text continueButtonText;
-
 	@FXML
 	private Text backButtonText;
-
-	//TabPane ----------------------------------------------------------------------------------------------------------
-
 	@FXML
 	private TabPane tutorialTabPane;
+
+
+	public static void show (final Stage stage)
+	{
+		stage.setScene(TUTORIAL_MENU_SCENE);
+
+		stage.show();
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, TutorialDelegate.class.getSimpleName()));
+	}
 
 
 	//Actions ----------------------------------------------------------------------------------------------------------
@@ -86,31 +93,29 @@ public final class TutorialDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setImage(this.backButtonBackground,
-				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtils.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setImage(this.continueButtonBackground,
-				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtils.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 
 	}
 
+
 	@FXML
-	public void returnButtonBackgroundToNormal(final MouseEvent mouseEvent)
+	public void returnButtonBackgroundToNormal (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setImage(this.continueButtonBackground,
-				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtils.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setImage(this.backButtonBackground,
-				ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtils.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
+
 
 	@FXML
 	void changeButtonTextColor (final MouseEvent mouseEvent)
@@ -124,6 +129,7 @@ public final class TutorialDelegate implements Initializable
 			ViewUtils.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
+
 
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)
@@ -152,35 +158,8 @@ public final class TutorialDelegate implements Initializable
 		ViewUtils.setText(this.tutorialFactionsText, StringConstants.tutorialFactsions);
 		ViewUtils.setText(this.tutorialMissionsText, StringConstants.tutorialMissions);
 		ViewUtils.setText(this.tutorialFightsText, StringConstants.tutorialFights);
-		ViewUtils.setTabPaneStyle(this.tutorialTabPane,TAB_PANE_STYLE);
+		ViewUtils.setTabPaneStyle(this.tutorialTabPane, TAB_PANE_STYLE);
 
 	}
 
-	/**
-	 * The logger object for this class used for writing formatted outputs into the console.
-	 *
-	 * @see Logger
-	 */
-	private static final ILogger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
-
-	private static final String cssFilePath = "./css/style.css";
-
-
-	/**
-	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the
-	 * properties (color etc.) of the GUI elements.
-	 */
-	private static final String TUTORIAL_VIEW_FXML = "tutorial.fxml";
-
-
-
-	private static final Scene TUTORIAL_MENU_SCENE = ResourceLoader.loadScene(TutorialDelegate.class, TUTORIAL_VIEW_FXML);
-
-	public static void show (final Stage stage)
-	{
-		stage.setScene(TUTORIAL_MENU_SCENE);
-
-		stage.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, TutorialDelegate.class.getSimpleName()));
-	}
 }

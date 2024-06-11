@@ -1,6 +1,5 @@
 package me.vault.game.model.city;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,37 +20,29 @@ import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
-
 public class CommandCenterController implements Initializable
 {
 
 	@FXML
 	private ImageView backgroundImageView;
 
-
 	@FXML
 	private AnchorPane mainAnchorPane;
-
 
 	@FXML
 	private Label currentNewsLabel;
 
-
 	@FXML
 	private Button goToMissionBoardButton;
-
 
 	@FXML
 	private ImageView selectedArtifactImageView;
 
-
 	@FXML
 	private Label selectedArtifactLabel;
 
-
 	@FXML
 	private ImageView selectedFactionImageView;
-
 
 	@FXML
 	private Label selectedFactionLabel;

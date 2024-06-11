@@ -1,6 +1,5 @@
 package me.vault.game.model.troop.unit;
 
-
 /**
  * @author Alexander Göthel
  * @version 1.0.0
@@ -8,7 +7,5 @@ package me.vault.game.model.troop.unit;
  */
 public enum UnitLevel
 {
-	SINGLE_COMBATANT,
-	COUPLE,
-	SQUAD
+	SINGLE_COMBATANT, COUPLE, SQUAD
 }

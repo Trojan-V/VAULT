@@ -1,6 +1,5 @@
 package me.vault.game.view.city.buildings;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,149 +18,113 @@ import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.*;
 
-
 public class TrainingFacilityDelegate extends CityBuildingController implements Initializable
 {
 
 	@FXML
 	private Label compositeAmountLabel;
 
-
 	@FXML
 	private ImageView compositeImageView;
-
 
 	@FXML
 	private Label creditAmountLabel;
 
-
 	@FXML
 	private ImageView creditImageView;
-
 
 	@FXML
 	private ImageView engineerImageView;
 
-
 	@FXML
 	private Button engineerUpgradeButton;
-
 
 	@FXML
 	private Label foodAmountLabel;
 
-
 	@FXML
 	private ImageView foodImageView;
-
 
 	@FXML
 	private ImageView grenadierImageView;
 
-
 	@FXML
 	private Button grenadierUpgradeButton;
-
 
 	@FXML
 	private ImageView guardImageView;
 
-
 	@FXML
 	private Button guardUpgradeButton;
-
 
 	@FXML
 	private ImageView infantryImageView;
 
-
 	@FXML
 	private Button infantryUpgradeButton;
-
 
 	@FXML
 	private ImageView lieutenantImageView;
 
-
 	@FXML
 	private Button lieutenantUpgradeButton;
-
 
 	@FXML
 	private ImageView medicImageView;
 
-
 	@FXML
 	private Button medicUpgradeButton;
-
 
 	@FXML
 	private ImageView officerImageView;
 
-
 	@FXML
 	private Button officerUpgradeButton;
-
 
 	@FXML
 	private ImageView precisionShooterImageView;
 
-
 	@FXML
 	private Button precisionShooterUpgradeButton;
-
 
 	@FXML
 	private ImageView rangerImageView;
 
-
 	@FXML
 	private Button rangerUpgradeButton;
-
 
 	@FXML
 	private ImageView recruitImageView;
 
-
 	@FXML
 	private Button recruitUpgradeButton;
-
 
 	@FXML
 	private Label scienceAmountLabel;
 
-
 	@FXML
 	private ImageView scienceImageView;
-
 
 	@FXML
 	private ImageView sniperImageView;
 
-
 	@FXML
 	private Button sniperUpgradeButton;
-
 
 	@FXML
 	private ImageView spaceMarineImageView;
 
-
 	@FXML
 	private Button spaceMarineUpgradeButton;
-
 
 	@FXML
 	private Label steelAmountLabel;
 
-
 	@FXML
 	private ImageView steelImageView;
 
-
 	@FXML
 	private ImageView trainingFacilityBackgroundImageView;
-
 
 	@FXML
 	private TabPane factionsTabPane;
@@ -265,8 +228,7 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH +
-		                                                                           GENERAL_BACKGROUND_FILENAME));
+		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.initCurrencies();
 	}

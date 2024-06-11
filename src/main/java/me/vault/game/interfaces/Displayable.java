@@ -1,10 +1,8 @@
 package me.vault.game.interfaces;
 
-
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
 import me.vault.game.utility.struct.MetaDataImage;
-
 
 public interface Displayable
 {
@@ -13,11 +11,10 @@ public interface Displayable
 	 *
 	 * @return The sprite property of the displayable object as an {@link Image}
 	 */
-	public abstract Image getSprite ();
+	Image getSprite ();
 
+	SimpleObjectProperty<MetaDataImage> getSpriteProperty ();
 
-	public abstract SimpleObjectProperty<MetaDataImage> getSpriteProperty ();
+	void updatePropertyValues ();
 
-
-	public abstract void updatePropertyValues ();
 }

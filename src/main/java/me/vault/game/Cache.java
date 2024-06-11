@@ -1,6 +1,5 @@
 package me.vault.game;
 
-
 /**
  * Description
  *
@@ -25,4 +24,5 @@ public class Cache
 	{
 		areCheatsEnabled = enabled;
 	}
+
 }

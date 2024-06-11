@@ -1,16 +1,14 @@
 package me.vault.game.utility.constant;
 
-
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
-
 public interface CityBuildingConstants
 {
-	public interface Barracks
+	interface Barracks
 	{
 		String OLD_NAME = "Old Barracks";
 		String NORMAL_NAME = "Barracks";
@@ -22,5 +20,7 @@ public interface CityBuildingConstants
 
 		CurrencyTransaction OLD_UPGRADE_COSTS = new CurrencyTransaction(-10, -10, -10, -10, -10);
 		CurrencyTransaction NORMAL_UPGRADE_COSTS = new CurrencyTransaction(-10, -10, -10, -10, -10);
+
 	}
+
 }

@@ -1,18 +1,16 @@
 package me.vault.game.control;
 
-
+import me.vault.game.interfaces.IUpgrader;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.interfaces.IUpgrader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-
 
 /**
  * @author Vincent Wolf, Lasse-Leander Hillen
@@ -31,7 +29,6 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
 	 */
 	private static final ArtifactController INSTANCE = new ArtifactController();
-
 
 	/**
 	 * The logger object for this class used for writing to the console.
@@ -138,4 +135,5 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 		LOGGER.log(DEBUG, RETURNING_TRUE);
 		return true;
 	}
+
 }

@@ -4,7 +4,6 @@ package me.vault.game.model.currency;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-
 /**
  * Description
  *
@@ -20,24 +19,22 @@ public interface ICurrency
 	 *
 	 * @return The amount property of the currency object as an {@link Integer}.
 	 */
-	public int getAmount ();
-
-
-	public SimpleIntegerProperty getAmountProperty ();
-
+	int getAmount ();
 
 	/**
 	 * Sets the amount property to a specified amount.
 	 *
 	 * @param amount The amount which the amount property from the currency is set to. As an {@link Integer}.
 	 */
-	public void setAmount (final int amount);
+	void setAmount (final int amount);
 
+	SimpleIntegerProperty getAmountProperty ();
 
 	/**
 	 * Adds the specified amount to the currency property.
 	 *
 	 * @param amount The amount which is added to the currency as an {@link Integer}.
 	 */
-	public void addAmount (final int amount);
+	void addAmount (final int amount);
+
 }

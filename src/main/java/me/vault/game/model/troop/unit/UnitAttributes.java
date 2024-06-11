@@ -1,10 +1,8 @@
 package me.vault.game.model.troop.unit;
 
-
 import me.vault.game.model.currency.CurrencyTransaction;
 
 import static me.vault.game.utility.constant.CharacterConstants.PIPE;
-
 
 /**
  * This class provides the attributes for the units of the game.
@@ -17,50 +15,36 @@ public class UnitAttributes
 {
 	private final String name;
 
-
 	private final double health;
-
 
 	private final double armour;
 
-
 	private final int energy;
-
 
 	private final int meleeDamage;
 
-
 	private final int grenade;
-
 
 	private final int grenadeAmount;
 
-
 	private final double dodge;
-
 
 	private final double resistance;
 
-
 	private final int movementRange;
-
 
 	private final int initiative;
 
-
 	private final int meleeRange;
 
-
 	private final int grenadeRange;
-
 
 	private final CurrencyTransaction upgradeCosts;
 
 
-	public UnitAttributes (final CurrencyTransaction upgradeCosts, final double health, final double armour,
-		final int energy, final int meleeDamage, final int grenade, final int grenadeAmount, final double dodge,
-		final double resistance, final int movementRange, final int initiative, final int meleeRange,
-		final int grenadeRange, final String name)
+	public UnitAttributes (final CurrencyTransaction upgradeCosts, final double health, final double armour, final int energy, final int meleeDamage,
+			final int grenade, final int grenadeAmount, final double dodge, final double resistance, final int movementRange, final int initiative,
+			final int meleeRange, final int grenadeRange, final String name)
 	{
 		this.name = name;
 		this.upgradeCosts = upgradeCosts;
@@ -166,9 +150,9 @@ public class UnitAttributes
 	@Override
 	public String toString ()
 	{
-		return "ArtifactProperties[" + this.name + PIPE + this.health + PIPE + this.armour +
-		       PIPE + this.meleeDamage + PIPE + this.grenade + PIPE + this.grenadeAmount + PIPE +
-		       this.dodge + PIPE + this.resistance + PIPE + this.movementRange + PIPE + this.initiative +
-		       PIPE + this.meleeRange + PIPE + this.grenadeRange + PIPE + this.upgradeCosts + ']';
+		return "ArtifactProperties[" + this.name + PIPE + this.health + PIPE + this.armour + PIPE + this.meleeDamage + PIPE + this.grenade + PIPE +
+		       this.grenadeAmount + PIPE + this.dodge + PIPE + this.resistance + PIPE + this.movementRange + PIPE + this.initiative + PIPE +
+		       this.meleeRange + PIPE + this.grenadeRange + PIPE + this.upgradeCosts + ']';
 	}
+
 }

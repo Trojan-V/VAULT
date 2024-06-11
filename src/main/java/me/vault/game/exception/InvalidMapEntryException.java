@@ -1,15 +1,12 @@
 package me.vault.game.exception;
 
-
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
 import java.text.MessageFormat;
 import java.util.Map.Entry;
 
-
 /**
- * This exception is thrown when an invalid map entry was entered into the
- * {@link ValidatedEntriesHashMap} data structure.
+ * This exception is thrown when an invalid map entry was entered into the {@link ValidatedEntriesHashMap} data structure.
  * <br>
  * Only entries that contain valid data for both the key and the value can be entered.
  *
@@ -21,17 +18,14 @@ import java.util.Map.Entry;
 public class InvalidMapEntryException extends Exception
 {
 	/**
-	 * The message which can be retrieved from the exception instance by invoking
-	 * {@link InvalidMapEntryException#getMessage()}. Usually, this message should be printed into the console or some
-	 * other logging destination to inform the user about the exception.
+	 * The message which can be retrieved from the exception instance by invoking {@link InvalidMapEntryException#getMessage()}. Usually, this message
+	 * should be printed into the console or some other logging destination to inform the user about the exception.
 	 */
 	private static final String EXCEPTION_MESSAGE = "The map entry is invalid.";
 
-
 	/**
-	 * If the invalid entry was provided within the constructor of this exception {@code throw new
-	 * InvalidMapEntryException(Entry<K, V> entry)}, this appendix is appended as message suffix to the default
-	 * {@link InvalidMapEntryException#EXCEPTION_MESSAGE}.
+	 * If the invalid entry was provided within the constructor of this exception {@code throw new InvalidMapEntryException(Entry<K, V> entry)}, this
+	 * appendix is appended as message suffix to the default {@link InvalidMapEntryException#EXCEPTION_MESSAGE}.
 	 * <br>
 	 *
 	 * @see InvalidMapEntryException#InvalidMapEntryException(Entry)
@@ -40,8 +34,7 @@ public class InvalidMapEntryException extends Exception
 
 
 	/**
-	 * The default constructor of the exception.
-	 * Constructs a new instance of this exception and provides the default
+	 * The default constructor of the exception. Constructs a new instance of this exception and provides the default
 	 * {@link InvalidMapEntryException#EXCEPTION_MESSAGE}.
 	 */
 	public InvalidMapEntryException ()
@@ -51,8 +44,8 @@ public class InvalidMapEntryException extends Exception
 
 
 	/**
-	 * This constructor takes the entry which was invalid as parameter and extracts the key and the value from it.
-	 * Then, the key and value of this invalid entry is shown to the user in a human-readable format ({@link String}.
+	 * This constructor takes the entry which was invalid as parameter and extracts the key and the value from it. Then, the key and value of this
+	 * invalid entry is shown to the user in a human-readable format ({@link String}.
 	 *
 	 * @param entry The entry which was detected as invalid.
 	 * @param <K>   The data type of the entry's key.
@@ -62,4 +55,5 @@ public class InvalidMapEntryException extends Exception
 	{
 		super(EXCEPTION_MESSAGE + MessageFormat.format(MESSAGE_APPENDIX, entry.getKey(), entry.getValue()));
 	}
+
 }

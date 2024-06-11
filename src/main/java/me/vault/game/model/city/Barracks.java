@@ -1,6 +1,5 @@
 package me.vault.game.model.city;
 
-
 import javafx.scene.Scene;
 import me.vault.game.model.building.AbsCityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
@@ -18,12 +17,11 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Barracks.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-
 /**
  * This class is an implementation of {@link AbsCityBuilding}.
  * <br>
- * The {@link Barracks} city building holds all information about the starting faction of the game,
- * which can be selected by the player and be used in missions and encounters.
+ * The {@link Barracks} city building holds all information about the starting faction of the game, which can be selected by the player and be used in
+ * missions and encounters.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 2.0.0
@@ -39,41 +37,35 @@ public final class Barracks extends AbsCityBuilding
 	 */
 	public static final ILogger LOGGER = new Logger(Barracks.class.getSimpleName());
 
-
 	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Barracks} city building.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 * Singleton instance, as there's never a reason to have more than one {@link Barracks} city building. Instead of using a singleton, the entire
+	 * class could've been created using solely static methods and fields.
 	 */
 	private static final Barracks INSTANCE;
 
-
 	/**
-	 * The {@link Scene} of the {@link Barracks} city building, which is extracted from the related .fxml-file with the
-	 * {@link ResourceLoader} class.
+	 * The {@link Scene} of the {@link Barracks} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader} class.
 	 */
 	private static final Scene FXML_SCENE = ResourceLoader.loadScene(Barracks.class, "barracks_view.fxml");
 
-
 	/**
-	 * All possible names of the {@link Barracks} city building are stored in this map, with the {@link CityBuildingLevel} as key to
-	 * denote which name corresponds to which {@link CityBuildingLevel}.
+	 * All possible names of the {@link Barracks} city building are stored in this map, with the {@link CityBuildingLevel} as key to denote which name
+	 * corresponds to which {@link CityBuildingLevel}.
 	 *
 	 * @see Map
 	 * @see CityBuildingLevel
 	 */
 	private static final Map<CityBuildingLevel, String> NAMES;
 
-
 	/**
-	 * All possible sprites of the {@link Barracks} city building are stored in this map, with the {@link CityBuildingLevel} as key to
-	 * denote which sprite corresponds to which {@link CityBuildingLevel}.
+	 * All possible sprites of the {@link Barracks} city building are stored in this map, with the {@link CityBuildingLevel} as key to denote which
+	 * sprite corresponds to which {@link CityBuildingLevel}.
 	 *
 	 * @see Map
 	 * @see CityBuildingLevel
 	 * @see Image
 	 */
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES;
-
 
 	/**
 	 * All possible upgrade cost {@link CurrencyTransaction}'s of the {@link Barracks} city building are stored in this map, with the
@@ -102,8 +94,7 @@ public final class Barracks extends AbsCityBuilding
 	}
 
 	/**
-	 * As this class is a singleton, no other class should be able to instantiate it,
-	 * hence why a private constructor is used here to prohibit that.
+	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
 	 */
 	private Barracks () {}
 
@@ -111,8 +102,7 @@ public final class Barracks extends AbsCityBuilding
 	/**
 	 * Initializes and returns the map of names, which contains all different names for the {@code Barracks} city building.
 	 * <br>
-	 * This map is created once and then stored in the {@link Barracks#NAMES} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link Barracks#NAMES} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -136,8 +126,7 @@ public final class Barracks extends AbsCityBuilding
 	/**
 	 * Initializes and returns the map of sprites, which contains all different names for the {@code Barracks} city building.
 	 * <br>
-	 * This map is created once and then stored in the {@link Barracks#SPRITES} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link Barracks#SPRITES} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -162,8 +151,7 @@ public final class Barracks extends AbsCityBuilding
 	/**
 	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the {@code Barracks} city building.
 	 * <br>
-	 * This map is created once and then stored in the {@link Barracks#UPGRADE_COSTS} field to be able to re-use it
-	 * when needed.
+	 * This map is created once and then stored in the {@link Barracks#UPGRADE_COSTS} field to be able to re-use it when needed.
 	 * <br>
 	 * This method is invoked in the static initializer of this class.
 	 *
@@ -236,4 +224,5 @@ public final class Barracks extends AbsCityBuilding
 	{
 		return FXML_SCENE;
 	}
+
 }
