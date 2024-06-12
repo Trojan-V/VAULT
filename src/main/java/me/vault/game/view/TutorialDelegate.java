@@ -97,10 +97,7 @@ public final class TutorialDelegate implements Initializable
 
 	public static void show (final Stage stage)
 	{
-		stage.setScene(TUTORIAL_MENU_SCENE);
-
-		stage.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, TutorialDelegate.class.getSimpleName()));
+		ViewUtils.show(TUTORIAL_MENU_SCENE, TutorialDelegate.class);
 	}
 
 

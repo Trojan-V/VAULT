@@ -46,7 +46,7 @@ public class MainMenuDelegate implements Initializable
 	 */
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
 
-	private static final Scene MAIN_MENU_SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
+	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 
 	@FXML
 	private Button continueButton;
@@ -130,10 +130,7 @@ public class MainMenuDelegate implements Initializable
 
 	public static void show (final Stage stage)
 	{
-		ViewUtils.show(stage, MAIN_MENU_SCENE);
-		//stage.setScene(MAIN_MENU_SCENE);
-		//stage.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, MainMenuDelegate.class.getSimpleName()));
+		ViewUtils.show(SCENE, MainMenuDelegate.class);
 	}
 
 
@@ -252,7 +249,7 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.exitGameButton))
 		{
 			ViewUtils.setButtonColor(this.exitGameButtonText, Color.BLACK);
-			ExitGameDialogueDelegate.show();
+			ExitGameDialogDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
@@ -282,7 +279,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.exitGameMenuItem))
 		{
-			ExitGameDialogueDelegate.show();
+			ExitGameDialogDelegate.show();
 		}
 		else if (actionEvent.getSource().equals(this.arenaMenuItem))
 		{

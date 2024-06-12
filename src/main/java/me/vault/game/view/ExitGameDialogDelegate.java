@@ -4,7 +4,6 @@ package me.vault.game.view;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.stage.Modality;
@@ -13,27 +12,23 @@ import me.vault.game.VaultApplication;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
-public class ExitGameDialogueDelegate implements Initializable
+public class ExitGameDialogDelegate implements Initializable
 {
-
-	private static final String ICON_PATH = ASSETS_PATH + "Item_Pack/armor_icon.png";
-
+	private static final Stage STAGE = new Stage();
 
 	private static final String WINDOW_TITLE = "Exit Game?";
 
+	private static final String FXML_FILENAME = "gameExitDialog.fxml";
 
-	private static final Stage exitGameStage = new Stage();
+	private static final String ICON_PATH = ASSETS_PATH + "Item_Pack/armor_icon.png";
 
-
-	private static final String GAME_EXIT_DIALOGUE_FXML = "gameExitDialog.fxml";
-
-
-	private static final Scene GAME_EXIT_DIALOGUE_SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, GAME_EXIT_DIALOGUE_FXML);
+	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
 
 	@FXML
 	private DialogPane exitGameDialogPane;
@@ -41,19 +36,19 @@ public class ExitGameDialogueDelegate implements Initializable
 
 	public static void show ()
 	{
-		exitGameStage.setScene(GAME_EXIT_DIALOGUE_SCENE);
-		exitGameStage.showAndWait();
+		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, FXML_FILENAME));
+		STAGE.showAndWait();
 	}
 
 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		exitGameStage.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
-		exitGameStage.setTitle(WINDOW_TITLE);
-		exitGameStage.setResizable(false);
-		exitGameStage.initModality(Modality.APPLICATION_MODAL);
 		this.setButtonActions();
+		STAGE.setResizable(false);
+		STAGE.setTitle(WINDOW_TITLE);
+		STAGE.initModality(Modality.APPLICATION_MODAL);
+		STAGE.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
 	}
 
 
@@ -61,15 +56,22 @@ public class ExitGameDialogueDelegate implements Initializable
 	{
 		// Closes the different stages of the program if the user presses YES
 		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> {
-			exitGameStage.close();
+			STAGE.close();
 			VaultApplication.getStage().close();
 			Platform.exit();
 		});
 
 		// Closes the dialog if the user presses NO
 		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(_ -> {
-			exitGameStage.close();
+			STAGE.close();
 		});
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.exitGameDialogPane);
 	}
 
 }

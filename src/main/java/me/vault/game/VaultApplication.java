@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import me.vault.game.utility.jvm.JvmArgumentParser;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.ExitGameDialogueDelegate;
+import me.vault.game.view.ExitGameDialogDelegate;
 import me.vault.game.view.MainMenuDelegate;
 import me.vault.game.view.VaultDelegate;
 
@@ -79,7 +79,7 @@ public class VaultApplication extends Application
 
 		stage.setOnCloseRequest(evt -> {
 			evt.consume();
-			ExitGameDialogueDelegate.show();
+			ExitGameDialogDelegate.show();
 		});
 	}
 

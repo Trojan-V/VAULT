@@ -2,6 +2,7 @@ package me.vault.game.view;
 
 
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,22 +14,28 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import me.vault.game.VaultApplication;
 import me.vault.game.interfaces.UpgradableNew;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import java.io.IOException;
+import java.text.MessageFormat;
 
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.constant.NewLoggingConstants.UPGRADE_DIALOG_FAIL;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 public class ViewUtils
 {
 
-	/**
-	 * @param text  the text
-	 * @param color
-	 */
+	private static final ILogger LOGGER = new Logger(ViewUtils.class.getSimpleName());
+
+	private static final String UPGRADE_DIALOG_FXML = "upgradeDialog.fxml";
+
+
 	public static void setButtonColor (final Text text, final Color color)
 	{
 		text.setFill(Paint.valueOf(color.toString()));
@@ -77,15 +84,14 @@ public class ViewUtils
 	}
 
 
-	public static void show (final Stage stage, final Scene scene)
+	public static void show (final Scene scene, final Class<? extends Initializable> clazz)
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-
-
-		// New scene is set as main-scene of the passed stage
+		final Stage stage = VaultApplication.getStage();
 		stage.setScene(scene);
 		stage.show();
-		//logger.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, className));
+
+		// Logging the display of the view on the main stage.
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, clazz.getSimpleName()));
 	}
 
 
@@ -93,7 +99,7 @@ public class ViewUtils
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource("upgradeDialog.fxml"));
+			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(UPGRADE_DIALOG_FXML));
 			final Parent root = fxmlLoader.load();
 			final UpgradeDialogDelegate controller = fxmlLoader.getController();
 			controller.setUpgradable(upgradableNew);
