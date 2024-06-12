@@ -1,5 +1,6 @@
 package me.vault.game.view.city.buildings;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALISED;
 
+
 /**
  * The {@code MarketDelegate} handles the control and view of the {@link me.vault.game.model.city.Market} city building. On the one hand it
  * initialises the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model
@@ -33,6 +35,7 @@ import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALIS
  */
 public class MarketDelegate extends CityBuildingController implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
