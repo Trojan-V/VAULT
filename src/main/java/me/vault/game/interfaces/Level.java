@@ -8,7 +8,7 @@ import me.vault.game.model.artifact.ArtifactLevel;
  * An interface for levels which provides some methods that every level enum/class should provide.
  *
  * @author Vincent Wolf
- * @version 1.0.0
+ * @version 1.0.1
  * @see ArtifactLevel
  * @since 08.06.2024
  */

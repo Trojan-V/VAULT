@@ -16,7 +16,7 @@ import me.vault.game.utility.struct.MetaDataImage;
  * be able to access these inner properties of the displayable object.
  *
  * @author Vincent Wolf
- * @version 1.0.0
+ * @version 2.0.0
  * @since 12.06.2024
  */
 public interface Displayable

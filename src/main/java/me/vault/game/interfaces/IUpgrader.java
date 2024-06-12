@@ -11,7 +11,7 @@ package me.vault.game.interfaces;
  * @param <T> The data type of the class that implements the {@link Upgradable} interface.
  *
  * @author Vincent Wolf
- * @version 1.0.0
+ * @version 2.0.0
  * @see IUpgrader
  * @see Upgradable
  * @since 08.06.2024
