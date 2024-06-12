@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.model.building.AbsCityBuilding;
+import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -89,7 +89,7 @@ public class CityDelegate implements Initializable
 	private Button workshopUpgradeButton;
 
 
-	private static void initCityBuildingButton (final Button button, final AbsCityBuilding cityBuilding)
+	private static void initCityBuildingButton (final Button button, final CityBuilding cityBuilding)
 	{
 		// Sprite property gets bound to the button.
 		final ImageView imageView = new ImageView();

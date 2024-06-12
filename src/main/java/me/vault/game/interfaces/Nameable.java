@@ -15,9 +15,9 @@ import javafx.beans.property.SimpleStringProperty;
 public interface Nameable
 {
 
-	SimpleStringProperty getNameProperty ();
-
-
 	String getName ();
+
+
+	SimpleStringProperty getNameProperty ();
 
 }

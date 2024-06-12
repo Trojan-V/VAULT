@@ -18,8 +18,4 @@ public interface Displayable
 
 
 	SimpleObjectProperty<MetaDataImage> getSpriteProperty ();
-
-
-	void updatePropertyValues ();
-
 }

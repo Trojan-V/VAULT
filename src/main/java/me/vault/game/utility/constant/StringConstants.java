@@ -24,17 +24,17 @@ public interface StringConstants
 	 * The following Strings contains the texts for New Terra. There used in the docks and training facility.
 	 */
 	String NEW_TERRA_FACTION_DESCRIPTION =
-		"The government of New Terra is a major faction in the " + "political landscape with its capital of Terra, formally " +
-		"know as earth. The egalitarian government ascended as the " + "victor of the last Sol-war as the last governmental " +
+		"The government of New Terra is a major faction in the political landscape with its capital of Terra, formally " +
+		"know as earth. The egalitarian government ascended as the victor of the last Sol war as the last governmental " +
 		"entity which was still";
 
 	String NEW_TERRA_FACTION_SLOGAN = "sovereignty is our strength";
 
 	String INFANTRY = "A well-rounded soldier who isn't afraid to give everything for his cause.";
 
-	String LIEUTENANT = "A commanding officer who will give everything to return to his homeworld.";
+	String LIEUTENANT = "A commanding officer who'll give everything to return to his homeworld.";
 
-	String PRECISION_SHOOTER = "An elite-soldier who excels the other soldiers in his group with his " + "outstanding aim.";
+	String PRECISION_SHOOTER = "An elite soldier who excels the other soldiers in his group with his " + "outstanding aim.";
 
 	/**
 	 * The following Strings contains the texts for the Military Government. There used in the docks and training facility.

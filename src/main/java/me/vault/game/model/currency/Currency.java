@@ -133,13 +133,6 @@ public enum Currency implements ICurrency, Displayable
 	}
 
 
-	@Override
-	public void updatePropertyValues ()
-	{
-		// TODO: Probably unnötig, wo ist der Sinn? Sinn erfinden!!!
-	}
-
-
 	/**
 	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with its properties.
 	 *

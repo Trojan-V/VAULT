@@ -2,7 +2,7 @@ package me.vault.game.model.city;
 
 
 import javafx.scene.Scene;
-import me.vault.game.model.building.AbsCityBuilding;
+import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -15,7 +15,7 @@ import java.util.Map;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
-public class Laboratory extends AbsCityBuilding
+public class Laboratory extends CityBuilding
 {
 
 	private static final Laboratory INSTANCE;
@@ -54,21 +54,24 @@ public class Laboratory extends AbsCityBuilding
 
 
 	@Override
-	protected @NotNull Map<CityBuildingLevel, CurrencyTransaction> getUpgradeCosts ()
+	@NotNull
+	public Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ()
 	{
 		return UPGRADE_COSTS;
 	}
 
 
 	@Override
-	protected @NotNull Map<CityBuildingLevel, String> getNames ()
+	@NotNull
+	public Map<CityBuildingLevel, String> getAllNames ()
 	{
 		return NAMES;
 	}
 
 
 	@Override
-	protected @NotNull Map<CityBuildingLevel, MetaDataImage> getSprites ()
+	@NotNull
+	public Map<CityBuildingLevel, MetaDataImage> getAllSprites ()
 	{
 		return SPRITES;
 	}

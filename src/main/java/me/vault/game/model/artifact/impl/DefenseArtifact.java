@@ -242,7 +242,8 @@ public final class DefenseArtifact extends Artifact
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<ArtifactLevel, CurrencyTransaction> getAllUpgradeCosts ()
+	@NotNull
+	public Map<ArtifactLevel, CurrencyTransaction> getAllUpgradeCosts ()
 	{
 		return UPGRADE_COSTS;
 	}
@@ -252,7 +253,8 @@ public final class DefenseArtifact extends Artifact
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<ArtifactLevel, String> getAllNames ()
+	@NotNull
+	public Map<ArtifactLevel, String> getAllNames ()
 	{
 		return NAMES;
 	}
@@ -262,7 +264,8 @@ public final class DefenseArtifact extends Artifact
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<ArtifactLevel, MetaDataImage> getAllSprites ()
+	@NotNull
+	public Map<ArtifactLevel, MetaDataImage> getAllSprites ()
 	{
 		return SPRITES;
 	}
@@ -272,7 +275,8 @@ public final class DefenseArtifact extends Artifact
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ()
+	@NotNull
+	public Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ()
 	{
 		return MODIFIERS;
 	}

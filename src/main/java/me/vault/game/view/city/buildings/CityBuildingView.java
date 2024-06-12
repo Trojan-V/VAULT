@@ -3,7 +3,7 @@ package me.vault.game.view.city.buildings;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import me.vault.game.model.building.AbsCityBuilding;
+import me.vault.game.model.building.CityBuilding;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -23,7 +23,7 @@ public final class CityBuildingView
 	{}
 
 
-	public static void showCityBuilding (final Stage stage, final AbsCityBuilding cityBuilding)
+	public static void showCityBuilding (final Stage stage, final CityBuilding cityBuilding)
 	{
 		// Loading the FXML-File and creating a scene from the loaded components
 		final Scene scene = cityBuilding.getScene();

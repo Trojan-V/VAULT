@@ -62,7 +62,14 @@ public class CityBuildingController
 			return;
 		}
 		cityBuilding.setLevel(CityBuildingLevel.getNextHigherLevel(cityBuilding.getLevel()));
-		CurrencyController.factorCurrencyTransaction(cityBuilding.getCurrentAttributes().getUpgradeCost());
+		CurrencyController.factorCurrencyTransaction(cityBuilding.getCurrentUpgradeCosts());
 	}
 
+	public void updatePropertyValues (final CityBuilding cityBuilding)
+	{
+		// TODO: add to IUpgrader?!
+		cityBuilding.getNameProperty().set(cityBuilding.getAllNames().get(cityBuilding.getLevel()));
+		cityBuilding.getSpriteProperty().set(cityBuilding.getAllSprites().get(cityBuilding.getLevel()));
+		cityBuilding.setCurrentUpgradeCosts(cityBuilding.getAllUpgradeCosts().get(cityBuilding.getLevel()));
+	}
 }

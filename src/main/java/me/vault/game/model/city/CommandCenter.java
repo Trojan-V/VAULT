@@ -2,7 +2,7 @@ package me.vault.game.model.city;
 
 
 import javafx.scene.Scene;
-import me.vault.game.model.building.AbsCityBuilding;
+import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -18,7 +18,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
 /**
- * This class is an implementation of {@link AbsCityBuilding}.
+ * This class is an implementation of {@link CityBuilding}.
  * <br>
  * The {@link CommandCenter} city building is used by the player to select and start missions, where he can collect currencies and artifacts.
  *
@@ -27,7 +27,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * @see me.vault.game.city.building.CityBuilding
  * @since 09.06.2024
  */
-public class CommandCenter extends AbsCityBuilding
+public class CommandCenter extends CityBuilding
 {
 
 	/**
@@ -112,7 +112,8 @@ public class CommandCenter extends AbsCityBuilding
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<CityBuildingLevel, CurrencyTransaction> getUpgradeCosts ()
+	@NotNull
+	public Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ()
 	{
 		return UPGRADE_COSTS;
 	}
@@ -122,7 +123,8 @@ public class CommandCenter extends AbsCityBuilding
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<CityBuildingLevel, String> getNames ()
+	@NotNull
+	public Map<CityBuildingLevel, String> getAllNames ()
 	{
 		return NAMES;
 	}
@@ -132,7 +134,8 @@ public class CommandCenter extends AbsCityBuilding
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<CityBuildingLevel, MetaDataImage> getSprites ()
+	@NotNull
+	public Map<CityBuildingLevel, MetaDataImage> getAllSprites ()
 	{
 		return SPRITES;
 	}

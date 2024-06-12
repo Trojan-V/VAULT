@@ -4,6 +4,7 @@ package me.vault.game.control;
 import me.vault.game.interfaces.IUpgrader;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
+import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.logging.ILogger;
@@ -93,7 +94,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 		LOGGER.logf(DEBUG, CURRENT_ARTIFACT_LEVEL, artifact.getLevel().toString());
 
 		artifact.setLevel(artifact.getLevel().getNextHigherLevel());
-		artifact.updatePropertyValues();
+		ArtifactController.updatePropertyValues(artifact);
 
 		LOGGER.logf(DEBUG, UPGRADED_ARTIFACT_LEVEL, artifact.getLevel().toString());
 	}
@@ -136,6 +137,29 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 		// If all checks are passed, the method returns true.
 		LOGGER.log(DEBUG, RETURNING_TRUE);
 		return true;
+	}
+
+
+	/**
+	 * This method is invoked by the {@link ArtifactController#upgrade(Artifact)} method.
+	 * <br>
+	 * This method updates the properties of this class which are bound to the GUI to ensure the correct data is shown after an upgrade happened.
+	 *
+	 * @param artifact
+	 */
+	public static void updatePropertyValues (final Artifact artifact)
+	{
+		artifact.getNameProperty().set(artifact.getAllNames().get(artifact.getLevel()));
+		artifact.getSpriteProperty().set(artifact.getAllSprites().get(artifact.getLevel()));
+		artifact.setCurrentUpgradeCosts(artifact.getAllUpgradeCosts().get(artifact.getLevel()));
+		artifact.getAttributeModifiers().getDamageMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DAMAGE));
+		artifact.getAttributeModifiers().getHealthMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.HEALTH));
+		artifact.getAttributeModifiers().getDefenseMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DEFENSE));
+
+		// Logging output
+		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, artifact.getNameProperty().get());
+		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, artifact.getSpriteProperty().get().toString());
+		LOGGER.logf(DEBUG, UPGRADE_COST_SET, artifact.getCurrentUpgradeCosts().toString());
 	}
 
 }

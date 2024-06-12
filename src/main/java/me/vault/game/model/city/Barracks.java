@@ -2,7 +2,7 @@ package me.vault.game.model.city;
 
 
 import javafx.scene.Scene;
-import me.vault.game.model.building.AbsCityBuilding;
+import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -20,17 +20,17 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * This class is an implementation of {@link AbsCityBuilding}.
+ * This class is an implementation of {@link CityBuilding}.
  * <br>
  * The {@link Barracks} city building holds all information about the starting faction of the game, which can be selected by the player and be used in
  * missions and encounters.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 2.0.0
- * @see me.vault.game.city.building.CityBuilding
+ * @see CityBuilding
  * @since 09.06.2024
  */
-public final class Barracks extends AbsCityBuilding
+public final class Barracks extends CityBuilding
 {
 
 	/**
@@ -66,7 +66,6 @@ public final class Barracks extends AbsCityBuilding
 	 *
 	 * @see Map
 	 * @see CityBuildingLevel
-	 * @see Image
 	 */
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES;
 
@@ -194,7 +193,8 @@ public final class Barracks extends AbsCityBuilding
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<CityBuildingLevel, CurrencyTransaction> getUpgradeCosts ()
+	@NotNull
+	public Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ()
 	{
 		return UPGRADE_COSTS;
 	}
@@ -204,7 +204,8 @@ public final class Barracks extends AbsCityBuilding
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<CityBuildingLevel, String> getNames ()
+	@NotNull
+	public Map<CityBuildingLevel, String> getAllNames ()
 	{
 		return NAMES;
 	}
@@ -214,7 +215,8 @@ public final class Barracks extends AbsCityBuilding
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected @NotNull Map<CityBuildingLevel, MetaDataImage> getSprites ()
+	@NotNull
+	public Map<CityBuildingLevel, MetaDataImage> getAllSprites ()
 	{
 		return SPRITES;
 	}

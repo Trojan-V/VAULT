@@ -2,226 +2,128 @@ package me.vault.game.model.building;
 
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import me.vault.game.interfaces.Upgradable;
+import me.vault.game.interfaces.Displayable;
+import me.vault.game.interfaces.Nameable;
+import me.vault.game.interfaces.UpgradableNew;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.struct.ValidatedEntriesHashMap;
+import me.vault.game.utility.struct.MetaDataImage;
+import org.jetbrains.annotations.NotNull;
 
-import java.text.MessageFormat;
 import java.util.Map;
-
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
 /**
- * TODO: Write Javadoc
- * TODO: Fill the enum entries with actual data.
- * TODO: Attributes of enum constants stored in file, then read the data from the file?
+ * Description
  *
- * @author Lasse-Leander Hillen
+ * @author Vincent Wolf
  * @version 1.0.0
- * @see Upgradable
- * @since 02.05.2024
+ * @see
+ * @since 06.06.2024
  */
-public enum CityBuilding
+public abstract class CityBuilding implements Displayable, Nameable, UpgradableNew<CityBuildingLevel>
 {
-	/**
-	 * Represents the Command Center {@link CityBuilding} in the city.
-	 */
-	COMMAND_CENTER(new ValidatedEntriesHashMap<>()
-	{
-		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Command Center", new CurrencyTransaction(-250, -250, -125, 0, 0)));
-
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Command Center", new CurrencyTransaction(-500, -500, -1000, 0, 0)));
-
-			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Command Center", new CurrencyTransaction(-1000, -1000, -2000, 0, 0)));
-		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/command_center_icon.png"), null),
-
 
 	/**
-	 * Represents the Docks {@link CityBuilding} in the city.
+	 * This property is used to store and dynamically display the name of the city building.
+	 * If the name is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
+	 *
+	 * @see SimpleStringProperty
 	 */
-	DOCKS(new ValidatedEntriesHashMap<>()
-	{{
-		this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Docks", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-		this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Docks", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-		this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Docks", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-	}}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/docks_icon.png"), ResourceLoader.loadScene(CityBuilding.class, "docks_view" + ".fxml")),
-
+	private final SimpleStringProperty nameProperty;
 
 	/**
-	 * Represents the Space Bar {@link CityBuilding} in the city.
+	 * This property is used to store and dynamically display the sprite of the city building.
+	 * If the sprite is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
+	 *
+	 * @see SimpleObjectProperty
+	 * @see MetaDataImage
 	 */
-	SPACE_BAR(new ValidatedEntriesHashMap<>()
-	{
-		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Space Bar", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Space Bar", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Space Bar", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"), null),
-
-
-	/**
-	 * Represents the Training Facility {@link CityBuilding} in the city.
-	 */
-	TRAINING_FACILITY(new ValidatedEntriesHashMap<>()
-	{
-		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Training Facility", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Training Facility", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.SUPER,
-				new CityBuildingAttributes("Super Training Facility", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png"),
-		ResourceLoader.loadScene(CityBuilding.class, "training_facility_view.fxml")),
-
-
-	/**
-	 * Represents the Workshop {@link CityBuilding} in the city, which can be used to upgrade and build artifacts.
-	 */
-	WORKSHOP(new ValidatedEntriesHashMap<>()
-	{
-		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Workshop", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Workshop", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Workshop", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/workshop_icon.png"), ResourceLoader.loadScene(CityBuilding.class, "workshop_view.fxml")),
-
-
-	/**
-	 * Represents the Baracks {@link CityBuilding} in the city, which can be used to recruit troops.
-	 */
-	BARRACKS(new ValidatedEntriesHashMap<>()
-	{
-		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Barracks", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Baracks", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Baracks", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/barracks_icon.png"), null),
-
-
-	/**
-	 * Represents the Market {@link CityBuilding} in the city, which can be used to buy currencies.
-	 */
-	MARKET(new ValidatedEntriesHashMap<>()
-	{
-		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Market", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Market", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Market", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/market_icon.png"), null),
-
-
-	/**
-	 * Represents the Laboratory {@link CityBuilding} in the city.
-	 */
-	LABORATORY(new ValidatedEntriesHashMap<>()
-	{
-		{
-			this.put(CityBuildingLevel.OLD, new CityBuildingAttributes("Old Laboratory", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Laboratory", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-
-			this.put(CityBuildingLevel.SUPER, new CityBuildingAttributes("Super Laboratory", new CurrencyTransaction(-10, -10, -10, -10, -10)));
-		}
-	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"), null);
-
-	//------------------------------------------------------------------------------------------------------------------
-
-	/**
-	 * The {@link MessageFormat} pattern, which is used to display the object in the console.
-	 */
-	private static final String TO_STRING_PATTERN = "{0}[currentLevel={1} | propertyMap={2}}";
-
-	/**
-	 * The hashmap, which contains the buildings properties corresponding to each building level.
-	 */
-	private final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingAttributes> propertyMap;
-
-	private final SimpleObjectProperty<Image> spriteProperty;
+	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
 	private final Scene scene;
 
+	/**
+	 * This field stores the current level of the city building.
+	 * The value of this field controls the values of many attributes the city building consists of.
+	 * <br>
+	 * Check the constructor {@link CityBuilding#CityBuilding()} and the {@link CityBuilding#updatePropertyValues()} method to see the
+	 * control flow.
+	 *
+	 * @see CityBuildingLevel
+	 */
 	private CityBuildingLevel currentLevel;
 
+	/**
+	 * This field contains the resource price to upgrade the city building to the next level.
+	 * The price is always denoted in negative numbers within the {@link CurrencyTransaction} instance.
+	 * <br>
+	 * It's important to keep that into account to ensure no algebraic sign issues are coming up.
+	 * It's not hard to mess that up, as upgrade costs could be thought about with a positive algebraic sign instead of a negative one.
+	 *
+	 * @see CurrencyTransaction
+	 */
+	private CurrencyTransaction currentUpgradeCost;
 
-	CityBuilding (final ValidatedEntriesHashMap<CityBuildingLevel, CityBuildingAttributes> propertyMap, final Image sprite, final Scene scene)
+
+	/**
+	 * Constructs an instance of this class.
+	 * <br>
+	 * It's important to note that the constructor accesses overridable methods of the subclass. These methods provide the data for the city building,
+	 * which can then be accessed and used by using the {@link CityBuilding#currentLevel} as key to retrieve the correct data for the current
+	 * level.
+	 * <br>
+	 * To understand the side effects of these method invocations, read the documentation of this class.
+	 */
+	protected CityBuilding ()
 	{
-		// TODO: Load Level from Config
-		this.currentLevel = CityBuildingLevel.OLD;
-		this.propertyMap = propertyMap;
-		this.scene = scene;
-		this.spriteProperty = new SimpleObjectProperty<>(sprite);
-	}
+		// TODO: currentLevel aus Config einlesen
+		this.currentLevel = CityBuildingLevel.getMinimumCityBuildingLevel();
 
-
-	public Scene getScene ()
-	{
-		return this.scene;
+		this.scene = this.getScene();
+		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
+		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
+		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 	}
 
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public Map<CityBuildingLevel, CityBuildingAttributes> getAllAttributes ()
+	@Override
+	public String getName ()
 	{
-		return this.propertyMap;
+		return this.nameProperty.get();
 	}
 
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public CityBuildingAttributes getCurrentAttributes ()
+	@Override
+	public SimpleStringProperty getNameProperty ()
 	{
-		return this.propertyMap.get(this.currentLevel);
+		return this.nameProperty;
 	}
 
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public CityBuildingLevel getLevel ()
+	@Override
+	public Image getSprite ()
 	{
-		return this.currentLevel;
+		return this.spriteProperty.get();
 	}
 
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public void setLevel (final CityBuildingLevel cityBuildingLevel)
-	{
-		this.currentLevel = cityBuildingLevel;
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public SimpleObjectProperty<Image> getSpriteProperty ()
+	@Override
+	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
 	{
 		return this.spriteProperty;
 	}
@@ -231,25 +133,56 @@ public enum CityBuilding
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String toString ()
+	public CityBuildingLevel getLevel ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.name(), this.currentLevel, this.propertyMap);
+		return this.currentLevel;
 	}
 
 
 	/**
-	 * Returns the sprite property of the displayable object.
-	 *
-	 * @return The sprite property of the displayable object as an {@link Image}
+	 * {@inheritDoc}
 	 */
-	public Image getSprite ()
+	@Override
+	public void setLevel (final CityBuildingLevel level)
 	{
-		return this.spriteProperty.get();
+		this.currentLevel = level;
 	}
 
 
-	public void updateProperties ()
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CurrencyTransaction getCurrentUpgradeCosts ()
 	{
-		// TODO: Implement
+		return this.currentUpgradeCost;
 	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setCurrentUpgradeCosts (final CurrencyTransaction upgradeCosts)
+	{
+		this.currentUpgradeCost = upgradeCosts;
+	}
+
+
+	// TODO: Interface Layer?
+	@NotNull
+	public abstract Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ();
+
+
+	@NotNull
+	public abstract Map<CityBuildingLevel, String> getAllNames ();
+
+
+	@NotNull
+	public abstract Map<CityBuildingLevel, MetaDataImage> getAllSprites ();
+
+
+	@NotNull
+	public abstract Scene getScene ();
+
 }

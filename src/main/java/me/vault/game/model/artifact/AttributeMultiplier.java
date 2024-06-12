@@ -164,6 +164,7 @@ public class AttributeMultiplier
 	}
 
 
+
 	/**
 	 * This method is invoked by the {@link Artifact#updatePropertyValues()})} method.
 	 * <br>

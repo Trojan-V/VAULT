@@ -1,8 +1,6 @@
 package me.vault.game.interfaces;
 
 
-import me.vault.game.model.building.CityBuilding;
-
 import java.util.Map;
 
 

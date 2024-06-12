@@ -223,24 +223,10 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	}
 
 
-	/**
-	 * This method is invoked by the {@link ArtifactController#upgrade(Artifact)} method.
-	 * <br>
-	 * This method updates the properties of this class which are bound to the GUI to ensure the correct data is shown after an upgrade happened.
-	 */
 	@Override
-	public void updatePropertyValues ()
+	public void setCurrentUpgradeCosts (CurrencyTransaction upgradeCosts)
 	{
-		this.nameProperty.set(this.getAllNames().get(this.currentLevel));
-		this.spriteProperty.set(this.getAllSprites().get(this.currentLevel));
-		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
-		this.attributeMultiplier.updatePropertyValues(this.getAllModifiers().get(this.currentLevel));
-
-
-		// Logging output
-		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, this.nameProperty.get());
-		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, this.spriteProperty.get().toString());
-		LOGGER.logf(DEBUG, UPGRADE_COST_SET, this.currentUpgradeCost.toString());
+		this.currentUpgradeCost = upgradeCosts;
 	}
 
 
@@ -266,14 +252,14 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	/**
 	 * Sets the level of the artifact to a new level.
 	 *
-	 * @param currentLevel The new level of the artifact in form of an instance of {@link ArtifactLevel}.
+	 * @param level The new level of the artifact in form of an instance of {@link ArtifactLevel}.
 	 *
 	 * @see ArtifactLevel
 	 */
 	@Override
-	public void setLevel (final ArtifactLevel currentLevel)
+	public void setLevel (final ArtifactLevel level)
 	{
-		this.currentLevel = currentLevel;
+		this.currentLevel = level;
 	}
 
 
@@ -303,7 +289,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * @see CurrencyTransaction
 	 */
 	@NotNull
-	protected abstract Map<ArtifactLevel, CurrencyTransaction> getAllUpgradeCosts ();
+	public abstract Map<ArtifactLevel, CurrencyTransaction> getAllUpgradeCosts ();
 
 
 	/**
@@ -317,7 +303,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * @see ArtifactLevel
 	 */
 	@NotNull
-	protected abstract Map<ArtifactLevel, String> getAllNames ();
+	public abstract Map<ArtifactLevel, String> getAllNames ();
 
 
 	/**
@@ -332,7 +318,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * @see Image
 	 */
 	@NotNull
-	protected abstract Map<ArtifactLevel, MetaDataImage> getAllSprites ();
+	public abstract Map<ArtifactLevel, MetaDataImage> getAllSprites ();
 
 
 	/**
@@ -347,7 +333,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	 * @see AttributeMultiplier.Type
 	 */
 	@NotNull
-	protected abstract Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ();
+	public abstract Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ();
 
 
 	/**
