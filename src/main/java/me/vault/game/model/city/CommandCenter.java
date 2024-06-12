@@ -1,5 +1,6 @@
 package me.vault.game.model.city;
 
+
 import javafx.scene.Scene;
 import me.vault.game.model.building.AbsCityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+
 
 /**
  * This class is an implementation of {@link AbsCityBuilding}.
@@ -76,6 +78,7 @@ public class CommandCenter extends AbsCityBuilding
 	 */
 	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
 
+
 	static
 	{
 		NAMES.put(CityBuildingLevel.OLD, "Old Command Center");
@@ -92,6 +95,7 @@ public class CommandCenter extends AbsCityBuilding
 
 		INSTANCE = new CommandCenter();
 	}
+
 
 	/**
 	 * Returns the singleton instance of this class.

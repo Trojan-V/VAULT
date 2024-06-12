@@ -1,8 +1,10 @@
 package me.vault.game.model.troop.unit;
 
+
 import me.vault.game.model.currency.CurrencyTransaction;
 
 import static me.vault.game.utility.constant.CharacterConstants.PIPE;
+
 
 /**
  * This class provides the attributes for the units of the game.
@@ -13,6 +15,7 @@ import static me.vault.game.utility.constant.CharacterConstants.PIPE;
  */
 public class UnitAttributes
 {
+
 	private final String name;
 
 	private final double health;
@@ -43,8 +46,8 @@ public class UnitAttributes
 
 
 	public UnitAttributes (final CurrencyTransaction upgradeCosts, final double health, final double armour, final int energy, final int meleeDamage,
-			final int grenade, final int grenadeAmount, final double dodge, final double resistance, final int movementRange, final int initiative,
-			final int meleeRange, final int grenadeRange, final String name)
+		final int grenade, final int grenadeAmount, final double dodge, final double resistance, final int movementRange, final int initiative,
+		final int meleeRange, final int grenadeRange, final String name)
 	{
 		this.name = name;
 		this.upgradeCosts = upgradeCosts;

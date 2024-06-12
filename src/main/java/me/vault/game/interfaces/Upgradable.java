@@ -1,8 +1,10 @@
 package me.vault.game.interfaces;
 
+
 import me.vault.game.model.building.CityBuilding;
 
 import java.util.Map;
+
 
 /**
  * Description
@@ -14,6 +16,7 @@ import java.util.Map;
  */
 public interface Upgradable<K, V>
 {
+
 	Map<K, V> getAllAttributes ();
 
 

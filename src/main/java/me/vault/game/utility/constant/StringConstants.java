@@ -1,7 +1,9 @@
 package me.vault.game.utility.constant;
 
+
 public interface StringConstants
 {
+
 	/**
 	 * The following String contains the texts for the story of the game.
 	 */
@@ -22,9 +24,9 @@ public interface StringConstants
 	 * The following Strings contains the texts for New Terra. There used in the docks and training facility.
 	 */
 	String NEW_TERRA_FACTION_DESCRIPTION =
-			"The government of New Terra is a major faction in the " + "political landscape with its capital of Terra, formally " +
-			"know as earth. The egalitarian government ascended as the " + "victor of the last Sol-war as the last governmental " +
-			"entity which was still";
+		"The government of New Terra is a major faction in the " + "political landscape with its capital of Terra, formally " +
+		"know as earth. The egalitarian government ascended as the " + "victor of the last Sol-war as the last governmental " +
+		"entity which was still";
 
 	String NEW_TERRA_FACTION_SLOGAN = "sovereignty is our strength";
 
@@ -38,9 +40,9 @@ public interface StringConstants
 	 * The following Strings contains the texts for the Military Government. There used in the docks and training facility.
 	 */
 	String MILITARY_GOVERMENT_FACTION_DESCRIPTION =
-			"The military government were one of the first " + "factions in this new system. Shortly before the " +
-			"system was cut off, they did immediately " + "claim a planetoid. The government originates from" + " " +
-			"Bernard Star where it did split from a distant " + "precursor of New Terra.";
+		"The military government were one of the first " + "factions in this new system. Shortly before the " +
+		"system was cut off, they did immediately " + "claim a planetoid. The government originates from" + " " +
+		"Bernard Star where it did split from a distant " + "precursor of New Terra.";
 
 	String MILITARY_GOVERMENT_FACTION_SLOGAN = "for the Emperor";
 
@@ -54,9 +56,9 @@ public interface StringConstants
 	 * The following Strings contains the texts for the Explorer Association. There used in the docks and training facility.
 	 */
 	String EXPLORER_ASSOCIATION_FACTION_DESCRIPTION =
-			"The Explorer-Association did form around 2357 " + "after the first failed exploration into the " +
-			"kepler system. Since the establishment of the " + "Association its consists of independent " +
-			"adventures spirited people who delve into the " + "unknown space of the void.";
+		"The Explorer-Association did form around 2357 " + "after the first failed exploration into the " +
+		"kepler system. Since the establishment of the " + "Association its consists of independent " +
+		"adventures spirited people who delve into the " + "unknown space of the void.";
 
 	String EXPLORER_ASSOCIATION_FACTION_SLOGAN = "to the new wonders of the void";
 
@@ -70,9 +72,9 @@ public interface StringConstants
 	 * The following Strings contains the texts for the Mega Corporation. There used in the space-bar and training facility.
 	 */
 	String MEGA_CORPORATION_FACTION_DESCRITION =
-			"The fusion of multiple corporations did create a " + "hyper capitalist organisation which values money " +
-			"over all. One climbs the proverbial ladder by " + "abandoning one`s morality and serving only " +
-			"themselves. Here you can buy it if it exists. " + "Everything.";
+		"The fusion of multiple corporations did create a " + "hyper capitalist organisation which values money " +
+		"over all. One climbs the proverbial ladder by " + "abandoning one`s morality and serving only " +
+		"themselves. Here you can buy it if it exists. " + "Everything.";
 
 	String MEGA_CORPORATION_FACTION_SLOGAN = "as long as your willing to pay the price";
 
@@ -105,12 +107,12 @@ public interface StringConstants
 	                           "last one in the game. After completing the mission, the game ends.";
 
 	String REPEATABLE_MISSION_ONE =
-			"Material procurement - The purpose of this mission is to give the" + " " + "player resources to unlock and upgrade buildings, recruit " +
-			"mercenaries, etc. On this mission you will find all steel, " + "composites, food rations, energy credits.";
+		"Material procurement - The purpose of this mission is to give the" + " " + "player resources to unlock and upgrade buildings, recruit " +
+		"mercenaries, etc. On this mission you will find all steel, " + "composites, food rations, energy credits.";
 
 	String REPEATABLE_MISSION_TWO =
-			"Raid - In the Raid mission, the player acquires the resource " + "Science. However, the opponents in this mission are stronger than" +
-			" " + "normal opponents.";
+		"Raid - In the Raid mission, the player acquires the resource " + "Science. However, the opponents in this mission are stronger than" +
+		" " + "normal opponents.";
 
 	/**
 	 * The following Strings contain the texts for the command center. The first is before the first story mission and the rest don't have an order
@@ -119,68 +121,68 @@ public interface StringConstants
 	String COMMAND_CENTER_SLOGAN = "Fight your way back";
 
 	String COMMAND_CENTER_NEWS_BEFORE_STORY_MISSION_ONE =
-			"Breaking: The System is cut off from the " + "rest of the galaxy. Tensions are high with " + "small skirmishes occurring.";
+		"Breaking: The System is cut off from the " + "rest of the galaxy. Tensions are high with " + "small skirmishes occurring.";
 
 	String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_ONE =
-			"Despite rising tension in the system the" + " " + "Explorer-Association announces that it " + "members find more and more hints that " +
-			"this was a major Hitani system.";
+		"Despite rising tension in the system the" + " " + "Explorer-Association announces that it " + "members find more and more hints that " +
+		"this was a major Hitani system.";
 
 	String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_TWO =
-			"The various factions in the system seems" + " " + "to employ the Mega Corporation soldiers " + "more and more.";
+		"The various factions in the system seems" + " " + "to employ the Mega Corporation soldiers " + "more and more.";
 
 	String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_THREE =
-			"The skirmishes escalate and now it " + "moves to capturing of outposts from " + "each other.";
+		"The skirmishes escalate and now it " + "moves to capturing of outposts from " + "each other.";
 
 	/**
 	 * The following Strings contain the texts for the energy ability's of the troops.
 	 */
 	String MILITARISTIC_GOVERNMENT_DIG_IN =
-			"The soldier digs in two be better protected. Ten percent " + "more armour and five percent more resistenz but can`t " + "move" +
-			" for an energy cost of three energy and lasts two rounds";
+		"The soldier digs in two be better protected. Ten percent " + "more armour and five percent more resistenz but can`t " + "move" +
+		" for an energy cost of three energy and lasts two rounds";
 
 	String MILITARISTIC_GOVERNMENT_DOUBLE_TIME = "You motivate one soldier to act one more time this " + "round. A cost of five energy.";
 
 	String EXPLORER_ASSOCIATION_OVERCHARGE_WEAPON =
-			"The Ranger overcharges his weapon. Deals six " + "points more damage for an energy cost of two " + "energy and lasts one rounds. ";
+		"The Ranger overcharges his weapon. Deals six " + "points more damage for an energy cost of two " + "energy and lasts one rounds. ";
 
 	String EXPLORER_ASSOCIATION_OVERCHARGE_EXOSKELETT = "The Exoskelett lets the Ranger be quickened " + "and agiler. One more movement range and " +
 	                                                    "Initiative, dodge increases for five percent " +
 	                                                    "for a three energy cost and lasts two rounds.";
 
 	String MEGA_CORPORATION_ENERGYFLASH =
-			"A bright flash emits of one off the thrown grenade right " + "before an enemy. A debuff for minus ten percent of dodge " + "and" +
-			" a minus two to initiative for three energy and lasts one " + "round.";
+		"A bright flash emits of one off the thrown grenade right " + "before an enemy. A debuff for minus ten percent of dodge " + "and" +
+		" a minus two to initiative for three energy and lasts one " + "round.";
 
 	String MEGA_CORPORATION_ACID_GRENADE =
-			"The acid grenade weakens the armour off the poor soul that" + " " + "was hit with it. Minus ten percent off armour for two " +
-			"energy and one round.";
+		"The acid grenade weakens the armour off the poor soul that" + " " + "was hit with it. Minus ten percent off armour for two " +
+		"energy and one round.";
 
 	String NEW_TERRA_COMBAT_OVERLAY =
-			"The Combat overlay allows the soldier to aim true at a greater " + "distant. Plus one damage range for two energy and two rounds.";
+		"The Combat overlay allows the soldier to aim true at a greater " + "distant. Plus one damage range for two energy and two rounds.";
 
 	String NEW_TERRA_ADVANCED_DEFENCE_SYSTEM =
-			"The Advanced Defence System once deployed intercept " + "projectiles form hostile entity's. Add`s fifteen " +
-			"percent off additional resistance for an cost of three" + " " + "energy and last one round.";
+		"The Advanced Defence System once deployed intercept " + "projectiles form hostile entity's. Add`s fifteen " +
+		"percent off additional resistance for an cost of three" + " " + "energy and last one round.";
 
 	/**
 	 * The following Strings contain the texts for the energy ability's of the player.
 	 */
 	String ENERGY_DAMAGE_ABILITY =
-			"This Energy beam damages one enemy unit and deals moderate damage." + " " + "16 damage for an energy cost of 3 energy.";
+		"This Energy beam damages one enemy unit and deals moderate damage." + " " + "16 damage for an energy cost of 3 energy.";
 
 	String ENERGY_BUFF_INITIATIVE =
-			"Through activating this ability a friendly unit reacts faster." + "Gets a plus three one initiative for an energy cost of four " +
-			"energy" + " and it lasts five rounds.";
+		"Through activating this ability a friendly unit reacts faster." + "Gets a plus three one initiative for an energy cost of four " +
+		"energy" + " and it lasts five rounds.";
 
 	String ENERGY_BONUS_TURN =
-			"You transmit energy to one of your troops which lets them act one more" + " " + "time this round. A cost of five energy.";
+		"You transmit energy to one of your troops which lets them act one more" + " " + "time this round. A cost of five energy.";
 
 	String ENERGY_BUFF_DAMAGE =
-			"The selected troop becomes deadlier. Deals six points more damage for" + " " + "an energy cost of two energy and lasts two rounds. ";
+		"The selected troop becomes deadlier. Deals six points more damage for" + " " + "an energy cost of two energy and lasts two rounds. ";
 
 	String ENERGY_BUFF_MOVEMENT_RANGE =
-			"You motivate one of your troops to do double time. The " + "affected troop get three more movement range for an energy " +
-			"cost of four energy and two rounds.";
+		"You motivate one of your troops to do double time. The " + "affected troop get three more movement range for an energy " +
+		"cost of four energy and two rounds.";
 
 	/**
 	 * The following Strings contain the texts for the tutorial,

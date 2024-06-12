@@ -1,7 +1,9 @@
 package me.vault.game.model.troop.troop;
 
+
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
+
 
 public enum ExplorerTroop implements Upgradable<ExplorerTroopLevel, ExplorerTroopAttributes>
 {

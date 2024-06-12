@@ -1,5 +1,6 @@
 package me.vault.game.model.troop.troop;
 
+
 /**
  * Description
  *
@@ -11,6 +12,7 @@ package me.vault.game.model.troop.troop;
 // TODO: Kapselung shit
 public class TroopStatistics
 {
+
 	private final int healthPoints;
 
 	private final int meleeDamageReduction;
@@ -43,8 +45,8 @@ public class TroopStatistics
 
 
 	public TroopStatistics (final int healthPoints, final int meleeDamageReduction, final int energyPoints, final int meleeDamage,
-			final int grenadeDamage, final int grenadeAmount, final int dodgeRate, final int energyDamageReduction, final int movementTiles,
-			final int initiative, final int meleeRange, final int grenadeRange)
+		final int grenadeDamage, final int grenadeAmount, final int dodgeRate, final int energyDamageReduction, final int movementTiles,
+		final int initiative, final int meleeRange, final int grenadeRange)
 	{
 		this.healthPoints = healthPoints;
 		this.meleeDamageReduction = meleeDamageReduction;

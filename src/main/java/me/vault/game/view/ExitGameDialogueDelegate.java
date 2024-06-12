@@ -21,12 +21,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 public class ExitGameDialogueDelegate implements Initializable
 {
 
-
 	private static final String ICON_PATH = ASSETS_PATH + "Item_Pack/armor_icon.png";
-
-
-	@FXML
-	private DialogPane exitGameDialogPane;
 
 
 	private static final String WINDOW_TITLE = "Exit Game?";
@@ -39,6 +34,9 @@ public class ExitGameDialogueDelegate implements Initializable
 
 
 	private static final Scene GAME_EXIT_DIALOGUE_SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, GAME_EXIT_DIALOGUE_FXML);
+
+	@FXML
+	private DialogPane exitGameDialogPane;
 
 
 	public static void show ()
@@ -62,17 +60,16 @@ public class ExitGameDialogueDelegate implements Initializable
 	private void setButtonActions ()
 	{
 		// Closes the different stages of the program if the user presses YES
-		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ ->
-		{
+		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> {
 			exitGameStage.close();
 			VaultApplication.getStage().close();
 			Platform.exit();
 		});
 
 		// Closes the dialog if the user presses NO
-		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(_ ->
-		{
+		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(_ -> {
 			exitGameStage.close();
 		});
 	}
+
 }

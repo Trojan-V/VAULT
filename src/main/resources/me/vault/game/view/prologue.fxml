@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.PrologueDelegate">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.PrologueDelegate">
    <top>
       <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" BorderPane.alignment="CENTER" />
    </top>
@@ -72,12 +72,18 @@
                            <content>
                               <BorderPane prefHeight="332.0" prefWidth="663.0">
                                  <center>
-                                    <Text fx:id="storyText" fontSmoothingType="LCD" lineSpacing="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="655.0" BorderPane.alignment="TOP_CENTER">
+                                    <Text fx:id="storyText" fontSmoothingType="LCD" lineSpacing="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="JUSTIFY" wrappingWidth="636.0" BorderPane.alignment="TOP_CENTER">
                                        <font>
                                           <Font name="Cantarell Regular" size="18.0" />
                                        </font>
+                                       <BorderPane.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </BorderPane.margin>
                                     </Text>
                                  </center>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
                               </BorderPane>
                            </content>
                         </ScrollPane>

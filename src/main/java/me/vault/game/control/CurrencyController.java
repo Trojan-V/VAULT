@@ -1,5 +1,6 @@
 package me.vault.game.control;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ import me.vault.game.utility.logging.Logger;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 /**
  * The {@code CurrencyController} class primarily provides methods and isn't meant to be implemented. It's used to handle the {@link Currency} class.
  *
@@ -23,6 +25,7 @@ import java.util.ResourceBundle;
  */
 public final class CurrencyController implements Initializable
 {
+
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *

@@ -1,11 +1,13 @@
 package me.vault.game.view;
 
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import me.vault.game.VaultApplication;
 
 import java.io.FileNotFoundException;
+
 
 /**
  * The controller class is responsible for reacting to events which are automatically dispatched by the JavaFX framework. The controller can respond
@@ -22,6 +24,7 @@ import java.io.FileNotFoundException;
  */
 public class VaultDelegate
 {
+
 	@FXML
 	private Label welcomeText;
 

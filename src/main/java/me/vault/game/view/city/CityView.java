@@ -1,5 +1,6 @@
 package me.vault.game.view.city;
 
+
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -10,6 +11,7 @@ import java.text.MessageFormat;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+
 
 /**
  * Description
@@ -23,6 +25,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 // TODO: AbstractView which provides the show method and an abstract method to provide the scene of the view.
 public final class CityView
 {
+
 	private static final ILogger LOGGER = new Logger(CityView.class.getSimpleName());
 
 	/**

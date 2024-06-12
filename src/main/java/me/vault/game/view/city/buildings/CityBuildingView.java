@@ -1,5 +1,6 @@
 package me.vault.game.view.city.buildings;
 
+
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.vault.game.model.building.AbsCityBuilding;
@@ -11,8 +12,10 @@ import java.text.MessageFormat;
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
+
 public final class CityBuildingView
 {
+
 	private static final ILogger LOGGER = new Logger(CityBuildingView.class.getSimpleName());
 
 

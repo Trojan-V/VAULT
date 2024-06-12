@@ -1,10 +1,13 @@
 package me.vault.game.model.building;
 
+
 import me.vault.game.model.currency.CurrencyTransaction;
+
 
 // TODO: Rename properties to attributes to remove unclear wording due to GUI properties
 public class CityBuildingAttributes
 {
+
 	private final String name;
 
 	private final CurrencyTransaction upgradeCost;

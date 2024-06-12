@@ -1,5 +1,6 @@
 package me.vault.game.model.building;
 
+
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -12,6 +13,7 @@ import java.text.MessageFormat;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+
 
 /**
  * TODO: Write Javadoc
@@ -80,10 +82,10 @@ public enum CityBuilding
 			this.put(CityBuildingLevel.NORMAL, new CityBuildingAttributes("Training Facility", new CurrencyTransaction(-10, -10, -10, -10, -10)));
 
 			this.put(CityBuildingLevel.SUPER,
-			         new CityBuildingAttributes("Super Training Facility", new CurrencyTransaction(-10, -10, -10, -10, -10)));
+				new CityBuildingAttributes("Super Training Facility", new CurrencyTransaction(-10, -10, -10, -10, -10)));
 		}
 	}, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/training_facility_icon.png"),
-	                  ResourceLoader.loadScene(CityBuilding.class, "training_facility_view.fxml")),
+		ResourceLoader.loadScene(CityBuilding.class, "training_facility_view.fxml")),
 
 
 	/**

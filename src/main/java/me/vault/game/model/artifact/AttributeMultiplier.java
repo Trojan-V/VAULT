@@ -1,5 +1,6 @@
 package me.vault.game.model.artifact;
 
+
 import javafx.beans.property.SimpleDoubleProperty;
 import me.vault.game.exception.InvalidAttributeModifierException;
 import me.vault.game.utility.logging.ILogger;
@@ -15,6 +16,7 @@ import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 
 // TODO: Apply multipliers to the stats of the player/troops.
 
+
 /**
  * This class is used as a data structure to store buffs and de-buffs in the form of multipliers which are then applied to all players or troops that
  * are eligible to receive buffs and de-buffs.
@@ -29,6 +31,7 @@ import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
  */
 public class AttributeMultiplier
 {
+
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *
@@ -106,7 +109,7 @@ public class AttributeMultiplier
 	 * values wouldn't make any sense. Zero damage or defense could technically be valid in niche cases, hence why this check is not performed as part
 	 * of the validation.
 	 *
-	 * @throws InvalidAttributeModifierException When one of the supplied modifiers was invalid.
+	 * @exception InvalidAttributeModifierException When one of the supplied modifiers was invalid.
 	 */
 	private void validate () throws InvalidAttributeModifierException
 	{
@@ -185,7 +188,7 @@ public class AttributeMultiplier
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.damageMultiplierProperty.get(), this.healthMultiplierProperty.get(),
-		                            this.defenseMultiplierProperty.get());
+			this.defenseMultiplierProperty.get());
 	}
 
 

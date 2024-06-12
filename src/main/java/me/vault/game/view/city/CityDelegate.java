@@ -1,5 +1,6 @@
 package me.vault.game.view.city;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +20,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
+
 /**
  * Description
  *
@@ -29,6 +31,7 @@ import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FI
  */
 public class CityDelegate implements Initializable
 {
+
 	private static final CityDelegate INSTANCE = new CityDelegate();
 
 	@FXML

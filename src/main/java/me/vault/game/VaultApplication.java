@@ -25,6 +25,7 @@ import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
  */
 public class VaultApplication extends Application
 {
+
 	/**
 	 * The logger object for this class used for writing formatted outputs into the console.
 	 *

@@ -1,6 +1,8 @@
 package me.vault.game.utility.constant;
 
+
 import me.vault.game.utility.constant.ConstantInterface.Constant;
+
 
 /**
  * This class provides constants directly related to the game.
@@ -14,6 +16,7 @@ import me.vault.game.utility.constant.ConstantInterface.Constant;
 @ConstantInterface
 public interface GameConstants
 {
+
 	/**
 	 * The top level path to the assets directory which contains all sprites used within the game.
 	 */

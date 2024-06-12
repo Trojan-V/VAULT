@@ -1,5 +1,6 @@
 package me.vault.game.model.artifact;
 
+
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.image.Image;
@@ -27,6 +28,7 @@ import static me.vault.game.utility.constant.NewLoggingConstants.*;
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+
 
 /**
  * This class provides a blueprint for artifacts, which provide different buffs or de-buffs to the player.
@@ -59,6 +61,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLevel>, Nameable
 {
+
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *
@@ -356,7 +359,7 @@ public abstract class Artifact implements Displayable, UpgradableNew<ArtifactLev
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.currentLevel.name(), this.nameProperty.get(), this.spriteProperty.get().toString(),
-		                            this.attributeMultiplier.toString(), this.currentUpgradeCost.toString());
+			this.attributeMultiplier.toString(), this.currentUpgradeCost.toString());
 	}
 
 }

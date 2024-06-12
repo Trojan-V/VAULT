@@ -1,5 +1,6 @@
 package me.vault.game.view.city.buildings;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,8 +12,10 @@ import me.vault.game.control.CityBuildingController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class LaboratoryDelegate extends CityBuildingController implements Initializable
 {
+
 	@FXML
 	private Label compositeAmountLabel;
 
@@ -102,28 +105,28 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 
 
 	@FXML
-	void onBackToCityView (ActionEvent event)
+	void onBackToCityView (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onDamageArtifactUpgrade (ActionEvent event)
+	void onDamageArtifactUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onDefenseArtifactUpgrade (ActionEvent event)
+	void onDefenseArtifactUpgrade (final ActionEvent event)
 	{
 
 	}
 
 
 	@FXML
-	void onHealthArtifactUpgrade (ActionEvent event)
+	void onHealthArtifactUpgrade (final ActionEvent event)
 	{
 
 	}
@@ -134,7 +137,7 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	 * @param resourceBundle
 	 */
 	@Override
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 
 	}

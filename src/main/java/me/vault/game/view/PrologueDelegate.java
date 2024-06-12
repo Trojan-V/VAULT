@@ -1,5 +1,6 @@
 package me.vault.game.view;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -22,6 +23,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+
 
 public class PrologueDelegate implements Initializable
 {

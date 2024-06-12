@@ -1,5 +1,6 @@
 package me.vault.game.model.city;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+
 
 public class CommandCenterController implements Initializable
 {

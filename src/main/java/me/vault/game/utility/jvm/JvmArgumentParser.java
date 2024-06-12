@@ -1,5 +1,6 @@
 package me.vault.game.utility.jvm;
 
+
 import me.vault.game.Cache;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.logging.ILogger;
@@ -14,6 +15,7 @@ import static me.vault.game.utility.constant.LoggingConstants.DIVIDER;
 import static me.vault.game.utility.constant.LoggingConstants.JvmArgument.*;
 import static me.vault.game.utility.logging.ILogger.Level.*;
 
+
 /**
  * This class is used to apply the JVM arguments which may be passed into the program on startup.
  *
@@ -23,6 +25,7 @@ import static me.vault.game.utility.logging.ILogger.Level.*;
  */
 public final class JvmArgumentParser
 {
+
 	private static final ILogger LOGGER = new Logger(JvmArgumentParser.class.getSimpleName());
 
 	private static final int REMOVE_LEADING_DASH_SUBSTRING_INDEX = 1;
@@ -130,7 +133,7 @@ public final class JvmArgumentParser
 			if (!checkIsValidLogDepthArgument(args, level))
 			{
 				LOGGER.log(DEBUG, MessageFormat.format(INVALID_LOG_DEPTH_ARGUMENT_MSG, args[currentArgumentIndex + NEXT_ARGUMENT_ADDITION_INDEX],
-				                                       Logger.getDepth().name()));
+					Logger.getDepth().name()));
 				currentArgumentIndex++;
 				return;
 			}

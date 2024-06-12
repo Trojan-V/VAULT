@@ -1,5 +1,6 @@
 package me.vault.game.model.artifact.impl;
 
+
 import javafx.scene.image.Image;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
@@ -18,6 +19,7 @@ import static me.vault.game.utility.constant.ArtifactConstants.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
+
 /**
  * This class is an implementation of {@link Artifact}.
  * <br>
@@ -31,6 +33,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class HealthArtifact extends Artifact
 {
+
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *
@@ -83,6 +86,7 @@ public final class HealthArtifact extends Artifact
 	 */
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 
+
 	static
 	{
 		/*
@@ -99,6 +103,7 @@ public final class HealthArtifact extends Artifact
 		// Ensure the instance is created after all the other static fields are initialized.
 		INSTANCE = new HealthArtifact();
 	}
+
 
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.

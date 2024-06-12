@@ -1,9 +1,11 @@
 package me.vault.game.exception;
 
+
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
 import java.text.MessageFormat;
 import java.util.Map.Entry;
+
 
 /**
  * This exception is thrown when an invalid map entry was entered into the {@link ValidatedEntriesHashMap} data structure.
@@ -17,6 +19,7 @@ import java.util.Map.Entry;
  */
 public class InvalidMapEntryException extends Exception
 {
+
 	/**
 	 * The message which can be retrieved from the exception instance by invoking {@link InvalidMapEntryException#getMessage()}. Usually, this message
 	 * should be printed into the console or some other logging destination to inform the user about the exception.

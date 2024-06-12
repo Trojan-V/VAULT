@@ -1,5 +1,6 @@
 package me.vault.game.model.currency;
 
+
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
@@ -13,6 +14,7 @@ import java.text.MessageFormat;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 // TODO: Amount should either be retrieved by Serialization or JSON config file.
+
 
 /**
  * The {@code Currency} enum represents the resources or currencies which the user can use to upgrade troops and buildings. Currencies are earned by

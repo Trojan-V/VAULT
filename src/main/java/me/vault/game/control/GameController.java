@@ -1,9 +1,12 @@
 package me.vault.game.control;
 
+
 import me.vault.game.model.GameDifficulty;
+
 
 public class GameController
 {
+
 	private static final GameController INSTANCE = new GameController();
 
 	private GameDifficulty gameDifficulty = GameDifficulty.EASY_MODE;

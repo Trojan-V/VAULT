@@ -1,5 +1,6 @@
 package me.vault.game.utility.logging;
 
+
 /**
  * Description
  *
@@ -10,6 +11,7 @@ package me.vault.game.utility.logging;
  */
 public interface ILogger
 {
+
 	void log (final Level level, final String message);
 
 

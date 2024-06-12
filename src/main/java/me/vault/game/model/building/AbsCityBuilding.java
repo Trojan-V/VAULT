@@ -1,5 +1,6 @@
 package me.vault.game.model.building;
 
+
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Scene;
@@ -11,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
+
 /**
  * Description
  *
@@ -21,6 +23,7 @@ import java.util.Map;
  */
 public abstract class AbsCityBuilding implements Displayable
 {
+
 	/**
 	 * This property is used to store and dynamically display the name of the city building. If the name is updated within this property, JavaFX
 	 * instantly applies the change, so it's visible in the GUI.

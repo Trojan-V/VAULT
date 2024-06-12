@@ -1,7 +1,7 @@
 package me.vault.game.view;
 
+
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import me.vault.game.VaultApplication;
+import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -26,6 +27,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.*;
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+
 
 public class MainMenuDelegate implements Initializable
 {
@@ -276,7 +278,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.settingsMenuItem))
 		{
-
+			ViewUtils.showUpgradeDialog(DefenseArtifact.getInstance());
 		}
 		else if (actionEvent.getSource().equals(this.exitGameMenuItem))
 		{

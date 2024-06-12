@@ -1,5 +1,6 @@
 package me.vault.game.view.city.buildings;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALISED;
 
+
 /**
  * The {@code DocksDelegate} handles the control and view of the {@link me.vault.game.model.city.Docks} city building. On the one hand it initialises
  * the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model to the
@@ -33,6 +35,7 @@ import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALIS
  */
 public class DocksDelegate extends CityBuildingController implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */

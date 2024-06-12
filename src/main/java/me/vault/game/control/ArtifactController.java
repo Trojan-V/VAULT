@@ -1,5 +1,6 @@
 package me.vault.game.control;
 
+
 import me.vault.game.interfaces.IUpgrader;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
@@ -11,6 +12,7 @@ import me.vault.game.utility.logging.Logger;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+
 
 /**
  * @author Vincent Wolf, Lasse-Leander Hillen

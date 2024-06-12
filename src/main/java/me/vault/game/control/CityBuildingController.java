@@ -1,5 +1,6 @@
 package me.vault.game.control;
 
+
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import me.vault.game.model.building.CityBuilding;
@@ -10,11 +11,13 @@ import me.vault.game.utility.logging.Logger;
 
 // TODO: extends für untergeordnete CityBuildingController
 
+
 /**
  *
  */
 public class CityBuildingController
 {
+
 	private static final CityBuildingController INSTANCE = new CityBuildingController();
 
 	/**

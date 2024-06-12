@@ -1,5 +1,6 @@
 package me.vault.game.utility.logging;
 
+
 /**
  * ConsoleColor is an enum that stores strings which can be printed into the console to display different colors.
  * <br>

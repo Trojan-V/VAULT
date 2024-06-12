@@ -1,6 +1,8 @@
 package me.vault.game.utility.jvm;
 
+
 import static me.vault.game.utility.constant.CharacterConstants.DASH;
+
 
 /**
  * This enum stores all JVM arguments supported by the program.

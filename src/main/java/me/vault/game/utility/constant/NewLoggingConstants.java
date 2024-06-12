@@ -1,5 +1,6 @@
 package me.vault.game.utility.constant;
 
+
 /**
  * Description
  *
@@ -10,6 +11,7 @@ package me.vault.game.utility.constant;
  */
 public interface NewLoggingConstants
 {
+
 	String STATIC_INITIALIZER_ENTERED = "The static initializer of {0} was entered.";
 
 	String STATIC_INITIALIZER_LEFT = "The static initializer of {0} was left.";
@@ -44,8 +46,12 @@ public interface NewLoggingConstants
 
 	String CLASS_INITIALISED = "{0} initialised.";
 
+	String UPGRADE_DIALOG_FAIL = "Couldn't display upgrade dialog for {0}";
+
+
 	interface Artifact
 	{
+
 		String ATTRIBUTE_MODIFIERS_SET = "attributeModifiers was set to: {0}";
 
 		String NAME_MAP_SET = "Map of names was set to: {0}";

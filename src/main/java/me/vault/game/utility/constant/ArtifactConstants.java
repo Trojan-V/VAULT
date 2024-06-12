@@ -1,8 +1,10 @@
 package me.vault.game.utility.constant;
 
+
 import me.vault.game.model.currency.CurrencyTransaction;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+
 
 /**
  * This class provides constants for the artifact statistics.
@@ -13,6 +15,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  */
 public interface ArtifactConstants
 {
+
 	double MULTIPLIER_MINIMUM = 0.5D;
 
 	double MULTIPLIER_LOW = 0.75D;
@@ -68,8 +71,10 @@ public interface ArtifactConstants
 
 	String IMPROVED_HEALTH_ARTIFACT = "Improved Health Artifact";
 
+
 	interface Defense
 	{
+
 		String BASE_NAME = "Defense Artifact";
 
 		String IMPROVED_NAME = "Improved Defense Artifact";
@@ -85,8 +90,10 @@ public interface ArtifactConstants
 
 	}
 
+
 	interface Damage
 	{
+
 		String BASE_NAME = "Damage Artifact";
 
 		String IMPROVED_NAME = "Improved Damage Artifact";
@@ -101,8 +108,10 @@ public interface ArtifactConstants
 
 	}
 
+
 	interface Health
 	{
+
 		String BASE_NAME = "Health Artifact";
 
 		String IMPROVED_NAME = "Improved Health Artifact";

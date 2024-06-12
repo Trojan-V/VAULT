@@ -4,6 +4,7 @@ package me.vault.game.model.currency;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
+
 /**
  * Description
  *
@@ -14,6 +15,7 @@ import javafx.beans.property.SimpleIntegerProperty;
  */
 public interface ICurrency
 {
+
 	/**
 	 * Gets the current amount of the currency and returns it.
 	 *

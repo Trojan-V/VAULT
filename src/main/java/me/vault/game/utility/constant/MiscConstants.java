@@ -1,7 +1,9 @@
 package me.vault.game.utility.constant;
 
+
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.constant.ConstantInterface.Constant;
+
 
 /**
  * This class provides miscellaneous constants which do not belong to one specific topic under which they could be bundled together, hence why these
@@ -14,6 +16,7 @@ import me.vault.game.utility.constant.ConstantInterface.Constant;
 @ConstantInterface
 public interface MiscConstants
 {
+
 	/**
 	 * This constant represents the error code which is used by {@link System#exit(int)}.
 	 * <br>

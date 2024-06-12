@@ -1,10 +1,13 @@
 package me.vault.game.model.player;
 
+
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.troop.Faction;
 
+
 public class Player extends MissionObject implements Movable
 {
+
 	private static final Player INSTANCE = new Player();
 
 	private Artifact selectedArtifact;

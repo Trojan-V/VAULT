@@ -1,5 +1,6 @@
 package me.vault.game.model.city;
 
+
 import javafx.scene.Scene;
 import me.vault.game.model.building.AbsCityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
@@ -17,6 +18,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Barracks.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
+
 /**
  * This class is an implementation of {@link AbsCityBuilding}.
  * <br>
@@ -30,6 +32,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class Barracks extends AbsCityBuilding
 {
+
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *
@@ -77,6 +80,7 @@ public final class Barracks extends AbsCityBuilding
 	 */
 	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS;
 
+
 	static
 	{
 		/*
@@ -92,6 +96,7 @@ public final class Barracks extends AbsCityBuilding
 		// Ensure the instance is created after all the other static fields are initialized.
 		INSTANCE = new Barracks();
 	}
+
 
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.

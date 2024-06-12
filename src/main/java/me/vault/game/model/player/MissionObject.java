@@ -1,7 +1,9 @@
 package me.vault.game.model.player;
 
+
 public abstract class MissionObject
 {
+
 	private final Tile tile;
 
 

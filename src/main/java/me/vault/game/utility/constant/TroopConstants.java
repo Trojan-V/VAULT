@@ -1,5 +1,6 @@
 package me.vault.game.utility.constant;
 
+
 /**
  * This class provides constants for the unit stistics.
  *
@@ -9,6 +10,7 @@ package me.vault.game.utility.constant;
  */
 public interface TroopConstants
 {
+
 	//-------------------
 	// unit health
 	double HEALTH_HIGH_PLUS = 67;

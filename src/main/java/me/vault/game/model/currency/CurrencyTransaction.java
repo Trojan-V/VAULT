@@ -1,5 +1,6 @@
 package me.vault.game.model.currency;
 
+
 import me.vault.game.exception.InvalidMapEntryException;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
@@ -15,8 +16,10 @@ import static me.vault.game.utility.constant.LoggingConstants.Currency.EXECUTION
 import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
+
 public class CurrencyTransaction
 {
+
 	public static final CurrencyTransaction EMPTY = new CurrencyTransaction(0, 0, 0, 0, 0);
 
 	/**
@@ -46,7 +49,7 @@ public class CurrencyTransaction
 
 
 	public CurrencyTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount, final int foodAmount,
-			final int energyAmount)
+		final int energyAmount)
 	{
 		try
 		{

@@ -1,9 +1,11 @@
 package me.vault.game.utility.constant;
 
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
 
 /**
  * This annotation provides a way to mark an interface as {@link ConstantInterface}, which is useful to determine if an interface should be
@@ -24,6 +26,7 @@ import java.lang.annotation.Target;
 @Target (ElementType.TYPE)
 public @interface ConstantInterface
 {
+
 	// TODO: Mit Annotations beschäftigen
 	@Retention (RetentionPolicy.CLASS)
 	@Target (ElementType.FIELD)

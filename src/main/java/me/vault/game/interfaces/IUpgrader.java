@@ -1,5 +1,6 @@
 package me.vault.game.interfaces;
 
+
 /**
  * This interface should be implemented by classes that have some upgrading capability in any form.
  * <br>
@@ -17,6 +18,7 @@ package me.vault.game.interfaces;
  */
 public interface IUpgrader<T extends UpgradableNew<E>, E>
 {
+
 	/**
 	 * Upgrades the {@link UpgradableNew} instance to the next level {@link E}.
 	 *

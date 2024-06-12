@@ -1,6 +1,8 @@
 package me.vault.game.interfaces;
 
+
 import me.vault.game.model.currency.CurrencyTransaction;
+
 
 /**
  * Description
@@ -12,6 +14,7 @@ import me.vault.game.model.currency.CurrencyTransaction;
  */
 public interface UpgradableNew<E>
 {
+
 	E getLevel ();
 
 

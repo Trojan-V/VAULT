@@ -1,5 +1,6 @@
 package me.vault.game.utility.loading;
 
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import me.vault.game.utility.logging.ILogger;
@@ -18,8 +19,10 @@ import java.util.Objects;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
+
 public final class ResourceLoader
 {
+
 	private static final ILogger LOGGER = new Logger(ResourceLoader.class.getSimpleName());
 
 	private static final String IMAGE_NOT_LOADED_MSG = "The image-resource \"{0}\" couldn't load.";
@@ -41,6 +44,7 @@ public final class ResourceLoader
 			// Logs the corrupted method call before logging the exception
 			LOGGER.log(WARNING, MessageFormat.format(IMAGE_NOT_LOADED_MSG, resourcePath));
 			LOGGER.log(WARNING, e.getMessage());
+			e.printStackTrace();
 			return null;
 		}
 	}

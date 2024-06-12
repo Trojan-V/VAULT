@@ -1,6 +1,8 @@
 package me.vault.game.utility.constant;
 
+
 import me.vault.game.utility.constant.ConstantInterface.Constant;
+
 
 /**
  * This interface is a collection of literals that are wrapped into constants because the code style guidelines prohibit the usage of literals
@@ -13,6 +15,7 @@ import me.vault.game.utility.constant.ConstantInterface.Constant;
 @ConstantInterface
 public interface CharacterConstants
 {
+
 	/**
 	 * Represents the default whitespace character.
 	 */

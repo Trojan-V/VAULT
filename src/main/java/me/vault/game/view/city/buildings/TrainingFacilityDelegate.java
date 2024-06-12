@@ -1,5 +1,6 @@
 package me.vault.game.view.city.buildings;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.*;
+
 
 public class TrainingFacilityDelegate extends CityBuildingController implements Initializable
 {

@@ -1,5 +1,6 @@
 package me.vault.game.model.artifact;
 
+
 import me.vault.game.control.ArtifactController;
 import me.vault.game.interfaces.ILevel;
 import me.vault.game.utility.logging.ILogger;
@@ -9,6 +10,7 @@ import static me.vault.game.utility.constant.MiscConstants.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.ARTIFACT_IS_LOWEST;
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.ARTIFACT_MAXED;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+
 
 /**
  * This enum provides all different levels an {@link Artifact} can have.

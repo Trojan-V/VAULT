@@ -1,5 +1,6 @@
 package me.vault.game.utility.logging;
 
+
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
@@ -9,6 +10,7 @@ import java.util.Locale;
 
 import static me.vault.game.utility.logging.ConsoleColor.RESET;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
+
 
 /**
  * The {@code Logger} class provides a logging utility with different levels of log messages, which are all formatted in their respective way. The
@@ -21,6 +23,7 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
  */
 public class Logger implements ILogger
 {
+
 	/**
 	 * The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the logger properties.
 	 */
@@ -170,7 +173,10 @@ public class Logger implements ILogger
 
 	public enum ProcedureType
 	{
-		CONSTRUCTOR(RESET), STATIC_INITIALIZER(RESET), INITIALIZER(RESET), METHOD(RESET);
+		CONSTRUCTOR(RESET),
+		STATIC_INITIALIZER(RESET),
+		INITIALIZER(RESET),
+		METHOD(RESET);
 
 		private final ConsoleColor color;
 
