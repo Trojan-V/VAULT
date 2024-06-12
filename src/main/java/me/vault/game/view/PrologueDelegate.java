@@ -25,6 +25,7 @@ import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FI
 
 public class PrologueDelegate implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing formatted outputs into the console.
 	 */
@@ -71,7 +72,7 @@ public class PrologueDelegate implements Initializable
 
 	public static void show (final Stage stage)
 	{
-		ViewUtils.show(SCENE, PrologueDelegate.class);
+		ViewUtils.show(VaultApplication.getStage(), SCENE, PrologueDelegate.class);
 	}
 
 

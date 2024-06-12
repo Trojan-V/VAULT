@@ -72,10 +72,10 @@ public class VaultApplication extends Application
 	@Override
 	public void start (final Stage stage)
 	{
+		mainStage = stage;
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
-		MainMenuDelegate.show(stage);
-		mainStage = stage;
+		MainMenuDelegate.show();
 
 		stage.setOnCloseRequest(evt -> {
 			evt.consume();

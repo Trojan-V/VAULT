@@ -97,7 +97,7 @@ public final class TutorialDelegate implements Initializable
 
 	public static void show (final Stage stage)
 	{
-		ViewUtils.show(TUTORIAL_MENU_SCENE, TutorialDelegate.class);
+		ViewUtils.show(VaultApplication.getStage(), TUTORIAL_MENU_SCENE, TutorialDelegate.class);
 	}
 
 

@@ -188,7 +188,7 @@ public final class DifficultyDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
 			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
-			MainMenuDelegate.show(VaultApplication.getStage());
+			MainMenuDelegate.show();
 		}
 	}
 

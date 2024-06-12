@@ -84,9 +84,8 @@ public class ViewUtils
 	}
 
 
-	public static void show (final Scene scene, final Class<? extends Initializable> clazz)
+	public static void show (final Stage stage, final Scene scene, final Class<? extends Initializable> clazz)
 	{
-		final Stage stage = VaultApplication.getStage();
 		stage.setScene(scene);
 		stage.show();
 

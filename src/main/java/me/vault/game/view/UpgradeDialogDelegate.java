@@ -16,17 +16,23 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
+
+import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
 public class UpgradeDialogDelegate implements Initializable
 {
 
-	private static final Scene UPGRADE_DIALOGUE_SCENE = ResourceLoader.loadScene(UpgradeDialogDelegate.class, "upgradeDialog.fxml");
-
 	private static final String WINDOW_TITLE = "Upgrading...";
 
-	private Stage stage;
+	private static final String ICON_PATH = ASSETS_PATH + "Item_Pack/armor_icon.png";
+
+	private static final String TO_STRING_PATTERN = "UpgradeDialogDelegate[stage={0}, afterUpgradeLabel={1}, beforeUpgradeLabel={2}, compositeCostLabel={3}, energyCreditCostLabel={4}, " +
+	                                                "foodRationCostLabel={5}, scienceCostLabel={6}, steelCostLabel={7}, upgradeButton={8}, upgradeDialogPane={9}]";
+
+	private Stage stage = null;
 
 	@FXML
 	private Label afterUpgradeLabel;
@@ -58,10 +64,10 @@ public class UpgradeDialogDelegate implements Initializable
 
 	private static void initializeUpgradeDialogStage (final Stage stage)
 	{
-		stage.setTitle(WINDOW_TITLE);
 		stage.setResizable(false);
+		stage.setTitle(WINDOW_TITLE);
 		stage.initModality(Modality.APPLICATION_MODAL);
-		// UPGRADE_DIALOG_STAGE.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
+		stage.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
 	}
 
 
@@ -116,6 +122,14 @@ public class UpgradeDialogDelegate implements Initializable
 	{
 		this.stage.setScene(scene);
 		this.stage.showAndWait();
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.stage, this.afterUpgradeLabel, this.beforeUpgradeLabel, this.compositeCostLabel,
+			this.energyCreditCostLabel, this.foodRationCostLabel, this.scienceCostLabel, this.steelCostLabel, this.upgradeButton, this.upgradeDialogPane);
 	}
 
 }

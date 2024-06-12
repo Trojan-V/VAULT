@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public abstract class AbsCityBuilding implements Displayable
 {
-
+	// TODO: Refactoring: abs -> weg
 	/**
 	 * This property is used to store and dynamically display the name of the city building. If the name is updated within this property, JavaFX
 	 * instantly applies the change, so it's visible in the GUI.

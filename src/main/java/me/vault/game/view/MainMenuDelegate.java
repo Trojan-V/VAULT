@@ -128,9 +128,9 @@ public class MainMenuDelegate implements Initializable
 	private MenuItem arenaMenuItem;
 
 
-	public static void show (final Stage stage)
+	public static void show ()
 	{
-		ViewUtils.show(SCENE, MainMenuDelegate.class);
+		ViewUtils.show(VaultApplication.getStage(), SCENE, MainMenuDelegate.class);
 	}
 
 
