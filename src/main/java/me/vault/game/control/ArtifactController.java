@@ -73,30 +73,20 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 *
-	 * @param artifact The {@link Artifact} instance that gets upgraded.
-	 */
-	@Override
-	public void upgrade (final Artifact artifact)
+	// TODO: Javadoc
+	public static void updatePropertyValues (final Artifact artifact)
 	{
-		// Validate that the artifact can actually be upgraded.
-		if (!this.checkIsUpgradable(artifact))
-		{
-			return;
-		}
+		artifact.getNameProperty().set(artifact.getAllNames().get(artifact.getLevel()));
+		artifact.getSpriteProperty().set(artifact.getAllSprites().get(artifact.getLevel()));
+		artifact.setCurrentUpgradeCosts(artifact.getAllUpgradeCosts().get(artifact.getLevel()));
+		artifact.getAttributeModifiers().getDamageMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DAMAGE));
+		artifact.getAttributeModifiers().getHealthMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.HEALTH));
+		artifact.getAttributeModifiers().getDefenseMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DEFENSE));
 
-		// Now it's known that the artifact can be upgraded, so the upgrade costs are factored into the account.
-		CurrencyController.factorCurrencyTransaction(artifact.getCurrentUpgradeCosts());
-
-		// The level of the artifact is changed to the next level, so it's getting upgraded now.
-		LOGGER.logf(DEBUG, CURRENT_ARTIFACT_LEVEL, artifact.getLevel().toString());
-
-		artifact.setLevel(artifact.getLevel().getNextHigherLevel());
-		ArtifactController.updatePropertyValues(artifact);
-
-		LOGGER.logf(DEBUG, UPGRADED_ARTIFACT_LEVEL, artifact.getLevel().toString());
+		// Logging output
+		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, artifact.getNameProperty().get());
+		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, artifact.getSpriteProperty().get().toString());
+		LOGGER.logf(DEBUG, UPGRADE_COST_SET, artifact.getCurrentUpgradeCosts().toString());
 	}
 
 
@@ -141,25 +131,29 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 
 
 	/**
-	 * This method is invoked by the {@link ArtifactController#upgrade(Artifact)} method.
-	 * <br>
-	 * This method updates the properties of this class which are bound to the GUI to ensure the correct data is shown after an upgrade happened.
+	 * {@inheritDoc}
 	 *
-	 * @param artifact
+	 * @param artifact The {@link Artifact} instance that gets upgraded.
 	 */
-	public static void updatePropertyValues (final Artifact artifact)
+	@Override
+	public void upgrade (final Artifact artifact)
 	{
-		artifact.getNameProperty().set(artifact.getAllNames().get(artifact.getLevel()));
-		artifact.getSpriteProperty().set(artifact.getAllSprites().get(artifact.getLevel()));
-		artifact.setCurrentUpgradeCosts(artifact.getAllUpgradeCosts().get(artifact.getLevel()));
-		artifact.getAttributeModifiers().getDamageMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DAMAGE));
-		artifact.getAttributeModifiers().getHealthMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.HEALTH));
-		artifact.getAttributeModifiers().getDefenseMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DEFENSE));
+		// Validate that the artifact can actually be upgraded.
+		if (!this.checkIsUpgradable(artifact))
+		{
+			return;
+		}
 
-		// Logging output
-		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, artifact.getNameProperty().get());
-		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, artifact.getSpriteProperty().get().toString());
-		LOGGER.logf(DEBUG, UPGRADE_COST_SET, artifact.getCurrentUpgradeCosts().toString());
+		// Now it's known that the artifact can be upgraded, so the upgrade costs are factored into the account.
+		CurrencyController.factorCurrencyTransaction(artifact.getCurrentUpgradeCosts());
+
+		// The level of the artifact is changed to the next level, so it's getting upgraded now.
+		LOGGER.logf(DEBUG, CURRENT_ARTIFACT_LEVEL, artifact.getLevel().toString());
+
+		artifact.setLevel(artifact.getLevel().getNextHigherLevel());
+		updatePropertyValues(artifact);
+
+		LOGGER.logf(DEBUG, UPGRADED_ARTIFACT_LEVEL, artifact.getLevel().toString());
 	}
 
 }

@@ -41,7 +41,7 @@ public class VaultApplication extends Application
 	private static final String MAIN_STYLESHEET_FILENAME = "main.fxml";
 
 
-	private static Stage mainStage;
+	private static Stage mainStage = null;
 
 
 	/**

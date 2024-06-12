@@ -14,7 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import me.vault.game.interfaces.UpgradableNew;
+import me.vault.game.interfaces.Upgradable;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -93,19 +93,19 @@ public class ViewUtil
 	}
 
 
-	public static void showUpgradeDialog (final UpgradableNew upgradableNew)
+	public static void showUpgradeDialog (final Upgradable upgradable)
 	{
 		try
 		{
 			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(UPGRADE_DIALOG_FXML));
 			final Parent root = fxmlLoader.load();
 			final UpgradeDialogDelegate controller = fxmlLoader.getController();
-			controller.setUpgradable(upgradableNew);
+			controller.setUpgradable(upgradable);
 			controller.show(new Scene(root));
 		}
 		catch (final IOException e)
 		{
-			new Logger(ViewUtil.class.getSimpleName()).logf(WARNING, UPGRADE_DIALOG_FAIL, upgradableNew.toString());
+			new Logger(ViewUtil.class.getSimpleName()).logf(WARNING, UPGRADE_DIALOG_FAIL, upgradable.toString());
 		}
 	}
 

@@ -10,7 +10,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import me.vault.game.interfaces.UpgradableNew;
+import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -79,14 +79,14 @@ public class UpgradeDialogDelegate implements Initializable
 	}
 
 
-	public void setUpgradable (final UpgradableNew upgradable)
+	public void setUpgradable (final Upgradable upgradable)
 	{
 		this.setLevelChangeLabels(upgradable);
 		this.setUpgradeCostLabels(upgradable);
 	}
 
 
-	private void setUpgradeCostLabels (final UpgradableNew upgradable)
+	private void setUpgradeCostLabels (final Upgradable upgradable)
 	{
 		final CurrencyTransaction upgradeCosts = upgradable.getCurrentUpgradeCosts();
 		this.steelCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.STEEL)));
@@ -97,7 +97,7 @@ public class UpgradeDialogDelegate implements Initializable
 	}
 
 
-	private void setLevelChangeLabels (final UpgradableNew upgradable)
+	private void setLevelChangeLabels (final Upgradable upgradable)
 	{
 		this.beforeUpgradeLabel.setText(upgradable.getLevel().toString());
 		this.afterUpgradeLabel.setText(upgradable.getLevel().toString());

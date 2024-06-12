@@ -1,39 +1,58 @@
 package me.vault.game.interfaces;
 
 
-import java.util.Map;
+import me.vault.game.model.currency.CurrencyTransaction;
 
 
 /**
- * Description
+ * Any class that's an upgradable object should implement this interface.
+ * It provides getters to access the current level of the upgradable object and setters to be able to change it.
+ * <br>
+ * This getter should only ever be invoked from the corresponding controller class of the specific upgradable object
+ * to ensure the program is complying with the model view controller paradigm.
  *
+ * @param <E> The leveling enum that the upgradable object corresponds to. For instance, if an implementation of this
+ *            interface is an "Artifact", the corresponding leveling enum would be something like "ArtifactLevel".
  * @author Vincent Wolf
  * @version 1.0.0
- * @see CityBuilding
- * @since 15.05.2024
+ * @since 06.06.2024
  */
-public interface Upgradable<K, V>
+public interface Upgradable<E>
 {
-
-	Map<K, V> getAllAttributes ();
+	/**
+	 * Returns the current level of the upgradable object.
+	 *
+	 * @return The current level.
+	 */
+	E getLevel ();
 
 
 	/**
-	 * Returns the current level of the {@code CityBuilding} object.
+	 * Sets the current level of the upgradable object to a new value.
+	 * <br>
 	 *
-	 * @return The current level of the object as an {@link Integer}.
+	 * @param level The new level of the object.
 	 */
-	V getCurrentAttributes ();
-
-
-	K getLevel ();
+	void setLevel (final E level);
 
 
 	/**
-	 * Sets the current level of the {@code CityBuilding} object.
+	 * Returns an instance of {@link CurrencyTransaction} that consists of the upgrade costs that are required to
+	 * upgrade the upgradable object to the next level.
 	 *
-	 * @param level The new level of the object as an {@link Integer}.
+	 * @return The upgrade costs to upgrade the upgradable object to the next level.
 	 */
-	void setLevel (K level);
+	CurrencyTransaction getCurrentUpgradeCosts ();
 
+
+	/**
+	 * Sets the current upgrade costs of the upgradable object to a new value.
+	 * <br>
+	 * This method should usually be invoked whenever the upgradable object was upgraded, as the upgrade cost to
+	 * upgrade to the next level usually changes after the building was upgraded, because the next level is usually
+	 * more expensive than the level that was previously upgraded to.
+	 *
+	 * @param upgradeCosts The upgrade costs to upgrade the upgradable object to the next level.
+	 */
+	void setCurrentUpgradeCosts (final CurrencyTransaction upgradeCosts);
 }

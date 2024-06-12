@@ -1,7 +1,6 @@
 package me.vault.game.model.troop.unit;
 
 
-import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.constant.TroopConstants;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
@@ -10,10 +9,9 @@ import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 /**
  * @author Alexander Göthel
  * @version 1.0.0
- * @see Upgradable
  * @since 28.05.2024
  */
-public enum Unit implements Upgradable<UnitLevel, UnitAttributes>
+public enum Unit
 {
 	// Explorer-Association
 
@@ -380,40 +378,24 @@ public enum Unit implements Upgradable<UnitLevel, UnitAttributes>
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public ValidatedEntriesHashMap<UnitLevel, UnitAttributes> getAllAttributes ()
 	{
 		return this.propertyMap;
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public UnitAttributes getCurrentAttributes ()
 	{
 		return this.propertyMap.get(this.currentLevel);
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public UnitLevel getLevel ()
 	{
 		return this.currentLevel;
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void setLevel (final UnitLevel unitLevel)
 	{
 		this.currentLevel = unitLevel;

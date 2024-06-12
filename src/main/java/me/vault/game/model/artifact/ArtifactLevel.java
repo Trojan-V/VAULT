@@ -2,7 +2,7 @@ package me.vault.game.model.artifact;
 
 
 import me.vault.game.control.ArtifactController;
-import me.vault.game.interfaces.ILevel;
+import me.vault.game.interfaces.Level;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -26,7 +26,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see ArtifactController
  * @since 08.06.2024
  */
-public enum ArtifactLevel implements ILevel
+public enum ArtifactLevel implements Level
 {
 	/**
 	 * The base artifact level. This is the lowest possible artifact level. Every artifact starts with this level.

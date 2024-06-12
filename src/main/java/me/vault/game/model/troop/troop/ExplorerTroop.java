@@ -1,11 +1,10 @@
 package me.vault.game.model.troop.troop;
 
 
-import me.vault.game.interfaces.Upgradable;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 
 
-public enum ExplorerTroop implements Upgradable<ExplorerTroopLevel, ExplorerTroopAttributes>
+public enum ExplorerTroop
 {
 	MEDIC(new ValidatedEntriesHashMap<>()
 	{{
@@ -42,28 +41,24 @@ public enum ExplorerTroop implements Upgradable<ExplorerTroopLevel, ExplorerTroo
 	}
 
 
-	@Override
 	public ValidatedEntriesHashMap<ExplorerTroopLevel, ExplorerTroopAttributes> getAllAttributes ()
 	{
 		return this.propertyMap;
 	}
 
 
-	@Override
 	public ExplorerTroopAttributes getCurrentAttributes ()
 	{
 		return this.propertyMap.get(this.currentLevel);
 	}
 
 
-	@Override
 	public ExplorerTroopLevel getLevel ()
 	{
 		return this.currentLevel;
 	}
 
 
-	@Override
 	public void setLevel (final ExplorerTroopLevel level)
 	{
 		this.currentLevel = level;

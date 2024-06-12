@@ -5,36 +5,37 @@ package me.vault.game.interfaces;
  * This interface should be implemented by classes that have some upgrading capability in any form.
  * <br>
  * Usually, these classes are controller classes that provide upgrading capabilities for their corresponding models. These models have to implement
- * the {@link UpgradableNew} interface.
+ * the {@link Upgradable} interface.
  *
  * @param <E> The level type.
- * @param <T> The data type of the class that implements the {@link UpgradableNew} interface.
+ * @param <T> The data type of the class that implements the {@link Upgradable} interface.
  *
  * @author Vincent Wolf
  * @version 1.0.0
  * @see IUpgrader
- * @see UpgradableNew
+ * @see Upgradable
  * @since 08.06.2024
  */
-public interface IUpgrader<T extends UpgradableNew<E>, E>
+public interface IUpgrader<T extends Upgradable<E>, E>
 {
 
 	/**
-	 * Upgrades the {@link UpgradableNew} instance to the next level {@link E}.
+	 * Upgrades the {@link Upgradable} instance to the next level {@link E}.
 	 *
-	 * @param upgradable The {@link UpgradableNew} instance that gets upgraded.
+	 * @param upgradable The {@link Upgradable} instance that gets upgraded.
 	 */
 	void upgrade (T upgradable);
 
 
 	/**
-	 * Checks if the {@link UpgradableNew} instance can be upgraded to the next level.
+	 * Checks if the {@link Upgradable} instance can be upgraded to the next level.
 	 * <br>
-	 * This method checks the constraints that need to be fulfilled to be able to upgrade the {@link UpgradableNew} to the next level.
+	 * This method checks the constraints that need to be fulfilled to be able to upgrade the {@link Upgradable} to
+	 * the next level.
 	 *
-	 * @param upgradable The {@link UpgradableNew} instance which is checked if it can be upgraded to the next level.
+	 * @param upgradable The {@link Upgradable} instance which is checked if it can be upgraded to the next level.
 	 *
-	 * @return True if the {@link UpgradableNew} can be upgraded, otherwise false.
+	 * @return True if the {@link Upgradable} can be upgraded, otherwise false.
 	 */
 	boolean checkIsUpgradable (T upgradable);
 
