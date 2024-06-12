@@ -102,19 +102,19 @@ public final class DifficultyDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
-			ViewUtils.setImage(this.easyDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtil.setImage(this.easyDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
-			ViewUtils.setImage(this.normalDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtil.setImage(this.normalDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
-			ViewUtils.setImage(this.hardDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtil.setImage(this.hardDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setImage(this.backButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtil.setImage(this.backButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 	}
 
@@ -124,19 +124,19 @@ public final class DifficultyDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
-			ViewUtils.setImage(this.easyDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtil.setImage(this.easyDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
-			ViewUtils.setImage(this.normalDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtil.setImage(this.normalDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
-			ViewUtils.setImage(this.hardDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtil.setImage(this.hardDifficultyButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setImage(this.backButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtil.setImage(this.backButtonImageView, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
 
@@ -146,19 +146,19 @@ public final class DifficultyDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
-			ViewUtils.setButtonColor(this.easyDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtil.setButtonColor(this.easyDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
-			ViewUtils.setButtonColor(this.normalDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtil.setButtonColor(this.normalDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
-			ViewUtils.setButtonColor(this.hardDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtil.setButtonColor(this.hardDifficultyButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtil.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
 
@@ -168,26 +168,26 @@ public final class DifficultyDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
-			ViewUtils.setButtonColor(this.easyDifficultyButtonText, Color.BLACK);
+			ViewUtil.setButtonColor(this.easyDifficultyButtonText, Color.BLACK);
 			GameController.getInstance().setDifficultyModifyer(GameDifficulty.EASY_MODE);
 			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
-			ViewUtils.setButtonColor(this.normalDifficultyButtonText, Color.BLACK);
+			ViewUtil.setButtonColor(this.normalDifficultyButtonText, Color.BLACK);
 			DifficultyDelegate.show(VaultApplication.getStage());
 			GameController.getInstance().setDifficultyModifyer(GameDifficulty.NORMAL_MODE);
 			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
-			ViewUtils.setButtonColor(this.hardDifficultyButtonText, Color.BLACK);
+			ViewUtil.setButtonColor(this.hardDifficultyButtonText, Color.BLACK);
 			GameController.getInstance().setDifficultyModifyer(GameDifficulty.HARD_MODE);
 			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
+			ViewUtil.setButtonColor(this.backButtonText, Color.BLACK);
 			MainMenuDelegate.show();
 		}
 	}

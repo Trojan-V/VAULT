@@ -4,413 +4,209 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.CityDelegate">
+<AnchorPane fx:id="cityAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.CityDelegate">
    <children>
       <ImageView fx:id="cityBackgroundImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D height="720.0" width="1280.0" />
-         </viewport></ImageView>
-      <HBox layoutY="105.0" prefHeight="318.0" prefWidth="1280.0" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
+         </viewport>
+      </ImageView>
+      <GridPane AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <VBox prefHeight="200.0" prefWidth="425.0">
-               <children>
-                  <Button fx:id="spaceBarButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Space-Bar">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="spaceBarUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <HBox.margin>
+            <Button fx:id="barracksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onBarracksUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="297.0" prefWidth="425.0">
-               <children>
-                  <Button fx:id="workshopButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onWorkshopButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Workshop">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="workshopUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onWorkshopUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <HBox.margin>
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="marketButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onMarketButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Market" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="65.0" left="25.0" right="25.0" top="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="marketUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onMarketUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="297.0" prefWidth="425.0">
-               <children>
-                  <Button fx:id="commandCenterButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onCommandCenterButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Command Center">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="commandCenterUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onCommandCenterUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <HBox.margin>
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="docksButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onDocksButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Docks" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="65.0" left="25.0" right="25.0" top="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="docksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onDocksUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="297.0" prefWidth="425.0">
-               <children>
-                  <Button fx:id="trainingfacilityButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onTrainingFacilityButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Training Facility">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="trainingfacilityUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onTrainingFacilityUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <HBox.margin>
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="spaceBarButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Space-Bar" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="65.0" left="25.0" right="25.0" top="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="spaceBarUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onSpaceBarUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </VBox>
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="workshopButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onWorkshopButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Workshop" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="65.0" left="25.0" right="25.0" top="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="workshopUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onWorkshopUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="commandCenterButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onCommandCenterButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Command Center" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="65.0" left="25.0" right="25.0" top="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="commandCenterUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onCommandCenterUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="trainingfacilityButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onTrainingFacilityButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Training Facility" GridPane.columnIndex="3">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="65.0" left="25.0" right="25.0" top="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="trainingfacilityUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onTrainingFacilityUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="barracksButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onBarracksButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Barracks" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="65.0" left="25.0" right="25.0" top="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="laboratoryButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Laboratory" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="65.0" left="25.0" right="25.0" top="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="laboratoryUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </GridPane.margin>
+            </Button>
          </children>
-      </HBox>
-      <HBox layoutX="252.0" layoutY="402.0" prefHeight="318.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="402.0">
-         <children>
-            <VBox prefHeight="200.0" prefWidth="425.0">
-               <children>
-                  <Button fx:id="docksButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onDocksButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Docks">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="docksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onDocksUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="425.0">
-               <children>
-                  <Button fx:id="marketButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onMarketButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Market">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="marketUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onMarketUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="425.0">
-               <children>
-                  <Button fx:id="barracksButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onBarracksButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Barracks">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="barracksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onBarracksUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="425.0">
-               <children>
-                  <Button fx:id="laboratoryButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryButtonClick" prefHeight="175.0" prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Laboratory">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="laboratoryUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#onLaboratoryUpgrade" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox layoutX="8.0" layoutY="8.0" prefHeight="106.0" prefWidth="1280.0" AnchorPane.bottomAnchor="614.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="steelImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="158.0">
-                     <children>
-                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="STEEL" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="steelAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="25.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="compositeImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="184.0">
-                     <children>
-                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="11.0" prefWidth="124.0" text="COMPOSITES" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="compositeAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="scienceImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="182.0">
-                     <children>
-                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="10.0" prefWidth="100.0" text="SCIENCE" textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="scienceAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="foodImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="163.0">
-                     <children>
-                        <Label prefHeight="11.0" prefWidth="115.0" text="FOOD RATIONS" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="foodAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;">
-               <children>
-                  <ImageView fx:id="creditImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="12.0" />
-                     </HBox.margin>
-                     <viewport>
-                        <Rectangle2D height="64.0" width="64.0" />
-                     </viewport>
-                  </ImageView>
-                  <VBox prefHeight="86.0" prefWidth="170.0">
-                     <children>
-                        <Label prefHeight="25.0" prefWidth="145.0" text="ENERGY CREDITS" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Historic" size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="creditAmountLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="100.0" text="100000" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="25.0" top="10.0" />
-               </HBox.margin>
-            </HBox>
-         </children>
-      </HBox>
+      </GridPane>
    </children>
 </AnchorPane>

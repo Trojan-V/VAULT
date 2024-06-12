@@ -14,7 +14,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import me.vault.game.VaultApplication;
 import me.vault.game.interfaces.UpgradableNew;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -28,10 +27,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
-public class ViewUtils
+public class ViewUtil
 {
 
-	private static final ILogger LOGGER = new Logger(ViewUtils.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(ViewUtil.class.getSimpleName());
 
 	private static final String UPGRADE_DIALOG_FXML = "upgradeDialog.fxml";
 
@@ -106,7 +105,7 @@ public class ViewUtils
 		}
 		catch (final IOException e)
 		{
-			new Logger(ViewUtils.class.getSimpleName()).logf(WARNING, UPGRADE_DIALOG_FAIL, upgradableNew.toString());
+			new Logger(ViewUtil.class.getSimpleName()).logf(WARNING, UPGRADE_DIALOG_FAIL, upgradableNew.toString());
 		}
 	}
 

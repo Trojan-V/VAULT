@@ -72,7 +72,7 @@ public class PrologueDelegate implements Initializable
 
 	public static void show (final Stage stage)
 	{
-		ViewUtils.show(VaultApplication.getStage(), SCENE, PrologueDelegate.class);
+		ViewUtil.show(VaultApplication.getStage(), SCENE, PrologueDelegate.class);
 	}
 
 
@@ -81,11 +81,11 @@ public class PrologueDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtil.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtil.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 
 	}
@@ -96,11 +96,11 @@ public class PrologueDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtil.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtil.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
 
@@ -110,11 +110,11 @@ public class PrologueDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtil.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtil.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
 
@@ -124,12 +124,12 @@ public class PrologueDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
+			ViewUtil.setButtonColor(this.backButtonText, Color.BLACK);
 			DifficultyDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setButtonColor(this.continueButtonText, Color.BLACK);
+			ViewUtil.setButtonColor(this.continueButtonText, Color.BLACK);
 			TutorialDelegate.show(VaultApplication.getStage());
 		}
 	}
@@ -139,7 +139,7 @@ public class PrologueDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
-		ViewUtils.setText(this.storyText, StringConstants.prologue);
+		ViewUtil.setText(this.storyText, StringConstants.prologue);
 	}
 
 }

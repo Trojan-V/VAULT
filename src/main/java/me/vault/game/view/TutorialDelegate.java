@@ -19,12 +19,9 @@ import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.*;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public final class TutorialDelegate implements Initializable
@@ -97,7 +94,7 @@ public final class TutorialDelegate implements Initializable
 
 	public static void show (final Stage stage)
 	{
-		ViewUtils.show(VaultApplication.getStage(), TUTORIAL_MENU_SCENE, TutorialDelegate.class);
+		ViewUtil.show(VaultApplication.getStage(), TUTORIAL_MENU_SCENE, TutorialDelegate.class);
 	}
 
 
@@ -107,11 +104,11 @@ public final class TutorialDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtil.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
+			ViewUtil.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
 		}
 
 	}
@@ -122,11 +119,11 @@ public final class TutorialDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtil.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
+			ViewUtil.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
 		}
 	}
 
@@ -136,11 +133,11 @@ public final class TutorialDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtil.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
+			ViewUtil.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
 		}
 	}
 
@@ -150,12 +147,12 @@ public final class TutorialDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtils.setButtonColor(this.backButtonText, Color.BLACK);
+			ViewUtil.setButtonColor(this.backButtonText, Color.BLACK);
 			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtils.setButtonColor(this.continueButtonText, Color.BLACK);
+			ViewUtil.setButtonColor(this.continueButtonText, Color.BLACK);
 			// TutorialView.show(VaultApplication.getStage());
 			CityView.show(VaultApplication.getStage());
 		}
@@ -165,14 +162,14 @@ public final class TutorialDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		ViewUtils.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
-		ViewUtils.setText(this.tutorialIntroductionText, StringConstants.tutorialIntroduction);
-		ViewUtils.setText(this.tutorialCityText, StringConstants.tutorialCity);
-		ViewUtils.setText(this.tutorialArtefactsText, StringConstants.tutorialArtifacts);
-		ViewUtils.setText(this.tutorialFactionsText, StringConstants.tutorialFactsions);
-		ViewUtils.setText(this.tutorialMissionsText, StringConstants.tutorialMissions);
-		ViewUtils.setText(this.tutorialFightsText, StringConstants.tutorialFights);
-		ViewUtils.setTabPaneStyle(this.tutorialTabPane, TAB_PANE_STYLE);
+		ViewUtil.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
+		ViewUtil.setText(this.tutorialIntroductionText, StringConstants.tutorialIntroduction);
+		ViewUtil.setText(this.tutorialCityText, StringConstants.tutorialCity);
+		ViewUtil.setText(this.tutorialArtefactsText, StringConstants.tutorialArtifacts);
+		ViewUtil.setText(this.tutorialFactionsText, StringConstants.tutorialFactsions);
+		ViewUtil.setText(this.tutorialMissionsText, StringConstants.tutorialMissions);
+		ViewUtil.setText(this.tutorialFightsText, StringConstants.tutorialFights);
+		ViewUtil.setTabPaneStyle(this.tutorialTabPane, TAB_PANE_STYLE);
 
 	}
 

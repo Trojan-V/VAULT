@@ -16,6 +16,7 @@ import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
@@ -23,9 +24,9 @@ import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALIS
 
 
 /**
- * The {@code BarracksDelegate} handles the control and view of the {@link me.vault.game.model.city.Barracks} city building. On the one hand it
- * initialises the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model
- * to the {@link me.vault.game.model.city.Barracks} cty building.
+ * The {@code BarracksDelegate} handles the control and view of the {@link me.vault.game.model.city.Barracks} city building.
+ * On the one hand, it initializes the view from the fxml-file and binds properties from the model to the view.
+ * On the other hand, it provides methods to control the model to the {@link me.vault.game.model.city.Barracks} cty building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @see CityBuildingController
@@ -41,8 +42,10 @@ public class BarracksDelegate implements Initializable
 	 */
 	private static final ILogger LOGGER = new Logger(BarracksDelegate.class.getSimpleName());
 
+	private static final String TO_STRING_PATTERN = "BarracksDelegate[backgroundImageView={0}, barracksAnchorPane={1}]";
+
 	/**
-	 * The {@link ImageView} of the scene, which works as the views background.
+	 * The {@link ImageView} of the scene, which works as the view background.
 	 */
 	@FXML
 	private ImageView backgroundImageView;
@@ -55,7 +58,7 @@ public class BarracksDelegate implements Initializable
 
 
 	/**
-	 * Method, that gets called, when th user presses the "BACK"-Button. Resets the current view to the city view.
+	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
 	 *
 	 * @param ignored {@link ActionEvent}-parameter, that contains information about the event-caller.
 	 */
@@ -78,9 +81,16 @@ public class BarracksDelegate implements Initializable
 		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GameConstants.GENERAL_BACKGROUND_FILENAME));
 		this.barracksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
-		// Logging the finalisation of the initialisation
+		// Logging the finalization of the initialization
 		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALISED, BarracksDelegate.class.getSimpleName());
 
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.backgroundImageView, this.barracksAnchorPane);
 	}
 
 }

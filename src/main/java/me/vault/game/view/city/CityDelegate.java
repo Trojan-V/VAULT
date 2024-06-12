@@ -7,7 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
+import me.vault.game.control.CurrencyController;
 import me.vault.game.model.building.AbsCityBuilding;
 import me.vault.game.model.city.*;
 import me.vault.game.model.currency.Currency;
@@ -32,13 +34,14 @@ import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FI
 public class CityDelegate implements Initializable
 {
 
-	private static final CityDelegate INSTANCE = new CityDelegate();
-
 	@FXML
 	private Button barracksButton;
 
 	@FXML
 	private Button barracksUpgradeButton;
+
+	@FXML
+	private AnchorPane cityAnchorPane;
 
 	@FXML
 	private ImageView cityBackgroundImageView;
@@ -50,28 +53,10 @@ public class CityDelegate implements Initializable
 	private Button commandCenterUpgradeButton;
 
 	@FXML
-	private Label compositeAmountLabel;
-
-	@FXML
-	private ImageView compositeImageView;
-
-	@FXML
-	private Label creditAmountLabel;
-
-	@FXML
-	private ImageView creditImageView;
-
-	@FXML
 	private Button docksButton;
 
 	@FXML
 	private Button docksUpgradeButton;
-
-	@FXML
-	private Label foodAmountLabel;
-
-	@FXML
-	private ImageView foodImageView;
 
 	@FXML
 	private Button laboratoryButton;
@@ -86,22 +71,10 @@ public class CityDelegate implements Initializable
 	private Button marketUpgradeButton;
 
 	@FXML
-	private Label scienceAmountLabel;
-
-	@FXML
-	private ImageView scienceImageView;
-
-	@FXML
 	private Button spaceBarButton;
 
 	@FXML
 	private Button spaceBarUpgradeButton;
-
-	@FXML
-	private Label steelAmountLabel;
-
-	@FXML
-	private ImageView steelImageView;
 
 	@FXML
 	private Button trainingfacilityButton;
@@ -251,19 +224,9 @@ public class CityDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
-		this.initCurrencies();
 		this.initBuildingButtons();
-	}
-
-
-	private void initCurrencies ()
-	{
-		initCurrency(Currency.STEEL, this.steelImageView, this.steelAmountLabel);
-		initCurrency(Currency.COMPOSITE, this.compositeImageView, this.compositeAmountLabel);
-		initCurrency(Currency.SCIENCE, this.scienceImageView, this.scienceAmountLabel);
-		initCurrency(Currency.FOOD_RATION, this.foodImageView, this.foodAmountLabel);
-		initCurrency(Currency.ENERGY_CREDIT, this.creditImageView, this.creditAmountLabel);
+		this.cityAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 	}
 
 
