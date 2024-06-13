@@ -25,6 +25,9 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.*;
 
 
+/**
+ *
+ */
 public class MainMenuDelegate implements Initializable
 {
 	// Buttons ------------------------------------------------------------------------------------------------------------------
@@ -89,6 +92,9 @@ public class MainMenuDelegate implements Initializable
 	private MenuItem arenaMenuItem;
 
 
+	/**
+	 *
+	 */
 	public static void show ()
 	{
 		ViewUtil.show(VaultApplication.getStage(), SCENE, MainMenuDelegate.class);
@@ -125,6 +131,10 @@ public class MainMenuDelegate implements Initializable
 	}
 
 
+	/**
+	 *
+	 * @param mouseEvent
+	 */
 	@FXML
 	public void returnButtonBackgroundToNormal (final MouseEvent mouseEvent)
 	{
@@ -191,7 +201,7 @@ public class MainMenuDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			ViewUtil.setButtonTextColor(this.continueButton, Color.BLACK);
-			CityView.show(VaultApplication.getStage()); // TODO: nur temporär zum testen
+			CityView.show(VaultApplication.getStage()); // TODO: nur temporaer zum testen
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton))
 		{
@@ -224,7 +234,6 @@ public class MainMenuDelegate implements Initializable
 	{
 		if (actionEvent.getSource().equals(this.continueMenuItem))
 		{
-
 		}
 		else if (actionEvent.getSource().equals(this.newGameMenuItem))
 		{
@@ -244,7 +253,6 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.arenaMenuItem))
 		{
-
 		}
 	}
 
