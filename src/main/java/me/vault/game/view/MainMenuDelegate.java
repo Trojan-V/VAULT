@@ -52,6 +52,8 @@ public class MainMenuDelegate implements Initializable
 	private static final String BUTTON_BACKGROUND_SELECTED = ASSETS_PATH + "button_round.png";
 	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 
+
+	//FXML Buttons ---------------------------------------------------------------------------------------
 	@FXML
 	private Button continueButton;
 
@@ -70,9 +72,13 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private Button arenaButton;
 
+
+	//FXML ImageViews ---------------------------------------------------------------------------------------
 	@FXML
 	private ImageView backgroundImageView;
 
+
+	//FXML MenuItems ---------------------------------------------------------------------------------------
 	@FXML
 	private MenuItem continueMenuItem;
 
