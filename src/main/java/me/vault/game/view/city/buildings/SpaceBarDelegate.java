@@ -33,6 +33,8 @@ import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FI
 public class SpaceBarDelegate extends CityBuildingController implements Initializable
 {
 
+	// FXML ------------------------------------------------------------------------------------------------------------
+
 	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
 	 */

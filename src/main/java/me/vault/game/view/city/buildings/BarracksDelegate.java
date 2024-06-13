@@ -9,7 +9,6 @@ import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -20,12 +19,16 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALISED;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
  * The {@code BarracksDelegate} handles the control and view of the {@link me.vault.game.model.city.Barracks} city building.
+ * <br>
  * On the one hand, it initializes the view from the fxml-file and binds properties from the model to the view.
+ * <br>
  * On the other hand, it provides methods to control the model to the {@link me.vault.game.model.city.Barracks} cty building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
@@ -37,12 +40,20 @@ import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALIS
 public class BarracksDelegate implements Initializable
 {
 
+	// CONSTANTS -------------------------------------------------------------------------------------------------------
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(BarracksDelegate.class.getSimpleName());
 
+	/**
+	 * The pattern used to create the string which describes the class in a human-readable format.
+	 */
 	private static final String TO_STRING_PATTERN = "BarracksDelegate[backgroundImageView={0}, barracksAnchorPane={1}]";
+
+
+	// FXML ------------------------------------------------------------------------------------------------------------
 
 	/**
 	 * The {@link ImageView} of the scene, which works as the view background.
@@ -78,15 +89,20 @@ public class BarracksDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GameConstants.GENERAL_BACKGROUND_FILENAME));
+		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.barracksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
 		// Logging the finalization of the initialization
-		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALISED, BarracksDelegate.class.getSimpleName());
+		LOGGER.logf(DEBUG, CLASS_INITIALISED, BarracksDelegate.class.getSimpleName());
 
 	}
 
 
+	/**
+	 * Returns the instance of this class in a human-readable format by creating a string.
+	 *
+	 * @return The message in its string representation.
+	 */
 	@Override
 	public String toString ()
 	{

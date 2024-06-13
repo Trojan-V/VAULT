@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALISED;
+import static me.vault.game.utility.logging.ILogger.*;
+import static me.vault.game.utility.logging.ILogger.Level.*;
 
 
 /**
@@ -36,10 +38,15 @@ import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALIS
 public class MarketDelegate extends CityBuildingController implements Initializable
 {
 
+	// CONSTANTS -------------------------------------------------------------------------------------------------------
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(MarketDelegate.class.getSimpleName());
+
+
+	// FXML ------------------------------------------------------------------------------------------------------------
 
 	/**
 	 * The {@link ImageView} of the scene, which works as the views background.
@@ -55,7 +62,7 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 
 
 	/**
-	 * Method, that gets called, when th user presses the "BACK"-Button. Resets the current view to the city view.
+	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
 	 *
 	 * @param ignored {@link ActionEvent}-parameter, that contains information about the event-caller.
 	 */
@@ -79,7 +86,7 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 		this.marketAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
 		// Logging the finalization of the initialization
-		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALISED, DocksDelegate.class.getSimpleName());
+		LOGGER.logf(DEBUG, CLASS_INITIALISED, MarketDelegate.class.getSimpleName());
 
 	}
 

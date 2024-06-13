@@ -43,8 +43,6 @@ public class UpgradeDialogDelegate implements Initializable
 
 	private static final String FXML_FILENAME = "upgradeDialog.fxml";
 
-	private Stage stage = null;
-
 	@FXML
 	private Label afterUpgradeLabel;
 
@@ -71,6 +69,8 @@ public class UpgradeDialogDelegate implements Initializable
 
 	@FXML
 	private DialogPane upgradeDialogPane;
+
+	private Stage stage = null;
 
 	private Upgrader<Upgradable<Level>, Level> upgrader = null;
 
