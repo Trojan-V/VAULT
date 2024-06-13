@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import me.vault.game.VaultApplication;
+import me.vault.game.control.ArtifactController;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -271,7 +272,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.settingsMenuItem))
 		{
-			UpgradeDialogDelegate.showUpgradeDialog(DefenseArtifact.getInstance());
+			UpgradeDialogDelegate.show(DefenseArtifact.getInstance(), ArtifactController.getInstance());
 		}
 		else if (actionEvent.getSource().equals(this.exitGameMenuItem))
 		{

@@ -24,7 +24,7 @@ public interface Upgrader<T extends Upgradable<E>, E>
 	 *
 	 * @param upgradable The {@link Upgradable} instance that gets upgraded.
 	 */
-	void upgrade (T upgradable);
+	void upgrade (final T upgradable);
 
 
 	/**
@@ -36,9 +36,9 @@ public interface Upgrader<T extends Upgradable<E>, E>
 	 *
 	 * @return True if the {@link Upgradable} can be upgraded, otherwise false.
 	 */
-	boolean checkIsUpgradable (T upgradable);
+	boolean checkIsUpgradable (final T upgradable);
 
 
-	void updatePropertyValues (final T cityBuilding);
+	void updatePropertyValues (final T upgradable);
 
 }

@@ -3,6 +3,8 @@ package me.vault.game.control;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import me.vault.game.interfaces.Upgradable;
+import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.Currency;
@@ -15,7 +17,7 @@ import me.vault.game.utility.logging.Logger;
 /**
  *
  */
-public class CityBuildingController
+public class CityBuildingController implements Upgrader<CityBuilding, CityBuildingLevel>
 {
 
 	private static final CityBuildingController INSTANCE = new CityBuildingController();
@@ -39,6 +41,18 @@ public class CityBuildingController
 	public static CityBuildingController getInstance ()
 	{
 		return INSTANCE;
+	}
+
+
+	/**
+	 * Upgrades the {@link Upgradable} instance to the next level {@link E}.
+	 *
+	 * @param upgradable The {@link Upgradable} instance that gets upgraded.
+	 */
+	@Override
+	public void upgrade (final CityBuilding upgradable)
+	{
+		System.out.println("Building :" + upgradable.toString() + "upgraded!");
 	}
 
 

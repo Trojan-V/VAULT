@@ -14,6 +14,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import me.vault.game.interfaces.Level;
 import me.vault.game.interfaces.Upgradable;
+import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -38,11 +39,9 @@ public class UpgradeDialogDelegate implements Initializable
 
 	private static final String ICON_PATH = ASSETS_PATH + "Item_Pack/armor_icon.png";
 
-	private static final String TO_STRING_PATTERN =
-			"UpgradeDialogDelegate[stage={0}, afterUpgradeLabel={1}, beforeUpgradeLabel={2}, compositeCostLabel={3}, energyCreditCostLabel={4}, " +
-			"foodRationCostLabel={5}, scienceCostLabel={6}, steelCostLabel={7}, upgradeButton={8}, upgradeDialogPane={9}]";
+	private static final String TO_STRING_PATTERN = "UpgradeDialogDelegate[upgradable={0}, upgrader={1}, fxml={2}]";
 
-	private static final String UPGRADE_DIALOG_FXML = "upgradeDialog.fxml";
+	private static final String FXML_FILENAME = "upgradeDialog.fxml";
 
 	private Stage stage = null;
 
@@ -73,13 +72,23 @@ public class UpgradeDialogDelegate implements Initializable
 	@FXML
 	private DialogPane upgradeDialogPane;
 
+	private Upgrader<Upgradable<Level>, Level> upgrader = null;
 
-	private static void initializeUpgradeDialogStage (final Stage stage)
+	private Upgradable<Level> upgradable = null;
+
+
+	@FXML
+	void onUpgradeButtonAction (final ActionEvent ignored)
 	{
-		stage.setResizable(false);
-		stage.setTitle(WINDOW_TITLE);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
+		this.upgrader.upgrade(this.upgradable);
+		this.stage.close();
+	}
+
+
+	@FXML
+	void onCancelButtonAction (final ActionEvent ignored)
+	{
+		this.stage.close();
 	}
 
 
@@ -91,42 +100,30 @@ public class UpgradeDialogDelegate implements Initializable
 	}
 
 
-	public void setUpgradable (final Upgradable upgradable)
+	private static void initializeUpgradeDialogStage (final Stage stage)
 	{
-		this.setLevelChangeLabels(upgradable);
-		this.setUpgradeCostLabels(upgradable);
+		stage.setResizable(false);
+		stage.setTitle(WINDOW_TITLE);
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
 	}
 
 
-	private void setUpgradeCostLabels (final Upgradable upgradable)
+	public static void show (final Upgradable upgradable, final Upgrader upgrader)
 	{
-		final CurrencyTransaction upgradeCosts = upgradable.getCurrentUpgradeCosts();
-		this.steelCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.STEEL)));
-		this.compositeCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.COMPOSITE)));
-		this.scienceCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.SCIENCE)));
-		this.foodRationCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.FOOD_RATION)));
-		this.energyCreditCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.ENERGY_CREDIT)));
-	}
+		try
+		{
+			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(FXML_FILENAME));
+			final Parent root = fxmlLoader.load();
 
-
-	private void setLevelChangeLabels (final Upgradable upgradable)
-	{
-		this.beforeUpgradeLabel.setText(upgradable.getLevel().toString());
-		this.afterUpgradeLabel.setText(upgradable.getLevel().toString());
-	}
-
-
-	@FXML
-	void onUpgradeButtonAction (final ActionEvent event)
-	{
-
-	}
-
-
-	@FXML
-	void onCancelButtonAction (final ActionEvent event)
-	{
-
+			final UpgradeDialogDelegate controller = fxmlLoader.getController();
+			controller.setUpgradable(upgradable, upgrader);
+			controller.show(new Scene(root));
+		}
+		catch (final IOException e)
+		{
+			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL, upgradable.toString());
+		}
 	}
 
 
@@ -137,29 +134,36 @@ public class UpgradeDialogDelegate implements Initializable
 	}
 
 
-	public static void showUpgradeDialog (final Upgradable<? extends Level> upgradable)
+	private void setUpgradable (final Upgradable<Level> upgradable, final Upgrader<Upgradable<Level>, Level> upgrader)
 	{
-		try
-		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(UPGRADE_DIALOG_FXML));
-			final Parent root = fxmlLoader.load();
-			final UpgradeDialogDelegate controller = fxmlLoader.getController();
-			controller.setUpgradable(upgradable);
-			controller.show(new Scene(root));
-		}
-		catch (final IOException e)
-		{
-			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL, upgradable.toString());
-		}
+		this.upgradable = upgradable;
+		this.upgrader = upgrader;
+		this.setLevelChangeLabels(upgradable);
+		this.setUpgradeCostLabels(upgradable);
+	}
+
+
+	private void setUpgradeCostLabels (final Upgradable<Level> upgradable)
+	{
+		final CurrencyTransaction upgradeCosts = upgradable.getCurrentUpgradeCosts();
+		this.steelCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.STEEL)));
+		this.compositeCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.COMPOSITE)));
+		this.scienceCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.SCIENCE)));
+		this.foodRationCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.FOOD_RATION)));
+		this.energyCreditCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.ENERGY_CREDIT)));
+	}
+
+
+	private void setLevelChangeLabels (final Upgradable<Level> upgradable)
+	{
+		this.beforeUpgradeLabel.setText(upgradable.getLevel().toString());
+		this.afterUpgradeLabel.setText(upgradable.getLevel().toString());
 	}
 
 
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.stage, this.afterUpgradeLabel, this.beforeUpgradeLabel, this.compositeCostLabel,
-				this.energyCreditCostLabel, this.foodRationCostLabel, this.scienceCostLabel, this.steelCostLabel, this.upgradeButton,
-				this.upgradeDialogPane);
+		return MessageFormat.format(TO_STRING_PATTERN, this.upgradable, this.upgrader, FXML_FILENAME);
 	}
-
 }
