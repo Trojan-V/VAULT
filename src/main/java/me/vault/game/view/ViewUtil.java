@@ -1,9 +1,7 @@
 package me.vault.game.view;
 
 
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
@@ -14,17 +12,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import me.vault.game.interfaces.Upgradable;
+import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.io.IOException;
 import java.text.MessageFormat;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.constant.NewLoggingConstants.UPGRADE_DIALOG_FAIL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 public class ViewUtil
@@ -92,6 +87,26 @@ public class ViewUtil
 	}
 
 
+	public static void setButtonImage (final Button button, final String filePath)
+	{
+		final ImageView imageView = new ImageView(ResourceLoader.loadImage(filePath));
+		imageView.setPreserveRatio(false);
+		imageView.setFitWidth(button.getPrefWidth());
+		imageView.setFitHeight(button.getPrefHeight());
+		button.setGraphic(imageView);
+	}
+
+
+	public static void setButtonTextColor (final Button button, final String textColor)
+	{
+		button.setTextFill(Color.valueOf(textColor));
+	}
+
+
+	public static void setButtonTextColor (final Button button, final Color color)
+	{
+		button.setTextFill(color);
+	}
 
 
 }

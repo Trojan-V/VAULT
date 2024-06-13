@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.input.KeyCodeCombination?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.MainMenuDelegate">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="720.0" prefWidth="1280.0"
+            xmlns="http://javafx.com/javafx/21.0.1" fx:controller="me.vault.game.view.MainMenuDelegate">
    <center>
       <AnchorPane prefHeight="690.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
@@ -43,7 +35,8 @@
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER"
+                                        vgrow="SOMETIMES"/>
                       <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -51,7 +44,84 @@
                         <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="continueButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+                         <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER"
+                                 mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                 onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor"
+                                 onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="400.0"
+                                 style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                 text="continue" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                             <font>
+                                 <Font size="26.0"/>
+                             </font>
+                         </Button>
+                         <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER"
+                                 maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                 mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                 onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor"
+                                 onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="400.0"
+                                 style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                 text="new game" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+                                 GridPane.valignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                             <font>
+                                 <Font size="26.0"/>
+                             </font>
+                         </Button>
+                         <Button fx:id="loadGameButton" alignment="CENTER" contentDisplay="CENTER"
+                                 maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                 mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                 onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor"
+                                 onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="400.0"
+                                 style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                 text="load game" GridPane.halignment="CENTER" GridPane.rowIndex="2"
+                                 GridPane.valignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                             <font>
+                                 <Font size="26.0"/>
+                             </font>
+                         </Button>
+                         <Button fx:id="settingsButton" alignment="CENTER" contentDisplay="CENTER"
+                                 maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                 mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                 onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor"
+                                 onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="400.0"
+                                 style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                 text="settings" GridPane.rowIndex="3">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                             <font>
+                                 <Font size="26.0"/>
+                             </font>
+                         </Button>
+                         <Button fx:id="exitGameButton" alignment="CENTER" contentDisplay="CENTER"
+                                 maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                 mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                 onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor"
+                                 onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="400.0"
+                                 style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                 text="exit game" GridPane.rowIndex="4">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                             <font>
+                                 <Font size="26.0"/>
+                             </font>
+                        </Button>
+                         <Button fx:id="arenaButton" alignment="CENTER" contentDisplay="CENTER"
+                                 maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                 mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                 onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor"
+                                 onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="400.0"
+                                 style="-fx-background-color: transparent; -fx-border-color: transparent;" text="arena"
+                                 GridPane.rowIndex="5">
                            <graphic>
                               <GridPane alignment="CENTER">
                                  <columnConstraints>
@@ -60,158 +130,14 @@
                                  <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                                  </rowConstraints>
-                                 <children>
-                                    <ImageView fx:id="continueButtonBackground" fitHeight="75.0" fitWidth="400.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../assets/button.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Text fx:id="continueButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="continue" wrappingWidth="115.80224609375">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
                               </GridPane>
                            </graphic>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Button>
-                        <Button fx:id="newGameButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <graphic>
-                              <GridPane alignment="CENTER">
-                                <columnConstraints>
-                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <ImageView fx:id="newGameButtonBackground" fitHeight="75.0" fitWidth="400.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../assets/button.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Text fx:id="newGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="new game" wrappingWidth="140.80224609375">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </GridPane>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="loadGameButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.rowIndex="2">
-                           <graphic>
-                              <GridPane alignment="CENTER">
-                                 <columnConstraints>
-                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <ImageView fx:id="loadGameButtonBackground" fitHeight="75.0" fitWidth="400.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../assets/button.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Text fx:id="loadGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="load game" wrappingWidth="138.80224609375">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </GridPane>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="settingsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.rowIndex="3">
-                           <graphic>
-                              <GridPane alignment="CENTER">
-                                 <columnConstraints>
-                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <ImageView fx:id="settingsButtonBackground" fitHeight="75.0" fitWidth="400.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../assets/button.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Text fx:id="settingsButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="settings" wrappingWidth="107.80224609375">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </GridPane>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="exitGameButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.rowIndex="4">
-                           <graphic>
-                              <GridPane alignment="CENTER">
-                                 <columnConstraints>
-                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <ImageView fx:id="exitGameButtonBackground" fitHeight="75.0" fitWidth="400.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../assets/button.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Text fx:id="exitGameButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="exit game" wrappingWidth="135.80224609375">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </GridPane>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="arenaButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" GridPane.rowIndex="5">
-                           <graphic>
-                              <GridPane alignment="CENTER">
-                                 <columnConstraints>
-                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <ImageView fx:id="arenaButtonBackground" fitHeight="75.0" fitWidth="400.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../assets/button.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Text fx:id="arenaButtonText" strokeType="OUTSIDE" strokeWidth="0.0" text="arena" wrappingWidth="77.46890258789062">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </GridPane>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+                             <font>
+                                 <Font size="26.0"/>
+                             </font>
                         </Button>
                      </children>
                      <opaqueInsets>
