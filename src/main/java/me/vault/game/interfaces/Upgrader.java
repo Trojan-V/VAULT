@@ -12,11 +12,11 @@ package me.vault.game.interfaces;
  *
  * @author Vincent Wolf
  * @version 2.0.0
- * @see IUpgrader
+ * @see Upgrader
  * @see Upgradable
  * @since 08.06.2024
  */
-public interface IUpgrader<T extends Upgradable<E>, E>
+public interface Upgrader<T extends Upgradable<E>, E>
 {
 
 	/**
@@ -30,13 +30,15 @@ public interface IUpgrader<T extends Upgradable<E>, E>
 	/**
 	 * Checks if the {@link Upgradable} instance can be upgraded to the next level.
 	 * <br>
-	 * This method checks the constraints that need to be fulfilled to be able to upgrade the {@link Upgradable} to
-	 * the next level.
+	 * This method checks the constraints that need to be fulfilled to be able to upgrade the {@link Upgradable} to the next level.
 	 *
 	 * @param upgradable The {@link Upgradable} instance which is checked if it can be upgraded to the next level.
 	 *
 	 * @return True if the {@link Upgradable} can be upgraded, otherwise false.
 	 */
 	boolean checkIsUpgradable (T upgradable);
+
+
+	void updatePropertyValues (final T cityBuilding);
 
 }

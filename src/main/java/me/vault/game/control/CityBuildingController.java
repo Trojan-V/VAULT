@@ -61,7 +61,7 @@ public class CityBuildingController
 		{
 			return;
 		}
-		cityBuilding.setLevel(CityBuildingLevel.getNextHigherLevel(cityBuilding.getLevel()));
+		cityBuilding.setLevel(cityBuilding.getLevel().getNextHigherLevel());
 		CurrencyController.factorCurrencyTransaction(cityBuilding.getCurrentUpgradeCosts());
 	}
 

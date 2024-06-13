@@ -1,7 +1,7 @@
 package me.vault.game.control;
 
 
-import me.vault.game.interfaces.IUpgrader;
+import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.artifact.AttributeMultiplier;
@@ -18,12 +18,12 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 /**
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 1.0.0
- * @see IUpgrader
+ * @see Upgrader
  * @see Artifact
  * @see ArtifactLevel
  * @since 23.05.2024
  */
-public final class ArtifactController implements IUpgrader<Artifact, ArtifactLevel>
+public final class ArtifactController implements Upgrader<Artifact, ArtifactLevel>
 {
 
 	/**
@@ -46,7 +46,9 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
 	 */
-	private ArtifactController () {}
+	private ArtifactController ()
+	{
+	}
 
 
 	/**
@@ -73,15 +75,18 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	}
 
 
-	// TODO: Javadoc
-	public static void updatePropertyValues (final Artifact artifact)
+	@Override
+	public void updatePropertyValues (final Artifact artifact)
 	{
 		artifact.getNameProperty().set(artifact.getAllNames().get(artifact.getLevel()));
 		artifact.getSpriteProperty().set(artifact.getAllSprites().get(artifact.getLevel()));
 		artifact.setCurrentUpgradeCosts(artifact.getAllUpgradeCosts().get(artifact.getLevel()));
-		artifact.getAttributeModifiers().getDamageMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DAMAGE));
-		artifact.getAttributeModifiers().getHealthMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.HEALTH));
-		artifact.getAttributeModifiers().getDefenseMultiplierProperty().set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DEFENSE));
+		artifact.getAttributeModifiers().getDamageMultiplierProperty()
+				.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DAMAGE));
+		artifact.getAttributeModifiers().getHealthMultiplierProperty()
+				.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.HEALTH));
+		artifact.getAttributeModifiers().getDefenseMultiplierProperty()
+				.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DEFENSE));
 
 		// Logging output
 		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, artifact.getNameProperty().get());
@@ -108,9 +113,9 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 			return false;
 		}
 
-
 		final CurrencyTransaction upgradeCosts = artifact.getCurrentUpgradeCosts();
 		LOGGER.logf(DEBUG, UPGRADE_COST, upgradeCosts.toString());
+
 
 		// Checks if the user has enough of each required currency to purchase the upgrade. If the amount of at least
 		// one currency isn't enough, the artifact can't be upgraded.
@@ -123,7 +128,6 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 				return false;
 			}
 		}
-
 		// If all checks are passed, the method returns true.
 		LOGGER.log(DEBUG, RETURNING_TRUE);
 		return true;
@@ -139,7 +143,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 	public void upgrade (final Artifact artifact)
 	{
 		// Validate that the artifact can actually be upgraded.
-		if (!this.checkIsUpgradable(artifact))
+		if (! this.checkIsUpgradable(artifact))
 		{
 			return;
 		}
@@ -151,7 +155,7 @@ public final class ArtifactController implements IUpgrader<Artifact, ArtifactLev
 		LOGGER.logf(DEBUG, CURRENT_ARTIFACT_LEVEL, artifact.getLevel().toString());
 
 		artifact.setLevel(artifact.getLevel().getNextHigherLevel());
-		updatePropertyValues(artifact);
+		this.updatePropertyValues(artifact);
 
 		LOGGER.logf(DEBUG, UPGRADED_ARTIFACT_LEVEL, artifact.getLevel().toString());
 	}
