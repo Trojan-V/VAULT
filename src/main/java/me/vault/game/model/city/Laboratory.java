@@ -39,8 +39,8 @@ public class Laboratory extends CityBuilding
 		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"));
 		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/laboratory_icon.png"));
 
-		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(-10, -10, -10, -10, -10));
-		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(-10, -10, -10, -10, -10));
+		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(- 10, - 10, - 10, - 10, - 10));
+		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(- 10, - 10, - 10, - 10, - 10));
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
 		INSTANCE = new Laboratory();
@@ -53,6 +53,9 @@ public class Laboratory extends CityBuilding
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@NotNull
 	public Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ()
@@ -61,6 +64,9 @@ public class Laboratory extends CityBuilding
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@NotNull
 	public Map<CityBuildingLevel, String> getAllNames ()
@@ -69,6 +75,9 @@ public class Laboratory extends CityBuilding
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@NotNull
 	public Map<CityBuildingLevel, MetaDataImage> getAllSprites ()
@@ -77,6 +86,9 @@ public class Laboratory extends CityBuilding
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@NotNull
 	public Scene getScene ()

@@ -24,7 +24,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 2.0.0
- * @see me.vault.game.city.building.CityBuilding
+ * @see CityBuilding
  * @since 09.06.2024
  */
 public class CommandCenter extends CityBuilding
@@ -64,7 +64,7 @@ public class CommandCenter extends CityBuilding
 	 *
 	 * @see Map
 	 * @see CityBuildingLevel
-	 * @see Image
+	 * @see MetaDataImage
 	 */
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new HashMap<>();
 

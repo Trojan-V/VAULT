@@ -271,7 +271,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.settingsMenuItem))
 		{
-			ViewUtil.showUpgradeDialog(DefenseArtifact.getInstance());
+			UpgradeDialogDelegate.showUpgradeDialog(DefenseArtifact.getInstance());
 		}
 		else if (actionEvent.getSource().equals(this.exitGameMenuItem))
 		{

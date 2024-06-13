@@ -20,7 +20,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  *
  * @author Vincent Wolf
  * @version 1.0.0
- * @see
+ * @see CityBuilding
  * @since 06.06.2024
  */
 public class Workshop extends CityBuilding
@@ -47,8 +47,8 @@ public class Workshop extends CityBuilding
 		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/workshop_icon.png"));
 		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/workshop_icon.png"));
 
-		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(-10, -10, -10, -10, -10));
-		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(-10, -10, -10, -10, -10));
+		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(- 10, - 10, - 10, - 10, - 10));
+		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(- 10, - 10, - 10, - 10, - 10));
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
 		INSTANCE = new Workshop();
@@ -61,6 +61,9 @@ public class Workshop extends CityBuilding
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@NotNull
 	public Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ()
@@ -69,6 +72,9 @@ public class Workshop extends CityBuilding
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@NotNull
 	public Map<CityBuildingLevel, String> getAllNames ()
@@ -77,6 +83,9 @@ public class Workshop extends CityBuilding
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@NotNull
 	public Map<CityBuildingLevel, MetaDataImage> getAllSprites ()
@@ -85,6 +94,9 @@ public class Workshop extends CityBuilding
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@NotNull
 	public Scene getScene ()

@@ -21,7 +21,7 @@ import java.util.Map;
  *
  * @author Vincent Wolf
  * @version 1.0.0
- * @see
+ * @see CityBuildingLevel
  * @since 06.06.2024
  */
 public abstract class CityBuilding implements Displayable, Nameable, Upgradable<CityBuildingLevel>

@@ -32,7 +32,6 @@ public class ViewUtil
 
 	private static final ILogger LOGGER = new Logger(ViewUtil.class.getSimpleName());
 
-	private static final String UPGRADE_DIALOG_FXML = "upgradeDialog.fxml";
 
 
 	public static void setButtonColor (final Text text, final Color color)
@@ -93,20 +92,6 @@ public class ViewUtil
 	}
 
 
-	public static void showUpgradeDialog (final Upgradable upgradable)
-	{
-		try
-		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(UPGRADE_DIALOG_FXML));
-			final Parent root = fxmlLoader.load();
-			final UpgradeDialogDelegate controller = fxmlLoader.getController();
-			controller.setUpgradable(upgradable);
-			controller.show(new Scene(root));
-		}
-		catch (final IOException e)
-		{
-			new Logger(ViewUtil.class.getSimpleName()).logf(WARNING, UPGRADE_DIALOG_FAIL, upgradable.toString());
-		}
-	}
+
 
 }
