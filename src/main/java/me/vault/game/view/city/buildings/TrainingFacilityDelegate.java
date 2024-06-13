@@ -8,8 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
+import me.vault.game.control.CurrencyController;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.city.CityView;
@@ -24,28 +26,13 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 {
 
 	@FXML
-	private Label compositeAmountLabel;
-
-	@FXML
-	private ImageView compositeImageView;
-
-	@FXML
-	private Label creditAmountLabel;
-
-	@FXML
-	private ImageView creditImageView;
-
-	@FXML
 	private ImageView engineerImageView;
 
 	@FXML
 	private Button engineerUpgradeButton;
 
 	@FXML
-	private Label foodAmountLabel;
-
-	@FXML
-	private ImageView foodImageView;
+	private TabPane factionsTabPane;
 
 	@FXML
 	private ImageView grenadierImageView;
@@ -70,6 +57,9 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 
 	@FXML
 	private Button lieutenantUpgradeButton;
+
+	@FXML
+	private AnchorPane mainAnchorPane;
 
 	@FXML
 	private ImageView medicImageView;
@@ -102,12 +92,6 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private Button recruitUpgradeButton;
 
 	@FXML
-	private Label scienceAmountLabel;
-
-	@FXML
-	private ImageView scienceImageView;
-
-	@FXML
 	private ImageView sniperImageView;
 
 	@FXML
@@ -120,16 +104,8 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private Button spaceMarineUpgradeButton;
 
 	@FXML
-	private Label steelAmountLabel;
-
-	@FXML
-	private ImageView steelImageView;
-
-	@FXML
 	private ImageView trainingFacilityBackgroundImageView;
 
-	@FXML
-	private TabPane factionsTabPane;
 
 
 	@FXML
@@ -232,17 +208,6 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	{
 		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
-		this.initCurrencies();
+		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 	}
-
-
-	private void initCurrencies ()
-	{
-		initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-		initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
-	}
-
 }
