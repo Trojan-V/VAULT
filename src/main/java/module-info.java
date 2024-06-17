@@ -8,10 +8,6 @@ module me.vault.game {
 	requires java.desktop;
 	requires jdk.compiler;
 
-	opens me.vault.game to javafx.fxml;
-	opens me.vault.game.utility.loading to javafx.fxml;
-	opens me.vault.game.model.artifact to javafx.fxml;
-
 	exports me.vault.game;
 	exports me.vault.game.model.artifact;
 	exports me.vault.game.interfaces;
@@ -25,20 +21,23 @@ module me.vault.game {
 	exports me.vault.game.utility.jvm;
 	exports me.vault.game.utility.logging;
 	exports me.vault.game.utility.loading;
-
-	opens me.vault.game.model.currency to javafx.fxml;
 	exports me.vault.game.model.artifact.impl;
-	opens me.vault.game.model.artifact.impl to javafx.fxml;
 	exports me.vault.game.view;
-	opens me.vault.game.view to javafx.fxml;
 	exports me.vault.game.control;
-	opens me.vault.game.control to javafx.fxml;
 	exports me.vault.game.model.building;
-	opens me.vault.game.model.building to javafx.fxml;
-	exports me.vault.game.model.city;
-	opens me.vault.game.model.city to javafx.fxml;
-	exports me.vault.game.view.city;
-	opens me.vault.game.view.city to javafx.fxml;
 	exports me.vault.game.view.city.buildings;
+	exports me.vault.game.view.city;
+	exports me.vault.game.model.city;
+
+	opens me.vault.game to javafx.fxml;
+	opens me.vault.game.utility.loading to javafx.fxml;
+	opens me.vault.game.model.artifact to javafx.fxml;
+	opens me.vault.game.model.currency to javafx.fxml;
+	opens me.vault.game.model.artifact.impl to javafx.fxml;
+	opens me.vault.game.view to javafx.fxml;
+	opens me.vault.game.control to javafx.fxml;
+	opens me.vault.game.model.building to javafx.fxml;
+	opens me.vault.game.model.city to javafx.fxml;
+	opens me.vault.game.view.city to javafx.fxml;
 	opens me.vault.game.view.city.buildings to javafx.fxml;
 }

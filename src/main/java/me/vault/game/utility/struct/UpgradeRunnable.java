@@ -27,7 +27,7 @@ public class UpgradeRunnable implements Runnable
 	private final Upgradable<Level> upgradable;
 
 
-	public UpgradeRunnable (final Upgradable<Level> upgradable, final Upgrader<Upgradable<Level>, Level> upgrader)
+	public UpgradeRunnable (final Upgradable upgradable, final Upgrader upgrader)
 	{
 		this.upgradable = upgradable;
 		this.upgrader = upgrader;
@@ -47,9 +47,6 @@ public class UpgradeRunnable implements Runnable
 		CurrencyController.factorCurrencyTransaction(upgradeCost);
 		this.upgradable.setLevel(afterUpgradeLevel);
 		this.upgrader.updatePropertyValues(this.upgradable);
-
-		// Logging the success of the upgrade
-		LOGGER.logf(ILogger.Level.DEBUG, "Upgrade success: {0} -> {1}, Costs: {2}", beforeUpgradeLevel, afterUpgradeLevel, upgradeCost);
 	}
 
 
@@ -58,4 +55,5 @@ public class UpgradeRunnable implements Runnable
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.upgradable, this.upgrader);
 	}
+
 }

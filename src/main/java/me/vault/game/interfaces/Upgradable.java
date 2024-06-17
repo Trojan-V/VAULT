@@ -13,12 +13,14 @@ import me.vault.game.model.currency.CurrencyTransaction;
  *
  * @param <E> The leveling enum that the upgradable object corresponds to. For instance, if an implementation of this
  *            interface is an "Artifact", the corresponding leveling enum would be something like "ArtifactLevel".
+ *
  * @author Vincent Wolf
  * @version 1.1.0
  * @since 06.06.2024
  */
 public interface Upgradable<E>
 {
+
 	/**
 	 * Returns the current level of the upgradable object.
 	 *
@@ -55,4 +57,5 @@ public interface Upgradable<E>
 	 * @param upgradeCosts The upgrade costs to upgrade the upgradable object to the next level.
 	 */
 	void setCurrentUpgradeCosts (final CurrencyTransaction upgradeCosts);
+
 }

@@ -27,7 +27,7 @@ public class PrologueDelegate implements Initializable
 {
 
 	/**
-	 * The {@link Logger} object for this class used for writing formatted outputs into the console.
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(PrologueDelegate.class.getSimpleName());
 

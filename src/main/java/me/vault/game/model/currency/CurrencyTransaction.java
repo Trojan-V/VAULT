@@ -23,13 +23,17 @@ public class CurrencyTransaction
 	public static final CurrencyTransaction EMPTY = new CurrencyTransaction(0, 0, 0, 0, 0);
 
 	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final Logger LOGGER = new Logger(CurrencyTransaction.class.getSimpleName());
+
+	/**
 	 * The pattern that is used to have a formatted output in the {@link CurrencyTransaction#toString()} method.
 	 */
 	private static final String STRING_PATTERN = "CurrencyTransaction[amountMap = {0}]";
 
 	private static final String TO_STRING_PATTERN = "CurrencyTransaction[{0}]";
 
-	private static final Logger LOGGER = new Logger(CurrencyTransaction.class.getSimpleName());
 
 	/**
 	 * The {@link HashMap} which contains the numbers of currencies that are changed by the transaction. The keys of the {@code HashMap} represent the

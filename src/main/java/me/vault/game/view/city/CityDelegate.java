@@ -9,13 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
+import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.UpgradeDialogDelegate;
-import me.vault.game.view.ViewUtil;
 import me.vault.game.view.city.buildings.CityBuildingView;
 
 import java.net.URL;
@@ -113,56 +113,56 @@ public class CityDelegate implements Initializable
 	@FXML
 	void onBarracksUpgrade (final ActionEvent event)
 	{
-
+		UpgradeDialogDelegate.show(Barracks.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
 	void onCommandCenterUpgrade (final ActionEvent event)
 	{
-
+		UpgradeDialogDelegate.show(CommandCenter.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
 	void onDocksUpgrade (final ActionEvent event)
 	{
-
+		UpgradeDialogDelegate.show(Docks.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
 	void onLaboratoryUpgrade (final ActionEvent event)
 	{
-
+		UpgradeDialogDelegate.show(Laboratory.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
 	void onMarketUpgrade (final ActionEvent event)
 	{
-
+		UpgradeDialogDelegate.show(Market.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
 	void onSpaceBarUpgrade (final ActionEvent event)
 	{
-
+		UpgradeDialogDelegate.show(SpaceBar.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
 	void onTrainingFacilityUpgrade (final ActionEvent event)
 	{
-
+		UpgradeDialogDelegate.show(TrainingFacility.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
 	void onWorkshopUpgrade (final ActionEvent event)
 	{
-		// WorkshopController.getInstance().upgrade();
+		UpgradeDialogDelegate.show(Workshop.getInstance(), CityBuildingController.getInstance());
 	}
 
 

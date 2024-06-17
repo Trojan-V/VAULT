@@ -82,11 +82,11 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 		artifact.getSpriteProperty().set(artifact.getAllSprites().get(artifact.getLevel()));
 		artifact.setCurrentUpgradeCosts(artifact.getAllUpgradeCosts().get(artifact.getLevel()));
 		artifact.getAttributeModifiers().getDamageMultiplierProperty()
-				.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DAMAGE));
+			.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DAMAGE));
 		artifact.getAttributeModifiers().getHealthMultiplierProperty()
-				.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.HEALTH));
+			.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.HEALTH));
 		artifact.getAttributeModifiers().getDefenseMultiplierProperty()
-				.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DEFENSE));
+			.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DEFENSE));
 
 		// Logging output
 		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, artifact.getNameProperty().get());
@@ -143,7 +143,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	public void upgrade (final Artifact artifact)
 	{
 		// Validate that the artifact can actually be upgraded.
-		if (! this.checkIsUpgradable(artifact))
+		if (!this.checkIsUpgradable(artifact))
 		{
 			return;
 		}

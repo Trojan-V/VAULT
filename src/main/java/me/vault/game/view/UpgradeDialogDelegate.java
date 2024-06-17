@@ -33,6 +33,10 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 public class UpgradeDialogDelegate implements Initializable
 {
+
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
 	private static final ILogger LOGGER = new Logger(UpgradeDialogDelegate.class.getSimpleName());
 
 	private static final String WINDOW_TITLE = "Upgrading...";
@@ -42,8 +46,6 @@ public class UpgradeDialogDelegate implements Initializable
 	private static final String TO_STRING_PATTERN = "UpgradeDialogDelegate[upgradable={0}, upgrader={1}, fxml={2}]";
 
 	private static final String FXML_FILENAME = "upgradeDialog.fxml";
-
-	private Stage stage = null;
 
 	@FXML
 	private Label afterUpgradeLabel;
@@ -72,32 +74,11 @@ public class UpgradeDialogDelegate implements Initializable
 	@FXML
 	private DialogPane upgradeDialogPane;
 
+	private Stage stage = null;
+
 	private Upgrader<Upgradable<Level>, Level> upgrader = null;
 
 	private Upgradable<Level> upgradable = null;
-
-
-	@FXML
-	void onUpgradeButtonAction (final ActionEvent ignored)
-	{
-		this.upgrader.upgrade(this.upgradable);
-		this.stage.close();
-	}
-
-
-	@FXML
-	void onCancelButtonAction (final ActionEvent ignored)
-	{
-		this.stage.close();
-	}
-
-
-	@Override
-	public void initialize (final URL url, final ResourceBundle resourceBundle)
-	{
-		this.stage = new Stage();
-		initializeUpgradeDialogStage(this.stage);
-	}
 
 
 	private static void initializeUpgradeDialogStage (final Stage stage)
@@ -124,6 +105,29 @@ public class UpgradeDialogDelegate implements Initializable
 		{
 			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL, upgradable.toString());
 		}
+	}
+
+
+	@FXML
+	void onUpgradeButtonAction (final ActionEvent ignored)
+	{
+		this.upgrader.upgrade(this.upgradable);
+		this.stage.close();
+	}
+
+
+	@FXML
+	void onCancelButtonAction (final ActionEvent ignored)
+	{
+		this.stage.close();
+	}
+
+
+	@Override
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
+	{
+		this.stage = new Stage();
+		initializeUpgradeDialogStage(this.stage);
 	}
 
 
@@ -157,7 +161,7 @@ public class UpgradeDialogDelegate implements Initializable
 	private void setLevelChangeLabels (final Upgradable<Level> upgradable)
 	{
 		this.beforeUpgradeLabel.setText(upgradable.getLevel().toString());
-		this.afterUpgradeLabel.setText(upgradable.getLevel().toString());
+		this.afterUpgradeLabel.setText(upgradable.getLevel().getNextHigherLevel().toString());
 	}
 
 
@@ -166,4 +170,5 @@ public class UpgradeDialogDelegate implements Initializable
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.upgradable, this.upgrader, FXML_FILENAME);
 	}
+
 }

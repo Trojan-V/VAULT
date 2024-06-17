@@ -4,18 +4,21 @@ package me.vault.game.view.city.buildings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.model.city.Docks;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.*;
@@ -23,23 +26,39 @@ import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALIS
 
 
 /**
- * The {@code DocksDelegate} handles the control and view of the {@link me.vault.game.model.city.Docks} city building. On the one hand it initialises
+ * The {@code DocksDelegate} handles the control and view of the {@link Docks} city building. On the one hand it initialises
  * the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model to the
- * {@link me.vault.game.model.city.Docks} cty building.
+ * {@link Docks} cty building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @see CityBuildingController
  * @see Initializable
- * @see me.vault.game.model.city.Docks
+ * @see Docks
  * @since 11.06.2024
  */
 public class DocksDelegate extends CityBuildingController implements Initializable
 {
 
+	// CONSTANTS -------------------------------------------------------------------------------------------------------
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(DocksDelegate.class.getSimpleName());
+
+	/**
+	 * The pattern used to create the string which describes the class in a human-readable format.
+	 */
+	private static final String TO_STRING_PATTERN = "DocksDelegate[fxml={0}]";
+
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
+	 * elements.
+	 */
+	private static final Scene FXML_FILENAME = ResourceLoader.loadScene(Docks.class, "docks_view.fxml");
+
+
+	// FXML ------------------------------------------------------------------------------------------------------------
 
 	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
@@ -85,8 +104,20 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 		this.docksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 
-		// Logging the finalisation of the initialisation
+		// Logging the finalization of the initialization
 		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALISED, DocksDelegate.class.getSimpleName());
+	}
+
+
+	/**
+	 * Returns the instance of this class in a human-readable format by creating a string.
+	 *
+	 * @return The message in its string representation.
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, FXML_FILENAME);
 	}
 
 }

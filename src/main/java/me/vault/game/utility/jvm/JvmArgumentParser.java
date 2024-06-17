@@ -26,6 +26,9 @@ import static me.vault.game.utility.logging.ILogger.Level.*;
 public final class JvmArgumentParser
 {
 
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
 	private static final ILogger LOGGER = new Logger(JvmArgumentParser.class.getSimpleName());
 
 	private static final int REMOVE_LEADING_DASH_SUBSTRING_INDEX = 1;

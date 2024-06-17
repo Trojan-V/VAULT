@@ -4,32 +4,31 @@ package me.vault.game;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import me.vault.game.utility.jvm.JvmArgumentParser;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ExitGameDialogDelegate;
 import me.vault.game.view.MainMenuDelegate;
-import me.vault.game.view.VaultDelegate;
+
+import java.util.Arrays;
 
 import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
+import static me.vault.game.utility.constant.NewLoggingConstants.PROGRAM_START;
 
 
 /**
  * The entry point of the VAULT game application. This class launches the GUI window the player will interact with to. The class which inherits from
- * {@link Application} is responsible for loading any {@code .fxml} files. The {@code .fxml} file creates the connection between
- * {@link VaultApplication} and {@link VaultDelegate}.
+ * {@link Application} is responsible for loading any {@code .fxml} files.
  *
  * @author Vincent Wolf
  * @version 1.0.0
  * @see Application
- * @see VaultDelegate
  * @since 24.04.2024
  */
 public class VaultApplication extends Application
 {
 
 	/**
-	 * The logger object for this class used for writing formatted outputs into the console.
-	 *
-	 * @see Logger
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final Logger LOGGER = new Logger(VaultApplication.class.getSimpleName());
 
@@ -38,7 +37,7 @@ public class VaultApplication extends Application
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
-	private static final String MAIN_STYLESHEET_FILENAME = "main.fxml";
+	private static final String FXML_FILENAME = "main.fxml";
 
 
 	private static Stage mainStage = null;
@@ -52,6 +51,8 @@ public class VaultApplication extends Application
 	 */
 	public static void main (final String[] args)
 	{
+		LOGGER.logf(ILogger.Level.NORMAL, PROGRAM_START, Arrays.toString(args));
+
 		// TODO: createDefaultConfig();
 		JvmArgumentParser.apply(args);
 		launch();
@@ -82,12 +83,4 @@ public class VaultApplication extends Application
 			ExitGameDialogDelegate.show();
 		});
 	}
-
-
-	@Override
-	public void stop ()
-	{
-		// System.out.println("Stage is closing");
-	}
-
 }

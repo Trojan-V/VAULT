@@ -84,6 +84,7 @@ public interface LoggingConstants
 	interface Currency
 	{
 
+
 		String EXECUTION_NOT_POSSIBLE_ANYMORE_MSG = "Exiting the program because a meaningful execution isn't possible anymore.";
 
 	}

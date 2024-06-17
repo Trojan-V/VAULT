@@ -14,6 +14,7 @@ import me.vault.game.model.artifact.ArtifactLevel;
  */
 public interface Level
 {
+
 	/**
 	 * Returns the next lower level for the current level instance.
 	 *

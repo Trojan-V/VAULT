@@ -36,9 +36,7 @@ public final class DefenseArtifact extends Artifact
 {
 
 	/**
-	 * The logger object for this class used for writing to the console.
-	 *
-	 * @see Logger
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(DefenseArtifact.class.getSimpleName());
 

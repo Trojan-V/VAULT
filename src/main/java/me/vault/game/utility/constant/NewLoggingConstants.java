@@ -12,6 +12,8 @@ package me.vault.game.utility.constant;
 public interface NewLoggingConstants
 {
 
+	String PROGRAM_START = "Program started - arguments: {0}";
+
 	String STATIC_INITIALIZER_ENTERED = "The static initializer of {0} was entered.";
 
 	String STATIC_INITIALIZER_LEFT = "The static initializer of {0} was left.";
@@ -69,6 +71,24 @@ public interface NewLoggingConstants
 		String CURRENT_ARTIFACT_LEVEL = "Current artifact level: {0}";
 
 		String UPGRADED_ARTIFACT_LEVEL = "Upgraded the artifact to the level: {0}";
+
+	}
+
+
+	interface CityBuildingController
+	{
+
+		String UPGRADING_BUILDING = "Upgrading {0}: {1} -> {2}";
+
+	}
+
+
+	interface Currency
+	{
+
+		String FACTORED_TRANSACTION = "Factored transaction - transaction amounts: {0}";
+
+		String NEW_CURRENCY_VALUES = "New currency values: {0}";
 
 	}
 

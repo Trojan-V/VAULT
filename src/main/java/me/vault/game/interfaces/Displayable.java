@@ -21,6 +21,7 @@ import me.vault.game.utility.struct.MetaDataImage;
  */
 public interface Displayable
 {
+
 	/**
 	 * Returns the sprite that is stored within the property of the displayable object as an {@link Image}.
 	 *
@@ -35,4 +36,5 @@ public interface Displayable
 	 * @return The sprite property of the displayable object.
 	 */
 	SimpleObjectProperty<MetaDataImage> getSpriteProperty ();
+
 }

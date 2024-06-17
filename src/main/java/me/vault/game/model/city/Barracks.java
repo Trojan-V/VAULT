@@ -34,9 +34,7 @@ public final class Barracks extends CityBuilding
 {
 
 	/**
-	 * The logger object for this class used for writing to the console.
-	 *
-	 * @see Logger
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	public static final ILogger LOGGER = new Logger(Barracks.class.getSimpleName());
 

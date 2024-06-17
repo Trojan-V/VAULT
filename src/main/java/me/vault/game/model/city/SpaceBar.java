@@ -39,8 +39,8 @@ public class SpaceBar extends CityBuilding
 		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"));
 		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/space_bar_icon.png"));
 
-		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(- 10, - 10, - 10, - 10, - 10));
-		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(- 10, - 10, - 10, - 10, - 10));
+		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(-10, -10, -10, -10, -10));
+		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(-10, -10, -10, -10, -10));
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
 		INSTANCE = new SpaceBar();
