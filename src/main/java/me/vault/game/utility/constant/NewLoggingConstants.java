@@ -12,6 +12,8 @@ package me.vault.game.utility.constant;
 public interface NewLoggingConstants
 {
 
+	String PROGRAM_START = "Program started - arguments: {0}";
+
 	String STATIC_INITIALIZER_ENTERED = "The static initializer of {0} was entered.";
 
 	String STATIC_INITIALIZER_LEFT = "The static initializer of {0} was left.";
