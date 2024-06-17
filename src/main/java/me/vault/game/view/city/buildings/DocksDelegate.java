@@ -26,14 +26,14 @@ import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALIS
 
 
 /**
- * The {@code DocksDelegate} handles the control and view of the {@link me.vault.game.model.city.Docks} city building. On the one hand it initialises
+ * The {@code DocksDelegate} handles the control and view of the {@link Docks} city building. On the one hand it initialises
  * the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model to the
- * {@link me.vault.game.model.city.Docks} cty building.
+ * {@link Docks} cty building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @see CityBuildingController
  * @see Initializable
- * @see me.vault.game.model.city.Docks
+ * @see Docks
  * @since 11.06.2024
  */
 public class DocksDelegate extends CityBuildingController implements Initializable
@@ -119,4 +119,5 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, FXML_FILENAME);
 	}
+
 }

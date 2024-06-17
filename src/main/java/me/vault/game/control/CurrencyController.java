@@ -80,16 +80,6 @@ public final class CurrencyController implements Initializable
 
 	// Methods --------------------------------------------------------------------------------------------------------------
 
-	@Override
-	public void initialize (final URL url, final ResourceBundle resourceBundle)
-	{
-		CurrencyController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-		CurrencyController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-		CurrencyController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-		CurrencyController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-		CurrencyController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
-	}
-
 
 	private static void initCurrency (final Currency currency, final Label label, final ImageView imageView)
 	{
@@ -120,6 +110,17 @@ public final class CurrencyController implements Initializable
 	public static Scene getCurrencyBannerScene ()
 	{
 		return ResourceLoader.loadScene(CurrencyController.class, FXML_FILENAME);
+	}
+
+
+	@Override
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
+	{
+		CurrencyController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
+		CurrencyController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
+		CurrencyController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
+		CurrencyController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
+		CurrencyController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
 	}
 
 }

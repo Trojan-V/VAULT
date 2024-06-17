@@ -16,7 +16,6 @@ import me.vault.game.model.city.*;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.UpgradeDialogDelegate;
-import me.vault.game.view.ViewUtil;
 import me.vault.game.view.city.buildings.CityBuildingView;
 
 import java.net.URL;

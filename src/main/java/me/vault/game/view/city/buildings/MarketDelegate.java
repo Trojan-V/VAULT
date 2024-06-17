@@ -20,8 +20,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALISED;
-import static me.vault.game.utility.logging.ILogger.*;
-import static me.vault.game.utility.logging.ILogger.Level.*;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**

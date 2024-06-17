@@ -69,9 +69,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 {
 
 	/**
-	 * The logger object for this class used for writing to the console.
-	 *
-	 * @see Logger
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(Artifact.class.getSimpleName());
 
@@ -251,13 +249,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	}
 
 
-	@Override
-	public void setCurrentUpgradeCosts (final CurrencyTransaction upgradeCosts)
-	{
-		this.currentUpgradeCost = upgradeCosts;
-	}
-
-
 	/**
 	 * Returns the current level of the artifact.
 	 * <br>
@@ -285,6 +276,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Sets the level of the artifact to a new level.
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link ArtifactLevel}.
+	 *
 	 * @see ArtifactLevel
 	 */
 	@Override
@@ -304,6 +296,13 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	public CurrencyTransaction getCurrentUpgradeCosts ()
 	{
 		return this.currentUpgradeCost;
+	}
+
+
+	@Override
+	public void setCurrentUpgradeCosts (final CurrencyTransaction upgradeCosts)
+	{
+		this.currentUpgradeCost = upgradeCosts;
 	}
 
 
@@ -387,4 +386,5 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 				.toString(),
 			this.attributeMultiplier.toString(), this.currentUpgradeCost.toString());
 	}
+
 }

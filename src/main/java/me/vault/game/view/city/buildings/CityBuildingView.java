@@ -16,6 +16,9 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 public final class CityBuildingView
 {
 
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
 	private static final ILogger LOGGER = new Logger(CityBuildingView.class.getSimpleName());
 
 

@@ -5,14 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.city.CityView;
 
@@ -105,7 +103,6 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 
 	@FXML
 	private ImageView trainingFacilityBackgroundImageView;
-
 
 
 	@FXML
@@ -210,4 +207,5 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 	}
+
 }

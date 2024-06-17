@@ -33,9 +33,7 @@ public class MainMenuDelegate implements Initializable
 	// Buttons ------------------------------------------------------------------------------------------------------------------
 
 	/**
-	 * The logger object for this class used for writing formatted outputs into the console.
-	 *
-	 * @see Logger
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(MainMenuDelegate.class.getSimpleName());
 
@@ -50,6 +48,7 @@ public class MainMenuDelegate implements Initializable
 
 
 	private static final String BUTTON_BACKGROUND_SELECTED = ASSETS_PATH + "button_round.png";
+
 	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 
 	@FXML
@@ -132,7 +131,6 @@ public class MainMenuDelegate implements Initializable
 
 
 	/**
-	 *
 	 * @param mouseEvent
 	 */
 	@FXML

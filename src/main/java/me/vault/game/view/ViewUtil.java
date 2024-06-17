@@ -25,8 +25,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 public class ViewUtil
 {
 
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
 	private static final ILogger LOGGER = new Logger(ViewUtil.class.getSimpleName());
-
 
 
 	public static void setButtonColor (final Text text, final Color color)
@@ -107,6 +109,5 @@ public class ViewUtil
 	{
 		button.setTextFill(color);
 	}
-
 
 }

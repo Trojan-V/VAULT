@@ -5,11 +5,6 @@ import me.vault.game.interfaces.Level;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.text.MessageFormat;
-
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-
 
 public enum CityBuildingLevel implements Level
 {
@@ -42,8 +37,20 @@ public enum CityBuildingLevel implements Level
 	}
 
 
+	private static boolean checkIsMinimumLevel (final CityBuildingLevel level)
+	{
+		return level.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL < MINIMUM_LEVEL_ORDINAL;
+	}
+
+
+	private static boolean checkIsMaximumLevel (final CityBuildingLevel level)
+	{
+		return level.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL >= values().length;
+	}
+
+
 	@Override
-	public  CityBuildingLevel getNextHigherLevel ()
+	public CityBuildingLevel getNextHigherLevel ()
 	{
 		// Check if the last entry was already reached, so there would be no higher level for the artifact as it's
 		// already at the maximum level.
@@ -64,18 +71,6 @@ public enum CityBuildingLevel implements Level
 			return this;
 		}
 		return values()[this.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
-	}
-
-
-	private static boolean checkIsMinimumLevel (final CityBuildingLevel level)
-	{
-		return level.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL < MINIMUM_LEVEL_ORDINAL;
-	}
-
-
-	private static boolean checkIsMaximumLevel (final CityBuildingLevel level)
-	{
-		return level.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL >= values().length;
 	}
 }
 

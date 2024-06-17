@@ -19,6 +19,7 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public interface Nameable
 {
+
 	/**
 	 * Returns the name stored within the property of the nameable object as a {@link String}.
 	 *
