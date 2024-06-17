@@ -1,6 +1,7 @@
 package me.vault.game.model.building;
 
 
+import me.vault.game.interfaces.Level;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -10,7 +11,7 @@ import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
-public enum CityBuildingLevel
+public enum CityBuildingLevel implements Level
 {
 	OLD,
 	NORMAL,
@@ -45,6 +46,7 @@ public enum CityBuildingLevel
 	}
 
 
+	@Override
 	public  CityBuildingLevel getNextHigherLevel ()
 	{
 		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_HIGHER_LEVEL_METHOD_ENTERED_MSG, this.name()));
@@ -64,6 +66,7 @@ public enum CityBuildingLevel
 	}
 
 
+	@Override
 	public CityBuildingLevel getNextLowerLevel ()
 	{
 		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_LOWER_LEVEL_METHOD_ENTERED_MSG, this.name()));
