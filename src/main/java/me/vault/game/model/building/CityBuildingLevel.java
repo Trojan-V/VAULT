@@ -18,9 +18,7 @@ public enum CityBuildingLevel implements Level
 	SUPER;
 
 	/**
-	 * The logger object for this class used for writing to the console.
-	 *
-	 * @see Logger
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(CityBuildingLevel.class.getSimpleName());
 
@@ -40,8 +38,6 @@ public enum CityBuildingLevel implements Level
 
 	public static CityBuildingLevel getMaximumCityBuildingLevel ()
 	{
-		LOGGER.log(DEBUG,
-			MessageFormat.format(GET_MAXIMUM_LEVEL_METHOD_ENTERED_MSG, values()[values().length - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));
 		return values()[values().length - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
 	}
 
@@ -49,19 +45,12 @@ public enum CityBuildingLevel implements Level
 	@Override
 	public  CityBuildingLevel getNextHigherLevel ()
 	{
-		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_HIGHER_LEVEL_METHOD_ENTERED_MSG, this.name()));
-
-
 		// Check if the last entry was already reached, so there would be no higher level for the artifact as it's
 		// already at the maximum level.
 		if (checkIsMaximumLevel(this))
 		{
-			LOGGER.log(DEBUG, MessageFormat.format(ARTIFACT_IS_MAX_LEVEL_MSG, this.name()));
 			return this;
 		}
-
-		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_HIGHER_LEVEL_METHOD_LEFT_MSG,
-			values()[this.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL].name()));
 		return values()[this.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL];
 	}
 
@@ -69,17 +58,11 @@ public enum CityBuildingLevel implements Level
 	@Override
 	public CityBuildingLevel getNextLowerLevel ()
 	{
-		LOGGER.log(DEBUG, MessageFormat.format(GET_NEXT_LOWER_LEVEL_METHOD_ENTERED_MSG, this.name()));
-
-
 		// Check if the artifact level is already the lowest level.
 		if (checkIsMinimumLevel(this))
 		{
-			LOGGER.log(DEBUG, MessageFormat.format(ARTIFACT_IS_MIN_LEVEL_MSG, this.name()));
 			return this;
 		}
-		LOGGER.log(DEBUG,
-			MessageFormat.format(GET_NEXT_LOWER_LEVEL_METHOD_LEFT_MSG, values()[this.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL].name()));
 		return values()[this.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
 	}
 

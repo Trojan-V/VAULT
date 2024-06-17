@@ -157,7 +157,7 @@ public class UpgradeDialogDelegate implements Initializable
 	private void setLevelChangeLabels (final Upgradable<Level> upgradable)
 	{
 		this.beforeUpgradeLabel.setText(upgradable.getLevel().toString());
-		this.afterUpgradeLabel.setText(upgradable.getLevel().toString());
+		this.afterUpgradeLabel.setText(upgradable.getLevel().getNextHigherLevel().toString());
 	}
 
 

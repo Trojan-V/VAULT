@@ -72,4 +72,15 @@ public interface NewLoggingConstants
 
 	}
 
+	interface CityBuildingController
+	{
+		String UPGRADING_BUILDING = "Upgrading {0}: {1} -> {2}";
+	}
+	interface Currency
+	{
+		String FACTORED_TRANSACTION = "Factored transaction - transaction amounts: {0}";
+		String NEW_CURRENCY_VALUES = "New currency values: {0}";
+
+	}
+
 }

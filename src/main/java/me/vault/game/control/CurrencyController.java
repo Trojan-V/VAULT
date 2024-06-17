@@ -13,13 +13,17 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+
+import static me.vault.game.utility.constant.NewLoggingConstants.Currency.FACTORED_TRANSACTION;
+import static me.vault.game.utility.constant.NewLoggingConstants.Currency.NEW_CURRENCY_VALUES;
 
 
 /**
  * The {@code CurrencyController} class primarily provides methods and isn't meant to be implemented. It's used to handle the {@link Currency} class.
  *
- * @author Lasse-Leander Hillen
+ * @author Lasse-Leander Hillen, Vincent Wolf, Alexander Goethel,
  * @see Currency
  * @since 21.05.2024
  */
@@ -27,13 +31,18 @@ public final class CurrencyController implements Initializable
 {
 
 	/**
-	 * The logger object for this class used for writing to the console.
-	 *
-	 * @see Logger
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(CurrencyController.class.getSimpleName());
 
-	private static final Scene SCENE = ResourceLoader.loadScene(CurrencyController.class, "currency_view.fxml");
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
+	 * elements.
+	 */
+	private static final String FXML_FILENAME = "currency_view.fxml";
+
+
+	// Labels ---------------------------------------------------------------------------------------------------------------
 
 	@FXML
 	private Label steelAmountLabel;
@@ -49,6 +58,9 @@ public final class CurrencyController implements Initializable
 
 	@FXML
 	private Label creditAmountLabel;
+
+
+	// ImageViews -----------------------------------------------------------------------------------------------------------
 
 	@FXML
 	private ImageView steelImageView;
@@ -66,6 +78,26 @@ public final class CurrencyController implements Initializable
 	private ImageView creditImageView;
 
 
+	// Methods --------------------------------------------------------------------------------------------------------------
+
+	@Override
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
+	{
+		CurrencyController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
+		CurrencyController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
+		CurrencyController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
+		CurrencyController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
+		CurrencyController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
+	}
+
+
+	private static void initCurrency (final Currency currency, final Label label, final ImageView imageView)
+	{
+		label.textProperty().bind(currency.getAmountProperty().asString());
+		imageView.imageProperty().bind(currency.getSpriteProperty());
+	}
+
+
 	/**
 	 * Accepts a {@link CurrencyTransaction} as input and factors in every amount of {@link Currency} which is saved in the transaction.
 	 *
@@ -78,29 +110,16 @@ public final class CurrencyController implements Initializable
 			final Currency currency = Currency.values()[i];
 			currency.addAmount(transaction.getAmount(currency));
 		}
+
+		// Logging the used amount and the new currency values
+		LOGGER.logf(ILogger.Level.DEBUG, FACTORED_TRANSACTION, transaction);
+		LOGGER.logf(ILogger.Level.DEBUG, NEW_CURRENCY_VALUES, Arrays.toString(Currency.values()));
 	}
 
 
 	public static Scene getCurrencyBannerScene ()
 	{
-		return ResourceLoader.loadScene(CurrencyController.class, "currency_view.fxml");
-	}
-
-
-	@Override
-	public void initialize (final URL url, final ResourceBundle resourceBundle)
-	{
-		this.initCurrencies();
-	}
-
-
-	private void initCurrencies ()
-	{
-		CityBuildingController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-		CityBuildingController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-		CityBuildingController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-		CityBuildingController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-		CityBuildingController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
+		return ResourceLoader.loadScene(CurrencyController.class, FXML_FILENAME);
 	}
 
 }
