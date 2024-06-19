@@ -27,7 +27,10 @@ public interface Displayable
 	 *
 	 * @return The sprite of the displayable object.
 	 */
-	Image getSprite ();
+	MetaDataImage getSprite ();
+
+
+	void setSprite (final MetaDataImage sprite);
 
 
 	/**

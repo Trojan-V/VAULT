@@ -126,6 +126,24 @@ public class AttributeMultiplier
 	}
 
 
+	public void setDamageMultiplier (final double damageMultiplier)
+	{
+		this.damageMultiplierProperty.set(damageMultiplier);
+	}
+
+
+	public void setHealthMultiplier (final double healthMultiplier)
+	{
+		this.healthMultiplierProperty.set(healthMultiplier);
+	}
+
+
+	public void setDefenseMultiplier (final double defenseMultiplier)
+	{
+		this.defenseMultiplierProperty.set(defenseMultiplier);
+	}
+
+
 	/**
 	 * Returns the property which is wrapped around the damage multiplier. This property needs to be bound to the corresponding GUI element in order
 	 * for JavaFX to be able to update the data in the GUI element automatically.
@@ -159,21 +177,6 @@ public class AttributeMultiplier
 	public SimpleDoubleProperty getDefenseMultiplierProperty ()
 	{
 		return this.defenseMultiplierProperty;
-	}
-
-
-	/**
-	 * This method is invoked by the {@link Artifact#updatePropertyValues()})} method.
-	 * <br>
-	 * This method updates the properties of this class which are bound to the GUI to ensure the correct data is shown after an upgrade happened.
-	 *
-	 * @param modifiers The new values of the attribute modifiers which are applied to the properties.
-	 */
-	public void updatePropertyValues (final Map<Type, Double> modifiers)
-	{
-		this.damageMultiplierProperty.set(modifiers.get(Type.DAMAGE));
-		this.defenseMultiplierProperty.set(modifiers.get(Type.DEFENSE));
-		this.healthMultiplierProperty.set(modifiers.get(Type.HEALTH));
 	}
 
 

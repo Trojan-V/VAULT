@@ -177,9 +177,15 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * of buffs or de-buffs depending on the equipped artifact.
 	 * @see AttributeMultiplier
 	 */
-	public AttributeMultiplier getAttributeModifiers ()
+	public AttributeMultiplier getAttributeMultipliers ()
 	{
 		return this.attributeMultiplier;
+	}
+
+
+	public Map<AttributeMultiplier.Type, Double> getAttributeMultipliers (final ArtifactLevel level)
+	{
+		return this.getAllModifiers().get(level);
 	}
 
 
@@ -212,6 +218,19 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	}
 
 
+	public String getName (final ArtifactLevel level)
+	{
+		return this.getAllNames().get(level);
+	}
+
+
+	@Override
+	public void setName (final String name)
+	{
+		this.nameProperty.set(name);
+	}
+
+
 	/**
 	 * Returns the current sprite of the artifact.
 	 * <br>
@@ -220,12 +239,25 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * artifact levels, hence why it doesn't change visually in that case.
 	 *
 	 * @return The current sprite of the artifact.
-	 * @see Image
+	 * @see MetaDataImage
 	 */
 	@Override
-	public Image getSprite ()
+	public MetaDataImage getSprite ()
 	{
 		return this.spriteProperty.get();
+	}
+
+
+	@Override
+	public void setSprite (final MetaDataImage sprite)
+	{
+		this.spriteProperty.set(sprite);
+	}
+
+
+	public MetaDataImage getSprite (final ArtifactLevel level)
+	{
+		return this.getAllSprites().get(level);
 	}
 
 
@@ -293,16 +325,22 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @see CurrencyTransaction
 	 */
 	@Override
-	public CurrencyTransaction getCurrentUpgradeCosts ()
+	public CurrencyTransaction getUpgradeCosts ()
 	{
 		return this.currentUpgradeCost;
 	}
 
 
 	@Override
-	public void setCurrentUpgradeCosts (final CurrencyTransaction upgradeCosts)
+	public void setUpgradeCosts (final CurrencyTransaction upgradeCosts)
 	{
 		this.currentUpgradeCost = upgradeCosts;
+	}
+
+
+	public CurrencyTransaction getUpgradeCosts (final ArtifactLevel level)
+	{
+		return this.getAllUpgradeCosts().get(level);
 	}
 
 

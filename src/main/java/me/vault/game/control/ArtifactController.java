@@ -10,6 +10,8 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
+import java.util.Map;
+
 import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
 import static me.vault.game.utility.constant.NewLoggingConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
@@ -33,6 +35,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 */
 	private static final ArtifactController INSTANCE = new ArtifactController();
 
+
 	/**
 	 * The logger object for this class used for writing to the console.
 	 *
@@ -47,15 +50,13 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
 	 */
 	private ArtifactController ()
-	{
-	}
+	{}
 
 
 	/**
 	 * Checks if the supplied artifact is at the maximum level. If yes, true is returned, otherwise false.
 	 *
 	 * @param artifact The instance of {@link Artifact} which is checked.
-	 *
 	 * @return True if the artifact is maxed, otherwise false.
 	 */
 	private static boolean checkIsArtifactMaxed (final Artifact artifact)
@@ -78,20 +79,22 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	@Override
 	public void updatePropertyValues (final Artifact artifact)
 	{
-		artifact.getNameProperty().set(artifact.getAllNames().get(artifact.getLevel()));
-		artifact.getSpriteProperty().set(artifact.getAllSprites().get(artifact.getLevel()));
-		artifact.setCurrentUpgradeCosts(artifact.getAllUpgradeCosts().get(artifact.getLevel()));
-		artifact.getAttributeModifiers().getDamageMultiplierProperty()
-			.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DAMAGE));
-		artifact.getAttributeModifiers().getHealthMultiplierProperty()
-			.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.HEALTH));
-		artifact.getAttributeModifiers().getDefenseMultiplierProperty()
-			.set(artifact.getAllModifiers().get(artifact.getLevel()).get(AttributeMultiplier.Type.DEFENSE));
+		artifact.setName(artifact.getName(artifact.getLevel()));
+		artifact.setSprite(artifact.getSprite(artifact.getLevel()));
+		artifact.setUpgradeCosts(artifact.getUpgradeCosts(artifact.getLevel()));
+
+		final Map<AttributeMultiplier.Type, Double> attributeMultipliersMap =
+			artifact.getAttributeMultipliers(artifact.getLevel());
+		final AttributeMultiplier currentAttributeMultipliers = artifact.getAttributeMultipliers();
+
+		currentAttributeMultipliers.setDamageMultiplier(attributeMultipliersMap.get(AttributeMultiplier.Type.DAMAGE));
+		currentAttributeMultipliers.setHealthMultiplier(attributeMultipliersMap.get(AttributeMultiplier.Type.HEALTH));
+		currentAttributeMultipliers.setDefenseMultiplier(attributeMultipliersMap.get(AttributeMultiplier.Type.DEFENSE));
 
 		// Logging output
 		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, artifact.getNameProperty().get());
 		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, artifact.getSpriteProperty().get().toString());
-		LOGGER.logf(DEBUG, UPGRADE_COST_SET, artifact.getCurrentUpgradeCosts().toString());
+		LOGGER.logf(DEBUG, UPGRADE_COST_SET, artifact.getUpgradeCosts().toString());
 	}
 
 
@@ -99,7 +102,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * {@inheritDoc}
 	 *
 	 * @param artifact The {@link Artifact} instance which is checked if it can be upgraded to the next level.
-	 *
 	 * @return True if the {@link Artifact} can be upgraded, otherwise false.
 	 */
 	@Override
@@ -113,7 +115,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 			return false;
 		}
 
-		final CurrencyTransaction upgradeCosts = artifact.getCurrentUpgradeCosts();
+		final CurrencyTransaction upgradeCosts = artifact.getUpgradeCosts();
 		LOGGER.logf(DEBUG, UPGRADE_COST, upgradeCosts.toString());
 
 
@@ -149,7 +151,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 		}
 
 		// Now it's known that the artifact can be upgraded, so the upgrade costs are factored into the account.
-		CurrencyController.factorCurrencyTransaction(artifact.getCurrentUpgradeCosts());
+		CurrencyController.factorCurrencyTransaction(artifact.getUpgradeCosts());
 
 		// The level of the artifact is changed to the next level, so it's getting upgraded now.
 		LOGGER.logf(DEBUG, CURRENT_ARTIFACT_LEVEL, artifact.getLevel().toString());

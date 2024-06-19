@@ -4,7 +4,6 @@ package me.vault.game.model.building;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
@@ -100,11 +99,22 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 
 	/**
 	 * {@inheritDoc}
+	 * Returns the name for the current level of the city building.
 	 */
 	@Override
 	public String getName ()
 	{
 		return this.nameProperty.get();
+	}
+
+
+	// TODO: Vielleicht ins Interface Nameable schieben.
+
+
+	@Override
+	public void setName (final String name)
+	{
+		this.nameProperty.set(name);
 	}
 
 
@@ -119,12 +129,32 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 
 
 	/**
+	 * Returns the name for the supplied level of the city building.
+	 *
+	 * @param level The level whose name should be returned.
+	 * @return The name for the supplied level.
+	 */
+	public String getName (final CityBuildingLevel level)
+	{
+		return this.getAllNames().get(level);
+	}
+
+
+	/**
 	 * {@inheritDoc}
+	 * Returns the name for the current level of the city building.
 	 */
 	@Override
-	public Image getSprite ()
+	public MetaDataImage getSprite ()
 	{
 		return this.spriteProperty.get();
+	}
+
+
+	@Override
+	public void setSprite (final MetaDataImage sprite)
+	{
+		this.spriteProperty.set(sprite);
 	}
 
 
@@ -159,10 +189,22 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 
 
 	/**
+	 * Returns the sprite for the supplied level of the city building.
+	 *
+	 * @param level The level whose sprite should be returned.
+	 * @return The sprite for the supplied level.
+	 */
+	public MetaDataImage getSprite (final CityBuildingLevel level)
+	{
+		return this.getAllSprites().get(level);
+	}
+
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CurrencyTransaction getCurrentUpgradeCosts ()
+	public CurrencyTransaction getUpgradeCosts ()
 	{
 		return this.currentUpgradeCost;
 	}
@@ -172,9 +214,15 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setCurrentUpgradeCosts (final CurrencyTransaction upgradeCosts)
+	public void setUpgradeCosts (final CurrencyTransaction upgradeCosts)
 	{
 		this.currentUpgradeCost = upgradeCosts;
+	}
+
+
+	public CurrencyTransaction getUpgradeCosts (final CityBuildingLevel level)
+	{
+		return this.getAllUpgradeCosts().get(level);
 	}
 
 

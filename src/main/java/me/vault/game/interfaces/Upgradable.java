@@ -44,7 +44,7 @@ public interface Upgradable<E>
 	 *
 	 * @return The upgrade costs to upgrade the upgradable object to the next level.
 	 */
-	CurrencyTransaction getCurrentUpgradeCosts ();
+	CurrencyTransaction getUpgradeCosts ();
 
 
 	/**
@@ -56,6 +56,6 @@ public interface Upgradable<E>
 	 *
 	 * @param upgradeCosts The upgrade costs to upgrade the upgradable object to the next level.
 	 */
-	void setCurrentUpgradeCosts (final CurrencyTransaction upgradeCosts);
+	void setUpgradeCosts (final CurrencyTransaction upgradeCosts);
 
 }

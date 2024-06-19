@@ -40,7 +40,7 @@ public class UpgradeRunnable implements Runnable
 	@Override
 	public void run ()
 	{
-		final CurrencyTransaction upgradeCost = this.upgradable.getCurrentUpgradeCosts();
+		final CurrencyTransaction upgradeCost = this.upgradable.getUpgradeCosts();
 		final Level beforeUpgradeLevel = this.upgradable.getLevel();
 		final Level afterUpgradeLevel = beforeUpgradeLevel.getNextHigherLevel();
 
