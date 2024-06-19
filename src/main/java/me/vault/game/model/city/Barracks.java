@@ -6,17 +6,14 @@ import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
+import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.CityBuildingConstants.Barracks.*;
-import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -25,7 +22,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * The {@link Barracks} city building holds all information about the starting faction of the game, which can be selected by the player and be used in
  * missions and encounters.
  *
- * @author Vincent Wolf, Lasse-Leander Hillen
+ * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 2.0.0
  * @see CityBuilding
  * @since 09.06.2024
@@ -36,61 +33,52 @@ public final class Barracks extends CityBuilding
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	public static final ILogger LOGGER = new Logger(Barracks.class.getSimpleName());
+	public static final Logger LOGGER = new Logger(Barracks.class.getSimpleName());
 
 	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Barracks} city building. Instead of using a singleton, the entire
-	 * class could've been created using solely static methods and fields.
+	 * Singleton instance, as there's never a reason to have more than one {@link Barracks} city building.
+	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
 	 */
 	private static final Barracks INSTANCE;
 
 	/**
 	 * The {@link Scene} of the {@link Barracks} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader} class.
 	 */
-	private static final Scene FXML_SCENE = ResourceLoader.loadScene(Barracks.class, "barracks_view.fxml");
+	private static final Scene SCENE = ResourceLoader.loadScene(Barracks.class, "barracks_view.fxml");
 
 	/**
-	 * All possible names of the {@link Barracks} city building are stored in this map, with the {@link CityBuildingLevel} as key to denote which name
-	 * corresponds to which {@link CityBuildingLevel}.
-	 *
-	 * @see Map
-	 * @see CityBuildingLevel
+	 * All possible names of the {@link Barracks} city building are stored in this {@link Map}, with the {@link CityBuildingLevel} as key to denote which name
+	 * corresponds to which {@code CityBuildingLevel}.
 	 */
-	private static final Map<CityBuildingLevel, String> NAMES;
+	private static final Map<CityBuildingLevel, String> NAMES = new ValidatedEntriesHashMap<>();
 
 	/**
-	 * All possible sprites of the {@link Barracks} city building are stored in this map, with the {@link CityBuildingLevel} as key to denote which
-	 * sprite corresponds to which {@link CityBuildingLevel}.
-	 *
-	 * @see Map
-	 * @see CityBuildingLevel
+	 * All possible sprites of the {@link Barracks} city building are stored in this {@link Map}, with the {@link CityBuildingLevel} as key to denote which
+	 * sprite corresponds to which {@code CityBuildingLevel}.
 	 */
-	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES;
+	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new ValidatedEntriesHashMap<>();
 
 	/**
-	 * All possible upgrade cost {@link CurrencyTransaction}'s of the {@link Barracks} city building are stored in this map, with the
-	 * {@link CityBuildingLevel} as key to denote which set of upgrade costs corresponds to which {@link CityBuildingLevel}.
-	 *
-	 * @see Map
-	 * @see CityBuildingLevel
-	 * @see CurrencyTransaction
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the {@link Barracks} city building are stored in this {@link Map}, with the
+	 * {@link CityBuildingLevel} as key to denote which set of upgrade costs corresponds to which {@code CityBuildingLevel}.
 	 */
-	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS;
+	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
 	static
 	{
-		/*
-		 * To ensure that the static fields are initialized in the correct order, a static initializer is used
-		 * instead of a direct initialization behind the declaration.
-		 */
+		NAMES.put(CityBuildingLevel.OLD, OLD_NAME);
+		NAMES.put(CityBuildingLevel.NORMAL, NORMAL_NAME);
+		NAMES.put(CityBuildingLevel.SUPER, SUPER_NAME);
 
-		// Fill the maps with the corresponding data.
-		NAMES = initNamesMap();
-		SPRITES = initSpritesMap();
-		UPGRADE_COSTS = initUpgradeCostsMap();
+		SPRITES.put(CityBuildingLevel.OLD, OLD_SPRITE);
+		SPRITES.put(CityBuildingLevel.NORMAL, NORMAL_SPRITE);
+		SPRITES.put(CityBuildingLevel.SUPER, SUPER_SPRITE);
 
-		// Ensure the instance is created after all the other static fields are initialized.
+		UPGRADE_COSTS.put(CityBuildingLevel.OLD, OLD_UPGRADE_COSTS);
+		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, NORMAL_UPGRADE_COSTS);
+		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
+
 		INSTANCE = new Barracks();
 	}
 
@@ -98,82 +86,8 @@ public final class Barracks extends CityBuilding
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
 	 */
-	private Barracks () {}
-
-
-	/**
-	 * Initializes and returns the map of names, which contains all different names for the {@code Barracks} city building.
-	 * <br>
-	 * This map is created once and then stored in the {@link Barracks#NAMES} field to be able to re-use it when needed.
-	 * <br>
-	 * This method is invoked in the static initializer of this class.
-	 *
-	 * @return The map of names for the {@code Barracks} city building.
-	 * @see Map
-	 * @see CityBuildingLevel
-	 */
-	private static Map<CityBuildingLevel, String> initNamesMap ()
-	{
-		final Map<CityBuildingLevel, String> namesMap = new HashMap<>();
-		namesMap.put(CityBuildingLevel.OLD, OLD_NAME);
-		namesMap.put(CityBuildingLevel.NORMAL, NORMAL_NAME);
-		namesMap.put(CityBuildingLevel.SUPER, SUPER_NAME);
-
-		// Logging output
-		LOGGER.logf(DEBUG, NAME_MAP_SET, namesMap.toString());
-		return namesMap;
-	}
-
-
-	/**
-	 * Initializes and returns the map of sprites, which contains all different names for the {@code Barracks} city building.
-	 * <br>
-	 * This map is created once and then stored in the {@link Barracks#SPRITES} field to be able to re-use it when needed.
-	 * <br>
-	 * This method is invoked in the static initializer of this class.
-	 *
-	 * @return The map of sprites for the {@code Barracks} city building.
-	 * @see Map
-	 * @see CityBuildingLevel
-	 */
-	private static Map<CityBuildingLevel, MetaDataImage> initSpritesMap ()
-	{
-		final Map<CityBuildingLevel, MetaDataImage> spritesMap = new HashMap<>();
-		spritesMap.put(CityBuildingLevel.OLD, OLD_SPRITE);
-		spritesMap.put(CityBuildingLevel.NORMAL, NORMAL_SPRITE);
-		spritesMap.put(CityBuildingLevel.SUPER, SUPER_SPRITE);
-
-		// Logging output
-		LOGGER.logf(DEBUG, SPRITE_MAP_SET, spritesMap.toString());
-
-		return spritesMap;
-	}
-
-
-	/**
-	 * Initializes and returns the map of upgrade costs, which contains all different upgrade costs for the {@code Barracks} city building.
-	 * <br>
-	 * This map is created once and then stored in the {@link Barracks#UPGRADE_COSTS} field to be able to re-use it when needed.
-	 * <br>
-	 * This method is invoked in the static initializer of this class.
-	 *
-	 * @return The map of upgrade costs for the {@code Barracks} city building.
-	 * @see Map
-	 * @see CityBuildingLevel
-	 * @see CurrencyTransaction
-	 */
-	private static Map<CityBuildingLevel, CurrencyTransaction> initUpgradeCostsMap ()
-	{
-		final Map<CityBuildingLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
-		upgradeCostsMap.put(CityBuildingLevel.OLD, OLD_UPGRADE_COSTS);
-		upgradeCostsMap.put(CityBuildingLevel.NORMAL, NORMAL_UPGRADE_COSTS);
-		upgradeCostsMap.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
-
-		// Logging output
-		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET, upgradeCostsMap.toString());
-
-		return upgradeCostsMap;
-	}
+	private Barracks ()
+	{}
 
 
 	/**
@@ -227,7 +141,7 @@ public final class Barracks extends CityBuilding
 	@NotNull
 	public Scene getScene ()
 	{
-		return FXML_SCENE;
+		return SCENE;
 	}
 
 }

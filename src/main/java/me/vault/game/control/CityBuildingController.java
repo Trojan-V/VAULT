@@ -25,6 +25,11 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	private static final ILogger LOGGER = new Logger(CityBuildingController.class.getSimpleName());
 
 
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
 	public static CityBuildingController getInstance ()
 	{
 		return INSTANCE;
