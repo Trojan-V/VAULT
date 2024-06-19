@@ -20,7 +20,6 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 public class ExitGameDialogDelegate implements Initializable
 {
-
 	private static final Stage STAGE = new Stage();
 
 	private static final String WINDOW_TITLE = "Exit Game?";
@@ -31,15 +30,13 @@ public class ExitGameDialogDelegate implements Initializable
 
 	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
 
-
 	static
 	{
-		STAGE.initModality(Modality.APPLICATION_MODAL);
 		STAGE.setResizable(false);
 		STAGE.setTitle(WINDOW_TITLE);
+		STAGE.initModality(Modality.APPLICATION_MODAL);
 		STAGE.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
 	}
-
 
 	@FXML
 	private DialogPane exitGameDialogPane;

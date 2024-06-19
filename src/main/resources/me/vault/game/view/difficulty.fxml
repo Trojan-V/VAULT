@@ -56,50 +56,50 @@
                                  <children>
                                     <StackPane prefHeight="250.0" prefWidth="334.0">
                                        <children>
-                                          <ImageView fitHeight="249.0" fitWidth="268.0" pickOnBounds="true"
-                                                     preserveRatio="true" StackPane.alignment="CENTER">
+                                           <ImageView fitHeight="249.0" fitWidth="268.0" pickOnBounds="true"
+                                                      preserveRatio="true" StackPane.alignment="CENTER">
                                              <image>
-                                                <Image url="@../assets/easy_difficulty_icon.png"/>
+                                                 <Image url="@../assets/easy_difficulty_icon.png"/>
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="easyDifficultyButton" alignment="CENTER"
-                                                  contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
-                                                  mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
-                                                  onMouseExited="#returnButtonBackgroundToNormal"
-                                                  onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick"
-                                                  prefHeight="73.0" prefWidth="334.0"
-                                                  style="-fx-background-color: transparent; -fx-border-color: transparent;"
-                                                  text="easy">
+                                           <Button fx:id="easyDifficultyButton" alignment="CENTER"
+                                                   contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                                                   mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                                   onMouseExited="#returnButtonBackgroundToNormal"
+                                                   onMousePressed="#changeButtonTextColor"
+                                                   onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0"
+                                                   style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                                   text="easy">
                                              <cursor>
-                                                <Cursor fx:constant="HAND"/>
+                                                 <Cursor fx:constant="HAND"/>
                                              </cursor>
                                              <font>
-                                                <Font size="26.0"/>
+                                                 <Font size="26.0"/>
                                              </font>
                                           </Button>
                                        </children>
                                     </StackPane>
                                     <StackPane prefHeight="250.0" prefWidth="334.0">
                                        <children>
-                                          <ImageView fitHeight="249.0" fitWidth="268.0" pickOnBounds="true"
-                                                     StackPane.alignment="CENTER">
+                                           <ImageView fitHeight="249.0" fitWidth="268.0" pickOnBounds="true"
+                                                      StackPane.alignment="CENTER">
                                              <image>
-                                                <Image url="@../assets/medium_difficulty_icon.png"/>
+                                                 <Image url="@../assets/medium_difficulty_icon.png"/>
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="normalDifficultyButton" alignment="CENTER"
-                                                  contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
-                                                  mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
-                                                  onMouseExited="#returnButtonBackgroundToNormal"
-                                                  onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick"
-                                                  prefHeight="73.0" prefWidth="334.0"
-                                                  style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-insets: 0; -fx-border-radius: 2;"
-                                                  text="normal">
+                                           <Button fx:id="normalDifficultyButton" alignment="CENTER"
+                                                   contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                                                   mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                                   onMouseExited="#returnButtonBackgroundToNormal"
+                                                   onMousePressed="#changeButtonTextColor"
+                                                   onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0"
+                                                   style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-insets: 0; -fx-border-radius: 2;"
+                                                   text="normal">
                                              <cursor>
-                                                <Cursor fx:constant="HAND"/>
+                                                 <Cursor fx:constant="HAND"/>
                                              </cursor>
                                              <font>
-                                                <Font size="26.0"/>
+                                                 <Font size="26.0"/>
                                              </font>
                                           </Button>
                                        </children>
@@ -108,22 +108,22 @@
                                        <children>
                                           <ImageView fitHeight="249.0" fitWidth="268.0" pickOnBounds="true">
                                              <image>
-                                                <Image url="@../assets/hard_difficulty_icon.png"/>
+                                                 <Image url="@../assets/hard_difficulty_icon.png"/>
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="hardDifficultyButton" alignment="CENTER"
-                                                  contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
-                                                  mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
-                                                  onMouseExited="#returnButtonBackgroundToNormal"
-                                                  onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick"
-                                                  prefHeight="73.0" prefWidth="334.0"
-                                                  style="-fx-background-color: transparent; -fx-border-color: transparent;"
-                                                  text="hard">
+                                           <Button fx:id="hardDifficultyButton" alignment="CENTER"
+                                                   contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                                                   mnemonicParsing="false" onMouseEntered="#changeButtonBackground"
+                                                   onMouseExited="#returnButtonBackgroundToNormal"
+                                                   onMousePressed="#changeButtonTextColor"
+                                                   onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0"
+                                                   style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                                   text="hard">
                                              <cursor>
-                                                <Cursor fx:constant="HAND"/>
+                                                 <Cursor fx:constant="HAND"/>
                                              </cursor>
                                              <font>
-                                                <Font size="26.0"/>
+                                                 <Font size="26.0"/>
                                              </font>
                                           </Button>
                                        </children>
@@ -168,18 +168,18 @@
                         <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button fx:id="backButton" contentDisplay="CENTER" maxHeight="1.7976931348623157E308"
-                                maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal"
-                                onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="60.0"
-                                prefWidth="288.0"
-                                style="-fx-background-color: transparent; -fx-border-color: transparent;" text="back"
-                                GridPane.rowIndex="1">
+                         <Button fx:id="backButton" contentDisplay="CENTER" maxHeight="1.7976931348623157E308"
+                                 maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                 onMouseEntered="#changeButtonBackground"
+                                 onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor"
+                                 onMouseReleased="#buttonClick" prefHeight="60.0" prefWidth="288.0"
+                                 style="-fx-background-color: transparent; -fx-border-color: transparent;" text="back"
+                                 GridPane.rowIndex="1">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <font>
-                              <Font size="24.0"/>
+                               <Font size="24.0"/>
                            </font>
                         </Button>
                      </children>
