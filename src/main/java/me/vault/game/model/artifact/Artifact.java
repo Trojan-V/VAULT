@@ -23,8 +23,8 @@ import java.text.MessageFormat;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET;
-import static me.vault.game.utility.constant.NewLoggingConstants.*;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET;
+import static me.vault.game.utility.constant.LoggingConstants.*;
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
@@ -66,7 +66,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>, Nameable
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */

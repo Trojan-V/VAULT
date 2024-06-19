@@ -1,7 +1,6 @@
 package me.vault.game.interfaces;
 
 
-import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
 
 
@@ -12,14 +11,14 @@ import me.vault.game.model.currency.CurrencyTransaction;
  * This getter should only ever be invoked from the corresponding controller class of the specific upgradable object
  * to ensure the program is complying with the model view controller paradigm.
  *
- * @param <E> The leveling enum that the upgradable object corresponds to. For instance, if an implementation of this
+ * @param <T> The leveling enum that the upgradable object corresponds to. For instance, if an implementation of this
  *            interface is an "Artifact", the corresponding leveling enum would be something like "ArtifactLevel".
  *
  * @author Vincent Wolf
  * @version 1.1.0
  * @since 06.06.2024
  */
-public interface Upgradable<E>
+public interface Upgradable<T>
 {
 
 	/**
@@ -27,7 +26,7 @@ public interface Upgradable<E>
 	 *
 	 * @return The current level.
 	 */
-	E getLevel ();
+	T getLevel ();
 
 
 	/**
@@ -36,7 +35,7 @@ public interface Upgradable<E>
 	 *
 	 * @param level The new level of the object.
 	 */
-	void setLevel (final E level);
+	void setLevel (final T level);
 
 
 	/**
@@ -58,7 +57,7 @@ public interface Upgradable<E>
 	 * @param level The {@link Level} whose upgrade costs {@link CurrencyTransaction} should be returned.
 	 * @return The upgrade costs to upgrade the upgradable object to the next level.
 	 */
-	CurrencyTransaction getUpgradeCosts (final ArtifactLevel level);
+	CurrencyTransaction getUpgradeCosts (final T level);
 
 
 	/**

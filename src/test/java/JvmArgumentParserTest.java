@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
 
-import static me.vault.game.utility.constant.LoggingConstants.JvmArgument.JVM_ARGUMENT_CONSTRUCTION_ERROR_MSG;
+import static me.vault.game.utility.constant.LoggingConstants.JvmArgument.JVM_ARGUMENT_CONSTRUCTION_ERROR;
 
 
 /**
@@ -40,7 +40,7 @@ public class JvmArgumentParserTest
 	private static void testJvmArgumentInstantiation ()
 	{
 		Assertions.assertEquals(EXPECTED_LOG_DEPTH_ARGUMENT_STRING, JvmArgument.LOG_DEPTH.toString(),
-			JVM_ARGUMENT_CONSTRUCTION_ERROR_MSG);
+			JVM_ARGUMENT_CONSTRUCTION_ERROR);
 	}
 
 

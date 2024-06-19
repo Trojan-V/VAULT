@@ -12,8 +12,8 @@ import me.vault.game.utility.logging.Logger;
 
 import java.util.Map;
 
-import static me.vault.game.utility.constant.NewLoggingConstants.Artifact.*;
-import static me.vault.game.utility.constant.NewLoggingConstants.*;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
+import static me.vault.game.utility.constant.LoggingConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 

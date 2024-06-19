@@ -1,128 +1,171 @@
 package me.vault.game.utility.constant;
 
 
-import me.vault.game.control.ArtifactController;
 import me.vault.game.utility.logging.ConsoleColor;
-import me.vault.game.utility.logging.Logger;
 
 import java.util.Arrays;
 
 
 /**
- * Description
+ * This interface is a collection of constants that are used throughout various logging messages.
+ * <br>
+ * There are several sub-interfaces in this class to organize the logging messages based on their category.
  *
  * @author Vincent Wolf
  * @version 1.0.0
- * @see ArtifactController
- * @see Logger
- * @see java.text.MessageFormat#format(String, Object...)
- * @since 30.05.2024
+ * @see ConstantInterface
+ * @since 06.06.2024
  */
 @ConstantInterface
 public interface LoggingConstants
 {
-
 	String DIVIDER = "------------------------------------------------------------";
+
 
 	String SHOWING_VIEW_MSG = "Showing {0} view.";
 
 
+	String PROGRAM_START = "Program started - arguments: {0}";
+
+
+	String EXECUTION_NOT_POSSIBLE_ANYMORE =
+		"Exiting the program because a meaningful execution isn't possible anymore.";
+
+
+	String STATIC_INITIALIZER_ENTERED = "The static initializer of {0} was entered.";
+
+
+	String STATIC_INITIALIZER_LEFT = "The static initializer of {0} was left.";
+
+
+	String INITIALIZER_ENTERED = "The initializer of {0} was entered.";
+
+
+	String INITIALIZER_LEFT = "The initializer of {0} was left.";
+
+
+	String CONSTRUCTOR_ENTERED = "The constructor of {0} was entered.";
+
+
+	String CONSTRUCTOR_LEFT = "The constructor of {0} was left.";
+
+
+	String METHOD_ENTERED = "The method {0} was entered.";
+
+
+	String METHOD_LEFT = "The method {0} was left.";
+
+
+	String LEVEL_SET = "currentLevel was set to: {0}";
+
+
+	String RETURNING_TRUE = "Returning true.";
+
+
+	String RETURNING_FALSE = "Returning false.";
+
+
+	String UPGRADE_COST_SET = "currentUpgradeCost was set to: {0}";
+
+
+	String UPGRADE_COST = "Upgrade costs: {0}";
+
+
+	String SPRITE_PROPERTY_SET = "spriteProperty was set to: {0}";
+
+
+	String NAME_PROPERTY_SET = "namePropertyProperty was set to: {0}";
+
+
+	String INSUFFICIENT_CURRENCY_AMOUNT = "Not enough {0} to perform the requested upgrade. Cost: {1} {0}";
+
+
+	String CLASS_INITIALISED = "{0} initialised.";
+
+
+	String UPGRADE_DIALOG_FAIL = "Couldn't display upgrade dialog for {0}";
+
+
 	interface Artifact
 	{
+		String ATTRIBUTE_MODIFIERS_SET = "attributeModifiers was set to: {0}";
 
-		String UPGRADE_METHOD_ENTERED_MSG = "Entered the upgrade()-method for the artifact {0}.";
 
-		String CURRENT_ARTIFACT_LEVEL_MSG = "Current artifact level: {0}";
+		String NAME_MAP_SET = "Map of names was set to: {0}";
 
-		String UPGRADED_ARTIFACT_LEVEL_MSG = "Upgraded the artifact to the level: {0}";
 
-		String CHECK_IS_UPGRADABLE_METHOD_ENTERED_MSG = "Entered the checkIsUpgradable() method " + "for the artifact {0}.";
+		String SPRITE_MAP_SET = "Map of sprites was set to: {0}";
 
-		String ARTIFACT_IS_MIN_LEVEL_MSG = "The artifact with the current level {0} is already " + "at" + " the minimum level";
 
-		String ARTIFACT_IS_MAX_LEVEL_MSG =
-			"The artifact with the current level {0} is already at the maximum level and can't be upgraded any " + "further.";
+		String UPGRADE_COST_MAP_SET = "Map of upgrade cost was set to: {0}";
 
-		String UPGRADE_COSTS_MSG = "Upgrade costs: {0}";
 
-		String INSUFFICIENT_CURRENCIES_MSG =
-			"The available amount of {0} is insufficient to perform the requested upgrade. The cost for the upgrade " + "is" + " at {1} {2}.";
+		String MODIFIERS_MAP_SET = "Map of attribute modifiers was set to: {0}";
 
-		String CHECK_IS_UPGRADABLE_METHOD_LEFT_MSG =
-			"The artifact can be upgraded to the next " + "level, leaving the checkIsUpgradable() " + "method.";
 
-		String MAX_ARTIFACT_LEVEL_NOT_SUPER_MSG =
-			"The maximum artifact level isn't expected " + "level {0}, the maximum level which was returned" + " is {1}.";
+		String ARTIFACT_MAXED = "The artifact {0} is maxed, can't upgrade any further.";
 
-		String NEXT_ARTIFACT_LEVEL_INCORRECT_MSG =
-			"The next artifact level after {0} wasn't the " + "expected level {1}, it was {2} instead for " + "some reason.";
 
-		String PREVIOUS_ARTIFACT_LEVEL_INCORRECT_MSG =
-			"The previous artifact level before {0} wasn't the expected level {1}, it was {2} instead for some " + "reason.";
+		String ARTIFACT_IS_LOWEST = "The artifact {0} is at the lowest level.";
 
-		String GET_MAXIMUM_LEVEL_METHOD_ENTERED_MSG = "Entered the getMaximumArtifactLevel()" + "-method and leaving it, returning {0}.";
 
-		String GET_NEXT_HIGHER_LEVEL_METHOD_ENTERED_MSG = "Entered the getNextHigherLevel()-method" + " for level {0}.";
+		String CURRENT_ARTIFACT_LEVEL = "Current artifact level: {0}";
 
-		String GET_NEXT_HIGHER_LEVEL_METHOD_LEFT_MSG = "Leaving the getNextHigherLevel()-method," + " " + "returning {0}.";
 
-		String GET_NEXT_LOWER_LEVEL_METHOD_ENTERED_MSG = "Entered the getNextLowerLevel()-method " + "for level {0}.";
-
-		String GET_NEXT_LOWER_LEVEL_METHOD_LEFT_MSG = "Leaving the getNextLowerLevel()-method, " + "returning {0}.";
-
+		String UPGRADED_ARTIFACT_LEVEL = "Upgraded the artifact to the level: {0}";
 	}
 
 
-	interface CityBuildingView
+	interface CityBuildingController
 	{
-
-		String SCENCE_DISPLAY_FAILED_MSG = "Failed to load: {0} in {1}";
-
+		String UPGRADING_BUILDING = "Upgrading {0}: {1} -> {2}";
 	}
 
 
 	interface Currency
 	{
+		String FACTORED_TRANSACTION = "Factored transaction - transaction amounts: {0}";
 
 
-		String EXECUTION_NOT_POSSIBLE_ANYMORE_MSG = "Exiting the program because a meaningful execution isn't possible anymore.";
-
+		String NEW_CURRENCY_VALUES = "New currency values: {0}";
 	}
 
 
 	interface JvmArgument
 	{
-
 		String HEADER = ConsoleColor.MAGENTA_UNDERLINED + "JVM Arguments" + ConsoleColor.RESET;
 
-		String APPLY_METHOD_ENTERED_MSG = "Entered the apply()-method which attempts to apply the " + "JVM arguments.";
 
-		String APPLY_METHOD_LEFT_MSG = "Left the apply()-method which attempted to apply the JVM" + " " + "arguments.";
+		String NO_LOG_DEPTH_ARGUMENT =
+			"No argument found after -log_depth, the default depth " + "value {0} is now applied.";
 
-		String NO_LOG_DEPTH_ARGUMENT_MSG = "No argument found after -log_depth, the default depth " + "value {0} is now applied.";
 
-		String INVALID_LOG_DEPTH_ARGUMENT_MSG = "Invalid argument {0} found after -log_depth, the default depth value {1} is now " + "applied.";
+		String INVALID_LOG_DEPTH_ARGUMENT =
+			"Invalid argument {0} found after -log_depth, the default depth value {1} is now " + "applied.";
 
-		String LOG_DEPTH_HAS_BEEN_SET_TO_MSG = "The log depth has been set to {0}";
 
-		String APPLY_JVM_ARGUMENTS_METHOD_ENTERED_MSG =
-			"Entered applyJvmArguments()-method. " + "Starting to loop through all arguments in" + " the args[] array...";
+		String LOG_DEPTH_SET = "The log depth has been set to {0}";
 
-		String ARGUMENT_AT_INDEX_MSG = "Argument at index {0}: {1}";
 
-		String HANDLE_LOG_DEPTH_METHOD_ENTERED_MSG = "Entered handleLogDepth()-method.";
+		String ARGUMENT_AT_INDEX = "Argument at index {0}: {1}";
 
-		String INVALID_ARGUMENT_AT_POSITION_MSG = "Invalid argument {0} found at position {1}.";
 
-		String VALID_ARGUMENT_LIST_MSG = "Valid arguments are: " + Arrays.toString(me.vault.game.utility.jvm.JvmArgument.values());
+		String INVALID_ARGUMENT = "Invalid argument {0} found at position {1}.";
 
-		String LOG_DEPTH_STATUS_MSG = ConsoleColor.MAGENTA_BOLD + "logDepth is set to: {0}" + ConsoleColor.RESET;
 
-		String CHEATS_STATUS_MSG = ConsoleColor.MAGENTA_BOLD + "Cheats are set to: {0}" + ConsoleColor.RESET;
+		String VALID_ARGUMENT_LIST =
+			"Valid arguments are: " + Arrays.toString(me.vault.game.utility.jvm.JvmArgument.values());
 
-		String JVM_ARGUMENT_CONSTRUCTION_ERROR_MSG =
-			"The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" + " | actual = {1}]";
 
+		String LOG_DEPTH_STATUS = ConsoleColor.MAGENTA_BOLD + "logDepth is set to: {0}" + ConsoleColor.RESET;
+
+
+		String CHEATS_STATUS = ConsoleColor.MAGENTA_BOLD + "Cheats are set to: {0}" + ConsoleColor.RESET;
+
+
+		String JVM_ARGUMENT_CONSTRUCTION_ERROR =
+			"The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" +
+			" | actual = {1}]";
 	}
 
 }

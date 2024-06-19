@@ -3,9 +3,8 @@ package me.vault.game.utility.constant;
 
 public interface StringConstants
 {
-
 	/**
-	 * The following String contains the texts for the story of the game.
+	 * This string contains the text for the story of the game.
 	 */
 	String prologue = "The year is 2341 and humanity has spread across the galaxy over the last few " +
 	                  "centuries. During this time, many new systems have been explored and scientific" + " " +

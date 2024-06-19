@@ -9,7 +9,9 @@ import me.vault.game.interfaces.Displayable;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
+import java.net.URL;
 import java.text.MessageFormat;
+import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
@@ -17,11 +19,13 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
 /**
- * The {@code Currency} enum represents the resources or currencies which the user can use to upgrade troops and buildings. Currencies are earned by
- * completing missions and progressing in the story. The class in controlled by the {@link CurrencyController} class, which manages mission rewards
+ * The {@code Currency} enum represents the resources or currencies which the user can use to upgrade troops and
+ * buildings. Currencies are earned by
+ * completing missions and progressing in the story. The class in controlled by the {@link CurrencyController} class,
+ * which manages mission rewards
  * and building costs.
  *
- * @author Lasse-Leander Hillen
+ * @author Lasse-Leander Hillen, Vincent Wolf
  * @see CurrencyController
  * @since 21.05.2024
  */
@@ -42,7 +46,8 @@ public enum Currency implements Displayable
 	/**
 	 * The food rations currency, which is the main-resource used to upgrade troops.
 	 */
-	FOOD_RATION(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/food_ration_icon" + ".png")),
+	FOOD_RATION(new SimpleIntegerProperty(0), ResourceLoader.loadImage(
+		ASSETS_PATH + "Item_Pack/food_ration_icon" + ".png")),
 
 
 	/**
@@ -56,9 +61,22 @@ public enum Currency implements Displayable
 	 */
 	ENERGY_CREDIT(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/credit_icon.png"));
 
+
+	/**
+	 * The pattern used to create the string which describes the class in a human-readable format.
+	 */
 	private static final String TO_STRING_PATTERN = "{0}[{1}]";
 
+
+	/**
+	 * This property is used to store and dynamically display the sprite of the currency.
+	 * If the sprite is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
+	 *
+	 * @see SimpleObjectProperty
+	 * @see MetaDataImage
+	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
+
 
 	/**
 	 * The current amount of the currency.
@@ -100,7 +118,15 @@ public enum Currency implements Displayable
 		this.amountProperty.set(amount);
 	}
 
-
+	
+	/**
+	 * Returns the property that contains the amount of the currency.
+	 * <br>
+	 * This property is bound to an element in the GUI. Check {@link CurrencyController#initialize(URL, ResourceBundle)}
+	 * to see the binding process.
+	 *
+	 * @return The property that contains the amount of the currency.
+	 */
 	public SimpleIntegerProperty getAmountProperty ()
 	{
 		return this.amountProperty;
@@ -118,6 +144,12 @@ public enum Currency implements Displayable
 	}
 
 
+	/**
+	 * Returns the current sprite of the currency.
+	 *
+	 * @return The current sprite of the currency.
+	 * @see MetaDataImage
+	 */
 	@Override
 	public MetaDataImage getSprite ()
 	{
@@ -125,6 +157,14 @@ public enum Currency implements Displayable
 	}
 
 
+	/**
+	 * Sets the sprite of the currency to the supplied sprite.
+	 * <br>
+	 * The sprite is set within the {@link Currency#spriteProperty}, so the sprite gets automatically updated in the
+	 * GUI.
+	 *
+	 * @param sprite The new sprite for the currency.
+	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
 	{
@@ -143,7 +183,8 @@ public enum Currency implements Displayable
 
 
 	/**
-	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with its properties.
+	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with
+	 * its properties.
 	 *
 	 * @return A {@link String} value, which represents the object with its properties.
 	 */

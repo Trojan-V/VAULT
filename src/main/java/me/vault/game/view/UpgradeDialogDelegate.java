@@ -27,7 +27,7 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.NewLoggingConstants.UPGRADE_DIALOG_FAIL;
+import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAIL;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 

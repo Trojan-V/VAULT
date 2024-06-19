@@ -9,7 +9,7 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
 
-import static me.vault.game.utility.constant.NewLoggingConstants.CityBuildingController.UPGRADING_BUILDING;
+import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING_BUILDING;
 
 // TODO: extends für untergeordnete CityBuildingController
 

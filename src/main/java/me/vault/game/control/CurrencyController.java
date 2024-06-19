@@ -16,8 +16,8 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.NewLoggingConstants.Currency.FACTORED_TRANSACTION;
-import static me.vault.game.utility.constant.NewLoggingConstants.Currency.NEW_CURRENCY_VALUES;
+import static me.vault.game.utility.constant.LoggingConstants.Currency.FACTORED_TRANSACTION;
+import static me.vault.game.utility.constant.LoggingConstants.Currency.NEW_CURRENCY_VALUES;
 
 
 /**
@@ -116,11 +116,11 @@ public final class CurrencyController implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		CurrencyController.initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-		CurrencyController.initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-		CurrencyController.initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-		CurrencyController.initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-		CurrencyController.initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
+		initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
+		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
+		initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
+		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
+		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
 	}
 
 }

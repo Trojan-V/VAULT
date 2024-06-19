@@ -220,6 +220,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	}
 
 
+	@Override
 	public CurrencyTransaction getUpgradeCosts (final CityBuildingLevel level)
 	{
 		return this.getAllUpgradeCosts().get(level);

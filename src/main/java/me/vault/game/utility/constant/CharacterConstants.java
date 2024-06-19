@@ -30,7 +30,6 @@ public interface CharacterConstants
 	@Constant
 	String NEWLINE = System.lineSeparator();
 
-	String DIVIDER = "---------------------------------------------------------------------";
 
 	/**
 	 * Represents the dash character.

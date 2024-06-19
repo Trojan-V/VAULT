@@ -22,7 +22,7 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.*;
-import static me.vault.game.utility.constant.NewLoggingConstants.CLASS_INITIALISED;
+import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALISED;
 
 
 /**

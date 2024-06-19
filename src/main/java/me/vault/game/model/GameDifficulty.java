@@ -9,19 +9,19 @@ public enum GameDifficulty
 
 	private final String difficulty;
 
-	private final double modifyer;
+	private final double modifier;
 
 
-	GameDifficulty (final String difficulty, final double modifyer)
+	GameDifficulty (final String difficulty, final double modifier)
 	{
 		this.difficulty = difficulty;
-		this.modifyer = modifyer;
+		this.modifier = modifier;
 	}
 
 
-	public double getModifyer ()
+	public double getModifier ()
 	{
-		return this.modifyer;
+		return this.modifier;
 	}
 
 

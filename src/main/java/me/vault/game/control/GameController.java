@@ -28,7 +28,7 @@ public class GameController
 
 	public double getDifficultyModifyer ()
 	{
-		return this.gameDifficulty.getModifyer();
+		return this.gameDifficulty.getModifier();
 	}
 
 

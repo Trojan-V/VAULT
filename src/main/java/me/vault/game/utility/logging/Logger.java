@@ -8,13 +8,14 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 
-import static me.vault.game.utility.logging.ConsoleColor.RESET;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 
 
 /**
- * The {@code Logger} class provides a logging utility with different levels of log messages, which are all formatted in their respective way. The
- * provided levels are {@link Level#DEBUG},{@link Level#NORMAL},{@link Level#WARNING} and {@link Level#ERROR} and represent the different types of
+ * The {@code Logger} class provides a logging utility with different levels of log messages, which are all formatted
+ * in their respective way. The
+ * provided levels are {@link Level#DEBUG},{@link Level#NORMAL},{@link Level#WARNING} and {@link Level#ERROR} and
+ * represent the different types of
  * logging messages.
  *
  * @author Lasse-Leander Hillen
@@ -25,35 +26,44 @@ public class Logger implements ILogger
 {
 
 	/**
-	 * The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the logger properties.
+	 * The {@link String} pattern which is used in the {@link Logger#toString()} method and formats the logger
+	 * properties.
 	 */
 	private static final String TO_STRING_PATTERN = "Logger[\"{0}\" | depth = \"{1}\"]";
+
 
 	/**
 	 * The color code, which, when printed into the console, resets the applied console-colors.
 	 */
 	private static final String COLOR_RESET = "\033[0m";
 
+
 	/**
 	 * The {@link SimpleDateFormat} which is used to represent the logging-timestamps.
 	 */
 	private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("HH:mm:ss:SSS", Locale.GERMANY);
 
-	private static final String LOG_MESSAGE_PREFIX = "[{0} | {1}.{2}] ";
-
-	private static final int STACKTRACE_METHOD_INDEX = 4;
-
-	private static final String CLASS_NOT_FOUND = "Class not found";
-
-	private static final String SIMPLE_CLASS_NAME_DELIMITER = ".";
-
-	private static final byte SIMPLE_CLASS_NAME_REMOVE_DOT_INDEX = 1;
 
 	/**
-	 * The depth of the {@link Logger}. Represents how deep level of the {@link Logger#log(Level, String)} calls must be to be shown in the console
+	 * The prefix for the logging message. The first parameter is the time, the second parameter is the class name
+	 * and the third parameter is the name of the current method.
+	 */
+	private static final String LOG_MESSAGE_PREFIX = "[{0} | {1}.{2}] ";
+
+
+	/**
+	 * The index where the method that is currently invoked is located on the stacktrace.
+	 */
+	private static final int STACKTRACE_METHOD_INDEX = 4;
+
+
+	/**
+	 * The depth of the {@link Logger}. Represents how deep level of the {@link Logger#log(Level, String)} calls must
+	 * be to be shown in the console
 	 * window.
 	 */
 	private static Level depth = NORMAL;
+
 
 	/**
 	 * The name of the class, which the {@link Logger} is applied to.
@@ -105,27 +115,19 @@ public class Logger implements ILogger
 	}
 
 
-	// TODO: Make private
-	public static String getMethodName ()
+	/**
+	 * Retrieves the method name of the currently executed method.
+	 *
+	 * @return The method name of the currently executed method.
+	 */
+	private static String getMethodName ()
 	{
-		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 		return Thread.currentThread().getStackTrace()[STACKTRACE_METHOD_INDEX].getMethodName();
 	}
 
 
-	private static String getClassName ()
-	{
-		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-		final String className = Thread.currentThread().getStackTrace()[STACKTRACE_METHOD_INDEX].getClassName();
-		return className.substring(className.lastIndexOf(SIMPLE_CLASS_NAME_DELIMITER) + SIMPLE_CLASS_NAME_REMOVE_DOT_INDEX);
-	}
-
-
 	/**
-	 * Logs a message at the specified logging level.
-	 *
-	 * @param level   the logging level
-	 * @param message the message to log
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void log (final Level level, final String message)
@@ -137,6 +139,11 @@ public class Logger implements ILogger
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 * <br>
+	 * To apply the message formatting, the {@link MessageFormat#format(String, Object...)} method is used.
+	 */
 	@Override
 	public void logf (final Level level, final String pattern, final Object... arguments)
 	{
@@ -151,7 +158,7 @@ public class Logger implements ILogger
 	/**
 	 * Generates a prefix for log messages including timestamp and class name.
 	 *
-	 * @return the prefix for log messages
+	 * @return The prefix for log messages.
 	 */
 	private String getPrefix ()
 	{
@@ -162,36 +169,11 @@ public class Logger implements ILogger
 	/**
 	 * Returns a string representation of the logger including class name and logging level.
 	 *
-	 * @return a string representation of the logger
+	 * @return A string representation of the logger.
 	 */
 	@Override
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.className, depth);
 	}
-
-
-	public enum ProcedureType
-	{
-		CONSTRUCTOR(RESET),
-		STATIC_INITIALIZER(RESET),
-		INITIALIZER(RESET),
-		METHOD(RESET);
-
-		private final ConsoleColor color;
-
-
-		ProcedureType (final ConsoleColor color)
-		{
-			this.color = color;
-		}
-
-
-		@Override
-		public String toString ()
-		{
-			return this.color.toString();
-		}
-	}
-
 }

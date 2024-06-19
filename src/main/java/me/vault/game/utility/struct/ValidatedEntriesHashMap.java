@@ -8,23 +8,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
+/**
+ * This class is simply a more restricted Hash{@link HashMap} that validates that each entry's key and value isn't null.
+ *
+ * @author Vincent Wolf
+ * @version 1.0.0
+ * @see HashMap
+ * @since 19.06.2024
+ * @param <K> The datatype of the key.
+ * @param <V> The datatype of the key's value.
+ */
+public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 {
-
+	/**
+	 * The pattern used to create the string which describes the class in a human-readable format.
+	 */
 	private static final String TO_STRING_PATTERN = "[{0}={1}]; ";
 
 
-	public F put (final Entry<E, F> entry)
+	/**
+	 * Inserts the supplied entry into this validated HashMap.
+	 *
+	 * @param entry The entry that's about to be inserted.
+	 * @return The value of the inserted entry.
+	 */
+	public V put (final Entry<K, V> entry)
 	{
 		return super.put(entry.getKey(), entry.getValue());
 	}
 
 
+	/**
+	 * Returns a string representation of this validated {@link HashMap} including each entry in the map.
+	 *
+	 * @return A string representation of this validated {@link HashMap}.
+	 */
 	@Override
 	public String toString ()
 	{
 		final StringBuilder builder = new StringBuilder();
-		for (final Map.Entry<E, F> entry : this.entrySet())
+		for (final Map.Entry<K, V> entry : this.entrySet())
 		{
 			builder.append(MessageFormat.format(TO_STRING_PATTERN, entry.getKey(), entry.getValue()));
 		}
@@ -32,15 +55,37 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 	}
 
 
-	// TODO: IValidator interface
+	/**
+	 * This class is a generic model for an entry in the validated {@link HashMap}.
+	 * <br>
+	 * Each entry runs the validate() method in its constructor to ensure neither the key nor the value of the key
+	 * are equal to null.
+	 *
+	 * @author Vincent Wolf
+	 * @version 1.0.0
+	 * @see ValidatedEntriesHashMap
+	 * @since 19.06.2024	 */
 	public static class Entry<E, F> implements Map.Entry<E, F>
 	{
-
+		/**
+		 * The key of the entry.
+		 */
 		private final E key;
 
+
+		/**
+		 * The value of the entry.
+		 */
 		private F value;
 
 
+		/**
+		 * Constructs an instance of the entry, running additional validation logic to ensure neither the key nor the
+		 * value of the key are equal to null.
+		 * @param key The key of the entry.
+		 * @param value The value of the entry.
+		 * @throws InvalidMapEntryException When the key or the value of the key is equal to null.
+		 */
 		public Entry (final E key, final F value) throws InvalidMapEntryException
 		{
 			this.key = key;
@@ -49,6 +94,11 @@ public class ValidatedEntriesHashMap<E, F> extends HashMap<E, F>
 		}
 
 
+		/**
+		 * Validates that neither the key nor the value of the key is equal to null.
+		 * @throws InvalidMapEntryException When the key or the value of the key is equal to null.
+		 *
+		 */
 		private void validate () throws InvalidMapEntryException
 		{
 			if (this.key == null || this.value == null)

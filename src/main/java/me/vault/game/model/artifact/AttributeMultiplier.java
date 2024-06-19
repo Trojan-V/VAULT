@@ -10,8 +10,8 @@ import me.vault.game.utility.logging.Logger;
 import java.text.MessageFormat;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.Currency.EXECUTION_NOT_POSSIBLE_ANYMORE_MSG;
 import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
+import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSSIBLE_ANYMORE;
 
 
 // TODO: Apply multipliers to the stats of the player/troops.
@@ -98,7 +98,7 @@ public class AttributeMultiplier
 		catch (final InvalidAttributeModifierException e)
 		{
 			LOGGER.log(Level.ERROR, e.getMessage());
-			LOGGER.log(Level.ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE_MSG);
+			LOGGER.log(Level.ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE);
 
 			// TODO: System.exit überarbeiten
 			System.exit(ERROR_EXIT_CODE);

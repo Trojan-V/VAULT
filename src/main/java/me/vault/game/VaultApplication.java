@@ -12,7 +12,7 @@ import me.vault.game.view.MainMenuDelegate;
 import java.util.Arrays;
 
 import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
-import static me.vault.game.utility.constant.NewLoggingConstants.PROGRAM_START;
+import static me.vault.game.utility.constant.LoggingConstants.PROGRAM_START;
 
 
 /**
