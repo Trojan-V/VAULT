@@ -25,7 +25,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * @see CurrencyController
  * @since 21.05.2024
  */
-public enum Currency implements ICurrency, Displayable
+public enum Currency implements Displayable
 {
 	/**
 	 * The steel-currency, which is the main-resource used to upgrade buildings.
@@ -80,9 +80,10 @@ public enum Currency implements ICurrency, Displayable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Gets the current amount of the currency and returns it.
+	 *
+	 * @return The amount property of the currency object as an {@link Integer}.
 	 */
-	@Override
 	public int getAmount ()
 	{
 		return this.amountProperty.get();
@@ -90,16 +91,16 @@ public enum Currency implements ICurrency, Displayable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the amount property to a specified amount.
+	 *
+	 * @param amount The amount which the amount property from the currency is set to. As an {@link Integer}.
 	 */
-	@Override
 	public void setAmount (final int amount)
 	{
 		this.amountProperty.set(amount);
 	}
 
 
-	@Override
 	public SimpleIntegerProperty getAmountProperty ()
 	{
 		return this.amountProperty;
@@ -107,9 +108,10 @@ public enum Currency implements ICurrency, Displayable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Adds the specified amount to the currency property.
+	 *
+	 * @param amount The amount which is added to the currency as an {@link Integer}.
 	 */
-	@Override
 	public void addAmount (final int amount)
 	{
 		this.amountProperty.set(this.amountProperty.get() + amount);

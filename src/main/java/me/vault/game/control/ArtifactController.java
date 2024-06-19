@@ -76,8 +76,15 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	}
 
 
+	/**
+	 * Updates the values within the artifact to the new values of the new level.
+	 * <br>
+	 * This method should be invoked every time after the artifact was upgraded.
+	 *
+	 * @param artifact The instance of the {@link Artifact} that was upgraded.
+	 */
 	@Override
-	public void updatePropertyValues (final Artifact artifact)
+	public void updateValues (final Artifact artifact)
 	{
 		artifact.setName(artifact.getName(artifact.getLevel()));
 		artifact.setSprite(artifact.getSprite(artifact.getLevel()));
@@ -157,7 +164,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 		LOGGER.logf(DEBUG, CURRENT_ARTIFACT_LEVEL, artifact.getLevel().toString());
 
 		artifact.setLevel(artifact.getLevel().getNextHigherLevel());
-		this.updatePropertyValues(artifact);
+		this.updateValues(artifact);
 
 		LOGGER.logf(DEBUG, UPGRADED_ARTIFACT_LEVEL, artifact.getLevel().toString());
 	}

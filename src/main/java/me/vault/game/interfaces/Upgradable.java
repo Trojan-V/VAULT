@@ -1,6 +1,7 @@
 package me.vault.game.interfaces;
 
 
+import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
 
 
@@ -45,6 +46,19 @@ public interface Upgradable<E>
 	 * @return The upgrade costs to upgrade the upgradable object to the next level.
 	 */
 	CurrencyTransaction getUpgradeCosts ();
+
+
+	/**
+	 * Returns an instance of {@link CurrencyTransaction} that consists of the upgrade costs that are required to
+	 * upgrade the upgradable object to the next level.
+	 * <br>
+	 * Takes the supplied {@link Level} into account and returns the upgrade costs
+	 * {@link CurrencyTransaction} for the next level that comes after the supplied {@link Level}.
+	 *
+	 * @param level The {@link Level} whose upgrade costs {@link CurrencyTransaction} should be returned.
+	 * @return The upgrade costs to upgrade the upgradable object to the next level.
+	 */
+	CurrencyTransaction getUpgradeCosts (final ArtifactLevel level);
 
 
 	/**

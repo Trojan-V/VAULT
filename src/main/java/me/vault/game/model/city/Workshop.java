@@ -6,55 +6,88 @@ import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
+import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.constant.CityBuildingConstants.Workshop.*;
 
 
 /**
- * Description
+ * This class is an implementation of {@link CityBuilding}.
+ * <br>
+ * The {@link Workshop} holds all different artifacts of the player and is used to display and upgrade each one of them.
  *
- * @author Vincent Wolf
- * @version 1.0.0
+ * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 2.0.0
  * @see CityBuilding
- * @since 06.06.2024
+ * @see me.vault.game.interfaces.Upgradable
+ * @since 09.06.2024
  */
 public class Workshop extends CityBuilding
 {
 
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final Logger LOGGER = new Logger(Workshop.class.getSimpleName());
+
+	/**
+	 * Singleton instance, as there's never a reason to have more than one {@link Workshop} city building.
+	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 */
 	private static final Workshop INSTANCE;
 
+	/**
+	 * The {@link Scene} of the {@link Workshop} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader} class.
+	 */
 	private static final Scene SCENE = ResourceLoader.loadScene(Workshop.class, "workshop_view.fxml");
 
-	private static final Map<CityBuildingLevel, String> NAMES = new HashMap<>();
+	/**
+	 * All possible names of the {@link Workshop} city building are stored in this {@link Map}, with the {@link CityBuildingLevel} as key to denote which
+	 * name corresponds to which {@code CityBuildingLevel}.
+	 */
+	private static final Map<CityBuildingLevel, String> NAMES = new ValidatedEntriesHashMap<>();
 
-	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new HashMap<>();
+	/**
+	 * All possible sprites of the {@link Workshop} city building are stored in this {@link Map}, with the {@link CityBuildingLevel} as key to denote which
+	 * sprite corresponds to which {@code CityBuildingLevel}.
+	 */
+	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new ValidatedEntriesHashMap<>();
 
-	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new HashMap<>();
+	/**
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the {@link Workshop} city building are stored in this {@link Map}, with the
+	 * {@link CityBuildingLevel} as key to denote which set of upgrade costs corresponds to which {@code CityBuildingLevel}.
+	 */
+	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
 	static
 	{
-		NAMES.put(CityBuildingLevel.OLD, "Old Workshop");
-		NAMES.put(CityBuildingLevel.NORMAL, "Workshop");
-		NAMES.put(CityBuildingLevel.SUPER, "Super Workshop");
+		NAMES.put(CityBuildingLevel.OLD, OLD_NAME);
+		NAMES.put(CityBuildingLevel.NORMAL, NORMAL_NAME);
+		NAMES.put(CityBuildingLevel.SUPER, SUPER_NAME);
 
-		SPRITES.put(CityBuildingLevel.OLD, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/workshop_icon.png"));
-		SPRITES.put(CityBuildingLevel.NORMAL, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/workshop_icon.png"));
-		SPRITES.put(CityBuildingLevel.SUPER, ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/workshop_icon.png"));
+		SPRITES.put(CityBuildingLevel.OLD, OLD_SPRITE);
+		SPRITES.put(CityBuildingLevel.NORMAL, NORMAL_SPRITE);
+		SPRITES.put(CityBuildingLevel.SUPER, SUPER_SPRITE);
 
-		UPGRADE_COSTS.put(CityBuildingLevel.OLD, new CurrencyTransaction(-10, -10, -10, -10, -10));
-		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, new CurrencyTransaction(-10, -10, -10, -10, -10));
+		UPGRADE_COSTS.put(CityBuildingLevel.OLD, OLD_UPGRADE_COSTS);
+		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, NORMAL_UPGRADE_COSTS);
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
 		INSTANCE = new Workshop();
 	}
 
 
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
 	public static Workshop getInstance ()
 	{
 		return INSTANCE;

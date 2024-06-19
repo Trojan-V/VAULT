@@ -25,6 +25,11 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	private static final ILogger LOGGER = new Logger(CityBuildingController.class.getSimpleName());
 
 
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
 	public static CityBuildingController getInstance ()
 	{
 		return INSTANCE;
@@ -57,7 +62,7 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void updatePropertyValues (final CityBuilding cityBuilding)
+	public void updateValues (final CityBuilding cityBuilding)
 	{
 		// TODO: add to IUpgrader?!
 		cityBuilding.setName(cityBuilding.getName(cityBuilding.getLevel()));

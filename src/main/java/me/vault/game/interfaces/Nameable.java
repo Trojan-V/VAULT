@@ -28,6 +28,11 @@ public interface Nameable
 	String getName ();
 
 
+	/**
+	 * Sets the name of the nameable object to the supplied name.
+	 *
+	 * @param name The new name for the nameable object.
+	 */
 	void setName (final String name);
 
 

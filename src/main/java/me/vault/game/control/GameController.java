@@ -15,6 +15,11 @@ public class GameController
 	private GameController () {}
 
 
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
 	public static GameController getInstance ()
 	{
 		return INSTANCE;

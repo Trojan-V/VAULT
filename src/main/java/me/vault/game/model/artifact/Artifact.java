@@ -35,8 +35,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br>
  * <b>Important technical note:</b> any subclass of this class must ensure that the data the abstract methods provide
  * is available before the constructor of this abstract class is invoked. The constructor of this class relies on
- * this data being available at
- * construction time.
+ * this data being available at construction time.
  * <br> <br>
  * To ensure that the data is available at construction time, the initialization of the static fields who carry this
  * data must happen before the
@@ -117,7 +116,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * attributes the artifact consists of.
 	 * <br>
 	 * Check the constructor {@link Artifact#Artifact()} and the
-	 * {@link ArtifactController#updatePropertyValues(Artifact)} method to see the control flow.
+	 * {@link ArtifactController#updateValues(Artifact)} method to see the control flow.
 	 *
 	 * @see ArtifactLevel
 	 */
@@ -171,9 +170,9 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the attribute modifiers the artifact provides.
+	 * Returns the attribute multipliers the artifact at its current level provides.
 	 *
-	 * @return The attribute modifiers of the artifact, which are the status effects the player receives in the form
+	 * @return The attribute multipliers of the artifact, which are the status effects the player receives in the form
 	 * of buffs or de-buffs depending on the equipped artifact.
 	 * @see AttributeMultiplier
 	 */
@@ -183,26 +182,20 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	}
 
 
+	/**
+	 * Returns the map of attribute multipliers the artifact at the supplied level as parameter provides.
+	 * <br>
+	 * This method is used to be able to access the map of all attribute multipliers to be able to set the new values
+	 * after an artifact was upgraded.
+	 * <br>
+	 * This method is invoked by {@link ArtifactController#updateValues(Artifact)}.
+	 *
+	 * @param level The artifact level whose map of attribute multipliers should be returned.
+	 * @return The map of attribute multipliers for the supplied level.
+	 */
 	public Map<AttributeMultiplier.Type, Double> getAttributeMultipliers (final ArtifactLevel level)
 	{
 		return this.getAllModifiers().get(level);
-	}
-
-
-	/**
-	 * Returns the property that contains the name of the artifact.
-	 * <br>
-	 * This property is bound to an element in the GUI. Check {@link WorkshopDelegate#initialize(URL, ResourceBundle)}
-	 * to see the binding process.
-	 *
-	 * @return The property that contains the name of the artifact.
-	 * @see WorkshopDelegate
-	 * @see SimpleStringProperty
-	 */
-	@Override
-	public SimpleStringProperty getNameProperty ()
-	{
-		return this.nameProperty;
 	}
 
 
@@ -218,12 +211,25 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	}
 
 
+	/**
+	 * Returns the name of the artifact for the supplied {@link ArtifactLevel}.
+	 *
+	 * @param level The artifact level whose name should be returned.
+	 * @return The name of the artifact for the supplied {@link ArtifactLevel}.
+	 */
 	public String getName (final ArtifactLevel level)
 	{
 		return this.getAllNames().get(level);
 	}
 
 
+	/**
+	 * Sets the name of the artifact to the supplied name.
+	 * <br>
+	 * The name is set within the {@link Artifact#nameProperty}, so the name gets automatically updated in the GUI.
+	 *
+	 * @param name The new name for the artifact.
+	 */
 	@Override
 	public void setName (final String name)
 	{
@@ -248,6 +254,26 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	}
 
 
+	/**
+	 * Returns the sprite of the artifact for the supplied {@link ArtifactLevel}.
+	 *
+	 * @param level The artifact level whose sprite should be returned.
+	 * @return The sprite of the artifact for the supplied {@link ArtifactLevel}.
+	 */
+	public MetaDataImage getSprite (final ArtifactLevel level)
+	{
+		return this.getAllSprites().get(level);
+	}
+
+
+	/**
+	 * Sets the sprite of the artifact to the supplied sprite.
+	 * <br>
+	 * The sprite is set within the {@link Artifact#spriteProperty}, so the sprite gets automatically updated in the
+	 * GUI.
+	 *
+	 * @param sprite The new sprite for the artifact.
+	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
 	{
@@ -255,9 +281,20 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	}
 
 
-	public MetaDataImage getSprite (final ArtifactLevel level)
+	/**
+	 * Returns the property that contains the name of the artifact.
+	 * <br>
+	 * This property is bound to an element in the GUI. Check {@link WorkshopDelegate#initialize(URL, ResourceBundle)}
+	 * to see the binding process.
+	 *
+	 * @return The property that contains the name of the artifact.
+	 * @see WorkshopDelegate
+	 * @see SimpleStringProperty
+	 */
+	@Override
+	public SimpleStringProperty getNameProperty ()
 	{
-		return this.getAllSprites().get(level);
+		return this.nameProperty;
 	}
 
 
@@ -308,7 +345,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Sets the level of the artifact to a new level.
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link ArtifactLevel}.
-	 *
 	 * @see ArtifactLevel
 	 */
 	@Override
@@ -331,16 +367,29 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CurrencyTransaction getUpgradeCosts (final ArtifactLevel level)
+	{
+		return this.getAllUpgradeCosts().get(level);
+	}
+
+
+	/**
+	 * Sets the upgrade cost {@link CurrencyTransaction} to a new value, which represents the upgrade costs that are
+	 * required to upgrade the artifact to the next level.
+	 * <br>
+	 * This method should be invoked each time the artifact is upgraded, as the upgrade costs usually increase the
+	 * higher the artifact level gets.
+	 *
+	 * @param upgradeCosts The new upgrade costs the artifact requires to be upgraded to the next level.
+	 */
 	@Override
 	public void setUpgradeCosts (final CurrencyTransaction upgradeCosts)
 	{
 		this.currentUpgradeCost = upgradeCosts;
-	}
-
-
-	public CurrencyTransaction getUpgradeCosts (final ArtifactLevel level)
-	{
-		return this.getAllUpgradeCosts().get(level);
 	}
 
 
@@ -359,7 +408,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @see CurrencyTransaction
 	 */
 	@NotNull
-	public abstract Map<ArtifactLevel, CurrencyTransaction> getAllUpgradeCosts ();
+	protected abstract Map<ArtifactLevel, CurrencyTransaction> getAllUpgradeCosts ();
 
 
 	/**
@@ -374,7 +423,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @see ArtifactLevel
 	 */
 	@NotNull
-	public abstract Map<ArtifactLevel, String> getAllNames ();
+	protected abstract Map<ArtifactLevel, String> getAllNames ();
 
 
 	/**
@@ -391,7 +440,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @see Image
 	 */
 	@NotNull
-	public abstract Map<ArtifactLevel, MetaDataImage> getAllSprites ();
+	protected abstract Map<ArtifactLevel, MetaDataImage> getAllSprites ();
 
 
 	/**
@@ -408,7 +457,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @see AttributeMultiplier.Type
 	 */
 	@NotNull
-	public abstract Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ();
+	protected abstract Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ();
 
 
 	/**

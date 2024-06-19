@@ -30,6 +30,11 @@ public interface Displayable
 	MetaDataImage getSprite ();
 
 
+	/**
+	 * Sets the sprite of the displayable object to the supplied sprite.
+	 *
+	 * @param sprite The new sprite for the displayable object.
+	 */
 	void setSprite (final MetaDataImage sprite);
 
 

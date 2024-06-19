@@ -46,7 +46,7 @@ public class UpgradeRunnable implements Runnable
 
 		CurrencyController.factorCurrencyTransaction(upgradeCost);
 		this.upgradable.setLevel(afterUpgradeLevel);
-		this.upgrader.updatePropertyValues(this.upgradable);
+		this.upgrader.updateValues(this.upgradable);
 	}
 
 
