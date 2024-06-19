@@ -28,6 +28,9 @@ public interface Nameable
 	String getName ();
 
 
+	void setName (final String name);
+
+
 	/**
 	 * Returns the name property of the nameable object.
 	 *

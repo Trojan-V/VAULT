@@ -149,7 +149,7 @@ public class UpgradeDialogDelegate implements Initializable
 
 	private void setUpgradeCostLabels (final Upgradable<Level> upgradable)
 	{
-		final CurrencyTransaction upgradeCosts = upgradable.getCurrentUpgradeCosts();
+		final CurrencyTransaction upgradeCosts = upgradable.getUpgradeCosts();
 		this.steelCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.STEEL)));
 		this.compositeCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.COMPOSITE)));
 		this.scienceCostLabel.setText(String.valueOf(upgradeCosts.getAbsoluteAmount(Currency.SCIENCE)));

@@ -117,9 +117,16 @@ public enum Currency implements ICurrency, Displayable
 
 
 	@Override
-	public Image getSprite ()
+	public MetaDataImage getSprite ()
 	{
 		return this.spriteProperty.get();
+	}
+
+
+	@Override
+	public void setSprite (final MetaDataImage sprite)
+	{
+		this.spriteProperty.set(sprite);
 	}
 
 

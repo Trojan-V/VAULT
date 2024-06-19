@@ -172,17 +172,17 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 
 	private void bindArtifactMultiplierTextProperties ()
 	{
-		final AttributeMultiplier healthArtifactModifiers = HealthArtifact.getInstance().getAttributeModifiers();
+		final AttributeMultiplier healthArtifactModifiers = HealthArtifact.getInstance().getAttributeMultipliers();
 		this.healthArtifactDamageModifierLabel.textProperty().bind(healthArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.healthArtifactDefenseModifierLabel.textProperty().bind(healthArtifactModifiers.getDefenseMultiplierProperty().asString());
 		this.healthArtifactHealthModifierLabel.textProperty().bind(healthArtifactModifiers.getHealthMultiplierProperty().asString());
 
-		final AttributeMultiplier damageArtifactModifiers = DamageArtifact.getInstance().getAttributeModifiers();
+		final AttributeMultiplier damageArtifactModifiers = DamageArtifact.getInstance().getAttributeMultipliers();
 		this.damageArtifactDamageModifierLabel.textProperty().bind(damageArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.damageArtifactDefenseModifierLabel.textProperty().bind(damageArtifactModifiers.getDefenseMultiplierProperty().asString());
 		this.damageArtifactHealthModifierLabel.textProperty().bind(damageArtifactModifiers.getHealthMultiplierProperty().asString());
 
-		final AttributeMultiplier defenseArtifactModifiers = DefenseArtifact.getInstance().getAttributeModifiers();
+		final AttributeMultiplier defenseArtifactModifiers = DefenseArtifact.getInstance().getAttributeMultipliers();
 		this.defenseArtifactDamageModifierLabel.textProperty().bind(defenseArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.defenseArtifactDefenseModifierLabel.textProperty().bind(defenseArtifactModifiers.getDefenseMultiplierProperty().asString());
 		this.defenseArtifactHealthModifierLabel.textProperty().bind(defenseArtifactModifiers.getHealthMultiplierProperty().asString());

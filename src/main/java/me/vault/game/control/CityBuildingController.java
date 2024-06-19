@@ -14,9 +14,6 @@ import static me.vault.game.utility.constant.NewLoggingConstants.CityBuildingCon
 // TODO: extends für untergeordnete CityBuildingController
 
 
-/**
- *
- */
 public class CityBuildingController implements Upgrader<CityBuilding, CityBuildingLevel>
 {
 
@@ -41,7 +38,7 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	public void upgrade (final CityBuilding upgradable)
 	{
 		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING_BUILDING, upgradable.getName(), upgradable.getLevel(), upgradable.getLevel().getNextHigherLevel());
-		Platform.runLater(new UpgradeRunnable(upgradable, CityBuildingController.getInstance()));
+		Platform.runLater(new UpgradeRunnable(upgradable, getInstance()));
 	}
 
 
@@ -63,9 +60,9 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	public void updatePropertyValues (final CityBuilding cityBuilding)
 	{
 		// TODO: add to IUpgrader?!
-		cityBuilding.getNameProperty().set(cityBuilding.getAllNames().get(cityBuilding.getLevel()));
-		cityBuilding.getSpriteProperty().set(cityBuilding.getAllSprites().get(cityBuilding.getLevel()));
-		cityBuilding.setCurrentUpgradeCosts(cityBuilding.getAllUpgradeCosts().get(cityBuilding.getLevel()));
+		cityBuilding.setName(cityBuilding.getName(cityBuilding.getLevel()));
+		cityBuilding.setSprite(cityBuilding.getSprite(cityBuilding.getLevel()));
+		cityBuilding.setUpgradeCosts(cityBuilding.getUpgradeCosts(cityBuilding.getLevel()));
 	}
 
 }
