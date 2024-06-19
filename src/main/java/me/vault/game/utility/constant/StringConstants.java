@@ -241,4 +241,10 @@ public interface StringConstants
 
 	String chooseGameFile = "Choose a gamefile to load";
 
+
+	String ALREADY_EXIST_EXCEPTION_MESSAGE = "The Element already exists";
+
+
+	String VERTEX_DOES_NOT_EXIST = "The vertex does not exist";
+
 }
