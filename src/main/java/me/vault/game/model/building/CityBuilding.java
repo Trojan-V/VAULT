@@ -53,7 +53,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * The value of this field controls the values of many attributes the city building consists of.
 	 * <br>
 	 * Check the constructor {@link CityBuilding#CityBuilding()} and the
-	 * {@link CityBuildingController#updatePropertyValues(CityBuilding)} method to see the
+	 * {@link CityBuildingController#updateValues(CityBuilding)} method to see the
 	 * control flow.
 	 *
 	 * @see CityBuildingLevel

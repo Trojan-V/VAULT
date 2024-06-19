@@ -39,6 +39,6 @@ public interface Upgrader<T extends Upgradable<E>, E>
 	boolean checkIsUpgradable (final T upgradable);
 
 
-	void updatePropertyValues (final T upgradable);
+	void updateValues (final T upgradable);
 
 }

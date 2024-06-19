@@ -62,7 +62,7 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void updatePropertyValues (final CityBuilding cityBuilding)
+	public void updateValues (final CityBuilding cityBuilding)
 	{
 		// TODO: add to IUpgrader?!
 		cityBuilding.setName(cityBuilding.getName(cityBuilding.getLevel()));
