@@ -43,4 +43,10 @@ public class Graph
 		}
 
 	}
+
+
+	public void removeEdge ()
+	{
+
+	}
 }
