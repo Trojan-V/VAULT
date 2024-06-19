@@ -24,6 +24,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.CommandCenter
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 2.0.0
  * @see CityBuilding
+ * @see me.vault.game.interfaces.Upgradable
  * @since 09.06.2024
  */
 public class CommandCenter extends CityBuilding

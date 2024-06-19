@@ -16,6 +16,18 @@ import java.util.Map;
 import static me.vault.game.utility.constant.CityBuildingConstants.SpaceBar.*;
 
 
+/**
+ * This class is an implementation of {@link CityBuilding}.
+ * <br>
+ * The {@link SpaceBar} city building holds all information about the mercenary faction of the game, which can be selected by the player and be used in
+ * missions and encounters.
+ *
+ * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 2.0.0
+ * @see CityBuilding
+ * @see me.vault.game.interfaces.Upgradable
+ * @since 09.06.2024
+ */
 public class SpaceBar extends CityBuilding
 {
 
@@ -47,6 +59,10 @@ public class SpaceBar extends CityBuilding
 	 */
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new ValidatedEntriesHashMap<>();
 
+	/**
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the {@link SpaceBar} city building are stored in this {@link Map}, with the
+	 * {@link CityBuildingLevel} as key to denote which set of upgrade costs corresponds to which {@code CityBuildingLevel}.
+	 */
 	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 

@@ -17,12 +17,15 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Workshop.*;
 
 
 /**
- * Description
+ * This class is an implementation of {@link CityBuilding}.
+ * <br>
+ * The {@link Workshop} holds all different artifacts of the player and is used to display and upgrade each one of them.
  *
- * @author Vincent Wolf
- * @version 1.0.0
+ * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 2.0.0
  * @see CityBuilding
- * @since 06.06.2024
+ * @see me.vault.game.interfaces.Upgradable
+ * @since 09.06.2024
  */
 public class Workshop extends CityBuilding
 {
@@ -55,6 +58,10 @@ public class Workshop extends CityBuilding
 	 */
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new ValidatedEntriesHashMap<>();
 
+	/**
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the {@link Workshop} city building are stored in this {@link Map}, with the
+	 * {@link CityBuildingLevel} as key to denote which set of upgrade costs corresponds to which {@code CityBuildingLevel}.
+	 */
 	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 

@@ -25,6 +25,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Barracks.*;
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 2.0.0
  * @see CityBuilding
+ * @see me.vault.game.interfaces.Upgradable
  * @since 09.06.2024
  */
 public final class Barracks extends CityBuilding

@@ -16,6 +16,17 @@ import java.util.Map;
 import static me.vault.game.utility.constant.CityBuildingConstants.Laboratory.*;
 
 
+/**
+ * This class is an implementation of {@link CityBuilding}.
+ * <br>
+ * The {@link Laboratory} city building allows the user to see and upgrade the different abilities he can use while in combat.
+ *
+ * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 2.0.0
+ * @see CityBuilding
+ * @see me.vault.game.interfaces.Upgradable
+ * @since 09.06.2024
+ */
 public class Laboratory extends CityBuilding
 {
 
@@ -47,6 +58,10 @@ public class Laboratory extends CityBuilding
 	 */
 	private static final Map<CityBuildingLevel, MetaDataImage> SPRITES = new ValidatedEntriesHashMap<>();
 
+	/**
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the {@link Laboratory} city building are stored in this {@link Map}, with the
+	 * {@link CityBuildingLevel} as key to denote which set of upgrade costs corresponds to which {@code CityBuildingLevel}.
+	 */
 	private static final Map<CityBuildingLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
