@@ -1,6 +1,7 @@
 package me.vault.game.model.artifact;
 
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.image.Image;
@@ -100,6 +101,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
+	private final SimpleBooleanProperty isMaxLevelProperty;
 
 	/**
 	 * This field contains the attribute modifiers, which are the status effects the player receives in the form of
@@ -159,6 +161,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 		this.attributeMultiplier = new AttributeMultiplier(this.getAllModifiers().get(ArtifactLevel.getMinimum()));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
+		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == ArtifactLevel.getMaxLevel());
 
 		// Logging outputs
 		LOGGER.logf(DEBUG, LEVEL_SET, this.currentLevel.name());
@@ -318,6 +321,18 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
 	{
 		return this.spriteProperty;
+	}
+
+
+	public SimpleBooleanProperty getIsMaxLevelProperty ()
+	{
+		return this.isMaxLevelProperty;
+	}
+
+
+	public void setIsMaxLevel (final boolean value)
+	{
+		this.isMaxLevelProperty.set(value);
 	}
 
 

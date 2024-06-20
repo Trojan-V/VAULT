@@ -1,6 +1,7 @@
 package me.vault.game.control;
 
 
+import javafx.application.Platform;
 import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
@@ -9,10 +10,12 @@ import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.struct.UpgradeRunnable;
 
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.ARTIFACT_MAXED;
+import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
 import static me.vault.game.utility.constant.LoggingConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
@@ -62,7 +65,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 */
 	private static boolean checkIsArtifactMaxed (final Artifact artifact)
 	{
-		return artifact.getLevel() == ArtifactLevel.getMaximum();
+		return artifact.getLevel() == ArtifactLevel.getMaxLevel();
 	}
 
 
@@ -87,12 +90,16 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	@Override
 	public void updateValues (final Artifact artifact)
 	{
+		if (artifact.getLevel() == ArtifactLevel.getMaxLevel())
+		{
+			artifact.setIsMaxLevel(true);
+		}
+
 		artifact.setName(artifact.getName(artifact.getLevel()));
 		artifact.setSprite(artifact.getSprite(artifact.getLevel()));
 		artifact.setUpgradeCosts(artifact.getUpgradeCosts(artifact.getLevel()));
 
-		final Map<AttributeMultiplier.Type, Double> attributeMultipliersMap =
-			artifact.getAttributeMultipliers(artifact.getLevel());
+		final Map<AttributeMultiplier.Type, Double> attributeMultipliersMap = artifact.getAttributeMultipliers(artifact.getLevel());
 		final AttributeMultiplier currentAttributeMultipliers = artifact.getAttributeMultipliers();
 
 		currentAttributeMultipliers.setDamageMultiplier(attributeMultipliersMap.get(AttributeMultiplier.Type.DAMAGE));
@@ -153,22 +160,8 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	@Override
 	public void upgrade (final Artifact artifact)
 	{
-		// Validate that the artifact can actually be upgraded.
-		if (!this.checkIsUpgradable(artifact))
-		{
-			return;
-		}
-
-		// Now it's known that the artifact can be upgraded, so the upgrade costs are factored into the account.
-		CurrencyController.factorCurrencyTransaction(artifact.getUpgradeCosts());
-
-		// The level of the artifact is changed to the next level, so it's getting upgraded now.
-		LOGGER.logf(DEBUG, CURRENT_ARTIFACT_LEVEL, artifact.getLevel().toString());
-
-		artifact.setLevel(artifact.getLevel().getNextHigherLevel());
-		this.updateValues(artifact);
-
-		LOGGER.logf(DEBUG, UPGRADED_ARTIFACT_LEVEL, artifact.getLevel().toString());
+		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, artifact.getName(), artifact.getLevel(), artifact.getLevel().getNextHigherLevel());
+		Platform.runLater(new UpgradeRunnable(artifact, ArtifactController.getInstance()));
 	}
 
 }

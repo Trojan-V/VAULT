@@ -17,7 +17,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br>
  * <u>Technical note</u> <br>
  * It's important that the level entries in the enum are in the correct order, from minimum to maximum. This is required to ensure that the methods
- * {@link ArtifactLevel#getMinimum()}, {@link ArtifactLevel#getMaximum()} , {@link ArtifactLevel#checkIsMinimumLevel(ArtifactLevel)} and
+ * {@link ArtifactLevel#getMinimum()}, {@link ArtifactLevel#getMaxLevel()} , {@link ArtifactLevel#checkIsMinimumLevel(ArtifactLevel)} and
  * {@link ArtifactLevel#checkIsMaximumLevel(ArtifactLevel)} function correctly.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen
@@ -61,7 +61,7 @@ public enum ArtifactLevel implements Level
 	 *
 	 * @return The maximum level an {@link Artifact} can have.
 	 */
-	public static ArtifactLevel getMaximum ()
+	public static ArtifactLevel getMaxLevel ()
 	{
 		return values()[values().length - ZERO_INDEXED_LENGTH_CORRECTION];
 	}

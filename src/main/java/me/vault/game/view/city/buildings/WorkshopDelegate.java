@@ -18,6 +18,7 @@ import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
@@ -59,7 +60,7 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	private Label damageArtifactLabel;
 
 	@FXML
-	private Button damageArtifactUpgradeButton;
+	private Button damageUpgradeButton;
 
 	@FXML
 	private Label defenseArtifactDamageModifierLabel;
@@ -77,7 +78,7 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	private Label defenseArtifactLabel;
 
 	@FXML
-	private Button defenseArtifactUpgradeButton;
+	private Button defenseUpgradeButton;
 
 	@FXML
 	private Label healthArtifactDamageModifierLabel;
@@ -95,10 +96,11 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	private Label healthArtifactLabel;
 
 	@FXML
-	private Button healthArtifactUpgradeButton;
+	private Button healthUpgradeButton;
 
 	@FXML
-	private AnchorPane workshopAnchorPane;
+	private AnchorPane mainPane;
+
 
 
 	@FXML
@@ -111,38 +113,41 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	@FXML
 	private void onDamageArtifactUpgrade (final ActionEvent ignored)
 	{
-		ArtifactController.getInstance().upgrade(DamageArtifact.getInstance());
+		UpgradeDialogDelegate.show(DamageArtifact.getInstance(), ArtifactController.getInstance());
 	}
 
 
 	@FXML
 	private void onDefenseArtifactUpgrade (final ActionEvent ignored)
 	{
-		ArtifactController.getInstance().upgrade(DefenseArtifact.getInstance());
+		UpgradeDialogDelegate.show(DefenseArtifact.getInstance(), ArtifactController.getInstance());
 	}
 
 
 	@FXML
 	private void onHealthArtifactUpgrade (final ActionEvent ignored)
 	{
-		ArtifactController.getInstance().upgrade(HealthArtifact.getInstance());
+		UpgradeDialogDelegate.show(HealthArtifact.getInstance(), ArtifactController.getInstance());
 	}
 
 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.workshopAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
-		this.bindArtifactProperties();
+		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.bindArtifactTextProperties();
+		this.bindArtifactImageProperties();
+		this.bindArtifactMultiplierTextProperties();
+		this.bindUpgradeButtonProperties();
 
 	}
 
 
-	private void bindArtifactProperties ()
+	private void bindUpgradeButtonProperties ()
 	{
-		this.bindArtifactTextProperties();
-		this.bindArtifactImageProperties();
-		this.bindArtifactMultiplierTextProperties();
+		this.healthUpgradeButton.disableProperty().bind(HealthArtifact.getInstance().getIsMaxLevelProperty());
+		this.defenseUpgradeButton.disableProperty().bind(DefenseArtifact.getInstance().getIsMaxLevelProperty());
+		this.damageUpgradeButton.disableProperty().bind(DamageArtifact.getInstance().getIsMaxLevelProperty());
 	}
 
 

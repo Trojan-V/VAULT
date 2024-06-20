@@ -122,7 +122,7 @@ public interface LoggingConstants
 	interface CityBuildingController
 	{
 
-		String UPGRADING_BUILDING = "Upgrading {0}: {1} -> {2}";
+		String UPGRADING = "Upgrading {0}: {1} -> {2}";
 
 	}
 

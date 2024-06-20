@@ -9,7 +9,7 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
 
-import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING_BUILDING;
+import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
 
 // TODO: extends für untergeordnete CityBuildingController
 
@@ -44,7 +44,7 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	{
 		if (!upgradable.isMaxLevel())
 		{
-			LOGGER.logf(ILogger.Level.NORMAL, UPGRADING_BUILDING, upgradable.getName(), upgradable.getLevel(), upgradable.getLevel().getNextHigherLevel());
+			LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, upgradable.getName(), upgradable.getLevel(), upgradable.getLevel().getNextHigherLevel());
 			Platform.runLater(new UpgradeRunnable(upgradable, getInstance()));
 		}
 	}
