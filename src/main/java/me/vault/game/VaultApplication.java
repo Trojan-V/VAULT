@@ -4,6 +4,7 @@ package me.vault.game;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import me.vault.game.utility.jvm.JvmArgumentParser;
+import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ExitGameDialogDelegate;
@@ -51,6 +52,7 @@ public class VaultApplication extends Application
 	 */
 	public static void main (final String[] args)
 	{
+		ResourceLoader.readMapFile("src/main/resources/me/vault/game/map/Encounter_2.csv");
 		LOGGER.logf(ILogger.Level.NORMAL, PROGRAM_START, Arrays.toString(args));
 
 		// TODO: createDefaultConfig();

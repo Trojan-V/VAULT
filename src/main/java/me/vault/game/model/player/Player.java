@@ -1,50 +1,35 @@
 package me.vault.game.model.player;
 
 
+import me.vault.game.model.GameMap;
+import me.vault.game.model.Vertex;
 import me.vault.game.model.artifact.Artifact;
+import me.vault.game.model.mission.MapObject;
 import me.vault.game.model.troop.Faction;
 
 
-public class Player extends MissionObject implements Movable
+public class Player extends MapObject implements Movable
 {
 
-	private static final Player INSTANCE = new Player();
+	private static Player INSTANCE;
 
 	private Artifact selectedArtifact;
 
 	private Faction selectedFaction;
 
 
-	public Player ()
+	public Player (final GameMap map, final Vertex tile, final Artifact selectedArtifact, final Faction selectedFaction)
 	{
-		// TODO: IN FACTION und ARTIFACT ähnlich zu Transaction.EMPTY implementieren und einfügen und laden, solange Config.load nichts zurück gibt
-		super(new Tile());
-		this.selectedArtifact = null;
-		this.selectedFaction = null;
-	}
-
-
-	public Artifact getSelectedArtifact ()
-	{
-		return this.selectedArtifact;
-	}
-
-
-	public void setSelectedArtifact (final Artifact selectedArtifact)
-	{
+		super(map, tile);
 		this.selectedArtifact = selectedArtifact;
-	}
-
-
-	public Faction getSelectedFaction ()
-	{
-		return this.selectedFaction;
-	}
-
-
-	public void setSelectedFaction (final Faction selectedFaction)
-	{
 		this.selectedFaction = selectedFaction;
+	}
+
+
+	@Override
+	public void move (Vertex nextVertex)
+	{
+
 	}
 
 }

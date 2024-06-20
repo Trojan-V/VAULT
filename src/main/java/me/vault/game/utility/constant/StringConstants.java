@@ -11,7 +11,7 @@ public interface StringConstants
 	                  "centuries. During this time, many new systems have been explored and scientific" + " " +
 	                  "discoveries have been made. One of the most relevant discoveries has been the " +
 	                  "single-celled existence of a technologically advanced civilization, the Hitani," + " " +
-	                  "who have developed, among other things, an extensive galactic teleportation " +
+	                  "who've developed, among other things, an extensive galactic teleportation " +
 	                  "system. With the development of this technology, humans were able to discover " +
 	                  "and explore other systems. Recently, a new solar system, Proxima Tau, was " +
 	                  "discovered and a mission led by the player was dispatched to explore these new " +
@@ -20,70 +20,6 @@ public interface StringConstants
 	                  "was already populated. But the team soon discovered a serious problem. The " +
 	                  "transportation system that the team relied on for their return journey had " + "malfunctioned and needed to be repaired.";
 
-	/**
-	 * The following Strings contains the texts for New Terra. There used in the docks and training facility.
-	 */
-	String NEW_TERRA_FACTION_DESCRIPTION =
-		"The government of New Terra is a major faction in the political landscape with its capital of Terra, formally " +
-		"know as earth. The egalitarian government ascended as the victor of the last Sol war as the last governmental " +
-		"entity which was still";
-
-	String NEW_TERRA_FACTION_SLOGAN = "sovereignty is our strength";
-
-	String INFANTRY = "A well-rounded soldier who isn't afraid to give everything for his cause.";
-
-	String LIEUTENANT = "A commanding officer who'll give everything to return to his homeworld.";
-
-	String PRECISION_SHOOTER = "An elite soldier who excels the other soldiers in his group with his " + "outstanding aim.";
-
-	/**
-	 * The following Strings contains the texts for the Military Government. There used in the docks and training facility.
-	 */
-	String MILITARY_GOVERMENT_FACTION_DESCRIPTION =
-		"The military government were one of the first " + "factions in this new system. Shortly before the " +
-		"system was cut off, they did immediately " + "claim a planetoid. The government originates from" + " " +
-		"Bernard Star where it did split from a distant " + "precursor of New Terra.";
-
-	String MILITARY_GOVERMENT_FACTION_SLOGAN = "for the Emperor";
-
-	String SPACE_MARINE = "The pinnacle of evolution. A super soldier who works like an one-man-army. " + "Takes up a lot of space.";
-
-	String ENGINEER = "A government agent who is specialized in the usage of energy based weapons and " + "utilities.";
-
-	String OFFICER = "A high-grade party member who descended to the lower ranks to help his soldiers " + "accomplish their goals.";
-
-	/**
-	 * The following Strings contains the texts for the Explorer Association. There used in the docks and training facility.
-	 */
-	String EXPLORER_ASSOCIATION_FACTION_DESCRIPTION =
-		"The Explorer-Association did form around 2357 " + "after the first failed exploration into the " +
-		"kepler system. Since the establishment of the " + "Association its consists of independent " +
-		"adventures spirited people who delve into the " + "unknown space of the void.";
-
-	String EXPLORER_ASSOCIATION_FACTION_SLOGAN = "to the new wonders of the void";
-
-	String MEDIC = "A high-grade party member who descended to the lower ranks to help his soldiers accomplish their goals.";
-
-	String SNIPER = "An explorer soldier who is able to fight over great distances. Not as robust as other units.";
-
-	String RANGER = "An explorer soldier who is able to move very quickly and far. Not as robust as other units.";
-
-	/**
-	 * The following Strings contains the texts for the Mega Corporation. There used in the space-bar and training facility.
-	 */
-	String MEGA_CORPORATION_FACTION_DESCRITION =
-		"The fusion of multiple corporations did create a " + "hyper capitalist organisation which values money " +
-		"over all. One climbs the proverbial ladder by " + "abandoning one`s morality and serving only " +
-		"themselves. Here you can buy it if it exists. " + "Everything.";
-
-	String MEGA_CORPORATION_FACTION_SLOGAN = "as long as your willing to pay the price";
-
-	String GUARD = "A trained soldier who is good at guarding stuff. The soldier is still waiting for his payment from the " + "corporation.";
-
-	String GRENADIER = "An explosive expert who is only there because he's allowed to blow things up. Left the company, because they " +
-	                   "didn't pay him his salary.";
-
-	String RECRUIT = "A young soldier, who's just happy to be there and is willing to work extra for you, if the payment is right.";
 
 	/**
 	 * The following Strings contains the texts for the artifacts. There used in the laboratory and workshop.
@@ -162,7 +98,7 @@ public interface StringConstants
 
 	String NEW_TERRA_ADVANCED_DEFENCE_SYSTEM =
 		"The Advanced Defence System once deployed intercept " + "projectiles form hostile entity's. Add`s fifteen " +
-		"percent off additional resistance for an cost of three" + " " + "energy and last one round.";
+		"percent of additional resistance for a cost of three" + " " + "energy and last one round.";
 
 	/**
 	 * The following Strings contain the texts for the energy ability's of the player.

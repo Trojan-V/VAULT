@@ -6,15 +6,16 @@ import me.vault.game.utility.constant.StringConstants;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 
 public class Graph
 {
 
-	private final HashMap<Vertex, LinkedList<Vertex>> adjacencyList;
+	private final Map<Vertex, LinkedList<Vertex>> adjacencyList;
 
 
-	public Graph (final HashMap<Vertex, LinkedList<Vertex>> adjacencyList)
+	public Graph (final Map<Vertex, LinkedList<Vertex>> adjacencyList)
 	{
 		this.adjacencyList = adjacencyList;
 	}

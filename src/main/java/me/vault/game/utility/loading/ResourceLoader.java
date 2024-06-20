@@ -15,6 +15,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
@@ -141,6 +142,13 @@ public final class ResourceLoader
 		}
 
 		return new ArrayList<>(List.of(files));
+	}
+
+
+	public static char[][] readMapFile (final String filePath)
+	{
+
+		return null;
 	}
 
 }
