@@ -3,6 +3,7 @@ package me.vault.game.utility.constant;
 
 public interface StringConstants
 {
+
 	/**
 	 * This string contains the text for the story of the game.
 	 */

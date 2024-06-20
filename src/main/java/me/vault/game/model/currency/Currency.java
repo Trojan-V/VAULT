@@ -118,7 +118,7 @@ public enum Currency implements Displayable
 		this.amountProperty.set(amount);
 	}
 
-	
+
 	/**
 	 * Returns the property that contains the amount of the currency.
 	 * <br>

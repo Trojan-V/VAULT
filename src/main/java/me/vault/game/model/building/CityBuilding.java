@@ -132,6 +132,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * Returns the name for the supplied level of the city building.
 	 *
 	 * @param level The level whose name should be returned.
+	 *
 	 * @return The name for the supplied level.
 	 */
 	public String getName (final CityBuildingLevel level)
@@ -192,6 +193,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * Returns the sprite for the supplied level of the city building.
 	 *
 	 * @param level The level whose sprite should be returned.
+	 *
 	 * @return The sprite for the supplied level.
 	 */
 	public MetaDataImage getSprite (final CityBuildingLevel level)

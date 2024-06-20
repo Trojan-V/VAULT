@@ -4,19 +4,14 @@ package me.vault.game.view.city.buildings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
 
 /**
@@ -41,15 +36,9 @@ public class SpaceBarDelegate extends CityBuildingController implements Initiali
 	@FXML
 	private AnchorPane spaceBarAnchorPane;
 
-	/**
-	 * The {@link ImageView} of the scene, which works as the views background.
-	 */
-	@FXML
-	private ImageView backgroundImageView;
-
 
 	/**
-	 * Method, that gets called, when th user presses the "BACK"-Button. Resets the current view to the city view.
+	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
 	 *
 	 * @param ignored {@link ActionEvent}-parameter, that contains information about the event-caller.
 	 */
@@ -69,7 +58,6 @@ public class SpaceBarDelegate extends CityBuildingController implements Initiali
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.spaceBarAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 	}
 

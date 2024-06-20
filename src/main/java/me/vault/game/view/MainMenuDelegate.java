@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
@@ -22,7 +21,8 @@ import me.vault.game.view.city.CityView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.*;
+import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
 
 /**
@@ -70,11 +70,6 @@ public class MainMenuDelegate implements Initializable
 
 	@FXML
 	private Button arenaButton;
-
-
-	//FXML ImageViews ---------------------------------------------------------------------------------------
-	@FXML
-	private ImageView backgroundImageView;
 
 
 	//FXML MenuItems ---------------------------------------------------------------------------------------
@@ -264,7 +259,6 @@ public class MainMenuDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		ViewUtil.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.initializeContinue();
 		this.initializeLoadGame();
 		this.initializeButtonBackgrounds();

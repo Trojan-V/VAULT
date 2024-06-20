@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1280.0"
-            style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.control.CurrencyController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.control.CurrencyController">
    <children>
       <HBox prefHeight="100.0" prefWidth="1280.0">
          <children>
@@ -25,6 +27,9 @@
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
+                     <image>
+                        <Image url="@../assets/currency/steel_icon.png" />
+                     </image>
                   </ImageView>
                   <VBox prefHeight="86.0" prefWidth="158.0">
                      <children>
@@ -60,6 +65,9 @@
                      <viewport>
                         <Rectangle2D height="64.0" width="64.0" />
                      </viewport>
+                     <image>
+                        <Image url="@../assets/currency/composite_icon.png" />
+                     </image>
                   </ImageView>
                   <VBox prefHeight="86.0" prefWidth="184.0">
                      <children>
@@ -95,6 +103,9 @@
                      <viewport>
                         <Rectangle2D height="64.0" width="64.0" />
                      </viewport>
+                     <image>
+                        <Image url="@../assets/currency/science_icon.png" />
+                     </image>
                   </ImageView>
                   <VBox prefHeight="86.0" prefWidth="190.0">
                      <children>
@@ -130,6 +141,9 @@
                      <viewport>
                         <Rectangle2D height="64.0" width="64.0" />
                      </viewport>
+                     <image>
+                        <Image url="@../assets/currency/food_ration_icon.png" />
+                     </image>
                   </ImageView>
                   <VBox prefHeight="78.0" prefWidth="175.0">
                      <children>
@@ -165,6 +179,9 @@
                      <viewport>
                         <Rectangle2D height="64.0" width="64.0" />
                      </viewport>
+                     <image>
+                        <Image url="@../assets/currency/credit_icon.png" />
+                     </image>
                   </ImageView>
                   <VBox prefHeight="86.0" prefWidth="250.0">
                      <children>

@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -60,31 +59,12 @@ public final class CurrencyController implements Initializable
 	private Label creditAmountLabel;
 
 
-	// ImageViews -----------------------------------------------------------------------------------------------------------
-
-	@FXML
-	private ImageView steelImageView;
-
-	@FXML
-	private ImageView compositeImageView;
-
-	@FXML
-	private ImageView scienceImageView;
-
-	@FXML
-	private ImageView foodImageView;
-
-	@FXML
-	private ImageView creditImageView;
-
-
 	// Methods --------------------------------------------------------------------------------------------------------------
 
 
-	private static void initCurrency (final Currency currency, final Label label, final ImageView imageView)
+	private static void initCurrency (final Currency currency, final Label label)
 	{
 		label.textProperty().bind(currency.getAmountProperty().asString());
-		imageView.imageProperty().bind(currency.getSpriteProperty());
 	}
 
 
@@ -116,11 +96,11 @@ public final class CurrencyController implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		initCurrency(Currency.STEEL, this.steelAmountLabel, this.steelImageView);
-		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel, this.compositeImageView);
-		initCurrency(Currency.SCIENCE, this.scienceAmountLabel, this.scienceImageView);
-		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel, this.foodImageView);
-		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel, this.creditImageView);
+		initCurrency(Currency.STEEL, this.steelAmountLabel);
+		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel);
+		initCurrency(Currency.SCIENCE, this.scienceAmountLabel);
+		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel);
+		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel);
 	}
 
 }

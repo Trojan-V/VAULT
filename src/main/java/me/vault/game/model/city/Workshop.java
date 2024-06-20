@@ -136,4 +136,5 @@ public class Workshop extends CityBuilding
 	{
 		return SCENE;
 	}
+
 }

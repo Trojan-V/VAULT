@@ -21,7 +21,8 @@ import me.vault.game.view.city.CityView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.*;
+import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 
 public final class TutorialDelegate implements Initializable
@@ -51,9 +52,6 @@ public final class TutorialDelegate implements Initializable
 	//Texts -----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Button backButton;
-
-	@FXML
-	private ImageView backgroundImageView;
 
 	@FXML
 	private ImageView continueButtonBackground;
@@ -160,7 +158,6 @@ public final class TutorialDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		ViewUtil.setImage(this.backgroundImageView, ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		ViewUtil.setText(this.tutorialIntroductionText, StringConstants.tutorialIntroduction);
 		ViewUtil.setText(this.tutorialCityText, StringConstants.tutorialCity);
 		ViewUtil.setText(this.tutorialArtefactsText, StringConstants.tutorialArtifacts);

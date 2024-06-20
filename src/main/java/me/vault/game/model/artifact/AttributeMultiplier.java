@@ -10,8 +10,8 @@ import me.vault.game.utility.logging.Logger;
 import java.text.MessageFormat;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSSIBLE_ANYMORE;
+import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 
 
 // TODO: Apply multipliers to the stats of the player/troops.
@@ -121,7 +121,7 @@ public class AttributeMultiplier
 	 * this check is not performed as part
 	 * of the validation.
 	 *
-	 * @throws InvalidAttributeModifierException When one of the supplied modifiers was invalid.
+	 * @exception InvalidAttributeModifierException When one of the supplied modifiers was invalid.
 	 */
 	private void validate () throws InvalidAttributeModifierException
 	{

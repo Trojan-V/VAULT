@@ -10,6 +10,7 @@ import java.util.LinkedList;
 
 public class Graph
 {
+
 	private final HashMap<Vertex, LinkedList<Vertex>> adjacencyList;
 
 
@@ -49,4 +50,5 @@ public class Graph
 	{
 
 	}
+
 }

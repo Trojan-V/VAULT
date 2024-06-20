@@ -28,7 +28,7 @@ public interface GameConstants
 	 */
 	String WINDOW_TITLE = "VAULT Game";
 
-	String GENERAL_BACKGROUND_FILENAME = "general_background.png";
+	String BACKGROUND_FILENAME = ASSETS_PATH + "general_background.png";
 
 	String TAB_PANE_STYLE = "floating";
 

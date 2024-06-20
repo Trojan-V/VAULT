@@ -57,6 +57,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * Checks if the supplied artifact is at the maximum level. If yes, true is returned, otherwise false.
 	 *
 	 * @param artifact The instance of {@link Artifact} which is checked.
+	 *
 	 * @return True if the artifact is maxed, otherwise false.
 	 */
 	private static boolean checkIsArtifactMaxed (final Artifact artifact)
@@ -109,6 +110,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * {@inheritDoc}
 	 *
 	 * @param artifact The {@link Artifact} instance which is checked if it can be upgraded to the next level.
+	 *
 	 * @return True if the {@link Artifact} can be upgraded, otherwise false.
 	 */
 	@Override

@@ -83,4 +83,5 @@ public class VaultApplication extends Application
 			ExitGameDialogDelegate.show();
 		});
 	}
+
 }

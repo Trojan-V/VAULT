@@ -101,7 +101,7 @@
                         <Insets bottom="5.0" left="25.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                      <image>
-                        <Image url="@../assets/Item_Pack/steel_icon.png" />
+                        <Image url="@../assets/currency/steel_icon.png" />
                      </image>
                   </ImageView>
                   <Label text="Steel-Cost:">
@@ -120,7 +120,7 @@
                         <Insets left="25.0" />
                      </GridPane.margin>
                      <image>
-                        <Image url="@../assets/Item_Pack/composite_icon.png" />
+                        <Image url="@../assets/currency/composite_icon.png" />
                      </image>
                   </ImageView>
                   <Label text="Composite-Cost" GridPane.rowIndex="1">
@@ -139,7 +139,7 @@
                         <Insets left="25.0" />
                      </GridPane.margin>
                      <image>
-                        <Image url="@../assets/Item_Pack/science_icon.png" />
+                        <Image url="@../assets/currency/science_icon.png" />
                      </image>
                   </ImageView>
                   <Label text="Science-Cost" GridPane.rowIndex="2">
@@ -158,7 +158,7 @@
                         <Insets left="25.0" />
                      </GridPane.margin>
                      <image>
-                        <Image url="@../assets/Item_Pack/food_ration_icon.png" />
+                        <Image url="@../assets/currency/food_ration_icon.png" />
                      </image>
                   </ImageView>
                   <Label text="Food-Ration-Cost" GridPane.rowIndex="3">
@@ -177,7 +177,7 @@
                         <Insets left="25.0" />
                      </GridPane.margin>
                      <image>
-                        <Image url="@../assets/Item_Pack/credit_icon.png" />
+                        <Image url="@../assets/currency/credit_icon.png" />
                      </image>
                   </ImageView>
                   <Label text="Energy-Credit-Cost" GridPane.rowIndex="4">

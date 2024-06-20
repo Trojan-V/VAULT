@@ -151,6 +151,7 @@ public final class JvmArgumentParser
 	 * Checks if the supplied JVM argument string is a valid JVM argument.
 	 *
 	 * @param argumentToValidate The JVM argument that gets checked if it's valid or not.
+	 *
 	 * @return True if the supplied argument is valid, otherwise false.
 	 */
 	private static boolean checkIsValidJvmArgument (final String argumentToValidate)
@@ -223,6 +224,7 @@ public final class JvmArgumentParser
 	 *
 	 * @param args The JVM arguments passed into the program at startup. These have to be acquired through the main
 	 *             method of the program.
+	 *
 	 * @return True if the supplied parameter is valid, otherwise false.
 	 */
 	private static boolean checkIsValidLogDepthParameter (final String[] args, final Level level)

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,10 +16,13 @@
 
 <AnchorPane fx:id="docksAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.buildings.DocksDelegate">
    <children>
-      <ImageView fx:id="workshopBackgroundImageView" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D height="720.0" width="1280.0" />
-         </viewport></ImageView>
+         </viewport>
+         <image>
+            <Image url="@../../assets/background/city_background.png" />
+         </image></ImageView>
       <TabPane fx:id="factionsTabPane" layoutX="26.0" layoutY="106.0" prefHeight="591.0" prefWidth="1229.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="115.0">
         <tabs>
           <Tab closable="false" style="-fx-pref-width: 605; -fx-pref-height: 30; -fx-font-family: Arial; -fx-font-size: 20; -fx-background-color: lightblue;" text="Military Government">

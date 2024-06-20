@@ -21,6 +21,7 @@ import java.io.InputStream;
  */
 public class MetaDataImage extends Image
 {
+
 	/**
 	 * The file that corresponds to the image.
 	 */
@@ -31,7 +32,7 @@ public class MetaDataImage extends Image
 	 * Constructs an instance of this class.
 	 *
 	 * @param imageInputStream The input stream from which the image gets loaded.
-	 * @param file The corresponding file to the image.
+	 * @param file             The corresponding file to the image.
 	 */
 	public MetaDataImage (final InputStream imageInputStream, final File file)
 	{

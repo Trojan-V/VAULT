@@ -30,9 +30,11 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * @version 1.0.0
  * @see MetaDataImage
  * @see Scene
- * @since 19.06.2024 */
+ * @since 19.06.2024
+ */
 public final class ResourceLoader
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -63,6 +65,7 @@ public final class ResourceLoader
 	 * Loads an image from the supplied resourcePath.
 	 *
 	 * @param resourcePath The path from which the resource (the image) is loaded.
+	 *
 	 * @return An instance of {@link MetaDataImage}.
 	 */
 	public static MetaDataImage loadImage (final String resourcePath)
@@ -86,10 +89,11 @@ public final class ResourceLoader
 	 * <br>
 	 * The class is required to be provided to find the path to the view by using {@link Class#getResource(String)}.
 	 *
-	 * @param <T> The datatype of the class instance. No boundaries, as there's no class that bundles all classes
-	 *              that can be scenes to one datatype.
-	 * @param clazz The class that corresponds to the view (fxml).
+	 * @param <T>              The datatype of the class instance. No boundaries, as there's no class that bundles all classes
+	 *                         that can be scenes to one datatype.
+	 * @param clazz            The class that corresponds to the view (fxml).
 	 * @param fxmlResourcePath The path from which the resource (the scene) is loaded.
+	 *
 	 * @return An instance of {@link Scene}.
 	 */
 	public static <T> Scene loadScene (final Class<T> clazz, final String fxmlResourcePath)
@@ -112,6 +116,7 @@ public final class ResourceLoader
 	 * Returns a new instance of {@link File} for the provided path.
 	 *
 	 * @param filePath The path of the file.
+	 *
 	 * @return An instance {@link File}.
 	 */
 	public static File getDirectory (final String filePath)
@@ -124,6 +129,7 @@ public final class ResourceLoader
 	 * Collects all files in the supplied directory and returns them as a {@link List}.
 	 *
 	 * @param directoryPath The path to the directory.
+	 *
 	 * @return The {@link List} of files.
 	 */
 	public static List<File> collectFiles (final String directoryPath)
@@ -136,4 +142,5 @@ public final class ResourceLoader
 
 		return new ArrayList<>(List.of(files));
 	}
+
 }

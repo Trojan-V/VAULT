@@ -11,13 +11,12 @@ import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.*;
+import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 
 public class TrainingFacilityDelegate extends CityBuildingController implements Initializable
@@ -100,9 +99,6 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 
 	@FXML
 	private Button spaceMarineUpgradeButton;
-
-	@FXML
-	private ImageView trainingFacilityBackgroundImageView;
 
 
 	@FXML
@@ -203,7 +199,6 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.trainingFacilityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 	}

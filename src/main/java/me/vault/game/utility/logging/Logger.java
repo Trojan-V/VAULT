@@ -176,4 +176,5 @@ public class Logger implements ILogger
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.className, depth);
 	}
+
 }

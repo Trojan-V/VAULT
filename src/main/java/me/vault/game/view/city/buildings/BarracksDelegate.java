@@ -4,22 +4,17 @@ package me.vault.game.view.city.buildings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALISED;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
@@ -56,12 +51,6 @@ public class BarracksDelegate implements Initializable
 	// FXML ------------------------------------------------------------------------------------------------------------
 
 	/**
-	 * The {@link ImageView} of the scene, which works as the view background.
-	 */
-	@FXML
-	private ImageView backgroundImageView;
-
-	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
 	 */
 	@FXML
@@ -89,24 +78,11 @@ public class BarracksDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.barracksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
 		// Logging the finalization of the initialization
 		LOGGER.logf(DEBUG, CLASS_INITIALISED, BarracksDelegate.class.getSimpleName());
 
-	}
-
-
-	/**
-	 * Returns the instance of this class in a human-readable format by creating a string.
-	 *
-	 * @return The message in its string representation.
-	 */
-	@Override
-	public String toString ()
-	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.backgroundImageView, this.barracksAnchorPane);
 	}
 
 }

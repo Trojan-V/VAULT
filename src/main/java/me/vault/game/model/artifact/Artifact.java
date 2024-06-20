@@ -66,6 +66,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>, Nameable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -190,6 +191,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * This method is invoked by {@link ArtifactController#updateValues(Artifact)}.
 	 *
 	 * @param level The artifact level whose map of attribute multipliers should be returned.
+	 *
 	 * @return The map of attribute multipliers for the supplied level.
 	 */
 	public Map<AttributeMultiplier.Type, Double> getAttributeMultipliers (final ArtifactLevel level)
@@ -211,18 +213,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the name of the artifact for the supplied {@link ArtifactLevel}.
-	 *
-	 * @param level The artifact level whose name should be returned.
-	 * @return The name of the artifact for the supplied {@link ArtifactLevel}.
-	 */
-	public String getName (final ArtifactLevel level)
-	{
-		return this.getAllNames().get(level);
-	}
-
-
-	/**
 	 * Sets the name of the artifact to the supplied name.
 	 * <br>
 	 * The name is set within the {@link Artifact#nameProperty}, so the name gets automatically updated in the GUI.
@@ -233,6 +223,19 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	public void setName (final String name)
 	{
 		this.nameProperty.set(name);
+	}
+
+
+	/**
+	 * Returns the name of the artifact for the supplied {@link ArtifactLevel}.
+	 *
+	 * @param level The artifact level whose name should be returned.
+	 *
+	 * @return The name of the artifact for the supplied {@link ArtifactLevel}.
+	 */
+	public String getName (final ArtifactLevel level)
+	{
+		return this.getAllNames().get(level);
 	}
 
 
@@ -254,18 +257,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the sprite of the artifact for the supplied {@link ArtifactLevel}.
-	 *
-	 * @param level The artifact level whose sprite should be returned.
-	 * @return The sprite of the artifact for the supplied {@link ArtifactLevel}.
-	 */
-	public MetaDataImage getSprite (final ArtifactLevel level)
-	{
-		return this.getAllSprites().get(level);
-	}
-
-
-	/**
 	 * Sets the sprite of the artifact to the supplied sprite.
 	 * <br>
 	 * The sprite is set within the {@link Artifact#spriteProperty}, so the sprite gets automatically updated in the
@@ -277,6 +268,19 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	public void setSprite (final MetaDataImage sprite)
 	{
 		this.spriteProperty.set(sprite);
+	}
+
+
+	/**
+	 * Returns the sprite of the artifact for the supplied {@link ArtifactLevel}.
+	 *
+	 * @param level The artifact level whose sprite should be returned.
+	 *
+	 * @return The sprite of the artifact for the supplied {@link ArtifactLevel}.
+	 */
+	public MetaDataImage getSprite (final ArtifactLevel level)
+	{
+		return this.getAllSprites().get(level);
 	}
 
 
@@ -344,6 +348,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Sets the level of the artifact to a new level.
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link ArtifactLevel}.
+	 *
 	 * @see ArtifactLevel
 	 */
 	@Override
@@ -367,16 +372,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public CurrencyTransaction getUpgradeCosts (final ArtifactLevel level)
-	{
-		return this.getAllUpgradeCosts().get(level);
-	}
-
-
-	/**
 	 * Sets the upgrade cost {@link CurrencyTransaction} to a new value, which represents the upgrade costs that are
 	 * required to upgrade the artifact to the next level.
 	 * <br>
@@ -389,6 +384,16 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	public void setUpgradeCosts (final CurrencyTransaction upgradeCosts)
 	{
 		this.currentUpgradeCost = upgradeCosts;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CurrencyTransaction getUpgradeCosts (final ArtifactLevel level)
+	{
+		return this.getAllUpgradeCosts().get(level);
 	}
 
 

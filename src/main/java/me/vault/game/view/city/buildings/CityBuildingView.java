@@ -33,7 +33,7 @@ public final class CityBuildingView
 		stage.setScene(scene);
 		stage.show();
 
-		// Logging th display of the building
+		// Logging the display of the building
 		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, cityBuilding.getName()));
 	}
 

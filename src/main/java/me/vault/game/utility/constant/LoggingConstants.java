@@ -19,6 +19,7 @@ import java.util.Arrays;
 @ConstantInterface
 public interface LoggingConstants
 {
+
 	String DIVIDER = "------------------------------------------------------------";
 
 
@@ -88,6 +89,7 @@ public interface LoggingConstants
 
 	interface Artifact
 	{
+
 		String ATTRIBUTE_MODIFIERS_SET = "attributeModifiers was set to: {0}";
 
 
@@ -113,26 +115,32 @@ public interface LoggingConstants
 
 
 		String UPGRADED_ARTIFACT_LEVEL = "Upgraded the artifact to the level: {0}";
+
 	}
 
 
 	interface CityBuildingController
 	{
+
 		String UPGRADING_BUILDING = "Upgrading {0}: {1} -> {2}";
+
 	}
 
 
 	interface Currency
 	{
+
 		String FACTORED_TRANSACTION = "Factored transaction - transaction amounts: {0}";
 
 
 		String NEW_CURRENCY_VALUES = "New currency values: {0}";
+
 	}
 
 
 	interface JvmArgument
 	{
+
 		String HEADER = ConsoleColor.MAGENTA_UNDERLINED + "JVM Arguments" + ConsoleColor.RESET;
 
 
@@ -166,6 +174,7 @@ public interface LoggingConstants
 		String JVM_ARGUMENT_CONSTRUCTION_ERROR =
 			"The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" +
 			" | actual = {1}]";
+
 	}
 
 }

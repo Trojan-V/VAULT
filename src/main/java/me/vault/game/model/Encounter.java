@@ -9,7 +9,8 @@ import java.util.Random;
 
 public class Encounter
 {
-	private initiative ()
+
+	private void initiative ()
 	{
 		Unit.MEDIC.getAllAttributes();
 	}
@@ -34,4 +35,5 @@ public class Encounter
 	{
 		hit = dice > dodge;
 	}
+
 }

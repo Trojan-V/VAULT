@@ -3,6 +3,7 @@ package me.vault.game.model;
 
 public class Vertex
 {
+
 	private final String vertexName;
 
 
@@ -16,4 +17,5 @@ public class Vertex
 	{
 		return this.vertexName;
 	}
+
 }

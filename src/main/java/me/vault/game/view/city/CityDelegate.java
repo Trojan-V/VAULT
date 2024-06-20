@@ -14,15 +14,11 @@ import me.vault.game.control.CurrencyController;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
 import me.vault.game.model.currency.Currency;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.buildings.CityBuildingView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
 
 /**
@@ -44,9 +40,6 @@ public class CityDelegate implements Initializable
 
 	@FXML
 	private AnchorPane cityAnchorPane;
-
-	@FXML
-	private ImageView cityBackgroundImageView;
 
 	@FXML
 	private Button commandCenterButton;
@@ -228,7 +221,6 @@ public class CityDelegate implements Initializable
 	{
 		this.initBuildingButtons();
 		this.cityAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
-		this.cityBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 	}
 
 

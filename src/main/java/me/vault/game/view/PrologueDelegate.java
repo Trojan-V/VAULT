@@ -20,7 +20,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
 
 public class PrologueDelegate implements Initializable
@@ -48,9 +47,6 @@ public class PrologueDelegate implements Initializable
 	private Button backButton;
 
 	// ImageViews -----------------------------------------------------------------------------------------------------------
-
-	@FXML
-	private ImageView backgroundImageView;
 
 	@FXML
 	private ImageView continueButtonBackground;
@@ -138,7 +134,6 @@ public class PrologueDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		ViewUtil.setText(this.storyText, StringConstants.prologue);
 	}
 

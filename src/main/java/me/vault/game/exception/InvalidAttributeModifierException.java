@@ -19,6 +19,7 @@ import java.text.MessageFormat;
  */
 public class InvalidAttributeModifierException extends Exception
 {
+
 	/**
 	 * The message which can be retrieved from the exception instance by invoking
 	 * {@link InvalidAttributeModifierException#getMessage()}. Usually, this message

@@ -15,8 +15,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.CharacterConstants.*;
-import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSSIBLE_ANYMORE;
+import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
@@ -29,9 +29,11 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
  * @version 1.0.0
  * @see Currency
  * @see Logger
- * @since 19.06.2024 */
+ * @since 19.06.2024
+ */
 public class CurrencyTransaction
 {
+
 	/**
 	 * A constant for an empty currency transaction instance. This constant is solely for convenience to create empty
 	 * transactions.
@@ -85,11 +87,11 @@ public class CurrencyTransaction
 	 * Constructs an instance of this class.
 	 * <br>
 	 *
-	 * @param steelAmount The amount of steel the transaction consists of.
+	 * @param steelAmount     The amount of steel the transaction consists of.
 	 * @param compositeAmount The amount of composite the transaction consists of.
-	 * @param scienceAmount The amount of science the transaction consists of.
-	 * @param foodAmount The amount of food the transaction consists of.
-	 * @param energyAmount The amount of energy the transaction consists of.
+	 * @param scienceAmount   The amount of science the transaction consists of.
+	 * @param foodAmount      The amount of food the transaction consists of.
+	 * @param energyAmount    The amount of energy the transaction consists of.
 	 */
 	public CurrencyTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount,
 		final int foodAmount,
@@ -118,6 +120,7 @@ public class CurrencyTransaction
 	 * returned.
 	 *
 	 * @param currency The currency whose absolute amount should be returned.
+	 *
 	 * @return The absolute amount of the currency.
 	 */
 	public int getAbsoluteAmount (final Currency currency)
@@ -130,6 +133,7 @@ public class CurrencyTransaction
 	 * Returns the amount of the currency supplied as parameter.
 	 *
 	 * @param currency The currency whose amount should be returned.
+	 *
 	 * @return The amount of the currency.
 	 */
 	public int getAmount (final Currency currency)

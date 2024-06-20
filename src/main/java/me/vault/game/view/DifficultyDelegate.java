@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -43,11 +42,11 @@ public final class DifficultyDelegate implements Initializable
 
 
 	private static final String BUTTON_BACKGROUND_NORMAL = ASSETS_PATH + "button.png";
-		//TODO: Consolidate into Interface
+	//TODO: Consolidate into Interface
 
 
 	private static final String BUTTON_BACKGROUND_SELECTED = ASSETS_PATH + "button_round.png";
-		//TODO: Consolidate into Interface
+	//TODO: Consolidate into Interface
 
 	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(DifficultyDelegate.class, DIFFICULTY_VIEW_FXML);
 
@@ -62,9 +61,6 @@ public final class DifficultyDelegate implements Initializable
 
 	@FXML
 	private Button backButton;
-
-	@FXML
-	private ImageView backgroundImageView;
 
 
 	public static void show (final Stage stage)

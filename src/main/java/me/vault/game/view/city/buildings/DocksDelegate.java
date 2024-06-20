@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
@@ -21,7 +20,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.*;
+import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALISED;
 
 
@@ -67,20 +66,17 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	private AnchorPane docksAnchorPane;
 
 	/**
-	 * The {@link ImageView} of the scene, which works as the views background.
-	 */
-	@FXML
-	private ImageView workshopBackgroundImageView;
-
-	/**
 	 * The {@link TabPane}, which contains the different factions of the view.
 	 */
 	@FXML
 	private TabPane factionsTabPane;
 
 
+	// Methods ---------------------------------------------------------------------------------------------------------
+
+
 	/**
-	 * Method, that gets called, when th user presses the "BACK"-Button. Resets the current view to the city view.
+	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
 	 *
 	 * @param ignored {@link ActionEvent}-parameter, that contains information about the event-caller.
 	 */
@@ -102,7 +98,6 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	{
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.docksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
-		this.workshopBackgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 
 		// Logging the finalization of the initialization
 		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALISED, DocksDelegate.class.getSimpleName());

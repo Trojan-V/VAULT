@@ -15,6 +15,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  */
 public interface ArtifactConstants
 {
+
 	double MULTIPLIER_MINIMUM = 0.5D;
 
 
@@ -30,109 +31,72 @@ public interface ArtifactConstants
 	double MULTIPLIER_MAXIMUM = 1.5D;
 
 
-	// health addition
-	double HEALTH_BASE = 10;
-
-
-	double HEALTH_IMPROVED = 22;
-
-
-	// armour addition
-	double ARMOUR_BASE = 0.05;
-
-
-	double ARMOUR_IMPROVED = 0.12;
-
-
-	// melee damage addition
-	double MELEE_DAMAGE_BASE = 6;
-
-
-	double MELEE_DAMAGE_IMPROVED = 112;
-
-
-	// grenade damage addition
-	double GRENADE_DAMAGE_BASE = 6;
-
-
-	double GRENADE_DAMAGE_IMPROVED = 15;
-
-
-	// energy damage addition
-	double ENERGY_DAMAGE_BASE = 6;
-
-
-	double ENERGY_DAMAGE_IMPROVED = 15;
-
-
-	// resistenz addition
-	double RESISTENZ_BASE = 0.05;
-
-
-	double RESISTENZ_IMPROVED = 0.12;
-
-
 	interface Defense
 	{
+
 		String BASE_NAME = "Defense Artifact";
 
 
 		String IMPROVED_NAME = "Improved Defense Artifact";
 
 
-		String BASE_SPRITE_PATH = ASSETS_PATH + "Item_Pack/defense_artifact_icon.png";
+		String BASE_SPRITE_PATH = ASSETS_PATH + "artifact/defense_artifact_icon.png";
 
 
-		String IMPROVED_SPRITE_PATH = ASSETS_PATH + "Item_Pack/defense_artifact_icon.png";
+		String IMPROVED_SPRITE_PATH = ASSETS_PATH + "artifact/defense_artifact_icon.png";
 
 
-		// TODO: Balancing der Upgrade-Kosten
-		CurrencyTransaction BASE_TO_IMPROVED_UPGRADE_COSTS = new CurrencyTransaction(-10, -10, -10, -10, -10);
+		CurrencyTransaction BASE_TO_IMPROVED_UPGRADE_COSTS = new CurrencyTransaction(-1000, -1000, -1000, -1000, -1000);
 
 
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
+
 	}
 
 
 	interface Damage
 	{
+
 		String BASE_NAME = "Damage Artifact";
 
 
 		String IMPROVED_NAME = "Improved Damage Artifact";
 
 
-		String BASE_SPRITE_PATH = ASSETS_PATH + "Item_Pack/damage_artifact_icon.png";
+		String BASE_SPRITE_PATH = ASSETS_PATH + "artifact/damage_artifact_icon.png";
 
 
-		String IMPROVED_SPRITE_PATH = ASSETS_PATH + "Item_Pack/damage_artifact_icon.png";
+		String IMPROVED_SPRITE_PATH = ASSETS_PATH + "artifact/damage_artifact_icon.png";
 
 
-		CurrencyTransaction BASE_TO_IMPROVED_UPGRADE_COSTS = new CurrencyTransaction(-10, -10, -10, -10, -10);
+		CurrencyTransaction BASE_TO_IMPROVED_UPGRADE_COSTS = new CurrencyTransaction(-1000, -1000, -1000, -1000, -1000);
 
 
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
+
 	}
 
 
 	interface Health
 	{
+
 		String BASE_NAME = "Health Artifact";
 
 
 		String IMPROVED_NAME = "Improved Health Artifact";
 
 
-		String BASE_SPRITE_PATH = ASSETS_PATH + "Item_Pack/health_artifact_icon.png";
+		String BASE_SPRITE_PATH = ASSETS_PATH + "artifact/health_artifact_icon.png";
 
 
-		String IMPROVED_SPRITE_PATH = ASSETS_PATH + "Item_Pack/health_artifact_icon.png";
+		String IMPROVED_SPRITE_PATH = ASSETS_PATH + "artifact/health_artifact_icon.png";
 
 
-		CurrencyTransaction BASE_TO_IMPROVED_UPGRADE_COSTS = new CurrencyTransaction(-10, -10, -10, -10, -10);
+		CurrencyTransaction BASE_TO_IMPROVED_UPGRADE_COSTS = new CurrencyTransaction(-1000, -1000, -1000, -1000, -1000);
 
 
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
+
 	}
 
 }

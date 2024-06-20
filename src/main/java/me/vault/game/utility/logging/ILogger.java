@@ -13,6 +13,7 @@ package me.vault.game.utility.logging;
  */
 public interface ILogger
 {
+
 	/**
 	 * Logs a message at the specified logging level.
 	 * <br>
@@ -33,8 +34,8 @@ public interface ILogger
 	 * The message only actually gets logged into the console if the log depth of the program is deeper or at least
 	 * at the same depth as the desired log level.
 	 *
-	 * @param level The logging level.
-	 * @param pattern The message pattern that's about to get logged.
+	 * @param level     The logging level.
+	 * @param pattern   The message pattern that's about to get logged.
 	 * @param arguments The arguments that are applied to the message pattern before the message is logged.
 	 */
 	void logf (final Level level, final String pattern, final Object... arguments);

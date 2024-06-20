@@ -16,16 +16,12 @@ import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-import static me.vault.game.utility.constant.GameConstants.GENERAL_BACKGROUND_FILENAME;
 
 
 /**
@@ -46,9 +42,6 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(WorkshopDelegate.class.getSimpleName());
-
-	@FXML
-	private ImageView backgroundImageView;
 
 	@FXML
 	private Label damageArtifactDamageModifierLabel;
@@ -139,7 +132,6 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.backgroundImageView.setImage(ResourceLoader.loadImage(ASSETS_PATH + GENERAL_BACKGROUND_FILENAME));
 		this.workshopAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.bindArtifactProperties();
 

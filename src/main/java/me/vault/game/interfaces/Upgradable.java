@@ -48,19 +48,6 @@ public interface Upgradable<T>
 
 
 	/**
-	 * Returns an instance of {@link CurrencyTransaction} that consists of the upgrade costs that are required to
-	 * upgrade the upgradable object to the next level.
-	 * <br>
-	 * Takes the supplied {@link Level} into account and returns the upgrade costs
-	 * {@link CurrencyTransaction} for the next level that comes after the supplied {@link Level}.
-	 *
-	 * @param level The {@link Level} whose upgrade costs {@link CurrencyTransaction} should be returned.
-	 * @return The upgrade costs to upgrade the upgradable object to the next level.
-	 */
-	CurrencyTransaction getUpgradeCosts (final T level);
-
-
-	/**
 	 * Sets the current upgrade costs of the upgradable object to a new value.
 	 * <br>
 	 * This method should usually be invoked whenever the upgradable object was upgraded, as the upgrade cost to
@@ -70,5 +57,19 @@ public interface Upgradable<T>
 	 * @param upgradeCosts The upgrade costs to upgrade the upgradable object to the next level.
 	 */
 	void setUpgradeCosts (final CurrencyTransaction upgradeCosts);
+
+
+	/**
+	 * Returns an instance of {@link CurrencyTransaction} that consists of the upgrade costs that are required to
+	 * upgrade the upgradable object to the next level.
+	 * <br>
+	 * Takes the supplied {@link Level} into account and returns the upgrade costs
+	 * {@link CurrencyTransaction} for the next level that comes after the supplied {@link Level}.
+	 *
+	 * @param level The {@link Level} whose upgrade costs {@link CurrencyTransaction} should be returned.
+	 *
+	 * @return The upgrade costs to upgrade the upgradable object to the next level.
+	 */
+	CurrencyTransaction getUpgradeCosts (final T level);
 
 }
