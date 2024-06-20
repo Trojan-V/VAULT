@@ -93,16 +93,25 @@
                            <GridPane.margin>
                               <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                            </GridPane.margin>
+                           <image>
+                              <Image url="@../../assets/troops/infantry_icon.png" />
+                           </image>
                         </ImageView>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
                            </GridPane.margin>
+                           <image>
+                              <Image url="@../../assets/troops/lieutenant_icon.png" />
+                           </image>
                         </ImageView>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
                            </GridPane.margin>
+                           <image>
+                              <Image url="@../../assets/troops/precision_shooter_icon.png" />
+                           </image>
                         </ImageView>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Infantry" wrapText="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                            <font>
