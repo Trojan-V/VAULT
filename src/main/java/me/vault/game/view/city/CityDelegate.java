@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
@@ -13,7 +12,6 @@ import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
-import me.vault.game.model.currency.Currency;
 import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.buildings.CityBuildingView;
 
@@ -84,7 +82,7 @@ public class CityDelegate implements Initializable
 	private Button workshopUpgradeButton;
 
 
-	private static void initCityBuildingButton (final Button button, final CityBuilding cityBuilding)
+	private static void initCityBuildingButton (final Button button, final Button upgradeButton, final CityBuilding cityBuilding)
 	{
 		// Sprite property gets bound to the button.
 		final ImageView imageView = new ImageView();
@@ -93,13 +91,10 @@ public class CityDelegate implements Initializable
 
 		// Name property gets bound to the button.
 		button.textProperty().bind(cityBuilding.getNameProperty());
-	}
 
+		// Boolean property gets bound to the upgrade button
+		upgradeButton.disableProperty().bind(cityBuilding.getMaxLevelProperty());
 
-	public static void initCurrency (final Currency steel, final ImageView steelImageView, final Label steelAmountLabel)
-	{
-		steelImageView.imageProperty().bind(steel.getSpriteProperty());
-		steelAmountLabel.textProperty().bind(steel.getAmountProperty().asString());
 	}
 
 
@@ -226,14 +221,14 @@ public class CityDelegate implements Initializable
 
 	private void initBuildingButtons ()
 	{
-		initCityBuildingButton(this.workshopButton, Workshop.getInstance());
-		initCityBuildingButton(this.barracksButton, Barracks.getInstance());
-		initCityBuildingButton(this.laboratoryButton, Laboratory.getInstance());
-		initCityBuildingButton(this.spaceBarButton, SpaceBar.getInstance());
-		initCityBuildingButton(this.marketButton, Market.getInstance());
-		initCityBuildingButton(this.docksButton, Docks.getInstance());
-		initCityBuildingButton(this.commandCenterButton, CommandCenter.getInstance());
-		initCityBuildingButton(this.trainingfacilityButton, TrainingFacility.getInstance());
+		initCityBuildingButton(this.workshopButton, this.workshopUpgradeButton, Workshop.getInstance());
+		initCityBuildingButton(this.barracksButton, this.barracksUpgradeButton, Barracks.getInstance());
+		initCityBuildingButton(this.laboratoryButton, this.laboratoryUpgradeButton, Laboratory.getInstance());
+		initCityBuildingButton(this.spaceBarButton, this.spaceBarUpgradeButton, SpaceBar.getInstance());
+		initCityBuildingButton(this.marketButton, this.marketUpgradeButton, Market.getInstance());
+		initCityBuildingButton(this.docksButton, this.docksUpgradeButton, Docks.getInstance());
+		initCityBuildingButton(this.commandCenterButton, this.commandCenterUpgradeButton, CommandCenter.getInstance());
+		initCityBuildingButton(this.trainingfacilityButton, this.trainingfacilityUpgradeButton, TrainingFacility.getInstance());
 	}
 
 }

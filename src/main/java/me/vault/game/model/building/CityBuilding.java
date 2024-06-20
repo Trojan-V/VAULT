@@ -1,6 +1,7 @@
 package me.vault.game.model.building;
 
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Scene;
@@ -44,6 +45,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
+	private final SimpleBooleanProperty isMaxLevelProperty;
 
 	private final Scene scene;
 
@@ -88,12 +90,13 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	protected CityBuilding ()
 	{
 		// TODO: currentLevel aus Config einlesen
-		this.currentLevel = CityBuildingLevel.getMinimumCityBuildingLevel();
-
+		this.currentLevel = CityBuildingLevel.getMinLevel();
 		this.scene = this.getScene();
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
+
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
+		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == CityBuildingLevel.getMaxLevel());
 	}
 
 
@@ -199,6 +202,23 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	public MetaDataImage getSprite (final CityBuildingLevel level)
 	{
 		return this.getAllSprites().get(level);
+	}
+
+
+	public boolean isMaxLevel ()
+	{
+		return this.isMaxLevelProperty.get();
+	}
+
+	public void setIsMaxLevel (boolean value)
+	{
+		this.isMaxLevelProperty.set(value);
+	}
+
+
+	public SimpleBooleanProperty getMaxLevelProperty ()
+	{
+		return this.isMaxLevelProperty;
 	}
 
 

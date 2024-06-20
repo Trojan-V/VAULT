@@ -42,8 +42,11 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	@Override
 	public void upgrade (final CityBuilding upgradable)
 	{
-		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING_BUILDING, upgradable.getName(), upgradable.getLevel(), upgradable.getLevel().getNextHigherLevel());
-		Platform.runLater(new UpgradeRunnable(upgradable, getInstance()));
+		if (!upgradable.isMaxLevel())
+		{
+			LOGGER.logf(ILogger.Level.NORMAL, UPGRADING_BUILDING, upgradable.getName(), upgradable.getLevel(), upgradable.getLevel().getNextHigherLevel());
+			Platform.runLater(new UpgradeRunnable(upgradable, getInstance()));
+		}
 	}
 
 
@@ -54,7 +57,7 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
 	{
 		// TODO: Currency Check fehlt noch, ob genug vorhanden ist.
-		return cityBuilding != null && cityBuilding.getLevel() != CityBuildingLevel.getMaximumCityBuildingLevel();
+		return cityBuilding != null && cityBuilding.getLevel() != CityBuildingLevel.getMaxLevel();
 	}
 
 
@@ -64,7 +67,10 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	@Override
 	public void updateValues (final CityBuilding cityBuilding)
 	{
-		// TODO: add to IUpgrader?!
+		if (cityBuilding.getLevel() == CityBuildingLevel.getMaxLevel())
+		{
+			cityBuilding.setIsMaxLevel(true);
+		}
 		cityBuilding.setName(cityBuilding.getName(cityBuilding.getLevel()));
 		cityBuilding.setSprite(cityBuilding.getSprite(cityBuilding.getLevel()));
 		cityBuilding.setUpgradeCosts(cityBuilding.getUpgradeCosts(cityBuilding.getLevel()));

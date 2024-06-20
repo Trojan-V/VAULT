@@ -24,14 +24,14 @@ public enum CityBuildingLevel implements Level
 	private static final int PREVIOUS_LEVEL_SUBTRACTION_ORDINAL = 1;
 
 
-	public static CityBuildingLevel getMinimumCityBuildingLevel ()
+	public static CityBuildingLevel getMinLevel ()
 	{
 		// TODO: Logging Messages
 		return values()[MINIMUM_LEVEL_ORDINAL];
 	}
 
 
-	public static CityBuildingLevel getMaximumCityBuildingLevel ()
+	public static CityBuildingLevel getMaxLevel ()
 	{
 		return values()[values().length - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
 	}
