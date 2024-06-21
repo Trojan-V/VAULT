@@ -17,27 +17,19 @@ import java.util.Map;
 import static me.vault.game.utility.constant.TroopConstants.Sniper.SNIPER_STATISTIC;
 
 
-/**
- * The sniper class.
- *
- * @author Lasse-Leander Hillen
- * @see Troop
- * @see TroopLevel
- * @since 22.06.2024
- */
-public final class Sniper extends Troop
+public final class Medic extends Troop
 {
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final Logger LOGGER = new Logger(Sniper.class.getSimpleName());
+	private static final Logger LOGGER = new Logger(Medic.class.getSimpleName());
 
 	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Sniper}.
+	 * Singleton instance, as there's never a reason to have more than one {@link Medic}.
 	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
 	 */
-	private static final Sniper INSTANCE;
+	private static final Medic INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -60,23 +52,23 @@ public final class Sniper extends Troop
 
 	static
 	{
-		NAMES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Sniper.SINGLE_NAME);
-		NAMES.put(TroopLevel.COUPLE, TroopConstants.Sniper.COUPLE_NAME);
-		NAMES.put(TroopLevel.SQUAD, TroopConstants.Sniper.SQUAD_NAME);
+		NAMES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Medic.SINGLE_NAME);
+		NAMES.put(TroopLevel.COUPLE, TroopConstants.Medic.COUPLE_NAME);
+		NAMES.put(TroopLevel.SQUAD, TroopConstants.Medic.SQUAD_NAME);
 
-		SPRITES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Sniper.SINGLE_SPRITE);
-		SPRITES.put(TroopLevel.COUPLE, TroopConstants.Sniper.COUPLE_SPRITE);
-		SPRITES.put(TroopLevel.SQUAD, TroopConstants.Sniper.SQUAD_SPRITE);
+		SPRITES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Medic.SINGLE_SPRITE);
+		SPRITES.put(TroopLevel.COUPLE, TroopConstants.Medic.COUPLE_SPRITE);
+		SPRITES.put(TroopLevel.SQUAD, TroopConstants.Medic.SQUAD_SPRITE);
 
-		UPGRADE_COSTS.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Sniper.SINGLE_UPGRADE_COST);
-		UPGRADE_COSTS.put(TroopLevel.COUPLE, TroopConstants.Sniper.COUPLE_UPGRADE_COST);
-		UPGRADE_COSTS.put(TroopLevel.SQUAD, TroopConstants.Sniper.SQUAD_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Medic.SINGLE_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.COUPLE, TroopConstants.Medic.COUPLE_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.SQUAD, TroopConstants.Medic.SQUAD_UPGRADE_COST);
 
-		INSTANCE = new Sniper();
+		INSTANCE = new Medic();
 	}
 
 
-	private Sniper ()
+	private Medic ()
 	{
 		super(null, null, Faction.EXPLORER_ASSOCIATION, SNIPER_STATISTIC);
 	}
@@ -87,7 +79,7 @@ public final class Sniper extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Sniper getInstance ()
+	public static Medic getInstance ()
 	{
 		return INSTANCE;
 	}

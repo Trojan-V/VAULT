@@ -46,41 +46,26 @@ public final class DamageArtifact extends Artifact
 	private static final DamageArtifact INSTANCE;
 
 	/**
-	 * All possible names of the damage artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which name corresponds to
+	 * All possible names of the damage artifact are stored in this {@link Map}, with the {@link ArtifactLevel} as key to denote which name corresponds to
 	 * which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
 	 */
 	private static final Map<ArtifactLevel, String> NAMES;
 
 	/**
-	 * All possible sprites of the damage artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which sprite corresponds to
+	 * All possible sprites ({@link Image}) of the damage artifact are stored in this {@link Map}, with the {@link ArtifactLevel} as key to denote which sprite corresponds to
 	 * which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see Image
 	 */
 	private static final Map<ArtifactLevel, MetaDataImage> SPRITES;
 
 	/**
-	 * All possible modifier sets of the damage artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which set of
+	 * All possible modifier sets of the damage artifact are stored in this {@link Map}, with the {@link ArtifactLevel} as key to denote which set of
 	 * modifiers corresponds to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 */
 	private static final Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> MODIFIERS;
 
 	/**
-	 * All possible upgrade cost {@link CurrencyTransaction}'s of the damage artifact are stored in this map, with the {@link ArtifactLevel} as key to
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the damage artifact are stored in this {@link Map}, with the {@link ArtifactLevel} as key to
 	 * denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
 	 */
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 

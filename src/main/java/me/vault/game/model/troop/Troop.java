@@ -51,14 +51,20 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 
 	private final Faction faction;
 
-
+	/**
+	 * This field contains the resource price to upgrade the artifact to the next level.
+	 * The price is always denoted in negative numbers within the {@link CurrencyTransaction} instance.
+	 * <br>
+	 * It's important to keep that into account to ensure no algebraic sign issues are coming up.
+	 * It's not hard to mess that up, as upgrade costs could be thought about with a positive algebraic sign instead of a negative one.
+	 */
 	private CurrencyTransaction upgradeCost;
 
 	/**
 	 * This field stores the current {@link TroopLevel} of the troop. The value of this field controls the values of many
 	 * attributes the troop consists of.
 	 * <br>
-	 * Check the constructor {@link Troop} and the {@link TroopController#updateValues(Troop)} method to see the control flow.
+	 * Check the constructor and the {@link TroopController#updateValues(Troop)} method to see the control flow.
 	 */
 	private TroopLevel currentLevel;
 
@@ -244,18 +250,6 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	protected abstract Map<TroopLevel, MetaDataImage> getAllSprites ();
 
 
-	/**
-	 * Returns all sets of modifiers the troop can have, depending on it's level.
-	 * <br>
-	 * Therefore, these sets of modifiers are sorted by the {@link TroopLevel} as key in a {@link Map}, allowing
-	 * for easy access by using this meaningful key ({@link TroopLevel}).
-	 *
-	 * @return The {@link Map} which contains all different sets of modifiers the artifact can have, depending on it's level.
-	 */
-	@NotNull
-	protected abstract Map<TroopLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ();
-
-
 	@Override
 	public void move (final Vertex nextVertex)
 	{
@@ -278,15 +272,8 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	@Override
 	public String toString ()
 	{
-		return "Troop{" +
-		       "spriteProperty=" + spriteProperty +
-		       ", isMaxLevelProperty=" + isMaxLevelProperty +
-		       ", nameProperty=" + nameProperty +
-		       ", statistic=" + statistic +
-		       ", faction=" + faction +
-		       ", upgradeCost=" + upgradeCost +
-		       ", currentLevel=" + currentLevel +
-		       '}';
+		return "Troop{" + "spriteProperty=" + spriteProperty + ", isMaxLevelProperty=" + isMaxLevelProperty + ", nameProperty=" + nameProperty + ", statistic=" + statistic + ", faction=" + faction +
+		       ", upgradeCost=" + upgradeCost + ", currentLevel=" + currentLevel + '}';
 	}
 
 }

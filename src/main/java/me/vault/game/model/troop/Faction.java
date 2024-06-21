@@ -3,13 +3,13 @@ package me.vault.game.model.troop;
 
 public enum Faction
 {
-	EXPLORER_ASSOCIATION(1.2, 1, 1),
+	EXPLORER_ASSOCIATION(1.5, 1.5, 1.5),
 
-	MILITARISTIC_GOVERNMENT(1, 1, 1),
+	MILITARISTIC_GOVERNMENT(1.5, 1.5, 1.5),
 
-	MEGA_CORPORATION(1, 1, 1),
+	MEGA_CORPORATION(1.5, 1.5, 1.5),
 
-	NEW_TERRA(1, 1, 1);
+	NEW_TERRA(1.5, 1.5, 1.5);
 
 
 	Faction (final double offensiveLevelMultiplier, final double defensiveLevelMultiplier, final double dexterityLevelMultiplier)

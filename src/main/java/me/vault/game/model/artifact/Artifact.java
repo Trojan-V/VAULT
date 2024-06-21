@@ -92,12 +92,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * This property is used to store and dynamically display the sprite of the artifact. If the sprite is updated
-	 * within this property, JavaFX
-	 * instantly applies the change, so it's visible in the GUI.
-	 *
-	 * @see SimpleObjectProperty
-	 * @see MetaDataImage
+	 * This {@link SimpleObjectProperty} is used to store and dynamically display the sprite ({@link MetaDataImage}) of the artifact.
+	 * If the sprite is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
