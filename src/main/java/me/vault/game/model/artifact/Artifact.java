@@ -114,13 +114,11 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * This field stores the current level of the artifact. The value of this field controls the values of many
+	 * This field stores the current {@link ArtifactLevel} of the artifact. The value of this field controls the values of many
 	 * attributes the artifact consists of.
 	 * <br>
 	 * Check the constructor {@link Artifact#Artifact()} and the
 	 * {@link ArtifactController#updateValues(Artifact)} method to see the control flow.
-	 *
-	 * @see ArtifactLevel
 	 */
 	private ArtifactLevel currentLevel;
 

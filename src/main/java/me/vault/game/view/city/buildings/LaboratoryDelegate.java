@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.model.GameMap;
+import me.vault.game.model.mission.MissionMap;
+import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
@@ -148,6 +151,7 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+
 	}
 
 }

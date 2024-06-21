@@ -92,8 +92,8 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 		// TODO: currentLevel aus Config einlesen
 		this.currentLevel = CityBuildingLevel.getMinLevel();
 		this.scene = this.getScene();
-		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
 
+		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == CityBuildingLevel.getMaxLevel());

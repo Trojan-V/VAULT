@@ -3,6 +3,8 @@ package me.vault.game;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import me.vault.game.control.TroopController;
+import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.jvm.JvmArgumentParser;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -84,6 +86,9 @@ public class VaultApplication extends Application
 			evt.consume();
 			ExitGameDialogDelegate.show();
 		});
+		System.out.println(Sniper.getInstance().toString());
+		TroopController.getInstance().upgrade(Sniper.getInstance());
+
 	}
 
 }

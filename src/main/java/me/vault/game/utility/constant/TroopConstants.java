@@ -1,15 +1,104 @@
 package me.vault.game.utility.constant;
 
 
+import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.model.troop.DefensiveStatistic;
+import me.vault.game.model.troop.DexterityStatistic;
+import me.vault.game.model.troop.OffensiveStatistic;
+import me.vault.game.model.troop.TroopStatistic;
+import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.struct.MetaDataImage;
+
+import static me.vault.game.utility.constant.ConstantInterface.Constant;
+
+
 /**
- * This class provides constants for the unit stistics.
+ * This class provides constants for the unit statistics.
  *
- * @author Alexander Göthel
+ * @author Alexander Goethel, Lasse-Leander Hillen
  * @version 1.0.0
  * @since 29.05.2024
  */
 public interface TroopConstants
 {
+
+	/**
+	 * The {@link Sniper} subinterface contains all constants, which apply to the Sniper troop class.
+	 *
+	 * @author Lasse-Leander Hillen
+	 * @see me.vault.game.model.troop.impl.Sniper
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 21.06.2024
+	 */
+	@ConstantInterface
+	interface Sniper
+	{
+
+		/**
+		 * A constant which represents the base name of the sniper troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Sniper Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved sniper troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Sniper Couple";
+
+		/**
+		 * A constant which represents the name of the maxed sniper troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Sniper Squad";
+
+		/**
+		 * A constant which represents the base sprite of the sniper troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/sniper_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved sniper troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/sniper_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed sniper troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/sniper_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the sniper troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved sniper troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed sniper troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the sniper troop.
+		 */
+		@Constant
+		TroopStatistic SNIPER_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(1, 1),
+			new DefensiveStatistic(1, 1, 1, 1),
+			new OffensiveStatistic(1, 1, 1, 1, 1));
+
+	}
+
 
 	//-------------------
 	// unit health
@@ -162,12 +251,6 @@ public interface TroopConstants
 	String MEDIC_COUPLE = "Medic Couple";
 
 	String MEDIC_SQUAD = "Medic Squad";
-
-	String SNIPER_SINGLE_COMBATANT = "Sniper Single Combatant";
-
-	String SNIPER_COUPLE = "Sniper Couple";
-
-	String SNIPER_SQUAD = "Sniper Squad";
 
 	String RANGER_SINGLE_COMBATANT = "Ranger Single Combatant";
 

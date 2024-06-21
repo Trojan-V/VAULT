@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
+import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -233,6 +234,7 @@ public class MainMenuDelegate implements Initializable
 	{
 		if (actionEvent.getSource().equals(this.continueMenuItem))
 		{
+			System.out.println(Sniper.getInstance().toString());
 		}
 		else if (actionEvent.getSource().equals(this.newGameMenuItem))
 		{

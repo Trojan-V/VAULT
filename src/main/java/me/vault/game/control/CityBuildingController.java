@@ -40,12 +40,12 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void upgrade (final CityBuilding upgradable)
+	public void upgrade (final CityBuilding cityBuilding)
 	{
-		if (!upgradable.isMaxLevel())
+		if (!cityBuilding.isMaxLevel())
 		{
-			LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, upgradable.getName(), upgradable.getLevel(), upgradable.getLevel().getNextHigherLevel());
-			Platform.runLater(new UpgradeRunnable(upgradable, getInstance()));
+			LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, cityBuilding.getName(), cityBuilding.getLevel(), cityBuilding.getLevel().getNextHigherLevel());
+			Platform.runLater(new UpgradeRunnable(cityBuilding, getInstance()));
 		}
 	}
 
