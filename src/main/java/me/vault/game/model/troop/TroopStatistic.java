@@ -1,9 +1,6 @@
 package me.vault.game.model.troop;
 
 
-import java.util.List;
-
-
 /**
  * Description
  *
@@ -28,6 +25,7 @@ public class TroopStatistic
 		this.defensiveStatistic = defensiveStatistic;
 		this.offensiveStatistic = offensiveStatistic;
 	}
+
 
 	public DexterityStatistic getDexterityStatistic ()
 	{

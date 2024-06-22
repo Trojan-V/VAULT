@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.TroopConstants.Ranger.RANGER_STATISTIC;
-import static me.vault.game.utility.constant.TroopConstants.Sniper.SNIPER_STATISTIC;
 
 
 public final class Ranger extends Troop

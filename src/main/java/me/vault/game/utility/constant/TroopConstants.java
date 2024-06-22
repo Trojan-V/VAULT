@@ -234,6 +234,7 @@ public interface TroopConstants
 
 	String PRECISION_SHOOTER_SQUAD = "Precision-Shooter Squad";
 
+
 	/**
 	 * The {@link Sniper} subinterface contains all constants, which apply to the Sniper troop class.
 	 *
@@ -310,6 +311,7 @@ public interface TroopConstants
 			new OffensiveStatistic(100, 100, 100, 100, 100));
 
 	}
+
 
 	/**
 	 * The {@link Ranger} subinterface contains all constants, which apply to the Ranger troop class.
@@ -388,6 +390,7 @@ public interface TroopConstants
 			new OffensiveStatistic(1, 1, 1, 1, 1));
 
 	}
+
 
 	/**
 	 * The {@link Medic} subinterface contains all constants, which apply to the Medic troop class.

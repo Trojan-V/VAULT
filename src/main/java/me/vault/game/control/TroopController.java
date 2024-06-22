@@ -56,47 +56,6 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void upgrade (final Troop troop)
-	{
-		Platform.runLater(new UpgradeRunnable(troop, TroopController.getInstance()));
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean checkIsUpgradable (final Troop troop)
-	{
-		return true;
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void updateValues (final Troop troop)
-	{
-		if (troop.getLevel() == TroopLevel.getMaxLevel())
-		{
-			troop.setIsMaxLevel(true);
-		}
-
-		troop.setName(troop.getName(troop.getLevel()));
-		troop.setSprite(troop.getSprite(troop.getLevel()));
-		troop.setUpgradeCosts(troop.getUpgradeCosts(troop.getLevel()));
-
-		updateOffensiveStatistic(troop);
-		updateDexterityStatistic(troop);
-		updateDefensiveStatistic(troop);
-	}
-
-
 	private static void updateDexterityStatistic (final Troop troop)
 	{
 		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
@@ -213,6 +172,47 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 		attributeHBox.getChildren().add(attributeValueLabel);
 
 		return attributeHBox;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void upgrade (final Troop troop)
+	{
+		Platform.runLater(new UpgradeRunnable(troop, TroopController.getInstance()));
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean checkIsUpgradable (final Troop troop)
+	{
+		return true;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void updateValues (final Troop troop)
+	{
+		if (troop.getLevel() == TroopLevel.getMaxLevel())
+		{
+			troop.setIsMaxLevel(true);
+		}
+
+		troop.setName(troop.getName(troop.getLevel()));
+		troop.setSprite(troop.getSprite(troop.getLevel()));
+		troop.setUpgradeCosts(troop.getUpgradeCosts(troop.getLevel()));
+
+		updateOffensiveStatistic(troop);
+		updateDexterityStatistic(troop);
+		updateDefensiveStatistic(troop);
 	}
 
 }

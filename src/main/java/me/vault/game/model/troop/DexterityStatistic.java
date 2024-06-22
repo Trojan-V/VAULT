@@ -7,9 +7,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class DexterityStatistic
 {
 
-	private SimpleIntegerProperty movementTiles;
+	private final SimpleIntegerProperty movementTiles;
 
-	private SimpleIntegerProperty initiative;
+	private final SimpleIntegerProperty initiative;
 
 
 	public DexterityStatistic (final int movementTiles, final int initiative)
@@ -25,12 +25,6 @@ public class DexterityStatistic
 	}
 
 
-	public SimpleIntegerProperty getMovementTileProperty ()
-	{
-		return this.movementTiles;
-	}
-
-
 	public void setMovementTiles (final int movementTiles)
 	{
 		this.movementTiles.set(movementTiles);
@@ -43,15 +37,15 @@ public class DexterityStatistic
 	}
 
 
-	public int getInitiative ()
+	public SimpleIntegerProperty getMovementTileProperty ()
 	{
-		return this.initiative.get();
+		return this.movementTiles;
 	}
 
 
-	public SimpleIntegerProperty getInitiativeProperty ()
+	public int getInitiative ()
 	{
-		return this.initiative;
+		return this.initiative.get();
 	}
 
 
@@ -64,6 +58,12 @@ public class DexterityStatistic
 	public void setInitiative (final float initiative)
 	{
 		this.initiative.set(Math.round(initiative));
+	}
+
+
+	public SimpleIntegerProperty getInitiativeProperty ()
+	{
+		return this.initiative;
 	}
 
 }

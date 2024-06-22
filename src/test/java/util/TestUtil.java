@@ -14,6 +14,7 @@ import me.vault.game.model.currency.Currency;
  */
 public class TestUtil
 {
+
 	public static final int TEST_CURRENCY_STARTING_AMOUNT = 100000;
 
 
@@ -25,4 +26,5 @@ public class TestUtil
 			currency.setAmount(TEST_CURRENCY_STARTING_AMOUNT);
 		}
 	}
+
 }

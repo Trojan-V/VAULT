@@ -34,87 +34,9 @@ public class OffensiveStatistic
 	}
 
 
-	public SimpleIntegerProperty getEnergyPointsProperty ()
-	{
-		return this.energyPoints;
-	}
-
-
 	public void setEnergyPoints (final int energyPoints)
 	{
 		this.energyPoints.set(energyPoints);
-	}
-
-
-	public int getMeleeDamage ()
-	{
-		return this.meleeDamage.get();
-	}
-
-
-	public SimpleIntegerProperty getMeleeDamageProperty ()
-	{
-		return this.meleeDamage;
-	}
-
-
-	public void setMeleeDamage (final int meleeDamage)
-	{
-		this.meleeDamage.set(meleeDamage);
-	}
-
-
-	public int getGrenadeDamage ()
-	{
-		return this.grenadeDamage.get();
-	}
-
-
-	public SimpleIntegerProperty getGrenadeDamageProperty ()
-	{
-		return this.grenadeDamage;
-	}
-
-
-	public void setGrenadeDamage (final int grenadeDamage)
-	{
-		this.grenadeDamage.set(grenadeDamage);
-	}
-
-
-	public int getGrenadeAmount ()
-	{
-		return this.grenadeAmount.get();
-	}
-
-
-	public SimpleIntegerProperty getGrenadeAmountProperty ()
-	{
-		return this.grenadeAmount;
-	}
-
-
-	public void setGrenadeAmount (final int grenadeAmount)
-	{
-		this.grenadeAmount.set(grenadeAmount);
-	}
-
-
-	public int getGrenadeRange ()
-	{
-		return this.grenadeRange.get();
-	}
-
-
-	public SimpleIntegerProperty getGrenadeRangeProperty ()
-	{
-		return this.grenadeRange;
-	}
-
-
-	public void setGrenadeRange (final int grenadeRange)
-	{
-		this.grenadeRange.set(grenadeRange);
 	}
 
 
@@ -124,15 +46,21 @@ public class OffensiveStatistic
 	}
 
 
-	public void setGrenadeAmount (final float grenadeAmount)
+	public SimpleIntegerProperty getEnergyPointsProperty ()
 	{
-		this.grenadeAmount.set(Math.round(grenadeAmount));
+		return this.energyPoints;
 	}
 
 
-	public void setGrenadeRange (final float grenadeRange)
+	public int getMeleeDamage ()
 	{
-		this.grenadeRange.set(Math.round(grenadeRange));
+		return this.meleeDamage.get();
+	}
+
+
+	public void setMeleeDamage (final int meleeDamage)
+	{
+		this.meleeDamage.set(meleeDamage);
 	}
 
 
@@ -142,9 +70,81 @@ public class OffensiveStatistic
 	}
 
 
+	public SimpleIntegerProperty getMeleeDamageProperty ()
+	{
+		return this.meleeDamage;
+	}
+
+
+	public int getGrenadeDamage ()
+	{
+		return this.grenadeDamage.get();
+	}
+
+
+	public void setGrenadeDamage (final int grenadeDamage)
+	{
+		this.grenadeDamage.set(grenadeDamage);
+	}
+
+
 	public void setGrenadeDamage (final float grenadeDamage)
 	{
 		this.grenadeDamage.set(Math.round(grenadeDamage));
+	}
+
+
+	public SimpleIntegerProperty getGrenadeDamageProperty ()
+	{
+		return this.grenadeDamage;
+	}
+
+
+	public int getGrenadeAmount ()
+	{
+		return this.grenadeAmount.get();
+	}
+
+
+	public void setGrenadeAmount (final int grenadeAmount)
+	{
+		this.grenadeAmount.set(grenadeAmount);
+	}
+
+
+	public void setGrenadeAmount (final float grenadeAmount)
+	{
+		this.grenadeAmount.set(Math.round(grenadeAmount));
+	}
+
+
+	public SimpleIntegerProperty getGrenadeAmountProperty ()
+	{
+		return this.grenadeAmount;
+	}
+
+
+	public int getGrenadeRange ()
+	{
+		return this.grenadeRange.get();
+	}
+
+
+	public void setGrenadeRange (final int grenadeRange)
+	{
+		this.grenadeRange.set(grenadeRange);
+	}
+
+
+	public void setGrenadeRange (final float grenadeRange)
+	{
+		this.grenadeRange.set(Math.round(grenadeRange));
+	}
+
+
+	public SimpleIntegerProperty getGrenadeRangeProperty ()
+	{
+		return this.grenadeRange;
 	}
 
 }

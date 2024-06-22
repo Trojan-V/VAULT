@@ -49,4 +49,5 @@ public class JvmArgumentParserTest
 		System.out.println(Arrays.toString(TEST_ARGS));
 		JvmArgumentParser.apply(TEST_ARGS);
 	}
+
 }

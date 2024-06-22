@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class EncounterDelegate implements Initializable
 {
+
 	private static final int NUMBER_OF_ROWS = 12;
 
 
@@ -85,4 +86,5 @@ public class EncounterDelegate implements Initializable
 	{
 
 	}
+
 }

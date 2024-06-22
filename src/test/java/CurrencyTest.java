@@ -22,6 +22,7 @@ import static util.TestUtil.setStartingCurrencyAmounts;
  */
 public final class CurrencyTest
 {
+
 	private static final int TEST_STEEL_AMOUNT = 30;
 
 
@@ -121,4 +122,5 @@ public final class CurrencyTest
 				TEST_CURRENCY_STARTING_AMOUNT + transaction.getAmount(SCIENCE), SCIENCE.getAmountProperty()));
 
 	}
+
 }
