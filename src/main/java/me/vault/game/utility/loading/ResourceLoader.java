@@ -100,6 +100,7 @@ public final class ResourceLoader
 	{
 		try
 		{
+			Object x  = clazz.getResource(fxmlResourcePath);
 			return new Scene(FXMLLoader.load(Objects.requireNonNull(clazz.getResource(fxmlResourcePath))));
 		}
 		catch (final IOException e)

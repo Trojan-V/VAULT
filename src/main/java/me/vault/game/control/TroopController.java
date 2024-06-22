@@ -47,8 +47,8 @@ public class TroopController implements Upgrader<Troop, TroopLevel>
 		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
 		defensiveStatistic.setDodgeRate((int) (defensiveStatistic.getDodgeRate() * troop.getFaction().getDefensiveLevelMultiplier()));
 		defensiveStatistic.setHealthPoints((int) (defensiveStatistic.getHealthPoints() * troop.getFaction().getDefensiveLevelMultiplier()));
-		defensiveStatistic.setEnergyDamageReduction((int) (defensiveStatistic.getEnergyDamageReduction() * troop.getFaction().getDefensiveLevelMultiplier()));
-		defensiveStatistic.setMeleeDamageReduction((int) (defensiveStatistic.getMeleeDamageReduction() * troop.getFaction().getDefensiveLevelMultiplier()));
+		defensiveStatistic.setResistance((int) (defensiveStatistic.getResistance() * troop.getFaction().getDefensiveLevelMultiplier()));
+		defensiveStatistic.setArmour((int) (defensiveStatistic.getArmour() * troop.getFaction().getDefensiveLevelMultiplier()));
 	}
 
 
