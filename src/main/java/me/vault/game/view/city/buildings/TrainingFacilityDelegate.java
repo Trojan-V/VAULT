@@ -242,21 +242,21 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
-		this.spaceMarineAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
-		this.officerAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
-		this.engineerAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.spaceMarineAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.officerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.engineerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
 
-		this.medicAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Medic.getInstance()));
-		this.sniperAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
-		this.rangerAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Ranger.getInstance()));
+		this.medicAttributePane.getChildren().add(TroopController.getAttributeGridPane(Medic.getInstance()));
+		this.sniperAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.rangerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Ranger.getInstance()));
 
-		this.guardAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
-		this.grenadierAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
-		this.recruitAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.guardAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.grenadierAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.recruitAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
 
-		this.infantryAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
-		this.lieutenantAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
-		this.precisionShooterAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.infantryAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.lieutenantAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.precisionShooterAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
 	}
 
 }

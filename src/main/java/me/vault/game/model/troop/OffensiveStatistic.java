@@ -7,15 +7,15 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class OffensiveStatistic
 {
 
-	private SimpleIntegerProperty energyPoints;
+	private final SimpleIntegerProperty energyPoints;
 
-	private SimpleIntegerProperty meleeDamage;
+	private final SimpleIntegerProperty meleeDamage;
 
-	private SimpleIntegerProperty grenadeDamage;
+	private final SimpleIntegerProperty grenadeDamage;
 
-	private SimpleIntegerProperty grenadeAmount;
+	private final SimpleIntegerProperty grenadeAmount;
 
-	private SimpleIntegerProperty grenadeRange;
+	private final SimpleIntegerProperty grenadeRange;
 
 
 	public OffensiveStatistic (final int energyPoints, final int meleeDamage, final int grenadeDamage, final int grenadeAmount, final int grenadeRange)
@@ -115,6 +115,36 @@ public class OffensiveStatistic
 	public void setGrenadeRange (final int grenadeRange)
 	{
 		this.grenadeRange.set(grenadeRange);
+	}
+
+
+	public void setEnergyPoints (final float energyPoints)
+	{
+		this.energyPoints.set(Math.round(energyPoints));
+	}
+
+
+	public void setGrenadeAmount (final float grenadeAmount)
+	{
+		this.grenadeAmount.set(Math.round(grenadeAmount));
+	}
+
+
+	public void setGrenadeRange (final float grenadeRange)
+	{
+		this.grenadeRange.set(Math.round(grenadeRange));
+	}
+
+
+	public void setMeleeDamage (final float meleeDamage)
+	{
+		this.meleeDamage.set(Math.round(meleeDamage));
+	}
+
+
+	public void setGrenadeDamage (final float grenadeDamage)
+	{
+		this.grenadeDamage.set(Math.round(grenadeDamage));
 	}
 
 }

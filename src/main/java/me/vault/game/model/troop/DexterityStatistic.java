@@ -37,6 +37,12 @@ public class DexterityStatistic
 	}
 
 
+	public void setMovementTiles (final float movementTiles)
+	{
+		this.movementTiles.set(Math.round(movementTiles));
+	}
+
+
 	public int getInitiative ()
 	{
 		return this.initiative.get();
@@ -52,6 +58,12 @@ public class DexterityStatistic
 	public void setInitiative (final int initiative)
 	{
 		this.initiative.set(initiative);
+	}
+
+
+	public void setInitiative (final float initiative)
+	{
+		this.initiative.set(Math.round(initiative));
 	}
 
 }

@@ -3,22 +3,23 @@ package me.vault.game.model.troop;
 
 public enum Faction
 {
-	EXPLORER_ASSOCIATION(1.5, 1.5, 1.5),
+	EXPLORER_ASSOCIATION(1.5f, 1.5f, 1.5f),
 
-	MILITARISTIC_GOVERNMENT(1.5, 1.5, 1.5),
+	MILITARISTIC_GOVERNMENT(1.5f, 1.5f, 1.5f),
 
-	MEGA_CORPORATION(1.5, 1.5, 1.5),
+	MEGA_CORPORATION(1.5f, 1.5f, 1.5f),
 
-	NEW_TERRA(1.5, 1.5, 1.5);
+	NEW_TERRA(1.5f, 1.5f, 1.5f);
 
 
-	private final double offensiveLevelMultiplier;
+	private final float offensiveLevelMultiplier;
 
-	private final double defensiveLevelMultiplier;
+	private final float defensiveLevelMultiplier;
 
-	private final double dexterityLevelMultiplier;
+	private final float dexterityLevelMultiplier;
 
-	Faction (final double offensiveLevelMultiplier, final double defensiveLevelMultiplier, final double dexterityLevelMultiplier)
+
+	Faction (final float offensiveLevelMultiplier, final float defensiveLevelMultiplier, final float dexterityLevelMultiplier)
 	{
 		this.offensiveLevelMultiplier = offensiveLevelMultiplier;
 		this.defensiveLevelMultiplier = defensiveLevelMultiplier;
@@ -26,19 +27,19 @@ public enum Faction
 	}
 
 
-	public double getOffensiveLevelMultiplier ()
+	public float getOffensiveLevelMultiplier ()
 	{
 		return this.offensiveLevelMultiplier;
 	}
 
 
-	public double getDefensiveLevelMultiplier ()
+	public float getDefensiveLevelMultiplier ()
 	{
 		return this.defensiveLevelMultiplier;
 	}
 
 
-	public double getDexterityLevelMultiplier ()
+	public float getDexterityLevelMultiplier ()
 	{
 		return this.dexterityLevelMultiplier;
 	}

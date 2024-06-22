@@ -17,49 +17,42 @@ import me.vault.game.utility.struct.UpgradeRunnable;
 import static me.vault.game.utility.constant.AttributeConstants.*;
 
 
-public class TroopController implements Upgrader<Troop, TroopLevel>
+public final class TroopController implements Upgrader<Troop, TroopLevel>
 {
-
-	private static final TroopController INSTANCE = new TroopController();
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final Logger LOGGER = new Logger(TroopController.class.getSimpleName());
 
+	/**
+	 * Singleton instance, as there's no reason to have more than one {@link TroopController}.
+	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 */
+	private static final TroopController INSTANCE = new TroopController();
 
+	/**
+	 * Represents the spacing of the troop attributes in the attribute grid pane.
+	 */
+	private static final int ATTRIBUTE_SPACING = 10;
+
+
+	/**
+	 * As this class is a singleton, no other class should be able to instantiate it.
+	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 */
+	private TroopController ()
+	{}
+
+
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
 	public static TroopController getInstance ()
 	{
 		return INSTANCE;
-	}
-
-
-	private static void updateDexterityStatistic (final Troop troop)
-	{
-		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
-		dexterityStatistic.setInitiative((int) (dexterityStatistic.getInitiative() * troop.getFaction().getDexterityLevelMultiplier()));
-		dexterityStatistic.setMovementTiles((int) (dexterityStatistic.getMovementTiles() * troop.getFaction().getDexterityLevelMultiplier()));
-	}
-
-
-	private static void updateDefensiveStatistic (final Troop troop)
-	{
-		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
-		defensiveStatistic.setDodgeRate((int) (defensiveStatistic.getDodgeRate() * troop.getFaction().getDefensiveLevelMultiplier()));
-		defensiveStatistic.setHealthPoints((int) (defensiveStatistic.getHealthPoints() * troop.getFaction().getDefensiveLevelMultiplier()));
-		defensiveStatistic.setResistance((int) (defensiveStatistic.getResistance() * troop.getFaction().getDefensiveLevelMultiplier()));
-		defensiveStatistic.setArmour((int) (defensiveStatistic.getArmour() * troop.getFaction().getDefensiveLevelMultiplier()));
-	}
-
-
-	private static void updateOffensiveStatistic (final Troop troop)
-	{
-		final OffensiveStatistic offensiveStatistic = troop.getStatistic().getOffensiveStatistic();
-		offensiveStatistic.setEnergyPoints((int) (offensiveStatistic.getEnergyPoints() * troop.getFaction().getOffensiveLevelMultiplier()));
-		offensiveStatistic.setGrenadeAmount((int) (offensiveStatistic.getGrenadeAmount() * troop.getFaction().getOffensiveLevelMultiplier()));
-		offensiveStatistic.setGrenadeRange((int) (offensiveStatistic.getGrenadeRange() * troop.getFaction().getOffensiveLevelMultiplier()));
-		offensiveStatistic.setMeleeDamage((int) (offensiveStatistic.getMeleeDamage() * troop.getFaction().getOffensiveLevelMultiplier()));
-		offensiveStatistic.setGrenadeDamage((int) (offensiveStatistic.getGrenadeDamage() * troop.getFaction().getOffensiveLevelMultiplier()));
 	}
 
 
@@ -104,47 +97,120 @@ public class TroopController implements Upgrader<Troop, TroopLevel>
 	}
 
 
-	// TODO: LITERALE ENTFERNEN!!!!!!!!!!!!!!
-	public static GridPane buildAttributeGridPane (final Troop troop)
+	private static void updateDexterityStatistic (final Troop troop)
+	{
+		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
+		final float dexterityLevelMultiplier = troop.getFaction().getDexterityLevelMultiplier();
+
+		dexterityStatistic.setInitiative(dexterityStatistic.getInitiative() * dexterityLevelMultiplier);
+		dexterityStatistic.setMovementTiles(dexterityStatistic.getMovementTiles() * dexterityLevelMultiplier);
+
+	}
+
+
+	private static void updateDefensiveStatistic (final Troop troop)
+	{
+		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
+		final float defensiveLevelMultiplier = troop.getFaction().getDefensiveLevelMultiplier();
+
+		defensiveStatistic.setDodgeRate(defensiveStatistic.getDodgeRate() * defensiveLevelMultiplier);
+		defensiveStatistic.setHealthPoints(defensiveStatistic.getHealthPoints() * defensiveLevelMultiplier);
+		defensiveStatistic.setResistance(defensiveStatistic.getResistance() * defensiveLevelMultiplier);
+		defensiveStatistic.setArmour(defensiveStatistic.getArmour() * defensiveLevelMultiplier);
+
+	}
+
+
+	private static void updateOffensiveStatistic (final Troop troop)
 	{
 		final OffensiveStatistic offensiveStatistic = troop.getStatistic().getOffensiveStatistic();
-		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
-		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
+		final float offensiveLevelMultiplier = troop.getFaction().getOffensiveLevelMultiplier();
 
+		offensiveStatistic.setEnergyPoints(offensiveStatistic.getEnergyPoints() * offensiveLevelMultiplier);
+		offensiveStatistic.setGrenadeAmount(offensiveStatistic.getGrenadeAmount() * offensiveLevelMultiplier);
+		offensiveStatistic.setGrenadeRange(offensiveStatistic.getGrenadeRange() * offensiveLevelMultiplier);
+		offensiveStatistic.setMeleeDamage(offensiveStatistic.getMeleeDamage() * offensiveLevelMultiplier);
+		offensiveStatistic.setGrenadeDamage(offensiveStatistic.getGrenadeDamage() * offensiveLevelMultiplier);
+
+	}
+
+
+	public static GridPane getAttributeGridPane (final Troop troop)
+	{
 		final GridPane attributeGridPane = new GridPane();
-		attributeGridPane.setVgap(10);
-		attributeGridPane.setHgap(10);
+		attributeGridPane.setVgap(ATTRIBUTE_SPACING);
+		attributeGridPane.setHgap(ATTRIBUTE_SPACING);
 
-		attributeGridPane.add(buildAttributeHBox(MOVEMENT_ATTRIBUTE_ICON_PATH, MOVEMENT_ATTRIBUTE_NAME, dexterityStatistic.getMovementTileProperty()), 0, 0);
-		attributeGridPane.add(buildAttributeHBox(INITIATIVE_ATTRIBUTE_ICON_PATH, INITIATIVE_ATTRIBUTE_NAME, dexterityStatistic.getInitiativeProperty()), 0, 1);
-
-		attributeGridPane.add(buildAttributeHBox(DODGE_ATTRIBUTE_ICON_PATH, DODGE_ATTRIBUTE_NAME, defensiveStatistic.getDodgeRateProperty()), 0, 2);
-		attributeGridPane.add(buildAttributeHBox(HEALTH_ATTRIBUTE_ICON_PATH, HEALTH_ATTRIBUTE_NAME, defensiveStatistic.getHealthPointsProperty()), 0, 3);
-		attributeGridPane.add(buildAttributeHBox(ARMOR_ATTRIBUTE_ICON_PATH, ARMOR_ATTRIBUTE_NAME, defensiveStatistic.getMeleeDamageReductionProperty()), 1, 0);
-		attributeGridPane.add(buildAttributeHBox(RESISTANCE_ATTRIBUTE_ICON_PATH, RESISTANCE_ATTRIBUTE_NAME, defensiveStatistic.getEnergyDamageReductionProperty()), 1, 1);
-
-		attributeGridPane.add(buildAttributeHBox(MELEE_ATTACK_ATTRIBUTE_ICON_PATH, MELEE_ATTRIBUTE_NAME, offensiveStatistic.getMeleeDamageProperty()), 1, 2);
-		attributeGridPane.add(buildAttributeHBox(GRENADE_ATTACK_ATTRIBUTE_ICON_PATH, GRENADE_ATTACK_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeDamageProperty()), 1, 3);
-		attributeGridPane.add(buildAttributeHBox(GRENADE_AMOUNT_ATTRIBUTE_ICON_PATH, GRENADE_AMOUNT_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeAmountProperty()), 2, 0);
-		attributeGridPane.add(buildAttributeHBox(GRENADE_RANGE_ATTRIBUTE_ICON_PATH, GRENADE_RANGE_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeRangeProperty()), 2, 1);
-		attributeGridPane.add(buildAttributeHBox(ENERGY_ATTRIBUTE_ICON_PATH, ENERGY_ATTRIBUTE_NAME, offensiveStatistic.getEnergyPointsProperty()), 2, 2);
+		addDexterityAttributesToGrid(troop, attributeGridPane);
+		addDefensiveAttributesToGrid(troop, attributeGridPane);
+		addOffensiveAttributesToGrid(troop, attributeGridPane);
 		return attributeGridPane;
 	}
 
-	// TODO: LITERALE ENTFERNEN!!!!!!!!!!!!!!
-	private static HBox buildAttributeHBox (final String imagePath, final String attributeName, final NumberExpression attributeProperty)
+
+	private static void addDexterityAttributesToGrid (final Troop troop, final GridPane gridPane)
 	{
-		final ImageView attributeIconImageView = new ImageView(ResourceLoader.loadImage(imagePath));
-		final Label attributeNameLabel = new Label(attributeName);
+		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
+
+		gridPane.add(getSingleAttributeHBox(MOVEMENT_ATTRIBUTE_ICON_PATH, MOVEMENT_ATTRIBUTE_NAME, dexterityStatistic.getMovementTileProperty()),
+			MOVEMENT_ATTRIBUTE_GRID_X, MOVEMENT_ATTRIBUTE_GRID_Y);
+
+		gridPane.add(getSingleAttributeHBox(INITIATIVE_ATTRIBUTE_ICON_PATH, INITIATIVE_ATTRIBUTE_NAME, dexterityStatistic.getInitiativeProperty()),
+			INITIATIVE_ATTRIBUTE_GRID_X, INITIATIVE_ATTRIBUTE_GRID_Y);
+	}
+
+
+	private static void addDefensiveAttributesToGrid (final Troop troop, final GridPane gridPane)
+	{
+		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
+
+		gridPane.add(getSingleAttributeHBox(DODGE_ATTRIBUTE_ICON_PATH, DODGE_ATTRIBUTE_NAME, defensiveStatistic.getDodgeRateProperty()),
+			DODGE_ATTRIBUTE_GRID_X, DODGE_ATTRIBUTE_GRID_Y);
+
+		gridPane.add(getSingleAttributeHBox(HEALTH_ATTRIBUTE_ICON_PATH, HEALTH_ATTRIBUTE_NAME, defensiveStatistic.getHealthPointsProperty()),
+			HEALTH_ATTRIBUTE_GRID_X, HEALTH_ATTRIBUTE_GRID_Y);
+
+		gridPane.add(getSingleAttributeHBox(ARMOR_ATTRIBUTE_ICON_PATH, ARMOR_ATTRIBUTE_NAME, defensiveStatistic.getMeleeDamageReductionProperty()),
+			ARMOR_ATTRIBUTE_GRID_X, ARMOR_ATTRIBUTE_GRID_Y);
+
+		gridPane.add(getSingleAttributeHBox(RESISTANCE_ATTRIBUTE_ICON_PATH, RESISTANCE_ATTRIBUTE_NAME, defensiveStatistic.getEnergyDamageReductionProperty()),
+			RESISTANCE_ATTRIBUTE_GRID_X, RESISTANCE_ATTRIBUTE_GRID_Y);
+	}
+
+
+	private static void addOffensiveAttributesToGrid (final Troop troop, final GridPane gridPane)
+	{
+		final OffensiveStatistic offensiveStatistic = troop.getStatistic().getOffensiveStatistic();
+
+		gridPane.add(getSingleAttributeHBox(MELEE_ATTACK_ATTRIBUTE_ICON_PATH, MELEE_ATTRIBUTE_NAME, offensiveStatistic.getMeleeDamageProperty()),
+			MELEE_ATTACK_ATTRIBUTE_GRID_X, MELEE_ATTACK_ATTRIBUTE_GRID_Y);
+
+		gridPane.add(getSingleAttributeHBox(GRENADE_ATTACK_ATTRIBUTE_ICON_PATH, GRENADE_ATTACK_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeDamageProperty()),
+			GRENADE_ATTACK_ATTRIBUTE_GRID_X, GRENADE_ATTACK_ATTRIBUTE_GRID_Y);
+
+		gridPane.add(getSingleAttributeHBox(GRENADE_AMOUNT_ATTRIBUTE_ICON_PATH, GRENADE_AMOUNT_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeAmountProperty()),
+			GRENADE_AMOUNT_ATTRIBUTE_GRID_X, GRENADE_AMOUNT_ATTRIBUTE_GRID_Y);
+
+		gridPane.add(getSingleAttributeHBox(GRENADE_RANGE_ATTRIBUTE_ICON_PATH, GRENADE_RANGE_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeRangeProperty()),
+			GRENADE_RANGE_ATTRIBUTE_GRID_X, GRENADE_RANGE_ATTRIBUTE_GRID_Y);
+
+		gridPane.add(getSingleAttributeHBox(ENERGY_ATTRIBUTE_ICON_PATH, ENERGY_ATTRIBUTE_NAME, offensiveStatistic.getEnergyPointsProperty()),
+			ENERGY_ATTRIBUTE_GRID_X, ENERGY_ATTRIBUTE_GRID_Y);
+	}
+
+
+	private static HBox getSingleAttributeHBox (final String imagePath, final String attributeName, final NumberExpression attributeProperty)
+	{
+		final HBox attributeHBox = new HBox();
+		attributeHBox.setAlignment(Pos.CENTER_LEFT);
+		attributeHBox.setSpacing(ATTRIBUTE_SPACING);
+
 		final Label attributeValueLabel = new Label();
 		attributeValueLabel.textProperty().bind(attributeProperty.asString());
 
-		final HBox attributeHBox = new HBox();
-		attributeHBox.getChildren().add(attributeIconImageView);
-		attributeHBox.getChildren().add(attributeNameLabel);
+		attributeHBox.getChildren().add(new ImageView(ResourceLoader.loadImage(imagePath)));
+		attributeHBox.getChildren().add(new Label(attributeName));
 		attributeHBox.getChildren().add(attributeValueLabel);
-		attributeHBox.setSpacing(5);
-		attributeHBox.setAlignment(Pos.CENTER_LEFT);
 
 		return attributeHBox;
 	}

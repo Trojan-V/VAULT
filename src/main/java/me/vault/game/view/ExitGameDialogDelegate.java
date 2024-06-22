@@ -27,7 +27,7 @@ public class ExitGameDialogDelegate implements Initializable
 
 	private static final String FXML_FILENAME = "gameExitDialog.fxml";
 
-	private static final String ICON_PATH = ASSETS_PATH + "Item_Pack/armor_icon.png";
+	private static final String ICON_PATH = ASSETS_PATH + "button.png";
 
 	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
 

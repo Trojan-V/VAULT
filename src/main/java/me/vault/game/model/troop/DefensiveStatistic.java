@@ -7,13 +7,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class DefensiveStatistic
 {
 
-	private SimpleIntegerProperty healthPoints;
+	private final SimpleIntegerProperty healthPoints;
 
-	private SimpleIntegerProperty armour;
+	private final SimpleIntegerProperty armour;
 
-	private SimpleIntegerProperty dodgeRate;
+	private final SimpleIntegerProperty dodgeRate;
 
-	private SimpleIntegerProperty resistance;
+	private final SimpleIntegerProperty resistance;
 
 
 	public DefensiveStatistic (final int healthPoints, final int meleeDamageReduction, final int dodgeRate, final int energyDamageReduction)
@@ -94,6 +94,30 @@ public class DefensiveStatistic
 	public void setResistance (final int resistance)
 	{
 		this.resistance.set(resistance);
+	}
+
+
+	public void setDodgeRate (final float dodgeRate)
+	{
+		this.dodgeRate.set(Math.round(dodgeRate));
+	}
+
+
+	public void setHealthPoints (final float healthPoints)
+	{
+		this.healthPoints.set(Math.round(healthPoints));
+	}
+
+
+	public void setResistance (final float resistance)
+	{
+		this.resistance.set(Math.round(resistance));
+	}
+
+
+	public void setArmour (final float armour)
+	{
+		this.armour.set(Math.round(armour));
 	}
 
 }
