@@ -1,28 +1,37 @@
 package me.vault.game.model.troop;
 
 
+import javafx.beans.property.SimpleIntegerProperty;
+
+
 public class DefensiveStatistic
 {
 
-	private int healthPoints;
+	private SimpleIntegerProperty healthPoints;
 
-	private int meleeDamageReduction;
+	private SimpleIntegerProperty meleeDamageReduction;
 
-	private int dodgeRate;
+	private SimpleIntegerProperty dodgeRate;
 
-	private int energyDamageReduction;
+	private SimpleIntegerProperty energyDamageReduction;
 
 
 	public DefensiveStatistic (final int healthPoints, final int meleeDamageReduction, final int dodgeRate, final int energyDamageReduction)
 	{
-		this.healthPoints = healthPoints;
-		this.meleeDamageReduction = meleeDamageReduction;
-		this.dodgeRate = dodgeRate;
-		this.energyDamageReduction = energyDamageReduction;
+		this.healthPoints = new SimpleIntegerProperty(healthPoints);
+		this.meleeDamageReduction = new SimpleIntegerProperty(meleeDamageReduction);
+		this.dodgeRate = new SimpleIntegerProperty(dodgeRate);
+		this.energyDamageReduction = new SimpleIntegerProperty(energyDamageReduction);
 	}
 
 
 	public int getHealthPoints ()
+	{
+		return this.healthPoints.get();
+	}
+
+
+	public SimpleIntegerProperty getHealthPointsProperty ()
 	{
 		return this.healthPoints;
 	}
@@ -30,11 +39,17 @@ public class DefensiveStatistic
 
 	public void setHealthPoints (final int healthPoints)
 	{
-		this.healthPoints = healthPoints;
+		this.healthPoints.set(healthPoints);
 	}
 
 
 	public int getMeleeDamageReduction ()
+	{
+		return this.meleeDamageReduction.get();
+	}
+
+
+	public SimpleIntegerProperty getMeleeDamageReductionProperty ()
 	{
 		return this.meleeDamageReduction;
 	}
@@ -42,11 +57,17 @@ public class DefensiveStatistic
 
 	public void setMeleeDamageReduction (final int meleeDamageReduction)
 	{
-		this.meleeDamageReduction = meleeDamageReduction;
+		this.meleeDamageReduction.set(meleeDamageReduction);
 	}
 
 
 	public int getDodgeRate ()
+	{
+		return this.dodgeRate.get();
+	}
+
+
+	public SimpleIntegerProperty getDodgeRateProperty ()
 	{
 		return this.dodgeRate;
 	}
@@ -54,11 +75,17 @@ public class DefensiveStatistic
 
 	public void setDodgeRate (final int dodgeRate)
 	{
-		this.dodgeRate = dodgeRate;
+		this.dodgeRate.set(dodgeRate);
 	}
 
 
 	public int getEnergyDamageReduction ()
+	{
+		return this.energyDamageReduction.get();
+	}
+
+
+	public SimpleIntegerProperty getEnergyDamageReductionProperty ()
 	{
 		return this.energyDamageReduction;
 	}
@@ -66,7 +93,7 @@ public class DefensiveStatistic
 
 	public void setEnergyDamageReduction (final int energyDamageReduction)
 	{
-		this.energyDamageReduction = energyDamageReduction;
+		this.energyDamageReduction.set(energyDamageReduction);
 	}
 
 }
