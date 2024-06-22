@@ -102,7 +102,6 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	private AnchorPane mainPane;
 
 
-
 	@FXML
 	private void onBackToCityView (final ActionEvent ignored)
 	{

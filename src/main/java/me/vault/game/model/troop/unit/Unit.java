@@ -44,34 +44,34 @@ public enum Unit
 		}
 	}),
 
-//	SNIPER(new ValidatedEntriesHashMap<>()
-//	{
-//		{
-//			this.put(TroopLevel.SINGLE_COMBATANT,
-//				new UnitAttributes(new CurrencyTransaction(10, 10, 10, 10, 10), TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS,
-//					TroopConstants.ENERGY_NONE, TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
-//					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
-//					TroopConstants.MOVEMENT_RANGE_LOW, TroopConstants.INITIATIVE_HIGH_PLUS, TroopConstants.MELEE_RANGE_HIGH_PLUS,
-//					TroopConstants.GRENADE_RANGE_NONE, TroopConstants.Sniper.SNIPER_SINGLE_COMBATANT));
-//
-//			this.put(TroopLevel.COUPLE,
-//				new UnitAttributes(new CurrencyTransaction(10, 10, 10, 10, 10), TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS,
-//					TroopConstants.ENERGY_NONE, TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
-//					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
-//					TroopConstants.MOVEMENT_RANGE_LOW_PLUS, TroopConstants.INITIATIVE_HIGH_PLUS,
-//					TroopConstants.MELEE_RANGE_HIGH_PLUS, TroopConstants.GRENADE_RANGE_NONE, TroopConstants.SNIPER_COUPLE));
-//			// a higher level of movement range
-//
-//			this.put(TroopLevel.SQUAD,
-//				new UnitAttributes(new CurrencyTransaction(10, 10, 10, 10, 10), TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS,
-//					TroopConstants.ENERGY_NONE, TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
-//					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
-//					TroopConstants.MOVEMENT_RANGE_MEDIUM, TroopConstants.INITIATIVE_HIGH_PLUS,
-//					TroopConstants.MELEE_RANGE_HIGH_PLUS, TroopConstants.GRENADE_RANGE_NONE,
-//					TroopConstants.SNIPER_SINGLE_COMBATANT));
-//			// another higher level of movement range and a higher level
-//		}
-//	}),
+	//	SNIPER(new ValidatedEntriesHashMap<>()
+	//	{
+	//		{
+	//			this.put(TroopLevel.SINGLE_COMBATANT,
+	//				new UnitAttributes(new CurrencyTransaction(10, 10, 10, 10, 10), TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS,
+	//					TroopConstants.ENERGY_NONE, TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
+	//					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
+	//					TroopConstants.MOVEMENT_RANGE_LOW, TroopConstants.INITIATIVE_HIGH_PLUS, TroopConstants.MELEE_RANGE_HIGH_PLUS,
+	//					TroopConstants.GRENADE_RANGE_NONE, TroopConstants.Sniper.SNIPER_SINGLE_COMBATANT));
+	//
+	//			this.put(TroopLevel.COUPLE,
+	//				new UnitAttributes(new CurrencyTransaction(10, 10, 10, 10, 10), TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS,
+	//					TroopConstants.ENERGY_NONE, TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
+	//					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
+	//					TroopConstants.MOVEMENT_RANGE_LOW_PLUS, TroopConstants.INITIATIVE_HIGH_PLUS,
+	//					TroopConstants.MELEE_RANGE_HIGH_PLUS, TroopConstants.GRENADE_RANGE_NONE, TroopConstants.SNIPER_COUPLE));
+	//			// a higher level of movement range
+	//
+	//			this.put(TroopLevel.SQUAD,
+	//				new UnitAttributes(new CurrencyTransaction(10, 10, 10, 10, 10), TroopConstants.HEALTH_LOW_MINUS, TroopConstants.ARMOUR_LOW_MINUS,
+	//					TroopConstants.ENERGY_NONE, TroopConstants.MELEE_DAMAGE_HIGH_PLUS, TroopConstants.GRENADE_DAMAGE_NONE,
+	//					TroopConstants.GRENADE_AMOUNT_NONE, TroopConstants.DODGE_HIGH_MINUS, TroopConstants.RESISTANCE_MEDIUM,
+	//					TroopConstants.MOVEMENT_RANGE_MEDIUM, TroopConstants.INITIATIVE_HIGH_PLUS,
+	//					TroopConstants.MELEE_RANGE_HIGH_PLUS, TroopConstants.GRENADE_RANGE_NONE,
+	//					TroopConstants.SNIPER_SINGLE_COMBATANT));
+	//			// another higher level of movement range and a higher level
+	//		}
+	//	}),
 
 	RANGER(new ValidatedEntriesHashMap<>()
 	{

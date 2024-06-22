@@ -21,6 +21,7 @@ public class DefensiveStatistic
 		this.energyDamageReduction = energyDamageReduction;
 	}
 
+
 	public int getHealthPoints ()
 	{
 		return this.healthPoints;

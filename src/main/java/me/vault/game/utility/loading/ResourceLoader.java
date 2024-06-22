@@ -15,7 +15,6 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
 
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;

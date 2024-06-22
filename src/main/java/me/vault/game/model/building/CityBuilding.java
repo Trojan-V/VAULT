@@ -210,7 +210,8 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 		return this.isMaxLevelProperty.get();
 	}
 
-	public void setIsMaxLevel (boolean value)
+
+	public void setIsMaxLevel (final boolean value)
 	{
 		this.isMaxLevelProperty.set(value);
 	}

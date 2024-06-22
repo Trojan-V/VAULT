@@ -50,22 +50,6 @@ public enum TroopLevel implements Level
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
-	public TroopLevel getNextLowerLevel ()
-	{
-		// Check if the artifact level is already the lowest level.
-		if (checkIsMinimumLevel(this))
-		{
-			LOGGER.logf(DEBUG, ARTIFACT_IS_LOWEST, this.name());
-			return this;
-		}
-		return values()[this.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
 	private static boolean checkIsMaximumLevel (final TroopLevel level)
 	{
 		return level.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL >= values().length;
@@ -78,6 +62,22 @@ public enum TroopLevel implements Level
 	private static boolean checkIsMinimumLevel (final TroopLevel level)
 	{
 		return level.ordinal() - ZERO_INDEXED_LENGTH_CORRECTION < MINIMUM_LEVEL_ORDINAL;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public TroopLevel getNextLowerLevel ()
+	{
+		// Check if the artifact level is already the lowest level.
+		if (checkIsMinimumLevel(this))
+		{
+			LOGGER.logf(DEBUG, ARTIFACT_IS_LOWEST, this.name());
+			return this;
+		}
+		return values()[this.ordinal() - PREVIOUS_LEVEL_SUBTRACTION_ORDINAL];
 	}
 
 

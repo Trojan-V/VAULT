@@ -8,10 +8,6 @@ import me.vault.game.model.player.Player;
 public class Mission
 {
 
-	private Player player;
-
-	private boolean completed;
-
 	private final String name;
 
 	private final String description;
@@ -19,6 +15,10 @@ public class Mission
 	private final MissionMap missionMap;
 
 	private final CurrencyTransaction missionReward;
+
+	private Player player;
+
+	private boolean completed;
 
 
 	public Mission (final String name, final String description, final MissionMap missionMap, final CurrencyTransaction missionReward)

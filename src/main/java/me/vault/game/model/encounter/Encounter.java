@@ -6,15 +6,15 @@ import me.vault.game.model.Vertex;
 import me.vault.game.model.troop.unit.Unit;
 import me.vault.game.utility.constant.EncounterConstants;
 
-import java.util.Map;
 import java.util.Random;
 
 
 public class Encounter
 {
-	private GameMap map;
 
-	private Vertex tile;
+	private final GameMap map;
+
+	private final Vertex tile;
 
 
 	public Encounter (final GameMap map, final Vertex tile)

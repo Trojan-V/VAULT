@@ -19,6 +19,41 @@ public class TroopController implements Upgrader<Troop, TroopLevel>
 	private static final Logger LOGGER = new Logger(TroopController.class.getSimpleName());
 
 
+	public static TroopController getInstance ()
+	{
+		return INSTANCE;
+	}
+
+
+	private static void updateDexterityStatistic (final Troop troop)
+	{
+		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
+		dexterityStatistic.setInitiative((int) (dexterityStatistic.getInitiative() * troop.getFaction().getDexterityLevelMultiplier()));
+		dexterityStatistic.setMovementTiles((int) (dexterityStatistic.getMovementTiles() * troop.getFaction().getDexterityLevelMultiplier()));
+	}
+
+
+	private static void updateDefensiveStatistic (final Troop troop)
+	{
+		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
+		defensiveStatistic.setDodgeRate((int) (defensiveStatistic.getDodgeRate() * troop.getFaction().getDefensiveLevelMultiplier()));
+		defensiveStatistic.setHealthPoints((int) (defensiveStatistic.getHealthPoints() * troop.getFaction().getDefensiveLevelMultiplier()));
+		defensiveStatistic.setEnergyDamageReduction((int) (defensiveStatistic.getEnergyDamageReduction() * troop.getFaction().getDefensiveLevelMultiplier()));
+		defensiveStatistic.setMeleeDamageReduction((int) (defensiveStatistic.getMeleeDamageReduction() * troop.getFaction().getDefensiveLevelMultiplier()));
+	}
+
+
+	private static void updateOffensiveStatistic (final Troop troop)
+	{
+		final OffensiveStatistic offensiveStatistic = troop.getStatistic().getOffensiveStatistic();
+		offensiveStatistic.setEnergyPoints((int) (offensiveStatistic.getEnergyPoints() * troop.getFaction().getOffensiveLevelMultiplier()));
+		offensiveStatistic.setGrenadeAmount((int) (offensiveStatistic.getGrenadeAmount() * troop.getFaction().getOffensiveLevelMultiplier()));
+		offensiveStatistic.setGrenadeRange((int) (offensiveStatistic.getGrenadeRange() * troop.getFaction().getOffensiveLevelMultiplier()));
+		offensiveStatistic.setMeleeDamage((int) (offensiveStatistic.getMeleeDamage() * troop.getFaction().getOffensiveLevelMultiplier()));
+		offensiveStatistic.setGrenadeDamage((int) (offensiveStatistic.getGrenadeDamage() * troop.getFaction().getOffensiveLevelMultiplier()));
+	}
+
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -26,12 +61,6 @@ public class TroopController implements Upgrader<Troop, TroopLevel>
 	public void upgrade (final Troop troop)
 	{
 		Platform.runLater(new UpgradeRunnable(troop, TroopController.getInstance()));
-	}
-
-
-	public static TroopController getInstance ()
-	{
-		return INSTANCE;
 	}
 
 
@@ -64,35 +93,6 @@ public class TroopController implements Upgrader<Troop, TroopLevel>
 		updateDexterityStatistic(troop);
 		updateDefensiveStatistic(troop);
 
-	}
-
-
-	private static void updateDexterityStatistic (final Troop troop)
-	{
-		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
-		dexterityStatistic.setInitiative((int) (dexterityStatistic.getInitiative() * troop.getFaction().getDexterityLevelMultiplier()));
-		dexterityStatistic.setMovementTiles((int) (dexterityStatistic.getMovementTiles() * troop.getFaction().getDexterityLevelMultiplier()));
-	}
-
-
-	private static void updateDefensiveStatistic (final Troop troop)
-	{
-		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
-		defensiveStatistic.setDodgeRate((int) (defensiveStatistic.getDodgeRate() * troop.getFaction().getDefensiveLevelMultiplier()));
-		defensiveStatistic.setHealthPoints((int) (defensiveStatistic.getHealthPoints() * troop.getFaction().getDefensiveLevelMultiplier()));
-		defensiveStatistic.setEnergyDamageReduction((int) (defensiveStatistic.getEnergyDamageReduction() * troop.getFaction().getDefensiveLevelMultiplier()));
-		defensiveStatistic.setMeleeDamageReduction((int) (defensiveStatistic.getMeleeDamageReduction() * troop.getFaction().getDefensiveLevelMultiplier()));
-	}
-
-
-	private static void updateOffensiveStatistic (final Troop troop)
-	{
-		final OffensiveStatistic offensiveStatistic = troop.getStatistic().getOffensiveStatistic();
-		offensiveStatistic.setEnergyPoints((int) (offensiveStatistic.getEnergyPoints() * troop.getFaction().getOffensiveLevelMultiplier()));
-		offensiveStatistic.setGrenadeAmount((int) (offensiveStatistic.getGrenadeAmount() * troop.getFaction().getOffensiveLevelMultiplier()));
-		offensiveStatistic.setGrenadeRange((int) (offensiveStatistic.getGrenadeRange() * troop.getFaction().getOffensiveLevelMultiplier()));
-		offensiveStatistic.setMeleeDamage((int) (offensiveStatistic.getMeleeDamage() * troop.getFaction().getOffensiveLevelMultiplier()));
-		offensiveStatistic.setGrenadeDamage((int) (offensiveStatistic.getGrenadeDamage() * troop.getFaction().getOffensiveLevelMultiplier()));
 	}
 
 }

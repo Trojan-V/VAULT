@@ -13,9 +13,9 @@ public class Player extends MapObject implements Movable
 
 	private static Player INSTANCE;
 
-	private Artifact selectedArtifact;
+	private final Artifact selectedArtifact;
 
-	private Faction selectedFaction;
+	private final Faction selectedFaction;
 
 
 	public Player (final GameMap map, final Vertex tile, final Artifact selectedArtifact, final Faction selectedFaction)
@@ -27,7 +27,7 @@ public class Player extends MapObject implements Movable
 
 
 	@Override
-	public void move (Vertex nextVertex)
+	public void move (final Vertex nextVertex)
 	{
 
 	}

@@ -10,7 +10,6 @@ import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.GameMap;
 import me.vault.game.model.Vertex;
-import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.mission.MapObject;
 import me.vault.game.model.player.Movable;
@@ -118,16 +117,6 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CurrencyTransaction getUpgradeCosts (final TroopLevel level)
-	{
-		return this.getAllUpgradeCosts().get(level);
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void setUpgradeCosts (final CurrencyTransaction upgradeCosts)
 	{
 		this.upgradeCost = upgradeCosts;
@@ -138,9 +127,29 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	 * {@inheritDoc}
 	 */
 	@Override
+	public CurrencyTransaction getUpgradeCosts (final TroopLevel level)
+	{
+		return this.getAllUpgradeCosts().get(level);
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public MetaDataImage getSprite ()
 	{
 		return this.spriteProperty.get();
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setSprite (final MetaDataImage sprite)
+	{
+		this.spriteProperty.set(sprite);
 	}
 
 
@@ -164,9 +173,9 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setSprite (final MetaDataImage sprite)
+	public String getName ()
 	{
-		this.spriteProperty.set(sprite);
+		return this.nameProperty.get();
 	}
 
 
@@ -174,13 +183,13 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getName ()
+	public void setName (final String name)
 	{
-		return this.nameProperty.get();
+		this.nameProperty.set(name);
 	}
 
 
-	public String getName (TroopLevel level)
+	public String getName (final TroopLevel level)
 	{
 		return this.getAllNames().get(level);
 	}
@@ -193,16 +202,6 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	public SimpleStringProperty getNameProperty ()
 	{
 		return this.nameProperty;
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void setName (final String name)
-	{
-		this.nameProperty.set(name);
 	}
 
 
@@ -253,7 +252,6 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	@Override
 	public void move (final Vertex nextVertex)
 	{
-		;
 	}
 
 
@@ -263,7 +261,7 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	}
 
 
-	public void setIsMaxLevel (boolean value)
+	public void setIsMaxLevel (final boolean value)
 	{
 		this.isMaxLevelProperty.set(value);
 	}
@@ -272,8 +270,10 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	@Override
 	public String toString ()
 	{
-		return "Troop{" + "spriteProperty=" + spriteProperty + ", isMaxLevelProperty=" + isMaxLevelProperty + ", nameProperty=" + nameProperty + ", statistic=" + statistic + ", faction=" + faction +
-		       ", upgradeCost=" + upgradeCost + ", currentLevel=" + currentLevel + '}';
+		return "Troop{" + "spriteProperty=" + this.spriteProperty + ", isMaxLevelProperty=" + this.isMaxLevelProperty + ", nameProperty=" + this.nameProperty + ", statistic=" + this.statistic +
+		       ", faction=" +
+		       this.faction +
+		       ", upgradeCost=" + this.upgradeCost + ", currentLevel=" + this.currentLevel + '}';
 	}
 
 }

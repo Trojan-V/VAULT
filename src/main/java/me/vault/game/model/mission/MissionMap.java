@@ -1,20 +1,21 @@
 package me.vault.game.model.mission;
 
 
+import me.vault.game.model.GameMap;
 import me.vault.game.model.Graph;
 import me.vault.game.model.encounter.Encounter;
-import me.vault.game.model.GameMap;
 
 import java.util.ArrayList;
 
 
 public class MissionMap extends GameMap
 {
-	private ArrayList<Encounter> encounters;
 
-	private ArrayList<Obstacle> obstacles;
+	private final ArrayList<Encounter> encounters;
 
-	private ArrayList<Collectible> collectibles;
+	private final ArrayList<Obstacle> obstacles;
+
+	private final ArrayList<Collectible> collectibles;
 
 
 	public MissionMap (final ArrayList<Encounter> encounters, final ArrayList<Obstacle> obstacles, final ArrayList<Collectible> collectibles)
@@ -32,4 +33,5 @@ public class MissionMap extends GameMap
 		this.obstacles = obstacles;
 		this.collectibles = collectibles;
 	}
+
 }

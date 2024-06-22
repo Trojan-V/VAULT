@@ -7,9 +7,10 @@ import me.vault.game.model.Vertex;
 
 public abstract class MapObject
 {
-	private GameMap map;
 
-	private Vertex tile;
+	private final GameMap map;
+
+	private final Vertex tile;
 
 
 	protected MapObject (final GameMap map, final Vertex tile)
