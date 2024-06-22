@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
+import static me.vault.game.utility.constant.TroopConstants.Medic.MEDIC_STATISTIC;
 import static me.vault.game.utility.constant.TroopConstants.Sniper.SNIPER_STATISTIC;
 
 
@@ -70,7 +71,7 @@ public final class Medic extends Troop
 
 	private Medic ()
 	{
-		super(null, null, Faction.EXPLORER_ASSOCIATION, SNIPER_STATISTIC);
+		super(null, null, Faction.EXPLORER_ASSOCIATION, MEDIC_STATISTIC);
 	}
 
 

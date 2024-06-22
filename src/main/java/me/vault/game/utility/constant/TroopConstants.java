@@ -305,9 +305,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic SNIPER_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(1, 1),
-			new DefensiveStatistic(1, 1, 1, 1),
-			new OffensiveStatistic(1, 1, 1, 1, 1));
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
 
 	}
 
@@ -380,8 +380,9 @@ public interface TroopConstants
 		/**
 		 * A constant which represents the attributes of the sniper troop.
 		 */
+
 		@Constant
-		TroopStatistic SNIPER_STATISTIC = new TroopStatistic(
+		TroopStatistic RANGER_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(1, 1),
 			new DefensiveStatistic(1, 1, 1, 1),
 			new OffensiveStatistic(1, 1, 1, 1, 1));
@@ -458,10 +459,10 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the sniper troop.
 		 */
 		@Constant
-		TroopStatistic SNIPER_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(1, 1),
-			new DefensiveStatistic(1, 1, 1, 1),
-			new OffensiveStatistic(1, 1, 1, 1, 1));
+		TroopStatistic MEDIC_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
 
 	}
 

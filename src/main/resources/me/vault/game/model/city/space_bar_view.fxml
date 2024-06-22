@@ -53,7 +53,7 @@
                         <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="166.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="164.0" prefWidth="409.0" style="-fx-border-color: grey; -fx-background-color: white;" text="An explosive expert who is only there because he's alowed to blow things up. Left the company, because they didn't pay him his salary." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="164.0" prefWidth="409.0" style="-fx-border-color: grey; -fx-background-color: white;" text="An explosive expert who is only there because he's allowed to blow things up." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Segoe UI" size="18.0" />
                            </font>

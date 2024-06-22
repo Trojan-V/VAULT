@@ -11,6 +11,10 @@ import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.control.TroopController;
+import me.vault.game.model.troop.impl.Medic;
+import me.vault.game.model.troop.impl.Ranger;
+import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
@@ -23,6 +27,9 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 {
 
 	@FXML
+	private AnchorPane engineerAttributePane;
+
+	@FXML
 	private ImageView engineerImageView;
 
 	@FXML
@@ -32,10 +39,16 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private TabPane factionsTabPane;
 
 	@FXML
+	private AnchorPane grenadierAttributePane;
+
+	@FXML
 	private ImageView grenadierImageView;
 
 	@FXML
 	private Button grenadierUpgradeButton;
+
+	@FXML
+	private AnchorPane guardAttributePane;
 
 	@FXML
 	private ImageView guardImageView;
@@ -44,10 +57,16 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private Button guardUpgradeButton;
 
 	@FXML
+	private AnchorPane infantryAttributePane;
+
+	@FXML
 	private ImageView infantryImageView;
 
 	@FXML
 	private Button infantryUpgradeButton;
+
+	@FXML
+	private AnchorPane lieutenantAttributePane;
 
 	@FXML
 	private ImageView lieutenantImageView;
@@ -59,10 +78,16 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private AnchorPane mainAnchorPane;
 
 	@FXML
+	private AnchorPane medicAttributePane;
+
+	@FXML
 	private ImageView medicImageView;
 
 	@FXML
 	private Button medicUpgradeButton;
+
+	@FXML
+	private AnchorPane officerAttributePane;
 
 	@FXML
 	private ImageView officerImageView;
@@ -71,10 +96,16 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private Button officerUpgradeButton;
 
 	@FXML
+	private AnchorPane precisionShooterAttributePane;
+
+	@FXML
 	private ImageView precisionShooterImageView;
 
 	@FXML
 	private Button precisionShooterUpgradeButton;
+
+	@FXML
+	private AnchorPane rangerAttributePane;
 
 	@FXML
 	private ImageView rangerImageView;
@@ -83,16 +114,25 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private Button rangerUpgradeButton;
 
 	@FXML
+	private AnchorPane recruitAttributePane;
+
+	@FXML
 	private ImageView recruitImageView;
 
 	@FXML
 	private Button recruitUpgradeButton;
 
 	@FXML
+	private AnchorPane sniperAttributePane;
+
+	@FXML
 	private ImageView sniperImageView;
 
 	@FXML
 	private Button sniperUpgradeButton;
+
+	@FXML
+	private AnchorPane spaceMarineAttributePane;
 
 	@FXML
 	private ImageView spaceMarineImageView;
@@ -201,6 +241,22 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	{
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+
+		this.spaceMarineAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.officerAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.engineerAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+
+		this.medicAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Medic.getInstance()));
+		this.sniperAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.rangerAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Ranger.getInstance()));
+
+		this.guardAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.grenadierAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.recruitAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+
+		this.infantryAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.lieutenantAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
+		this.precisionShooterAttributePane.getChildren().add(TroopController.buildAttributeGridPane(Sniper.getInstance()));
 	}
 
 }

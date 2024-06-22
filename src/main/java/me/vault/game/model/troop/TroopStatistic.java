@@ -1,10 +1,13 @@
 package me.vault.game.model.troop;
 
 
+import java.util.List;
+
+
 /**
  * Description
  *
- * @author Vincent Wolf
+ * @author Lasse-Leander Hillen
  * @version 1.0.0
  * @see
  * @since 23.05.2024
@@ -25,7 +28,6 @@ public class TroopStatistic
 		this.defensiveStatistic = defensiveStatistic;
 		this.offensiveStatistic = offensiveStatistic;
 	}
-
 
 	public DexterityStatistic getDexterityStatistic ()
 	{

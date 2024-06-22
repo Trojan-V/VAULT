@@ -54,6 +54,7 @@ public class MainMenuDelegate implements Initializable
 
 
 	//FXML Buttons ---------------------------------------------------------------------------------------
+
 	@FXML
 	private Button continueButton;
 
