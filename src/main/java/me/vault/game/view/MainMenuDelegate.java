@@ -225,6 +225,7 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
 			ViewUtil.setButtonTextColor(this.arenaButton, Color.BLACK);
+			EncounterDelegate.show();
 		}
 	}
 

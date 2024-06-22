@@ -178,6 +178,8 @@ public interface StringConstants
 	String chooseGameFile = "Choose a gamefile to load";
 
 
+	String TILE_IMAGE_NAME = "tile.png";
+
 	String ALREADY_EXIST_EXCEPTION_MESSAGE = "The Element already exists";
 
 
