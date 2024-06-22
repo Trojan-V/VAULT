@@ -9,19 +9,19 @@ public class DefensiveStatistic
 
 	private SimpleIntegerProperty healthPoints;
 
-	private SimpleIntegerProperty meleeDamageReduction;
+	private SimpleIntegerProperty armour;
 
 	private SimpleIntegerProperty dodgeRate;
 
-	private SimpleIntegerProperty energyDamageReduction;
+	private SimpleIntegerProperty resistance;
 
 
 	public DefensiveStatistic (final int healthPoints, final int meleeDamageReduction, final int dodgeRate, final int energyDamageReduction)
 	{
 		this.healthPoints = new SimpleIntegerProperty(healthPoints);
-		this.meleeDamageReduction = new SimpleIntegerProperty(meleeDamageReduction);
+		this.armour = new SimpleIntegerProperty(meleeDamageReduction);
 		this.dodgeRate = new SimpleIntegerProperty(dodgeRate);
-		this.energyDamageReduction = new SimpleIntegerProperty(energyDamageReduction);
+		this.resistance = new SimpleIntegerProperty(energyDamageReduction);
 	}
 
 
@@ -43,21 +43,21 @@ public class DefensiveStatistic
 	}
 
 
-	public int getMeleeDamageReduction ()
+	public int getArmour ()
 	{
-		return this.meleeDamageReduction.get();
+		return this.armour.get();
 	}
 
 
 	public SimpleIntegerProperty getMeleeDamageReductionProperty ()
 	{
-		return this.meleeDamageReduction;
+		return this.armour;
 	}
 
 
-	public void setMeleeDamageReduction (final int meleeDamageReduction)
+	public void setArmour (final int armour)
 	{
-		this.meleeDamageReduction.set(meleeDamageReduction);
+		this.armour.set(armour);
 	}
 
 
@@ -79,21 +79,21 @@ public class DefensiveStatistic
 	}
 
 
-	public int getEnergyDamageReduction ()
+	public int getResistance ()
 	{
-		return this.energyDamageReduction.get();
+		return this.resistance.get();
 	}
 
 
 	public SimpleIntegerProperty getEnergyDamageReductionProperty ()
 	{
-		return this.energyDamageReduction;
+		return this.resistance;
 	}
 
 
-	public void setEnergyDamageReduction (final int energyDamageReduction)
+	public void setResistance (final int resistance)
 	{
-		this.energyDamageReduction.set(energyDamageReduction);
+		this.resistance.set(resistance);
 	}
 
 }
