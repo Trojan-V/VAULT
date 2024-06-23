@@ -624,7 +624,7 @@ public interface TroopConstants
 	}
 
 	/**
-	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Engineer troop class.
+	 * The {@link Engineer} subinterface contains all constants, which apply to the Engineer troop class.
 	 *
 	 * @author Alexander Göthel
 	 * @see me.vault.game.model.troop.impl.Engineer
@@ -694,6 +694,83 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic ENGINEER_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link Guard} subinterface contains all constants, which apply to the Engineer troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Guard
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Guard
+	{
+
+		/**
+		 * A constant which represents the base name of the guard troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Guard Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved guard troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Guard Couple";
+
+		/**
+		 * A constant which represents the name of the maxed guard troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Guard Squad";
+
+		/**
+		 * A constant which represents the base sprite of the guard troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/guard_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved guard troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/guard_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed guard troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/guard_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the guard troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved guard troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed guard troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the guard troop.
+		 */
+		@Constant
+		TroopStatistic GUARD_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(100, 100),
 			new DefensiveStatistic(100, 100, 100, 100),
 			new OffensiveStatistic(100, 100, 100, 100, 100));
