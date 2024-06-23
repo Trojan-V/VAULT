@@ -776,4 +776,81 @@ public interface TroopConstants
 			new OffensiveStatistic(100, 100, 100, 100, 100));
 
 	}
+
+	/**
+	 * The {@link Grenadier} subinterface contains all constants, which apply to the Grenadier troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Grenadier
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Grenadier
+	{
+
+		/**
+		 * A constant which represents the base name of the grenadier troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Grenadier Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved grenadier troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Grenadier Couple";
+
+		/**
+		 * A constant which represents the name of the maxed grenadier troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Grenadier Squad";
+
+		/**
+		 * A constant which represents the base sprite of the grenadier troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/grenadier_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved grenadier troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/grenadier_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed grenadier troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/grenadier_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the grenadier troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved grenadier troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed grenadier troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the grenadier troop.
+		 */
+		@Constant
+		TroopStatistic GRENADIER_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
 }
