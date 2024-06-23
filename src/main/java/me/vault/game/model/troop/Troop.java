@@ -93,6 +93,12 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	}
 
 
+	public SimpleBooleanProperty getIsMaxLevelProperty ()
+	{
+		return this.isMaxLevelProperty;
+	}
+
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -252,6 +258,7 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 	@Override
 	public void move (final Vertex nextVertex)
 	{
+		;
 	}
 
 

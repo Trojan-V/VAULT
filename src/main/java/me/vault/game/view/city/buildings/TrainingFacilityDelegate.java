@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -12,7 +13,9 @@ import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.TroopController;
+import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.*;
+import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
@@ -94,13 +97,13 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private Button officerUpgradeButton;
 
 	@FXML
-	private AnchorPane precisionShooterAttributePane;
+	private AnchorPane precShooterAttributePane;
 
 	@FXML
-	private ImageView precisionShooterImageView;
+	private ImageView precShooterImageView;
 
 	@FXML
-	private Button precisionShooterUpgradeButton;
+	private Button precShooterUpgradeButton;
 
 	@FXML
 	private AnchorPane rangerAttributePane;
@@ -138,88 +141,124 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	@FXML
 	private Button spaceMarineUpgradeButton;
 
+	@FXML
+	private Label spaceMarineLabel;
 
 	@FXML
-	void onEngineerUpgrade (final ActionEvent event)
-	{
+	private Label officerLabel;
 
+	@FXML
+	private Label engineerLabel;
+
+	@FXML
+	private Label medicLabel;
+
+	@FXML
+	private Label sniperLabel;
+
+	@FXML
+	private Label rangerLabel;
+
+	@FXML
+	private Label lieutenantLabel;
+
+	@FXML
+	private Label precShooterLabel;
+
+	@FXML
+	private Label infantryLabel;
+
+	@FXML
+	private Label guardLabel;
+
+	@FXML
+	private Label grenadierLabel;
+
+	@FXML
+	private Label recruitLabel;
+
+
+	@FXML
+	void onEngineerUpgrade (final ActionEvent ignored)
+	{
+		UpgradeDialogDelegate.show(Engineer.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onGrenadierUpgrade (final ActionEvent event)
+	void onGrenadierUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Grenadier.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onGuardUpgrade (final ActionEvent event)
+	void onGuardUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Guard.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onInfantryUpgrade (final ActionEvent event)
+	void onInfantryUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Infantry.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onLieutenantUpgrade (final ActionEvent event)
+	void onLieutenantUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Lieutenant.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onMedicUpgrade (final ActionEvent event)
+	void onMedicUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Medic.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onOfficerUpgrade (final ActionEvent event)
+	void onOfficerUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Officer.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onPrecisionShooterUpgrade (final ActionEvent event)
+	void onPrecisionShooterUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(PrecisionShooter.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onRangerUpgrade (final ActionEvent event)
+	void onRangerUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Ranger.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onRecruitUpgrade (final ActionEvent event)
+	void onRecruitUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Recruit.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onSniperUpgrade (final ActionEvent event)
+	void onSniperUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(Sniper.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
-	void onSpaceMarineUpgrade (final ActionEvent event)
+	void onSpaceMarineUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(SpaceMarine.getInstance(), TroopController.getInstance());
 	}
 
 
@@ -231,8 +270,10 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 
 
 	/**
-	 * @param url
-	 * @param resourceBundle
+	 * Initialises the fxml-view and sets program-specific bindings and properties.
+	 *
+	 * @param url            The {@link URL} object, which represents the fxml-file of the view.
+	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
 	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
@@ -240,21 +281,30 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
-		this.spaceMarineAttributePane.getChildren().add(TroopController.getAttributeGridPane(SpaceMarine.getInstance()));
-		this.officerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Officer.getInstance()));
-		this.engineerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Engineer.getInstance()));
+		this.initTroopSpecificControls(SpaceMarine.getInstance(), this.spaceMarineLabel, this.spaceMarineImageView, this.spaceMarineUpgradeButton, this.spaceMarineAttributePane);
+		this.initTroopSpecificControls(Officer.getInstance(), this.officerLabel, this.officerImageView, this.officerUpgradeButton, this.officerAttributePane);
+		this.initTroopSpecificControls(Engineer.getInstance(), this.engineerLabel, this.engineerImageView, this.engineerUpgradeButton, this.engineerAttributePane);
 
-		this.medicAttributePane.getChildren().add(TroopController.getAttributeGridPane(Medic.getInstance()));
-		this.sniperAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
-		this.rangerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Ranger.getInstance()));
+		this.initTroopSpecificControls(Medic.getInstance(), this.medicLabel, this.medicImageView, this.medicUpgradeButton, this.medicAttributePane);
+		this.initTroopSpecificControls(Sniper.getInstance(), this.sniperLabel, this.sniperImageView, this.sniperUpgradeButton, this.sniperAttributePane);
+		this.initTroopSpecificControls(Ranger.getInstance(), this.rangerLabel, this.rangerImageView, this.rangerUpgradeButton, this.rangerAttributePane);
 
-		this.guardAttributePane.getChildren().add(TroopController.getAttributeGridPane(Guard.getInstance()));
-		this.grenadierAttributePane.getChildren().add(TroopController.getAttributeGridPane(Grenadier.getInstance()));
-		this.recruitAttributePane.getChildren().add(TroopController.getAttributeGridPane(Recruit.getInstance()));
+		this.initTroopSpecificControls(Lieutenant.getInstance(), this.lieutenantLabel, this.lieutenantImageView, this.lieutenantUpgradeButton, this.lieutenantAttributePane);
+		this.initTroopSpecificControls(PrecisionShooter.getInstance(), this.precShooterLabel, this.precShooterImageView, this.precShooterUpgradeButton, this.precShooterAttributePane);
+		this.initTroopSpecificControls(Infantry.getInstance(), this.infantryLabel, this.infantryImageView, this.infantryUpgradeButton, this.infantryAttributePane);
 
-		this.infantryAttributePane.getChildren().add(TroopController.getAttributeGridPane(Infantry.getInstance()));
-		this.lieutenantAttributePane.getChildren().add(TroopController.getAttributeGridPane(Lieutenant.getInstance()));
-		this.precisionShooterAttributePane.getChildren().add(TroopController.getAttributeGridPane(PrecisionShooter.getInstance()));
+		this.initTroopSpecificControls(Guard.getInstance(), this.guardLabel, this.guardImageView, this.guardUpgradeButton, this.guardAttributePane);
+		this.initTroopSpecificControls(Grenadier.getInstance(), this.grenadierLabel, this.grenadierImageView, this.grenadierUpgradeButton, this.grenadierAttributePane);
+		this.initTroopSpecificControls(Recruit.getInstance(), this.recruitLabel, this.recruitImageView, this.recruitUpgradeButton, this.recruitAttributePane);
+	}
+
+
+	private void initTroopSpecificControls (final Troop troop, final Label nameLabel, final ImageView spriteView, final Button upgradeButton, final AnchorPane attributePane)
+	{
+		nameLabel.textProperty().bind(troop.getNameProperty());
+		spriteView.imageProperty().bind(troop.getSpriteProperty());
+		upgradeButton.disableProperty().bind(troop.getIsMaxLevelProperty());
+		attributePane.getChildren().add(TroopController.getAttributeGridPane(troop));
 	}
 
 }
