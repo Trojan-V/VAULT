@@ -78,13 +78,14 @@ public class EncounterDelegate implements Initializable
 	private void setEncounter (final Encounter encounter)
 	{
 		this.encounter = encounter;
+		this.initializeGameBoard(this.gameBoard);
 	}
 
 
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.initializeGameBoard(this.gameBoard); // TODO: FIX
+		 // TODO: FIX
 		this.gameBoard.setGridLinesVisible(false);
 
 	}

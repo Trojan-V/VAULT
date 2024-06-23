@@ -2,7 +2,6 @@ package me.vault.game.model.encounter;
 
 
 import me.vault.game.model.Vertex;
-import me.vault.game.model.troop.unit.Unit;
 import me.vault.game.utility.constant.EncounterConstants;
 
 import java.util.Random;
@@ -25,7 +24,6 @@ public class Encounter
 
 	private void initiative ()
 	{
-		Unit.MEDIC.getAllAttributes();
 	}
 
 

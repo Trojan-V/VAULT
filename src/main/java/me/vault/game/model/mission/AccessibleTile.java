@@ -2,11 +2,17 @@ package me.vault.game.model.mission;
 
 
 import javafx.beans.property.SimpleObjectProperty;
+import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
 
 public class AccessibleTile implements MapObject
 {
+
+	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/tile.png";
+
+	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
+
 
 	/**
 	 * Returns the sprite that is stored within the property of the displayable object as an {@link }.
@@ -16,7 +22,7 @@ public class AccessibleTile implements MapObject
 	@Override
 	public MetaDataImage getSprite ()
 	{
-		return null;
+		return SPRITE_PROPERTY.get();
 	}
 
 
@@ -28,7 +34,7 @@ public class AccessibleTile implements MapObject
 	@Override
 	public void setSprite (final MetaDataImage sprite)
 	{
-
+		SPRITE_PROPERTY.set(sprite);
 	}
 
 
@@ -40,7 +46,7 @@ public class AccessibleTile implements MapObject
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
 	{
-		return null;
+		return SPRITE_PROPERTY;
 	}
 
 }

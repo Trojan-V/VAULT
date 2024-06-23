@@ -15,7 +15,6 @@ module me.vault.game {
 	exports me.vault.game.utility.struct;
 	exports me.vault.game.exception;
 	exports me.vault.game.model.player;
-	exports me.vault.game.model.troop.unit;
 	exports me.vault.game.utility.constant;
 	exports me.vault.game.utility.jvm;
 	exports me.vault.game.utility.logging;

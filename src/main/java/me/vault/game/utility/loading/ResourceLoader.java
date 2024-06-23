@@ -3,15 +3,15 @@ package me.vault.game.utility.loading;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import me.vault.game.model.mission.AccessibleTile;
 import me.vault.game.model.mission.MapObject;
+import me.vault.game.model.mission.Obstacle;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -148,7 +148,38 @@ public final class ResourceLoader
 
 	public static MapObject[][] readMapFile (final String filePath)
 	{
+		char accessibleTileChar = 'n';
+		char obstacleTileChar = 'h';
+		MapObject[][] mapObjectArray = new MapObject[12][12];
 
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8)))
+		{
+			for (int i = 0; i < 12; i++)
+			{
+				String line = reader.readLine();
+				if (line.length() != 12)
+				{
+					throw new RuntimeException(); // TODO: EIGENE EXCEPTION
+				}
+				char[] charArray = line.toCharArray(); // TODO: char[] laenge ueberpruefen
+				for (int j = 0; j < 12; j++)
+				{
+					if (charArray[j] == accessibleTileChar)
+					{
+						mapObjectArray[i][j] = new AccessibleTile();
+					}
+					else if (charArray[j] == obstacleTileChar)
+					{
+						mapObjectArray[i][j] = new Obstacle();
+					}
+				}
+			}
+		}
+		catch (IOException e)
+		{
+			throw new RuntimeException(e);
+		}
+		return mapObjectArray;
 	}
 
 }
