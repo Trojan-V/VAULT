@@ -497,7 +497,7 @@ public interface TroopConstants
 		String SQUAD_NAME = "Space Marine Squad";
 
 		/**
-		 * A constant which represents the base sprite of the space marin troop.
+		 * A constant which represents the base sprite of the space marine troop.
 		 */
 		@Constant
 		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/space_marine_icon" +
@@ -540,6 +540,83 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic SPACE_MARINE_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Officer troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Officer
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Officer
+	{
+
+		/**
+		 * A constant which represents the base name of the officer troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Officer Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved officer troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Officer Couple";
+
+		/**
+		 * A constant which represents the name of the maxed officer troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Officer Squad";
+
+		/**
+		 * A constant which represents the base sprite of the officer troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/officer_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved officer troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/officer_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed officer troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/officer_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the officer troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved officer troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed officer troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the officer troop.
+		 */
+		@Constant
+		TroopStatistic OFFICER_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(100, 100),
 			new DefensiveStatistic(100, 100, 100, 100),
 			new OffensiveStatistic(100, 100, 100, 100, 100));

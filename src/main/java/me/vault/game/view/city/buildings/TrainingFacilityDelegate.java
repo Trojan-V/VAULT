@@ -12,10 +12,7 @@ import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.TroopController;
-import me.vault.game.model.troop.impl.Medic;
-import me.vault.game.model.troop.impl.Ranger;
-import me.vault.game.model.troop.impl.Sniper;
-import me.vault.game.model.troop.impl.SpaceMarine;
+import me.vault.game.model.troop.impl.*;
 import me.vault.game.view.city.CityView;
 
 import java.net.URL;
@@ -244,7 +241,7 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
 		this.spaceMarineAttributePane.getChildren().add(TroopController.getAttributeGridPane(SpaceMarine.getInstance()));
-		this.officerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.officerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Officer.getInstance()));
 		this.engineerAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
 
 		this.medicAttributePane.getChildren().add(TroopController.getAttributeGridPane(Medic.getInstance()));
