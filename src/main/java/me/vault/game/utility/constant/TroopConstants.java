@@ -466,4 +466,83 @@ public interface TroopConstants
 
 	}
 
+	/**
+	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Space Marine troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.SpaceMarine
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface SpaceMarine
+	{
+
+		/**
+		 * A constant which represents the base name of the space marine troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Space Marine Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved space marine troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Space Marine Couple";
+
+		/**
+		 * A constant which represents the name of the maxed space marine troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Space Marine Squad";
+
+		/**
+		 * A constant which represents the base sprite of the space marin troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/space_marine_icon" +
+		                                                       ".png");
+
+		/**
+		 * A constant which represents the sprite of the improved space marine troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/space_marine_icon" +
+		                                                       ".png");
+
+		/**
+		 * A constant which represents the sprite of the maxed space marine troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/space_marine_icon" +
+		                                                      ".png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the space marine troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved space marine troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed space marine troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the space marine troop.
+		 */
+		@Constant
+		TroopStatistic SPACE_MARINE_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
 }
