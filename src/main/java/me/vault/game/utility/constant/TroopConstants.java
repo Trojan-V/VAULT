@@ -469,4 +469,703 @@ public interface TroopConstants
 
 	}
 
+	/**
+	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Space Marine troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.SpaceMarine
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface SpaceMarine
+	{
+
+		/**
+		 * A constant which represents the base name of the space marine troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Space Marine Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved space marine troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Space Marine Couple";
+
+		/**
+		 * A constant which represents the name of the maxed space marine troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Space Marine Squad";
+
+		/**
+		 * A constant which represents the base sprite of the space marine troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/space_marine_icon" +
+		                                                       ".png");
+
+		/**
+		 * A constant which represents the sprite of the improved space marine troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/space_marine_icon" +
+		                                                       ".png");
+
+		/**
+		 * A constant which represents the sprite of the maxed space marine troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/space_marine_icon" +
+		                                                      ".png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the space marine troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved space marine troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed space marine troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the space marine troop.
+		 */
+		@Constant
+		TroopStatistic SPACE_MARINE_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Officer troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Officer
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Officer
+	{
+
+		/**
+		 * A constant which represents the base name of the officer troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Officer Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved officer troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Officer Couple";
+
+		/**
+		 * A constant which represents the name of the maxed officer troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Officer Squad";
+
+		/**
+		 * A constant which represents the base sprite of the officer troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/officer_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved officer troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/officer_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed officer troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/officer_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the officer troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved officer troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed officer troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the officer troop.
+		 */
+		@Constant
+		TroopStatistic OFFICER_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link Engineer} subinterface contains all constants, which apply to the Engineer troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Engineer
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Engineer
+	{
+
+		/**
+		 * A constant which represents the base name of the engineer troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Engineer Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved engineer troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Engineer Couple";
+
+		/**
+		 * A constant which represents the name of the maxed engineer troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Engineer Squad";
+
+		/**
+		 * A constant which represents the base sprite of the engineer troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/engineer_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved engineer troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/engineer_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed engineer troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/engineer_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the engineer troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved engineer troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed engineer troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistic ENGINEER_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link Guard} subinterface contains all constants, which apply to the Engineer troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Guard
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Guard
+	{
+
+		/**
+		 * A constant which represents the base name of the guard troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Guard Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved guard troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Guard Couple";
+
+		/**
+		 * A constant which represents the name of the maxed guard troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Guard Squad";
+
+		/**
+		 * A constant which represents the base sprite of the guard troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/guard_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved guard troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/guard_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed guard troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/guard_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the guard troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved guard troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed guard troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the guard troop.
+		 */
+		@Constant
+		TroopStatistic GUARD_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link Grenadier} subinterface contains all constants, which apply to the Grenadier troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Grenadier
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Grenadier
+	{
+
+		/**
+		 * A constant which represents the base name of the grenadier troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Grenadier Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved grenadier troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Grenadier Couple";
+
+		/**
+		 * A constant which represents the name of the maxed grenadier troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Grenadier Squad";
+
+		/**
+		 * A constant which represents the base sprite of the grenadier troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/grenadier_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved grenadier troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/grenadier_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed grenadier troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/grenadier_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the grenadier troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved grenadier troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed grenadier troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the grenadier troop.
+		 */
+		@Constant
+		TroopStatistic GRENADIER_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link Recruit} subinterface contains all constants, which apply to the Recruit troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Recruit
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Recruit
+	{
+
+		/**
+		 * A constant which represents the base name of the recruit troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Recruit Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved recruit troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Recruit Couple";
+
+		/**
+		 * A constant which represents the name of the maxed recruit troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Recruit Squad";
+
+		/**
+		 * A constant which represents the base sprite of the recruit troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/recruit_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved recruit troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/recruit_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed recruit troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/recruit_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the recruit troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved recruit troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed recruit troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the recruit troop.
+		 */
+		@Constant
+		TroopStatistic RECRUIT_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link Infantry} subinterface contains all constants, which apply to the Infantry troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Infantry
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Infantry
+	{
+
+		/**
+		 * A constant which represents the base name of the infantry troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Infantry Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved infantry troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Infantry Couple";
+
+		/**
+		 * A constant which represents the name of the maxed infantry troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Infantry Squad";
+
+		/**
+		 * A constant which represents the base sprite of the infantry troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/infantry_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved infantry troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/infantry_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed infantry troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/infantry_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the infantry troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved infantry troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed infantry troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the infantry troop.
+		 */
+		@Constant
+		TroopStatistic INFANTRY_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link Lieutenant} subinterface contains all constants, which apply to the Lieutenant troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Lieutenant
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Lieutenant
+	{
+
+		/**
+		 * A constant which represents the base name of the lieutenant troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Lieutenant Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved lieutenant troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Lieutenant Couple";
+
+		/**
+		 * A constant which represents the name of the maxed lieutenant troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Lieutenant Squad";
+
+		/**
+		 * A constant which represents the base sprite of the lieutenant troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/lieutenant_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved lieutenant troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/lieutenant_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed lieutenant troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/lieutenant_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the lieutenant troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved lieutenant troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed lieutenant troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the lieutenant troop.
+		 */
+		@Constant
+		TroopStatistic LIEUTENANT_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
+
+	/**
+	 * The {@link PrecisionShooter} subinterface contains all constants, which apply to the Precision shooter troop
+	 * class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.PrecisionShooter
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface PrecisionShooter
+	{
+
+		/**
+		 * A constant which represents the base name of the precision shooter troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Precision shooter Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved precision shooter troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Precision shooter Couple";
+
+		/**
+		 * A constant which represents the name of the maxed precision shooter troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Precision shooter Squad";
+
+		/**
+		 * A constant which represents the base sprite of the precision shooter troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops" +
+		                                                       "/precision_shooter_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved precision shooter troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops" +
+		                                                       "/precision_shooter_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed lieutenant troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops" +
+		                                                      "/precision_shooter_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the precision shooter troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved precision shooter troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed precision shooter troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the precision shooter troop.
+		 */
+		@Constant
+		TroopStatistic PRECISION_SHOOTER_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
 }
