@@ -853,4 +853,81 @@ public interface TroopConstants
 			new OffensiveStatistic(100, 100, 100, 100, 100));
 
 	}
+
+	/**
+	 * The {@link Recruit} subinterface contains all constants, which apply to the Recruit troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Recruit
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Recruit
+	{
+
+		/**
+		 * A constant which represents the base name of the recruit troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Recruit Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved recruit troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Recruit Couple";
+
+		/**
+		 * A constant which represents the name of the maxed recruit troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Recruit Squad";
+
+		/**
+		 * A constant which represents the base sprite of the recruit troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/recruit_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved recruit troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/recruit_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed recruit troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/recruit_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the recruit troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved recruit troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed recruit troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the recruit troop.
+		 */
+		@Constant
+		TroopStatistic RECRUIT_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
 }
