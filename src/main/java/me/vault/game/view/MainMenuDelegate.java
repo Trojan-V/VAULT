@@ -12,6 +12,8 @@ import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
+import me.vault.game.model.encounter.Encounter;
+import me.vault.game.model.encounter.EncounterMap;
 import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -22,6 +24,7 @@ import me.vault.game.view.city.CityView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ENEMIES;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
@@ -226,7 +229,7 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
 			ViewUtil.setButtonTextColor(this.arenaButton, Color.BLACK);
-			EncounterDelegate.show();
+			EncounterDelegate.show(new Encounter(new EncounterMap("src/main/resources/me/vault/game/map/Encounter_2.csv", ENCOUNTER_ENEMIES, ENCOUNTER_ENEMIES), null)); // TODO:FIX
 		}
 	}
 

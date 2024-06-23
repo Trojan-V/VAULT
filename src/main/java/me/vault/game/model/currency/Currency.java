@@ -34,32 +34,31 @@ public enum Currency implements Displayable
 	/**
 	 * The steel-currency, which is the main-resource used to upgrade buildings.
 	 */
-	STEEL(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/steel_icon.png")),
+	STEEL(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "currency/steel_icon.png")),
 
 
 	/**
 	 * The composite-currency, which is the rarer resource used to upgrade buildings.
 	 */
-	COMPOSITE(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/composite_icon.png")),
+	COMPOSITE(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "currency/composite_icon.png")),
 
 
 	/**
 	 * The food rations currency, which is the main-resource used to upgrade troops.
 	 */
-	FOOD_RATION(new SimpleIntegerProperty(0), ResourceLoader.loadImage(
-		ASSETS_PATH + "Item_Pack/food_ration_icon" + ".png")),
+	FOOD_RATION(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "currency/food_ration_icon.png")),
 
 
 	/**
 	 * The science currency, which is the rarer resource used to upgrade troops.
 	 */
-	SCIENCE(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/science_icon.png")),
+	SCIENCE(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "currency/science_icon.png")),
 
 
 	/**
 	 * The energy-credits currency, which is the rarest resource used to upgrade troops.
 	 */
-	ENERGY_CREDIT(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "Item_Pack/credit_icon.png"));
+	ENERGY_CREDIT(new SimpleIntegerProperty(0), ResourceLoader.loadImage(ASSETS_PATH + "currency/credit_icon.png"));
 
 
 	/**

@@ -3,6 +3,7 @@ package me.vault.game.utility.loading;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import me.vault.game.model.mission.MapObject;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -145,10 +146,9 @@ public final class ResourceLoader
 	}
 
 
-	public static char[][] readMapFile (final String filePath)
+	public static MapObject[][] readMapFile (final String filePath)
 	{
 
-		return null;
 	}
 
 }

@@ -92,6 +92,11 @@ public class ViewUtil
 	public static void setButtonImage (final Button button, final String filePath)
 	{
 		final ImageView imageView = new ImageView(ResourceLoader.loadImage(filePath));
+		setButtonImageView(button, imageView);
+	}
+
+	public static void setButtonImageView (final Button button, final ImageView imageView)
+	{
 		imageView.setPreserveRatio(false);
 		imageView.setFitWidth(button.getPrefWidth());
 		imageView.setFitHeight(button.getPrefHeight());

@@ -1,7 +1,6 @@
 package me.vault.game.model.encounter;
 
 
-import me.vault.game.model.GameMap;
 import me.vault.game.model.Vertex;
 import me.vault.game.model.troop.unit.Unit;
 import me.vault.game.utility.constant.EncounterConstants;
@@ -12,12 +11,12 @@ import java.util.Random;
 public class Encounter
 {
 
-	private final GameMap map;
+	private final EncounterMap map;
 
 	private final Vertex tile;
 
 
-	public Encounter (final GameMap map, final Vertex tile)
+	public Encounter (final EncounterMap map, final Vertex tile)
 	{
 		this.map = map;
 		this.tile = tile;
@@ -27,6 +26,12 @@ public class Encounter
 	private void initiative ()
 	{
 		Unit.MEDIC.getAllAttributes();
+	}
+
+
+	public EncounterMap getMap ()
+	{
+		return this.map;
 	}
 
 

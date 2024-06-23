@@ -5,12 +5,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.control.PlayerController;
 import me.vault.game.model.city.Docks;
+import me.vault.game.model.player.Player;
+import me.vault.game.model.troop.Faction;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -51,7 +55,7 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	private static final String TO_STRING_PATTERN = "DocksDelegate[fxml={0}]";
 
 	/**
-	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/game} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
 	private static final Scene FXML_FILENAME = ResourceLoader.loadScene(Docks.class, "docks_view.fxml");
@@ -71,6 +75,11 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	@FXML
 	private TabPane factionsTabPane;
 
+	@FXML
+	private Button chooseExplorerFactionButton;
+
+	@FXML
+	private Button chooseMilitaryFactionButton;
 
 	// Methods ---------------------------------------------------------------------------------------------------------
 
@@ -87,6 +96,20 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	}
 
 
+	@FXML
+	void onChooseExplorerFaction (final ActionEvent ignored)
+	{
+		PlayerController.changeSelectedFaction(Player.getInstance(), Faction.EXPLORER_ASSOCIATION);
+	}
+
+
+	@FXML
+	void onChooseMilitaristicFaction (final ActionEvent ignored)
+	{
+		PlayerController.changeSelectedFaction(Player.getInstance(), Faction.MILITARISTIC_GOVERNMENT);
+	}
+
+
 	/**
 	 * Initialises the fxml-view and sets program-specific bindings and properties.
 	 *
@@ -98,9 +121,8 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	{
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.docksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
-
-		// Logging the finalization of the initialization
-		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALISED, DocksDelegate.class.getSimpleName());
+		this.chooseExplorerFactionButton.disableProperty().bind(Faction.EXPLORER_ASSOCIATION.getIsSelectedProperty());
+		this.chooseMilitaryFactionButton.disableProperty().bind(Faction.MILITARISTIC_GOVERNMENT.getIsSelectedProperty());
 	}
 
 

@@ -27,6 +27,8 @@ module me.vault.game {
 	exports me.vault.game.view.city.buildings;
 	exports me.vault.game.view.city;
 	exports me.vault.game.model.city;
+	exports me.vault.game.model.mission;
+	exports me.vault.game.model.encounter;
 
 	opens me.vault.game to javafx.fxml;
 	opens me.vault.game.utility.loading to javafx.fxml;
@@ -39,5 +41,7 @@ module me.vault.game {
 	opens me.vault.game.model.city to javafx.fxml;
 	opens me.vault.game.view.city to javafx.fxml;
 	opens me.vault.game.view.city.buildings to javafx.fxml;
+	opens me.vault.game.model.mission to javafx.fxml;
 	exports me.vault.game.model.troop;
+
 }

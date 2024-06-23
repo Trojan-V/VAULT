@@ -8,21 +8,32 @@ import me.vault.game.model.mission.MapObject;
 import me.vault.game.model.troop.Faction;
 
 
-public class Player extends MapObject implements Movable
+public class Player implements Movable
 {
 
-	private static Player INSTANCE;
+	private static Player INSTANCE = new Player(null, null, null, null);
 
 	private final Artifact selectedArtifact;
 
-	private final Faction selectedFaction;
+	private Faction selectedFaction;
 
 
 	public Player (final GameMap map, final Vertex tile, final Artifact selectedArtifact, final Faction selectedFaction)
 	{
-		super(map, tile);
 		this.selectedArtifact = selectedArtifact;
 		this.selectedFaction = selectedFaction;
+	}
+
+
+	public static Player getInstance ()
+	{
+		return INSTANCE;
+	}
+
+
+	public void setSelectedFaction (Faction newFaction)
+	{
+		this.selectedFaction = newFaction;
 	}
 
 

@@ -54,7 +54,6 @@ public class VaultApplication extends Application
 	 */
 	public static void main (final String[] args)
 	{
-		ResourceLoader.readMapFile("src/main/resources/me/vault/game/map/Encounter_2.csv");
 		LOGGER.logf(ILogger.Level.NORMAL, PROGRAM_START, Arrays.toString(args));
 
 		// TODO: createDefaultConfig();
@@ -87,8 +86,6 @@ public class VaultApplication extends Application
 			ExitGameDialogDelegate.show();
 		});
 		System.out.println(Sniper.getInstance().toString());
-		TroopController.getInstance().upgrade(Sniper.getInstance());
-
 	}
 
 }

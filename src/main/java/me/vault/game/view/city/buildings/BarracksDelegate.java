@@ -4,10 +4,14 @@ package me.vault.game.view.city.buildings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.control.PlayerController;
+import me.vault.game.model.player.Player;
+import me.vault.game.model.troop.Faction;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
@@ -56,6 +60,16 @@ public class BarracksDelegate implements Initializable
 	@FXML
 	private AnchorPane barracksAnchorPane;
 
+	@FXML
+	private Button chooseTerraFactionButton;
+
+
+	@FXML
+	void onChooseTerraFaction (final ActionEvent ignored)
+	{
+		PlayerController.changeSelectedFaction(Player.getInstance(), Faction.NEW_TERRA);
+	}
+
 
 	/**
 	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
@@ -79,6 +93,7 @@ public class BarracksDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.barracksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.chooseTerraFactionButton.disableProperty().bind(Faction.NEW_TERRA.getIsSelectedProperty());
 
 		// Logging the finalization of the initialization
 		LOGGER.logf(DEBUG, CLASS_INITIALISED, BarracksDelegate.class.getSimpleName());

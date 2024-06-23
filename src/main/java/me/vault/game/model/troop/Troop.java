@@ -5,7 +5,6 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.control.TroopController;
-import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.GameMap;
@@ -20,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 
-public abstract class Troop extends MapObject implements Movable, Nameable, Displayable, Upgradable<TroopLevel>
+public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>, MapObject
 {
 
 	/**
@@ -50,6 +49,10 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 
 	private final Faction faction;
 
+	private final GameMap map;
+
+	private final Vertex tile;
+
 	/**
 	 * This field contains the resource price to upgrade the artifact to the next level.
 	 * The price is always denoted in negative numbers within the {@link CurrencyTransaction} instance.
@@ -70,9 +73,9 @@ public abstract class Troop extends MapObject implements Movable, Nameable, Disp
 
 	protected Troop (final GameMap map, final Vertex tile, final Faction faction, final TroopStatistic statistic)
 	{
-		super(map, tile);
+		this.map = map;
+		this.tile = tile;
 		this.currentLevel = TroopLevel.getMinimum();
-
 		this.upgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));

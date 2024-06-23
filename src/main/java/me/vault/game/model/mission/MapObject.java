@@ -1,22 +1,10 @@
 package me.vault.game.model.mission;
 
 
-import me.vault.game.model.GameMap;
-import me.vault.game.model.Vertex;
+import me.vault.game.interfaces.Displayable;
 
 
-public abstract class MapObject
+public interface MapObject extends Displayable
 {
-
-	private final GameMap map;
-
-	private final Vertex tile;
-
-
-	protected MapObject (final GameMap map, final Vertex tile)
-	{
-		this.map = map;
-		this.tile = tile;
-	}
 
 }

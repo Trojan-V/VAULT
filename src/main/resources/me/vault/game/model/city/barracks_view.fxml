@@ -1,208 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="barracksAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.city.buildings.BarracksDelegate">
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="barracksAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.buildings.BarracksDelegate">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <viewport>
-                <Rectangle2D height="720.0" width="1280.0"/>
+                <Rectangle2D height="720.0" width="1280.0" />
             </viewport>
             <image>
-                <Image url="@../../assets/background/city_background.png"/>
+                <Image url="@../../assets/background/city_background.png" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                    minWidth="-Infinity" prefHeight="510.0" prefWidth="1230.0"
-                    style="-fx-background-color: lightblue; -fx-border-color: darkblue;" AnchorPane.bottomAnchor="100.0"
-                    AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="115.0">
+        <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1230.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="115.0">
             <children>
-                <GridPane gridLinesVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <GridPane gridLinesVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="65.0" minHeight="0.0" prefHeight="65.0" vgrow="SOMETIMES"/>
-                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES"/>
-                        <RowConstraints maxHeight="458.0" minHeight="10.0" prefHeight="263.0" vgrow="SOMETIMES"/>
-                        <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="65.0" minHeight="0.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="458.0" minHeight="10.0" prefHeight="263.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label prefHeight="55.0" prefWidth="608.0"
-                               text="BARRACKS: NEW-TERRA - sovereignty is our strength" underline="true"
-                               GridPane.columnSpan="2147483647">
+                        <Label prefHeight="55.0" prefWidth="608.0" text="BARRACKS: NEW-TERRA - sovereignty is our strength" underline="true" GridPane.columnSpan="2147483647">
                             <font>
-                                <Font name="Segoe UI Semibold" size="24.0"/>
+                                <Font name="Segoe UI Semibold" size="24.0" />
                             </font>
                             <GridPane.margin>
-                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                             </GridPane.margin>
                             <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </padding>
                         </Label>
                         <GridPane gridLinesVisible="true" GridPane.rowIndex="2">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="154.0"
-                                                vgrow="SOMETIMES"/>
-                                <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="166.0"
-                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="154.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="166.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="99.0"
-                                       prefWidth="359.0" style="-fx-border-color: grey; -fx-background-color: white;"
-                                       text="A commanding officer who will give everything to return to his homeworld."
-                                       wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER"
-                                       GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="99.0" prefWidth="359.0" style="-fx-border-color: grey; -fx-background-color: white;" text="A commanding officer who will give everything to return to his homeworld." wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <font>
-                                        <Font name="Segoe UI" size="20.0"/>
+                                        <Font name="Segoe UI" size="20.0" />
                                     </font>
                                     <GridPane.margin>
-                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                     <padding>
-                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                     </padding>
                                 </Label>
-                                <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="103.0"
-                                       prefWidth="359.0" style="-fx-border-color: grey; -fx-background-color: white;"
-                                       text="An elite-soldier who excells the other soldiers in his group with his outstanding aim."
-                                       wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER"
-                                       GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="103.0" prefWidth="359.0" style="-fx-border-color: grey; -fx-background-color: white;" text="An elite-soldier who excells the other soldiers in his group with his outstanding aim." wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <font>
-                                        <Font name="Segoe UI" size="20.0"/>
+                                        <Font name="Segoe UI" size="20.0" />
                                     </font>
                                     <GridPane.margin>
-                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                     <padding>
-                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                     </padding>
                                 </Label>
-                                <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="112.0"
-                                       prefWidth="360.0" style="-fx-border-color: grey; -fx-background-color: white;"
-                                       text="A well-rounded soldier who isn't afraid to give everything for his cause."
-                                       wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                                       GridPane.valignment="CENTER">
+                                <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="112.0" prefWidth="360.0" style="-fx-border-color: grey; -fx-background-color: white;" text="A well-rounded soldier who isn't afraid to give everything for his cause." wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <font>
-                                        <Font name="Segoe UI" size="20.0"/>
+                                        <Font name="Segoe UI" size="20.0" />
                                     </font>
                                     <GridPane.margin>
-                                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                     </GridPane.margin>
                                     <padding>
-                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                     </padding>
                                 </Label>
-                                <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="INHERIT"
-                                           pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT"
-                                           GridPane.valignment="CENTER">
+                                <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                                     <GridPane.margin>
-                                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                     </GridPane.margin>
                                     <image>
-                                        <Image url="@../../assets/troops/infantry_icon.png"/>
+                                        <Image url="@../../assets/troops/infantry_icon.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true"
-                                           GridPane.columnIndex="1" GridPane.halignment="RIGHT"
-                                           GridPane.valignment="CENTER">
+                                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                                     <GridPane.margin>
-                                        <Insets bottom="25.0" left="150.0" right="25.0" top="25.0"/>
+                                        <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
                                     </GridPane.margin>
                                     <image>
-                                        <Image url="@../../assets/troops/lieutenant_icon.png"/>
+                                        <Image url="@../../assets/troops/lieutenant_icon.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true"
-                                           GridPane.columnIndex="2" GridPane.halignment="RIGHT"
-                                           GridPane.valignment="CENTER">
+                                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                                     <GridPane.margin>
-                                        <Insets bottom="25.0" left="150.0" right="25.0" top="25.0"/>
+                                        <Insets bottom="25.0" left="150.0" right="25.0" top="25.0" />
                                     </GridPane.margin>
                                     <image>
-                                        <Image url="@../../assets/troops/precision_shooter_icon.png"/>
+                                        <Image url="@../../assets/troops/precision_shooter_icon.png" />
                                     </image>
                                 </ImageView>
-                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="190.0"
-                                       style="-fx-background-color: white; -fx-border-color: grey;" text="Infantry"
-                                       wrapText="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Infantry" wrapText="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                     <font>
-                                        <Font name="Segoe UI Semibold" size="24.0"/>
+                                        <Font name="Segoe UI Semibold" size="24.0" />
                                     </font>
                                     <GridPane.margin>
-                                        <Insets bottom="10.0" left="25.0" top="10.0"/>
+                                        <Insets bottom="10.0" left="25.0" top="10.0" />
                                     </GridPane.margin>
                                 </Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="190.0"
-                                       style="-fx-background-color: white; -fx-border-color: grey;" text="Lieutenant"
-                                       wrapText="true" GridPane.columnIndex="1">
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Lieutenant" wrapText="true" GridPane.columnIndex="1">
                                     <font>
-                                        <Font name="Segoe UI Semibold" size="24.0"/>
+                                        <Font name="Segoe UI Semibold" size="24.0" />
                                     </font>
                                     <GridPane.margin>
-                                        <Insets bottom="10.0" left="25.0" top="10.0"/>
+                                        <Insets bottom="10.0" left="25.0" top="10.0" />
                                     </GridPane.margin>
                                 </Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="125.0" prefWidth="205.0"
-                                       style="-fx-background-color: white; -fx-border-color: grey;"
-                                       text="Precision Shooter" wrapText="true" GridPane.columnIndex="2">
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="125.0" prefWidth="205.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Precision Shooter" wrapText="true" GridPane.columnIndex="2">
                                     <font>
-                                        <Font name="Segoe UI Semibold" size="24.0"/>
+                                        <Font name="Segoe UI Semibold" size="24.0" />
                                     </font>
                                     <GridPane.margin>
-                                        <Insets bottom="10.0" left="25.0" top="10.0"/>
+                                        <Insets bottom="10.0" left="25.0" top="10.0" />
                                     </GridPane.margin>
                                 </Label>
                             </children>
                         </GridPane>
-                        <Label alignment="CENTER" contentDisplay="TEXT_ONLY" prefHeight="100.0" prefWidth="1208.0"
-                               text="The government of New Terra is a major faction in the political landscape with its capital of Terra, formally know as earth. The egalitarian government ascended as the victor of the last Sol war as the last governmental entity which was still"
-                               wrapText="true" GridPane.rowIndex="1">
+                        <Label alignment="CENTER" contentDisplay="TEXT_ONLY" prefHeight="100.0" prefWidth="1208.0" text="The government of New Terra is a major faction in the political landscape with its capital of Terra, formally know as earth. The egalitarian government ascended as the victor of the last Sol war as the last governmental entity which was still" wrapText="true" GridPane.rowIndex="1">
                             <GridPane.margin>
-                                <Insets bottom="10.0" left="25.0" right="25.0" top="10.0"/>
+                                <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                             </GridPane.margin>
                             <font>
-                                <Font name="Segoe UI" size="20.0"/>
+                                <Font name="Segoe UI" size="20.0" />
                             </font>
                             <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </padding>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="1178.0"
-                                style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Choose faction"
-                                GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        <Button fx:id="chooseTerraFactionButton" mnemonicParsing="false" onAction="#onChooseTerraFaction" prefHeight="56.0" prefWidth="1178.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Choose faction" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                             <GridPane.margin>
-                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                             </GridPane.margin>
                             <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </padding>
                             <font>
-                                <Font name="Segoe UI Semibold" size="18.0"/>
+                                <Font name="Segoe UI Semibold" size="18.0" />
                             </font>
                         </Button>
                     </children>
                 </GridPane>
             </children>
         </AnchorPane>
-        <Button layoutX="35.0" layoutY="665.0" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="55.0"
-                prefWidth="326.0" style="-fx-background-color: lightsalmon; -fx-border-color: salmon;" text="Back"
-                AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="929.0"
-                AnchorPane.topAnchor="640.0">
+        <Button layoutX="35.0" layoutY="665.0" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: lightsalmon; -fx-border-color: salmon;" text="Back" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="929.0" AnchorPane.topAnchor="640.0">
             <font>
-                <Font name="Segoe UI" size="22.0"/>
+                <Font name="Segoe UI" size="22.0" />
             </font>
         </Button>
     </children>

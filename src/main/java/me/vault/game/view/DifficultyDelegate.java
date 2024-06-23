@@ -143,19 +143,19 @@ public final class DifficultyDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
 			ViewUtil.setButtonTextColor(this.easyDifficultyButton, Color.BLACK);
-			GameController.getInstance().setDifficultyModifyer(GameDifficulty.EASY_MODE);
+			GameController.getInstance().setDifficultyModifier(GameDifficulty.EASY_MODE);
 			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
 			ViewUtil.setButtonTextColor(this.normalDifficultyButton, Color.BLACK);
-			GameController.getInstance().setDifficultyModifyer(GameDifficulty.NORMAL_MODE);
+			GameController.getInstance().setDifficultyModifier(GameDifficulty.NORMAL_MODE);
 			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
 			ViewUtil.setButtonTextColor(this.hardDifficultyButton, Color.BLACK);
-			GameController.getInstance().setDifficultyModifyer(GameDifficulty.HARD_MODE);
+			GameController.getInstance().setDifficultyModifier(GameDifficulty.HARD_MODE);
 			PrologueDelegate.show(VaultApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
