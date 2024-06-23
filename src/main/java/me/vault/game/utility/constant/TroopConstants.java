@@ -930,4 +930,81 @@ public interface TroopConstants
 			new OffensiveStatistic(100, 100, 100, 100, 100));
 
 	}
+
+	/**
+	 * The {@link Infantry} subinterface contains all constants, which apply to the Infantry troop class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.Infantry
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface Infantry
+	{
+
+		/**
+		 * A constant which represents the base name of the infantry troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Infantry Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved infantry troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Infantry Couple";
+
+		/**
+		 * A constant which represents the name of the maxed infantry troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Infantry Squad";
+
+		/**
+		 * A constant which represents the base sprite of the infantry troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/infantry_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved infantry troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/infantry_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed infantry troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops/infantry_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the infantry troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved infantry troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed infantry troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the infantry troop.
+		 */
+		@Constant
+		TroopStatistic INFANTRY_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
 }
