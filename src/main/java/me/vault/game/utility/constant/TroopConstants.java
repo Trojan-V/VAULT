@@ -1084,4 +1084,85 @@ public interface TroopConstants
 			new OffensiveStatistic(100, 100, 100, 100, 100));
 
 	}
+
+	/**
+	 * The {@link PrecisionShooter} subinterface contains all constants, which apply to the Precision shooter troop
+	 * class.
+	 *
+	 * @author Alexander Göthel
+	 * @see me.vault.game.model.troop.impl.PrecisionShooter
+	 * @see me.vault.game.model.troop.Troop
+	 * @since 23.06.2024
+	 */
+	@ConstantInterface
+	interface PrecisionShooter
+	{
+
+		/**
+		 * A constant which represents the base name of the precision shooter troop.
+		 */
+		@Constant
+		String SINGLE_NAME = "Precision shooter Single Combatant";
+
+		/**
+		 * A constant which represents the name of the improved precision shooter troop.
+		 */
+		@Constant
+		String COUPLE_NAME = "Precision shooter Couple";
+
+		/**
+		 * A constant which represents the name of the maxed precision shooter troop.
+		 */
+		@Constant
+		String SQUAD_NAME = "Precision shooter Squad";
+
+		/**
+		 * A constant which represents the base sprite of the precision shooter troop.
+		 */
+		@Constant
+		MetaDataImage SINGLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops" +
+		                                                       "/precision_shooter_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the improved precision shooter troop.
+		 */
+		@Constant
+		MetaDataImage COUPLE_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops" +
+		                                                       "/precision_shooter_icon.png");
+
+		/**
+		 * A constant which represents the sprite of the maxed lieutenant troop.
+		 */
+		@Constant
+		MetaDataImage SQUAD_SPRITE = ResourceLoader.loadImage(GameConstants.ASSETS_PATH + "troops" +
+		                                                      "/precision_shooter_icon.png");
+
+		/**
+		 * A constant which represents the base upgrade cost of the precision shooter troop.
+		 */
+		@Constant
+		CurrencyTransaction SINGLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the improved precision shooter troop.
+		 */
+		@Constant
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+
+		/**
+		 * A constant which represents the upgrade cost of the maxed precision shooter troop.
+		 */
+		@Constant
+		CurrencyTransaction SQUAD_UPGRADE_COST = CurrencyTransaction.EMPTY;
+
+		/**
+		 * A constant which represents the attributes of the precision shooter troop.
+		 */
+		@Constant
+		TroopStatistic PRECISION_SHOOTER_STATISTIC = new TroopStatistic(
+			new DexterityStatistic(100, 100),
+			new DefensiveStatistic(100, 100, 100, 100),
+			new OffensiveStatistic(100, 100, 100, 100, 100));
+
+	}
 }

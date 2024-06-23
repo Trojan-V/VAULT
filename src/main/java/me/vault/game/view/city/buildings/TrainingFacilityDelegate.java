@@ -254,7 +254,7 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 
 		this.infantryAttributePane.getChildren().add(TroopController.getAttributeGridPane(Infantry.getInstance()));
 		this.lieutenantAttributePane.getChildren().add(TroopController.getAttributeGridPane(Lieutenant.getInstance()));
-		this.precisionShooterAttributePane.getChildren().add(TroopController.getAttributeGridPane(Sniper.getInstance()));
+		this.precisionShooterAttributePane.getChildren().add(TroopController.getAttributeGridPane(PrecisionShooter.getInstance()));
 	}
 
 }
