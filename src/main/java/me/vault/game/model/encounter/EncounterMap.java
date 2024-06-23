@@ -45,14 +45,14 @@ public class EncounterMap
 	private void placeEnemiesTroopAtRandomPosition (final Troop troop)
 	{
 		final int randomYCoordinate = (int) Math.round(Math.random() * 11);
-		final int randomXCoordinate = (int) Math.round(Math.random() + 9);
+		final int randomXCoordinate = (int) Math.round(Math.random() + 10);
 
 		if (this.mapArray[randomYCoordinate][randomXCoordinate].getClass() == AccessibleTile.class)
 		{
 			this.mapArray[randomYCoordinate][randomXCoordinate] = troop;
 			return;
 		}
-		this.placeAlliedTroopAtRandomPosition(troop);
+		this.placeEnemiesTroopAtRandomPosition(troop);
 	}
 
 
