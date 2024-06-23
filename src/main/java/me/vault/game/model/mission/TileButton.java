@@ -3,6 +3,7 @@ package me.vault.game.model.mission;
 
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import me.vault.game.view.ViewUtil;
 
 
 public class TileButton extends Button
@@ -17,6 +18,9 @@ public class TileButton extends Button
 	{
 		this.mapObject = mapObject;
 		this.spriteImageView = new ImageView(mapObject.getSprite());
+		this.spriteImageView.setPreserveRatio(false);
+		this.spriteImageView.setFitWidth(35);
+		this.spriteImageView.setFitHeight(35);
 		super.setGraphic(this.spriteImageView);
 	}
 
@@ -31,7 +35,7 @@ public class TileButton extends Button
 	{
 		this.mapObject = mapObject;
 		this.spriteImageView = new ImageView(mapObject.getSprite());
-		super.setGraphic(this.spriteImageView);
+		ViewUtil.setButtonImageView(this, this.spriteImageView);
 	}
 
 }

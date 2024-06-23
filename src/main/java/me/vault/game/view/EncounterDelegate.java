@@ -4,8 +4,10 @@ package me.vault.game.view;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
@@ -85,8 +87,7 @@ public class EncounterDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		 // TODO: FIX
-		this.gameBoard.setGridLinesVisible(false);
+		this.gameBoard.setGridLinesVisible(true);
 
 	}
 
@@ -103,6 +104,9 @@ public class EncounterDelegate implements Initializable
 				button.setTextFill(Color.TRANSPARENT);
 				button.setBackground(Background.fill(Color.TRANSPARENT));
 				button.setPrefSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
+				button.setMaxSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
+				button.setContentDisplay(ContentDisplay.CENTER);
+				button.setAlignment(Pos.CENTER);
 
 				tileMap.add(button, i, j);
 			}
