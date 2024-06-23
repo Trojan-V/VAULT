@@ -132,7 +132,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 		gridPane.add(getSingleAttributeHBox(ARMOR_ATTRIBUTE_ICON_PATH, ARMOR_ATTRIBUTE_NAME, defensiveStatistic.getMeleeDamageReductionProperty()),
 			ARMOR_ATTRIBUTE_GRID_X, ARMOR_ATTRIBUTE_GRID_Y);
 
-		gridPane.add(getSingleAttributeHBox(RESISTANCE_ATTRIBUTE_ICON_PATH, RESISTANCE_ATTRIBUTE_NAME, defensiveStatistic.getEnergyDamageReductionProperty()),
+		gridPane.add(getSingleAttributeHBox(RESISTANCE_ATTRIBUTE_ICON_PATH, RESISTANCE_ATTRIBUTE_NAME,
+				defensiveStatistic.getResistanceProperty()),
 			RESISTANCE_ATTRIBUTE_GRID_X, RESISTANCE_ATTRIBUTE_GRID_Y);
 	}
 

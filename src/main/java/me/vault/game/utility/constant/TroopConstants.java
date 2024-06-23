@@ -22,218 +22,6 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
 public interface TroopConstants
 {
 
-	//-------------------
-	// unit health
-	double HEALTH_HIGH_PLUS = 67;
-
-	double HEALTH_HIGH = 60;
-
-	double HEALTH_MEDIUM = 46;
-
-	double HEALTH_LOW = 32;
-
-	double HEALTH_LOW_MINUS = 25;
-
-	//--------------------
-	// unit armour
-	double ARMOUR_HIGH_PLUS = 0.35;
-
-	double ARMOUR_HIGH_MINUS = 0.25;
-
-	double ARMOUR_MEDIUM = 0.2;
-
-	double ARMOUR_LOW_PLUS = 0.15;
-
-	double ARMOUR_LOW = 0.1;
-
-	double ARMOUR_LOW_MINUS = 0.05;
-
-	//--------------------
-	// unit energy
-	int ENERGY_HIGH_PLUS = 9;
-
-	int ENERGY_MEDIUM = 6;
-
-	int ENERGY_NONE = 0;
-
-	//-----------------
-	// unit melee damage
-	int MELEE_DAMAGE_HIGH_PLUS = 34;
-
-	int MELEE_DAMAGE_HIGH = 22;
-
-	int MELEE_DAMAGE_MEDIUM = 16;
-
-	int MELEE_DAMAGE_LOW = 10;
-
-	//----------------
-	// unit grenade
-	int GRENADE_DAMAGE_HIGH_PLUS = 34;
-
-	int GRENADE_DAMAGE_HIGH = 22;
-
-	int GRENADE_DAMAGE_MEDIUM = 16;
-
-	int GRENADE_DAMAGE_LOW = 10;
-
-	int GRENADE_DAMAGE_NONE = 0;
-
-	//----------------------
-	// unit grenade amount
-	int GRENADE_AMOUNT_HIGH_PLUS = 7;
-
-	int GRENADE_AMOUNT_HIGH_MINUS = 5;
-
-	int GRENADE_AMOUNT_MEDIUM = 4;
-
-	int GRENADE_AMOUNT_LOW_PLUS = 3;
-
-	int GRENADE_AMOUNT_LOW = 2;
-
-	int GRENADE_AMOUNT_LOW_MINUS = 1;
-
-	int GRENADE_AMOUNT_NONE = 0;
-
-	//------------------------
-	// unit dodge
-	double DODGE_HIGH = 0.25;
-
-	double DODGE_HIGH_MINUS = 0.2;
-
-	double DODGE_MEDIUM = 0.15;
-
-	double DODGE_LOW_PLUS = 0.1;
-
-	double DODGE_LOW = 0.05;
-
-	double DODGE_LOW_MINUS = 0;
-
-	//---------------------
-	// unit resistance
-	double RESISTANCE_HIGH_PLUS = 0.35;
-
-	double RESISTANCE_HIGH_MINUS = 0.25;
-
-	double RESISTANCE_MEDIUM = 0.2;
-
-	double RESISTANCE_LOW_PLUS = 0.15;
-
-	double RESISTANCE_LOW = 0.1;
-
-	//------------------
-	// unit movement range
-	int MOVEMENT_RANGE_HIGH_PLUS = 6;
-
-	int MOVEMENT_RANGE_HIGH_MINUS = 4;
-
-	int MOVEMENT_RANGE_MEDIUM = 3;
-
-	int MOVEMENT_RANGE_LOW_PLUS = 2;
-
-	int MOVEMENT_RANGE_LOW = 1;
-
-	//---------------
-	// unit initiative
-	int INITIATIVE_HIGH_PLUS = 2;
-
-	int INITIATIVE_HIGH = 1;
-
-	int INITIATIVE_MEDIUM = 0;
-
-	int INITIATIVE_LOW_PLUS = -1;
-
-	int INITIATIVE_LOW = -2;
-
-	int INITIATIVE_LOW_MINUS = -3;
-
-	//-------------
-	// unit melee range
-	int MELEE_RANGE_HIGH_PLUS = 6;
-
-	int MELEE_RANGE_HIGH = 4;
-
-	int MELEE_RANGE_HIGH_MINUS = 3;
-
-	int MELEE_RANGE_MEDIUM = 1;
-
-	//--------------
-	// unit grenade range
-	int GRENADE_RANGE_HIGH = 3;
-
-	int GRENADE_RANGE_HIGH_MINUS = 2;
-
-	int GRENADE_RANGE_MEDIUM = 1;
-
-	int GRENADE_RANGE_NONE = 0;
-
-	//--------------------
-	// unit names
-	String MEDIC_SINGLE_COMBATANT = "Medic Single Combatant";
-
-	String MEDIC_COUPLE = "Medic Couple";
-
-	String MEDIC_SQUAD = "Medic Squad";
-
-	String RANGER_SINGLE_COMBATANT = "Ranger Single Combatant";
-
-	String RANGER_COUPLE = "Ranger Couple";
-
-	String RANGER_SQUAD = "Ranger Squad";
-
-	String SPACE_MARINE_SINGLE_COMBATANT = "Space-Marine Single Combatant";
-
-	String SPACE_MARINE_COUPLE = "Space-Marine Couple";
-
-	String SPACE_MARINE_SQUAD = "Space-Marine Squad";
-
-	String ENGINEER_SINGLE_COMBATANT = "Engineer Single Combatant";
-
-	String ENGINEER_COUPLE = "Engineer Couple";
-
-	String ENGINEER_SQUAD = "Engineer Squad";
-
-	String OFFICER_SINGLE_COMBATANT = "Officer Single Combatant";
-
-	String OFFICER_COUPLE = "Officer Couple";
-
-	String OFFICER_SQUAD = "Officer Squad";
-
-	String GUARD_SINGLE_COMBATANT = "Guard Single Combatant";
-
-	String GUARD_COUPLE = "Guard Couple";
-
-	String GUARD_SQUAD = "Guard Squad";
-
-	String GRENADIER_SINGLE_COMBATANT = "Grenadier Single Combatant";
-
-	String GRENADIER_COUPLE = "Grenadier Couple";
-
-	String GRENADIER_SQUAD = "Grenadier Squad";
-
-	String RECRUIT_SINGLE_COMBATANT = "Recruit Single Combatant";
-
-	String RECRUIT_COUPLE = "Recruit Couple";
-
-	String RECRUIT_SQUAD = "Recruit Squad";
-
-	String INFANTRY_SINGLE_COMBATANT = "Infantry Single Combatant";
-
-	String INFANTRY_COUPLE = "Infantry Couple";
-
-	String INFANTRY_SQUAD = "Infantry Squad";
-
-	String LIEUTENANT_SINGLE_COMBATANT = "Lieutenant Single Combatant";
-
-	String LIEUTENANT_COUPLE = "Lieutenant Couple";
-
-	String LIEUTENANT_SQUAD = "Lieutenant Squad";
-
-	String PRECISION_SHOOTER_SINGLE_COMBATANT = "Precision-Shooter Single Combatant";
-
-	String PRECISION_SHOOTER_COUPLE = "Precision-Shooter Couple";
-
-	String PRECISION_SHOOTER_SQUAD = "Precision-Shooter Squad";
-
 
 	/**
 	 * The {@link Sniper} subinterface contains all constants, which apply to the Sniper troop class.
@@ -293,7 +81,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved sniper troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed sniper troop.
@@ -306,9 +94,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic SNIPER_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(1, 2),
+			new DefensiveStatistic(25, 0.05, 0.15, 0.2),
+			new OffensiveStatistic(0, 24, 0, 0, 0));
 
 	}
 
@@ -371,7 +159,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved sniper troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed sniper troop.
@@ -385,9 +173,9 @@ public interface TroopConstants
 
 		@Constant
 		TroopStatistic RANGER_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(1, 1),
-			new DefensiveStatistic(1, 1, 1, 1),
-			new OffensiveStatistic(1, 1, 1, 1, 1));
+			new DexterityStatistic(4, 1),
+			new DefensiveStatistic(46, 0.2, 0.25, 0.15),
+			new OffensiveStatistic(5, 22, 16, 1, 1));
 
 	}
 
@@ -450,7 +238,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved sniper troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed sniper troop.
@@ -463,9 +251,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic MEDIC_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(6, 0),
+			new DefensiveStatistic(46, 0.1, 0.2, 0.1),
+			new OffensiveStatistic(0, -16, 0, 0, 0));
 
 	}
 
@@ -530,7 +318,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved space marine troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -100, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed space marine troop.
@@ -543,14 +331,14 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic SPACE_MARINE_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(67, 0.35, 0.05, 0.15),
+			new OffensiveStatistic(0, 16, 16, 2, 1));
 
 	}
 
 	/**
-	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Officer troop class.
+	 * The {@link Officer} subinterface contains all constants, which apply to the Officer troop class.
 	 *
 	 * @author Alexander Göthel
 	 * @see me.vault.game.model.troop.impl.Officer
@@ -607,7 +395,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved officer troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed officer troop.
@@ -620,9 +408,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic OFFICER_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(2, -2),
+			new DefensiveStatistic(46, 0.2, 0.15, 0.2),
+			new OffensiveStatistic(9, 10, 0, 0, 0));
 
 	}
 
@@ -684,7 +472,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved engineer troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed engineer troop.
@@ -697,9 +485,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic ENGINEER_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(60, 0.25, 0, 0.2),
+			new OffensiveStatistic(0, 22, 22, 4, 2));
 
 	}
 
@@ -761,7 +549,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved guard troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed guard troop.
@@ -774,9 +562,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic GUARD_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(3, 0),
+			new DefensiveStatistic(32, 0.2, 0.15, 0.2),
+			new OffensiveStatistic(0, 16, 16, 5, 1));
 
 	}
 
@@ -838,7 +626,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved grenadier troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed grenadier troop.
@@ -851,9 +639,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic GRENADIER_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(3, 0),
+			new DefensiveStatistic(46, 0.2, 0.15, 0.35),
+			new OffensiveStatistic(6, 16, 34, 7, 3));
 
 	}
 
@@ -915,7 +703,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved recruit troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed recruit troop.
@@ -928,9 +716,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic RECRUIT_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(3, 0),
+			new DefensiveStatistic(25, 0.15, 0.05, 0.2),
+			new OffensiveStatistic(0, 10, 16, 4, 1));
 
 	}
 
@@ -1005,9 +793,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic INFANTRY_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(3, 0),
+			new DefensiveStatistic(46, 0.1, 0.15, 0.2),
+			new OffensiveStatistic(0, 16, 16, 3, 1));
 
 	}
 
@@ -1069,7 +857,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved lieutenant troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed lieutenant troop.
@@ -1082,9 +870,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic LIEUTENANT_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(2, -1),
+			new DefensiveStatistic(46, 0.2, 0.15, 0.2),
+			new OffensiveStatistic(5, 10, 10, 2, 1));
 
 	}
 
@@ -1150,7 +938,7 @@ public interface TroopConstants
 		 * A constant which represents the upgrade cost of the improved precision shooter troop.
 		 */
 		@Constant
-		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-100, -100, -100, -100, -100);
+		CurrencyTransaction COUPLE_UPGRADE_COST = new CurrencyTransaction(-150, -150, -150, -150, -150);
 
 		/**
 		 * A constant which represents the upgrade cost of the maxed precision shooter troop.
@@ -1163,9 +951,9 @@ public interface TroopConstants
 		 */
 		@Constant
 		TroopStatistic PRECISION_SHOOTER_STATISTIC = new TroopStatistic(
-			new DexterityStatistic(100, 100),
-			new DefensiveStatistic(100, 100, 100, 100),
-			new OffensiveStatistic(100, 100, 100, 100, 100));
+			new DexterityStatistic(3, 0),
+			new DefensiveStatistic(32, 0.2, 0.2, 0.15),
+			new OffensiveStatistic(0, 22, 16, 1, 1));
 
 	}
 }
