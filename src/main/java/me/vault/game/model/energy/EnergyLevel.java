@@ -11,9 +11,9 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 public enum EnergyLevel implements Level
 {
-	SINGLE_COMBATANT,
-	COUPLE,
-	SQUAD;
+	RUDIMENTARY,
+	ADVANCED,
+	SOPHISTICATED;
 
 	private static final Logger LOGGER = new Logger(EnergyLevel.class.getSimpleName());
 

@@ -1,8 +1,6 @@
 package me.vault.game.model.troop;
 
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 
