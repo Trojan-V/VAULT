@@ -13,6 +13,7 @@ import me.vault.game.VaultApplication;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.view.city.CityView;
 import me.vault.game.view.city.buildings.CityBuildingView;
+import me.vault.game.view.mission.MissionSelectionDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -67,7 +68,7 @@ public class CommandCenterController implements Initializable
 	@FXML
 	void onGoToMissionBoard (final ActionEvent ignored)
 	{
-
+		MissionSelectionDelegate.show(VaultApplication.getStage());
 	}
 
 

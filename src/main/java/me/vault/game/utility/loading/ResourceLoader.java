@@ -106,6 +106,7 @@ public final class ResourceLoader
 	 */
 	public static <T> Scene loadScene (final Class<T> clazz, final String fxmlResourcePath)
 	{
+
 		try
 		{
 			final Object x = clazz.getResource(fxmlResourcePath);
@@ -116,6 +117,7 @@ public final class ResourceLoader
 			// Logs the corrupted method call before logging the exception
 			LOGGER.log(ERROR, MessageFormat.format(SCENE_NOT_LOADED_MSG, fxmlResourcePath));
 			LOGGER.log(ERROR, e.getMessage());
+			e.printStackTrace();
 			return null;
 		}
 	}

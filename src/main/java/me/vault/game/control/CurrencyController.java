@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -38,7 +40,13 @@ public final class CurrencyController implements Initializable
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
-	private static final String FXML_FILENAME = "currency_view.fxml";
+	private static final String BANNER_FXML_FILENAME = "currency_view.fxml";
+
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
+	 * elements.
+	 */
+	private static final String REWARD_GRID_FXML_FILENAME = "currencyRewardGrid.fxml";
 
 
 	// Labels ---------------------------------------------------------------------------------------------------------------
@@ -58,13 +66,17 @@ public final class CurrencyController implements Initializable
 	@FXML
 	private Label creditAmountLabel;
 
-
 	// Methods --------------------------------------------------------------------------------------------------------------
 
 
-	private static void initCurrency (final Currency currency, final Label label)
+	@Override
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		label.textProperty().bind(currency.getAmountProperty().asString());
+		initCurrency(Currency.STEEL, this.steelAmountLabel);
+		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel);
+		initCurrency(Currency.SCIENCE, this.scienceAmountLabel);
+		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel);
+		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel);
 	}
 
 
@@ -89,18 +101,32 @@ public final class CurrencyController implements Initializable
 
 	public static Scene getCurrencyBannerScene ()
 	{
-		return ResourceLoader.loadScene(CurrencyController.class, FXML_FILENAME);
+		return ResourceLoader.loadScene(CurrencyController.class, BANNER_FXML_FILENAME);
 	}
 
 
-	@Override
-	public void initialize (final URL url, final ResourceBundle resourceBundle)
+	public static GridPane getCurrencyRewardGrid (final CurrencyTransaction currencyTransaction)
 	{
-		initCurrency(Currency.STEEL, this.steelAmountLabel);
-		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel);
-		initCurrency(Currency.SCIENCE, this.scienceAmountLabel);
-		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel);
-		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel);
+		final GridPane gridPane = new GridPane();
+		gridPane.setHgap(40);
+		gridPane.setVgap(8);
+		for (int row = 0; row < Currency.values().length; row++)
+		{
+			final Currency currency = Currency.values()[row];
+			ImageView currencyImageView = new ImageView(currency.getSprite());
+			currencyImageView.fitHeightProperty().set(32);
+			currencyImageView.fitWidthProperty().set(32);
+			gridPane.add(currencyImageView, 0, row);
+			gridPane.add(new Label(currency.toString()), 1, row);
+			gridPane.add(new Label(String.valueOf(currencyTransaction.getAmount(currency))), 2, row);
+		}
+		return gridPane;
+	}
+
+
+	private static void initCurrency (final Currency currency, final Label label)
+	{
+		label.textProperty().bind(currency.getAmountProperty().asString());
 	}
 
 }
