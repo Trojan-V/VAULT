@@ -6,13 +6,13 @@ import javafx.beans.property.SimpleBooleanProperty;
 
 public enum Faction
 {
-	EXPLORER_ASSOCIATION(1.5f, 1.5f, 1.5f, new SimpleBooleanProperty(false)),
+	EXPLORER_ASSOCIATION(1.2f, 1.0f, 1.5f, new SimpleBooleanProperty(false)),
 
-	MILITARISTIC_GOVERNMENT(1.5f, 1.5f, 1.5f, new SimpleBooleanProperty(false)),
+	MILITARISTIC_GOVERNMENT(1.25f, 1.5f, 1.0f, new SimpleBooleanProperty(false)),
 
-	MEGA_CORPORATION(1.5f, 1.5f, 1.5f, new SimpleBooleanProperty(false)),
+	MEGA_CORPORATION(1.5f, 1.25f, 1.25f, new SimpleBooleanProperty(false)),
 
-	NEW_TERRA(1.5f, 1.5f, 1.5f, new SimpleBooleanProperty(false));
+	NEW_TERRA(1.25f, 1.25f, 1.25f, new SimpleBooleanProperty(false));
 
 
 	private final SimpleBooleanProperty isSelectedProperty;

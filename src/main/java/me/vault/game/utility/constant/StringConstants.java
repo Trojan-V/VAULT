@@ -185,4 +185,10 @@ public interface StringConstants
 
 	String VERTEX_DOES_NOT_EXIST = "The vertex does not exist";
 
+
+	String ERROR_SERVER_SOCKET = "Error with ServerSocket";
+
+	String ERROR_ACCEPTING = "error accepting";
+
+	String CLIENT_CONNECTED = "client connected";
 }
