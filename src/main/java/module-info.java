@@ -8,6 +8,7 @@ module me.vault.game {
 	requires java.desktop;
 	requires jdk.compiler;
 	requires java.sql;
+	requires com.google.gson;
 
 	exports me.vault.game;
 	exports me.vault.game.model.artifact;
@@ -28,6 +29,8 @@ module me.vault.game {
 	exports me.vault.game.view.city;
 	exports me.vault.game.model.city;
 	exports me.vault.game.model.mission;
+	exports me.vault.game.model.encounter;
+	exports me.vault.game.model;
 	exports me.vault.game.fxcontrols;
 	exports me.vault.game.model.troop;
 	exports me.vault.game.model.arena;
