@@ -7,6 +7,7 @@ module me.vault.game {
 	requires org.jetbrains.annotations;
 	requires java.desktop;
 	requires jdk.compiler;
+	requires java.sql;
 
 	exports me.vault.game;
 	exports me.vault.game.model.artifact;

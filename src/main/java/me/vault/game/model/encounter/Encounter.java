@@ -16,6 +16,9 @@ public class Encounter
 	private final EncounterMap map;
 
 
+	private Timeline timeline;
+
+
 	public Encounter (final EncounterMap map)
 	{
 		this.map = map;

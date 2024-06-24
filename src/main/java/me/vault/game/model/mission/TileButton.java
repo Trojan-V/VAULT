@@ -9,6 +9,12 @@ import me.vault.game.view.ViewUtil;
 public class TileButton extends Button
 {
 
+	private static final int IMAGE_VIEW_FITHEIGTH = 35;
+
+
+	private static final int IMAGE_VIEW_FIT_WIDTH = 35;
+
+
 	private MapObject mapObject;
 
 	private ImageView spriteImageView;
@@ -19,8 +25,8 @@ public class TileButton extends Button
 		this.mapObject = mapObject;
 		this.spriteImageView = new ImageView(mapObject.getSprite());
 		this.spriteImageView.setPreserveRatio(false);
-		this.spriteImageView.setFitWidth(35);
-		this.spriteImageView.setFitHeight(35);
+		this.spriteImageView.setFitWidth(IMAGE_VIEW_FIT_WIDTH);
+		this.spriteImageView.setFitHeight(IMAGE_VIEW_FITHEIGTH);
 		super.setGraphic(this.spriteImageView);
 	}
 

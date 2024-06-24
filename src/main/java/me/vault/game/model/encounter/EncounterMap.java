@@ -12,6 +12,12 @@ import java.util.List;
 public class EncounterMap
 {
 
+	private static final int ROW_POSTITION = 0;
+
+
+	private static final int COLUMN_POSITION = 1;
+
+
 	List<Troop> allies;
 
 	List<Troop> enemies;
@@ -44,7 +50,7 @@ public class EncounterMap
 
 	private void placeEnemiesTroopAtRandomPosition (final Troop troop)
 	{
-		final int randomYCoordinate = (int) Math.round(Math.random() * 11);
+		final int randomYCoordinate = (int) Math.round(Math.random() * 11); //TODO: Magic Numbers
 		final int randomXCoordinate = (int) Math.round(Math.random() + 10);
 
 		if (this.mapArray[randomYCoordinate][randomXCoordinate].getClass() == AccessibleTile.class)
@@ -90,4 +96,38 @@ public class EncounterMap
 		return this.mapFilePath;
 	}
 
+
+	public int[] getTroopPosition (final Troop troop)
+	{
+		for (int i = 0; i < this.mapArray.length; i++)
+		{
+			for (int j = 0; j < this.mapArray[0].length; j++)
+			{
+				if (this.mapArray[i][j] == troop)
+				{
+					return new int[]{i, j};
+				}
+			}
+		}
+		throw new NullPointerException(); //TODO: Add Exception Message
+	}
+
+
+	public void setTroopPosition (final Troop troop, final int row, final int column)
+	{
+		final int currentRow = this.getTroopPosition(troop)[ROW_POSTITION];
+		final int currentColumn = this.getTroopPosition(troop)[COLUMN_POSITION];
+
+		if (!(this.mapArray[row][column].getClass() == AccessibleTile.class))
+		{
+			throw new IllegalArgumentException(); //TODO: create own exception
+		}
+
+		if (row > this.mapArray.length | column > this.mapArray.length)
+		{
+			throw new IllegalArgumentException(); //TODO: create own exception
+		}
+		this.mapArray[row][column] = troop;
+		this.mapArray[currentRow][currentColumn] = new AccessibleTile();
+	}
 }
