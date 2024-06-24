@@ -1,4 +1,4 @@
-package me.vault.game.model.encounter;
+package me.vault.game.model.arena;
 
 
 import me.vault.game.comparators.InitiativeComparator;

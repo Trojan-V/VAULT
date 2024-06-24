@@ -2,6 +2,7 @@ package me.vault.game.model.encounter;
 
 
 import me.vault.game.comparators.InitiativeComparator;
+import me.vault.game.model.arena.Timeline;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.constant.EncounterConstants;
 

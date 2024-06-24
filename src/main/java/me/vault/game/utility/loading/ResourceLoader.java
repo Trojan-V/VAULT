@@ -3,6 +3,10 @@ package me.vault.game.utility.loading;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import me.vault.game.model.arena.Blocked;
+import me.vault.game.model.arena.GameBoardConstants;
+import me.vault.game.model.arena.Placeholder;
+import me.vault.game.model.arena.Tile;
 import me.vault.game.model.mission.AccessibleTile;
 import me.vault.game.model.mission.MapObject;
 import me.vault.game.model.mission.Obstacle;
@@ -52,6 +56,9 @@ public final class ResourceLoader
 	 * The message which is printed into the console if the scene couldn't be loaded.
 	 */
 	private static final String SCENE_NOT_LOADED_MSG = "The scene-resource \"{0}\" couldn't load.";
+
+
+	private static final String TILE = "Tile";
 
 
 	/**
@@ -148,20 +155,20 @@ public final class ResourceLoader
 
 	public static MapObject[][] readMapFile (final String filePath)
 	{
-		char accessibleTileChar = 'n';
-		char obstacleTileChar = 'h';
-		MapObject[][] mapObjectArray = new MapObject[12][12];
+		final char accessibleTileChar = 'n';
+		final char obstacleTileChar = 'h';
+		final MapObject[][] mapObjectArray = new MapObject[12][12];
 
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8)))
+		try (final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8)))
 		{
 			for (int i = 0; i < 12; i++)
 			{
-				String line = reader.readLine();
+				final String line = reader.readLine();
 				if (line.length() != 12)
 				{
 					throw new RuntimeException(); // TODO: EIGENE EXCEPTION
 				}
-				char[] charArray = line.toCharArray(); // TODO: char[] laenge ueberpruefen
+				final char[] charArray = line.toCharArray(); // TODO: char[] laenge ueberpruefen
 				for (int j = 0; j < 12; j++)
 				{
 					if (charArray[j] == accessibleTileChar)
@@ -175,11 +182,53 @@ public final class ResourceLoader
 				}
 			}
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
 			throw new RuntimeException(e);
 		}
 		return mapObjectArray;
+	}
+
+
+	public static Tile[][] createGameBoardFromFile (final String filePath)
+	{
+		final char accessibleTileChar = 'n';
+		final char obstacleTileChar = 'h';
+
+
+		final Tile[][] gameBoard =
+			new Tile[GameBoardConstants.DEFAULT_NUBER_OF_ROWS][GameBoardConstants.DEFAULT_NUBER_OF_COLUMS];
+
+		try (
+			final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),
+				StandardCharsets.UTF_8)))
+		{
+			for (int i = 0; i < GameBoardConstants.DEFAULT_NUBER_OF_ROWS; i++)
+			{
+				final String line = reader.readLine();
+				if (line.length() != GameBoardConstants.DEFAULT_NUBER_OF_ROWS)
+				{
+					throw new RuntimeException(); // TODO: EIGENE EXCEPTION
+				}
+				final char[] charArray = line.toCharArray(); // TODO: char[] laenge ueberpruefen
+				for (int j = 0; j < GameBoardConstants.DEFAULT_NUBER_OF_COLUMS; j++)
+				{
+					if (charArray[j] == accessibleTileChar)
+					{
+						gameBoard[i][j] = new Tile(TILE + i + j, new Placeholder());
+					}
+					else if (charArray[j] == obstacleTileChar)
+					{
+						gameBoard[i][j] = new Tile(TILE + i + j, new Blocked());
+					}
+				}
+			}
+		}
+		catch (final IOException e)
+		{
+			throw new RuntimeException(e);
+		}
+		return gameBoard;
 	}
 
 }

@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.control.TroopController;
 import me.vault.game.interfaces.Nameable;
+import me.vault.game.interfaces.Placable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.GameMap;
 import me.vault.game.model.Vertex;
@@ -19,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 
-public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>, MapObject
+public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>, MapObject, Placable
 {
 
 	/**
@@ -261,7 +262,6 @@ public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>
 	@Override
 	public void move (final Vertex nextVertex)
 	{
-		;
 	}
 
 

@@ -1,4 +1,4 @@
-package me.vault.game.view;
+package me.vault.game.model.arena;
 
 
 import javafx.fxml.FXML;
@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -16,11 +17,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
-import me.vault.game.model.encounter.Encounter;
-import me.vault.game.model.mission.AccessibleTile;
-import me.vault.game.model.mission.TileButton;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.EncounterDelegate;
+import me.vault.game.view.ViewUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,16 +31,19 @@ import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAI
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
-public class EncounterDelegate implements Initializable
+public class ArenaDelegate implements Initializable
 {
-
 	private static final Logger LOGGER = new Logger(EncounterDelegate.class.getSimpleName());
+
 
 	private static final String ENCOUNTER_FXML = "encounter.fxml";
 
+
 	private static final int NUMBER_OF_ROWS = 12;
 
+
 	private static final int NUMBER_OF_COLUMNS = 12;
+
 
 	private static final int TILE_SIDE_LENGTH = 35;
 
@@ -72,47 +75,39 @@ public class EncounterDelegate implements Initializable
 	private static final int VBOX_HEIGHT = 72;
 
 
-	private Encounter encounter = null;
-
 	@FXML
 	private GridPane gameBoard;
 
+
 	@FXML
 	private Label roundNumber;
+
 
 	@FXML
 	private VBox timeline;
 
 
-	public void show (final Scene scene)
-	{
-		ViewUtil.show(VaultApplication.getStage(), scene, EncounterDelegate.class);
-	}
-
-
-	public static void show (final Encounter encounter)
+	public static void show (final Arena arena)
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(EncounterDelegate.class.getResource(ENCOUNTER_FXML));
+			final FXMLLoader fxmlLoader =
+				new FXMLLoader(EncounterDelegate.class.getResource(ENCOUNTER_FXML));
 			final Parent root = fxmlLoader.load();
 
 			final EncounterDelegate delegate = fxmlLoader.getController();
-			delegate.setEncounter(encounter);
 			delegate.show(new Scene(root));
 		}
 		catch (final IOException e)
 		{
-			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL, encounter.toString());
+			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL, arena.toString());
 		}
 	}
 
 
-	private void setEncounter (final Encounter encounter)
+	public void show (final Scene scene)
 	{
-		this.encounter = encounter;
-		this.initializeGameBoard(this.gameBoard);
-		this.initializeTimeline(this.timeline, this.encounter.getTimeline());
+		ViewUtil.show(VaultApplication.getStage(), scene, EncounterDelegate.class);
 	}
 
 
@@ -131,7 +126,7 @@ public class EncounterDelegate implements Initializable
 		{
 			for (int j = 0; j < NUMBER_OF_COLUMNS; j++)
 			{
-				final TileButton button = new TileButton(this.encounter.getMap().getMapArray()[i][j]);
+				final Button button = new Button();
 
 				button.setTextFill(Color.TRANSPARENT);
 				button.setBackground(Background.fill(Color.TRANSPARENT));
@@ -140,32 +135,14 @@ public class EncounterDelegate implements Initializable
 				button.setContentDisplay(ContentDisplay.CENTER);
 				button.setAlignment(Pos.CENTER);
 
+				final ImageView imageView = new ImageView();
+				imageView.setFitHeight(TILE_SIDE_LENGTH);
+				imageView.setFitWidth(TILE_SIDE_LENGTH);
+				imageView.setPreserveRatio(false);
+
 				tileMap.add(button, i, j);
-
-				button.setOnMouseClicked(event -> {
-					if ((button.getMapObject().getClass() == AccessibleTile.class))
-					{
-						button.setMapObject(this.encounter.getTimeline().peek());
-						this.getButtonFromTroop(this.encounter.getTimeline().peek()).setMapObject(new AccessibleTile());
-					}
-				});
 			}
 		}
-	}
-
-
-	private TileButton getButtonFromTroop (final Troop troop)
-	{
-		for (int i = 0; i < this.gameBoard.getChildren().size(); i++)
-		{
-			final TileButton test = (TileButton) this.gameBoard.getChildren().get(i);
-
-			if (test.getMapObject() == troop)
-			{
-				return test;
-			}
-		}
-		return null;
 	}
 
 
@@ -199,12 +176,6 @@ public class EncounterDelegate implements Initializable
 		container.getChildren().add(statistics);
 
 		return container;
-	}
-
-
-	public void moveTile ()
-	{
-
 	}
 
 }
