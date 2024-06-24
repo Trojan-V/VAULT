@@ -41,4 +41,15 @@ public class GameBoard implements GameBoardConstants
 	{
 		return this.gameBoard[row][column];
 	}
+
+
+	public void setPlacable (final int row, final int column, final Troop troop)
+	{
+
+
+		if (this.gameBoard[row][column].getCurrentElement().getClass() == Placeholder.class)
+		{
+			this.gameBoard[row][column].setCurrentElement(troop);
+		}
+	}
 }

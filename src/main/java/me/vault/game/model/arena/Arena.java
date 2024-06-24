@@ -27,6 +27,10 @@ public class Arena
 		this.playerTwoTroops = playerTwoTroops;
 		this.gameBoard = gameBoard;
 		this.timeline = this.initializeTimeline(playerOneTroops, playerTwoTroops);
+
+		this.setPlayerOneTroopPositions();
+		this.setPlayerTwoTroopPositions();
+
 	}
 
 
@@ -50,6 +54,54 @@ public class Arena
 	public Timeline getTimeline ()
 	{
 		return this.timeline;
+	}
+
+
+	private void placePlayerOneTroopAtRandomPosition (final Troop troop)
+	{
+		final int randomYCoordinate = (int) Math.round(Math.random() * 11);
+		final int randomXCoordinate = (int) Math.round(Math.random());
+
+		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() ==
+		    Placeholder.class)
+		{
+			this.getGameBoard().setPlacable(randomXCoordinate, randomYCoordinate, troop);
+			return;
+		}
+		this.placePlayerOneTroopAtRandomPosition(troop);
+	}
+
+
+	private void placePlayerTwoTroopAtRandomPosition (final Troop troop)
+	{
+		final int randomYCoordinate = (int) Math.round(Math.random() * 11);
+		final int randomXCoordinate = (int) Math.round(Math.random() + 10);
+
+		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() ==
+		    Placeholder.class)
+		{
+			this.getGameBoard().setPlacable(randomXCoordinate, randomYCoordinate, troop);
+			return;
+		}
+		this.placePlayerTwoTroopAtRandomPosition(troop);
+	}
+
+
+	private void setPlayerOneTroopPositions ()
+	{
+		for (final Troop troop : this.playerOneTroops)
+		{
+			this.placePlayerOneTroopAtRandomPosition(troop);
+		}
+	}
+
+
+	private void setPlayerTwoTroopPositions ()
+	{
+		for (final Troop troop : this.playerTwoTroops)
+		{
+			this.placePlayerTwoTroopAtRandomPosition(troop);
+		}
 	}
 
 }

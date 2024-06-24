@@ -4,13 +4,13 @@ package me.vault.game.model.arena;
 import me.vault.game.interfaces.Placable;
 
 
+
 public class Tile
 {
 	private final String tileName;
 
 
-	private final Placable currentElement;
-
+	private Placable currentElement;
 
 	public Tile (final String tileName, final Placable currentElement)
 	{
@@ -29,4 +29,12 @@ public class Tile
 	{
 		return this.tileName;
 	}
+
+
+	public void setCurrentElement (final Placable placable)
+	{
+		this.currentElement = placable;
+	}
+
+
 }
