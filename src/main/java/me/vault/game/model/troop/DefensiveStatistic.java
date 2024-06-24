@@ -11,20 +11,20 @@ public class DefensiveStatistic
 
 	private final SimpleIntegerProperty healthPoints;
 
-	private final SimpleDoubleProperty armour;
+	private final SimpleIntegerProperty armour;
 
-	private final SimpleDoubleProperty dodgeRate;
+	private final SimpleIntegerProperty dodgeRate;
 
-	private final SimpleDoubleProperty resistance;
+	private final SimpleIntegerProperty resistance;
 
 
-	public DefensiveStatistic (final int healthPoints, final double armour, final double dodgeRate,
-		final double resistance)
+	public DefensiveStatistic (final int healthPoints, final int armour, final int dodgeRate,
+		final int resistance)
 	{
 		this.healthPoints = new SimpleIntegerProperty(healthPoints);
-		this.armour = new SimpleDoubleProperty(armour);
-		this.dodgeRate = new SimpleDoubleProperty(dodgeRate);
-		this.resistance = new SimpleDoubleProperty(resistance);
+		this.armour = new SimpleIntegerProperty(armour);
+		this.dodgeRate = new SimpleIntegerProperty(dodgeRate);
+		this.resistance = new SimpleIntegerProperty(resistance);
 	}
 
 
@@ -52,13 +52,13 @@ public class DefensiveStatistic
 	}
 
 
-	public double getArmour ()
+	public int getArmour ()
 	{
 		return this.armour.get();
 	}
 
 
-	public void setArmour (final double armour)
+	public void setArmour (final int armour)
 	{
 		this.armour.set(armour);
 	}
@@ -70,19 +70,19 @@ public class DefensiveStatistic
 	}
 
 
-	public SimpleDoubleProperty getMeleeDamageReductionProperty ()
+	public SimpleIntegerProperty getMeleeDamageReductionProperty ()
 	{
 		return this.armour;
 	}
 
 
-	public double getDodgeRate ()
+	public int getDodgeRate ()
 	{
 		return this.dodgeRate.get();
 	}
 
 
-	public void setDodgeRate (final double dodgeRate)
+	public void setDodgeRate (final int dodgeRate)
 	{
 		this.dodgeRate.set(dodgeRate);
 	}
@@ -94,19 +94,19 @@ public class DefensiveStatistic
 	}
 
 
-	public SimpleDoubleProperty getDodgeRateProperty ()
+	public SimpleIntegerProperty getDodgeRateProperty ()
 	{
 		return this.dodgeRate;
 	}
 
 
-	public double getResistance ()
+	public int getResistance ()
 	{
 		return this.resistance.get();
 	}
 
 
-	public void setResistance (final double resistance)
+	public void setResistance (final int resistance)
 	{
 		this.resistance.set(resistance);
 	}
@@ -118,7 +118,7 @@ public class DefensiveStatistic
 	}
 
 
-	public SimpleDoubleProperty getResistanceProperty ()
+	public SimpleIntegerProperty getResistanceProperty ()
 	{
 		return this.resistance;
 	}

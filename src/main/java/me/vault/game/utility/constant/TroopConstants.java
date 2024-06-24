@@ -95,7 +95,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic SNIPER_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(1, 2),
-			new DefensiveStatistic(25, 0.05, 0.15, 0.2),
+			new DefensiveStatistic(25, 5, 15, 20),
 			new OffensiveStatistic(0, 24, 0, 0, 0));
 
 	}
@@ -174,7 +174,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic RANGER_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(4, 1),
-			new DefensiveStatistic(46, 0.2, 0.25, 0.15),
+			new DefensiveStatistic(46, 20, 25, 15),
 			new OffensiveStatistic(5, 22, 16, 1, 1));
 
 	}
@@ -252,7 +252,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic MEDIC_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(6, 0),
-			new DefensiveStatistic(46, 0.1, 0.2, 0.1),
+			new DefensiveStatistic(46, 10, 20, 10),
 			new OffensiveStatistic(0, -16, 0, 0, 0));
 
 	}
@@ -332,7 +332,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic SPACE_MARINE_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(2, -3),
-			new DefensiveStatistic(67, 0.35, 0.05, 0.15),
+			new DefensiveStatistic(67, 35, 5, 15),
 			new OffensiveStatistic(0, 16, 16, 2, 1));
 
 	}
@@ -409,7 +409,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic OFFICER_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(2, -2),
-			new DefensiveStatistic(46, 0.2, 0.15, 0.2),
+			new DefensiveStatistic(46, 20, 15, 20),
 			new OffensiveStatistic(9, 10, 0, 0, 0));
 
 	}
@@ -486,7 +486,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic ENGINEER_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(2, -3),
-			new DefensiveStatistic(60, 0.25, 0, 0.2),
+			new DefensiveStatistic(60, 25, 0, 20),
 			new OffensiveStatistic(0, 22, 22, 4, 2));
 
 	}
@@ -563,7 +563,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic GUARD_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(3, 0),
-			new DefensiveStatistic(32, 0.2, 0.15, 0.2),
+			new DefensiveStatistic(32, 20, 15, 20),
 			new OffensiveStatistic(0, 16, 16, 5, 1));
 
 	}
@@ -640,7 +640,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic GRENADIER_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(3, 0),
-			new DefensiveStatistic(46, 0.2, 0.15, 0.35),
+			new DefensiveStatistic(46, 20, 15, 35),
 			new OffensiveStatistic(6, 16, 34, 7, 3));
 
 	}
@@ -717,7 +717,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic RECRUIT_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(3, 0),
-			new DefensiveStatistic(25, 0.15, 0.05, 0.2),
+			new DefensiveStatistic(25, 15, 5, 20),
 			new OffensiveStatistic(0, 10, 16, 4, 1));
 
 	}
@@ -794,7 +794,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic INFANTRY_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(3, 0),
-			new DefensiveStatistic(46, 0.1, 0.15, 0.2),
+			new DefensiveStatistic(46, 10, 15, 20),
 			new OffensiveStatistic(0, 16, 16, 3, 1));
 
 	}
@@ -871,7 +871,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic LIEUTENANT_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(2, -1),
-			new DefensiveStatistic(46, 0.2, 0.15, 0.2),
+			new DefensiveStatistic(46, 20, 15, 20),
 			new OffensiveStatistic(5, 10, 10, 2, 1));
 
 	}
@@ -952,7 +952,7 @@ public interface TroopConstants
 		@Constant
 		TroopStatistic PRECISION_SHOOTER_STATISTIC = new TroopStatistic(
 			new DexterityStatistic(3, 0),
-			new DefensiveStatistic(32, 0.2, 0.2, 0.15),
+			new DefensiveStatistic(32, 20, 20, 15),
 			new OffensiveStatistic(0, 22, 16, 1, 1));
 
 	}
