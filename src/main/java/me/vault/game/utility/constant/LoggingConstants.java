@@ -108,7 +108,19 @@ public interface LoggingConstants
 		String ARTIFACT_MAXED = "The artifact {0} is maxed, can't upgrade any further.";
 
 
+		String TROOP_MAXED = "The troop {0} is maxed, can't upgrade any further.";
+
+
+		String ENERGY_MAXED = "The energy {0} is maxed, can't upgrade any further.";
+
+
 		String ARTIFACT_IS_LOWEST = "The artifact {0} is at the lowest level.";
+
+
+		String TROOP_IS_LOWEST = "The troop {0} is at the lowest level.";
+
+
+		String ENERGY_IS_LOWEST = "The energy {0} is at the lowest level.";
 
 
 		String CURRENT_ARTIFACT_LEVEL = "Current artifact level: {0}";

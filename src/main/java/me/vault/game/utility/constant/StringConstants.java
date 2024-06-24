@@ -74,31 +74,32 @@ public interface StringConstants
 	 */
 	String MILITARISTIC_GOVERNMENT_DIG_IN =
 		"The soldier digs in two be better protected. Ten percent " + "more armour and five percent more resistenz but can`t " + "move" +
-		" for an energy cost of three energy and lasts two rounds";
+		" for an energy cost of three energy.";
 
-	String MILITARISTIC_GOVERNMENT_DOUBLE_TIME = "You motivate one soldier to act one more time this " + "round. A cost of five energy.";
+	String MILITARISTIC_GOVERNMENT_DOUBLE_TIME = "You motivate one soldier to be more accurate or be presented a " +
+	                                             "court-martial. A cost of five energy.";
 
 	String EXPLORER_ASSOCIATION_OVERCHARGE_WEAPON =
-		"The Ranger overcharges his weapon. Deals six " + "points more damage for an energy cost of two " + "energy and lasts one rounds. ";
+		"The Ranger overcharges his weapon. Deals six " + "points more damage for an energy cost of two " + "energy. ";
 
 	String EXPLORER_ASSOCIATION_OVERCHARGE_EXOSKELETT = "The Exoskelett lets the Ranger be quickened " + "and agiler. One more movement range and " +
 	                                                    "Initiative, dodge increases for five percent " +
-	                                                    "for a three energy cost and lasts two rounds.";
+	                                                    "for a three energy cost.";
 
 	String MEGA_CORPORATION_ENERGYFLASH =
 		"A bright flash emits of one off the thrown grenade right " + "before an enemy. A debuff for minus ten percent of dodge " + "and" +
-		" a minus two to initiative for three energy and lasts one " + "round.";
+		" a minus two to initiative for three energy.";
 
 	String MEGA_CORPORATION_ACID_GRENADE =
 		"The acid grenade weakens the armour off the poor soul that" + " " + "was hit with it. Minus ten percent off armour for two " +
-		"energy and one round.";
+		"energy.";
 
 	String NEW_TERRA_COMBAT_OVERLAY =
-		"The Combat overlay allows the soldier to aim true at a greater " + "distant. Plus one damage range for two energy and two rounds.";
+		"The Combat overlay allows the soldier to aim true at a greater " + "distant. Plus one damage range for two energy.";
 
 	String NEW_TERRA_ADVANCED_DEFENCE_SYSTEM =
 		"The Advanced Defence System once deployed intercept " + "projectiles form hostile entity's. Add`s fifteen " +
-		"percent of additional resistance for a cost of three" + " " + "energy and last one round.";
+		"percent of additional resistance for a cost of three" + " " + "energy.";
 
 	/**
 	 * The following Strings contain the texts for the energy ability's of the player.
@@ -106,19 +107,12 @@ public interface StringConstants
 	String ENERGY_DAMAGE_ABILITY =
 		"This Energy beam damages one enemy unit and deals moderate damage." + " " + "16 damage for an energy cost of 3 energy.";
 
-	String ENERGY_BUFF_INITIATIVE =
-		"Through activating this ability a friendly unit reacts faster." + "Gets a plus three one initiative for an energy cost of four " +
-		"energy" + " and it lasts five rounds.";
-
-	String ENERGY_BONUS_TURN =
-		"You transmit energy to one of your troops which lets them act one more" + " " + "time this round. A cost of five energy.";
-
 	String ENERGY_BUFF_DAMAGE =
-		"The selected troop becomes deadlier. Deals six points more damage for" + " " + "an energy cost of two energy and lasts two rounds. ";
+		"The selected troop becomes deadlier. Deals six points more damage for" + " " + "an energy cost of two energy.";
 
 	String ENERGY_BUFF_MOVEMENT_RANGE =
 		"You motivate one of your troops to do double time. The " + "affected troop get three more movement range for an energy " +
-		"cost of four energy and two rounds.";
+		"cost of four energy.";
 
 	/**
 	 * The following Strings contain the texts for the tutorial,
