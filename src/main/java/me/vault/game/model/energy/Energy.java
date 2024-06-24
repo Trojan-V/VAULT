@@ -4,7 +4,6 @@ package me.vault.game.model.energy;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import me.vault.game.control.TroopController;
 import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.GameMap;
@@ -12,8 +11,6 @@ import me.vault.game.model.Vertex;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.mission.MapObject;
 import me.vault.game.model.troop.Faction;
-import me.vault.game.model.troop.Troop;
-import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistic;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -50,11 +47,6 @@ public abstract class Energy implements Nameable, Upgradable<EnergyLevel>, MapOb
 
 	private final TroopStatistic statistic;
 
-	private final Faction faction;
-
-	private final GameMap map;
-
-	private final Vertex tile;
 
 	/**
 	 * This field contains the resource price to upgrade the energy ability to the next level.
@@ -213,7 +205,6 @@ public abstract class Energy implements Nameable, Upgradable<EnergyLevel>, MapOb
 	}
 
 
-
 	/**
 	 * Returns all upgrade cost {@link CurrencyTransaction}'s which are used to determine whether the player can or
 	 * can't upgrade the energy depending on the number of currencies he owns.
@@ -252,11 +243,10 @@ public abstract class Energy implements Nameable, Upgradable<EnergyLevel>, MapOb
 	protected abstract Map<EnergyLevel, MetaDataImage> getAllSprites ();
 
 
-
-	public EnergyStatistic getStatistic ()
-	{
-		return this.statistic;
-	}
+//	public EnergyStatistic getStatistic ()
+//	{
+//		return this.statistic;
+//	}
 
 
 	public void setIsMaxLevel (final boolean value)
@@ -264,12 +254,5 @@ public abstract class Energy implements Nameable, Upgradable<EnergyLevel>, MapOb
 		this.isMaxLevelProperty.set(value);
 	}
 
-
-	@Override
-	public String toString ()
-	{
-		return "Energy{" + "spriteProperty=" + this.spriteProperty + ", isMaxLevelProperty=" + this.isMaxLevelProperty + ", nameProperty=" + this.nameProperty + ", statistic=" +
-		       this.faction + ", upgradeCost=" + this.upgradeCost + ", currentLevel=" + this.currentLevel + '}';
-	}
 
 }
