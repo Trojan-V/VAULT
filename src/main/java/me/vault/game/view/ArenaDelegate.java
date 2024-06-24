@@ -23,6 +23,7 @@ import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Placeholder;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.struct.MetaDataImage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -83,7 +84,7 @@ public class ArenaDelegate implements Initializable
 
 
 	@FXML
-	private GridPane gameBoard;
+	private GridPane gameBoardGridPane;
 
 
 	@FXML
@@ -120,7 +121,7 @@ public class ArenaDelegate implements Initializable
 		this.arena = arena;
 		this.troopTimeline = arena.getTimeline().getSortedTimeline();
 		this.initializeTimeline(this.timelineVBox);
-		this.initializeGameBoard(this.gameBoard);
+		this.initializeGameBoard(this.gameBoardGridPane);
 	}
 
 
@@ -133,7 +134,7 @@ public class ArenaDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.gameBoard.setGridLinesVisible(true);
+
 	}
 
 
@@ -144,24 +145,16 @@ public class ArenaDelegate implements Initializable
 		{
 			for (int j = 0; j < NUMBER_OF_COLUMNS; j++)
 			{
-				final Button button = new Button();
-				button.setTextFill(Color.TRANSPARENT);
-				button.setBackground(Background.fill(Color.TRANSPARENT));
-				button.setPrefSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
-				button.setMaxSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
-				button.setContentDisplay(ContentDisplay.CENTER);
-				button.setAlignment(Pos.CENTER);
+				final Button button = this.createGameBoardButton();
 
-				final ImageView imageView = new ImageView();
-				imageView.setFitHeight(TILE_SIDE_LENGTH);
-				imageView.setFitWidth(TILE_SIDE_LENGTH);
-				imageView.setPreserveRatio(false);
-				imageView.imageProperty().bind(this.arena.getGameBoard().getTile(i, j).getCurrentElement().getSpriteProperty());
+				final ImageView imageView = this.createGameBoardButtonImageView(this.arena.getGameBoard().getTile(i, j).getCurrentElement().getSprite());
+
 				button.setGraphic(imageView);
 
 				final int row = i;
 				final int column = j;
-				button.setOnMouseClicked(mouseEvent -> {
+				button.setOnMouseClicked(mouseEvent ->
+				{
 					this.handleMapObjectInteraction(row, column, this.arena);
 				});
 				gameBoard.add(button, i, j);
@@ -170,27 +163,66 @@ public class ArenaDelegate implements Initializable
 	}
 
 
+	private ImageView createGameBoardButtonImageView (final MetaDataImage sprite)
+	{
+		final ImageView imageView = new ImageView();
+		imageView.setFitHeight(TILE_SIDE_LENGTH);
+		imageView.setFitWidth(TILE_SIDE_LENGTH);
+		imageView.setPreserveRatio(false);
+		imageView.setImage(sprite);
+		return imageView;
+	}
+
+
+	private Button createGameBoardButton ()
+	{
+		final Button button = new Button();
+		button.setTextFill(Color.TRANSPARENT);
+		button.setBackground(Background.fill(Color.TRANSPARENT));
+		button.setPrefSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
+		button.setMaxSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
+		button.setContentDisplay(ContentDisplay.CENTER);
+		button.setAlignment(Pos.CENTER);
+
+		return button;
+	}
+
+
 	private void handleMapObjectInteraction (final int row, final int column, final Arena arena)
 	{
-		final Troop selectedTroop = arena.getSelectedTroop(); // TODO: Position für row und j anlegen
+		final Troop attacker = arena.getSelectedTroop(); // TODO: Position für row und column anlegen
 		final Placable nextTileElement = arena.getGameBoard().getTile(row, column).getCurrentElement();
 
 		switch (nextTileElement)
 		{
-			case final Placeholder _ -> TroopController.getInstance().move(arena, selectedTroop, row, column);
-			case final Troop _ -> TroopController.getInstance().attack(arena, selectedTroop, row, column);
+			case final Placeholder _ -> TroopController.getInstance().move(arena, attacker, row, column);
+			case final Troop troop ->
+			{
+				try
+				{
+					final Troop defender = this.arena.getGameBoard().getTroop(row, column);
+					TroopController.getInstance().attack(arena, attacker, defender);
+				}
+				catch (final Exception ignored)
+				{
+					return;
+				} // TODO: KAPSELUNG!!!!!!!!!!!!!
+			}
 			case null, default -> {return;}
 		}
 		this.updateTimeline(this.timelineVBox);
+		this.gameBoardGridPane.getChildren().clear();
+		this.initializeGameBoard(this.gameBoardGridPane);
 	}
 
 
 	public void initializeTimeline (final VBox timeline)
 	{
 		this.arena.setSelectedTroop(this.troopTimeline.peek());
-		while (!this.troopTimeline.isEmpty())
+		final PriorityQueue<Troop> displayQueue = new PriorityQueue<Troop>(this.troopTimeline);
+		while (!displayQueue.isEmpty())
 		{
-			timeline.getChildren().add(this.createTimelineElement(Objects.requireNonNull(this.troopTimeline.poll())));
+			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(displayQueue.poll())));
 		}
 		timeline.setSpacing(TIMELINE_SPACING);
 	}

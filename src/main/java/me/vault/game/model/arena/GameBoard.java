@@ -1,6 +1,7 @@
 package me.vault.game.model.arena;
 
 
+import me.vault.game.interfaces.Placable;
 import me.vault.game.model.troop.Troop;
 
 
@@ -42,14 +43,26 @@ public class GameBoard implements GameBoardConstants
 		return this.gameBoard[row][column];
 	}
 
-
-	public void setPlacable (final int row, final int column, final Troop troop)
+	public Troop getTroop (final int row, final int column) throws Exception
 	{
+		if (!(this.gameBoard[row][column].getCurrentElement() instanceof Troop))
+		{
+			throw new Exception("Not a troop exception..."); //TODO: Implementieren der neuen exception
+		}
+		return (Troop) this.gameBoard[row][column].getCurrentElement();
+	}
 
 
+	public void setTroop (final int row, final int column, final Troop troop)
+	{
 		if (this.gameBoard[row][column].getCurrentElement().getClass() == Placeholder.class)
 		{
 			this.gameBoard[row][column].setCurrentElement(troop);
 		}
+	}
+
+	public void setPlaceable (final int row, final int column, final Placable placeable)
+	{
+		this.gameBoard[row][column].setCurrentElement(placeable);
 	}
 }

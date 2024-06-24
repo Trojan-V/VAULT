@@ -68,7 +68,7 @@ public class Arena
 		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() ==
 		    Placeholder.class)
 		{
-			this.getGameBoard().setPlacable(randomXCoordinate, randomYCoordinate, troop);
+			this.getGameBoard().setTroop(randomXCoordinate, randomYCoordinate, troop);
 			return;
 		}
 		this.placePlayerOneTroopAtRandomPosition(troop);
@@ -83,7 +83,7 @@ public class Arena
 		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() ==
 		    Placeholder.class)
 		{
-			this.getGameBoard().setPlacable(randomXCoordinate, randomYCoordinate, troop);
+			this.getGameBoard().setTroop(randomXCoordinate, randomYCoordinate, troop);
 			return;
 		}
 		this.placePlayerTwoTroopAtRandomPosition(troop);

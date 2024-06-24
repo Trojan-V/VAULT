@@ -10,6 +10,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.GameBoard;
+import me.vault.game.model.arena.Placeholder;
 import me.vault.game.model.troop.*;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
@@ -217,15 +219,20 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 		updateDefensiveStatistic(troop);
 	}
 
+
 	public void move (final Arena arena, final Troop troop, final int i, final int j)
 	{
+		final GameBoard arenaGameBoard = arena.getGameBoard();
+		final int[] previousTroopPosition = arenaGameBoard.getTroopPosition(troop);
 
+		arenaGameBoard.setTroop(i, j, troop);
+		arenaGameBoard.setPlaceable(previousTroopPosition[0], previousTroopPosition[1], new Placeholder()); // TODO: LITERALE IM CODE!!! TILE MAP POSITION-Klasse ???
 	}
 
 
-	public void attack (final Arena arena, final Troop troop, final int i, final int j)
+	public void attack (final Arena arena, final Troop troop, final Troop defender)
 	{
-
+		// TODO: FIX statistics in troops to implement
 	}
 
 }
