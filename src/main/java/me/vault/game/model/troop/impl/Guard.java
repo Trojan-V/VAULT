@@ -70,7 +70,7 @@ public class Guard extends Troop
 
 	private Guard ()
 	{
-		super(null, null, Faction.MEGA_CORPORATION, GUARD_STATISTIC);
+		super(Faction.MEGA_CORPORATION, GUARD_STATISTIC);
 	}
 
 

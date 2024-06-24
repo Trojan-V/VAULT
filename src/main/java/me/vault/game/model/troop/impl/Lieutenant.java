@@ -70,7 +70,7 @@ public class Lieutenant extends Troop
 
 	private Lieutenant ()
 	{
-		super(null, null, Faction.NEW_TERRA, LIEUTENANT_STATISTIC);
+		super(Faction.NEW_TERRA, LIEUTENANT_STATISTIC);
 	}
 
 

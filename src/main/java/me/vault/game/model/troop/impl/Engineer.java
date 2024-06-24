@@ -70,7 +70,7 @@ public class Engineer extends Troop
 
 	private Engineer ()
 	{
-		super(null, null, Faction.MILITARISTIC_GOVERNMENT, ENGINEER_STATISTIC);
+		super(Faction.MILITARISTIC_GOVERNMENT, ENGINEER_STATISTIC);
 	}
 
 

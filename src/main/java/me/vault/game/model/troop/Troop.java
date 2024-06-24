@@ -5,14 +5,9 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.control.TroopController;
-import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.interfaces.Upgradable;
-import me.vault.game.model.GameMap;
-import me.vault.game.model.Vertex;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.model.mission.MapObject;
-import me.vault.game.model.player.Movable;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
@@ -20,13 +15,19 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 
-public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>, MapObject, Placable
+public abstract class Troop implements Upgradable<TroopLevel>, Placable
 {
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final Logger LOGGER = new Logger(Troop.class.getSimpleName());
+
+	/**
+	 * This {@link SimpleStringProperty} is used to store and dynamically display the name of the troop.
+	 * If the name is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
+	 */
+	private final SimpleStringProperty nameProperty;
 
 	/**
 	 * This {@link SimpleObjectProperty<>} is used to store and dynamically display the sprite ({@link MetaDataImage}) of the troop.
@@ -40,19 +41,9 @@ public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>
 	 */
 	private final SimpleBooleanProperty isMaxLevelProperty;
 
-	/**
-	 * This {@link SimpleStringProperty} is used to store and dynamically display the name of the troop.
-	 * If the name is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
-	 */
-	private final SimpleStringProperty nameProperty;
-
-	private final TroopStatistic statistic;
+	private static TroopStatistic overallStatistics = null;
 
 	private final Faction faction;
-
-	private final GameMap map;
-
-	private final Vertex tile;
 
 	/**
 	 * This field contains the resource price to upgrade the artifact to the next level.
@@ -72,17 +63,15 @@ public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>
 	private TroopLevel currentLevel;
 
 
-	protected Troop (final GameMap map, final Vertex tile, final Faction faction, final TroopStatistic statistic)
+	protected Troop (final Faction faction, final TroopStatistic overallStatistics)
 	{
-		this.map = map;
-		this.tile = tile;
 		this.currentLevel = TroopLevel.getMinimum();
 		this.upgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == TroopLevel.getMaxLevel());
 
-		this.statistic = statistic;
+		Troop.overallStatistics = overallStatistics;
 		this.faction = faction;
 	}
 
@@ -259,15 +248,9 @@ public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>
 	protected abstract Map<TroopLevel, MetaDataImage> getAllSprites ();
 
 
-	@Override
-	public void move (final Vertex nextVertex)
-	{
-	}
-
-
 	public TroopStatistic getStatistic ()
 	{
-		return this.statistic;
+		return this.overallStatistics;
 	}
 
 
@@ -280,7 +263,8 @@ public abstract class Troop implements Movable, Nameable, Upgradable<TroopLevel>
 	@Override
 	public String toString ()
 	{
-		return "Troop{" + "spriteProperty=" + this.spriteProperty + ", isMaxLevelProperty=" + this.isMaxLevelProperty + ", nameProperty=" + this.nameProperty + ", statistic=" + this.statistic +
+		return "Troop{" + "spriteProperty=" + this.spriteProperty + ", isMaxLevelProperty=" + this.isMaxLevelProperty + ", nameProperty=" + this.nameProperty + ", statistic=" +
+		       this.overallStatistics +
 		       ", faction=" +
 		       this.faction +
 		       ", upgradeCost=" + this.upgradeCost + ", currentLevel=" + this.currentLevel + '}';

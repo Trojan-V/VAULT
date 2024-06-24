@@ -70,7 +70,7 @@ public final class Ranger extends Troop
 
 	private Ranger ()
 	{
-		super(null, null, Faction.EXPLORER_ASSOCIATION, RANGER_STATISTIC);
+		super(Faction.EXPLORER_ASSOCIATION, RANGER_STATISTIC);
 	}
 
 

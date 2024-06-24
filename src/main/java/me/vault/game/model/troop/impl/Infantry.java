@@ -70,7 +70,7 @@ public class Infantry extends Troop
 
 	private Infantry ()
 	{
-		super(null, null, Faction.NEW_TERRA, INFANTRY_STATISTIC);
+		super(Faction.NEW_TERRA, INFANTRY_STATISTIC);
 	}
 
 

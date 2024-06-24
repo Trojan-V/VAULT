@@ -70,7 +70,7 @@ public class Officer extends Troop
 
 	private Officer ()
 	{
-		super(null, null, Faction.MILITARISTIC_GOVERNMENT, OFFICER_STATISTIC);
+		super(Faction.MILITARISTIC_GOVERNMENT, OFFICER_STATISTIC);
 	}
 
 

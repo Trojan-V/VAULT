@@ -78,7 +78,7 @@ public final class Sniper extends Troop
 
 	private Sniper ()
 	{
-		super(null, null, Faction.EXPLORER_ASSOCIATION, SNIPER_STATISTIC);
+		super(Faction.EXPLORER_ASSOCIATION, SNIPER_STATISTIC);
 	}
 
 

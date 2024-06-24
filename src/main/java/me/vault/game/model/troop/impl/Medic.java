@@ -68,9 +68,9 @@ public final class Medic extends Troop
 	}
 
 
-	private Medic ()
+	public Medic ()
 	{
-		super(null, null, Faction.EXPLORER_ASSOCIATION, MEDIC_STATISTIC);
+		super(Faction.EXPLORER_ASSOCIATION, MEDIC_STATISTIC);
 	}
 
 

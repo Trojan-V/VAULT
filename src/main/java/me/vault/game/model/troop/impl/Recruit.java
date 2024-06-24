@@ -70,7 +70,7 @@ public class Recruit extends Troop
 
 	private Recruit ()
 	{
-		super(null, null, Faction.MEGA_CORPORATION, RECRUIT_STATISTIC);
+		super(Faction.MEGA_CORPORATION, RECRUIT_STATISTIC);
 	}
 
 

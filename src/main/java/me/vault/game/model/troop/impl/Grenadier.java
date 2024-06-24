@@ -70,7 +70,7 @@ public class Grenadier extends Troop
 
 	private Grenadier ()
 	{
-		super(null, null, Faction.MEGA_CORPORATION, GRENADIER_STATISTIC);
+		super(Faction.MEGA_CORPORATION, GRENADIER_STATISTIC);
 	}
 
 

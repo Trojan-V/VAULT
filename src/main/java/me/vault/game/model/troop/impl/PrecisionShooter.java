@@ -70,7 +70,7 @@ public class PrecisionShooter extends Troop
 
 	private PrecisionShooter ()
 	{
-		super(null, null, Faction.NEW_TERRA, PRECISION_SHOOTER_STATISTIC);
+		super(Faction.NEW_TERRA, PRECISION_SHOOTER_STATISTIC);
 	}
 
 

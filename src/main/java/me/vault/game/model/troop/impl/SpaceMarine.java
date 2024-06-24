@@ -70,7 +70,7 @@ public class SpaceMarine extends Troop
 
 	private SpaceMarine ()
 	{
-		super(null, null, Faction.MILITARISTIC_GOVERNMENT, SPACE_MARINE_STATISTIC);
+		super(Faction.MILITARISTIC_GOVERNMENT, SPACE_MARINE_STATISTIC);
 	}
 
 

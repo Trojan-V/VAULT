@@ -94,6 +94,7 @@ public class ArenaDelegate implements Initializable
 	@FXML
 	private VBox timelineVBox;
 
+
 	private PriorityQueue<Troop> troopTimeline;
 
 
@@ -170,6 +171,7 @@ public class ArenaDelegate implements Initializable
 		imageView.setFitWidth(TILE_SIDE_LENGTH);
 		imageView.setPreserveRatio(false);
 		imageView.setImage(sprite);
+
 		return imageView;
 	}
 
@@ -231,6 +233,10 @@ public class ArenaDelegate implements Initializable
 	public void updateTimeline (final VBox timeline)
 	{
 		this.troopTimeline.poll();
+		if (this.troopTimeline.isEmpty())
+		{
+			this.troopTimeline = new PriorityQueue<>(this.arena.getTimeline().getSortedTimeline());
+		}
 		timeline.getChildren().clear();
 		this.initializeTimeline(timeline);
 	}

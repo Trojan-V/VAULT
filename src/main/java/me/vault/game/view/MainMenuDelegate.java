@@ -14,8 +14,6 @@ import me.vault.game.control.ArtifactController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
-import me.vault.game.model.encounter.Encounter;
-import me.vault.game.model.encounter.EncounterMap;
 import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -231,9 +229,9 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
 			ViewUtil.setButtonTextColor(this.arenaButton, Color.BLACK);
-			EncounterDelegate.show(new Encounter(new EncounterMap("src/main/resources/me/vault/game/map/Encounter_2" +
-			                                                      ".txt", ENCOUNTER_ENEMIES, ENCOUNTER_ENEMIES))); //
-			// TODO:FIX
+			ArenaDelegate.show(new Arena(ENCOUNTER_ENEMIES, ENCOUNTER_ENEMIES,
+				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
+				                                                     "/Encounter_2.txt")))); // TODO: FIX LATER
 		}
 	}
 
