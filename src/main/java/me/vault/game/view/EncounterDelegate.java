@@ -190,8 +190,7 @@ public class EncounterDelegate implements Initializable
 		sprite.setFitWidth(SPRITE_WIDTH);
 		sprite.setFitHeight(SPRITE_HEIGHT);
 		statistics.getChildren().add(new Label(NAME + troop.getName()));
-		statistics.getChildren()
-			.add(new Label(HEALTH + troop.getStatistic().getDefensiveStatistic().getHealthPoints()));
+		statistics.getChildren().add(new Label(HEALTH + troop.getStatistic().getDefensiveStatistic().getHealthPoints()));
 		statistics.getChildren().add(new Label(ARMOR + troop.getStatistic().getDefensiveStatistic().getArmour()));
 		statistics.setSpacing(STATISTICS_SPACING);
 

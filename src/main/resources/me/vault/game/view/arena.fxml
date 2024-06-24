@@ -71,7 +71,7 @@
                 <Font size="26.0"/>
             </font>
         </Label>
-        <VBox fx:id="timeline" layoutX="957.0" layoutY="71.0" prefHeight="605.0" prefWidth="271.0"/>
+        <VBox fx:id="timelineVBox" layoutX="957.0" layoutY="71.0" prefHeight="605.0" prefWidth="271.0"/>
         <Line endX="126.0" layoutX="1095.0" layoutY="64.0" startX="-131.0"/>
     </children>
 </AnchorPane>

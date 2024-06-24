@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import me.vault.game.interfaces.Upgrader;
+import me.vault.game.model.arena.Arena;
 import me.vault.game.model.troop.*;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
@@ -214,6 +215,17 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 		updateOffensiveStatistic(troop);
 		updateDexterityStatistic(troop);
 		updateDefensiveStatistic(troop);
+	}
+
+	public void move (final Arena arena, final Troop troop, final int i, final int j)
+	{
+
+	}
+
+
+	public void attack (final Arena arena, final Troop troop, final int i, final int j)
+	{
+
 	}
 
 }

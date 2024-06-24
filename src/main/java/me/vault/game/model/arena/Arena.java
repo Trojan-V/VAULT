@@ -21,6 +21,9 @@ public class Arena
 	private final GameBoard gameBoard;
 
 
+	private Troop selectedTroop;
+
+
 	public Arena (final ArrayList<Troop> playerOneTroops, final ArrayList<Troop> playerTwoTroops, final GameBoard gameBoard)
 	{
 		this.playerOneTroops = playerOneTroops;
@@ -102,6 +105,18 @@ public class Arena
 		{
 			this.placePlayerTwoTroopAtRandomPosition(troop);
 		}
+	}
+
+
+	public Troop getSelectedTroop ()
+	{
+		return this.selectedTroop;
+	}
+
+
+	public void setSelectedTroop (final Troop selectedTroop)
+	{
+		this.selectedTroop = selectedTroop;
 	}
 
 }

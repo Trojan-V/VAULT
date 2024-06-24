@@ -17,12 +17,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
+import me.vault.game.control.TroopController;
+import me.vault.game.interfaces.Placable;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.Placeholder;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.ResourceBundle;
 
@@ -32,6 +36,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 public class ArenaDelegate implements Initializable
 {
+
 	private static final Logger LOGGER = new Logger(ArenaDelegate.class.getSimpleName());
 
 
@@ -86,15 +91,16 @@ public class ArenaDelegate implements Initializable
 
 
 	@FXML
-	private VBox timeline;
+	private VBox timelineVBox;
+
+	private PriorityQueue<Troop> troopTimeline;
 
 
 	public static void show (final Arena arena)
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader =
-				new FXMLLoader(ArenaDelegate.class.getResource(ENCOUNTER_FXML));
+			final FXMLLoader fxmlLoader = new FXMLLoader(ArenaDelegate.class.getResource(ENCOUNTER_FXML));
 			final Parent root = fxmlLoader.load();
 
 			final ArenaDelegate delegate = fxmlLoader.getController();
@@ -112,8 +118,9 @@ public class ArenaDelegate implements Initializable
 	private void setArena (final Arena arena)
 	{
 		this.arena = arena;
+		this.troopTimeline = arena.getTimeline().getSortedTimeline();
+		this.initializeTimeline(this.timelineVBox);
 		this.initializeGameBoard(this.gameBoard);
-		this.initializeTimeline(this.timeline, this.arena.getTimeline().getSortedTimeline());
 	}
 
 
@@ -127,7 +134,6 @@ public class ArenaDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.gameBoard.setGridLinesVisible(true);
-
 	}
 
 
@@ -139,7 +145,6 @@ public class ArenaDelegate implements Initializable
 			for (int j = 0; j < NUMBER_OF_COLUMNS; j++)
 			{
 				final Button button = new Button();
-
 				button.setTextFill(Color.TRANSPARENT);
 				button.setBackground(Background.fill(Color.TRANSPARENT));
 				button.setPrefSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
@@ -151,24 +156,51 @@ public class ArenaDelegate implements Initializable
 				imageView.setFitHeight(TILE_SIDE_LENGTH);
 				imageView.setFitWidth(TILE_SIDE_LENGTH);
 				imageView.setPreserveRatio(false);
-				imageView.imageProperty()
-					.bind(this.arena.getGameBoard().getTile(i, j).getCurrentElement().getSpriteProperty());
-
+				imageView.imageProperty().bind(this.arena.getGameBoard().getTile(i, j).getCurrentElement().getSpriteProperty());
 				button.setGraphic(imageView);
 
+				final int row = i;
+				final int column = j;
+				button.setOnMouseClicked(mouseEvent -> {
+					this.handleMapObjectInteraction(row, column, this.arena);
+				});
 				gameBoard.add(button, i, j);
 			}
 		}
 	}
 
 
-	public void initializeTimeline (final VBox timline, final PriorityQueue<Troop> timelineElements)
+	private void handleMapObjectInteraction (final int row, final int column, final Arena arena)
 	{
-		while (!timelineElements.isEmpty())
+		final Troop selectedTroop = arena.getSelectedTroop(); // TODO: Position für row und j anlegen
+		final Placable nextTileElement = arena.getGameBoard().getTile(row, column).getCurrentElement();
+
+		switch (nextTileElement)
 		{
-			this.timeline.getChildren().add(this.createTimelineElement(timelineElements.poll()));
+			case final Placeholder _ -> TroopController.getInstance().move(arena, selectedTroop, row, column);
+			case final Troop _ -> TroopController.getInstance().attack(arena, selectedTroop, row, column);
+			case null, default -> {return;}
 		}
-		this.timeline.setSpacing(TIMELINE_SPACING);
+		this.updateTimeline(this.timelineVBox);
+	}
+
+
+	public void initializeTimeline (final VBox timeline)
+	{
+		this.arena.setSelectedTroop(this.troopTimeline.peek());
+		while (!this.troopTimeline.isEmpty())
+		{
+			timeline.getChildren().add(this.createTimelineElement(Objects.requireNonNull(this.troopTimeline.poll())));
+		}
+		timeline.setSpacing(TIMELINE_SPACING);
+	}
+
+
+	public void updateTimeline (final VBox timeline)
+	{
+		this.troopTimeline.poll();
+		timeline.getChildren().clear();
+		this.initializeTimeline(timeline);
 	}
 
 
@@ -183,8 +215,7 @@ public class ArenaDelegate implements Initializable
 		sprite.setFitWidth(SPRITE_WIDTH);
 		sprite.setFitHeight(SPRITE_HEIGHT);
 		statistics.getChildren().add(new Label(NAME + troop.getName()));
-		statistics.getChildren()
-			.add(new Label(HEALTH + troop.getStatistic().getDefensiveStatistic().getHealthPoints()));
+		statistics.getChildren().add(new Label(HEALTH + troop.getStatistic().getDefensiveStatistic().getHealthPoints()));
 		statistics.getChildren().add(new Label(ARMOR + troop.getStatistic().getDefensiveStatistic().getArmour()));
 		statistics.setSpacing(STATISTICS_SPACING);
 

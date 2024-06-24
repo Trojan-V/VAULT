@@ -27,7 +27,7 @@ public class Timeline
 
 	public PriorityQueue<Troop> getSortedTimeline ()
 	{
-		final PriorityQueue sortedTimeline = new PriorityQueue<>(new InitiativeComparator());
+		final PriorityQueue<Troop> sortedTimeline = new PriorityQueue<>(new InitiativeComparator());
 		sortedTimeline.addAll(this.timelineElements);
 
 		return sortedTimeline;
