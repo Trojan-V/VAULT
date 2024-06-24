@@ -11,6 +11,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.ArtifactController;
+import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.encounter.Encounter;
 import me.vault.game.model.encounter.EncounterMap;
@@ -261,6 +263,9 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.arenaMenuItem))
 		{
+			ArenaDelegate.show(new Arena(ENCOUNTER_ENEMIES, ENCOUNTER_ENEMIES,
+				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
+				                                                     "/Encounter_2.txt"))));
 		}
 	}
 

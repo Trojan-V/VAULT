@@ -35,4 +35,10 @@ public class GameBoard implements GameBoardConstants
 		}
 		throw new NullPointerException(); //TODO: Add Exception Message
 	}
+
+
+	public Tile getTile (final int row, final int column)
+	{
+		return this.gameBoard[row][column];
+	}
 }

@@ -40,4 +40,16 @@ public class Arena
 		return new Timeline(troops);
 	}
 
+
+	public GameBoard getGameBoard ()
+	{
+		return this.gameBoard;
+	}
+
+
+	public Timeline getTimeline ()
+	{
+		return this.timeline;
+	}
+
 }

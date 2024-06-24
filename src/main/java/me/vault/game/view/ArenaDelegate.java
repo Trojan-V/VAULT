@@ -1,4 +1,4 @@
-package me.vault.game.model.arena;
+package me.vault.game.view;
 
 
 import javafx.fxml.FXML;
@@ -17,10 +17,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
+import me.vault.game.model.arena.Arena;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.EncounterDelegate;
-import me.vault.game.view.ViewUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,10 +32,10 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 public class ArenaDelegate implements Initializable
 {
-	private static final Logger LOGGER = new Logger(EncounterDelegate.class.getSimpleName());
+	private static final Logger LOGGER = new Logger(ArenaDelegate.class.getSimpleName());
 
 
-	private static final String ENCOUNTER_FXML = "encounter.fxml";
+	private static final String ENCOUNTER_FXML = "arena.fxml";
 
 
 	private static final int NUMBER_OF_ROWS = 12;
@@ -61,6 +60,9 @@ public class ArenaDelegate implements Initializable
 
 
 	private static final double STATISTICS_SPACING = TIMELINE_SPACING;
+
+
+	private Arena arena;
 
 
 	private static final int SPRITE_WIDTH = 70;
@@ -92,11 +94,13 @@ public class ArenaDelegate implements Initializable
 		try
 		{
 			final FXMLLoader fxmlLoader =
-				new FXMLLoader(EncounterDelegate.class.getResource(ENCOUNTER_FXML));
+				new FXMLLoader(ArenaDelegate.class.getResource(ENCOUNTER_FXML));
 			final Parent root = fxmlLoader.load();
 
-			final EncounterDelegate delegate = fxmlLoader.getController();
+			final ArenaDelegate delegate = fxmlLoader.getController();
+			delegate.setArena(arena);
 			delegate.show(new Scene(root));
+
 		}
 		catch (final IOException e)
 		{
@@ -105,9 +109,17 @@ public class ArenaDelegate implements Initializable
 	}
 
 
+	private void setArena (final Arena arena)
+	{
+		this.arena = arena;
+		this.initializeGameBoard(this.gameBoard);
+		this.initializeTimeline(this.timeline, this.arena.getTimeline().getSortedTimeline());
+	}
+
+
 	public void show (final Scene scene)
 	{
-		ViewUtil.show(VaultApplication.getStage(), scene, EncounterDelegate.class);
+		ViewUtil.show(VaultApplication.getStage(), scene, ArenaDelegate.class);
 	}
 
 
@@ -120,7 +132,7 @@ public class ArenaDelegate implements Initializable
 
 
 	@FXML
-	private void initializeGameBoard (final GridPane tileMap)
+	private void initializeGameBoard (final GridPane gameBoard)
 	{
 		for (int i = 0; i < NUMBER_OF_ROWS; i++)
 		{
@@ -139,8 +151,12 @@ public class ArenaDelegate implements Initializable
 				imageView.setFitHeight(TILE_SIDE_LENGTH);
 				imageView.setFitWidth(TILE_SIDE_LENGTH);
 				imageView.setPreserveRatio(false);
+				imageView.imageProperty()
+					.bind(this.arena.getGameBoard().getTile(i, j).getCurrentElement().getSpriteProperty());
 
-				tileMap.add(button, i, j);
+				button.setGraphic(imageView);
+
+				gameBoard.add(button, i, j);
 			}
 		}
 	}

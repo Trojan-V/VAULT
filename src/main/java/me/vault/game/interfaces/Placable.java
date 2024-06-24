@@ -1,6 +1,6 @@
 package me.vault.game.interfaces;
 
 
-public interface Placable
+public interface Placable extends Displayable
 {
 }
