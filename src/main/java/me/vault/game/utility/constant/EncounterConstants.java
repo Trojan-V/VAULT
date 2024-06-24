@@ -2,6 +2,7 @@ package me.vault.game.utility.constant;
 
 
 import me.vault.game.model.troop.Troop;
+import me.vault.game.model.troop.impl.Grenadier;
 import me.vault.game.model.troop.impl.Medic;
 import me.vault.game.model.troop.impl.Ranger;
 import me.vault.game.model.troop.impl.Sniper;
@@ -23,5 +24,6 @@ public interface EncounterConstants
 		this.add(Sniper.getInstance());
 		this.add(Ranger.getInstance());
 		this.add(Medic.getInstance());
+		this.add(Grenadier.getInstance());
 	}};
 }

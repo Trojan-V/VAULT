@@ -229,7 +229,9 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
 			ViewUtil.setButtonTextColor(this.arenaButton, Color.BLACK);
-			EncounterDelegate.show(new Encounter(new EncounterMap("src/main/resources/me/vault/game/map/Encounter_2.txt", ENCOUNTER_ENEMIES, ENCOUNTER_ENEMIES), null)); // TODO:FIX
+			EncounterDelegate.show(new Encounter(new EncounterMap("src/main/resources/me/vault/game/map/Encounter_2" +
+			                                                      ".txt", ENCOUNTER_ENEMIES, ENCOUNTER_ENEMIES))); //
+			// TODO:FIX
 		}
 	}
 
