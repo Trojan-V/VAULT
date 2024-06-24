@@ -72,10 +72,10 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
 		final float defensiveLevelMultiplier = troop.getFaction().getDefensiveLevelMultiplier();
 
-		defensiveStatistic.setDodgeRate(defensiveStatistic.getDodgeRate() * defensiveLevelMultiplier);
+		defensiveStatistic.setDodgeRate((defensiveStatistic.getDodgeRate() * defensiveLevelMultiplier) / 100);
 		defensiveStatistic.setHealthPoints(defensiveStatistic.getHealthPoints() * defensiveLevelMultiplier);
-		defensiveStatistic.setResistance(defensiveStatistic.getResistance() * defensiveLevelMultiplier);
-		defensiveStatistic.setArmour(defensiveStatistic.getArmour() * defensiveLevelMultiplier);
+		defensiveStatistic.setResistance((defensiveStatistic.getResistance() * defensiveLevelMultiplier) / 100);
+		defensiveStatistic.setArmour((defensiveStatistic.getArmour() * defensiveLevelMultiplier) / 100);
 
 	}
 
