@@ -72,6 +72,15 @@ public class ArenaDelegate implements Initializable
 	private static final int DROP_SHADOW_RADIUS = 15;
 
 
+	private static final int IMAGE_OFFSET = 10;
+
+
+	private static final int H_BOX_OFFSET = 10;
+
+
+	private static final double DROP_SHADOW_SPREAD = 0.5;
+
+
 	private Arena arena;
 
 
@@ -177,11 +186,15 @@ public class ArenaDelegate implements Initializable
 		{
 			if (arena.getPlayerOneTroops().contains(placable))
 			{
-				imageView.setEffect(new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE));
+				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
+				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
+				imageView.setEffect(playerIdentity);
 			}
 			else if (arena.getPlayerTwoTroops().contains(placable))
 			{
-				imageView.setEffect(new DropShadow(DROP_SHADOW_RADIUS, Color.RED));
+				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
+				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
+				imageView.setEffect(playerIdentity);
 			}
 		}
 	}
@@ -273,8 +286,13 @@ public class ArenaDelegate implements Initializable
 
 		statistics.setPrefSize(VBOX_WIDTH, VBOX_HEIGHT);
 		final ImageView sprite = new ImageView(troop.getSprite());
-		sprite.setFitWidth(SPRITE_WIDTH);
-		sprite.setFitHeight(SPRITE_HEIGHT);
+
+		sprite.setFitWidth(SPRITE_WIDTH - IMAGE_OFFSET);
+		sprite.setFitHeight(SPRITE_HEIGHT - IMAGE_OFFSET);
+
+
+		this.setTroopGlow(this.arena, sprite, troop);
+
 		statistics.getChildren().add(new Label(NAME + troop.getName()));
 		statistics.getChildren().add(new Label(HEALTH + troop.getStatistic().getDefensiveStatistic().getHealthPoints()));
 		statistics.getChildren().add(new Label(ARMOR + troop.getStatistic().getDefensiveStatistic().getArmour()));
@@ -282,6 +300,8 @@ public class ArenaDelegate implements Initializable
 
 		container.getChildren().add(sprite);
 		container.getChildren().add(statistics);
+
+		container.setSpacing(H_BOX_OFFSET);
 
 		return container;
 	}
