@@ -119,7 +119,6 @@ public class CityDelegate implements Initializable
 
 		// Boolean property gets bound to the upgrade button
 		upgradeButton.disableProperty().bind(cityBuilding.getMaxLevelProperty());
-
 	}
 
 

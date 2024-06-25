@@ -67,10 +67,8 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	@Override
 	public void updateValues (final CityBuilding cityBuilding)
 	{
-		if (cityBuilding.getLevel() == CityBuildingLevel.getMaximum())
-		{
-			cityBuilding.setIsMaxLevel(true);
-		}
+		cityBuilding.setIsMaxLevel(cityBuilding.getLevel() == CityBuildingLevel.getMaximum());
+
 		cityBuilding.setName(cityBuilding.getName(cityBuilding.getLevel()));
 		cityBuilding.setSprite(cityBuilding.getSprite(cityBuilding.getLevel()));
 		cityBuilding.setUpgradeCosts(cityBuilding.getUpgradeCosts(cityBuilding.getLevel()));
