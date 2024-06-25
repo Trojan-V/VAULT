@@ -20,11 +20,13 @@ import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Placeholder;
+import me.vault.game.model.arena.Tile;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.ResourceBundle;
@@ -235,7 +237,20 @@ public class ArenaDelegate implements Initializable
 
 		if (this.arena.getPlayerTwoTroops().contains(this.arena.getSelectedTroop()))
 		{
-			EnemyController.handleEnemyAction(ArenaDelegate.getInstance(), this.arena, this.arena.getSelectedTroop());
+			// TODO: Fix enemy movement and attack
+			final int[] position = this.arena.getGameBoard().getTroopPosition(this.arena.getSelectedTroop());
+			final List<Tile> adjacentTroopTiles = this.arena.getGameBoard().getAdjacentTroopTiles(position);
+			final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position);
+
+			boolean hasAttacked = false;
+			if (!adjacentTroopTiles.isEmpty())
+			{
+				hasAttacked = EnemyController.attackAdjacentTroop(this.arena, adjacentTroopTiles, this.arena.getSelectedTroop());
+			}
+			if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
+			{
+				EnemyController.moveToAdjacentTile(this.arena, adjacentAccessibleTiles.getFirst(), this.arena.getSelectedTroop());
+			}
 			this.updateTimeline();
 		}
 	}
