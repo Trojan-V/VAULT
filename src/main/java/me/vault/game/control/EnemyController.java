@@ -37,21 +37,9 @@ public class EnemyController
 				return true;
 			}
 		}
-		System.out.println(troop.getName() + " -> No attack in range");
 		return false;
 	}
 
 
-	private static void wait (int ms)
-	{
-		try
-		{
-			Thread.sleep(ms);
-		}
-		catch (InterruptedException ex)
-		{
-			Thread.currentThread().interrupt();
-		}
-	}
 
 }
