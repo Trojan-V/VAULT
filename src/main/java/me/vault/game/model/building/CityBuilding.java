@@ -257,4 +257,5 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 
 	@NotNull
 	public abstract Map<CityBuildingLevel, MetaDataImage> getAllSprites ();
+
 }

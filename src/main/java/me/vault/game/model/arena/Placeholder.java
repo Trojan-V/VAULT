@@ -77,7 +77,7 @@ public class Placeholder implements Placable
 	 * @param name The new name for the nameable object.
 	 */
 	@Override
-	public void setName (String name)
+	public void setName (final String name)
 	{
 
 	}

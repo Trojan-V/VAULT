@@ -120,4 +120,5 @@ public class Docks extends CityBuilding
 	{
 		return SPRITES;
 	}
+
 }

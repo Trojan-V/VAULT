@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 public class SpriteController
 {
+
 	private final SpriteController instance = null;
 
 

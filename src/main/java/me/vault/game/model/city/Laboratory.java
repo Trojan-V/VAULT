@@ -119,4 +119,5 @@ public class Laboratory extends CityBuilding
 	{
 		return SPRITES;
 	}
+
 }

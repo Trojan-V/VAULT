@@ -10,7 +10,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <DialogPane xmlns:fx="http://javafx.com/fxml/1" fx:id="exitGameDialogPane" expanded="true"
-            headerText="Do you really want to exit the game without saving?" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            headerText="Do you really want to exit the game without saving?" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="197.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/21"
             fx:controller="me.vault.game.view.ExitGameDialogDelegate">
     <header>

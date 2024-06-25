@@ -77,13 +77,6 @@ public class BarracksDelegate implements Initializable
 	private Button chooseTerraFactionButton;
 
 
-	@FXML
-	void onChooseTerraFaction (final ActionEvent ignored)
-	{
-		PlayerController.changeSelectedFaction(Player.getInstance(), Faction.NEW_TERRA);
-	}
-
-
 	public static void show ()
 	{
 		// Loading the FXML-File and creating a scene from the loaded components
@@ -92,6 +85,13 @@ public class BarracksDelegate implements Initializable
 
 		// Logging the display of the building
 		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+	}
+
+
+	@FXML
+	void onChooseTerraFaction (final ActionEvent ignored)
+	{
+		PlayerController.changeSelectedFaction(Player.getInstance(), Faction.NEW_TERRA);
 	}
 
 

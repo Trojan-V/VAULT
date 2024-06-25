@@ -126,4 +126,5 @@ public final class Barracks extends CityBuilding
 	{
 		return SPRITES;
 	}
+
 }

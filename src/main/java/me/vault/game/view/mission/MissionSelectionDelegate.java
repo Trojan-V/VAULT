@@ -30,6 +30,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 public class MissionSelectionDelegate implements Initializable
 {
 
+	private static final Scene SCENE = ResourceLoader.loadScene(MissionSelectionDelegate.class, "mission_view.fxml");
+
+	private static final Logger LOGGER = new Logger(MissionSelectionDelegate.class.getSimpleName());
+
 	@FXML
 	private AnchorPane mainPane;
 
@@ -57,9 +61,13 @@ public class MissionSelectionDelegate implements Initializable
 	@FXML
 	private Button selectMissionTwoButton;
 
-	private static final Scene SCENE = ResourceLoader.loadScene(MissionSelectionDelegate.class, "mission_view.fxml");
 
-	private static final Logger LOGGER = new Logger(MissionSelectionDelegate.class.getSimpleName());
+	public static void show (final Stage stage)
+	{
+		stage.setScene(SCENE);
+		stage.show();
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, MissionSelectionDelegate.class.getSimpleName()));
+	}
 
 
 	@FXML
@@ -113,14 +121,6 @@ public class MissionSelectionDelegate implements Initializable
 		this.missionThreeRewardPane.getChildren().add(new RewardGridPane(MISSION_THREE_REWARDS));
 		this.missionFourRewardPane.getChildren().add(new RewardGridPane(MISSION_FOUR_REWARDS));
 
-	}
-
-
-	public static void show (final Stage stage)
-	{
-		stage.setScene(SCENE);
-		stage.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, MissionSelectionDelegate.class.getSimpleName()));
 	}
 
 }

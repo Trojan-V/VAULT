@@ -119,4 +119,5 @@ public class CommandCenter extends CityBuilding
 	{
 		return SPRITES;
 	}
+
 }

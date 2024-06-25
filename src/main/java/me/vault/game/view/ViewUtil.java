@@ -95,6 +95,7 @@ public class ViewUtil
 		setButtonImageView(button, imageView);
 	}
 
+
 	public static void setButtonImageView (final Button button, final ImageView imageView)
 	{
 		imageView.setPreserveRatio(false);

@@ -24,6 +24,8 @@ public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilit
 	 */
 	private static final Logger LOGGER = new Logger(Troop.class.getSimpleName());
 
+	private static EnergyAbilityStatistic overallStatistics = null;
+
 	/**
 	 * This {@link SimpleStringProperty} is used to store and dynamically display the name of the troop.
 	 * If the name is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
@@ -41,8 +43,6 @@ public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilit
 	 * If the boolean value is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 */
 	private final SimpleBooleanProperty isMaxLevelProperty;
-
-	private static EnergyAbilityStatistic overallStatistics = null;
 
 	private final MultiplicationFactor multiplicationFactor;
 
@@ -88,12 +88,6 @@ public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilit
 	}
 
 
-	public SimpleBooleanProperty getIsMaxLevelProperty ()
-	{
-		return this.isMaxLevelProperty;
-	}
-
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -101,6 +95,12 @@ public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilit
 	public void setLevel (final EnergyAbilityLevel level)
 	{
 		this.currentLevel = level;
+	}
+
+
+	public SimpleBooleanProperty getIsMaxLevelProperty ()
+	{
+		return this.isMaxLevelProperty;
 	}
 
 
@@ -252,7 +252,7 @@ public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilit
 
 	public EnergyAbilityStatistic getStatistic ()
 	{
-		return this.overallStatistics;
+		return overallStatistics;
 	}
 
 
@@ -266,7 +266,7 @@ public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilit
 	public String toString ()
 	{
 		return "Energy ability{" + "spriteProperty=" + this.spriteProperty + ", isMaxLevelProperty=" + this.isMaxLevelProperty + ", nameProperty=" + this.nameProperty + ", statistic=" +
-		       this.overallStatistics +
+		       overallStatistics +
 		       ", faction=" +
 		       this.multiplicationFactor +
 		       ", upgradeCost=" + this.upgradeCost + ", currentLevel=" + this.currentLevel + '}';

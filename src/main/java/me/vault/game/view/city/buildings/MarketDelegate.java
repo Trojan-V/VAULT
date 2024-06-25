@@ -109,6 +109,17 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 	private TextField steelOutputField;
 
 
+	public static void show ()
+	{
+		// Loading the FXML-File and creating a scene from the loaded components
+		GameApplication.getStage().setScene(SCENE);
+		GameApplication.getStage().show();
+
+		// Logging the display of the building
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+	}
+
+
 	@FXML
 	void onCompositeInputChanged (final KeyEvent ignored)
 	{
@@ -176,17 +187,6 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 		this.factorMarketTradeIntoCurrency(this.steelInputField, Currency.STEEL, STEEL_PRICE);
 		this.steelInputField.setText(CharacterConstants.EMPTY_STRING);
 		this.steelOutputField.setText(CharacterConstants.EMPTY_STRING);
-	}
-
-
-	public static void show ()
-	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
 	}
 
 

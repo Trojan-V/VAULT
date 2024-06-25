@@ -30,6 +30,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 public class CommandCenterDelegate implements Initializable
 {
+
 	/**
 	 * The {@link Scene} of the {@link CommandCenter} city building, which is extracted from the related .fxml-file
 	 * with the {@link ResourceLoader}

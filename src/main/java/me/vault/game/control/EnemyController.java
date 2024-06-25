@@ -25,7 +25,7 @@ public class EnemyController
 
 	public static void moveToAdjacentTile (final Arena arena, final Tile adjacentAccessibleTile, final Troop troop)
 	{
-		TroopController.getInstance().moveTroop(arena, troop, adjacentAccessibleTile.getRow(), adjacentAccessibleTile.getColumn());
+		TroopController.moveTroop(arena, troop, adjacentAccessibleTile.getRow(), adjacentAccessibleTile.getColumn());
 	}
 
 
@@ -36,7 +36,7 @@ public class EnemyController
 			final Troop adjacentTroop = (Troop) tile.getCurrentElement();
 			if (arena.getPlayerOneTroops().contains(adjacentTroop))
 			{
-				TroopController.getInstance().attackTroop(arena, troop, adjacentTroop);
+				TroopController.attackTroop(arena, troop, adjacentTroop);
 				System.out.println(troop.getName() + " attacked " + adjacentTroop.getName());
 				return true;
 			}

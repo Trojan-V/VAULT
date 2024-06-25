@@ -195,6 +195,17 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private Label recruitLabel;
 
 
+	public static void show ()
+	{
+		// Loading the FXML-File and creating a scene from the loaded components
+		GameApplication.getStage().setScene(SCENE);
+		GameApplication.getStage().show();
+
+		// Logging the display of the building
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+	}
+
+
 	@FXML
 	void onEngineerUpgrade (final ActionEvent ignored)
 	{
@@ -276,17 +287,6 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	void onSpaceMarineUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(SpaceMarine.getAllyInstance(), TroopController.getInstance());
-	}
-
-
-	public static void show ()
-	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
 	}
 
 

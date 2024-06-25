@@ -55,6 +55,7 @@ public class Server implements Runnable
 		return new String(answer);
 	}
 
+
 	@Override
 	public void run ()
 	{
@@ -112,4 +113,5 @@ public class Server implements Runnable
 			throw new RuntimeException(e);
 		}
 	}
+
 }

@@ -22,6 +22,7 @@ public class Vertex
 		this.currentElement = currentElement;
 	}
 
+
 	public String getVertexName (final Vertex vertex)
 	{
 		return this.vertexName;
@@ -50,4 +51,5 @@ public class Vertex
 	{
 		this.marked = false;
 	}
+
 }

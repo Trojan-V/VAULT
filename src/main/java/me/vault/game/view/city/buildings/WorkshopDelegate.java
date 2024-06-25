@@ -46,6 +46,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public class WorkshopDelegate extends CityBuildingController implements Initializable
 {
+
 	/**
 	 * The {@link Scene} of the {@link Workshop} city building, which is extracted from the related .fxml-file with
 	 * the {@link ResourceLoader} class.

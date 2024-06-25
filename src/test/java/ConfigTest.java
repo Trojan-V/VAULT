@@ -14,6 +14,7 @@ import me.vault.game.utility.loading.ConfigLoader;
  */
 public class ConfigTest
 {
+
 	public static void main (final String[] args)
 	{
 		ConfigLoader.getInstance();
@@ -21,4 +22,5 @@ public class ConfigTest
 		Config.getInstance().updateConfigFromModels();
 		ConfigLoader.getInstance().save();
 	}
+
 }

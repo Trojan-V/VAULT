@@ -1,105 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ButtonType?>
-<?import javafx.scene.control.DialogPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<DialogPane fx:id="dialogPane" prefHeight="304.0" prefWidth="185.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.NetworkDelegate">
-   <buttonTypes>
-      <ButtonType fx:constant="YES" />
-      <ButtonType fx:constant="NO" />
-   </buttonTypes>
-   <header>
-      <StackPane prefHeight="87.0" prefWidth="387.0">
-         <children>
-            <ImageView fitHeight="63.0" fitWidth="301.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../assets/button.png" />
-               </image>
-            </ImageView>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Connection">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-         </children>
-      </StackPane>
-   </header>
-   <content>
-      <BorderPane prefHeight="274.0" prefWidth="395.0">
-         <center>
-            <AnchorPane prefHeight="303.0" prefWidth="333.0" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="174.0" prefWidth="332.0">
-                     <children>
-                        <TabPane fx:id="serverClientTabPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="132.0" prefWidth="295.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                            <Tab style="-fx-font-size: 18; -fx-padding: 1 40 1 40;" text="Server">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="372.0">
-                                       <children>
-                                          <VBox prefHeight="100.0" prefWidth="371.0">
-                                             <children>
-                                                <HBox prefHeight="56.0" prefWidth="289.0">
-                                                   <children>
-                                                      <Label prefHeight="30.0" prefWidth="82.0" text="Host:" />
-                                                      <Label fx:id="serverHost" prefHeight="30.0" prefWidth="209.0" />
-                                                   </children>
-                                                </HBox>
-                                                <HBox prefHeight="41.0" prefWidth="349.0">
-                                                   <children>
-                                                      <Label prefHeight="30.0" prefWidth="82.0" text="Port:" />
-                                                      <Label fx:id="serverPort" prefHeight="30.0" prefWidth="209.0" />
-                                                   </children>
-                                                </HBox>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </AnchorPane>
-                              </content>
-                            </Tab>
-                            <Tab style="-fx-padding: 1 40 1 40; -fx-font-size: 18;" text="Client">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="350.0">
-                                       <children>
-                                          <VBox prefHeight="98.0" prefWidth="294.0">
-                                             <children>
-                                                <TextField fx:id="clientHost" onKeyReleased="#hostInputChanged" promptText="Host">
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                                </TextField>
-                                                <TextField fx:id="clientPort" onKeyReleased="#portInputChanged" promptText="Port">
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                                </TextField>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </AnchorPane>
-                              </content>
-                            </Tab>
-                          </tabs>
-                        </TabPane>
-                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="170.0" text="Do you want to connect?" />
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
-         </center>
-      </BorderPane>
-   </content>
+<DialogPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dialogPane" prefHeight="304.0" prefWidth="185.0"
+            xmlns="http://javafx.com/javafx/21.0.1" fx:controller="me.vault.game.view.NetworkDelegate">
+    <buttonTypes>
+        <ButtonType fx:constant="YES"/>
+        <ButtonType fx:constant="NO"/>
+    </buttonTypes>
+    <header>
+        <StackPane prefHeight="87.0" prefWidth="387.0">
+            <children>
+                <ImageView fitHeight="63.0" fitWidth="301.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../assets/button.png"/>
+                    </image>
+                </ImageView>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Connection">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Text>
+            </children>
+        </StackPane>
+    </header>
+    <content>
+        <BorderPane prefHeight="274.0" prefWidth="395.0">
+            <center>
+                <AnchorPane prefHeight="303.0" prefWidth="333.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="174.0" prefWidth="332.0">
+                            <children>
+                                <TabPane fx:id="serverClientTabPane" maxHeight="-Infinity" maxWidth="-Infinity"
+                                         prefHeight="132.0" prefWidth="295.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab style="-fx-font-size: 18; -fx-padding: 1 40 1 40;" text="Server">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="83.0"
+                                                            prefWidth="372.0">
+                                                    <children>
+                                                        <VBox prefHeight="100.0" prefWidth="371.0">
+                                                            <children>
+                                                                <HBox prefHeight="56.0" prefWidth="289.0">
+                                                                    <children>
+                                                                        <Label prefHeight="30.0" prefWidth="82.0"
+                                                                               text="Host:"/>
+                                                                        <Label fx:id="serverHost" prefHeight="30.0"
+                                                                               prefWidth="209.0"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox prefHeight="41.0" prefWidth="349.0">
+                                                                    <children>
+                                                                        <Label prefHeight="30.0" prefWidth="82.0"
+                                                                               text="Port:"/>
+                                                                        <Label fx:id="serverPort" prefHeight="30.0"
+                                                                               prefWidth="209.0"/>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab style="-fx-padding: 1 40 1 40; -fx-font-size: 18;" text="Client">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0"
+                                                            prefWidth="350.0">
+                                                    <children>
+                                                        <VBox prefHeight="98.0" prefWidth="294.0">
+                                                            <children>
+                                                                <TextField fx:id="clientHost"
+                                                                           onKeyReleased="#hostInputChanged"
+                                                                           promptText="Host">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="clientPort"
+                                                                           onKeyReleased="#portInputChanged"
+                                                                           promptText="Port">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                                <Label alignment="CENTER" prefHeight="38.0" prefWidth="170.0"
+                                       text="Do you want to connect?"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </content>
 </DialogPane>

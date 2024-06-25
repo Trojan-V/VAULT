@@ -1,18 +1,13 @@
 package me.vault.game.view;
 
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import me.vault.game.GameApplication;
-import me.vault.game.control.CurrencyController;
-import me.vault.game.model.currency.Currency;
 import me.vault.game.model.network.NetworkController;
 import me.vault.game.utility.loading.ResourceLoader;
-
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +17,17 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 public class NetworkDelegate implements Initializable
 {
+
+	private static final Stage STAGE = new Stage();
+
+	private static final String WINDOW_TITLE = "Arena Connection";
+
+	private static final String FXML_FILENAME = "network_connection_dialog.fxml";
+
+	private static final String ICON_PATH = ASSETS_PATH + "button.png";
+
+	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
+
 	@FXML
 	private Label serverHost;
 
@@ -40,18 +46,17 @@ public class NetworkDelegate implements Initializable
 	@FXML
 	private TabPane serverClientTabPane;
 
-	private static final Stage STAGE = new Stage();
-
-	private static final String WINDOW_TITLE = "Arena Connection";
-
-	private static final String FXML_FILENAME = "network_connection_dialog.fxml";
-
-	private static final String ICON_PATH = ASSETS_PATH + "button.png";
-
-	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
-
 	private String host = null;
+
 	private int port = 0;
+
+
+	public static void show ()
+	{
+
+		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, FXML_FILENAME));
+		STAGE.showAndWait();
+	}
 
 
 	@FXML
@@ -60,6 +65,7 @@ public class NetworkDelegate implements Initializable
 		this.host = this.clientHost.getCharacters().toString();
 	}
 
+
 	@FXML
 	void portInputChanged (final KeyEvent ignored)
 	{
@@ -67,21 +73,16 @@ public class NetworkDelegate implements Initializable
 		{
 			this.port = Integer.parseInt(this.clientPort.getCharacters().toString());
 		}
-		catch (NumberFormatException e)
+		catch (final NumberFormatException e)
 		{
 			System.out.println(e);
 		}
 
 	}
 
-	public static void show ()
-	{
 
-		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, FXML_FILENAME));
-		STAGE.showAndWait();
-	}
 	@Override
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.serverHost.setText(NetworkController.HOST_NAME);
 		this.serverPort.setText(String.valueOf(NetworkController.PORT_NUMBER));
@@ -89,11 +90,10 @@ public class NetworkDelegate implements Initializable
 	}
 
 
-
 	private void setButtonActions ()
 	{
 		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event -> {
-			connect(STAGE, this.serverClientTabPane);
+			this.connect(STAGE, this.serverClientTabPane);
 		});
 
 		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event -> {
@@ -101,7 +101,8 @@ public class NetworkDelegate implements Initializable
 		});
 	}
 
-	private void connect (Stage stage, TabPane tabPane)
+
+	private void connect (final Stage stage, final TabPane tabPane)
 	{
 		if (tabPane.getTabs().getFirst().isSelected())
 		{

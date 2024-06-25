@@ -13,6 +13,7 @@ import java.net.UnknownHostException;
 
 public class Client implements Runnable
 {
+
 	private String hostName = null;
 
 
@@ -88,4 +89,5 @@ public class Client implements Runnable
 			System.out.println(e.toString());
 		}
 	}
+
 }

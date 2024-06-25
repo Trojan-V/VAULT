@@ -70,17 +70,6 @@ public final class CurrencyController implements Initializable
 	// Methods --------------------------------------------------------------------------------------------------------------
 
 
-	@Override
-	public void initialize (final URL url, final ResourceBundle resourceBundle)
-	{
-		initCurrency(Currency.STEEL, this.steelAmountLabel);
-		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel);
-		initCurrency(Currency.SCIENCE, this.scienceAmountLabel);
-		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel);
-		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel);
-	}
-
-
 	/**
 	 * Accepts a {@link CurrencyTransaction} as input and factors in every amount of {@link Currency} which is saved in the transaction.
 	 *
@@ -134,6 +123,17 @@ public final class CurrencyController implements Initializable
 	private static void initCurrency (final Currency currency, final Label label)
 	{
 		label.textProperty().bind(currency.getAmountProperty().asString());
+	}
+
+
+	@Override
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
+	{
+		initCurrency(Currency.STEEL, this.steelAmountLabel);
+		initCurrency(Currency.COMPOSITE, this.compositeAmountLabel);
+		initCurrency(Currency.SCIENCE, this.scienceAmountLabel);
+		initCurrency(Currency.FOOD_RATION, this.foodAmountLabel);
+		initCurrency(Currency.ENERGY_CREDIT, this.creditAmountLabel);
 	}
 
 }

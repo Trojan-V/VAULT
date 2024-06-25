@@ -257,6 +257,7 @@ public interface TroopConstants
 
 	}
 
+
 	/**
 	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Space Marine troop class.
 	 *
@@ -337,6 +338,7 @@ public interface TroopConstants
 
 	}
 
+
 	/**
 	 * The {@link Officer} subinterface contains all constants, which apply to the Officer troop class.
 	 *
@@ -414,6 +416,7 @@ public interface TroopConstants
 
 	}
 
+
 	/**
 	 * The {@link Engineer} subinterface contains all constants, which apply to the Engineer troop class.
 	 *
@@ -488,7 +491,9 @@ public interface TroopConstants
 			new DexterityStatistic(2, -3),
 			new DefensiveStatistic(60, 25, 0, 20),
 			new OffensiveStatistics(0, 22, 22, 4, 2));
+
 	}
+
 
 	/**
 	 * The {@link Guard} subinterface contains all constants, which apply to the Engineer troop class.
@@ -567,6 +572,7 @@ public interface TroopConstants
 
 	}
 
+
 	/**
 	 * The {@link Grenadier} subinterface contains all constants, which apply to the Grenadier troop class.
 	 *
@@ -641,7 +647,9 @@ public interface TroopConstants
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(46, 20, 15, 35),
 			new OffensiveStatistics(6, 16, 34, 7, 3));
+
 	}
+
 
 	/**
 	 * The {@link Recruit} subinterface contains all constants, which apply to the Recruit troop class.
@@ -720,6 +728,7 @@ public interface TroopConstants
 
 	}
 
+
 	/**
 	 * The {@link Infantry} subinterface contains all constants, which apply to the Infantry troop class.
 	 *
@@ -797,6 +806,7 @@ public interface TroopConstants
 
 	}
 
+
 	/**
 	 * The {@link Lieutenant} subinterface contains all constants, which apply to the Lieutenant troop class.
 	 *
@@ -873,6 +883,7 @@ public interface TroopConstants
 			new OffensiveStatistics(5, 10, 10, 2, 1));
 
 	}
+
 
 	/**
 	 * The {@link PrecisionShooter} subinterface contains all constants, which apply to the Precision shooter troop
@@ -954,4 +965,5 @@ public interface TroopConstants
 			new OffensiveStatistics(0, 22, 16, 1, 1));
 
 	}
+
 }

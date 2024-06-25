@@ -236,8 +236,8 @@ public class MainMenuDelegate implements Initializable
 			ViewUtil.setButtonTextColor(this.arenaButton, Color.BLACK);
 
 			NetworkDelegate.show();
-//			ArenaDelegate.show(new Arena(ALLIES, EnemyController.adjustEnemiesByDifficulty(ENCOUNTER_ENEMIES),
-//				new GameBoard(ResourceLoader.createGameBoardFromFile(ENCOUNTER_TWO_FILEPATH))));
+			//			ArenaDelegate.show(new Arena(ALLIES, EnemyController.adjustEnemiesByDifficulty(ENCOUNTER_ENEMIES),
+			//				new GameBoard(ResourceLoader.createGameBoardFromFile(ENCOUNTER_TWO_FILEPATH))));
 		}
 	}
 

@@ -1,7 +1,6 @@
 package me.vault.game.model.energy;
 
 
-
 /**
  * Description
  *

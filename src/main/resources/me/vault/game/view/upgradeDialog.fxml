@@ -5,7 +5,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<DialogPane xmlns:fx="http://javafx.com/fxml/1" fx:id="upgradeDialogPane" expanded="true" maxHeight="-Infinity" maxWidth="-Infinity"
+<DialogPane xmlns:fx="http://javafx.com/fxml/1" fx:id="upgradeDialogPane" expanded="true" maxHeight="-Infinity"
+            maxWidth="-Infinity"
             minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="463.0"
             xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.UpgradeDialogDelegate">
     <header>

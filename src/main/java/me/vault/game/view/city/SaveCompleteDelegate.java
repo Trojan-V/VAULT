@@ -75,5 +75,6 @@ public class SaveCompleteDelegate implements Initializable
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.saveGameDialogPane);
 	}
+
 }
 

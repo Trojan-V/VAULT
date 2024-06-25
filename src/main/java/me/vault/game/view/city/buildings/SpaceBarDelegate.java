@@ -36,6 +36,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public class SpaceBarDelegate extends CityBuildingController implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */

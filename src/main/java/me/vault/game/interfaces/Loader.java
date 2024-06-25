@@ -11,8 +11,10 @@ package me.vault.game.interfaces;
  */
 public interface Loader
 {
+
 	void save ();
 
 
 	void load ();
+
 }

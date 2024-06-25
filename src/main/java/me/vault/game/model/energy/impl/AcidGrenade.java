@@ -4,10 +4,9 @@ package me.vault.game.model.energy.impl;
 import javafx.scene.image.Image;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.EnergyAbility;
-import me.vault.game.model.energy.MultiplicationFactor;
 import me.vault.game.model.energy.EnergyAbilityLevel;
+import me.vault.game.model.energy.MultiplicationFactor;
 import me.vault.game.utility.constant.EnergyAbilityConstants;
-import me.vault.game.utility.constant.TroopConstants;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
@@ -74,7 +73,7 @@ public class AcidGrenade extends EnergyAbility
 
 	private AcidGrenade ()
 	{
-		super(MultiplicationFactor.TROOPS , ACID_GRENADE_STATISTIC);
+		super(MultiplicationFactor.TROOPS, ACID_GRENADE_STATISTIC);
 	}
 
 

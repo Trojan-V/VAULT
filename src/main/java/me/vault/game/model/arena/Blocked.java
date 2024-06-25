@@ -10,6 +10,7 @@ import me.vault.game.utility.struct.MetaDataImage;
 
 public class Blocked implements Placable
 {
+
 	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/attributes/resistance_icon.png";
 
 	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
@@ -76,7 +77,7 @@ public class Blocked implements Placable
 	 * @param name The new name for the nameable object.
 	 */
 	@Override
-	public void setName (String name)
+	public void setName (final String name)
 	{
 
 	}

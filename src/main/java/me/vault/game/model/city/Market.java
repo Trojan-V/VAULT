@@ -119,4 +119,5 @@ public class Market extends CityBuilding
 	{
 		return SPRITES;
 	}
+
 }

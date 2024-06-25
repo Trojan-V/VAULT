@@ -6,12 +6,15 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class OffensiveEnergyStatistic
 {
+
 	private final SimpleIntegerProperty meleeDamage;
+
 
 	public OffensiveEnergyStatistic (final int meleeDamage)
 	{
 		this.meleeDamage = new SimpleIntegerProperty(meleeDamage);
 	}
+
 
 	public int getMeleeDamage ()
 	{

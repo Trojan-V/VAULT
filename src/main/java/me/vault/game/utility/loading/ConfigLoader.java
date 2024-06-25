@@ -23,6 +23,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  */
 public final class ConfigLoader implements Loader
 {
+
 	private static final Logger LOGGER = new Logger(ConfigLoader.class.getSimpleName());
 
 
@@ -178,4 +179,5 @@ public final class ConfigLoader implements Loader
 		this.load(this.defaultsFile);
 		this.save(this.configFile);
 	}
+
 }

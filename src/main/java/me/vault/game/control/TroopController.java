@@ -179,44 +179,6 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void upgrade (final Troop troop)
-	{
-		Platform.runLater(new UpgradeRunnable(troop, getInstance()));
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean checkIsUpgradable (final Troop troop)
-	{
-		return true;
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void updateValues (final Troop troop)
-	{
-		troop.setIsMaxLevel(troop.getLevel() == TroopLevel.getMaximum());
-
-		troop.setName(troop.getName(troop.getLevel()));
-		troop.setSprite(troop.getSprite(troop.getLevel()));
-		troop.setUpgradeCosts(troop.getUpgradeCosts(troop.getLevel()));
-
-		updateOffensiveStatistic(troop);
-		updateDexterityStatistic(troop);
-		updateDefensiveStatistic(troop);
-	}
-
-
 	public static boolean troopCanMoveToPosition (final Arena arena, final Troop troop, final int i, final int j)
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
@@ -261,6 +223,44 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 		System.out.println("attacker = " + attacker);
 		System.out.println("defender = " + defender);
 
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void upgrade (final Troop troop)
+	{
+		Platform.runLater(new UpgradeRunnable(troop, getInstance()));
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean checkIsUpgradable (final Troop troop)
+	{
+		return true;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void updateValues (final Troop troop)
+	{
+		troop.setIsMaxLevel(troop.getLevel() == TroopLevel.getMaximum());
+
+		troop.setName(troop.getName(troop.getLevel()));
+		troop.setSprite(troop.getSprite(troop.getLevel()));
+		troop.setUpgradeCosts(troop.getUpgradeCosts(troop.getLevel()));
+
+		updateOffensiveStatistic(troop);
+		updateDexterityStatistic(troop);
+		updateDefensiveStatistic(troop);
 	}
 
 

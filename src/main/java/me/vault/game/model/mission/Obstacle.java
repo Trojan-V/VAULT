@@ -32,7 +32,7 @@ public class Obstacle implements MapObject
 	 * @param sprite The new sprite for the displayable object.
 	 */
 	@Override
-	public void setSprite (MetaDataImage sprite)
+	public void setSprite (final MetaDataImage sprite)
 	{
 		SPRITE_PROPERTY.set(sprite);
 	}

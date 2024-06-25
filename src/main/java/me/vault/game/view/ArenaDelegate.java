@@ -76,21 +76,15 @@ public class ArenaDelegate implements Initializable
 
 	private static final double DROP_SHADOW_SPREAD = 0.5;
 
-
-	private Arena arena;
-
-
 	private static final int SPRITE_WIDTH = 70;
-
 
 	private static final float SPRITE_HEIGHT = 70;
 
-
 	private static final int VBOX_WIDTH = 200;
-
 
 	private static final int VBOX_HEIGHT = 72;
 
+	private Arena arena;
 
 	private int round = 1;
 
@@ -124,6 +118,19 @@ public class ArenaDelegate implements Initializable
 		catch (final IOException e)
 		{
 			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL, arena.toString());
+		}
+	}
+
+
+	private static void wait (final int ms)
+	{
+		try
+		{
+			Thread.sleep(ms);
+		}
+		catch (final InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
 		}
 	}
 
@@ -294,19 +301,6 @@ public class ArenaDelegate implements Initializable
 		container.setSpacing(H_BOX_OFFSET);
 
 		return container;
-	}
-
-
-	private static void wait (final int ms)
-	{
-		try
-		{
-			Thread.sleep(ms);
-		}
-		catch (final InterruptedException ex)
-		{
-			Thread.currentThread().interrupt();
-		}
 	}
 
 }

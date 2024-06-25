@@ -93,6 +93,7 @@ public final class Recruit extends Troop
 		return ALLY_INSTANCE;
 	}
 
+
 	/**
 	 * Returns the singleton instance of this class.
 	 *

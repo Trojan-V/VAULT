@@ -17,7 +17,7 @@ import me.vault.game.utility.struct.UpgradeRunnable;
 import static me.vault.game.utility.constant.AttributeConstants.*;
 
 
-public class EnergyAbilityConroller implements Upgrader <EnergyAbility, EnergyAbilityLevel>
+public class EnergyAbilityConroller implements Upgrader<EnergyAbility, EnergyAbilityLevel>
 {
 
 	/**

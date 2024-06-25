@@ -120,4 +120,5 @@ public class SpaceBar extends CityBuilding
 	{
 		return SPRITES;
 	}
+
 }

@@ -28,6 +28,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 public class LaboratoryDelegate extends CityBuildingController implements Initializable
 {
+
 	/**
 	 * The {@link Scene} of the {@link Laboratory} city building, which is extracted from the related .fxml-file with
 	 * the {@link ResourceLoader} class.
@@ -102,6 +103,17 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	private Label healthArtifactHealthModifierLabel;
 
 
+	public static void show ()
+	{
+		// Loading the FXML-File and creating a scene from the loaded components
+		GameApplication.getStage().setScene(SCENE);
+		GameApplication.getStage().show();
+
+		// Logging the display of the building
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Laboratory.getInstance().getName()));
+	}
+
+
 	@FXML
 	void onAbilityOneUpgrade (final ActionEvent event)
 	{
@@ -120,17 +132,6 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	void onAbilityTwoUpgrade (final ActionEvent event)
 	{
 
-	}
-
-
-	public static void show ()
-	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Laboratory.getInstance().getName()));
 	}
 
 

@@ -31,15 +31,15 @@ public class Tile
 	}
 
 
-	public String getTileName ()
-	{
-		return this.tileName;
-	}
-
-
 	public void setCurrentElement (final Placable placable)
 	{
 		this.currentElement = placable;
+	}
+
+
+	public String getTileName ()
+	{
+		return this.tileName;
 	}
 
 

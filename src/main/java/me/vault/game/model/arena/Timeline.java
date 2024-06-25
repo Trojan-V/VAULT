@@ -10,6 +10,7 @@ import java.util.PriorityQueue;
 
 public class Timeline
 {
+
 	private ArrayList<Troop> timelineElements = new ArrayList<>();
 
 
@@ -42,4 +43,5 @@ public class Timeline
 		}
 		this.timelineElements.remove(timelineElement);
 	}
+
 }

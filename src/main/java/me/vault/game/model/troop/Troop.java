@@ -85,12 +85,6 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	}
 
 
-	public SimpleBooleanProperty getIsMaxLevelProperty ()
-	{
-		return this.isMaxLevelProperty;
-	}
-
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -98,6 +92,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	public void setLevel (final TroopLevel level)
 	{
 		this.currentLevel = level;
+	}
+
+
+	public SimpleBooleanProperty getIsMaxLevelProperty ()
+	{
+		return this.isMaxLevelProperty;
 	}
 
 
@@ -203,12 +203,6 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	}
 
 
-	public void setStatistics (final TroopStatistics statistics)
-	{
-		this.statistics = statistics;
-	}
-
-
 	public Faction getFaction ()
 	{
 		return this.faction;
@@ -260,6 +254,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	public TroopStatistics getStatistics ()
 	{
 		return this.statistics;
+	}
+
+
+	public void setStatistics (final TroopStatistics statistics)
+	{
+		this.statistics = statistics;
 	}
 
 

@@ -15,4 +15,5 @@ public class InitiativeComparator implements Comparator<Troop>
 		return Integer.compare(o1.getStatistics().getDexterityStatistic().getInitiative(),
 			o2.getStatistics().getDexterityStatistic().getInitiative());
 	}
+
 }
