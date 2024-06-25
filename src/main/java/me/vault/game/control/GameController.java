@@ -26,13 +26,13 @@ public class GameController
 	}
 
 
-	public double getDifficultyModifier ()
+	public GameDifficulty getDifficulty ()
 	{
-		return this.gameDifficulty.getModifier();
+		return this.gameDifficulty;
 	}
 
 
-	public void setDifficultyModifier (final GameDifficulty difficulty)
+	public void setDifficulty (final GameDifficulty difficulty)
 	{
 		this.gameDifficulty = difficulty;
 	}

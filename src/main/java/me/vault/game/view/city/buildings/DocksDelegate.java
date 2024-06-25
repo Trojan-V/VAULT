@@ -8,10 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.PlayerController;
+import me.vault.game.model.city.Barracks;
 import me.vault.game.model.city.Docks;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Faction;
@@ -25,6 +26,8 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -40,6 +43,11 @@ import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
  */
 public class DocksDelegate extends CityBuildingController implements Initializable
 {
+	/**
+	 * The {@link Scene} of the {@link Docks} city building, which is extracted from the related .fxml-file with the
+	 * {@link ResourceLoader} class.
+	 */
+	private static final Scene SCENE = ResourceLoader.loadScene(Docks.class, "docks_view.fxml");
 
 	// CONSTANTS -------------------------------------------------------------------------------------------------------
 
@@ -83,15 +91,14 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	// Methods ---------------------------------------------------------------------------------------------------------
 
 
-	/**
-	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
-	 *
-	 * @param ignored {@link ActionEvent}-parameter, that contains information about the event-caller.
-	 */
-	@FXML
-	void onBackToCityView (final ActionEvent ignored)
+	public static void show ()
 	{
-		CityDelegate.show(VaultApplication.getStage());
+		// Loading the FXML-File and creating a scene from the loaded components
+		GameApplication.getStage().setScene(SCENE);
+		GameApplication.getStage().show();
+
+		// Logging the display of the building
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
 	}
 
 
@@ -122,6 +129,18 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 		this.docksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.chooseExplorerFactionButton.disableProperty().bind(Faction.EXPLORER_ASSOCIATION.getIsSelectedProperty());
 		this.chooseMilitaryFactionButton.disableProperty().bind(Faction.MILITARISTIC_GOVERNMENT.getIsSelectedProperty());
+	}
+
+
+	/**
+	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
+	 *
+	 * @param ignored {@link ActionEvent}-parameter, that contains information about the event-caller.
+	 */
+	@FXML
+	void onBackToCityView (final ActionEvent ignored)
+	{
+		CityDelegate.show(GameApplication.getStage());
 	}
 
 

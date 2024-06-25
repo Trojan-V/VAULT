@@ -8,7 +8,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
@@ -64,7 +64,7 @@ public class ExitGameDialogDelegate implements Initializable
 		// Closes the different stages of the program if the user presses YES
 		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event -> {
 			STAGE.close();
-			VaultApplication.getStage().close();
+			GameApplication.getStage().close();
 			Platform.exit();
 		});
 

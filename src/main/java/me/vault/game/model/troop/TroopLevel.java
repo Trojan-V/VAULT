@@ -2,10 +2,10 @@ package me.vault.game.model.troop;
 
 
 import me.vault.game.interfaces.Level;
-import me.vault.game.model.artifact.Artifact;
 import me.vault.game.utility.logging.Logger;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.TROOP_IS_LOWEST;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.TROOP_MAXED;
 import static me.vault.game.utility.constant.MiscConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
@@ -41,7 +41,7 @@ public enum TroopLevel implements Level
 	 *
 	 * @return The maximum level an {@link Troop} can have.
 	 */
-	public static TroopLevel getMaxLevel ()
+	public static TroopLevel getMaximum ()
 	{
 		return values()[values().length - ZERO_INDEXED_LENGTH_CORRECTION];
 	}

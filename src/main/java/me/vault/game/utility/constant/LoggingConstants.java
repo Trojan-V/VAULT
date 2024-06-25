@@ -81,7 +81,7 @@ public interface LoggingConstants
 	String INSUFFICIENT_CURRENCY_AMOUNT = "Not enough {0} to perform the requested upgrade. Cost: {1} {0}";
 
 
-	String CLASS_INITIALISED = "{0} initialised.";
+	String CLASS_INITIALIZED = "{0} initialised.";
 
 
 	String UPGRADE_DIALOG_FAIL = "Couldn't display upgrade dialog for {0}";

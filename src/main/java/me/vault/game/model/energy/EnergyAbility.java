@@ -8,6 +8,7 @@ import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.mission.MapObject;
+import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -16,16 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 
-/**
- * Description
- *
- * @author Alexander Göthel
- * @version 1.0.0
- * @see
- * @since 25.06.2024
- */
-
-public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilityLevel>, MapObject
+public abstract class Energy implements Nameable, Upgradable<EnergyLevel>, MapObject
 {
 
 	/**
@@ -68,7 +60,7 @@ public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilit
 	 * This field stores the current {@link EnergyAbilityLevel} of the troop. The value of this field controls the values of many
 	 * attributes the troop consists of.
 	 * <br>
-	 * Check the constructor and the {@link me.vault.game.control.EnergyAbilityConroller#updateValues(EnergyAbility)} method to 
+	 * Check the constructor and the {@link me.vault.game.control.EnergyAbilityConroller#updateValues(EnergyAbility)} method to
 	 * see the control flow.
 	 */
 	private EnergyAbilityLevel currentLevel;
@@ -280,6 +272,5 @@ public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilit
 		       this.multiplicationFactor +
 		       ", upgradeCost=" + this.upgradeCost + ", currentLevel=" + this.currentLevel + '}';
 	}
-
 }
 

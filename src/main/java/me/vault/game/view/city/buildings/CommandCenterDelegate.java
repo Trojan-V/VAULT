@@ -4,26 +4,41 @@ package me.vault.game.view.city.buildings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.model.city.Docks;
-import me.vault.game.model.city.SpaceBar;
-import me.vault.game.model.city.Workshop;
+import me.vault.game.model.city.Barracks;
+import me.vault.game.model.city.CommandCenter;
 import me.vault.game.model.player.Player;
+import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.mission.MissionSelectionDelegate;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-public class CommandCenterController implements Initializable
+
+public class CommandCenterDelegate implements Initializable
 {
+	/**
+	 * The {@link Scene} of the {@link CommandCenter} city building, which is extracted from the related .fxml-file
+	 * with the {@link ResourceLoader}
+	 * class.
+	 */
+	private static final Scene SCENE = ResourceLoader.loadScene(CommandCenter.class, "command_center_view.fxml");
+
+
+	private static final Logger LOGGER = new Logger(CommandCenterDelegate.class.getSimpleName());
 
 	@FXML
 	private AnchorPane mainAnchorPane;
@@ -47,38 +62,42 @@ public class CommandCenterController implements Initializable
 	private Label selectedFactionLabel;
 
 
+	public static void show ()
+	{
+		// Loading the FXML-File and creating a scene from the loaded components
+		GameApplication.getStage().setScene(SCENE);
+		GameApplication.getStage().show();
+
+		// Logging the display of the building
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+	}
+
+
 	@FXML
 	void onArtifactClick (final MouseEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Workshop.getInstance());
+		WorkshopDelegate.show();
 	}
 
 
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(VaultApplication.getStage());
+		CityDelegate.show(GameApplication.getStage());
 	}
 
 
 	@FXML
 	void onFactionClick (final MouseEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Docks.getInstance());
+		DocksDelegate.show();
 	}
 
 
 	@FXML
 	void onGoToMissionBoard (final ActionEvent ignored)
 	{
-		MissionSelectionDelegate.show(VaultApplication.getStage());
-	}
-
-
-	@FXML
-	void onMegaCorpClick (final MouseEvent ignored)
-	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), SpaceBar.getInstance());
+		MissionSelectionDelegate.show(GameApplication.getStage());
 	}
 
 
@@ -87,6 +106,13 @@ public class CommandCenterController implements Initializable
 	{
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.setControlsFromPlayerInventory();
+	}
+
+
+	@FXML
+	void onMegaCorpClick (final MouseEvent ignored)
+	{
+		SpaceBarDelegate.show();
 	}
 
 

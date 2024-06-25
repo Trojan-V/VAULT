@@ -3,10 +3,7 @@ package me.vault.game;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import me.vault.game.control.TroopController;
-import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.jvm.JvmArgumentParser;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ExitGameDialogDelegate;
@@ -27,13 +24,13 @@ import static me.vault.game.utility.constant.LoggingConstants.PROGRAM_START;
  * @see Application
  * @since 24.04.2024
  */
-public class VaultApplication extends Application
+public class GameApplication extends Application
 {
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final Logger LOGGER = new Logger(VaultApplication.class.getSimpleName());
+	private static final Logger LOGGER = new Logger(GameApplication.class.getSimpleName());
 
 
 	/**
@@ -85,7 +82,5 @@ public class VaultApplication extends Application
 			evt.consume();
 			ExitGameDialogDelegate.show();
 		});
-		System.out.println(Sniper.getInstance().toString());
 	}
-
 }

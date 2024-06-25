@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
@@ -103,7 +103,7 @@ public class MainMenuDelegate implements Initializable
 	 */
 	public static void show ()
 	{
-		ViewUtil.show(VaultApplication.getStage(), SCENE, MainMenuDelegate.class);
+		ViewUtil.show(GameApplication.getStage(), SCENE, MainMenuDelegate.class);
 	}
 
 
@@ -206,17 +206,18 @@ public class MainMenuDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			ViewUtil.setButtonTextColor(this.continueButton, Color.BLACK);
-			CityDelegate.show(VaultApplication.getStage()); // TODO: nur temporaer zum testen
+			CityDelegate.show(GameApplication.getStage()); // TODO: nur temporaer zum testen
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton))
 		{
 			ViewUtil.setButtonTextColor(this.newGameButton, Color.BLACK);
-			DifficultyDelegate.show(VaultApplication.getStage());
+			DifficultyDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.loadGameButton))
 		{
 			ViewUtil.setButtonTextColor(this.loadGameButton, Color.BLACK);
-			FileChooserView.show(VaultApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH, StringConstants.chooseGameFile);
+			FileChooserView.show(GameApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH,
+				StringConstants.chooseGameFile);
 		}
 		else if (mouseEvent.getSource().equals(this.settingsButton))
 		{
@@ -246,11 +247,12 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.newGameMenuItem))
 		{
-			DifficultyDelegate.show(VaultApplication.getStage());
+			DifficultyDelegate.show(GameApplication.getStage());
 		}
 		else if (actionEvent.getSource().equals(this.loadGameMenuItem))
 		{
-			FileChooserView.show(VaultApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH, StringConstants.chooseGameFile);
+			FileChooserView.show(GameApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH,
+				StringConstants.chooseGameFile);
 		}
 		else if (actionEvent.getSource().equals(this.settingsMenuItem))
 		{

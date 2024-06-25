@@ -155,7 +155,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 		this.attributeMultiplier = new AttributeMultiplier(this.getAllModifiers().get(ArtifactLevel.getMinimum()));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
-		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == ArtifactLevel.getMaxLevel());
+		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == ArtifactLevel.getMaximum());
 
 		// Logging outputs
 		LOGGER.logf(DEBUG, LEVEL_SET, this.currentLevel.name());

@@ -6,15 +6,16 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
-import me.vault.game.utility.constant.TroopConstants;
+import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.TroopConstants.Engineer.ENGINEER_STATISTIC;
+import static me.vault.game.utility.constant.TroopConstants.Engineer.*;
 
 
 public class Engineer extends Troop
@@ -35,7 +36,7 @@ public class Engineer extends Troop
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
 	 * which {@link TroopLevel}.
 	 */
-	private static final Map<TroopLevel, String> NAMES = new ValidatedEntriesHashMap<>();
+	protected static final Map<TroopLevel, String> NAMES = new ValidatedEntriesHashMap<>();
 
 	/**
 	 * All possible sprites ({@link Image}) of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which sprite corresponds to
@@ -50,19 +51,28 @@ public class Engineer extends Troop
 	private static final Map<TroopLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
+	private static final Map<TroopLevel, TroopStatistics> TROOP_STATISTICS = new HashMap<>();
+
+
 	static
 	{
-		NAMES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Engineer.SINGLE_NAME);
-		NAMES.put(TroopLevel.COUPLE, TroopConstants.Engineer.COUPLE_NAME);
-		NAMES.put(TroopLevel.SQUAD, TroopConstants.Engineer.SQUAD_NAME);
+		NAMES.put(TroopLevel.SINGLE_COMBATANT, SINGLE_NAME);
+		NAMES.put(TroopLevel.COUPLE, COUPLE_NAME);
+		NAMES.put(TroopLevel.SQUAD, SQUAD_NAME);
 
-		SPRITES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Engineer.SINGLE_SPRITE);
-		SPRITES.put(TroopLevel.COUPLE, TroopConstants.Engineer.COUPLE_SPRITE);
-		SPRITES.put(TroopLevel.SQUAD, TroopConstants.Engineer.SQUAD_SPRITE);
+		SPRITES.put(TroopLevel.SINGLE_COMBATANT, SINGLE_SPRITE);
+		SPRITES.put(TroopLevel.COUPLE, COUPLE_SPRITE);
+		SPRITES.put(TroopLevel.SQUAD, SQUAD_SPRITE);
 
-		UPGRADE_COSTS.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Engineer.SINGLE_UPGRADE_COST);
-		UPGRADE_COSTS.put(TroopLevel.COUPLE, TroopConstants.Engineer.COUPLE_UPGRADE_COST);
-		UPGRADE_COSTS.put(TroopLevel.SQUAD, TroopConstants.Engineer.SQUAD_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.SINGLE_COMBATANT, SINGLE_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.COUPLE, COUPLE_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.SQUAD, SQUAD_UPGRADE_COST);
+
+
+		// TODO: Troop statistics in den Konstanten differenzieren
+		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, ENGINEER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, ENGINEER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, ENGINEER_STATISTICS);
 
 		INSTANCE = new Engineer();
 	}
@@ -70,7 +80,7 @@ public class Engineer extends Troop
 
 	private Engineer ()
 	{
-		super(Faction.MILITARISTIC_GOVERNMENT, ENGINEER_STATISTIC);
+		super(Faction.MILITARISTIC_GOVERNMENT);
 	}
 
 
@@ -112,6 +122,13 @@ public class Engineer extends Troop
 	protected @NotNull Map<TroopLevel, MetaDataImage> getAllSprites ()
 	{
 		return SPRITES;
+	}
+
+
+	@Override
+	protected @NotNull Map<TroopLevel, TroopStatistics> getAllStatistics ()
+	{
+		return TROOP_STATISTICS;
 	}
 
 }

@@ -41,7 +41,8 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	 */
 	private final SimpleBooleanProperty isMaxLevelProperty;
 
-	private static TroopStatistic overallStatistics = null;
+
+	private final TroopStatistics overallStatistics;
 
 	private final Faction faction;
 
@@ -63,15 +64,15 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	private TroopLevel currentLevel;
 
 
-	protected Troop (final Faction faction, final TroopStatistic overallStatistics)
+	protected Troop (final Faction faction)
 	{
 		this.currentLevel = TroopLevel.getMinimum();
 		this.upgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
-		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == TroopLevel.getMaxLevel());
+		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == TroopLevel.getMaximum());
 
-		Troop.overallStatistics = overallStatistics;
+		this.overallStatistics = this.getAllStatistics().get(this.currentLevel);
 		this.faction = faction;
 	}
 
@@ -248,9 +249,19 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	protected abstract Map<TroopLevel, MetaDataImage> getAllSprites ();
 
 
-	public TroopStatistic getStatistic ()
+	@NotNull
+	protected abstract Map<TroopLevel, TroopStatistics> getAllStatistics ();
+
+
+	public TroopStatistics getStatistics ()
 	{
 		return this.overallStatistics;
+	}
+
+
+	public TroopStatistics getStatistics (final TroopLevel level)
+	{
+		return this.getAllStatistics().get(level);
 	}
 
 

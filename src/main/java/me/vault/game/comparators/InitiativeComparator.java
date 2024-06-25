@@ -12,7 +12,7 @@ public class InitiativeComparator implements Comparator<Troop>
 	@Override
 	public int compare (final Troop o1, final Troop o2)
 	{
-		return Integer.compare(o1.getStatistic().getDexterityStatistic().getInitiative(),
-			o2.getStatistic().getDexterityStatistic().getInitiative());
+		return Integer.compare(o1.getStatistics().getDexterityStatistic().getInitiative(),
+			o2.getStatistics().getDexterityStatistic().getInitiative());
 	}
 }

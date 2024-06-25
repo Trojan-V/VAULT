@@ -1,11 +1,9 @@
 package me.vault.game.model.city;
 
 
-import javafx.scene.Scene;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
@@ -35,16 +33,12 @@ public class Market extends CityBuilding
 	 */
 	private static final Logger LOGGER = new Logger(Market.class.getSimpleName());
 
+
 	/**
 	 * Singleton instance, as there's never a reason to have more than one {@link Market} city building.
 	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
 	 */
 	private static final Market INSTANCE;
-
-	/**
-	 * The {@link Scene} of the {@link Market} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader} class.
-	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(Market.class, "market_view.fxml");
 
 	/**
 	 * All possible names of the {@link Market} city building are stored in this {@link Map}, with the {@link CityBuildingLevel} as key to denote which
@@ -125,16 +119,4 @@ public class Market extends CityBuilding
 	{
 		return SPRITES;
 	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	@NotNull
-	public Scene getScene ()
-	{
-		return SCENE;
-	}
-
 }

@@ -4,11 +4,12 @@ package me.vault.game.view.city.buildings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
@@ -16,28 +17,40 @@ import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
+import me.vault.game.model.city.Barracks;
+import me.vault.game.model.city.Workshop;
+import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
+
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * The {@code DocksDelegate} handles the control and view of the {@link me.vault.game.model.city.Workshop} city building. On the one hand it
+ * The {@code DocksDelegate} handles the control and view of the {@link Workshop} city building. On the one hand it
  * initialises the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model
- * to the {@link me.vault.game.model.city.Workshop} cty building.
+ * to the {@link Workshop} cty building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @see CityBuildingController
  * @see Initializable
- * @see me.vault.game.model.city.Workshop
+ * @see Workshop
  * @since 11.06.2024
  */
 public class WorkshopDelegate extends CityBuildingController implements Initializable
 {
+	/**
+	 * The {@link Scene} of the {@link Workshop} city building, which is extracted from the related .fxml-file with
+	 * the {@link ResourceLoader} class.
+	 */
+	private static final Scene SCENE = ResourceLoader.loadScene(Workshop.class, "workshop_view.fxml");
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
@@ -102,10 +115,14 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	private AnchorPane mainPane;
 
 
-	@FXML
-	private void onBackToCityView (final ActionEvent ignored)
+	public static void show ()
 	{
-		CityDelegate.show(VaultApplication.getStage());
+		// Loading the FXML-File and creating a scene from the loaded components
+		GameApplication.getStage().setScene(SCENE);
+		GameApplication.getStage().show();
+
+		// Logging the display of the building
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
 	}
 
 
@@ -182,6 +199,13 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 		this.defenseArtifactDamageModifierLabel.textProperty().bind(defenseArtifactModifiers.getDamageMultiplierProperty().asString());
 		this.defenseArtifactDefenseModifierLabel.textProperty().bind(defenseArtifactModifiers.getDefenseMultiplierProperty().asString());
 		this.defenseArtifactHealthModifierLabel.textProperty().bind(defenseArtifactModifiers.getHealthMultiplierProperty().asString());
+	}
+
+
+	@FXML
+	private void onBackToCityView (final ActionEvent ignored)
+	{
+		CityDelegate.show(GameApplication.getStage());
 	}
 
 }

@@ -5,7 +5,7 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.troop.DefensiveStatistic;
 import me.vault.game.model.troop.DexterityStatistic;
 import me.vault.game.model.troop.OffensiveStatistic;
-import me.vault.game.model.troop.TroopStatistic;
+import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
@@ -93,7 +93,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the sniper troop.
 		 */
 		@Constant
-		TroopStatistic SNIPER_STATISTIC = new TroopStatistic(
+		TroopStatistics SNIPER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(1, 2),
 			new DefensiveStatistic(25, 5, 15, 20),
 			new OffensiveStatistic(0, 24, 0, 0, 0));
@@ -172,7 +172,7 @@ public interface TroopConstants
 		 */
 
 		@Constant
-		TroopStatistic RANGER_STATISTIC = new TroopStatistic(
+		TroopStatistics RANGER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(4, 1),
 			new DefensiveStatistic(46, 20, 25, 15),
 			new OffensiveStatistic(5, 22, 16, 1, 1));
@@ -250,7 +250,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the sniper troop.
 		 */
 		@Constant
-		TroopStatistic MEDIC_STATISTIC = new TroopStatistic(
+		TroopStatistics MEDIC_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(6, 0),
 			new DefensiveStatistic(46, 10, 20, 10),
 			new OffensiveStatistic(0, -16, 0, 0, 0));
@@ -330,7 +330,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the space marine troop.
 		 */
 		@Constant
-		TroopStatistic SPACE_MARINE_STATISTIC = new TroopStatistic(
+		TroopStatistics SPACE_MARINE_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(2, -3),
 			new DefensiveStatistic(67, 35, 5, 15),
 			new OffensiveStatistic(0, 16, 16, 2, 1));
@@ -407,7 +407,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the officer troop.
 		 */
 		@Constant
-		TroopStatistic OFFICER_STATISTIC = new TroopStatistic(
+		TroopStatistics OFFICER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(2, -2),
 			new DefensiveStatistic(46, 20, 15, 20),
 			new OffensiveStatistic(9, 10, 0, 0, 0));
@@ -484,17 +484,16 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the engineer troop.
 		 */
 		@Constant
-		TroopStatistic ENGINEER_STATISTIC = new TroopStatistic(
+		TroopStatistics ENGINEER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(2, -3),
 			new DefensiveStatistic(60, 25, 0, 20),
 			new OffensiveStatistic(0, 22, 22, 4, 2));
-
 	}
 
 	/**
 	 * The {@link Guard} subinterface contains all constants, which apply to the Engineer troop class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Guard
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -561,7 +560,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the guard troop.
 		 */
 		@Constant
-		TroopStatistic GUARD_STATISTIC = new TroopStatistic(
+		TroopStatistics GUARD_STATISTIC = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(32, 20, 15, 20),
 			new OffensiveStatistic(0, 16, 16, 5, 1));
@@ -571,7 +570,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Grenadier} subinterface contains all constants, which apply to the Grenadier troop class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Grenadier
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -638,17 +637,16 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the grenadier troop.
 		 */
 		@Constant
-		TroopStatistic GRENADIER_STATISTIC = new TroopStatistic(
+		TroopStatistics GRENADIER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(46, 20, 15, 35),
 			new OffensiveStatistic(6, 16, 34, 7, 3));
-
 	}
 
 	/**
 	 * The {@link Recruit} subinterface contains all constants, which apply to the Recruit troop class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel, Lasse-Leander Hillen
 	 * @see me.vault.game.model.troop.impl.Recruit
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -715,7 +713,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the recruit troop.
 		 */
 		@Constant
-		TroopStatistic RECRUIT_STATISTIC = new TroopStatistic(
+		TroopStatistics RECRUIT_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(25, 15, 5, 20),
 			new OffensiveStatistic(0, 10, 16, 4, 1));
@@ -725,7 +723,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Infantry} subinterface contains all constants, which apply to the Infantry troop class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Infantry
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -792,7 +790,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the infantry troop.
 		 */
 		@Constant
-		TroopStatistic INFANTRY_STATISTIC = new TroopStatistic(
+		TroopStatistics INFANTRY_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(46, 10, 15, 20),
 			new OffensiveStatistic(0, 16, 16, 3, 1));
@@ -802,7 +800,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Lieutenant} subinterface contains all constants, which apply to the Lieutenant troop class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Lieutenant
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -869,7 +867,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the lieutenant troop.
 		 */
 		@Constant
-		TroopStatistic LIEUTENANT_STATISTIC = new TroopStatistic(
+		TroopStatistics LIEUTENANT_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(2, -1),
 			new DefensiveStatistic(46, 20, 15, 20),
 			new OffensiveStatistic(5, 10, 10, 2, 1));
@@ -880,7 +878,7 @@ public interface TroopConstants
 	 * The {@link PrecisionShooter} subinterface contains all constants, which apply to the Precision shooter troop
 	 * class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.PrecisionShooter
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -950,7 +948,7 @@ public interface TroopConstants
 		 * A constant which represents the attributes of the precision shooter troop.
 		 */
 		@Constant
-		TroopStatistic PRECISION_SHOOTER_STATISTIC = new TroopStatistic(
+		TroopStatistics PRECISION_SHOOTER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(32, 20, 20, 15),
 			new OffensiveStatistic(0, 22, 16, 1, 1));

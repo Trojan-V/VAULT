@@ -13,8 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import me.vault.game.VaultApplication;
-import me.vault.game.control.EnemyController;
+import me.vault.game.GameApplication;
 import me.vault.game.control.TroopController;
 import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placable;
@@ -145,7 +144,7 @@ public class ArenaDelegate implements Initializable
 
 	public void show (final Scene scene)
 	{
-		ViewUtil.show(VaultApplication.getStage(), scene, ArenaDelegate.class);
+		ViewUtil.show(GameApplication.getStage(), scene, ArenaDelegate.class);
 	}
 
 

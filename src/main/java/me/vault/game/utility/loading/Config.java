@@ -1,9 +1,15 @@
 package me.vault.game.utility.loading;
 
 
+import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.artifact.ArtifactLevel;
+import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.building.CityBuildingLevel;
+import me.vault.game.model.city.*;
+import me.vault.game.model.currency.Currency;
+import me.vault.game.model.troop.TroopLevel;
+import me.vault.game.model.troop.impl.*;
 
 
 /**
@@ -30,34 +36,93 @@ public class Config
 	private GameDifficulty difficulty = GameDifficulty.HARD_MODE;
 
 	// Currency related config entries
+	private int steelAmount = 0;
 
-	private int coins = 2000;
+
+	private int compositeAmount = 0;
+
+
+	private int foodRationAmount = 0;
+
+
+	private int scienceAmount = 0;
+
+
+	private int energyCreditAmount = 0;
 
 	// Artifact related config entries
 
-	private ArtifactLevel healthArtifactLevel = ArtifactLevel.BASE;
 
-	private ArtifactLevel defenseArtifactLevel = ArtifactLevel.BASE;
+	private ArtifactLevel healthArtifactLevel = ArtifactLevel.getMinimum();
 
-	private ArtifactLevel damageArtifactLevel = ArtifactLevel.BASE;
+
+	private ArtifactLevel defenseArtifactLevel = ArtifactLevel.getMinimum();
+
+
+	private ArtifactLevel damageArtifactLevel = ArtifactLevel.getMinimum();
 
 	// CityBuilding related config entries
 
-	private CityBuildingLevel workshopLevel = CityBuildingLevel.OLD;
 
-	private CityBuildingLevel marketLevel = CityBuildingLevel.OLD;
+	private CityBuildingLevel workshopLevel = CityBuildingLevel.getMinimum();
 
-	private CityBuildingLevel commandCenterLevel = CityBuildingLevel.OLD;
 
-	private CityBuildingLevel laboratoryLevel = CityBuildingLevel.OLD;
+	private CityBuildingLevel marketLevel = CityBuildingLevel.getMinimum();
 
-	private CityBuildingLevel docksLevel = CityBuildingLevel.OLD;
 
-	private CityBuildingLevel barracksLevel = CityBuildingLevel.OLD;
+	private CityBuildingLevel commandCenterLevel = CityBuildingLevel.getMinimum();
 
-	private CityBuildingLevel spaceBarLevel = CityBuildingLevel.OLD;
 
-	private CityBuildingLevel trainingFacilityLevel = CityBuildingLevel.OLD;
+	private CityBuildingLevel laboratoryLevel = CityBuildingLevel.getMinimum();
+
+
+	private CityBuildingLevel docksLevel = CityBuildingLevel.getMinimum();
+
+
+	private CityBuildingLevel barracksLevel = CityBuildingLevel.getMinimum();
+
+
+	private CityBuildingLevel spaceBarLevel = CityBuildingLevel.getMinimum();
+
+
+	private CityBuildingLevel trainingFacilityLevel = CityBuildingLevel.getMinimum();
+
+
+	// Troop related config entries
+	private TroopLevel engineerLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel grenadierLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel guardLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel infantryLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel lieutenantLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel medicLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel officerLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel precisionShooterLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel rangerLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel recruitLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel sniperLevel = TroopLevel.getMinimum();
+
+
+	private TroopLevel spaceMarineLevel = TroopLevel.getMinimum();
 
 
 	private Config () {}
@@ -75,21 +140,69 @@ public class Config
 	}
 
 
-	public void setCoins (final int coins)
+	private void updateCurrencyAmounts ()
 	{
-		this.coins = coins;
+		for (final Currency currency : Currency.values())
+		{
+			switch (currency)
+			{
+				case STEEL -> this.steelAmount = currency.getAmount();
+				case COMPOSITE -> this.compositeAmount = currency.getAmount();
+				case FOOD_RATION -> this.foodRationAmount = currency.getAmount();
+				case SCIENCE -> this.scienceAmount = currency.getAmount();
+				case ENERGY_CREDIT -> this.energyCreditAmount = currency.getAmount();
+
+				// TODO: keep or remove this default branch
+				case null, default -> throw new IllegalStateException("Unexpected value: " + currency);
+			}
+		}
 	}
 
 
-	public void setDifficulty (final GameDifficulty difficulty)
+	private void updateArtifactLevels ()
 	{
-		this.difficulty = difficulty;
+		this.healthArtifactLevel = HealthArtifact.getInstance().getLevel();
+		this.damageArtifactLevel = HealthArtifact.getInstance().getLevel();
+		this.defenseArtifactLevel = HealthArtifact.getInstance().getLevel();
 	}
 
 
-	public void setHealthArtifactLevel (final ArtifactLevel healthArtifactLevel)
+	private void updateCityBuildingLevels ()
 	{
-		this.healthArtifactLevel = healthArtifactLevel;
+		this.barracksLevel = Barracks.getInstance().getLevel();
+		this.commandCenterLevel = CommandCenter.getInstance().getLevel();
+		this.docksLevel = Docks.getInstance().getLevel();
+		this.laboratoryLevel = Laboratory.getInstance().getLevel();
+		this.marketLevel = Market.getInstance().getLevel();
+		this.spaceBarLevel = SpaceBar.getInstance().getLevel();
+		this.trainingFacilityLevel = TrainingFacility.getInstance().getLevel();
+		this.workshopLevel = Workshop.getInstance().getLevel();
 	}
 
+
+	private void updateTroopLevels ()
+	{
+		this.engineerLevel = Engineer.getInstance().getLevel();
+		this.grenadierLevel = Grenadier.getInstance().getLevel();
+		this.guardLevel = Guard.getInstance().getLevel();
+		this.infantryLevel = Infantry.getInstance().getLevel();
+		this.lieutenantLevel = Lieutenant.getInstance().getLevel();
+		this.medicLevel = Medic.getInstance().getLevel();
+		this.officerLevel = Officer.getInstance().getLevel();
+		this.precisionShooterLevel = PrecisionShooter.getInstance().getLevel();
+		this.rangerLevel = Ranger.getInstance().getLevel();
+		this.recruitLevel = Recruit.getInstance().getLevel();
+		this.sniperLevel = Sniper.getInstance().getLevel();
+		this.spaceMarineLevel = SpaceMarine.getInstance().getLevel();
+	}
+
+
+	public void updateConfig ()
+	{
+		this.updateCurrencyAmounts();
+		this.updateArtifactLevels();
+		this.updateCityBuildingLevels();
+		this.difficulty = GameController.getInstance().getDifficulty();
+		this.updateTroopLevels();
+	}
 }

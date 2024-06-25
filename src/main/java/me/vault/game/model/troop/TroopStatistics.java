@@ -9,7 +9,7 @@ package me.vault.game.model.troop;
  * @see
  * @since 23.05.2024
  */
-public class TroopStatistic
+public class TroopStatistics
 {
 
 	private final DexterityStatistic dexterityStatistic;
@@ -19,7 +19,8 @@ public class TroopStatistic
 	private final OffensiveStatistic offensiveStatistic;
 
 
-	public TroopStatistic (final DexterityStatistic dexterityStatistic, final DefensiveStatistic defensiveStatistic, final OffensiveStatistic offensiveStatistic)
+	public TroopStatistics (final DexterityStatistic dexterityStatistic, final DefensiveStatistic defensiveStatistic,
+		final OffensiveStatistic offensiveStatistic)
 	{
 		this.dexterityStatistic = dexterityStatistic;
 		this.defensiveStatistic = defensiveStatistic;

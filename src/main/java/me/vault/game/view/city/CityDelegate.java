@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.model.building.CityBuilding;
@@ -20,7 +20,7 @@ import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.MainMenuDelegate;
 import me.vault.game.view.TutorialDelegate;
 import me.vault.game.view.UpgradeDialogDelegate;
-import me.vault.game.view.city.buildings.CityBuildingView;
+import me.vault.game.view.city.buildings.*;
 
 import java.net.URL;
 import java.text.MessageFormat;
@@ -131,21 +131,21 @@ public class CityDelegate implements Initializable
 
 
 	@FXML
-	void onBackToMainMenu (ActionEvent event)
+	void onBackToMainMenu (final ActionEvent event)
 	{
 		MainMenuDelegate.show();
 	}
 
 
 	@FXML
-	void onOpenHelpMenu (ActionEvent event)
+	void onOpenHelpMenu (final ActionEvent event)
 	{
-		TutorialDelegate.show(VaultApplication.getStage());
+		TutorialDelegate.show(GameApplication.getStage());
 	}
 
 
 	@FXML
-	void OnSaveToConfig (ActionEvent event)
+	void OnSaveToConfig (final ActionEvent event)
 	{
 		// TODO: SAVE implementieren
 	}
@@ -210,56 +210,56 @@ public class CityDelegate implements Initializable
 	@FXML
 	void onBarracksButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Barracks.getInstance());
+		BarracksDelegate.show();
 	}
 
 
 	@FXML
 	void onCommandCenterButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), CommandCenter.getInstance());
+		CommandCenterDelegate.show();
 	}
 
 
 	@FXML
 	void onDocksButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Docks.getInstance());
+		DocksDelegate.show();
 	}
 
 
 	@FXML
 	void onLaboratoryButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Laboratory.getInstance());
+		LaboratoryDelegate.show();
 	}
 
 
 	@FXML
 	void onMarketButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Market.getInstance());
+		MarketDelegate.show();
 	}
 
 
 	@FXML
 	void onSpaceBarButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), SpaceBar.getInstance());
+		SpaceBarDelegate.show();
 	}
 
 
 	@FXML
 	void onTrainingFacilityButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), TrainingFacility.getInstance());
+		TrainingFacilityDelegate.show();
 	}
 
 
 	@FXML
 	void onWorkshopButtonClick (final ActionEvent ignored)
 	{
-		CityBuildingView.showCityBuilding(VaultApplication.getStage(), Workshop.getInstance());
+		WorkshopDelegate.show();
 	}
 
 

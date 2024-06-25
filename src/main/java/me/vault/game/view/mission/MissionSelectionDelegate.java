@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.fxcontrols.RewardGridPane;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -65,7 +65,7 @@ public class MissionSelectionDelegate implements Initializable
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(VaultApplication.getStage());
+		CityDelegate.show(GameApplication.getStage());
 	}
 
 

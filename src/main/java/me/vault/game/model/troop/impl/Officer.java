@@ -6,15 +6,16 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
-import me.vault.game.utility.constant.TroopConstants;
+import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.TroopConstants.Officer.OFFICER_STATISTIC;
+import static me.vault.game.utility.constant.TroopConstants.Officer.*;
 
 
 public class Officer extends Troop
@@ -50,19 +51,27 @@ public class Officer extends Troop
 	private static final Map<TroopLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
+	private static final Map<TroopLevel, TroopStatistics> TROOP_STATISTICS = new HashMap<>();
+
+
 	static
 	{
-		NAMES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Officer.SINGLE_NAME);
-		NAMES.put(TroopLevel.COUPLE, TroopConstants.Officer.COUPLE_NAME);
-		NAMES.put(TroopLevel.SQUAD, TroopConstants.Officer.SQUAD_NAME);
+		NAMES.put(TroopLevel.SINGLE_COMBATANT, SINGLE_NAME);
+		NAMES.put(TroopLevel.COUPLE, COUPLE_NAME);
+		NAMES.put(TroopLevel.SQUAD, SQUAD_NAME);
 
-		SPRITES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Officer.SINGLE_SPRITE);
-		SPRITES.put(TroopLevel.COUPLE, TroopConstants.Officer.COUPLE_SPRITE);
-		SPRITES.put(TroopLevel.SQUAD, TroopConstants.Officer.SQUAD_SPRITE);
+		SPRITES.put(TroopLevel.SINGLE_COMBATANT, SINGLE_SPRITE);
+		SPRITES.put(TroopLevel.COUPLE, COUPLE_SPRITE);
+		SPRITES.put(TroopLevel.SQUAD, SQUAD_SPRITE);
 
-		UPGRADE_COSTS.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Officer.SINGLE_UPGRADE_COST);
-		UPGRADE_COSTS.put(TroopLevel.COUPLE, TroopConstants.Officer.COUPLE_UPGRADE_COST);
-		UPGRADE_COSTS.put(TroopLevel.SQUAD, TroopConstants.Officer.SQUAD_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.SINGLE_COMBATANT, SINGLE_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.COUPLE, COUPLE_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.SQUAD, SQUAD_UPGRADE_COST);
+
+		// TODO: Troop statistics in den Konstanten differenzieren
+		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, OFFICER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, OFFICER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, OFFICER_STATISTICS);
 
 		INSTANCE = new Officer();
 	}
@@ -70,7 +79,7 @@ public class Officer extends Troop
 
 	private Officer ()
 	{
-		super(Faction.MILITARISTIC_GOVERNMENT, OFFICER_STATISTIC);
+		super(Faction.MILITARISTIC_GOVERNMENT);
 	}
 
 
@@ -114,5 +123,11 @@ public class Officer extends Troop
 		return SPRITES;
 	}
 
+
+	@Override
+	protected @NotNull Map<TroopLevel, TroopStatistics> getAllStatistics ()
+	{
+		return TROOP_STATISTICS;
+	}
 }
 

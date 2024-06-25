@@ -11,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -90,7 +90,7 @@ public final class TutorialDelegate implements Initializable
 
 	public static void show (final Stage stage)
 	{
-		ViewUtil.show(VaultApplication.getStage(), TUTORIAL_MENU_SCENE, TutorialDelegate.class);
+		ViewUtil.show(GameApplication.getStage(), TUTORIAL_MENU_SCENE, TutorialDelegate.class);
 	}
 
 
@@ -144,12 +144,12 @@ public final class TutorialDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
 			ViewUtil.setButtonColor(this.backButtonText, Color.BLACK);
-			PrologueDelegate.show(VaultApplication.getStage());
+			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			ViewUtil.setButtonColor(this.continueButtonText, Color.BLACK);
-			CityDelegate.show(VaultApplication.getStage());
+			CityDelegate.show(GameApplication.getStage());
 		}
 	}
 

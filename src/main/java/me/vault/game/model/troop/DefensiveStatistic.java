@@ -50,19 +50,19 @@ public class DefensiveStatistic
 	}
 
 
-	public int getArmour ()
+	public int getArmor ()
 	{
 		return this.armour.get();
 	}
 
 
-	public void setArmour (final int armour)
+	public void setArmor (final int armour)
 	{
 		this.armour.set(armour);
 	}
 
 
-	public void setArmour (final float armour)
+	public void setArmor (final float armour)
 	{
 		this.armour.set(Math.round(armour));
 	}

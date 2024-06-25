@@ -32,6 +32,7 @@ public interface GameConstants
 
 	String TAB_PANE_STYLE = "floating";
 
-	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/save_files";
+
+	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/config";
 
 }

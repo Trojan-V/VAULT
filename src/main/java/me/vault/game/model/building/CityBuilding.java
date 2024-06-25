@@ -4,7 +4,6 @@ package me.vault.game.model.building;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.Scene;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
@@ -47,8 +46,6 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 
 	private final SimpleBooleanProperty isMaxLevelProperty;
 
-	private final Scene scene;
-
 
 	/**
 	 * This field stores the current level of the city building.
@@ -90,13 +87,12 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	protected CityBuilding ()
 	{
 		// TODO: currentLevel aus Config einlesen
-		this.currentLevel = CityBuildingLevel.getMinLevel();
-		this.scene = this.getScene();
+		this.currentLevel = CityBuildingLevel.getMinimum();
 
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
-		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == CityBuildingLevel.getMaxLevel());
+		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == CityBuildingLevel.getMaximum());
 	}
 
 
@@ -261,9 +257,4 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 
 	@NotNull
 	public abstract Map<CityBuildingLevel, MetaDataImage> getAllSprites ();
-
-
-	@NotNull
-	public abstract Scene getScene ();
-
 }

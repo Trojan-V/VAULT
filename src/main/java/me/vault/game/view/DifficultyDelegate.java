@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.utility.constant.StringConstants;
@@ -143,20 +143,20 @@ public final class DifficultyDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
 			ViewUtil.setButtonTextColor(this.easyDifficultyButton, Color.BLACK);
-			GameController.getInstance().setDifficultyModifier(GameDifficulty.EASY_MODE);
-			PrologueDelegate.show(VaultApplication.getStage());
+			GameController.getInstance().setDifficulty(GameDifficulty.EASY_MODE);
+			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
 			ViewUtil.setButtonTextColor(this.normalDifficultyButton, Color.BLACK);
-			GameController.getInstance().setDifficultyModifier(GameDifficulty.NORMAL_MODE);
-			PrologueDelegate.show(VaultApplication.getStage());
+			GameController.getInstance().setDifficulty(GameDifficulty.NORMAL_MODE);
+			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
 			ViewUtil.setButtonTextColor(this.hardDifficultyButton, Color.BLACK);
-			GameController.getInstance().setDifficultyModifier(GameDifficulty.HARD_MODE);
-			PrologueDelegate.show(VaultApplication.getStage());
+			GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
+			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{

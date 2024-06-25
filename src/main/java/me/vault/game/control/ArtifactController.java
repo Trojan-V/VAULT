@@ -63,7 +63,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 */
 	private static boolean checkIsArtifactMaxed (final Artifact artifact)
 	{
-		return artifact.getLevel() == ArtifactLevel.getMaxLevel();
+		return artifact.getLevel() == ArtifactLevel.getMaximum();
 	}
 
 
@@ -88,7 +88,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	@Override
 	public void updateValues (final Artifact artifact)
 	{
-		if (artifact.getLevel() == ArtifactLevel.getMaxLevel())
+		if (artifact.getLevel() == ArtifactLevel.getMaximum())
 		{
 			artifact.setIsMaxLevel(true);
 		}
@@ -159,7 +159,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	public void upgrade (final Artifact artifact)
 	{
 		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, artifact.getName(), artifact.getLevel(), artifact.getLevel().getNextHigherLevel());
-		Platform.runLater(new UpgradeRunnable(artifact, ArtifactController.getInstance()));
+		Platform.runLater(new UpgradeRunnable(artifact, getInstance()));
 	}
 
 }

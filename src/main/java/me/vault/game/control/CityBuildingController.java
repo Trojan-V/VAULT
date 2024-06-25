@@ -57,7 +57,7 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
 	{
 		// TODO: Currency Check fehlt noch, ob genug vorhanden ist.
-		return cityBuilding != null && cityBuilding.getLevel() != CityBuildingLevel.getMaxLevel();
+		return cityBuilding != null && cityBuilding.getLevel() != CityBuildingLevel.getMaximum();
 	}
 
 
@@ -67,7 +67,7 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	@Override
 	public void updateValues (final CityBuilding cityBuilding)
 	{
-		if (cityBuilding.getLevel() == CityBuildingLevel.getMaxLevel())
+		if (cityBuilding.getLevel() == CityBuildingLevel.getMaximum())
 		{
 			cityBuilding.setIsMaxLevel(true);
 		}

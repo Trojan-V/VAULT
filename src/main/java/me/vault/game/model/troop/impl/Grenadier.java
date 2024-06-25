@@ -6,15 +6,16 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
-import me.vault.game.utility.constant.TroopConstants;
+import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.TroopConstants.Grenadier.GRENADIER_STATISTIC;
+import static me.vault.game.utility.constant.TroopConstants.Grenadier.*;
 
 
 public class Grenadier extends Troop
@@ -50,19 +51,27 @@ public class Grenadier extends Troop
 	private static final Map<TroopLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
+	private static final Map<TroopLevel, TroopStatistics> TROOP_STATISTICS = new HashMap<>();
+
+
 	static
 	{
-		NAMES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Grenadier.SINGLE_NAME);
-		NAMES.put(TroopLevel.COUPLE, TroopConstants.Grenadier.COUPLE_NAME);
-		NAMES.put(TroopLevel.SQUAD, TroopConstants.Grenadier.SQUAD_NAME);
+		NAMES.put(TroopLevel.SINGLE_COMBATANT, SINGLE_NAME);
+		NAMES.put(TroopLevel.COUPLE, COUPLE_NAME);
+		NAMES.put(TroopLevel.SQUAD, SQUAD_NAME);
 
-		SPRITES.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Grenadier.SINGLE_SPRITE);
-		SPRITES.put(TroopLevel.COUPLE, TroopConstants.Grenadier.COUPLE_SPRITE);
-		SPRITES.put(TroopLevel.SQUAD, TroopConstants.Grenadier.SQUAD_SPRITE);
+		SPRITES.put(TroopLevel.SINGLE_COMBATANT, SINGLE_SPRITE);
+		SPRITES.put(TroopLevel.COUPLE, COUPLE_SPRITE);
+		SPRITES.put(TroopLevel.SQUAD, SQUAD_SPRITE);
 
-		UPGRADE_COSTS.put(TroopLevel.SINGLE_COMBATANT, TroopConstants.Grenadier.SINGLE_UPGRADE_COST);
-		UPGRADE_COSTS.put(TroopLevel.COUPLE, TroopConstants.Grenadier.COUPLE_UPGRADE_COST);
-		UPGRADE_COSTS.put(TroopLevel.SQUAD, TroopConstants.Grenadier.SQUAD_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.SINGLE_COMBATANT, SINGLE_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.COUPLE, COUPLE_UPGRADE_COST);
+		UPGRADE_COSTS.put(TroopLevel.SQUAD, SQUAD_UPGRADE_COST);
+
+		// TODO: Troop statistics in den Konstanten differenzieren
+		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, GRENADIER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, GRENADIER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, GRENADIER_STATISTICS);
 
 		INSTANCE = new Grenadier();
 	}
@@ -70,7 +79,7 @@ public class Grenadier extends Troop
 
 	private Grenadier ()
 	{
-		super(Faction.MEGA_CORPORATION, GRENADIER_STATISTIC);
+		super(Faction.MEGA_CORPORATION);
 	}
 
 
@@ -112,6 +121,13 @@ public class Grenadier extends Troop
 	protected @NotNull Map<TroopLevel, MetaDataImage> getAllSprites ()
 	{
 		return SPRITES;
+	}
+
+
+	@Override
+	protected @NotNull Map<TroopLevel, TroopStatistics> getAllStatistics ()
+	{
+		return TROOP_STATISTICS;
 	}
 
 }

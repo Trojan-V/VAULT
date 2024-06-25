@@ -4,36 +4,41 @@ package me.vault.game.view.city.buildings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import me.vault.game.VaultApplication;
+import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.PlayerController;
+import me.vault.game.model.city.Barracks;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Faction;
+import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALISED;
+import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * The {@code BarracksDelegate} handles the control and view of the {@link me.vault.game.model.city.Barracks} city building.
+ * The {@code BarracksDelegate} handles the control and view of the {@link Barracks} city building.
  * <br>
  * On the one hand, it initializes the view from the fxml-file and binds properties from the model to the view.
  * <br>
- * On the other hand, it provides methods to control the model to the {@link me.vault.game.model.city.Barracks} cty building.
+ * On the other hand, it provides methods to control the model to the {@link Barracks} cty building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @see CityBuildingController
  * @see Initializable
- * @see me.vault.game.model.city.Barracks
+ * @see Barracks
  * @since 11.06.2024
  */
 public class BarracksDelegate implements Initializable
@@ -45,6 +50,14 @@ public class BarracksDelegate implements Initializable
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(BarracksDelegate.class.getSimpleName());
+
+
+	/**
+	 * The {@link Scene} of the {@link Barracks} city building, which is extracted from the related .fxml-file with
+	 * the {@link ResourceLoader} class.
+	 */
+	private static final Scene SCENE = ResourceLoader.loadScene(Barracks.class, "barracks_view.fxml");
+
 
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
@@ -71,6 +84,17 @@ public class BarracksDelegate implements Initializable
 	}
 
 
+	public static void show ()
+	{
+		// Loading the FXML-File and creating a scene from the loaded components
+		GameApplication.getStage().setScene(SCENE);
+		GameApplication.getStage().show();
+
+		// Logging the display of the building
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+	}
+
+
 	/**
 	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
 	 *
@@ -79,7 +103,7 @@ public class BarracksDelegate implements Initializable
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(VaultApplication.getStage());
+		CityDelegate.show(GameApplication.getStage());
 	}
 
 
@@ -96,8 +120,7 @@ public class BarracksDelegate implements Initializable
 		this.chooseTerraFactionButton.disableProperty().bind(Faction.NEW_TERRA.getIsSelectedProperty());
 
 		// Logging the finalization of the initialization
-		LOGGER.logf(DEBUG, CLASS_INITIALISED, BarracksDelegate.class.getSimpleName());
-
+		LOGGER.logf(DEBUG, CLASS_INITIALIZED, BarracksDelegate.class.getSimpleName());
 	}
 
 }

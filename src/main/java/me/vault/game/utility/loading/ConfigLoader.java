@@ -109,6 +109,8 @@ public final class ConfigLoader implements Loader
 	@Override
 	public void save ()
 	{
+		Config.getInstance().updateConfig();
+
 		// Write to file
 		try (final FileWriter writer = new FileWriter(this.configFile))
 		{

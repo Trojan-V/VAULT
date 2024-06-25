@@ -1,11 +1,9 @@
 package me.vault.game.model.city;
 
 
-import javafx.scene.Scene;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
@@ -42,10 +40,6 @@ public class Docks extends CityBuilding
 	 */
 	private static final Docks INSTANCE;
 
-	/**
-	 * The {@link Scene} of the {@link Docks} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader} class.
-	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(Docks.class, "docks_view.fxml");
 
 	/**
 	 * All possible names of the {@link Docks} city building are stored in this {@link Map}, with the {@link CityBuildingLevel} as key to denote which
@@ -126,16 +120,4 @@ public class Docks extends CityBuilding
 	{
 		return SPRITES;
 	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	@NotNull
-	public Scene getScene ()
-	{
-		return SCENE;
-	}
-
 }

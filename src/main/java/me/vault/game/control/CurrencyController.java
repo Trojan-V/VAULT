@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.LoggingConstants.Currency.FACTORED_TRANSACTION;
 import static me.vault.game.utility.constant.LoggingConstants.Currency.NEW_CURRENCY_VALUES;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -90,12 +91,12 @@ public final class CurrencyController implements Initializable
 		for (int i = 0; i < Currency.values().length; i++)
 		{
 			final Currency currency = Currency.values()[i];
-			currency.addAmount(transaction.getAmount(currency));
+			factorCurrencyTransaction(currency, transaction.getAmount(currency));
 		}
 
 		// Logging the used amount and the new currency values
-		LOGGER.logf(ILogger.Level.DEBUG, FACTORED_TRANSACTION, transaction);
-		LOGGER.logf(ILogger.Level.DEBUG, NEW_CURRENCY_VALUES, Arrays.toString(Currency.values()));
+		LOGGER.logf(DEBUG, FACTORED_TRANSACTION, transaction);
+		LOGGER.logf(DEBUG, NEW_CURRENCY_VALUES, Arrays.toString(Currency.values()));
 	}
 
 

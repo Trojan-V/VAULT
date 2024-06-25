@@ -61,39 +61,36 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 	private static void updateDexterityStatistic (final Troop troop)
 	{
-		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
-		final float dexterityLevelMultiplier = troop.getFaction().getDexterityLevelMultiplier();
+		final DexterityStatistic dexterityStats = troop.getStatistics().getDexterityStatistic();
+		final DexterityStatistic newDexterityStats = troop.getStatistics(troop.getLevel()).getDexterityStatistic();
 
-		dexterityStatistic.setInitiative(dexterityStatistic.getInitiative() * dexterityLevelMultiplier);
-		dexterityStatistic.setMovementTiles(dexterityStatistic.getMovementTiles() * dexterityLevelMultiplier);
-
+		dexterityStats.setInitiative(newDexterityStats.getInitiative());
+		dexterityStats.setMovementTiles(newDexterityStats.getMovementTiles());
 	}
 
 
 	private static void updateDefensiveStatistic (final Troop troop)
 	{
-		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
-		final float defensiveLevelMultiplier = troop.getFaction().getDefensiveLevelMultiplier();
+		final DefensiveStatistic defenseStats = troop.getStatistics().getDefensiveStatistic();
+		final DefensiveStatistic newDefenseStats = troop.getStatistics(troop.getLevel()).getDefensiveStatistic();
 
-		defensiveStatistic.setDodgeRate(defensiveStatistic.getDodgeRate() * defensiveLevelMultiplier);
-		defensiveStatistic.setHealthPoints(defensiveStatistic.getHealthPoints() * defensiveLevelMultiplier);
-		defensiveStatistic.setResistance(defensiveStatistic.getResistance() * defensiveLevelMultiplier);
-		defensiveStatistic.setArmour(defensiveStatistic.getArmour() * defensiveLevelMultiplier);
-
+		defenseStats.setArmor(newDefenseStats.getArmor());
+		defenseStats.setDodgeRate(newDefenseStats.getDodgeRate());
+		defenseStats.setHealthPoints(newDefenseStats.getHealthPoints());
+		defenseStats.setResistance(newDefenseStats.getResistance());
 	}
 
 
 	private static void updateOffensiveStatistic (final Troop troop)
 	{
-		final OffensiveStatistic offensiveStatistic = troop.getStatistic().getOffensiveStatistic();
-		final float offensiveLevelMultiplier = troop.getFaction().getOffensiveLevelMultiplier();
+		final OffensiveStatistic offensiveStats = troop.getStatistics().getOffensiveStatistic();
+		final OffensiveStatistic newOffensiveStats = troop.getStatistics(troop.getLevel()).getOffensiveStatistic();
 
-		offensiveStatistic.setEnergyPoints(offensiveStatistic.getEnergyPoints() * offensiveLevelMultiplier);
-		offensiveStatistic.setGrenadeAmount(offensiveStatistic.getGrenadeAmount() * offensiveLevelMultiplier);
-		offensiveStatistic.setGrenadeRange(offensiveStatistic.getGrenadeRange() * offensiveLevelMultiplier);
-		offensiveStatistic.setMeleeDamage(offensiveStatistic.getMeleeDamage() * offensiveLevelMultiplier);
-		offensiveStatistic.setGrenadeDamage(offensiveStatistic.getGrenadeDamage() * offensiveLevelMultiplier);
-
+		offensiveStats.setEnergyPoints(newOffensiveStats.getEnergyPoints());
+		offensiveStats.setGrenadeAmount(newOffensiveStats.getGrenadeAmount());
+		offensiveStats.setGrenadeDamage(newOffensiveStats.getGrenadeDamage());
+		offensiveStats.setGrenadeRange(newOffensiveStats.getGrenadeRange());
+		offensiveStats.setMeleeDamage(newOffensiveStats.getMeleeDamage());
 	}
 
 
@@ -112,7 +109,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 	private static void addDexterityAttributesToGrid (final Troop troop, final GridPane gridPane)
 	{
-		final DexterityStatistic dexterityStatistic = troop.getStatistic().getDexterityStatistic();
+		final DexterityStatistic dexterityStatistic = troop.getStatistics().getDexterityStatistic();
 
 		gridPane.add(getSingleAttributeHBox(MOVEMENT_ATTRIBUTE_ICON_PATH, MOVEMENT_ATTRIBUTE_NAME, dexterityStatistic.getMovementTileProperty()),
 			MOVEMENT_ATTRIBUTE_GRID_X, MOVEMENT_ATTRIBUTE_GRID_Y);
@@ -124,7 +121,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 	private static void addDefensiveAttributesToGrid (final Troop troop, final GridPane gridPane)
 	{
-		final DefensiveStatistic defensiveStatistic = troop.getStatistic().getDefensiveStatistic();
+		final DefensiveStatistic defensiveStatistic = troop.getStatistics().getDefensiveStatistic();
 
 		gridPane.add(getSingleAttributeHBox(DODGE_ATTRIBUTE_ICON_PATH, DODGE_ATTRIBUTE_NAME, defensiveStatistic.getDodgeRateProperty()),
 			DODGE_ATTRIBUTE_GRID_X, DODGE_ATTRIBUTE_GRID_Y);
@@ -143,7 +140,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 	private static void addOffensiveAttributesToGrid (final Troop troop, final GridPane gridPane)
 	{
-		final OffensiveStatistic offensiveStatistic = troop.getStatistic().getOffensiveStatistic();
+		final OffensiveStatistic offensiveStatistic = troop.getStatistics().getOffensiveStatistic();
 
 		gridPane.add(getSingleAttributeHBox(MELEE_ATTACK_ATTRIBUTE_ICON_PATH, MELEE_ATTRIBUTE_NAME, offensiveStatistic.getMeleeDamageProperty()),
 			MELEE_ATTACK_ATTRIBUTE_GRID_X, MELEE_ATTACK_ATTRIBUTE_GRID_Y);
@@ -185,7 +182,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	@Override
 	public void upgrade (final Troop troop)
 	{
-		Platform.runLater(new UpgradeRunnable(troop, TroopController.getInstance()));
+		Platform.runLater(new UpgradeRunnable(troop, getInstance()));
 	}
 
 
@@ -205,7 +202,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	@Override
 	public void updateValues (final Troop troop)
 	{
-		if (troop.getLevel() == TroopLevel.getMaxLevel())
+		if (troop.getLevel() == TroopLevel.getMaximum())
 		{
 			troop.setIsMaxLevel(true);
 		}
