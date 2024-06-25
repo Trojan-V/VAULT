@@ -16,7 +16,7 @@ import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.constant.CharacterConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -174,7 +174,7 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityView.show(VaultApplication.getStage());
+		CityDelegate.show(VaultApplication.getStage());
 	}
 
 

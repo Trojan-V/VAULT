@@ -18,14 +18,13 @@ import me.vault.game.model.troop.Faction;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
-import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALISED;
 
 
 /**
@@ -92,7 +91,7 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityView.show(VaultApplication.getStage());
+		CityDelegate.show(VaultApplication.getStage());
 	}
 
 

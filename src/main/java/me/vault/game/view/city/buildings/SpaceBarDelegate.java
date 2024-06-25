@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,7 +45,7 @@ public class SpaceBarDelegate extends CityBuildingController implements Initiali
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityView.show(VaultApplication.getStage());
+		CityDelegate.show(VaultApplication.getStage());
 	}
 
 

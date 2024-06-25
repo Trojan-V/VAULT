@@ -16,7 +16,7 @@ import me.vault.game.control.TroopController;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.*;
 import me.vault.game.view.UpgradeDialogDelegate;
-import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -265,7 +265,7 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityView.show(VaultApplication.getStage());
+		CityDelegate.show(VaultApplication.getStage());
 	}
 
 

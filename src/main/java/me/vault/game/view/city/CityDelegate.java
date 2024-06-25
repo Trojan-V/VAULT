@@ -4,19 +4,28 @@ package me.vault.game.view.city;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
+import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.buildings.CityBuildingView;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
+
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -29,6 +38,19 @@ import java.util.ResourceBundle;
  */
 public class CityDelegate implements Initializable
 {
+
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(CityDelegate.class.getSimpleName());
+
+	/**
+	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
+	 * elements.
+	 */
+	private static final String STYLESHEET = "city_view.fxml";
+
+	private static final Scene SCENE = ResourceLoader.loadScene(CityDelegate.class, STYLESHEET);
 
 	@FXML
 	private Button barracksButton;
@@ -98,57 +120,65 @@ public class CityDelegate implements Initializable
 	}
 
 
+	public static void show (final Stage stage)
+	{
+		stage.setScene(SCENE);
+		stage.show();
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, CityDelegate.class.getSimpleName()));
+	}
+
+
 	@FXML
-	void onBarracksUpgrade (final ActionEvent event)
+	void onBarracksUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(Barracks.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
-	void onCommandCenterUpgrade (final ActionEvent event)
+	void onCommandCenterUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(CommandCenter.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
-	void onDocksUpgrade (final ActionEvent event)
+	void onDocksUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(Docks.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
-	void onLaboratoryUpgrade (final ActionEvent event)
+	void onLaboratoryUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(Laboratory.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
-	void onMarketUpgrade (final ActionEvent event)
+	void onMarketUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(Market.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
-	void onSpaceBarUpgrade (final ActionEvent event)
+	void onSpaceBarUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(SpaceBar.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
-	void onTrainingFacilityUpgrade (final ActionEvent event)
+	void onTrainingFacilityUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(TrainingFacility.getInstance(), CityBuildingController.getInstance());
 	}
 
 
 	@FXML
-	void onWorkshopUpgrade (final ActionEvent event)
+	void onWorkshopUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(Workshop.getInstance(), CityBuildingController.getInstance());
 	}

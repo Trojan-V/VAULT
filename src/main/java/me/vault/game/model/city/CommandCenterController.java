@@ -11,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.city.buildings.CityBuildingView;
 import me.vault.game.view.mission.MissionSelectionDelegate;
 
@@ -54,7 +54,7 @@ public class CommandCenterController implements Initializable
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityView.show(VaultApplication.getStage());
+		CityDelegate.show(VaultApplication.getStage());
 	}
 
 

@@ -16,7 +16,7 @@ import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -149,8 +149,7 @@ public final class TutorialDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			ViewUtil.setButtonColor(this.continueButtonText, Color.BLACK);
-			// TutorialView.show(VaultApplication.getStage());
-			CityView.show(VaultApplication.getStage());
+			CityDelegate.show(VaultApplication.getStage());
 		}
 	}
 

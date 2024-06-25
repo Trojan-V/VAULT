@@ -19,7 +19,7 @@ import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -206,7 +206,7 @@ public class MainMenuDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			ViewUtil.setButtonTextColor(this.continueButton, Color.BLACK);
-			CityView.show(VaultApplication.getStage()); // TODO: nur temporaer zum testen
+			CityDelegate.show(VaultApplication.getStage()); // TODO: nur temporaer zum testen
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton))
 		{

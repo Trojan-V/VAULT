@@ -19,7 +19,7 @@ import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.UpgradeDialogDelegate;
-import me.vault.game.view.city.CityView;
+import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -105,7 +105,7 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	@FXML
 	private void onBackToCityView (final ActionEvent ignored)
 	{
-		CityView.show(VaultApplication.getStage());
+		CityDelegate.show(VaultApplication.getStage());
 	}
 
 
