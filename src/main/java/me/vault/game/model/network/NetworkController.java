@@ -12,6 +12,9 @@ public class NetworkController
 	private static final String HOST_NAME = "127.0.0.1";
 
 
+	/**
+	 *
+	 */
 	public static void runServer ()
 	{
 		(new Thread(new Server(PORT_NUMBER))).start();
