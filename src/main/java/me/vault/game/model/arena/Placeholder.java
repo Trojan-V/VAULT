@@ -10,17 +10,17 @@ import me.vault.game.utility.struct.MetaDataImage;
 
 public class Placeholder implements Placable
 {
-	public Placeholder ()
-	{
-
-	}
-
 
 	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/tile.png";
 
 
-	private static final SimpleObjectProperty<MetaDataImage>
-		SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
+	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
+
+
+	public Placeholder ()
+	{
+
+	}
 
 
 	/**

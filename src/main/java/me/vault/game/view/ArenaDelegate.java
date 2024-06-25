@@ -4,21 +4,18 @@ package me.vault.game.view;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.TroopController;
+import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Placeholder;
@@ -162,20 +159,13 @@ public class ArenaDelegate implements Initializable
 		{
 			for (int j = 0; j < NUMBER_OF_COLUMNS; j++)
 			{
-				final Button button = this.createGameBoardButton();
-
-				final ImageView imageView = this.createGameBoardButtonImageView(this.arena.getGameBoard().getTile(i, j).getCurrentElement().getSprite());
-
-				this.setTroopGlow(this.arena, imageView, this.arena.getGameBoard().getTile(i, j).getCurrentElement());
-				button.setGraphic(imageView);
+				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(i, j).getCurrentElement());
 
 				final int row = i;
 				final int column = j;
-				button.setOnMouseClicked(mouseEvent ->
-				{
+				button.setOnMouseClicked(_ -> {
 					this.handleMapObjectInteraction(row, column, this.arena);
 				});
-
 				gameBoard.add(button, i, j);
 			}
 		}
@@ -211,20 +201,6 @@ public class ArenaDelegate implements Initializable
 		imageView.setImage(sprite);
 
 		return imageView;
-	}
-
-
-	private Button createGameBoardButton ()
-	{
-		final Button button = new Button();
-		button.setTextFill(Color.TRANSPARENT);
-		button.setBackground(Background.fill(Color.TRANSPARENT));
-		button.setPrefSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
-		button.setMaxSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
-		button.setContentDisplay(ContentDisplay.CENTER);
-		button.setAlignment(Pos.CENTER);
-
-		return button;
 	}
 
 
