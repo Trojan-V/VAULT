@@ -6,10 +6,10 @@ package me.vault.game.model.network;
  */
 public class NetworkController
 {
-	private static final int PORT_NUMBER = 13579;
+	public static final int PORT_NUMBER = 13579;
 
 
-	private static final String HOST_NAME = "127.0.0.1";
+	public static final String HOST_NAME = "127.0.0.1";
 
 
 	/**
@@ -33,8 +33,8 @@ public class NetworkController
 	}
 
 
-	public static void runClient ()
+	public static void runClient (String hostName, int portName)
 	{
-		(new Thread(new Client(HOST_NAME, PORT_NUMBER))).start();
+		(new Thread(new Client(hostName, portName))).start();
 	}
 }

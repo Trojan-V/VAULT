@@ -4,12 +4,14 @@ package me.vault.game.view;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
+import me.vault.game.control.CurrencyController;
+import me.vault.game.model.currency.Currency;
+import me.vault.game.model.network.NetworkController;
+import me.vault.game.utility.loading.ResourceLoader;
 
 
 import java.net.URL;
@@ -35,6 +37,9 @@ public class NetworkDelegate implements Initializable
 	@FXML
 	private DialogPane dialogPane;
 
+	@FXML
+	private TabPane serverClientTabPane;
+
 	private static final Stage STAGE = new Stage();
 
 	private static final String WINDOW_TITLE = "Arena Connection";
@@ -44,25 +49,74 @@ public class NetworkDelegate implements Initializable
 	private static final String ICON_PATH = ASSETS_PATH + "button.png";
 
 	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
+
+	private String host = null;
+	private int port = 0;
+
+
+	@FXML
+	void hostInputChanged (final KeyEvent ignored)
+	{
+		this.host = this.clientHost.getCharacters().toString();
+	}
+
+	@FXML
+	void portInputChanged (final KeyEvent ignored)
+	{
+		try
+		{
+			this.port = Integer.parseInt(this.clientPort.getCharacters().toString());
+		}
+		catch (NumberFormatException e)
+		{
+			System.out.println(e);
+		}
+
+	}
+
+	public static void show ()
+	{
+
+		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, FXML_FILENAME));
+		STAGE.showAndWait();
+	}
 	@Override
 	public void initialize (URL url, ResourceBundle resourceBundle)
 	{
+		this.serverHost.setText(NetworkController.HOST_NAME);
+		this.serverPort.setText(String.valueOf(NetworkController.PORT_NUMBER));
 		this.setButtonActions();
 	}
 
+
+
 	private void setButtonActions ()
 	{
-		// Closes the different stages of the program if the user presses YES
 		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event -> {
-			STAGE.close();
-			GameApplication.getStage().close();
-			Platform.exit();
+			connect(STAGE, this.serverClientTabPane);
 		});
 
-		// Closes the dialog if the user presses NO
 		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event -> {
 			STAGE.close();
 		});
+	}
+
+	private void connect (Stage stage, TabPane tabPane)
+	{
+		if (tabPane.getTabs().getFirst().isSelected())
+		{
+			NetworkController.runServer();
+			stage.close();
+		}
+		else if (tabPane.getTabs().getLast().isSelected())
+		{
+			if (this.host == null || this.port == 0)
+			{
+				return;
+			}
+			NetworkController.runClient(this.host, this.port);
+			stage.close();
+		}
 	}
 
 }
