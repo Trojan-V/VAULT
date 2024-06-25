@@ -42,19 +42,19 @@ public class Config
 
 	// Currency related config entries
 
-	private int steelAmount = 0;
+	private int steelAmount = 10000;
 
 
-	private int compositeAmount = 0;
+	private int compositeAmount = 10000;
 
 
-	private int foodRationAmount = 0;
+	private int foodRationAmount = 10000;
 
 
-	private int scienceAmount = 0;
+	private int scienceAmount = 10000;
 
 
-	private int energyCreditAmount = 0;
+	private int energyCreditAmount = 10000;
 
 	// Artifact related config entries
 
@@ -304,4 +304,5 @@ public class Config
 		this.difficulty = GameController.getInstance().getDifficulty();
 		this.updateTroopLevelsFromModels();
 	}
+
 }

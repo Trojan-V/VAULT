@@ -4,7 +4,7 @@ package me.vault.game.model.troop;
 import javafx.beans.property.SimpleIntegerProperty;
 
 
-public class OffensiveStatistic
+public class OffensiveStatistics
 {
 
 	private final SimpleIntegerProperty energyPoints;
@@ -18,7 +18,7 @@ public class OffensiveStatistic
 	private final SimpleIntegerProperty grenadeRange;
 
 
-	public OffensiveStatistic (final int energyPoints, final int meleeDamage, final int grenadeDamage, final int grenadeAmount, final int grenadeRange)
+	public OffensiveStatistics (final int energyPoints, final int meleeDamage, final int grenadeDamage, final int grenadeAmount, final int grenadeRange)
 	{
 		this.energyPoints = new SimpleIntegerProperty(energyPoints);
 		this.meleeDamage = new SimpleIntegerProperty(meleeDamage);

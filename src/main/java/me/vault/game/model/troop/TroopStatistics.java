@@ -16,15 +16,15 @@ public class TroopStatistics
 
 	private final DefensiveStatistic defensiveStatistic;
 
-	private final OffensiveStatistic offensiveStatistic;
+	private final OffensiveStatistics offensiveStatistics;
 
 
 	public TroopStatistics (final DexterityStatistic dexterityStatistic, final DefensiveStatistic defensiveStatistic,
-		final OffensiveStatistic offensiveStatistic)
+		final OffensiveStatistics offensiveStatistics)
 	{
 		this.dexterityStatistic = dexterityStatistic;
 		this.defensiveStatistic = defensiveStatistic;
-		this.offensiveStatistic = offensiveStatistic;
+		this.offensiveStatistics = offensiveStatistics;
 	}
 
 
@@ -40,9 +40,9 @@ public class TroopStatistics
 	}
 
 
-	public OffensiveStatistic getOffensiveStatistic ()
+	public OffensiveStatistics getOffensiveStatistic ()
 	{
-		return this.offensiveStatistic;
+		return this.offensiveStatistics;
 	}
 
 }

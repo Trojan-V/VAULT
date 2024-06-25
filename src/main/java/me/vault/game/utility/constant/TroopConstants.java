@@ -4,7 +4,7 @@ package me.vault.game.utility.constant;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.troop.DefensiveStatistic;
 import me.vault.game.model.troop.DexterityStatistic;
-import me.vault.game.model.troop.OffensiveStatistic;
+import me.vault.game.model.troop.OffensiveStatistics;
 import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -96,7 +96,7 @@ public interface TroopConstants
 		TroopStatistics SNIPER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(1, 2),
 			new DefensiveStatistic(25, 5, 15, 20),
-			new OffensiveStatistic(0, 24, 0, 0, 0));
+			new OffensiveStatistics(0, 24, 0, 0, 0));
 
 	}
 
@@ -175,7 +175,7 @@ public interface TroopConstants
 		TroopStatistics RANGER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(4, 1),
 			new DefensiveStatistic(46, 20, 25, 15),
-			new OffensiveStatistic(5, 22, 16, 1, 1));
+			new OffensiveStatistics(5, 22, 16, 1, 1));
 
 	}
 
@@ -253,7 +253,7 @@ public interface TroopConstants
 		TroopStatistics MEDIC_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(6, 0),
 			new DefensiveStatistic(46, 10, 20, 10),
-			new OffensiveStatistic(0, -16, 0, 0, 0));
+			new OffensiveStatistics(0, -16, 0, 0, 0));
 
 	}
 
@@ -333,7 +333,7 @@ public interface TroopConstants
 		TroopStatistics SPACE_MARINE_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(2, -3),
 			new DefensiveStatistic(67, 35, 5, 15),
-			new OffensiveStatistic(0, 16, 16, 2, 1));
+			new OffensiveStatistics(0, 16, 16, 2, 1));
 
 	}
 
@@ -410,14 +410,14 @@ public interface TroopConstants
 		TroopStatistics OFFICER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(2, -2),
 			new DefensiveStatistic(46, 20, 15, 20),
-			new OffensiveStatistic(9, 10, 0, 0, 0));
+			new OffensiveStatistics(9, 10, 0, 0, 1));
 
 	}
 
 	/**
 	 * The {@link Engineer} subinterface contains all constants, which apply to the Engineer troop class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Engineer
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -487,7 +487,7 @@ public interface TroopConstants
 		TroopStatistics ENGINEER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(2, -3),
 			new DefensiveStatistic(60, 25, 0, 20),
-			new OffensiveStatistic(0, 22, 22, 4, 2));
+			new OffensiveStatistics(0, 22, 22, 4, 2));
 	}
 
 	/**
@@ -563,7 +563,7 @@ public interface TroopConstants
 		TroopStatistics GUARD_STATISTIC = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(32, 20, 15, 20),
-			new OffensiveStatistic(0, 16, 16, 5, 1));
+			new OffensiveStatistics(0, 16, 16, 5, 1));
 
 	}
 
@@ -640,7 +640,7 @@ public interface TroopConstants
 		TroopStatistics GRENADIER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(46, 20, 15, 35),
-			new OffensiveStatistic(6, 16, 34, 7, 3));
+			new OffensiveStatistics(6, 16, 34, 7, 3));
 	}
 
 	/**
@@ -716,7 +716,7 @@ public interface TroopConstants
 		TroopStatistics RECRUIT_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(25, 15, 5, 20),
-			new OffensiveStatistic(0, 10, 16, 4, 1));
+			new OffensiveStatistics(0, 10, 16, 4, 1));
 
 	}
 
@@ -793,7 +793,7 @@ public interface TroopConstants
 		TroopStatistics INFANTRY_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(46, 10, 15, 20),
-			new OffensiveStatistic(0, 16, 16, 3, 1));
+			new OffensiveStatistics(0, 16, 16, 3, 1));
 
 	}
 
@@ -870,7 +870,7 @@ public interface TroopConstants
 		TroopStatistics LIEUTENANT_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(2, -1),
 			new DefensiveStatistic(46, 20, 15, 20),
-			new OffensiveStatistic(5, 10, 10, 2, 1));
+			new OffensiveStatistics(5, 10, 10, 2, 1));
 
 	}
 
@@ -951,7 +951,7 @@ public interface TroopConstants
 		TroopStatistics PRECISION_SHOOTER_STATISTICS = new TroopStatistics(
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(32, 20, 20, 15),
-			new OffensiveStatistic(0, 22, 16, 1, 1));
+			new OffensiveStatistics(0, 22, 16, 1, 1));
 
 	}
 }

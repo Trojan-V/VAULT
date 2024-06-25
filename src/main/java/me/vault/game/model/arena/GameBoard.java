@@ -81,13 +81,13 @@ public class GameBoard implements GameBoardConstants
 	}
 
 
-	private List<Tile> getAdjacentTiles (final int row, final int column)
+	public List<Tile> getAdjacentTiles (final int row, final int column)
 	{
 		return this.getAdjacentTiles(row, column, 1);
 	}
 
 
-	private List<Tile> getAdjacentTiles (final int row, final int column, final int range)
+	public List<Tile> getAdjacentTiles (final int row, final int column, final int range)
 	{
 		final List<Tile> adjacentTiles = new ArrayList<>();
 		for (int i = (row - range); i <= row + range; i++)

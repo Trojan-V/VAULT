@@ -26,7 +26,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
-import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ENEMIES;
+import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
@@ -268,7 +268,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.arenaMenuItem))
 		{
-			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ENEMIES,
+			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ONE_ENEMIES,
 				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
 				                                                     "/Encounter_2.txt"))));
 		}

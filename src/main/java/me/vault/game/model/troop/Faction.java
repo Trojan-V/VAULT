@@ -4,10 +4,6 @@ package me.vault.game.model.troop;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import me.vault.game.interfaces.Displayable;
-import me.vault.game.model.troop.impl.Grenadier;
-import me.vault.game.model.troop.impl.PrecisionShooter;
-import me.vault.game.model.troop.impl.Ranger;
-import me.vault.game.model.troop.impl.SpaceMarine;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
@@ -27,9 +23,9 @@ public enum Faction implements Displayable
 		new SimpleBooleanProperty(false), ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png"));
 
 
-	private final SimpleBooleanProperty isSelectedProperty;
-
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
+
+	private final SimpleBooleanProperty isSelectedProperty;
 
 	private final float offensiveLevelMultiplier;
 

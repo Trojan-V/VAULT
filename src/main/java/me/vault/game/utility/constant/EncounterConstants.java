@@ -17,15 +17,6 @@ public interface EncounterConstants
 
 	String ENCOUNTER_TWO_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_2.txt";
 
-	public static final ArrayList<Troop> ENCOUNTER_ENEMIES = new ArrayList<>()
-	{{
-		this.add(SpaceMarine.getEnemyInstance());
-		this.add(Ranger.getAllyInstance());
-		this.add(Medic.getAllyInstance());
-		this.add(Grenadier.getAllyInstance());
-	}};
-
-
 	public static final ArrayList<Troop> ALLIES = new ArrayList<>()
 	{{
 		this.add(Recruit.getAllyInstance());
@@ -33,4 +24,37 @@ public interface EncounterConstants
 		this.add(Lieutenant.getAllyInstance());
 		this.add(Officer.getAllyInstance());
 	}};
+
+	public static final ArrayList<Troop> ENCOUNTER_ONE_ENEMIES = new ArrayList<>()
+	{{
+		this.add(SpaceMarine.getEnemyInstance());
+		this.add(Ranger.getEnemyInstance());
+		this.add(Medic.getEnemyInstance());
+		this.add(Grenadier.getEnemyInstance());
+	}};
+
+	public static final ArrayList<Troop> ENCOUNTER_TWO_ENEMIES = new ArrayList<>()
+	{{
+		this.add(SpaceMarine.getEnemyInstance());
+		this.add(Ranger.getEnemyInstance());
+		this.add(Medic.getEnemyInstance());
+		this.add(Grenadier.getEnemyInstance());
+	}};
+
+	public static final ArrayList<Troop> ENCOUNTER_THREE_ENEMIES = new ArrayList<>()
+	{{
+		this.add(SpaceMarine.getEnemyInstance());
+		this.add(Ranger.getEnemyInstance());
+		this.add(Medic.getEnemyInstance());
+		this.add(Grenadier.getEnemyInstance());
+	}};
+
+	public static final ArrayList<Troop> ENCOUNTER_FOUR_ENEMIES = new ArrayList<>()
+	{{
+		this.add(SpaceMarine.getEnemyInstance());
+		this.add(Ranger.getEnemyInstance());
+		this.add(Medic.getEnemyInstance());
+		this.add(Grenadier.getEnemyInstance());
+	}};
+
 }

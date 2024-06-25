@@ -86,8 +86,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 	private static void updateOffensiveStatistic (final Troop troop)
 	{
-		final OffensiveStatistic offensiveStats = troop.getStatistics().getOffensiveStatistic();
-		final OffensiveStatistic newOffensiveStats = troop.getStatistics(troop.getLevel()).getOffensiveStatistic();
+		final OffensiveStatistics offensiveStats = troop.getStatistics().getOffensiveStatistic();
+		final OffensiveStatistics newOffensiveStats = troop.getStatistics(troop.getLevel()).getOffensiveStatistic();
 
 		offensiveStats.setEnergyPoints(newOffensiveStats.getEnergyPoints());
 		offensiveStats.setGrenadeAmount(newOffensiveStats.getGrenadeAmount());
@@ -143,21 +143,21 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 	private static void addOffensiveAttributesToGrid (final Troop troop, final GridPane gridPane)
 	{
-		final OffensiveStatistic offensiveStatistic = troop.getStatistics().getOffensiveStatistic();
+		final OffensiveStatistics offensiveStatistics = troop.getStatistics().getOffensiveStatistic();
 
-		gridPane.add(getSingleAttributeHBox(MELEE_ATTACK_ATTRIBUTE_ICON_PATH, MELEE_ATTRIBUTE_NAME, offensiveStatistic.getMeleeDamageProperty()),
+		gridPane.add(getSingleAttributeHBox(MELEE_ATTACK_ATTRIBUTE_ICON_PATH, MELEE_ATTRIBUTE_NAME, offensiveStatistics.getMeleeDamageProperty()),
 			MELEE_ATTACK_ATTRIBUTE_GRID_X, MELEE_ATTACK_ATTRIBUTE_GRID_Y);
 
-		gridPane.add(getSingleAttributeHBox(GRENADE_ATTACK_ATTRIBUTE_ICON_PATH, GRENADE_ATTACK_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeDamageProperty()),
+		gridPane.add(getSingleAttributeHBox(GRENADE_ATTACK_ATTRIBUTE_ICON_PATH, GRENADE_ATTACK_ATTRIBUTE_NAME, offensiveStatistics.getGrenadeDamageProperty()),
 			GRENADE_ATTACK_ATTRIBUTE_GRID_X, GRENADE_ATTACK_ATTRIBUTE_GRID_Y);
 
-		gridPane.add(getSingleAttributeHBox(GRENADE_AMOUNT_ATTRIBUTE_ICON_PATH, GRENADE_AMOUNT_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeAmountProperty()),
+		gridPane.add(getSingleAttributeHBox(GRENADE_AMOUNT_ATTRIBUTE_ICON_PATH, GRENADE_AMOUNT_ATTRIBUTE_NAME, offensiveStatistics.getGrenadeAmountProperty()),
 			GRENADE_AMOUNT_ATTRIBUTE_GRID_X, GRENADE_AMOUNT_ATTRIBUTE_GRID_Y);
 
-		gridPane.add(getSingleAttributeHBox(GRENADE_RANGE_ATTRIBUTE_ICON_PATH, GRENADE_RANGE_ATTRIBUTE_NAME, offensiveStatistic.getGrenadeRangeProperty()),
+		gridPane.add(getSingleAttributeHBox(GRENADE_RANGE_ATTRIBUTE_ICON_PATH, GRENADE_RANGE_ATTRIBUTE_NAME, offensiveStatistics.getGrenadeRangeProperty()),
 			GRENADE_RANGE_ATTRIBUTE_GRID_X, GRENADE_RANGE_ATTRIBUTE_GRID_Y);
 
-		gridPane.add(getSingleAttributeHBox(ENERGY_ATTRIBUTE_ICON_PATH, ENERGY_ATTRIBUTE_NAME, offensiveStatistic.getEnergyPointsProperty()),
+		gridPane.add(getSingleAttributeHBox(ENERGY_ATTRIBUTE_ICON_PATH, ENERGY_ATTRIBUTE_NAME, offensiveStatistics.getEnergyPointsProperty()),
 			ENERGY_ATTRIBUTE_GRID_X, ENERGY_ATTRIBUTE_GRID_Y);
 	}
 
@@ -205,10 +205,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	@Override
 	public void updateValues (final Troop troop)
 	{
-		if (troop.getLevel() == TroopLevel.getMaximum())
-		{
-			troop.setIsMaxLevel(true);
-		}
+		troop.setIsMaxLevel(troop.getLevel() == TroopLevel.getMaximum());
 
 		troop.setName(troop.getName(troop.getLevel()));
 		troop.setSprite(troop.getSprite(troop.getLevel()));
@@ -220,27 +217,50 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	}
 
 
-	public boolean moveTroop (final Arena arena, final Troop troop, final int i, final int j)
+	public static boolean troopCanMoveToPosition (final Arena arena, final Troop troop, final int i, final int j)
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final int[] previousTroopPosition = arenaGameBoard.getTroopPosition(troop);
 		final int troopMovementRange = troop.getStatistics().getDexterityStatistic().getMovementTiles();
-
 		final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
-
-		if (accessibleTiles.contains(arena.getGameBoard().getTile(i, j)))
-		{
-			arenaGameBoard.setTroop(i, j, troop);
-			arenaGameBoard.setPlaceable(previousTroopPosition[0], previousTroopPosition[1], new Placeholder());
-			return true;
-		}
-		return false;
+		return accessibleTiles.contains(arena.getGameBoard().getTile(i, j));
 	}
 
 
-	public void attackTroop (final Arena arena, final Troop troop, final Troop defender)
+	public static boolean troopCanAttackTroop (final Arena arena, final Troop attacker, final int row, final int column)
 	{
-		// TODO: FIX statistics in troops to implement
+		try
+		{
+			final Troop defender = arena.getGameBoard().getTroop(row, column);
+			final int[] attackerPos = arena.getGameBoard().getTroopPosition(attacker);
+			final List<Tile> reachableTiles = arena.getGameBoard().getAdjacentTiles(attackerPos[0], attackerPos[1], attacker.getStatistics().getOffensiveStatistic().getGrenadeRange());
+
+			final List<Troop> defenderGroup = arena.getPlayerOneTroops().contains(defender) ? arena.getPlayerOneTroops() : arena.getPlayerTwoTroops();
+			return !defenderGroup.contains(attacker) && reachableTiles.contains(arena.getGameBoard().getTile(row, column));
+		}
+		catch (final Exception e)
+		{
+			throw new RuntimeException(e);
+		}
+	}
+
+
+	public static void moveTroop (final Arena arena, final Troop troop, final int i, final int j)
+	{
+		final GameBoard arenaGameBoard = arena.getGameBoard();
+		final int[] previousTroopPosition = arenaGameBoard.getTroopPosition(troop);
+		arenaGameBoard.setTroop(i, j, troop);
+		arenaGameBoard.setPlaceable(previousTroopPosition[0], previousTroopPosition[1], new Placeholder());
+	}
+
+
+	public static void attackTroop (final Arena arena, final Troop attacker, final Troop defender)
+	{
+		final OffensiveStatistics attackerOffensiveStats = attacker.getStatistics().getOffensiveStatistic();
+		final DefensiveStatistic defenderDefensiveStats = defender.getStatistics().getDefensiveStatistic();
+		System.out.println("attacker = " + attacker);
+		System.out.println("defender = " + defender);
+
 	}
 
 

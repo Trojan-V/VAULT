@@ -192,28 +192,22 @@ public class ArenaDelegate implements Initializable
 
 	private void handleMapObjectInteraction (final int row, final int column, final Arena arena)
 	{
-		final Troop attacker = arena.getSelectedTroop(); // TODO: Position für row und column anlegen
+		// TODO: Position fuer row und column anlegen
+
+		final Troop attacker = arena.getSelectedTroop();
 		final Placable nextTileElement = arena.getGameBoard().getTile(row, column).getCurrentElement();
 
-		switch (nextTileElement)
+		if (nextTileElement instanceof Placeholder && TroopController.troopCanMoveToPosition(arena, attacker, row, column))
 		{
-			case final Placeholder _ ->
-			{
-				if (!TroopController.getInstance().moveTroop(arena, attacker, row, column))
-				{
-					return;
-				}
-			}
-			case final Troop troop ->
-			{
-				if (arena.getPlayerOneTroops().contains(troop))
-				{
-					return;
-				}
-				TroopController.getInstance().attackTroop(arena, attacker, troop);
-
-			}
-			case null, default -> {return;}
+			TroopController.moveTroop(arena, attacker, row, column);
+		}
+		else if (nextTileElement instanceof final Troop defender && TroopController.troopCanAttackTroop(arena, attacker, row, column))
+		{
+			TroopController.attackTroop(arena, attacker, defender);
+		}
+		else
+		{
+			return;
 		}
 		this.updateTimeline();
 		this.gameBoardGridPane.getChildren().clear();
