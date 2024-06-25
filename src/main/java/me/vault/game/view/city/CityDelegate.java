@@ -14,6 +14,7 @@ import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
+import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -145,9 +146,10 @@ public class CityDelegate implements Initializable
 
 
 	@FXML
-	void OnSaveToConfig (final ActionEvent event)
+	void onSaveToConfig (final ActionEvent event)
 	{
-		// TODO: SAVE implementieren
+		ConfigLoader.getInstance().save();
+		SaveCompleteDelegate.show();
 	}
 
 

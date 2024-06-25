@@ -11,12 +11,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.vault.game.GameApplication;
 import me.vault.game.control.ArtifactController;
-import me.vault.game.control.EnemyController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.constant.StringConstants;
+import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -25,7 +25,8 @@ import me.vault.game.view.city.CityDelegate;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.EncounterConstants.*;
+import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
+import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ENEMIES;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
@@ -206,7 +207,8 @@ public class MainMenuDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			ViewUtil.setButtonTextColor(this.continueButton, Color.BLACK);
-			CityDelegate.show(GameApplication.getStage()); // TODO: nur temporaer zum testen
+			ConfigLoader.getInstance().load();
+			CityDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton))
 		{

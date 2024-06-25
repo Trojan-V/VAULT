@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <AnchorPane fx:id="cityAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.CityDelegate">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
@@ -222,7 +217,10 @@
             <Font name="Segoe UI" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="460.0" layoutY="640.0" mnemonicParsing="false" onAction="#OnSaveToConfig" prefHeight="55.0" prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Save game to config" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="640.0">
+        <Button layoutX="460.0" layoutY="640.0" mnemonicParsing="false" onAction="#onSaveToConfig" prefHeight="55.0"
+                prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: grey;"
+                text="Save game to config" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="460.0"
+                AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="640.0">
          <font>
             <Font name="Segoe UI" size="22.0" />
          </font>

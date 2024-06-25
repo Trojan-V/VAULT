@@ -1,9 +1,14 @@
 package me.vault.game.utility.loading;
 
 
+import me.vault.game.control.ArtifactController;
+import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.GameController;
+import me.vault.game.control.TroopController;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.artifact.ArtifactLevel;
+import me.vault.game.model.artifact.impl.DamageArtifact;
+import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.city.*;
@@ -141,7 +146,7 @@ public class Config
 	}
 
 
-	private void updateCurrencyAmounts ()
+	private void updateCurrencyAmountsFromModels ()
 	{
 		for (final Currency currency : Currency.values())
 		{
@@ -160,7 +165,26 @@ public class Config
 	}
 
 
-	private void updateArtifactLevels ()
+	private void updateCurrencyAmountsFromConfig ()
+	{
+		for (final Currency currency : Currency.values())
+		{
+			switch (currency)
+			{
+				case STEEL -> currency.setAmount(this.steelAmount);
+				case COMPOSITE -> currency.setAmount(this.compositeAmount);
+				case FOOD_RATION -> currency.setAmount(this.foodRationAmount);
+				case SCIENCE -> currency.setAmount(this.scienceAmount);
+				case ENERGY_CREDIT -> currency.setAmount(this.energyCreditAmount);
+
+				// TODO: keep or remove this default branch
+				case null, default -> throw new IllegalStateException("Unexpected value: " + currency);
+			}
+		}
+	}
+
+
+	private void updateArtifactLevelsFromModels ()
 	{
 		this.healthArtifactLevel = HealthArtifact.getInstance().getLevel();
 		this.damageArtifactLevel = HealthArtifact.getInstance().getLevel();
@@ -168,7 +192,19 @@ public class Config
 	}
 
 
-	private void updateCityBuildingLevels ()
+	private void updateArtifactLevelsFromConfig ()
+	{
+		HealthArtifact.getInstance().setLevel(this.healthArtifactLevel);
+		DamageArtifact.getInstance().setLevel(this.damageArtifactLevel);
+		DefenseArtifact.getInstance().setLevel(this.defenseArtifactLevel);
+
+		ArtifactController.getInstance().updateValues(HealthArtifact.getInstance());
+		ArtifactController.getInstance().updateValues(DamageArtifact.getInstance());
+		ArtifactController.getInstance().updateValues(DefenseArtifact.getInstance());
+	}
+
+
+	private void updateCityBuildingLevelsFromModels ()
 	{
 		this.barracksLevel = Barracks.getInstance().getLevel();
 		this.commandCenterLevel = CommandCenter.getInstance().getLevel();
@@ -181,7 +217,29 @@ public class Config
 	}
 
 
-	private void updateTroopLevels ()
+	private void updateCityBuildingLevelsFromConfig ()
+	{
+		Barracks.getInstance().setLevel(this.barracksLevel);
+		CommandCenter.getInstance().setLevel(this.commandCenterLevel);
+		Docks.getInstance().setLevel(this.docksLevel);
+		Laboratory.getInstance().setLevel(this.laboratoryLevel);
+		Market.getInstance().setLevel(this.marketLevel);
+		SpaceBar.getInstance().setLevel(this.spaceBarLevel);
+		TrainingFacility.getInstance().setLevel(this.trainingFacilityLevel);
+		Workshop.getInstance().setLevel(this.workshopLevel);
+
+		CityBuildingController.getInstance().updateValues(Barracks.getInstance());
+		CityBuildingController.getInstance().updateValues(CommandCenter.getInstance());
+		CityBuildingController.getInstance().updateValues(Docks.getInstance());
+		CityBuildingController.getInstance().updateValues(Laboratory.getInstance());
+		CityBuildingController.getInstance().updateValues(Market.getInstance());
+		CityBuildingController.getInstance().updateValues(SpaceBar.getInstance());
+		CityBuildingController.getInstance().updateValues(TrainingFacility.getInstance());
+		CityBuildingController.getInstance().updateValues(Workshop.getInstance());
+	}
+
+
+	private void updateTroopLevelsFromModels ()
 	{
 		this.engineerLevel = Engineer.getAllyInstance().getLevel();
 		this.grenadierLevel = Grenadier.getAllyInstance().getLevel();
@@ -194,16 +252,56 @@ public class Config
 		this.rangerLevel = Ranger.getAllyInstance().getLevel();
 		this.recruitLevel = Recruit.getAllyInstance().getLevel();
 		this.sniperLevel = Sniper.getAllyInstance().getLevel();
-		this.spaceMarineLevel = SpaceMarine.getAlliedInstance().getLevel();
+		this.spaceMarineLevel = SpaceMarine.getAllyInstance().getLevel();
 	}
 
 
-	public void updateConfig ()
+	private void updateTroopLevelsFromConfig ()
 	{
-		this.updateCurrencyAmounts();
-		this.updateArtifactLevels();
-		this.updateCityBuildingLevels();
+		Engineer.getAllyInstance().setLevel(this.engineerLevel);
+		Grenadier.getAllyInstance().setLevel(this.grenadierLevel);
+		Guard.getAllyInstance().setLevel(this.guardLevel);
+		Infantry.getAllyInstance().setLevel(this.infantryLevel);
+		Lieutenant.getAllyInstance().setLevel(this.lieutenantLevel);
+		Medic.getAllyInstance().setLevel(this.medicLevel);
+		Officer.getAllyInstance().setLevel(this.officerLevel);
+		PrecisionShooter.getAllyInstance().setLevel(this.precisionShooterLevel);
+		Ranger.getAllyInstance().setLevel(this.rangerLevel);
+		Recruit.getAllyInstance().setLevel(this.recruitLevel);
+		Sniper.getAllyInstance().setLevel(this.sniperLevel);
+		SpaceMarine.getAllyInstance().setLevel(this.spaceMarineLevel);
+
+		TroopController.getInstance().updateValues(Engineer.getAllyInstance());
+		TroopController.getInstance().updateValues(Grenadier.getAllyInstance());
+		TroopController.getInstance().updateValues(Guard.getAllyInstance());
+		TroopController.getInstance().updateValues(Infantry.getAllyInstance());
+		TroopController.getInstance().updateValues(Lieutenant.getAllyInstance());
+		TroopController.getInstance().updateValues(Medic.getAllyInstance());
+		TroopController.getInstance().updateValues(Officer.getAllyInstance());
+		TroopController.getInstance().updateValues(PrecisionShooter.getAllyInstance());
+		TroopController.getInstance().updateValues(Ranger.getAllyInstance());
+		TroopController.getInstance().updateValues(Recruit.getAllyInstance());
+		TroopController.getInstance().updateValues(Sniper.getAllyInstance());
+		TroopController.getInstance().updateValues(SpaceMarine.getAllyInstance());
+	}
+
+
+	public void updateModelsFromConfig ()
+	{
+		this.updateTroopLevelsFromConfig();
+		this.updateCityBuildingLevelsFromConfig();
+		this.updateArtifactLevelsFromConfig();
+		GameController.getInstance().setDifficulty(this.difficulty);
+		this.updateCurrencyAmountsFromConfig();
+	}
+
+
+	public void updateConfigFromModels ()
+	{
+		this.updateCurrencyAmountsFromModels();
+		this.updateArtifactLevelsFromModels();
+		this.updateCityBuildingLevelsFromModels();
 		this.difficulty = GameController.getInstance().getDifficulty();
-		this.updateTroopLevels();
+		this.updateTroopLevelsFromModels();
 	}
 }

@@ -58,17 +58,19 @@ public final class ConfigLoader implements Loader
 
 			this.configWriter = new FileWriter(this.configFile, true);
 
+			// Only save to the file if no default config file is available yet, to create the default config file.
 			if (this.isFileEmpty(this.configFile))
 			{
 				// Saves the default values that are defined within the Config POJO into the file.
 				this.save();
 			}
+
+			// If there's existing data in the config file, load the config file into the Config class.
 			else
 			{
 				// Loads the values stored in the config file into a POJO of the Config class.
 				this.load();
 			}
-
 		}
 		catch (final IOException e)
 		{
@@ -109,7 +111,9 @@ public final class ConfigLoader implements Loader
 	@Override
 	public void save ()
 	{
-		Config.getInstance().updateConfig();
+		// Pull all values from different parts of the game to have the latest version of them within the Config
+		// object which is then written to the save file.
+		Config.getInstance().updateConfigFromModels();
 
 		// Write to file
 		try (final FileWriter writer = new FileWriter(this.configFile))
@@ -126,6 +130,8 @@ public final class ConfigLoader implements Loader
 	@Override
 	public void load ()
 	{
+		Config.getInstance().updateModelsFromConfig();
+
 		try
 		{
 			final Config configObject = this.gson.fromJson(new JsonReader(new FileReader(this.configFile)),

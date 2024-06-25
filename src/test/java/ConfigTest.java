@@ -1,3 +1,6 @@
+import me.vault.game.control.GameController;
+import me.vault.game.model.GameDifficulty;
+import me.vault.game.utility.loading.Config;
 import me.vault.game.utility.loading.ConfigLoader;
 
 
@@ -14,5 +17,8 @@ public class ConfigTest
 	public static void main (final String[] args)
 	{
 		ConfigLoader.getInstance();
+		GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
+		Config.getInstance().updateConfigFromModels();
+		ConfigLoader.getInstance().save();
 	}
 }

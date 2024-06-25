@@ -35,7 +35,7 @@ module me.vault.game {
 	exports me.vault.game.model.arena;
 
 	opens me.vault.game to javafx.fxml;
-	opens me.vault.game.utility.loading to javafx.fxml;
+	opens me.vault.game.utility.loading to javafx.fxml, com.google.gson;
 	opens me.vault.game.model.artifact to javafx.fxml;
 	opens me.vault.game.model.currency to javafx.fxml;
 	opens me.vault.game.model.artifact.impl to javafx.fxml;
@@ -48,7 +48,4 @@ module me.vault.game {
 	opens me.vault.game.model.mission to javafx.fxml;
 	opens me.vault.game.view.mission to javafx.fxml;
 	opens me.vault.game.fxcontrols to javafx.fxml;
-
-
-
 }

@@ -89,7 +89,7 @@ public final class SpaceMarine extends Troop
 	 *
 	 * @return The ally singleton instance of this class.
 	 */
-	public static SpaceMarine getAlliedInstance ()
+	public static SpaceMarine getAllyInstance ()
 	{
 		return ALLY_INSTANCE;
 	}

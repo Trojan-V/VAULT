@@ -275,7 +275,7 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	@FXML
 	void onSpaceMarineUpgrade (final ActionEvent ignored)
 	{
-		UpgradeDialogDelegate.show(SpaceMarine.getAlliedInstance(), TroopController.getInstance());
+		UpgradeDialogDelegate.show(SpaceMarine.getAllyInstance(), TroopController.getInstance());
 	}
 
 
@@ -302,7 +302,8 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
-		this.initTroopSpecificControls(SpaceMarine.getAlliedInstance(), this.spaceMarineLabel, this.spaceMarineImageView, this.spaceMarineUpgradeButton, this.spaceMarineAttributePane);
+		this.initTroopSpecificControls(SpaceMarine.getAllyInstance(), this.spaceMarineLabel, this.spaceMarineImageView
+			, this.spaceMarineUpgradeButton, this.spaceMarineAttributePane);
 		this.initTroopSpecificControls(Officer.getAllyInstance(), this.officerLabel, this.officerImageView, this.officerUpgradeButton, this.officerAttributePane);
 		this.initTroopSpecificControls(Engineer.getAllyInstance(), this.engineerLabel, this.engineerImageView, this.engineerUpgradeButton, this.engineerAttributePane);
 
