@@ -183,18 +183,18 @@ public class Config
 
 	private void updateTroopLevels ()
 	{
-		this.engineerLevel = Engineer.getInstance().getLevel();
-		this.grenadierLevel = Grenadier.getInstance().getLevel();
-		this.guardLevel = Guard.getInstance().getLevel();
-		this.infantryLevel = Infantry.getInstance().getLevel();
-		this.lieutenantLevel = Lieutenant.getInstance().getLevel();
-		this.medicLevel = Medic.getInstance().getLevel();
-		this.officerLevel = Officer.getInstance().getLevel();
-		this.precisionShooterLevel = PrecisionShooter.getInstance().getLevel();
-		this.rangerLevel = Ranger.getInstance().getLevel();
-		this.recruitLevel = Recruit.getInstance().getLevel();
-		this.sniperLevel = Sniper.getInstance().getLevel();
-		this.spaceMarineLevel = SpaceMarine.getInstance().getLevel();
+		this.engineerLevel = Engineer.getAllyInstance().getLevel();
+		this.grenadierLevel = Grenadier.getAllyInstance().getLevel();
+		this.guardLevel = Guard.getAllyInstance().getLevel();
+		this.infantryLevel = Infantry.getAllyInstance().getLevel();
+		this.lieutenantLevel = Lieutenant.getAllyInstance().getLevel();
+		this.medicLevel = Medic.getAllyInstance().getLevel();
+		this.officerLevel = Officer.getAllyInstance().getLevel();
+		this.precisionShooterLevel = PrecisionShooter.getAllyInstance().getLevel();
+		this.rangerLevel = Ranger.getAllyInstance().getLevel();
+		this.recruitLevel = Recruit.getAllyInstance().getLevel();
+		this.sniperLevel = Sniper.getAllyInstance().getLevel();
+		this.spaceMarineLevel = SpaceMarine.getAlliedInstance().getLevel();
 	}
 
 

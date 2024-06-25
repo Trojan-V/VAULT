@@ -19,18 +19,18 @@ public interface EncounterConstants
 
 	public static final ArrayList<Troop> ENCOUNTER_ENEMIES = new ArrayList<>()
 	{{
-		this.add(Sniper.getInstance());
-		this.add(Ranger.getInstance());
-		this.add(Medic.getInstance());
-		this.add(Grenadier.getInstance());
+		this.add(SpaceMarine.getEnemyInstance());
+		this.add(Ranger.getAllyInstance());
+		this.add(Medic.getAllyInstance());
+		this.add(Grenadier.getAllyInstance());
 	}};
 
 
 	public static final ArrayList<Troop> ALLIES = new ArrayList<>()
 	{{
-		this.add(Recruit.getInstance());
-		this.add(Guard.getInstance());
-		this.add(Lieutenant.getInstance());
-		this.add(Officer.getInstance());
+		this.add(Recruit.getAllyInstance());
+		this.add(Guard.getAllyInstance());
+		this.add(Lieutenant.getAllyInstance());
+		this.add(Officer.getAllyInstance());
 	}};
 }

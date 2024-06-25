@@ -18,7 +18,7 @@ import java.util.Map;
 import static me.vault.game.utility.constant.TroopConstants.Lieutenant.*;
 
 
-public class Lieutenant extends Troop
+public final class Lieutenant extends Troop
 {
 
 	/**
@@ -26,11 +26,10 @@ public class Lieutenant extends Troop
 	 */
 	private static final Logger LOGGER = new Logger(Lieutenant.class.getSimpleName());
 
-	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Lieutenant}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
-	 */
-	private static final Lieutenant INSTANCE;
+
+	private static final Lieutenant ALLY_INSTANCE;
+
+	private static final Lieutenant ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -73,7 +72,8 @@ public class Lieutenant extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, LIEUTENANT_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, LIEUTENANT_STATISTICS);
 
-		INSTANCE = new Lieutenant();
+		ALLY_INSTANCE = new Lieutenant();
+		ENEMY_INSTANCE = new Lieutenant();
 	}
 
 
@@ -88,9 +88,20 @@ public class Lieutenant extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Lieutenant getInstance ()
+	public static Lieutenant getAllyInstance ()
 	{
-		return INSTANCE;
+		return ALLY_INSTANCE;
+	}
+
+
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
+	public static Lieutenant getEnemyInstance ()
+	{
+		return ENEMY_INSTANCE;
 	}
 
 

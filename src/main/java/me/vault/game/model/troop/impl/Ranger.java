@@ -26,11 +26,10 @@ public final class Ranger extends Troop
 	 */
 	private static final Logger LOGGER = new Logger(Ranger.class.getSimpleName());
 
-	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Ranger}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
-	 */
-	private static final Ranger INSTANCE;
+
+	private static final Ranger ALLY_INSTANCE;
+
+	private static final Ranger ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -73,7 +72,8 @@ public final class Ranger extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, RANGER_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, RANGER_STATISTICS);
 
-		INSTANCE = new Ranger();
+		ALLY_INSTANCE = new Ranger();
+		ENEMY_INSTANCE = new Ranger();
 	}
 
 
@@ -88,9 +88,20 @@ public final class Ranger extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Ranger getInstance ()
+	public static Ranger getAllyInstance ()
 	{
-		return INSTANCE;
+		return ALLY_INSTANCE;
+	}
+
+
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
+	public static Ranger getEnemyInstance ()
+	{
+		return ENEMY_INSTANCE;
 	}
 
 
@@ -129,4 +140,5 @@ public final class Ranger extends Troop
 	{
 		return TROOP_STATISTICS;
 	}
+
 }

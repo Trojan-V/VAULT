@@ -18,7 +18,7 @@ import java.util.Map;
 import static me.vault.game.utility.constant.TroopConstants.Grenadier.*;
 
 
-public class Grenadier extends Troop
+public final class Grenadier extends Troop
 {
 
 	/**
@@ -26,11 +26,10 @@ public class Grenadier extends Troop
 	 */
 	private static final Logger LOGGER = new Logger(Grenadier.class.getSimpleName());
 
-	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Grenadier}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
-	 */
-	private static final Grenadier INSTANCE;
+
+	private static final Grenadier ALLY_INSTANCE;
+
+	private static final Grenadier ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -73,7 +72,8 @@ public class Grenadier extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, GRENADIER_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, GRENADIER_STATISTICS);
 
-		INSTANCE = new Grenadier();
+		ALLY_INSTANCE = new Grenadier();
+		ENEMY_INSTANCE = new Grenadier();
 	}
 
 
@@ -88,9 +88,20 @@ public class Grenadier extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Grenadier getInstance ()
+	public static Grenadier getAllyInstance ()
 	{
-		return INSTANCE;
+		return ALLY_INSTANCE;
+	}
+
+
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
+	public static Grenadier getEnemyInstance ()
+	{
+		return ENEMY_INSTANCE;
 	}
 
 

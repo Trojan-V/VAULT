@@ -12,13 +12,12 @@ import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.TroopConstants.Engineer.*;
 
 
-public class Engineer extends Troop
+public final class Engineer extends Troop
 {
 
 	/**
@@ -30,13 +29,15 @@ public class Engineer extends Troop
 	 * Singleton instance, as there's never a reason to have more than one {@link Engineer}.
 	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
 	 */
-	private static final Engineer INSTANCE;
+	private static final Engineer ALLY_INSTANCE;
+
+	private static final Engineer ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
 	 * which {@link TroopLevel}.
 	 */
-	protected static final Map<TroopLevel, String> NAMES = new ValidatedEntriesHashMap<>();
+	private static final Map<TroopLevel, String> NAMES = new ValidatedEntriesHashMap<>();
 
 	/**
 	 * All possible sprites ({@link Image}) of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which sprite corresponds to
@@ -51,7 +52,7 @@ public class Engineer extends Troop
 	private static final Map<TroopLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
-	private static final Map<TroopLevel, TroopStatistics> TROOP_STATISTICS = new HashMap<>();
+	private static final Map<TroopLevel, TroopStatistics> TROOP_STATISTICS = new ValidatedEntriesHashMap<>();
 
 
 	static
@@ -74,7 +75,8 @@ public class Engineer extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, ENGINEER_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, ENGINEER_STATISTICS);
 
-		INSTANCE = new Engineer();
+		ALLY_INSTANCE = new Engineer();
+		ENEMY_INSTANCE = new Engineer();
 	}
 
 
@@ -89,9 +91,15 @@ public class Engineer extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Engineer getInstance ()
+	public static Engineer getAllyInstance ()
 	{
-		return INSTANCE;
+		return ALLY_INSTANCE;
+	}
+
+
+	public static Engineer getEnemyInstance ()
+	{
+		return ENEMY_INSTANCE;
 	}
 
 
