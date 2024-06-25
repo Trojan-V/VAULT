@@ -99,6 +99,12 @@ public final class CurrencyController implements Initializable
 	}
 
 
+	public static void factorCurrencyTransaction (final Currency currency, final int amount)
+	{
+		currency.addAmount(amount);
+	}
+
+
 	public static Scene getCurrencyBannerScene ()
 	{
 		return ResourceLoader.loadScene(CurrencyController.class, BANNER_FXML_FILENAME);
@@ -113,7 +119,7 @@ public final class CurrencyController implements Initializable
 		for (int row = 0; row < Currency.values().length; row++)
 		{
 			final Currency currency = Currency.values()[row];
-			ImageView currencyImageView = new ImageView(currency.getSprite());
+			final ImageView currencyImageView = new ImageView(currency.getSprite());
 			currencyImageView.fitHeightProperty().set(32);
 			currencyImageView.fitWidthProperty().set(32);
 			gridPane.add(currencyImageView, 0, row);

@@ -1,13 +1,19 @@
 package me.vault.game.view.city.buildings;
 
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.model.currency.Currency;
+import me.vault.game.utility.constant.CharacterConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityView;
@@ -40,6 +46,22 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 	 */
 	private static final ILogger LOGGER = new Logger(MarketDelegate.class.getSimpleName());
 
+	private static final int STEEL_PRICE = 50;
+
+	private static final int COMPOSITE_PRICE = 50;
+
+	private static final int SCIENCE_PRICE = 50;
+
+	private static final int FOOD_PRICE = 50;
+
+	private static final ObservableValue<String> STEEL_PROMPT = new SimpleStringProperty(STEEL_PRICE + "-1 Rate");
+
+	private static final ObservableValue<String> COMPOSITE_PROMPT = new SimpleStringProperty(COMPOSITE_PRICE + "-1 Rate");
+
+	private static final ObservableValue<String> SCIENCE_PROMPT = new SimpleStringProperty(SCIENCE_PRICE + "-1 Rate");
+
+	private static final ObservableValue<String> FOOD_PROMPT = new SimpleStringProperty(FOOD_PRICE + "-1 Rate");
+
 
 	// FXML ------------------------------------------------------------------------------------------------------------
 
@@ -48,6 +70,100 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 	 */
 	@FXML
 	private AnchorPane mainPane;
+
+	@FXML
+	private TextField compositeInputField;
+
+	@FXML
+	private TextField compositeOutputField;
+
+	@FXML
+	private TextField foodInputField;
+
+	@FXML
+	private TextField foodOutputField;
+
+	@FXML
+	private TextField scienceInputField;
+
+	@FXML
+	private TextField scienceOutputField;
+
+	@FXML
+	private TextField steelInputField;
+
+	@FXML
+	private TextField steelOutputField;
+
+
+	@FXML
+	void onCompositeInputChanged (final KeyEvent ignored)
+	{
+		this.compositeOutputField.setText(
+			this.convertInputToAmountString(this.compositeInputField, COMPOSITE_PRICE));
+	}
+
+
+	@FXML
+	void onSteelInputChanged (final KeyEvent ignored)
+	{
+		this.steelOutputField.setText(
+			this.convertInputToAmountString(this.steelInputField, STEEL_PRICE));
+	}
+
+
+	@FXML
+	void onFoodInputChanged (final KeyEvent ignored)
+	{
+		this.foodOutputField.setText(
+			this.convertInputToAmountString(this.foodInputField, FOOD_PRICE));
+
+	}
+
+
+	@FXML
+	void onScienceInputChanged (final KeyEvent ignored)
+	{
+		this.scienceOutputField.setText(
+			this.convertInputToAmountString(this.scienceInputField, SCIENCE_PRICE));
+
+	}
+
+
+	@FXML
+	void onCompositeTrade (final ActionEvent ignored)
+	{
+		this.factorMarketTradeIntoCurrency(this.compositeInputField, Currency.COMPOSITE, COMPOSITE_PRICE);
+		this.compositeInputField.setText(CharacterConstants.EMPTY_STRING);
+		this.compositeOutputField.setText(CharacterConstants.EMPTY_STRING);
+	}
+
+
+	@FXML
+	void onFoodTrade (final ActionEvent ignored)
+	{
+		this.factorMarketTradeIntoCurrency(this.foodInputField, Currency.FOOD_RATION, FOOD_PRICE);
+		this.foodInputField.setText(CharacterConstants.EMPTY_STRING);
+		this.foodOutputField.setText(CharacterConstants.EMPTY_STRING);
+	}
+
+
+	@FXML
+	void onScienceTrade (final ActionEvent ignored)
+	{
+		this.factorMarketTradeIntoCurrency(this.scienceInputField, Currency.SCIENCE, SCIENCE_PRICE);
+		this.scienceInputField.setText(CharacterConstants.EMPTY_STRING);
+		this.scienceOutputField.setText(CharacterConstants.EMPTY_STRING);
+	}
+
+
+	@FXML
+	void onSteelTrade (final ActionEvent ignored)
+	{
+		this.factorMarketTradeIntoCurrency(this.steelInputField, Currency.STEEL, STEEL_PRICE);
+		this.steelInputField.setText(CharacterConstants.EMPTY_STRING);
+		this.steelOutputField.setText(CharacterConstants.EMPTY_STRING);
+	}
 
 
 	/**
@@ -73,8 +189,42 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 	{
 		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
+		this.foodOutputField.promptTextProperty().bind(FOOD_PROMPT);
+		this.steelOutputField.promptTextProperty().bind(STEEL_PROMPT);
+		this.compositeOutputField.promptTextProperty().bind(COMPOSITE_PROMPT);
+		this.scienceOutputField.promptTextProperty().bind(SCIENCE_PROMPT);
+
 		// Logging the finalization of the initialization
 		LOGGER.logf(DEBUG, CLASS_INITIALISED, MarketDelegate.class.getSimpleName());
+	}
+
+
+	private void factorMarketTradeIntoCurrency (final TextField textField, final Currency currency, final int price)
+	{
+		try
+		{
+			final String amountString = textField.getText();
+			final int inputAmount = Integer.parseInt(amountString);
+			CurrencyController.factorCurrencyTransaction(Currency.ENERGY_CREDIT, -inputAmount);
+			CurrencyController.factorCurrencyTransaction(currency, inputAmount / price);
+		}
+		catch (final NumberFormatException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+
+
+	private String convertInputToAmountString (final TextField inputField, final int price)
+	{
+		try
+		{
+			return String.valueOf(Integer.parseInt(inputField.getText()) / price);
+		}
+		catch (final NumberFormatException e)
+		{
+			return "Incorrect input";
+		}
 	}
 
 }
