@@ -96,6 +96,9 @@ public class ArenaDelegate implements Initializable
 	private static final int VBOX_HEIGHT = 72;
 
 
+	private int round = 1;
+
+
 	@FXML
 	private GridPane gameBoardGridPane;
 
@@ -172,7 +175,6 @@ public class ArenaDelegate implements Initializable
 				{
 					this.handleMapObjectInteraction(row, column, this.arena);
 				});
-
 
 				gameBoard.add(button, i, j);
 			}
@@ -272,9 +274,18 @@ public class ArenaDelegate implements Initializable
 		if (this.troopTimeline.isEmpty())
 		{
 			this.troopTimeline = new PriorityQueue<>(this.arena.getTimeline().getSortedTimeline());
+			this.incrementRound();
 		}
 		timeline.getChildren().clear();
 		this.initializeTimeline(timeline);
+	}
+
+
+	@FXML
+	private void incrementRound ()
+	{
+		this.round++;
+		this.roundNumber.setText(String.valueOf(this.round));
 	}
 
 
