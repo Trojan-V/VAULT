@@ -40,7 +40,6 @@ public class Arena
 	private Timeline initializeTimeline (final ArrayList<Troop> playerOneTroops, final ArrayList<Troop> playerTwoTroops)
 	{
 		final ArrayList<Troop> troops = new ArrayList<>();
-
 		troops.addAll(playerOneTroops);
 		troops.addAll(playerTwoTroops);
 
@@ -65,8 +64,7 @@ public class Arena
 		final int randomYCoordinate = (int) Math.round(Math.random() * 11);
 		final int randomXCoordinate = (int) Math.round(Math.random());
 
-		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() ==
-		    Placeholder.class)
+		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() == Placeholder.class)
 		{
 			this.getGameBoard().setTroop(randomXCoordinate, randomYCoordinate, troop);
 			return;
@@ -80,8 +78,7 @@ public class Arena
 		final int randomYCoordinate = (int) Math.round(Math.random() * 11);
 		final int randomXCoordinate = (int) Math.round(Math.random() + 10);
 
-		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() ==
-		    Placeholder.class)
+		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() == Placeholder.class)
 		{
 			this.getGameBoard().setTroop(randomXCoordinate, randomYCoordinate, troop);
 			return;

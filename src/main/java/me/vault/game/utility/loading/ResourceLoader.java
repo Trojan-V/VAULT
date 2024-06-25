@@ -217,11 +217,11 @@ public final class ResourceLoader
 				{
 					if (charArray[j] == accessibleTileChar)
 					{
-						gameBoard[i][j] = new Tile(TILE + i + j, new Placeholder());
+						gameBoard[i][j] = new Tile(TILE + i + j, i, j, new Placeholder());
 					}
 					else if (charArray[j] == obstacleTileChar)
 					{
-						gameBoard[i][j] = new Tile(TILE + i + j, new Blocked());
+						gameBoard[i][j] = new Tile(TILE + i + j, i, j, new Blocked());
 					}
 				}
 			}

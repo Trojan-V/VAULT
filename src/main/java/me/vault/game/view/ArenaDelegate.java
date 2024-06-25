@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import me.vault.game.VaultApplication;
+import me.vault.game.control.EnemyController;
 import me.vault.game.control.TroopController;
 import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placable;
@@ -210,13 +211,13 @@ public class ArenaDelegate implements Initializable
 
 		switch (nextTileElement)
 		{
-			case final Placeholder _ -> TroopController.getInstance().move(arena, attacker, row, column);
+			case final Placeholder _ -> TroopController.getInstance().moveTroop(arena, attacker, row, column);
 			case final Troop troop ->
 			{
 				try
 				{
 					final Troop defender = this.arena.getGameBoard().getTroop(row, column);
-					TroopController.getInstance().attack(arena, attacker, defender);
+					TroopController.getInstance().attackTroop(arena, attacker, defender);
 				}
 				catch (final Exception ignored)
 				{
@@ -231,7 +232,7 @@ public class ArenaDelegate implements Initializable
 	}
 
 
-	public void initializeTimeline (final VBox timeline)
+	public void initializeTimeline (final VBox timelineVBox)
 	{
 		this.arena.setSelectedTroop(this.troopTimeline.peek());
 		final PriorityQueue<Troop> displayQueue = new PriorityQueue<Troop>(this.troopTimeline);
@@ -239,7 +240,21 @@ public class ArenaDelegate implements Initializable
 		{
 			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(displayQueue.poll())));
 		}
-		timeline.setSpacing(TIMELINE_SPACING);
+		timelineVBox.setSpacing(TIMELINE_SPACING);
+
+		if (this.arena.getPlayerTwoTroops().contains(this.arena.getSelectedTroop()))
+		{
+			try
+			{
+				Thread.sleep(333);
+			}
+			catch (InterruptedException e)
+			{
+				throw new RuntimeException(e);
+			}
+			EnemyController.handleEnemyAction(this.arena, this.arena.getSelectedTroop());
+			this.updateTimeline(timelineVBox);
+		}
 	}
 
 

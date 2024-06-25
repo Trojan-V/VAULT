@@ -4,9 +4,13 @@ package me.vault.game.model.arena;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.troop.Troop;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class GameBoard implements GameBoardConstants
 {
+
 	private final Tile[][] gameBoard;
 
 
@@ -34,7 +38,7 @@ public class GameBoard implements GameBoardConstants
 				}
 			}
 		}
-		throw new NullPointerException(); //TODO: Add Exception Message
+		throw new NullPointerException(); // TODO: Add Exception Message
 	}
 
 
@@ -43,11 +47,12 @@ public class GameBoard implements GameBoardConstants
 		return this.gameBoard[row][column];
 	}
 
+
 	public Troop getTroop (final int row, final int column) throws Exception
 	{
 		if (!(this.gameBoard[row][column].getCurrentElement() instanceof Troop))
 		{
-			throw new Exception("Not a troop exception..."); //TODO: Implementieren der neuen exception
+			throw new Exception("Not a troop exception..."); // TODO: Implementieren der neuen exception
 		}
 		return (Troop) this.gameBoard[row][column].getCurrentElement();
 	}
@@ -61,8 +66,48 @@ public class GameBoard implements GameBoardConstants
 		}
 	}
 
+
 	public void setPlaceable (final int row, final int column, final Placable placeable)
 	{
 		this.gameBoard[row][column].setCurrentElement(placeable);
 	}
+
+
+	public List<Tile> getAdjacentTroopTiles (final int[] position)
+	{
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[1]);
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Troop));
+		return adjacentTiles;
+	}
+
+
+	private List<Tile> getAdjacentTiles (final int row, final int column)
+	{
+		final List<Tile> adjacentTiles = new ArrayList<>();
+		for (int i = (row - 1); i <= row + 1; i++)
+		{
+			for (int j = column - 1; j <= column + 1; j++)
+			{
+				try
+				{
+					adjacentTiles.add(this.gameBoard[i][j]);
+				}
+				catch (IndexOutOfBoundsException e)
+				{
+					System.out.println("Out of bound" + i + " " + j);
+				}
+			}
+		}
+		adjacentTiles.remove(this.gameBoard[row][column]);
+		return adjacentTiles;
+	}
+
+
+	public List<Tile> getAdjacentAccessibleTiles (final int[] position)
+	{
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[1]);
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
+		return adjacentTiles;
+	}
+
 }

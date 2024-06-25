@@ -220,7 +220,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	}
 
 
-	public void move (final Arena arena, final Troop troop, final int i, final int j)
+	public void moveTroop (final Arena arena, final Troop troop, final int i, final int j)
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final int[] previousTroopPosition = arenaGameBoard.getTroopPosition(troop);
@@ -230,7 +230,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	}
 
 
-	public void attack (final Arena arena, final Troop troop, final Troop defender)
+	public void attackTroop (final Arena arena, final Troop troop, final Troop defender)
 	{
 		// TODO: FIX statistics in troops to implement
 	}
