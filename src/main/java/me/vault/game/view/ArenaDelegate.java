@@ -22,7 +22,6 @@ import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Placeholder;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.MetaDataImage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -78,6 +77,8 @@ public class ArenaDelegate implements Initializable
 
 	private static final double DROP_SHADOW_SPREAD = 0.5;
 
+	private static ArenaDelegate instance;
+
 
 	private Arena arena;
 
@@ -122,6 +123,7 @@ public class ArenaDelegate implements Initializable
 			final ArenaDelegate delegate = fxmlLoader.getController();
 			delegate.setArena(arena);
 			delegate.show(new Scene(root));
+			ArenaDelegate.instance = delegate;
 		}
 		catch (final IOException e)
 		{
@@ -134,8 +136,8 @@ public class ArenaDelegate implements Initializable
 	{
 		this.arena = arena;
 		this.troopTimeline = arena.getTimeline().getSortedTimeline();
-		this.initializeTimeline(this.timelineVBox);
-		this.initializeGameBoard(this.gameBoardGridPane);
+		this.initializeTimeline();
+		this.initializeGameBoard();
 	}
 
 
@@ -153,7 +155,7 @@ public class ArenaDelegate implements Initializable
 
 
 	@FXML
-	private void initializeGameBoard (final GridPane gameBoard)
+	public void initializeGameBoard ()
 	{
 		for (int i = 0; i < NUMBER_OF_ROWS; i++)
 		{
@@ -166,7 +168,7 @@ public class ArenaDelegate implements Initializable
 				button.setOnMouseClicked(_ -> {
 					this.handleMapObjectInteraction(row, column, this.arena);
 				});
-				gameBoard.add(button, i, j);
+				this.gameBoardGridPane.add(button, i, j);
 			}
 		}
 	}
@@ -192,18 +194,6 @@ public class ArenaDelegate implements Initializable
 	}
 
 
-	private ImageView createGameBoardButtonImageView (final MetaDataImage sprite)
-	{
-		final ImageView imageView = new ImageView();
-		imageView.setFitHeight(TILE_SIDE_LENGTH);
-		imageView.setFitWidth(TILE_SIDE_LENGTH);
-		imageView.setPreserveRatio(false);
-		imageView.setImage(sprite);
-
-		return imageView;
-	}
-
-
 	private void handleMapObjectInteraction (final int row, final int column, final Arena arena)
 	{
 		final Troop attacker = arena.getSelectedTroop(); // TODO: Position für row und column anlegen
@@ -226,13 +216,13 @@ public class ArenaDelegate implements Initializable
 			}
 			case null, default -> {return;}
 		}
-		this.updateTimeline(this.timelineVBox);
+		this.updateTimeline();
 		this.gameBoardGridPane.getChildren().clear();
-		this.initializeGameBoard(this.gameBoardGridPane);
+		this.initializeGameBoard();
 	}
 
 
-	public void initializeTimeline (final VBox timelineVBox)
+	public void initializeTimeline ()
 	{
 		this.arena.setSelectedTroop(this.troopTimeline.peek());
 		final PriorityQueue<Troop> displayQueue = new PriorityQueue<Troop>(this.troopTimeline);
@@ -240,25 +230,24 @@ public class ArenaDelegate implements Initializable
 		{
 			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(displayQueue.poll())));
 		}
-		timelineVBox.setSpacing(TIMELINE_SPACING);
+		this.timelineVBox.setSpacing(TIMELINE_SPACING);
+		this.initializeGameBoard();
 
 		if (this.arena.getPlayerTwoTroops().contains(this.arena.getSelectedTroop()))
 		{
-			try
-			{
-				Thread.sleep(333);
-			}
-			catch (InterruptedException e)
-			{
-				throw new RuntimeException(e);
-			}
-			EnemyController.handleEnemyAction(this.arena, this.arena.getSelectedTroop());
-			this.updateTimeline(timelineVBox);
+			EnemyController.handleEnemyAction(ArenaDelegate.getInstance(), this.arena, this.arena.getSelectedTroop());
+			this.updateTimeline();
 		}
 	}
 
 
-	public void updateTimeline (final VBox timeline)
+	private static ArenaDelegate getInstance ()
+	{
+		return instance;
+	}
+
+
+	public void updateTimeline ()
 	{
 		this.troopTimeline.poll();
 		if (this.troopTimeline.isEmpty())
@@ -266,8 +255,8 @@ public class ArenaDelegate implements Initializable
 			this.troopTimeline = new PriorityQueue<>(this.arena.getTimeline().getSortedTimeline());
 			this.incrementRound();
 		}
-		timeline.getChildren().clear();
-		this.initializeTimeline(timeline);
+		this.timelineVBox.getChildren().clear();
+		this.initializeTimeline();
 	}
 
 

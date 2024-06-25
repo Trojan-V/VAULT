@@ -1,46 +1,31 @@
 package me.vault.game.control;
 
 
+import javafx.application.Platform;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.EnemyActionRunnable;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.troop.Troop;
-
-import java.util.List;
-import java.util.SequencedCollection;
+import me.vault.game.view.ArenaDelegate;
 
 
 public class EnemyController
 {
 
-	public static void handleEnemyAction (final Arena arena, final Troop troop)
+	public static void handleEnemyAction (final ArenaDelegate instance, final Arena arena, final Troop troop)
 	{
-		final int[] position = arena.getGameBoard().getTroopPosition(troop);
+		Platform.runLater(new EnemyActionRunnable(instance, arena, troop));
 
-		final List<Tile> adjacentTroopTiles = arena.getGameBoard().getAdjacentTroopTiles(position);
-
-		final List<Tile> adjacentAccessibleTiles = arena.getGameBoard().getAdjacentAccessibleTiles(position);
-
-		System.out.println("getAdjacentAccessibleTiles = " + adjacentAccessibleTiles);
-		System.out.println("getAdjacentTroopTiles = " + adjacentTroopTiles);
-
-		if (!adjacentTroopTiles.isEmpty())
-		{
-			attackAdjacentTroop(arena, adjacentTroopTiles, troop);
-		}
-		else if (!adjacentAccessibleTiles.isEmpty())
-		{
-			moveToAdjacentTile(arena, adjacentAccessibleTiles.getFirst(), troop);
-		}
 	}
 
 
-	private static void moveToAdjacentTile (final Arena arena, final Tile adjacentAccessibleTile, final Troop troop)
+	public static void moveToAdjacentTile (final Arena arena, final Tile adjacentAccessibleTile, final Troop troop)
 	{
 		TroopController.getInstance().moveTroop(arena, troop, adjacentAccessibleTile.getRow(), adjacentAccessibleTile.getColumn());
 	}
 
 
-	private static void attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Troop troop)
+	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Troop troop)
 	{
 		for (final Tile tile : adjacentTroopTiles)
 		{
@@ -49,11 +34,24 @@ public class EnemyController
 			{
 				TroopController.getInstance().attackTroop(arena, troop, adjacentTroop);
 				System.out.println(troop.getName() + " attacked " + adjacentTroop.getName());
-				break;
+				return true;
 			}
 		}
 		System.out.println(troop.getName() + " -> No attack in range");
+		return false;
+	}
 
+
+	private static void wait (int ms)
+	{
+		try
+		{
+			Thread.sleep(ms);
+		}
+		catch (InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
 	}
 
 }
