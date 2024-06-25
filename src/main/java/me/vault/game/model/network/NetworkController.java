@@ -1,6 +1,9 @@
 package me.vault.game.model.network;
 
 
+/**
+ *
+ */
 public class NetworkController
 {
 	private static final int PORT_NUMBER = 13579;
