@@ -22,9 +22,9 @@ import me.vault.game.model.troop.impl.*;
  */
 public class Config
 {
-	// TODO: Wenn der "Exit" Button gedrückt wird, kommt ein Dialog, dass noch nicht gespeichert wurde und es wird
+	// TODO: Wenn der "Exit" Button gedrueckt wird, kommt ein Dialog, dass noch nicht gespeichert wurde und es wird
 	//  gefragt, ob gespeichert werden soll.
-	//  (Außerdem sollte ein Autosave implementiert werden, der alle 15 Minuten o.Ä. speichert).
+	//  Außerdem sollte ein Autosave implementiert werden, der alle 15 Minuten oaespeichert.
 
 	// TODO: isDefault getter and setter and attribute. Set isDefault from ConfigLoader. If isDefault == true, gray
 	//  out continue button in main menu.
@@ -36,6 +36,7 @@ public class Config
 	private GameDifficulty difficulty = GameDifficulty.HARD_MODE;
 
 	// Currency related config entries
+
 	private int steelAmount = 0;
 
 

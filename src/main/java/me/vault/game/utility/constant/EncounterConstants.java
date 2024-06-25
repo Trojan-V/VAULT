@@ -15,6 +15,7 @@ public interface EncounterConstants
 
 	public static double FIVE_PERCENT = 0.05;
 
+	String ENCOUNTER_TWO_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_2.txt";
 
 	public static final ArrayList<Troop> ENCOUNTER_ENEMIES = new ArrayList<>()
 	{{

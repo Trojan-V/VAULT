@@ -2,11 +2,15 @@ package me.vault.game.control;
 
 
 import javafx.application.Platform;
+import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.EnemyActionRunnable;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.view.ArenaDelegate;
+
+import java.util.ArrayList;
 
 
 public class EnemyController
@@ -41,5 +45,30 @@ public class EnemyController
 	}
 
 
+	public static ArrayList<Troop> adjustEnemiesByDifficulty (final ArrayList<Troop> encounterEnemies)
+	{
+		final TroopLevel troopLevelForDifficulty = getTroopLevelForDifficulty();
+
+		for (final Troop enemy : encounterEnemies)
+		{
+			enemy.setLevel(troopLevelForDifficulty);
+			TroopController.getInstance().updateValues(enemy);
+		}
+		return encounterEnemies;
+	}
+
+
+	private static TroopLevel getTroopLevelForDifficulty ()
+	{
+		final GameDifficulty difficulty = GameController.getInstance().getDifficulty();
+		TroopLevel adjustLevel = null;
+		switch (difficulty)
+		{
+			case EASY_MODE -> adjustLevel = TroopLevel.SINGLE_COMBATANT;
+			case NORMAL_MODE -> adjustLevel = TroopLevel.COUPLE;
+			case HARD_MODE -> adjustLevel = TroopLevel.SQUAD;
+		}
+		return adjustLevel;
+	}
 
 }

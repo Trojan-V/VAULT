@@ -232,4 +232,10 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 		// TODO: FIX statistics in troops to implement
 	}
 
+
+	public void resetStatistics (final Troop troop)
+	{
+		troop.setStatistics(troop.getStatistics(troop.getLevel()));
+	}
+
 }

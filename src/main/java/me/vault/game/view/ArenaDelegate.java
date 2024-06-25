@@ -50,9 +50,6 @@ public class ArenaDelegate implements Initializable
 	private static final int NUMBER_OF_COLUMNS = 12;
 
 
-	private static final int TILE_SIDE_LENGTH = 35;
-
-
 	private static final String NAME = "Name: ";
 
 
@@ -78,8 +75,6 @@ public class ArenaDelegate implements Initializable
 
 
 	private static final double DROP_SHADOW_SPREAD = 0.5;
-
-	private static ArenaDelegate instance;
 
 
 	private Arena arena;
@@ -125,7 +120,6 @@ public class ArenaDelegate implements Initializable
 			final ArenaDelegate delegate = fxmlLoader.getController();
 			delegate.setArena(arena);
 			delegate.show(new Scene(root));
-			ArenaDelegate.instance = delegate;
 		}
 		catch (final IOException e)
 		{
@@ -253,12 +247,6 @@ public class ArenaDelegate implements Initializable
 			}
 			this.updateTimeline();
 		}
-	}
-
-
-	private static ArenaDelegate getInstance ()
-	{
-		return instance;
 	}
 
 
