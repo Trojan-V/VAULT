@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import me.vault.game.GameApplication;
+import me.vault.game.control.EnemyController;
 import me.vault.game.control.TroopController;
 import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placable;
@@ -298,8 +299,8 @@ public class ArenaDelegate implements Initializable
 		this.setTroopGlow(this.arena, sprite, troop);
 
 		statistics.getChildren().add(new Label(NAME + troop.getName()));
-		statistics.getChildren().add(new Label(HEALTH + troop.getStatistic().getDefensiveStatistic().getHealthPoints()));
-		statistics.getChildren().add(new Label(ARMOR + troop.getStatistic().getDefensiveStatistic().getArmour()));
+		statistics.getChildren().add(new Label(HEALTH + troop.getStatistics().getDefensiveStatistic().getHealthPoints()));
+		statistics.getChildren().add(new Label(ARMOR + troop.getStatistics().getDefensiveStatistic().getArmor()));
 		statistics.setSpacing(STATISTICS_SPACING);
 
 		container.getChildren().add(sprite);
@@ -308,6 +309,19 @@ public class ArenaDelegate implements Initializable
 		container.setSpacing(H_BOX_OFFSET);
 
 		return container;
+	}
+
+
+	private static void wait (final int ms)
+	{
+		try
+		{
+			Thread.sleep(ms);
+		}
+		catch (final InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
 	}
 
 }

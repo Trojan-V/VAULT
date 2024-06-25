@@ -18,7 +18,7 @@ public class EnemyActionRunnable implements Runnable
 	private final Troop troop;
 
 
-	public EnemyActionRunnable (ArenaDelegate instance, final Arena arena, final Troop troop)
+	public EnemyActionRunnable (final ArenaDelegate instance, final Arena arena, final Troop troop)
 	{
 		this.arenaDelegate = instance;
 		this.arena = arena;

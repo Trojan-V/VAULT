@@ -8,7 +8,6 @@ import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.mission.MapObject;
-import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -17,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 
-public abstract class Energy implements Nameable, Upgradable<EnergyLevel>, MapObject
+public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilityLevel>, MapObject
 {
 
 	/**
@@ -272,5 +271,6 @@ public abstract class Energy implements Nameable, Upgradable<EnergyLevel>, MapOb
 		       this.multiplicationFactor +
 		       ", upgradeCost=" + this.upgradeCost + ", currentLevel=" + this.currentLevel + '}';
 	}
+
 }
 
