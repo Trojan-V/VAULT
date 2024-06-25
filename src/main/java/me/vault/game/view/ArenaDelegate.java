@@ -121,7 +121,6 @@ public class ArenaDelegate implements Initializable
 			final ArenaDelegate delegate = fxmlLoader.getController();
 			delegate.setArena(arena);
 			delegate.show(new Scene(root));
-
 		}
 		catch (final IOException e)
 		{

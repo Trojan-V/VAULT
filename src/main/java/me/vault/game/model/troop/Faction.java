@@ -2,20 +2,33 @@ package me.vault.game.model.troop;
 
 
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import me.vault.game.interfaces.Displayable;
+import me.vault.game.model.troop.impl.Grenadier;
+import me.vault.game.model.troop.impl.PrecisionShooter;
+import me.vault.game.model.troop.impl.Ranger;
+import me.vault.game.model.troop.impl.SpaceMarine;
+import me.vault.game.utility.struct.MetaDataImage;
 
 
-public enum Faction
+public enum Faction implements Displayable
 {
-	EXPLORER_ASSOCIATION(1.2f, 1.0f, 1.5f, new SimpleBooleanProperty(false)),
+	EXPLORER_ASSOCIATION(1.2f, 1.0f, 1.5f,
+		new SimpleBooleanProperty(false), Ranger.getInstance().getSprite()),
 
-	MILITARISTIC_GOVERNMENT(1.25f, 1.5f, 1.0f, new SimpleBooleanProperty(false)),
+	MILITARISTIC_GOVERNMENT(1.25f, 1.5f, 1.0f,
+		new SimpleBooleanProperty(false), SpaceMarine.getInstance().getSprite()),
 
-	MEGA_CORPORATION(1.5f, 1.25f, 1.25f, new SimpleBooleanProperty(false)),
+	MEGA_CORPORATION(1.5f, 1.25f, 1.25f,
+		new SimpleBooleanProperty(false), Grenadier.getInstance().getSprite()),
 
-	NEW_TERRA(1.25f, 1.25f, 1.25f, new SimpleBooleanProperty(false));
+	NEW_TERRA(1.25f, 1.25f, 1.25f,
+		new SimpleBooleanProperty(false), PrecisionShooter.getInstance().getSprite());
 
 
 	private final SimpleBooleanProperty isSelectedProperty;
+
+	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
 	private final float offensiveLevelMultiplier;
 
@@ -24,12 +37,14 @@ public enum Faction
 	private final float dexterityLevelMultiplier;
 
 
-	Faction (final float offensiveLevelMultiplier, final float defensiveLevelMultiplier, final float dexterityLevelMultiplier, final SimpleBooleanProperty isSelectedProperty)
+	Faction (final float offensiveLevelMultiplier, final float defensiveLevelMultiplier, final float dexterityLevelMultiplier, final SimpleBooleanProperty isSelectedProperty,
+		final MetaDataImage sprite)
 	{
 		this.offensiveLevelMultiplier = offensiveLevelMultiplier;
 		this.defensiveLevelMultiplier = defensiveLevelMultiplier;
 		this.dexterityLevelMultiplier = dexterityLevelMultiplier;
 		this.isSelectedProperty = isSelectedProperty;
+		this.spriteProperty = new SimpleObjectProperty<>(sprite);
 	}
 
 
@@ -54,6 +69,42 @@ public enum Faction
 	public SimpleBooleanProperty getIsSelectedProperty ()
 	{
 		return this.isSelectedProperty;
+	}
+
+
+	/**
+	 * Returns the sprite that is stored within the property of the displayable object as an {@link MetaDataImage}.
+	 *
+	 * @return The sprite of the displayable object.
+	 */
+	@Override
+	public MetaDataImage getSprite ()
+	{
+		return this.spriteProperty.get();
+	}
+
+
+	/**
+	 * Sets the sprite of the displayable object to the supplied sprite.
+	 *
+	 * @param sprite The new sprite for the displayable object.
+	 */
+	@Override
+	public void setSprite (MetaDataImage sprite)
+	{
+		this.spriteProperty.set(sprite);
+	}
+
+
+	/**
+	 * Returns the sprite property of the displayable object.
+	 *
+	 * @return The sprite property of the displayable object.
+	 */
+	@Override
+	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
+	{
+		return this.spriteProperty;
 	}
 }
 

@@ -1,4 +1,4 @@
-package me.vault.game.model.city;
+package me.vault.game.view.city.buildings;
 
 
 import javafx.event.ActionEvent;
@@ -11,8 +11,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.VaultApplication;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.model.city.Docks;
+import me.vault.game.model.city.SpaceBar;
+import me.vault.game.model.city.Workshop;
+import me.vault.game.model.player.Player;
 import me.vault.game.view.city.CityDelegate;
-import me.vault.game.view.city.buildings.CityBuildingView;
 import me.vault.game.view.mission.MissionSelectionDelegate;
 
 import java.net.URL;
@@ -83,13 +86,17 @@ public class CommandCenterController implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
-		this.bindPlayerSelections();
+		this.setControlsFromPlayerInventory();
 	}
 
 
-	private void bindPlayerSelections ()
+	private void setControlsFromPlayerInventory ()
 	{
+		this.selectedArtifactLabel.setText(Player.getInstance().getSelectedArtifact().getName());
+		this.selectedFactionLabel.setText(Player.getInstance().getSelectedFaction().name());
 
+		this.selectedArtifactImageView.setImage(Player.getInstance().getSelectedArtifact().getSprite());
+		this.selectedFactionImageView.setImage(Player.getInstance().getSelectedFaction().getSprite());
 	}
 
 }

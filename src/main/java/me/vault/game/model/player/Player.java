@@ -1,27 +1,26 @@
 package me.vault.game.model.player;
 
 
-import me.vault.game.model.GameMap;
 import me.vault.game.model.Vertex;
 import me.vault.game.model.artifact.Artifact;
-import me.vault.game.model.mission.MapObject;
+import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.troop.Faction;
 
 
 public class Player implements Movable
 {
 
-	private static Player INSTANCE = new Player(null, null, null, null);
+	private static final Player INSTANCE = new Player();
 
-	private final Artifact selectedArtifact;
+	private Artifact selectedArtifact;
 
 	private Faction selectedFaction;
 
 
-	public Player (final GameMap map, final Vertex tile, final Artifact selectedArtifact, final Faction selectedFaction)
+	private Player ()
 	{
-		this.selectedArtifact = selectedArtifact;
-		this.selectedFaction = selectedFaction;
+		this.selectedFaction = Faction.NEW_TERRA;
+		this.selectedArtifact = DamageArtifact.getInstance();
 	}
 
 
@@ -31,9 +30,27 @@ public class Player implements Movable
 	}
 
 
-	public void setSelectedFaction (Faction newFaction)
+	public Faction getSelectedFaction ()
 	{
-		this.selectedFaction = newFaction;
+		return this.selectedFaction;
+	}
+
+
+	public void setSelectedFaction (final Faction faction)
+	{
+		this.selectedFaction = faction;
+	}
+
+
+	public Artifact getSelectedArtifact ()
+	{
+		return this.selectedArtifact;
+	}
+
+
+	public void setSelectedArtifact (final Artifact selectedArtifact)
+	{
+		this.selectedArtifact = selectedArtifact;
 	}
 
 

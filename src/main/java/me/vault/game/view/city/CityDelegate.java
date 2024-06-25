@@ -17,6 +17,8 @@ import me.vault.game.model.city.*;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.MainMenuDelegate;
+import me.vault.game.view.TutorialDelegate;
 import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.buildings.CityBuildingView;
 
@@ -125,6 +127,27 @@ public class CityDelegate implements Initializable
 		stage.setScene(SCENE);
 		stage.show();
 		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, CityDelegate.class.getSimpleName()));
+	}
+
+
+	@FXML
+	void onBackToMainMenu (ActionEvent event)
+	{
+		MainMenuDelegate.show();
+	}
+
+
+	@FXML
+	void onOpenHelpMenu (ActionEvent event)
+	{
+		TutorialDelegate.show(VaultApplication.getStage());
+	}
+
+
+	@FXML
+	void OnSaveToConfig (ActionEvent event)
+	{
+		// TODO: SAVE implementieren
 	}
 
 
