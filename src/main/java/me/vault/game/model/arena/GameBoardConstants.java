@@ -5,6 +5,5 @@ public interface GameBoardConstants
 {
 	public final int DEFAULT_NUBER_OF_ROWS = 12;
 
-
 	public final int DEFAULT_NUBER_OF_COLUMS = 12;
 }

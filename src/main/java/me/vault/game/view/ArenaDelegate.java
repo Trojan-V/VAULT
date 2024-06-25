@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
@@ -66,6 +67,9 @@ public class ArenaDelegate implements Initializable
 
 
 	private static final double STATISTICS_SPACING = TIMELINE_SPACING;
+
+
+	private static final int DROP_SHADOW_RADIUS = 15;
 
 
 	private Arena arena;
@@ -150,6 +154,7 @@ public class ArenaDelegate implements Initializable
 
 				final ImageView imageView = this.createGameBoardButtonImageView(this.arena.getGameBoard().getTile(i, j).getCurrentElement().getSprite());
 
+				this.setTroopGlow(this.arena, imageView, this.arena.getGameBoard().getTile(i, j).getCurrentElement());
 				button.setGraphic(imageView);
 
 				final int row = i;
@@ -158,7 +163,25 @@ public class ArenaDelegate implements Initializable
 				{
 					this.handleMapObjectInteraction(row, column, this.arena);
 				});
+
+
 				gameBoard.add(button, i, j);
+			}
+		}
+	}
+
+
+	private void setTroopGlow (final Arena arena, final ImageView imageView, final Placable placable)
+	{
+		if (placable instanceof Troop)
+		{
+			if (arena.getPlayerOneTroops().contains(placable))
+			{
+				imageView.setEffect(new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE));
+			}
+			else if (arena.getPlayerTwoTroops().contains(placable))
+			{
+				imageView.setEffect(new DropShadow(DROP_SHADOW_RADIUS, Color.RED));
 			}
 		}
 	}

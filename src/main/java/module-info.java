@@ -29,7 +29,6 @@ module me.vault.game {
 	exports me.vault.game.view.city;
 	exports me.vault.game.model.city;
 	exports me.vault.game.model.mission;
-	exports me.vault.game.model.encounter;
 	exports me.vault.game.model;
 	exports me.vault.game.fxcontrols;
 	exports me.vault.game.model.troop;

@@ -119,4 +119,16 @@ public class Arena
 		this.selectedTroop = selectedTroop;
 	}
 
+
+	public ArrayList<Troop> getPlayerOneTroops ()
+	{
+		return this.playerOneTroops;
+	}
+
+
+	public ArrayList<Troop> getPlayerTwoTroops ()
+	{
+		return this.playerTwoTroops;
+	}
+
 }
