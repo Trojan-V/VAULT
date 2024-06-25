@@ -51,6 +51,7 @@ public class Server implements Runnable
 			answer.append(line.charAt(i));
 			answer.append(line.charAt(i));
 		}
+		System.out.println(answer);
 		return new String(answer);
 	}
 

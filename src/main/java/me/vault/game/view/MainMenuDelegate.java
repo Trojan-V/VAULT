@@ -14,6 +14,7 @@ import me.vault.game.control.ArtifactController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
+import me.vault.game.model.network.NetworkController;
 import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -267,6 +268,7 @@ public class MainMenuDelegate implements Initializable
 			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ENEMIES,
 				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
 				                                                     "/Encounter_2.txt"))));
+
 		}
 	}
 
