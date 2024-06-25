@@ -12,10 +12,13 @@ import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.arena.Placeholder;
+import me.vault.game.model.arena.Tile;
 import me.vault.game.model.troop.*;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
+
+import java.util.List;
 
 import static me.vault.game.utility.constant.AttributeConstants.*;
 
@@ -217,13 +220,21 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	}
 
 
-	public void moveTroop (final Arena arena, final Troop troop, final int i, final int j)
+	public boolean moveTroop (final Arena arena, final Troop troop, final int i, final int j)
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final int[] previousTroopPosition = arenaGameBoard.getTroopPosition(troop);
+		final int troopMovementRange = troop.getStatistics().getDexterityStatistic().getMovementTiles();
 
-		arenaGameBoard.setTroop(i, j, troop);
-		arenaGameBoard.setPlaceable(previousTroopPosition[0], previousTroopPosition[1], new Placeholder()); // TODO: LITERALE IM CODE!!! TILE MAP POSITION-Klasse ???
+		final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
+
+		if (accessibleTiles.contains(arena.getGameBoard().getTile(i, j)))
+		{
+			arenaGameBoard.setTroop(i, j, troop);
+			arenaGameBoard.setPlaceable(previousTroopPosition[0], previousTroopPosition[1], new Placeholder());
+			return true;
+		}
+		return false;
 	}
 
 

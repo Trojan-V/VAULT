@@ -197,18 +197,21 @@ public class ArenaDelegate implements Initializable
 
 		switch (nextTileElement)
 		{
-			case final Placeholder _ -> TroopController.getInstance().moveTroop(arena, attacker, row, column);
-			case final Troop troop ->
+			case final Placeholder _ ->
 			{
-				try
-				{
-					final Troop defender = this.arena.getGameBoard().getTroop(row, column);
-					TroopController.getInstance().attackTroop(arena, attacker, defender);
-				}
-				catch (final Exception ignored)
+				if (!TroopController.getInstance().moveTroop(arena, attacker, row, column))
 				{
 					return;
-				} // TODO: KAPSELUNG!!!!!!!!!!!!!
+				}
+			}
+			case final Troop troop ->
+			{
+				if (arena.getPlayerOneTroops().contains(troop))
+				{
+					return;
+				}
+				TroopController.getInstance().attackTroop(arena, attacker, troop);
+
 			}
 			case null, default -> {return;}
 		}
