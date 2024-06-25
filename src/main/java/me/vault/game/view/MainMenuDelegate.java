@@ -24,6 +24,7 @@ import me.vault.game.view.city.CityView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
 import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ENEMIES;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
@@ -229,7 +230,7 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
 			ViewUtil.setButtonTextColor(this.arenaButton, Color.BLACK);
-			ArenaDelegate.show(new Arena(ENCOUNTER_ENEMIES, ENCOUNTER_ENEMIES,
+			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ENEMIES,
 				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
 				                                                     "/Encounter_2.txt")))); // TODO: FIX LATER
 		}
@@ -261,7 +262,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.arenaMenuItem))
 		{
-			ArenaDelegate.show(new Arena(ENCOUNTER_ENEMIES, ENCOUNTER_ENEMIES,
+			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ENEMIES,
 				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
 				                                                     "/Encounter_2.txt"))));
 		}

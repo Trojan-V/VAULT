@@ -2,10 +2,7 @@ package me.vault.game.utility.constant;
 
 
 import me.vault.game.model.troop.Troop;
-import me.vault.game.model.troop.impl.Grenadier;
-import me.vault.game.model.troop.impl.Medic;
-import me.vault.game.model.troop.impl.Ranger;
-import me.vault.game.model.troop.impl.Sniper;
+import me.vault.game.model.troop.impl.*;
 
 import java.util.ArrayList;
 
@@ -25,5 +22,14 @@ public interface EncounterConstants
 		this.add(Ranger.getInstance());
 		this.add(Medic.getInstance());
 		this.add(Grenadier.getInstance());
+	}};
+
+
+	public static final ArrayList<Troop> ALLIES = new ArrayList<>()
+	{{
+		this.add(Recruit.getInstance());
+		this.add(Guard.getInstance());
+		this.add(Lieutenant.getInstance());
+		this.add(Officer.getInstance());
 	}};
 }
