@@ -83,18 +83,23 @@ public class GameBoard implements GameBoardConstants
 
 	private List<Tile> getAdjacentTiles (final int row, final int column)
 	{
+		return this.getAdjacentTiles(row, column, 1);
+	}
+
+
+	private List<Tile> getAdjacentTiles (final int row, final int column, final int range)
+	{
 		final List<Tile> adjacentTiles = new ArrayList<>();
-		for (int i = (row - 1); i <= row + 1; i++)
+		for (int i = (row - range); i <= row + range; i++)
 		{
-			for (int j = column - 1; j <= column + 1; j++)
+			for (int j = column - range; j <= column + range; j++)
 			{
 				try
 				{
 					adjacentTiles.add(this.gameBoard[i][j]);
 				}
-				catch (IndexOutOfBoundsException e)
+				catch (final IndexOutOfBoundsException ignored)
 				{
-					System.out.println("Out of bound" + i + " " + j);
 				}
 			}
 		}
@@ -106,6 +111,14 @@ public class GameBoard implements GameBoardConstants
 	public List<Tile> getAdjacentAccessibleTiles (final int[] position)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[1]);
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
+		return adjacentTiles;
+	}
+
+
+	public List<Tile> getAdjacentAccessibleTiles (final int[] position, final int range)
+	{
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[1], range);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
 		return adjacentTiles;
 	}

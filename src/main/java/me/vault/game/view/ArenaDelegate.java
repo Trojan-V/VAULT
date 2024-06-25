@@ -50,9 +50,6 @@ public class ArenaDelegate implements Initializable
 	private static final int NUMBER_OF_COLUMNS = 12;
 
 
-	private static final int TILE_SIDE_LENGTH = 35;
-
-
 	private static final String NAME = "Name: ";
 
 
@@ -78,8 +75,6 @@ public class ArenaDelegate implements Initializable
 
 
 	private static final double DROP_SHADOW_SPREAD = 0.5;
-
-	private static ArenaDelegate instance;
 
 
 	private Arena arena;
@@ -125,7 +120,6 @@ public class ArenaDelegate implements Initializable
 			final ArenaDelegate delegate = fxmlLoader.getController();
 			delegate.setArena(arena);
 			delegate.show(new Scene(root));
-			ArenaDelegate.instance = delegate;
 		}
 		catch (final IOException e)
 		{
@@ -203,18 +197,21 @@ public class ArenaDelegate implements Initializable
 
 		switch (nextTileElement)
 		{
-			case final Placeholder _ -> TroopController.getInstance().moveTroop(arena, attacker, row, column);
-			case final Troop troop ->
+			case final Placeholder _ ->
 			{
-				try
-				{
-					final Troop defender = this.arena.getGameBoard().getTroop(row, column);
-					TroopController.getInstance().attackTroop(arena, attacker, defender);
-				}
-				catch (final Exception ignored)
+				if (!TroopController.getInstance().moveTroop(arena, attacker, row, column))
 				{
 					return;
-				} // TODO: KAPSELUNG!!!!!!!!!!!!!
+				}
+			}
+			case final Troop troop ->
+			{
+				if (arena.getPlayerOneTroops().contains(troop))
+				{
+					return;
+				}
+				TroopController.getInstance().attackTroop(arena, attacker, troop);
+
 			}
 			case null, default -> {return;}
 		}
@@ -253,12 +250,6 @@ public class ArenaDelegate implements Initializable
 			}
 			this.updateTimeline();
 		}
-	}
-
-
-	private static ArenaDelegate getInstance ()
-	{
-		return instance;
 	}
 
 

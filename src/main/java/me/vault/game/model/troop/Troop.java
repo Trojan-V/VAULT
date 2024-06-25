@@ -41,10 +41,17 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	 */
 	private final SimpleBooleanProperty isMaxLevelProperty;
 
-
-	private final TroopStatistics overallStatistics;
-
 	private final Faction faction;
+
+	/**
+	 * This field stores the current {@link TroopLevel} of the troop. The value of this field controls the values of many
+	 * attributes the troop consists of.
+	 * <br>
+	 * Check the constructor and the {@link TroopController#updateValues(Troop)} method to see the control flow.
+	 */
+	private TroopLevel currentLevel;
+
+	private TroopStatistics statistics;
 
 	/**
 	 * This field contains the resource price to upgrade the artifact to the next level.
@@ -55,14 +62,6 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	 */
 	private CurrencyTransaction upgradeCost;
 
-	/**
-	 * This field stores the current {@link TroopLevel} of the troop. The value of this field controls the values of many
-	 * attributes the troop consists of.
-	 * <br>
-	 * Check the constructor and the {@link TroopController#updateValues(Troop)} method to see the control flow.
-	 */
-	private TroopLevel currentLevel;
-
 
 	protected Troop (final Faction faction)
 	{
@@ -71,8 +70,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == TroopLevel.getMaximum());
-
-		this.overallStatistics = this.getAllStatistics().get(this.currentLevel);
+		this.statistics = this.getAllStatistics().get(this.currentLevel);
 		this.faction = faction;
 	}
 
@@ -205,6 +203,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	}
 
 
+	public void setStatistics (final TroopStatistics statistics)
+	{
+		this.statistics = statistics;
+	}
+
+
 	public Faction getFaction ()
 	{
 		return this.faction;
@@ -255,7 +259,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 
 	public TroopStatistics getStatistics ()
 	{
-		return this.overallStatistics;
+		return this.statistics;
 	}
 
 
@@ -275,10 +279,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placable
 	public String toString ()
 	{
 		return "Troop{" + "spriteProperty=" + this.spriteProperty + ", isMaxLevelProperty=" + this.isMaxLevelProperty + ", nameProperty=" + this.nameProperty + ", statistic=" +
-		       this.overallStatistics +
-		       ", faction=" +
-		       this.faction +
-		       ", upgradeCost=" + this.upgradeCost + ", currentLevel=" + this.currentLevel + '}';
+		       this.statistics + ", faction=" + this.faction + ", upgradeCost=" + this.upgradeCost + ", currentLevel=" + this.currentLevel + '}';
 	}
 
 }

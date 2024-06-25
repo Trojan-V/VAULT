@@ -11,10 +11,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.vault.game.GameApplication;
 import me.vault.game.control.ArtifactController;
+import me.vault.game.control.EnemyController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
-import me.vault.game.model.network.NetworkController;
+import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -23,10 +24,11 @@ import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
-import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ENEMIES;
+import static me.vault.game.utility.constant.EncounterConstants.*;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
@@ -232,9 +234,9 @@ public class MainMenuDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
 			ViewUtil.setButtonTextColor(this.arenaButton, Color.BLACK);
-			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ENEMIES,
-				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
-				                                                     "/Encounter_2.txt")))); // TODO: FIX LATER
+
+			ArenaDelegate.show(new Arena(ALLIES, EnemyController.adjustEnemiesByDifficulty(ENCOUNTER_ENEMIES),
+				new GameBoard(ResourceLoader.createGameBoardFromFile(ENCOUNTER_TWO_FILEPATH))));
 		}
 	}
 
@@ -268,7 +270,6 @@ public class MainMenuDelegate implements Initializable
 			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ENEMIES,
 				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
 				                                                     "/Encounter_2.txt"))));
-
 		}
 	}
 
