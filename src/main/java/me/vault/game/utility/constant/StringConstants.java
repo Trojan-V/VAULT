@@ -73,8 +73,8 @@ public interface StringConstants
 	 * The following Strings contain the texts for the energy ability's of the troops.
 	 */
 	String MILITARISTIC_GOVERNMENT_DIG_IN =
-		"The soldier digs in two be better protected. Ten percent " + "more armour and five percent more resistenz but can`t " + "move" +
-		" for an energy cost of three energy.";
+		"The soldier digs in two be better protected. Ten percent " + "more armour and five percent more resistenz " +
+		"for an energy cost of three energy.";
 
 	String MILITARISTIC_GOVERNMENT_DOUBLE_TIME = "You motivate one soldier to be more accurate or be presented a " +
 	                                             "court-martial. A cost of five energy.";
@@ -104,8 +104,9 @@ public interface StringConstants
 	/**
 	 * The following Strings contain the texts for the energy ability's of the player.
 	 */
-	String ENERGY_DAMAGE_ABILITY =
-		"This Energy beam damages one enemy unit and deals moderate damage." + " " + "16 damage for an energy cost of 3 energy.";
+	String ENERGY_RESISTANCE_BUFF =
+		"The selected troop becomes more resistent. Takes ten percent less damage for an energy cost of two " +
+		"energy.";
 
 	String ENERGY_BUFF_DAMAGE =
 		"The selected troop becomes deadlier. Deals six points more damage for" + " " + "an energy cost of two energy.";
