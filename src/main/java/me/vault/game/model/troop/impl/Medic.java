@@ -26,11 +26,10 @@ public final class Medic extends Troop
 	 */
 	private static final Logger LOGGER = new Logger(Medic.class.getSimpleName());
 
-	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Medic}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
-	 */
-	private static final Medic INSTANCE;
+
+	private static final Medic ALLY_INSTANCE;
+
+	private static final Medic ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -73,7 +72,8 @@ public final class Medic extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, MEDIC_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, MEDIC_STATISTICS);
 
-		INSTANCE = new Medic();
+		ALLY_INSTANCE = new Medic();
+		ENEMY_INSTANCE = new Medic();
 	}
 
 
@@ -88,9 +88,20 @@ public final class Medic extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Medic getInstance ()
+	public static Medic getAllyInstance ()
 	{
-		return INSTANCE;
+		return ALLY_INSTANCE;
+	}
+
+
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
+	public static Medic getEnemyInstance ()
+	{
+		return ENEMY_INSTANCE;
 	}
 
 

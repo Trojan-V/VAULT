@@ -15,7 +15,6 @@ import me.vault.game.control.EnemyController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
-import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -24,8 +23,6 @@ import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.EncounterConstants.*;
@@ -247,7 +244,7 @@ public class MainMenuDelegate implements Initializable
 	{
 		if (actionEvent.getSource().equals(this.continueMenuItem))
 		{
-			System.out.println(Sniper.getInstance().toString());
+			System.out.println(Sniper.getAllyInstance().toString());
 		}
 		else if (actionEvent.getSource().equals(this.newGameMenuItem))
 		{

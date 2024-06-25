@@ -34,11 +34,10 @@ public final class Sniper extends Troop
 	 */
 	private static final Logger LOGGER = new Logger(Sniper.class.getSimpleName());
 
-	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Sniper}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
-	 */
-	private static final Sniper INSTANCE;
+
+	private static final Sniper ALLY_INSTANCE;
+
+	private static final Sniper ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -81,7 +80,8 @@ public final class Sniper extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, SNIPER_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, SNIPER_STATISTICS);
 
-		INSTANCE = new Sniper();
+		ALLY_INSTANCE = new Sniper();
+		ENEMY_INSTANCE = new Sniper();
 	}
 
 
@@ -96,9 +96,20 @@ public final class Sniper extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Sniper getInstance ()
+	public static Sniper getAllyInstance ()
 	{
-		return INSTANCE;
+		return ALLY_INSTANCE;
+	}
+
+
+	/**
+	 * Returns the singleton instance of this class.
+	 *
+	 * @return The singleton instance of this class.
+	 */
+	public static Sniper getEnemyInstance ()
+	{
+		return ENEMY_INSTANCE;
 	}
 
 
@@ -137,4 +148,5 @@ public final class Sniper extends Troop
 	{
 		return TROOP_STATISTICS;
 	}
+
 }

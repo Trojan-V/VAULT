@@ -8,22 +8,23 @@ import me.vault.game.model.troop.impl.Grenadier;
 import me.vault.game.model.troop.impl.PrecisionShooter;
 import me.vault.game.model.troop.impl.Ranger;
 import me.vault.game.model.troop.impl.SpaceMarine;
+import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
 
 public enum Faction implements Displayable
 {
 	EXPLORER_ASSOCIATION(1.2f, 1.0f, 1.5f,
-		new SimpleBooleanProperty(false), Ranger.getInstance().getSprite()),
+		new SimpleBooleanProperty(false), ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
 
 	MILITARISTIC_GOVERNMENT(1.25f, 1.5f, 1.0f,
-		new SimpleBooleanProperty(false), SpaceMarine.getInstance().getSprite()),
+		new SimpleBooleanProperty(false), ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
 
 	MEGA_CORPORATION(1.5f, 1.25f, 1.25f,
-		new SimpleBooleanProperty(false), Grenadier.getInstance().getSprite()),
+		new SimpleBooleanProperty(false), ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
 
 	NEW_TERRA(1.25f, 1.25f, 1.25f,
-		new SimpleBooleanProperty(false), PrecisionShooter.getInstance().getSprite());
+		new SimpleBooleanProperty(false), ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png"));
 
 
 	private final SimpleBooleanProperty isSelectedProperty;
