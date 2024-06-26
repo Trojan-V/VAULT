@@ -69,8 +69,8 @@ public final class Recruit extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, RECRUIT_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, RECRUIT_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, RECRUIT_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, RECRUIT_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, RECRUIT_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Recruit();
 		ENEMY_INSTANCE = new Recruit();

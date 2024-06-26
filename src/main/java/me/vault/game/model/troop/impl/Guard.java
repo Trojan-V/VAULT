@@ -69,8 +69,8 @@ public final class Guard extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, GUARD_STATISTIC);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, GUARD_STATISTIC);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, GUARD_STATISTIC);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, GUARD_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, GUARD_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Guard();
 		ENEMY_INSTANCE = new Guard();

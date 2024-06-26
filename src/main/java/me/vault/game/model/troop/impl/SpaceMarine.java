@@ -70,8 +70,8 @@ public final class SpaceMarine extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, SPACE_MARINE_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, SPACE_MARINE_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, SPACE_MARINE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, SPACE_MARINE_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, SPACE_MARINE_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new SpaceMarine();
 		ENEMY_INSTANCE = new SpaceMarine();

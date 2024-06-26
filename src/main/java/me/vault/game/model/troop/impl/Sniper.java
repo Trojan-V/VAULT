@@ -77,8 +77,8 @@ public final class Sniper extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, SNIPER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, SNIPER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, SNIPER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, SNIPER_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, SNIPER_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Sniper();
 		ENEMY_INSTANCE = new Sniper();

@@ -69,8 +69,8 @@ public final class Infantry extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, INFANTRY_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, INFANTRY_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, INFANTRY_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, INFANTRY_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, INFANTRY_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Infantry();
 		ENEMY_INSTANCE = new Infantry();

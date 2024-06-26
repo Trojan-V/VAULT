@@ -69,8 +69,8 @@ public final class Ranger extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, RANGER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, RANGER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, RANGER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, RANGER_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, RANGER_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Ranger();
 		ENEMY_INSTANCE = new Ranger();

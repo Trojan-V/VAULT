@@ -69,8 +69,8 @@ public final class Lieutenant extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, LIEUTENANT_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, LIEUTENANT_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, LIEUTENANT_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, LIEUTENANT_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, LIEUTENANT_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Lieutenant();
 		ENEMY_INSTANCE = new Lieutenant();

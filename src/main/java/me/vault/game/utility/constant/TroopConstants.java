@@ -98,6 +98,24 @@ public interface TroopConstants
 			new DefensiveStatistic(25, 5, 15, 20),
 			new OffensiveStatistics(0, 24, 0, 0, 0));
 
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics SNIPER_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics SNIPER_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
+
 	}
 
 
@@ -177,6 +195,24 @@ public interface TroopConstants
 			new DefensiveStatistic(46, 20, 25, 15),
 			new OffensiveStatistics(5, 22, 16, 1, 1));
 
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics RANGER_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics RANGER_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
+
 	}
 
 
@@ -254,6 +290,24 @@ public interface TroopConstants
 			new DexterityStatistic(6, 0),
 			new DefensiveStatistic(46, 10, 20, 10),
 			new OffensiveStatistics(0, -16, 0, 0, 0));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics MEDIC_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics MEDIC_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
 
 	}
 
@@ -336,6 +390,24 @@ public interface TroopConstants
 			new DefensiveStatistic(67, 35, 5, 15),
 			new OffensiveStatistics(0, 16, 16, 2, 1));
 
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics SPACE_MARINE_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics SPACE_MARINE_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
+
 	}
 
 
@@ -413,6 +485,24 @@ public interface TroopConstants
 			new DexterityStatistic(2, -2),
 			new DefensiveStatistic(46, 20, 15, 20),
 			new OffensiveStatistics(9, 10, 0, 0, 1));
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics OFFICER_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics OFFICER_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
+
 
 	}
 
@@ -492,6 +582,24 @@ public interface TroopConstants
 			new DefensiveStatistic(60, 25, 0, 20),
 			new OffensiveStatistics(0, 22, 22, 4, 2));
 
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics ENGINEER_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics ENGINEER_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
+
 	}
 
 
@@ -569,6 +677,24 @@ public interface TroopConstants
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(32, 20, 15, 20),
 			new OffensiveStatistics(0, 16, 16, 5, 1));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics GUARD_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics GUARD_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
 
 	}
 
@@ -648,6 +774,24 @@ public interface TroopConstants
 			new DefensiveStatistic(46, 20, 15, 35),
 			new OffensiveStatistics(6, 16, 34, 7, 3));
 
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics GRENADIER_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics GRENADIER_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
+
 	}
 
 
@@ -725,6 +869,24 @@ public interface TroopConstants
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(25, 15, 5, 20),
 			new OffensiveStatistics(0, 10, 16, 4, 1));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics RECRUIT_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics RECRUIT_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
 
 	}
 
@@ -804,6 +966,24 @@ public interface TroopConstants
 			new DefensiveStatistic(46, 10, 15, 20),
 			new OffensiveStatistics(0, 16, 16, 3, 1));
 
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics INFANTRY_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics INFANTRY_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
+
 	}
 
 
@@ -881,6 +1061,24 @@ public interface TroopConstants
 			new DexterityStatistic(2, -1),
 			new DefensiveStatistic(46, 20, 15, 20),
 			new OffensiveStatistics(5, 10, 10, 2, 1));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics LIEUTENANT_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics LIEUTENANT_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
 
 	}
 
@@ -963,6 +1161,24 @@ public interface TroopConstants
 			new DexterityStatistic(3, 0),
 			new DefensiveStatistic(32, 20, 20, 15),
 			new OffensiveStatistics(0, 22, 16, 1, 1));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics PRECISION_SHOOTER_COUPLE_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(70, 30, 0, 25),
+			new OffensiveStatistics(1, 30, 30, 4, 2));
+
+		/**
+		 * A constant which represents the attributes of the engineer troop.
+		 */
+		@Constant
+		TroopStatistics PRECISION_SHOOTER_SQUAD_STATISTICS = new TroopStatistics(
+			new DexterityStatistic(2, -3),
+			new DefensiveStatistic(80, 30, 0, 30),
+			new OffensiveStatistics(0, 35, 35, 4, 2));
 
 	}
 

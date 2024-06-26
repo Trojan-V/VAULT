@@ -69,8 +69,8 @@ public final class Medic extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, MEDIC_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, MEDIC_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, MEDIC_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, MEDIC_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, MEDIC_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Medic();
 		ENEMY_INSTANCE = new Medic();

@@ -72,8 +72,8 @@ public final class Engineer extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, ENGINEER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, ENGINEER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, ENGINEER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, ENGINEER_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, ENGINEER_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Engineer();
 		ENEMY_INSTANCE = new Engineer();

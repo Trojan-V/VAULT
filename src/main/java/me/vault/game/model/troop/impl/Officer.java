@@ -68,8 +68,8 @@ public final class Officer extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, OFFICER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, OFFICER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, OFFICER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, OFFICER_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, OFFICER_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Officer();
 		ENEMY_INSTANCE = new Officer();

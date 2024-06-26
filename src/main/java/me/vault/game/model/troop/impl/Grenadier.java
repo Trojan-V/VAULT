@@ -69,8 +69,8 @@ public final class Grenadier extends Troop
 
 		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, GRENADIER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.COUPLE, GRENADIER_STATISTICS);
-		TROOP_STATISTICS.put(TroopLevel.SQUAD, GRENADIER_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.COUPLE, GRENADIER_COUPLE_STATISTICS);
+		TROOP_STATISTICS.put(TroopLevel.SQUAD, GRENADIER_COUPLE_STATISTICS);
 
 		ALLY_INSTANCE = new Grenadier();
 		ENEMY_INSTANCE = new Grenadier();
