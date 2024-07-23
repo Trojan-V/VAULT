@@ -55,6 +55,7 @@ public class MainMenuDelegate implements Initializable
 
 	private static final String BUTTON_BACKGROUND_SELECTED = ASSETS_PATH + "button_round.png";
 
+
 	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 
 
@@ -107,137 +108,34 @@ public class MainMenuDelegate implements Initializable
 		ViewUtil.show(GameApplication.getStage(), SCENE, MainMenuDelegate.class);
 	}
 
-
-	@FXML
-	void changeButtonBackground (final MouseEvent mouseEvent)
-	{
-		if (mouseEvent.getSource().equals(this.continueButton))
-		{
-			ViewUtil.setButtonImage(this.continueButton, BUTTON_BACKGROUND_SELECTED);
-		}
-		else if (mouseEvent.getSource().equals(this.newGameButton))
-		{
-			ViewUtil.setButtonImage(this.newGameButton, BUTTON_BACKGROUND_SELECTED);
-		}
-		else if (mouseEvent.getSource().equals(this.loadGameButton))
-		{
-			ViewUtil.setButtonImage(this.loadGameButton, BUTTON_BACKGROUND_SELECTED);
-		}
-		else if (mouseEvent.getSource().equals(this.settingsButton))
-		{
-			ViewUtil.setButtonImage(this.settingsButton, BUTTON_BACKGROUND_SELECTED);
-		}
-		else if (mouseEvent.getSource().equals(this.exitGameButton))
-		{
-			ViewUtil.setButtonImage(this.exitGameButton, BUTTON_BACKGROUND_SELECTED);
-		}
-		else if (mouseEvent.getSource().equals(this.arenaButton))
-		{
-			ViewUtil.setButtonImage(this.arenaButton, BUTTON_BACKGROUND_SELECTED);
-		}
-	}
-
-
-	/**
-	 * @param mouseEvent
-	 */
-	@FXML
-	public void returnButtonBackgroundToNormal (final MouseEvent mouseEvent)
-	{
-		if (mouseEvent.getSource().equals(this.continueButton))
-		{
-			ViewUtil.setButtonImage(this.continueButton, BUTTON_BACKGROUND_NORMAL);
-		}
-		else if (mouseEvent.getSource().equals(this.newGameButton))
-		{
-			ViewUtil.setButtonImage(this.newGameButton, BUTTON_BACKGROUND_NORMAL);
-		}
-		else if (mouseEvent.getSource().equals(this.loadGameButton))
-		{
-			ViewUtil.setButtonImage(this.loadGameButton, BUTTON_BACKGROUND_NORMAL);
-		}
-		else if (mouseEvent.getSource().equals(this.settingsButton))
-		{
-			ViewUtil.setButtonImage(this.settingsButton, BUTTON_BACKGROUND_NORMAL);
-		}
-		else if (mouseEvent.getSource().equals(this.exitGameButton))
-		{
-			ViewUtil.setButtonImage(this.exitGameButton, BUTTON_BACKGROUND_NORMAL);
-		}
-		else if (mouseEvent.getSource().equals(this.arenaButton))
-		{
-			ViewUtil.setButtonImage(this.arenaButton, BUTTON_BACKGROUND_NORMAL);
-		}
-	}
-
-
-	@FXML
-	void changeButtonTextColor (final MouseEvent mouseEvent)
-	{
-		if (mouseEvent.getSource().equals(this.continueButton))
-		{
-			ViewUtil.setButtonTextColor(this.continueButton, StringConstants.colorLightBlue);
-		}
-		else if (mouseEvent.getSource().equals(this.newGameButton))
-		{
-			ViewUtil.setButtonTextColor(this.newGameButton, StringConstants.colorLightBlue);
-		}
-		else if (mouseEvent.getSource().equals(this.loadGameButton))
-		{
-			ViewUtil.setButtonTextColor(this.loadGameButton, StringConstants.colorLightBlue);
-		}
-		else if (mouseEvent.getSource().equals(this.settingsButton))
-		{
-			ViewUtil.setButtonTextColor(this.settingsButton, StringConstants.colorLightBlue);
-		}
-		else if (mouseEvent.getSource().equals(this.exitGameButton))
-		{
-			ViewUtil.setButtonTextColor(this.exitGameButton, StringConstants.colorLightBlue);
-		}
-		else if (mouseEvent.getSource().equals(this.arenaButton))
-		{
-			ViewUtil.setButtonTextColor(this.arenaButton, StringConstants.colorLightBlue);
-		}
-	}
-
-
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtil.setButtonTextColor(this.continueButton, Color.BLACK);
 			ConfigLoader.getInstance().load();
 			CityDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.newGameButton))
 		{
-			ViewUtil.setButtonTextColor(this.newGameButton, Color.BLACK);
 			ConfigLoader.getInstance().reset();
-			DifficultyDelegate.show(GameApplication.getStage());
+			DifficultyDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.loadGameButton))
 		{
-			ViewUtil.setButtonTextColor(this.loadGameButton, Color.BLACK);
 			FileChooserView.show(GameApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH,
 				StringConstants.chooseGameFile);
 		}
 		else if (mouseEvent.getSource().equals(this.settingsButton))
 		{
-			ViewUtil.setButtonTextColor(this.settingsButton, Color.BLACK);
 		}
 		else if (mouseEvent.getSource().equals(this.exitGameButton))
 		{
-			ViewUtil.setButtonTextColor(this.exitGameButton, Color.BLACK);
 			ExitGameDialogDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.arenaButton))
 		{
-			ViewUtil.setButtonTextColor(this.arenaButton, Color.BLACK);
-
 			NetworkDelegate.show();
-			//			ArenaDelegate.show(new Arena(ALLIES, EnemyController.adjustEnemiesByDifficulty(ENCOUNTER_ENEMIES),
-			//				new GameBoard(ResourceLoader.createGameBoardFromFile(ENCOUNTER_TWO_FILEPATH))));
 		}
 	}
 
@@ -251,7 +149,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.newGameMenuItem))
 		{
-			DifficultyDelegate.show(GameApplication.getStage());
+			DifficultyDelegate.show();
 		}
 		else if (actionEvent.getSource().equals(this.loadGameMenuItem))
 		{
@@ -280,7 +178,6 @@ public class MainMenuDelegate implements Initializable
 	{
 		this.initializeContinue();
 		this.initializeLoadGame();
-		this.initializeButtonBackgrounds();
 
 	}
 
@@ -305,17 +202,4 @@ public class MainMenuDelegate implements Initializable
 			ViewUtil.setButtonInactive(this.loadGameButton);
 		}
 	}
-
-
-	@FXML
-	private void initializeButtonBackgrounds ()
-	{
-		ViewUtil.setButtonImage(this.continueButton, BUTTON_BACKGROUND_NORMAL);
-		ViewUtil.setButtonImage(this.newGameButton, BUTTON_BACKGROUND_NORMAL);
-		ViewUtil.setButtonImage(this.loadGameButton, BUTTON_BACKGROUND_NORMAL);
-		ViewUtil.setButtonImage(this.settingsButton, BUTTON_BACKGROUND_NORMAL);
-		ViewUtil.setButtonImage(this.exitGameButton, BUTTON_BACKGROUND_NORMAL);
-		ViewUtil.setButtonImage(this.arenaButton, BUTTON_BACKGROUND_NORMAL);
-	}
-
 }

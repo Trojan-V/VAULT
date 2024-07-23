@@ -12,10 +12,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import me.vault.game.GameApplication;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
+import java.io.File;
 import java.text.MessageFormat;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
@@ -81,6 +83,7 @@ public class ViewUtil
 
 	public static void show (final Stage stage, final Scene scene, final Class<? extends Initializable> clazz)
 	{
+		scene.getStylesheets().add(GameApplication.class.getResource("button_long.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 

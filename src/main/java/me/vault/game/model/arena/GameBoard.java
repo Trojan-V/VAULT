@@ -11,6 +11,10 @@ import java.util.List;
 public class GameBoard implements GameBoardConstants
 {
 
+
+	public static final int RANGE = 1;
+
+
 	private final Tile[][] gameBoard;
 
 
@@ -75,7 +79,7 @@ public class GameBoard implements GameBoardConstants
 
 	public List<Tile> getAdjacentTroopTiles (final int[] position)
 	{
-		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[1]);
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[RANGE]);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Troop));
 		return adjacentTiles;
 	}
@@ -83,7 +87,7 @@ public class GameBoard implements GameBoardConstants
 
 	public List<Tile> getAdjacentTiles (final int row, final int column)
 	{
-		return this.getAdjacentTiles(row, column, 1);
+		return this.getAdjacentTiles(row, column, RANGE);
 	}
 
 
@@ -110,7 +114,7 @@ public class GameBoard implements GameBoardConstants
 
 	public List<Tile> getAdjacentAccessibleTiles (final int[] position)
 	{
-		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[1]);
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[RANGE]);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
 		return adjacentTiles;
 	}
@@ -118,7 +122,7 @@ public class GameBoard implements GameBoardConstants
 
 	public List<Tile> getAdjacentAccessibleTiles (final int[] position, final int range)
 	{
-		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[1], range);
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[RANGE], range);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
 		return adjacentTiles;
 	}

@@ -63,77 +63,76 @@ public final class DifficultyDelegate implements Initializable
 	private Button backButton;
 
 
-	public static void show (final Stage stage)
+	public static void show ()
 	{
-		stage.setScene(DIFFICULTY_MENU_SCENE);
-		stage.show();
 		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, DifficultyDelegate.class.getSimpleName()));
+		ViewUtil.show(GameApplication.getStage(), DIFFICULTY_MENU_SCENE, DifficultyDelegate.class);
 	}
 
 
 	@FXML
 	void changeButtonBackground (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
-		{
-			ViewUtil.setButtonImage(this.easyDifficultyButton, BUTTON_BACKGROUND_SELECTED);
-		}
-		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
-		{
-			ViewUtil.setButtonImage(this.normalDifficultyButton, BUTTON_BACKGROUND_SELECTED);
-		}
-		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
-		{
-			ViewUtil.setButtonImage(this.hardDifficultyButton, BUTTON_BACKGROUND_SELECTED);
-		}
-		else if (mouseEvent.getSource().equals(this.backButton))
-		{
-			ViewUtil.setButtonImage(this.backButton, BUTTON_BACKGROUND_SELECTED);
-		}
+//		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
+//		{
+//			ViewUtil.setButtonImage(this.easyDifficultyButton, BUTTON_BACKGROUND_SELECTED);
+//		}
+//		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
+//		{
+//			ViewUtil.setButtonImage(this.normalDifficultyButton, BUTTON_BACKGROUND_SELECTED);
+//		}
+//		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
+//		{
+//			ViewUtil.setButtonImage(this.hardDifficultyButton, BUTTON_BACKGROUND_SELECTED);
+//		}
+//		else if (mouseEvent.getSource().equals(this.backButton))
+//		{
+//			ViewUtil.setButtonImage(this.backButton, BUTTON_BACKGROUND_SELECTED);
+//		}
 	}
 
 
 	@FXML
 	public void returnButtonBackgroundToNormal (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
-		{
-			ViewUtil.setButtonImage(this.easyDifficultyButton, BUTTON_BACKGROUND_NORMAL);
-		}
-		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
-		{
-			ViewUtil.setButtonImage(this.normalDifficultyButton, BUTTON_BACKGROUND_NORMAL);
-		}
-		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
-		{
-			ViewUtil.setButtonImage(this.hardDifficultyButton, BUTTON_BACKGROUND_NORMAL);
-		}
-		else if (mouseEvent.getSource().equals(this.backButton))
-		{
-			ViewUtil.setButtonImage(this.backButton, BUTTON_BACKGROUND_NORMAL);
-		}
+//		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
+//		{
+//			ViewUtil.setButtonImage(this.easyDifficultyButton, BUTTON_BACKGROUND_NORMAL);
+//		}
+//		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
+//		{
+//			ViewUtil.setButtonImage(this.normalDifficultyButton, BUTTON_BACKGROUND_NORMAL);
+//		}
+//		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
+//		{
+//			ViewUtil.setButtonImage(this.hardDifficultyButton, BUTTON_BACKGROUND_NORMAL);
+//		}
+//		else if (mouseEvent.getSource().equals(this.backButton))
+//		{
+//			ViewUtil.setButtonImage(this.backButton, BUTTON_BACKGROUND_NORMAL);
+//		}
 	}
 
 
 	@FXML
 	void changeButtonTextColor (final MouseEvent mouseEvent)
 	{
-		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
-		{
-			ViewUtil.setButtonTextColor(this.easyDifficultyButton, StringConstants.colorLightBlue);
-		}
-		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
-		{
-			ViewUtil.setButtonTextColor(this.normalDifficultyButton, StringConstants.colorLightBlue);
-		}
-		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
-		{
-			ViewUtil.setButtonTextColor(this.hardDifficultyButton, StringConstants.colorLightBlue);
-		}
-		else if (mouseEvent.getSource().equals(this.backButton))
-		{
-			ViewUtil.setButtonTextColor(this.backButton, StringConstants.colorLightBlue);
-		}
+//		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
+//		{
+//			ViewUtil.setButtonTextColor(this.easyDifficultyButton, StringConstants.colorLightBlue);
+//		}
+//		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
+//		{
+//			ViewUtil.setButtonTextColor(this.normalDifficultyButton, StringConstants.colorLightBlue);
+//		}
+//		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
+//		{
+//			ViewUtil.setButtonTextColor(this.hardDifficultyButton, StringConstants.colorLightBlue);
+//		}
+//		else if (mouseEvent.getSource().equals(this.backButton))
+//		{
+//			ViewUtil.setButtonTextColor(this.backButton, StringConstants.colorLightBlue);
+//		}
 	}
 
 
@@ -142,25 +141,25 @@ public final class DifficultyDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
-			ViewUtil.setButtonTextColor(this.easyDifficultyButton, Color.BLACK);
+			//ViewUtil.setButtonTextColor(this.easyDifficultyButton, Color.BLACK);
 			GameController.getInstance().setDifficulty(GameDifficulty.EASY_MODE);
 			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
-			ViewUtil.setButtonTextColor(this.normalDifficultyButton, Color.BLACK);
+			//ViewUtil.setButtonTextColor(this.normalDifficultyButton, Color.BLACK);
 			GameController.getInstance().setDifficulty(GameDifficulty.NORMAL_MODE);
 			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
-			ViewUtil.setButtonTextColor(this.hardDifficultyButton, Color.BLACK);
+			//ViewUtil.setButtonTextColor(this.hardDifficultyButton, Color.BLACK);
 			GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
 			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtil.setButtonTextColor(this.backButton, Color.BLACK);
+			//ViewUtil.setButtonTextColor(this.backButton, Color.BLACK);
 			MainMenuDelegate.show();
 		}
 	}
@@ -169,7 +168,7 @@ public final class DifficultyDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.initializeButtons();
+		//this.initializeButtons();
 	}
 
 

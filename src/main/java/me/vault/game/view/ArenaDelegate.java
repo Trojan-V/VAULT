@@ -84,6 +84,10 @@ public class ArenaDelegate implements Initializable
 
 	private static final int VBOX_HEIGHT = 72;
 
+
+	public static final String ARENA_FXML = "arena.fxml";
+
+
 	private Arena arena;
 
 	private int round = 1;
@@ -135,7 +139,7 @@ public class ArenaDelegate implements Initializable
 	}
 
 
-	private void setArena (final Arena arena)
+	public void setArena (final Arena arena)
 	{
 		this.arena = arena;
 		this.troopTimeline = arena.getTimeline().getSortedTimeline();
@@ -303,4 +307,8 @@ public class ArenaDelegate implements Initializable
 		return container;
 	}
 
+	public Arena getArena ()
+	{
+		return this.arena;
+	}
 }

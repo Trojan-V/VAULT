@@ -121,7 +121,7 @@ public class PrologueDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
 			ViewUtil.setButtonColor(this.backButtonText, Color.BLACK);
-			DifficultyDelegate.show(GameApplication.getStage());
+			DifficultyDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{

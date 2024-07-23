@@ -5,59 +5,52 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<DialogPane xmlns:fx="http://javafx.com/fxml/1" fx:id="saveGameDialogPane" expanded="true"
-            headerText="Do you really want to exit the game without saving?" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="197.0" prefWidth="463.0" style="-fx-background-color: lightgray;"
-            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.city.SaveCompleteDelegate">
+
+<DialogPane fx:id="saveGameDialogPane" expanded="true" headerText="Do you really want to exit the game without saving?" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="463.0" style="-fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.SaveCompleteDelegate">
     <header>
         <GridPane>
             <columnConstraints>
-                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"
-                                   prefWidth="100.0"/>
+                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER"
-                                vgrow="SOMETIMES"/>
-                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER"
-                                vgrow="SOMETIMES"/>
-                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER"
-                                vgrow="SOMETIMES"/>
+                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <ImageView fitHeight="63.0" fitWidth="301.0" pickOnBounds="true" GridPane.rowIndex="1">
                     <image>
-                        <Image url="@../../assets/button.png"/>
+                        <Image url="@../../assets/button.png" />
                     </image>
                 </ImageView>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Save complete!" GridPane.rowIndex="1">
                     <font>
-                        <Font size="24.0"/>
+                        <Font size="24.0" />
                     </font>
                 </Text>
             </children>
         </GridPane>
     </header>
     <buttonTypes>
-        <ButtonType fx:constant="OK"/>
+        <ButtonType fx:constant="OK" />
     </buttonTypes>
     <content>
         <GridPane>
             <columnConstraints>
-                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"
-                                   prefWidth="100.0"/>
+                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER"
-                                vgrow="SOMETIMES"/>
+                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label prefHeight="25.0" prefWidth="273.0" text="Your progress was saved successfully. ">
+                <Label prefHeight="25.0" prefWidth="316.0" text="Your progress was saved successfully. ">
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                 </Label>
             </children>

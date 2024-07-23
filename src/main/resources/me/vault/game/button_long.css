@@ -1,0 +1,21 @@
+.button_long{
+    -fx-background-image: url("assets/button.png");
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: black;
+
+}
+
+.button_long: hover {
+    -fx-background-image: url("assets/button_round.png");
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.button_long: pressed {
+    -fx-text-fill: #1584AD
+}

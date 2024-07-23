@@ -13,6 +13,9 @@ public class NetworkController
 	public static final String HOST_NAME = "127.0.0.1";
 
 
+	public static final int SLEEP = 1000;
+
+
 	/**
 	 *
 	 */
@@ -24,7 +27,7 @@ public class NetworkController
 		{
 			try
 			{
-				Thread.sleep(1000);
+				Thread.sleep(SLEEP);
 			}
 			catch (final InterruptedException e)
 			{
