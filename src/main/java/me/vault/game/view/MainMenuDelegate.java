@@ -99,6 +99,7 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private MenuItem arenaMenuItem;
 
+	//Methods ---------------------------------------------------------------------------------------
 
 	/**
 	 *
@@ -168,7 +169,7 @@ public class MainMenuDelegate implements Initializable
 		{
 			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ONE_ENEMIES,
 				new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
-				                                                     "/Encounter_2.txt"))));
+				                                                     "/Encounter_2.txt")))); //TODO: literals
 		}
 	}
 
@@ -194,7 +195,7 @@ public class MainMenuDelegate implements Initializable
 
 
 	@FXML
-	private void initializeLoadGame ()
+	private void initializeLoadGame () //TODO: Add checks for loading a save file
 	{
 		if (ResourceLoader.collectFiles(GAME_SAVE_FOLDER_FILE_PATH).isEmpty())
 		{

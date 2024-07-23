@@ -72,7 +72,7 @@
                                                                 <Image url="@../assets/difficulty/easy_difficulty_icon.png" />
                                                             </image>
                                                         </ImageView>
-                                                        <Button fx:id="easyDifficultyButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="button_long" text="easy">
+                                                        <Button fx:id="easyDifficultyButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0" styleClass="button_long" text="easy">
                                                             <cursor>
                                                                 <Cursor fx:constant="HAND" />
                                                             </cursor>
@@ -89,7 +89,7 @@
                                                                 <Image url="@../assets/difficulty/medium_difficulty_icon.png" />
                                                             </image>
                                                         </ImageView>
-                                                        <Button fx:id="normalDifficultyButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-insets: 0; -fx-border-radius: 2;" styleClass="button_long" text="normal">
+                                                        <Button fx:id="normalDifficultyButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0" styleClass="button_long" text="normal">
                                                             <cursor>
                                                                 <Cursor fx:constant="HAND" />
                                                             </cursor>
@@ -106,7 +106,7 @@
                                                                 <Image url="@../assets/difficulty/hard_difficulty_icon.png" />
                                                             </image>
                                                         </ImageView>
-                                                        <Button fx:id="hardDifficultyButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="button_long" text="hard">
+                                                        <Button fx:id="hardDifficultyButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="73.0" prefWidth="334.0" styleClass="button_long" text="hard">
                                                             <cursor>
                                                                 <Cursor fx:constant="HAND" />
                                                             </cursor>
