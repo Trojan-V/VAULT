@@ -23,6 +23,9 @@ public interface GameConstants
 	@Constant
 	String ASSETS_PATH = "src/main/resources/me/vault/game/assets/";
 
+	@Constant
+	String WINDOW_ICON_PATH = ASSETS_PATH + "VAULT_Logo.png";
+
 	/**
 	 * The window title which will be displayed in the top bar of the game window.
 	 */

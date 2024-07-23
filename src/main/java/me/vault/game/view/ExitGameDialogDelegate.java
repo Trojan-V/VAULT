@@ -62,14 +62,16 @@ public class ExitGameDialogDelegate implements Initializable
 	private void setButtonActions ()
 	{
 		// Closes the different stages of the program if the user presses YES
-		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event -> {
+		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event ->
+		{
 			STAGE.close();
 			GameApplication.getStage().close();
 			Platform.exit();
 		});
 
 		// Closes the dialog if the user presses NO
-		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event -> {
+		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event ->
+		{
 			STAGE.close();
 		});
 	}

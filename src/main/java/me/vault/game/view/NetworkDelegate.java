@@ -10,6 +10,7 @@ import me.vault.game.model.network.NetworkController;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
@@ -26,7 +27,10 @@ public class NetworkDelegate implements Initializable
 
 	private static final String ICON_PATH = ASSETS_PATH + "button.png";
 
-	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
+	private static final String TO_STRING_PATTERN = "NetworkDelegate[dialogPane={0}]";
+
+	@FXML
+	private DialogPane dialogPane;
 
 	@FXML
 	private Label serverHost;
@@ -41,9 +45,6 @@ public class NetworkDelegate implements Initializable
 	private TextField clientPort;
 
 	@FXML
-	private DialogPane dialogPane;
-
-	@FXML
 	private TabPane serverClientTabPane;
 
 	private String host = null;
@@ -53,7 +54,6 @@ public class NetworkDelegate implements Initializable
 
 	public static void show ()
 	{
-
 		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, FXML_FILENAME));
 		STAGE.showAndWait();
 	}
@@ -92,11 +92,13 @@ public class NetworkDelegate implements Initializable
 
 	private void setButtonActions ()
 	{
-		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event -> {
+		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event ->
+		{
 			this.connect(STAGE, this.serverClientTabPane);
 		});
 
-		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event -> {
+		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event ->
+		{
 			STAGE.close();
 		});
 	}
@@ -118,6 +120,13 @@ public class NetworkDelegate implements Initializable
 			NetworkController.runClient(this.host, this.port);
 			stage.close();
 		}
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.dialogPane);
 	}
 
 }
