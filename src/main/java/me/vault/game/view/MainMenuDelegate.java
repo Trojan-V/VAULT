@@ -36,8 +36,6 @@ import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE
  */
 public class MainMenuDelegate implements Initializable
 {
-	// Buttons ------------------------------------------------------------------------------------------------------------------
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -48,13 +46,6 @@ public class MainMenuDelegate implements Initializable
 	 * elements.
 	 */
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
-
-
-	private static final String BUTTON_BACKGROUND_NORMAL = ASSETS_PATH + "button.png";
-
-
-	private static final String BUTTON_BACKGROUND_SELECTED = ASSETS_PATH + "button_round.png";
-
 
 	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 

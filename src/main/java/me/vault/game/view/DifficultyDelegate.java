@@ -24,8 +24,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 public final class DifficultyDelegate implements Initializable
 {
-	// Buttons ----------------------------------------------------------------------------------------------------------
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -37,16 +35,9 @@ public final class DifficultyDelegate implements Initializable
 	 */
 	private static final String DIFFICULTY_VIEW_FXML = "difficulty.fxml";
 
-
-	private static final String BUTTON_BACKGROUND_NORMAL = ASSETS_PATH + "button.png";
-	//TODO: Consolidate into Interface
-
-
-	private static final String BUTTON_BACKGROUND_SELECTED = ASSETS_PATH + "button_round.png";
-	//TODO: Consolidate into Interface
-
 	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(DifficultyDelegate.class, DIFFICULTY_VIEW_FXML);
 
+	//FXML Buttons ---------------------------------------------------------------------------------------
 	@FXML
 	private Button easyDifficultyButton;
 
@@ -58,6 +49,8 @@ public final class DifficultyDelegate implements Initializable
 
 	@FXML
 	private Button backButton;
+
+	//Methods ---------------------------------------------------------------------------------------
 
 	public static void show ()
 	{

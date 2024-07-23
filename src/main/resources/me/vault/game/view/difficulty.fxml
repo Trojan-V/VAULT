@@ -156,7 +156,7 @@
                                 <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button fx:id="backButton" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#changeButtonBackground" onMouseExited="#returnButtonBackgroundToNormal" onMousePressed="#changeButtonTextColor" onMouseReleased="#buttonClick" prefHeight="60.0" prefWidth="288.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="button_long" text="back" GridPane.rowIndex="1">
+                                <Button fx:id="backButton" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="60.0" prefWidth="288.0" styleClass="button_long" text="back" GridPane.rowIndex="1">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>

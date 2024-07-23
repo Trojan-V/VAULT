@@ -50,7 +50,11 @@
                                 <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="button_long" text="continue" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER"
+                                        maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                        mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="75.0"
+                                        prefWidth="400.0"  styleClass="button_long" text="continue"
+                                        GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
