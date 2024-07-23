@@ -1,14 +1,20 @@
 package me.vault.game.model.network;
 
 
+import javafx.fxml.FXMLLoader;
+import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.GameBoard;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
+import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.ArenaDelegate;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
+import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
 
 
 public class Client implements Runnable
@@ -61,27 +67,18 @@ public class Client implements Runnable
 
 		try
 		{
-			final BufferedReader in =
-				new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			final PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-			final BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("Bitte Text eingeben (Ende mit leerer Zeile)");
+			final ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+			final ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 			String oneLine;
 
-			while (true)
-			{
-				oneLine = keyboard.readLine();
-				if (oneLine.length() > 0)
-				{
-					out.println(oneLine);
-					System.out.println("Echo: " + in.readLine());
-				}
-				else
-				{break;}
-			}
+			FXMLLoader fxmlLoader = (new FXMLLoader().load(getClass().getResource(ArenaDelegate.ARENA_FXML).openStream()));
+			ArenaDelegate arenaDelegate = (ArenaDelegate) fxmlLoader.getController();
+
+			out.writeObject(arenaDelegate.getArena());
+			out.flush();
+
 			out.close();
 			in.close();
-			keyboard.close();
 			socket.close();
 		}
 		catch (final IOException e)

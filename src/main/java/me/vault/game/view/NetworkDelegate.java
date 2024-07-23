@@ -5,13 +5,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.network.NetworkController;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
+import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
@@ -50,6 +56,13 @@ public class NetworkDelegate implements Initializable
 
 	private int port = 0;
 
+	static
+	{
+		STAGE.setResizable(false);
+		STAGE.setTitle(WINDOW_TITLE);
+		STAGE.initModality(Modality.APPLICATION_MODAL);
+		STAGE.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
+	}
 
 	public static void show ()
 	{
@@ -116,6 +129,7 @@ public class NetworkDelegate implements Initializable
 				return;
 			}
 			NetworkController.runClient(this.host, this.port);
+			ArenaDelegate.show(GameConstants.ARENA);
 			stage.close();
 		}
 	}

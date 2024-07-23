@@ -1,7 +1,13 @@
 package me.vault.game.utility.constant;
 
 
+import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.GameBoard;
 import me.vault.game.utility.constant.ConstantInterface.Constant;
+import me.vault.game.utility.loading.ResourceLoader;
+
+import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
+import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
 
 
 /**
@@ -34,5 +40,9 @@ public interface GameConstants
 
 
 	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/config";
+
+	Arena ARENA = new Arena(ALLIES, ENCOUNTER_ONE_ENEMIES,
+		new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
+		                                                     "/Encounter_2.txt")));
 
 }

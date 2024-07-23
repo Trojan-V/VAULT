@@ -27,7 +27,6 @@ import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 public final class TutorialDelegate implements Initializable
 {
-	//Buttons ----------------------------------------------------------------------------------------------------------
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
@@ -36,7 +35,6 @@ public final class TutorialDelegate implements Initializable
 
 	private static final String cssFilePath = "./css/style.css";
 
-	//ImageViews -----------------------------------------------------------------------------------------------------------
 
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
@@ -49,15 +47,8 @@ public final class TutorialDelegate implements Initializable
 	@FXML
 	private Button continueButton;
 
-	//Texts -----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Button backButton;
-
-	@FXML
-	private ImageView continueButtonBackground;
-
-	@FXML
-	private ImageView backButtonBackground;
 
 	@FXML
 	private Text tutorialIntroductionText;
@@ -71,18 +62,11 @@ public final class TutorialDelegate implements Initializable
 	@FXML
 	private Text tutorialFactionsText;
 
-	//TabPane ----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Text tutorialMissionsText;
 
 	@FXML
 	private Text tutorialFightsText;
-
-	@FXML
-	private Text continueButtonText;
-
-	@FXML
-	private Text backButtonText;
 
 	@FXML
 	private TabPane tutorialTabPane;
@@ -94,61 +78,15 @@ public final class TutorialDelegate implements Initializable
 	}
 
 
-	//Actions ----------------------------------------------------------------------------------------------------------
-	@FXML
-	void changeButtonBackground (final MouseEvent mouseEvent)
-	{
-		if (mouseEvent.getSource().equals(this.backButton))
-		{
-			ViewUtil.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
-		}
-		else if (mouseEvent.getSource().equals(this.continueButton))
-		{
-			ViewUtil.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonRoundImageName));
-		}
-
-	}
-
-
-	@FXML
-	public void returnButtonBackgroundToNormal (final MouseEvent mouseEvent)
-	{
-		if (mouseEvent.getSource().equals(this.continueButton))
-		{
-			ViewUtil.setImage(this.continueButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
-		}
-		else if (mouseEvent.getSource().equals(this.backButton))
-		{
-			ViewUtil.setImage(this.backButtonBackground, ResourceLoader.loadImage(ASSETS_PATH + StringConstants.buttonImageName));
-		}
-	}
-
-
-	@FXML
-	void changeButtonTextColor (final MouseEvent mouseEvent)
-	{
-		if (mouseEvent.getSource().equals(this.backButton))
-		{
-			ViewUtil.setButtonColor(this.backButtonText, Color.valueOf(StringConstants.colorLightBlue));
-		}
-		else if (mouseEvent.getSource().equals(this.continueButton))
-		{
-			ViewUtil.setButtonColor(this.continueButtonText, Color.valueOf(StringConstants.colorLightBlue));
-		}
-	}
-
-
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			ViewUtil.setButtonColor(this.backButtonText, Color.BLACK);
 			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			ViewUtil.setButtonColor(this.continueButtonText, Color.BLACK);
 			CityDelegate.show(GameApplication.getStage());
 		}
 	}

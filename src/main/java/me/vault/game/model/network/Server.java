@@ -1,14 +1,21 @@
 package me.vault.game.model.network;
 
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import me.vault.game.GameApplication;
+import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.GameBoard;
 import me.vault.game.utility.constant.StringConstants;
+import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.ArenaDelegate;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
+import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
 
 
 public class Server implements Runnable
@@ -24,7 +31,22 @@ public class Server implements Runnable
 	private static final String CLIENT_CONNECTED = StringConstants.CLIENT_CONNECTED;
 
 
+	public static final String ACCEPTED = "Accepted";
+
+
+	public static final String ERROR_ACCEPT = "Error accept!";
+
+
+	public static final String WAIT_FOR_CONNECTIONREQUEST = "Wait for Connectionrequest";
+
+
+	public static final String ERROR_SERVER_SOCKET_CONSTRUCTOR = "Error ServerSocket-Constructor!";
+
+
 	private static boolean isAccepted = false;
+
+	private ObjectInputStream in;
+	private ObjectOutputStream out;
 
 
 	private int portNumber = -1;
@@ -67,10 +89,10 @@ public class Server implements Runnable
 		}
 		catch (final IOException e)
 		{
-			System.out.print("Error ServerSocket-Constructor!");
+			System.out.print(ERROR_SERVER_SOCKET_CONSTRUCTOR);
 			return;
 		}
-		System.out.println("Wait for Connectionrequest");
+		System.out.println(WAIT_FOR_CONNECTIONREQUEST);
 		Socket aClient = null;
 
 		try
@@ -80,10 +102,10 @@ public class Server implements Runnable
 		}
 		catch (final IOException e)
 		{
-			System.out.println("Error accept!");
+			System.out.println(ERROR_ACCEPT);
 			System.exit(0);
 		}
-		System.out.println("Client connected.");
+		System.out.println(ACCEPTED);
 		this.serveClient(aClient);
 	}
 
@@ -92,18 +114,15 @@ public class Server implements Runnable
 	{
 		try
 		{
-			final BufferedReader in =
-				new BufferedReader(new InputStreamReader(aClient.getInputStream()));
-			final PrintWriter out = new PrintWriter(aClient.getOutputStream(), true);
-			String line;
+			final ObjectInputStream in =
+				new ObjectInputStream(aClient.getInputStream());
+			final ObjectOutputStream out = new ObjectOutputStream(aClient.getOutputStream());
 
-			while ((line = in.readLine()) != null)
-			{
-				if (line.length() > 0)
-				{
-					out.println(this.createDoubleEcho(line));
-				}
-			}
+			FXMLLoader fxmlLoader = (new FXMLLoader().load(getClass().getResource(ArenaDelegate.ARENA_FXML).openStream()));
+			ArenaDelegate arenaDelegate = (ArenaDelegate) fxmlLoader.getController();
+
+			arenaDelegate.setArena((Arena) in.readObject());
+
 			in.close();
 			out.close();
 			aClient.close();
@@ -112,6 +131,15 @@ public class Server implements Runnable
 		{
 			throw new RuntimeException(e);
 		}
+		catch (ClassNotFoundException e)
+		{
+			throw new RuntimeException(e);
+		}
+	}
+
+	public Object getMessage () throws IOException, ClassNotFoundException
+	{
+		return in.readObject();
 	}
 
 }

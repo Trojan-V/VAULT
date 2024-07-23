@@ -9,6 +9,13 @@ import java.util.ArrayList;
 public class Arena
 {
 
+
+	public static final int MULTIPLIER = 11;
+
+
+	public static final int OFFSET = 10;
+
+
 	private final ArrayList<Troop> playerOneTroops;
 
 
@@ -61,7 +68,7 @@ public class Arena
 
 	private void placePlayerOneTroopAtRandomPosition (final Troop troop)
 	{
-		final int randomYCoordinate = (int) Math.round(Math.random() * 11);
+		final int randomYCoordinate = (int) Math.round(Math.random() * MULTIPLIER);
 		final int randomXCoordinate = (int) Math.round(Math.random());
 
 		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() == Placeholder.class)
@@ -75,8 +82,8 @@ public class Arena
 
 	private void placePlayerTwoTroopAtRandomPosition (final Troop troop)
 	{
-		final int randomYCoordinate = (int) Math.round(Math.random() * 11);
-		final int randomXCoordinate = (int) Math.round(Math.random() + 10);
+		final int randomYCoordinate = (int) Math.round(Math.random() * MULTIPLIER);
+		final int randomXCoordinate = (int) Math.round(Math.random() + OFFSET);
 
 		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() == Placeholder.class)
 		{
