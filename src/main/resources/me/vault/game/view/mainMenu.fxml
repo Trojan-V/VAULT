@@ -113,7 +113,7 @@
         </AnchorPane>
     </center>
     <top>
-        <MenuBar fx:id="menubar" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+        <MenuBar maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
             <menus>
                 <Menu fx:id="menu" mnemonicParsing="false" style="-fx-font-size: 12;" text="Menu">
                     <items>
