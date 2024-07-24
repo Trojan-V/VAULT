@@ -27,7 +27,6 @@ import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 public final class TutorialDelegate implements Initializable
 {
-	//Buttons ----------------------------------------------------------------------------------------------------------
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
@@ -35,8 +34,6 @@ public final class TutorialDelegate implements Initializable
 	private static final ILogger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
 
 	private static final String cssFilePath = "./css/style.css";
-
-	//ImageViews -----------------------------------------------------------------------------------------------------------
 
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
@@ -49,7 +46,6 @@ public final class TutorialDelegate implements Initializable
 	@FXML
 	private Button continueButton;
 
-	//Texts -----------------------------------------------------------------------------------------------------------
 	@FXML
 	private Button backButton;
 

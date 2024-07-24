@@ -9,13 +9,12 @@ import javafx.scene.control.DialogPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
 public class ExitGameDialogDelegate implements Initializable
@@ -27,8 +26,6 @@ public class ExitGameDialogDelegate implements Initializable
 
 	private static final String FXML_FILENAME = "gameExitDialog.fxml";
 
-	private static final String ICON_PATH = ASSETS_PATH + "button.png";
-
 	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
 
 
@@ -37,7 +34,7 @@ public class ExitGameDialogDelegate implements Initializable
 		STAGE.setResizable(false);
 		STAGE.setTitle(WINDOW_TITLE);
 		STAGE.initModality(Modality.APPLICATION_MODAL);
-		STAGE.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
+		STAGE.getIcons().add(ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH));
 	}
 
 
@@ -55,23 +52,15 @@ public class ExitGameDialogDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.setButtonActions();
-	}
-
-
-	private void setButtonActions ()
-	{
 		// Closes the different stages of the program if the user presses YES
-		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event ->
-		{
+		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event -> {
 			STAGE.close();
 			GameApplication.getStage().close();
 			Platform.exit();
 		});
 
 		// Closes the dialog if the user presses NO
-		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event ->
-		{
+		this.exitGameDialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event -> {
 			STAGE.close();
 		});
 	}

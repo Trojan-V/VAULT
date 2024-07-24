@@ -17,6 +17,7 @@ import me.vault.game.interfaces.Upgradable;
 import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -26,7 +27,6 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAIL;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
@@ -40,8 +40,6 @@ public class UpgradeDialogDelegate implements Initializable
 	private static final ILogger LOGGER = new Logger(UpgradeDialogDelegate.class.getSimpleName());
 
 	private static final String WINDOW_TITLE = "Upgrading...";
-
-	private static final String ICON_PATH = ASSETS_PATH + "button.png";
 
 	private static final String TO_STRING_PATTERN = "UpgradeDialogDelegate[upgradable={0}, upgrader={1}, fxml={2}]";
 
@@ -86,7 +84,7 @@ public class UpgradeDialogDelegate implements Initializable
 		stage.setResizable(false);
 		stage.setTitle(WINDOW_TITLE);
 		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
+		stage.getIcons().add(ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH));
 	}
 
 
