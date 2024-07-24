@@ -26,9 +26,9 @@ public interface TroopConstants
 	/**
 	 * The {@link Sniper} subinterface contains all constants, which apply to the Sniper troop class.
 	 *
-	 * @author Lasse-Leander Hillen
+	 * @author Lasse-Leander Hille n
 	 * @see me.vault.game.model.troop.impl.Sniper
-	 * @see me.vault.game.model.troop.Troop
+	 * @see me.vault.game.model.troop.Troop 
 	 * @since 21.06.2024
 	 */
 	@ConstantInterface

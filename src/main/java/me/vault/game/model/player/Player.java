@@ -5,9 +5,12 @@ import me.vault.game.model.Vertex;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.troop.Faction;
+import me.vault.game.model.troop.Troop;
+
+import java.util.ArrayList;
 
 
-public class Player implements Movable
+public final class Player implements Movable
 {
 
 	private static final Player INSTANCE = new Player();
@@ -16,11 +19,14 @@ public class Player implements Movable
 
 	private Faction selectedFaction;
 
+	private ArrayList<Troop> selectedTroops;
+
 
 	private Player ()
 	{
 		this.selectedFaction = Faction.NEW_TERRA;
 		this.selectedArtifact = DamageArtifact.getInstance();
+		this.selectedTroops = new ArrayList<>();
 	}
 
 
@@ -51,6 +57,30 @@ public class Player implements Movable
 	public void setSelectedArtifact (final Artifact selectedArtifact)
 	{
 		this.selectedArtifact = selectedArtifact;
+	}
+
+
+	public ArrayList<Troop> getSelectedTroops ()
+	{
+		return this.selectedTroops;
+	}
+
+
+	public void addSelectedTroop (Troop troop)
+	{
+		this.selectedTroops.add(troop);
+	}
+
+
+	public void setSelectedTroops (ArrayList<Troop> troopArrayList)
+	{
+		this.selectedTroops = troopArrayList;
+	}
+
+
+	public void clearSelectedTroops ()
+	{
+		this.selectedTroops.clear();
 	}
 
 
