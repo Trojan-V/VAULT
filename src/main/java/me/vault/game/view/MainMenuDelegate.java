@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import me.vault.game.GameApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.model.arena.Arena;
@@ -21,13 +20,13 @@ import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
+import me.vault.game.view.mission.MissionMapDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
 import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
 
@@ -154,7 +153,10 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.exitGameMenuItem))
 		{
-			ExitGameDialogDelegate.show();
+			// TODO: Replace with actual functionality
+			// ExitGameDialogDelegate.show();
+			MissionMapDelegate.show();
+
 		}
 		else if (actionEvent.getSource().equals(this.arenaMenuItem))
 		{

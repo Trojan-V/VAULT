@@ -7,8 +7,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.network.NetworkController;
 import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -17,19 +15,18 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
-import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
-
 
 public class NetworkDelegate implements Initializable
 {
 
 	private static final Stage STAGE = new Stage();
 
+
 	private static final String WINDOW_TITLE = "Arena Connection";
 
+
 	private static final String FXML_FILENAME = "network_connection_dialog.fxml";
+
 
 	private static final String TO_STRING_PATTERN = "NetworkDelegate[dialogPane={0}]";
 
@@ -46,22 +43,29 @@ public class NetworkDelegate implements Initializable
 	@FXML
 	private DialogPane dialogPane;
 
+
 	@FXML
 	private Label serverHost;
+
 
 	@FXML
 	private Label serverPort;
 
+
 	@FXML
 	private TextField clientHost;
+
 
 	@FXML
 	private TextField clientPort;
 
+
 	@FXML
 	private TabPane serverClientTabPane;
 
+
 	private String host = null;
+
 
 	private int port = 0;
 
