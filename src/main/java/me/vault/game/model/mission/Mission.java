@@ -2,7 +2,6 @@ package me.vault.game.model.mission;
 
 
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.model.player.Player;
 
 
 public class Mission
@@ -15,8 +14,6 @@ public class Mission
 	private final MissionMap missionMap;
 
 	private final CurrencyTransaction missionReward;
-
-	private Player player;
 
 	private boolean completed;
 
