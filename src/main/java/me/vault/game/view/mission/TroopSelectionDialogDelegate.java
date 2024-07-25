@@ -120,6 +120,13 @@ public class TroopSelectionDialogDelegate implements Initializable
 	}
 
 
+	@FXML
+	void onStartMission (final ActionEvent ignored)
+	{
+
+	}
+
+
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
@@ -130,85 +137,84 @@ public class TroopSelectionDialogDelegate implements Initializable
 
 
 	@FXML
-	void selectEngineer (final ActionEvent event)
+	void selectEngineer (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Engineer.getAllyInstance());
-		System.out.println(Arrays.deepToString(Arrays.stream(this.selectedAlliesGridPane.getSelectedTroops()).toArray()));
 	}
 
 
 	@FXML
-	void selectGrenadier (final ActionEvent event)
+	void selectGrenadier (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Grenadier.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectGuard (final ActionEvent event)
+	void selectGuard (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Guard.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectInfantry (final ActionEvent event)
+	void selectInfantry (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Infantry.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectLieutenant (final ActionEvent event)
+	void selectLieutenant (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Lieutenant.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectMedic (final ActionEvent event)
+	void selectMedic (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Medic.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectOfficer (final ActionEvent event)
+	void selectOfficer (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Officer.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectPrecisionShooter (final ActionEvent event)
+	void selectPrecisionShooter (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(PrecisionShooter.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectRanger (final ActionEvent event)
+	void selectRanger (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Ranger.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectRecruit (final ActionEvent event)
+	void selectRecruit (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Recruit.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectSniper (final ActionEvent event)
+	void selectSniper (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(Sniper.getAllyInstance());
 	}
 
 
 	@FXML
-	void selectSpaceMarine (final ActionEvent event)
+	void selectSpaceMarine (final ActionEvent ignored)
 	{
 		this.selectedAlliesGridPane.addTroop(SpaceMarine.getAllyInstance());
 	}

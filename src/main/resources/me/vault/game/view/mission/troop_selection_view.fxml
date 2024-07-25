@@ -408,7 +408,7 @@
                 <Font name="Segoe UI" size="22.0" />
             </font>
         </Button>
-      <Button layoutX="929.0" layoutY="640.0" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Confirm" textAlignment="CENTER">
+      <Button layoutX="929.0" layoutY="640.0" mnemonicParsing="false" onAction="#onStartMission" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Confirm" textAlignment="CENTER">
          <font>
             <Font name="Segoe UI" size="22.0" />
          </font>
