@@ -75,24 +75,28 @@ public final class SelectedAlliesGridPane extends GridPane
 				this.selectedTroops[0] = troop;
 				this.firstTroopLabel.setText(troop.getName());
 				this.firstTroopImageView.setImage(troop.getSprite());
+				this.counter++;
 				return true;
 
 			case 1:
 				this.selectedTroops[1] = troop;
 				this.secondTroopLabel.setText(troop.getName());
 				this.secondTroopImageView.setImage(troop.getSprite());
+				this.counter++;
 				return true;
 
 			case 2:
 				this.selectedTroops[2] = troop;
 				this.thirdTroopLabel.setText(troop.getName());
 				this.thirdTroopImageView.setImage(troop.getSprite());
+				this.counter++;
 				return true;
 
 			default:
 				this.counter = 0;
 				return this.addTroop(troop);
 		}
+
 	}
 
 

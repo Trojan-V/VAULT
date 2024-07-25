@@ -69,9 +69,9 @@
                         <RowConstraints />
                      </rowConstraints>
                      <children>
-                        <Accordion style="-fx-background-color: lightblue;">
+                        <Accordion fx:id="troopAccordion" style="-fx-background-color: lightblue;">
                           <panes>
-                            <TitledPane animated="false" prefHeight="359.0" prefWidth="595.0" style="-fx-background-color: lightblue;" text="New Terra">
+                            <TitledPane fx:id="militaryTitledPane" animated="false" prefHeight="359.0" prefWidth="595.0" style="-fx-background-color: lightblue;" text="Militaristic Government">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -92,7 +92,7 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/space_marine_icon.png" />
                                                    </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="75.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -108,35 +108,35 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/officer_icon.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Space Marine" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Engineer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Officer" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectSpaceMarine" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectEngineer" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectOfficer" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
@@ -150,7 +150,7 @@
                                     <Font size="18.0" />
                                  </font>
                             </TitledPane>
-                            <TitledPane animated="false" prefHeight="342.0" prefWidth="595.0" text="Militaristic Government">
+                            <TitledPane fx:id="terraTitledPane" animated="false" prefHeight="342.0" prefWidth="595.0" text="New Terra">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -171,7 +171,7 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/infantry_icon.png" />
                                                    </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="66.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -179,7 +179,7 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/lieutenant_icon.png" />
                                                    </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="71.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -187,35 +187,35 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/precision_shooter_icon.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Infantry" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Lieutenant" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Precision Shooter" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectInfantry" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectLieutenant" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectPrecisionShooter" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
@@ -229,7 +229,7 @@
                                     <Font size="18.0" />
                                  </font>
                             </TitledPane>
-                            <TitledPane animated="false" prefHeight="394.0" prefWidth="595.0" text="Explorer Association">
+                            <TitledPane fx:id="explorerTitledPane" animated="false" prefHeight="394.0" prefWidth="595.0" text="Explorer Association">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -250,7 +250,7 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/medic_icon.png" />
                                                    </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="74.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -258,7 +258,7 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/sniper_icon.png" />
                                                    </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="73.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -266,35 +266,35 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/ranger_icon.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Medic" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Sniper" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Ranger" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectMedic" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectSniper" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectRanger" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
@@ -308,7 +308,7 @@
                                     <Font size="18.0" />
                                  </font>
                             </TitledPane>
-                              <TitledPane animated="false" text="Mega Corporation">
+                              <TitledPane fx:id="corporationTitledPane" animated="false" text="Mega Corporation">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -319,9 +319,9 @@
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="179.0" />
                                              </columnConstraints>
                                              <rowConstraints>
-                                                <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="276.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="185.0" minHeight="9.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="276.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="185.0" minHeight="9.0" prefHeight="46.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
                                                 <ImageView fitHeight="72.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -329,7 +329,7 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/guard_icon.png" />
                                                    </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="74.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -337,7 +337,7 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/grenadier_icon.png" />
                                                    </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="73.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -345,35 +345,35 @@
                                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <image>
-                                                      <Image url="@../../assets/troops/engineer_icon.png" />
+                                                      <Image url="@../../assets/troops/recruit_icon.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Guard" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Grenadier" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" text="TEMP_NAME_1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label alignment="CENTER" text="Recruit" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI Semibold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectGuard" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectGrenadier" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                <Button mnemonicParsing="false" onAction="#selectRecruit" prefHeight="44.0" prefWidth="146.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                                    <font>
                                                       <Font name="Segoe UI" size="22.0" />
                                                    </font>
