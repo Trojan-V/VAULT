@@ -14,6 +14,7 @@ import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
@@ -30,9 +31,20 @@ public class NetworkDelegate implements Initializable
 
 	private static final String FXML_FILENAME = "network_connection_dialog.fxml";
 
-	private static final String ICON_PATH = ASSETS_PATH + "button.png";
+	private static final String TO_STRING_PATTERN = "NetworkDelegate[dialogPane={0}]";
 
-	private static final String TO_STRING_PATTERN = "ExitGameDialogDelegate[dialogPane={0}]";
+
+	static
+	{
+		STAGE.setResizable(false);
+		STAGE.setTitle(WINDOW_TITLE);
+		STAGE.initModality(Modality.APPLICATION_MODAL);
+		STAGE.getIcons().add(ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH));
+	}
+
+
+	@FXML
+	private DialogPane dialogPane;
 
 	@FXML
 	private Label serverHost;
@@ -47,26 +59,15 @@ public class NetworkDelegate implements Initializable
 	private TextField clientPort;
 
 	@FXML
-	private DialogPane dialogPane;
-
-	@FXML
 	private TabPane serverClientTabPane;
 
 	private String host = null;
 
 	private int port = 0;
 
-	static
-	{
-		STAGE.setResizable(false);
-		STAGE.setTitle(WINDOW_TITLE);
-		STAGE.initModality(Modality.APPLICATION_MODAL);
-		STAGE.getIcons().add(ResourceLoader.loadImage(ICON_PATH));
-	}
 
 	public static void show ()
 	{
-
 		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, FXML_FILENAME));
 		STAGE.showAndWait();
 	}
@@ -105,11 +106,13 @@ public class NetworkDelegate implements Initializable
 
 	private void setButtonActions ()
 	{
-		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event -> {
+		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event ->
+		{
 			this.connect(STAGE, this.serverClientTabPane);
 		});
 
-		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event -> {
+		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event ->
+		{
 			STAGE.close();
 		});
 	}
@@ -132,6 +135,13 @@ public class NetworkDelegate implements Initializable
 			ArenaDelegate.show(GameConstants.ARENA);
 			stage.close();
 		}
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.dialogPane);
 	}
 
 }

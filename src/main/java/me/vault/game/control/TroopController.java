@@ -220,6 +220,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	{
 		final OffensiveStatistics attackerOffensiveStats = attacker.getStatistics().getOffensiveStatistic();
 		final DefensiveStatistic defenderDefensiveStats = defender.getStatistics().getDefensiveStatistic();
+
 		System.out.println("attacker = " + attacker);
 		System.out.println("defender = " + defender);
 

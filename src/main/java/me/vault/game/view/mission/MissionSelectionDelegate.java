@@ -20,9 +20,13 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.constant.MissionConstants.MissionFour.MISSION_FOUR;
 import static me.vault.game.utility.constant.MissionConstants.MissionFour.MISSION_FOUR_REWARDS;
+import static me.vault.game.utility.constant.MissionConstants.MissionOne.MISSION_ONE;
 import static me.vault.game.utility.constant.MissionConstants.MissionOne.MISSION_ONE_REWARDS;
+import static me.vault.game.utility.constant.MissionConstants.MissionThree.MISSION_THREE;
 import static me.vault.game.utility.constant.MissionConstants.MissionThree.MISSION_THREE_REWARDS;
+import static me.vault.game.utility.constant.MissionConstants.MissionTwo.MISSION_TWO;
 import static me.vault.game.utility.constant.MissionConstants.MissionTwo.MISSION_TWO_REWARDS;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
@@ -80,28 +84,28 @@ public class MissionSelectionDelegate implements Initializable
 	@FXML
 	void onSelectMissionOne (final ActionEvent ignored)
 	{
-
+		TroopSelectionDialogDelegate.show(MISSION_ONE);
 	}
 
 
 	@FXML
 	void onSelectMissionTwo (final ActionEvent ignored)
 	{
-
+		TroopSelectionDialogDelegate.show(MISSION_TWO);
 	}
 
 
 	@FXML
 	void onSelectMissionThree (final ActionEvent ignored)
 	{
-
+		TroopSelectionDialogDelegate.show(MISSION_THREE);
 	}
 
 
 	@FXML
 	void onSelectMissionFour (final ActionEvent ignored)
 	{
-
+		TroopSelectionDialogDelegate.show(MISSION_FOUR);
 	}
 
 
