@@ -124,6 +124,7 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	private void onDodgeAbilityUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(DodgeAbility.getInstance(), EnergyAbilityConroller.getInstance());
+		// zum richtigen anzeigen der modifier melee
 	}
 
 
@@ -131,6 +132,7 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	private void onInitiativeAbilityUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(InitiativeAbility.getInstance(), EnergyAbilityConroller.getInstance());
+		// zum richtigen anzeigen der modifier Dodge
 	}
 
 
@@ -138,6 +140,7 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	private void onMeleeAbilityUpgrade (final ActionEvent ignored)
 	{
 		UpgradeDialogDelegate.show(MeleeAbility.getInstance(), EnergyAbilityConroller.getInstance());
+		// zum richtigen anzeigen der modifier initiative
 	}
 
 
