@@ -188,17 +188,17 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	{
 		final AbilityMultiplier dodgeAbilityModifiers = DodgeAbility.getInstance().getAbilityMultiplier();
 		this.dodgeEnergyAbilityDodgeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getDodgeMultiplierProperty().asString());
-		this.dodgeEnergyAbilityInitiativeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getDodgeMultiplierProperty().asString());
-		this.dodgeEnergyAbilityMeleeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getDodgeMultiplierProperty().asString());
+		this.dodgeEnergyAbilityInitiativeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getInitiativeMultiplierProperty().asString());
+		this.dodgeEnergyAbilityMeleeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getMeleeMultiplierProperty().asString());
 
 		final AbilityMultiplier initiativeAbilityModifiers = InitiativeAbility.getInstance().getAbilityMultiplier();
-		this.initiativeEnergyAbilityDodgeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getInitiativeMultiplierProperty().asString());
+		this.initiativeEnergyAbilityDodgeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getDodgeMultiplierProperty().asString());
 		this.initiativeEnergyAbilityInitiativeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getInitiativeMultiplierProperty().asString());
-		this.initiativeEnergyAbilityMeleeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getInitiativeMultiplierProperty().asString());
+		this.initiativeEnergyAbilityMeleeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getMeleeMultiplierProperty().asString());
 
 		final AbilityMultiplier meleeAbilityModifiers = MeleeAbility.getInstance().getAbilityMultiplier();
-		this.meleeEnergyAbilityDodgeModifierLabel.textProperty().bind(meleeAbilityModifiers.getMeleeMultiplierProperty().asString());
-		this.meleeEnergyAbilityInitiativeModifierLabel.textProperty().bind(meleeAbilityModifiers.getMeleeMultiplierProperty().asString());
+		this.meleeEnergyAbilityDodgeModifierLabel.textProperty().bind(meleeAbilityModifiers.getDodgeMultiplierProperty().asString());
+		this.meleeEnergyAbilityInitiativeModifierLabel.textProperty().bind(meleeAbilityModifiers.getInitiativeMultiplierProperty().asString());
 		this.meleeEnergyAbilityMeleeModifierLabel.textProperty().bind(meleeAbilityModifiers.getMeleeMultiplierProperty().asString());
 	}
 

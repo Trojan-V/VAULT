@@ -235,10 +235,10 @@ public class AbilityMultiplier
 	/**
 	 * This enum consists of all different types of attribute modifiers.
 	 *
-	 * @author Vincent Wolf
+	 * @author Alexander Göthel
 	 * @version 1.0.0
 	 * @see AbilityMultiplier
-	 * @since 08.06.2024
+	 * @since 26.07.2024
 	 */
 	public enum Type
 	{
