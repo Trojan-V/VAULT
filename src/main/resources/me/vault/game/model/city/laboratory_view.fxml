@@ -32,19 +32,19 @@
                 <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES"/>
             </rowConstraints>
             <children>
-                <ImageView fx:id="ability1ImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true"
+                <ImageView fx:id="dodgeImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true"
                            preserveRatio="true">
                     <GridPane.margin>
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                     </GridPane.margin>
                 </ImageView>
-                <ImageView fx:id="ability2ImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true"
+                <ImageView fx:id="initiativeImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true"
                            preserveRatio="true" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                     </GridPane.margin>
                 </ImageView>
-                <ImageView fx:id="ability3ImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true"
+                <ImageView fx:id="meleeImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true"
                            preserveRatio="true" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
@@ -52,8 +52,8 @@
                 </ImageView>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                     <children>
-                        <Label fx:id="ability1Label" alignment="CENTER" prefHeight="32.0" prefWidth="249.0"
-                               text="Player Ability 1" textAlignment="CENTER">
+                        <Label fx:id="dodgeLabel" alignment="CENTER" prefHeight="32.0" prefWidth="249.0"
+                               text="Dodge Ability" textAlignment="CENTER">
                             <VBox.margin>
                                 <Insets left="25.0" right="25.0" top="25.0"/>
                             </VBox.margin>
@@ -61,7 +61,7 @@
                                 <Font name="Segoe UI Semibold" size="18.0"/>
                             </font>
                         </Label>
-                        <Button fx:id="ability1UpgradeButton" mnemonicParsing="false" onAction="#onAbilityOneUpgrade"
+                        <Button fx:id="dodgeUpgradeButton" mnemonicParsing="false" onAction="#onDodgeAbilityUpgrade"
                                 prefHeight="112.0" prefWidth="249.0"
                                 style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                             <font>
@@ -75,8 +75,8 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
-                        <Label fx:id="ability2Label" alignment="CENTER" prefHeight="24.0" prefWidth="249.0"
-                               text="Player Ability 2" textAlignment="CENTER">
+                        <Label fx:id="initiativeLabel" alignment="CENTER" prefHeight="24.0" prefWidth="249.0"
+                               text="Initiative Ability" textAlignment="CENTER">
                             <font>
                                 <Font name="Segoe UI Semibold" size="18.0"/>
                             </font>
@@ -84,7 +84,7 @@
                                 <Insets left="25.0" right="25.0" top="25.0"/>
                             </VBox.margin>
                         </Label>
-                        <Button fx:id="ability2UpgradeButton" mnemonicParsing="false" onAction="#onAbilityTwoUpgrade"
+                        <Button fx:id="initiativeUpgradeButton" mnemonicParsing="false" onAction="#onInitiativeAbilityUpgrade"
                                 prefHeight="112.0" prefWidth="249.0"
                                 style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                             <font>
@@ -98,8 +98,8 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
-                        <Label fx:id="ability3Label" alignment="CENTER" prefHeight="32.0" prefWidth="249.0"
-                               text="Player Ability 3" textAlignment="CENTER">
+                        <Label fx:id="meleeLabel" alignment="CENTER" prefHeight="32.0" prefWidth="249.0"
+                               text="Melee Ability" textAlignment="CENTER">
                             <font>
                                 <Font name="Segoe UI Semibold" size="18.0"/>
                             </font>
@@ -107,7 +107,7 @@
                                 <Insets left="25.0" right="25.0" top="25.0"/>
                             </VBox.margin>
                         </Label>
-                        <Button fx:id="ability3UpgradeButton" mnemonicParsing="false" onAction="#onAbilityThreeUpgrade"
+                        <Button fx:id="meleeUpgradeButton" mnemonicParsing="false" onAction="#onMeleeAbilityUpgrade"
                                 prefHeight="112.0" prefWidth="249.0"
                                 style="-fx-background-color: lightgreen; -fx-border-color: darkgreen;" text="UPGRADE">
                             <font>
@@ -150,7 +150,9 @@
                             </GridPane.margin>
                         </Label>
                         <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="113.0" prefWidth="372.0"
-                               text="Ability bla bla bla" wrapText="true" GridPane.halignment="CENTER"
+                               text="The dodge ability increases your troops chance to evade an enemy's attack. By  improving this ability the troops get an extra 25% chance to evade enemy`s."
+                               wrapText="true"
+                               GridPane.halignment="CENTER"
                                GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Segoe UI" size="18.0"/>
@@ -197,7 +199,7 @@
                                 </VBox>
                                 <VBox prefHeight="159.0" prefWidth="105.0">
                                     <children>
-                                        <Label fx:id="healthArtifactHealthModifierLabel" alignment="CENTER"
+                                        <Label fx:id="meleeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -207,7 +209,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="healthArtifactDamageModifierLabel" alignment="CENTER"
+                                        <Label fx:id="meleeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -217,7 +219,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="healthArtifactDefenseModifierLabel" alignment="CENTER"
+                                        <Label fx:id="meleeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -267,7 +269,9 @@
                             </GridPane.margin>
                         </Label>
                         <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="113.0" prefWidth="337.0"
-                               text="Ability bla bla bla bla" wrapText="true" GridPane.halignment="CENTER"
+                               text="The initiative ability increases your troop`s initiative so that they can act before the enemy. Improving the ability adds an extra 25% to the increase."
+                               wrapText="true"
+                               GridPane.halignment="CENTER"
                                GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Segoe UI" size="18.0"/>
@@ -314,7 +318,7 @@
                                 </VBox>
                                 <VBox prefHeight="159.0" prefWidth="105.0">
                                     <children>
-                                        <Label fx:id="damageArtifactHealthModifierLabel" alignment="CENTER"
+                                        <Label fx:id="dodgeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                textAlignment="RIGHT" wrapText="true">
                                             <font>
@@ -324,7 +328,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="damageArtifactDamageModifierLabel" alignment="CENTER"
+                                        <Label fx:id="dodgeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -334,7 +338,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="damageArtifactDefenseModifierLabel" alignment="CENTER"
+                                        <Label fx:id="dodgeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -384,7 +388,8 @@
                             </GridPane.margin>
                         </Label>
                         <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="113.0" prefWidth="341.0"
-                               text="Ability bla bla bla" wrapText="true" GridPane.halignment="CENTER"
+                               text="The melee ability increases your melee damage. By upgrading the melee ability the damage increase gets 25% higher."
+                               wrapText="true" GridPane.halignment="CENTER"
                                GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Segoe UI" size="18.0"/>
@@ -431,7 +436,7 @@
                                 </VBox>
                                 <VBox prefHeight="159.0" prefWidth="105.0">
                                     <children>
-                                        <Label fx:id="defenseArtifactHealthModifierLabel" alignment="CENTER"
+                                        <Label fx:id="initiativeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                textAlignment="RIGHT" wrapText="true">
                                             <font>
@@ -441,7 +446,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="defenseArtifactDamageModifierLabel" alignment="CENTER"
+                                        <Label fx:id="initiativeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -451,7 +456,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="defenseArtifactDefenseModifierLabel" alignment="CENTER"
+                                        <Label fx:id="initiativeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
