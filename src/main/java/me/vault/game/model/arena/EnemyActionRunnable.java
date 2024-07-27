@@ -3,7 +3,6 @@ package me.vault.game.model.arena;
 
 import me.vault.game.control.EnemyController;
 import me.vault.game.model.troop.Troop;
-import me.vault.game.view.ArenaDelegate;
 
 import java.util.List;
 

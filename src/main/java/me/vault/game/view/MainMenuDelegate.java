@@ -35,6 +35,7 @@ import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE
  */
 public class MainMenuDelegate implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -91,6 +92,7 @@ public class MainMenuDelegate implements Initializable
 
 	//Methods ---------------------------------------------------------------------------------------
 
+
 	/**
 	 *
 	 */
@@ -98,6 +100,7 @@ public class MainMenuDelegate implements Initializable
 	{
 		ViewUtil.show(GameApplication.getStage(), SCENE, MainMenuDelegate.class);
 	}
+
 
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)
@@ -196,4 +199,5 @@ public class MainMenuDelegate implements Initializable
 			ViewUtil.setButtonInactive(this.loadGameButton);
 		}
 	}
+
 }

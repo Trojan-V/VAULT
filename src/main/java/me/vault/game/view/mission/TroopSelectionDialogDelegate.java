@@ -24,7 +24,6 @@ import me.vault.game.utility.logging.Logger;
 import java.io.IOException;
 import java.net.URL;
 import java.text.MessageFormat;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
@@ -34,6 +33,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 public class TroopSelectionDialogDelegate implements Initializable
 {
+
 	private static final Stage STAGE = GameApplication.getStage();
 
 	/**
@@ -220,14 +220,15 @@ public class TroopSelectionDialogDelegate implements Initializable
 	}
 
 
+	public Mission getMission ()
+	{
+		return this.mission;
+	}
+
+
 	public void setMission (final Mission mission)
 	{
 		this.mission = mission;
 	}
 
-
-	public Mission getMission ()
-	{
-		return this.mission;
-	}
 }

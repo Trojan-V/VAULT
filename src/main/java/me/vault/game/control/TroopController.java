@@ -9,13 +9,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import me.vault.game.interfaces.Upgrader;
-import me.vault.game.model.arena.*;
 import me.vault.game.model.troop.*;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
-
-import java.util.List;
 
 import static me.vault.game.utility.constant.AttributeConstants.*;
 
@@ -174,6 +171,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 		return attributeHBox;
 	}
+
 
 	/**
 	 * {@inheritDoc}

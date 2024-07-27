@@ -19,26 +19,19 @@ public class Server implements Runnable
 {
 
 
-	private static final String ERROR_SERVER_SOCKET = StringConstants.ERROR_SERVER_SOCKET;
-
-
-	private static final String ERROR_ACCEPTING = StringConstants.ERROR_ACCEPTING;
-
-
-	private static final String CLIENT_CONNECTED = StringConstants.CLIENT_CONNECTED;
-
-
 	public static final String ACCEPTED = "Accepted";
-
 
 	public static final String ERROR_ACCEPT = "Error accept!";
 
-
 	public static final String WAIT_FOR_CONNECTIONREQUEST = "Wait for Connectionrequest";
-
 
 	public static final String ERROR_SERVER_SOCKET_CONSTRUCTOR = "Error ServerSocket-Constructor!";
 
+	private static final String ERROR_SERVER_SOCKET = StringConstants.ERROR_SERVER_SOCKET;
+
+	private static final String ERROR_ACCEPTING = StringConstants.ERROR_ACCEPTING;
+
+	private static final String CLIENT_CONNECTED = StringConstants.CLIENT_CONNECTED;
 
 	private static boolean isAccepted = false;
 

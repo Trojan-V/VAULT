@@ -1,7 +1,6 @@
 package me.vault.game.view;
 
 
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;

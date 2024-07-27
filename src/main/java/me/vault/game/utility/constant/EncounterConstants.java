@@ -3,7 +3,10 @@ package me.vault.game.utility.constant;
 
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.troop.Troop;
-import me.vault.game.model.troop.impl.*;
+import me.vault.game.model.troop.impl.Lieutenant;
+import me.vault.game.model.troop.impl.Ranger;
+import me.vault.game.model.troop.impl.Sniper;
+import me.vault.game.model.troop.impl.SpaceMarine;
 
 import java.util.ArrayList;
 

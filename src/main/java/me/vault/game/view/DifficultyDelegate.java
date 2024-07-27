@@ -17,13 +17,13 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public final class DifficultyDelegate implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -37,7 +37,6 @@ public final class DifficultyDelegate implements Initializable
 
 	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(DifficultyDelegate.class, DIFFICULTY_VIEW_FXML);
 
-	//FXML Buttons ---------------------------------------------------------------------------------------
 	@FXML
 	private Button easyDifficultyButton;
 
@@ -50,13 +49,13 @@ public final class DifficultyDelegate implements Initializable
 	@FXML
 	private Button backButton;
 
-	//Methods ---------------------------------------------------------------------------------------
 
 	public static void show ()
 	{
 		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, DifficultyDelegate.class.getSimpleName()));
 		ViewUtil.show(GameApplication.getStage(), DIFFICULTY_MENU_SCENE, DifficultyDelegate.class);
 	}
+
 
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)
@@ -87,4 +86,5 @@ public final class DifficultyDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 	}
+
 }

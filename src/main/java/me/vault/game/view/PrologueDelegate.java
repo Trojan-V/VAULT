@@ -48,10 +48,12 @@ public class PrologueDelegate implements Initializable
 
 	// Methods --------------------------------------------------------------------------------------------------------
 
+
 	public static void show (final Stage stage)
 	{
 		ViewUtil.show(GameApplication.getStage(), SCENE, PrologueDelegate.class);
 	}
+
 
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)

@@ -9,6 +9,7 @@ import me.vault.game.utility.struct.MetaDataImage;
 
 public class SelectedTroopImageView extends ImageView
 {
+
 	private static final MetaDataImage PLACEHOLDER_IMAGE = ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH);
 
 
@@ -24,4 +25,5 @@ public class SelectedTroopImageView extends ImageView
 	{
 		return PLACEHOLDER_IMAGE;
 	}
+
 }

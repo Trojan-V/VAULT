@@ -13,11 +13,15 @@ import me.vault.game.utility.struct.MetaDataImage;
 
 public final class Figure<T extends Troop> implements Placable
 {
+
 	private static final ILogger LOGGER = new Logger(Figure.class.getSimpleName());
 
 	private final T troop;
+
 	private final SimpleStringProperty name;
+
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
+
 	private final TroopStatistics statistics;
 
 

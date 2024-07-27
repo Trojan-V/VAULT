@@ -1,7 +1,6 @@
 package me.vault.game.model.arena;
 
 
-import javafx.geometry.Pos;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.troop.Troop;
 

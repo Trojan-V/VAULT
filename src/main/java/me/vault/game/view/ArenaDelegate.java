@@ -38,6 +38,11 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 public class ArenaDelegate
 {
 
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(ArenaDelegate.class.getSimpleName());
+
 	@FXML
 	private GridPane gameBoardGridPane;
 
@@ -46,12 +51,6 @@ public class ArenaDelegate
 
 	@FXML
 	private VBox timelineVBox;
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(ArenaDelegate.class.getSimpleName());
-
 
 	private PriorityQueue<Figure<Troop>> currentQueue = null;
 
@@ -80,17 +79,6 @@ public class ArenaDelegate
 	}
 
 
-	public void setArena (final @NotNull Arena arena)
-	{
-		this.arena = arena;
-		this.figureTimeline = arena.getTimeline();
-		this.currentQueue = arena.getTimeline().getPriorityQueue();
-		this.initializeTimelineVbox();
-		this.initializeGameBoardGridPane();
-		this.gameBoardGridPane.setDisable(true);
-	}
-
-
 	private void show (final @NotNull Scene scene)
 	{
 		ViewUtil.show(GameApplication.getStage(), scene, ArenaDelegate.class);
@@ -107,7 +95,7 @@ public class ArenaDelegate
 	}
 
 
-	public void initializeGameBoardGridPane ()
+	private void initializeGameBoardGridPane ()
 	{
 		for (int i = 0; i < ARENA_ROW_COUNT; i++)
 		{
@@ -276,6 +264,17 @@ public class ArenaDelegate
 	public Arena getArena ()
 	{
 		return this.arena;
+	}
+
+
+	public void setArena (final @NotNull Arena arena)
+	{
+		this.arena = arena;
+		this.figureTimeline = arena.getTimeline();
+		this.currentQueue = arena.getTimeline().getPriorityQueue();
+		this.initializeTimelineVbox();
+		this.initializeGameBoardGridPane();
+		this.gameBoardGridPane.setDisable(true);
 	}
 
 }

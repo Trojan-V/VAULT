@@ -7,13 +7,11 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import me.vault.game.model.troop.Troop;
-import me.vault.game.utility.constant.GameConstants;
-import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.struct.MetaDataImage;
 
 
 public final class SelectedAlliesGridPane extends GridPane
 {
+
 	private static final int WIDTH = 565;
 
 	private static final int HEIGHT = 340;
@@ -30,7 +28,6 @@ public final class SelectedAlliesGridPane extends GridPane
 
 
 	private static final String PLACEHOLDER_STRING = "Nichts ausgew\u00E4hlt.";
-
 
 
 	private final Label firstTroopLabel = new Label(PLACEHOLDER_STRING);
@@ -168,4 +165,5 @@ public final class SelectedAlliesGridPane extends GridPane
 		this.getRowConstraints().add(this.getRowConstraints().size(), new RowConstraints(SECOND_ROW_Y));
 		this.getRowConstraints().add(this.getRowConstraints().size(), new RowConstraints(THIRD_ROW_Y));
 	}
+
 }

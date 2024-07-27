@@ -6,9 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
@@ -21,7 +19,6 @@ import me.vault.game.view.city.CityDelegate;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 

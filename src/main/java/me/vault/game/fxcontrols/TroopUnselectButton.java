@@ -20,4 +20,5 @@ public final class TroopUnselectButton extends Button
 		this.setDisable(true);
 		this.setMinSize(WIDTH, HEIGHT);
 	}
+
 }

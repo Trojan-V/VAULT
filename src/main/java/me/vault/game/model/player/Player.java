@@ -66,15 +66,15 @@ public final class Player implements Movable
 	}
 
 
-	public void addSelectedTroop (Troop troop)
+	public void setSelectedTroops (final ArrayList<Troop> troopArrayList)
 	{
-		this.selectedTroops.add(troop);
+		this.selectedTroops = troopArrayList;
 	}
 
 
-	public void setSelectedTroops (ArrayList<Troop> troopArrayList)
+	public void addSelectedTroop (final Troop troop)
 	{
-		this.selectedTroops = troopArrayList;
+		this.selectedTroops.add(troop);
 	}
 
 

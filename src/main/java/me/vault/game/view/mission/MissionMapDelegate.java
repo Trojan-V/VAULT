@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
  */
 public class MissionMapDelegate implements Initializable
 {
+
 	private static final String MISSION_MAP_VIEW_FXML = "mission_map_view.fxml";
 
 
@@ -42,4 +43,5 @@ public class MissionMapDelegate implements Initializable
 	{
 
 	}
+
 }

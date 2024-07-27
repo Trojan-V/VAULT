@@ -1,10 +1,8 @@
 package me.vault.game.control;
 
 
-import javafx.application.Platform;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.EnemyActionRunnable;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.troop.Troop;

@@ -14,6 +14,7 @@ public interface MissionConstants
 	@ConstantInterface
 	interface MissionOne
 	{
+
 		@Constant
 		String MISSION_ONE_NAME = "";
 
@@ -28,12 +29,14 @@ public interface MissionConstants
 
 		@Constant
 		Mission MISSION_ONE = new Mission(MISSION_ONE_NAME, MISSION_ONE_DESCRIPTION, MISSION_ONE_MAP, MISSION_ONE_REWARDS);
+
 	}
 
 
 	@ConstantInterface
 	interface MissionTwo
 	{
+
 		@Constant
 		String MISSION_TWO_NAME = "";
 
@@ -48,12 +51,14 @@ public interface MissionConstants
 
 		@Constant
 		Mission MISSION_TWO = new Mission(MISSION_TWO_NAME, MISSION_TWO_DESCRIPTION, MISSION_TWO_MAP, MISSION_TWO_REWARDS);
+
 	}
 
 
 	@ConstantInterface
 	interface MissionThree
 	{
+
 		@Constant
 		String MISSION_THREE_NAME = "";
 
@@ -68,12 +73,14 @@ public interface MissionConstants
 
 		@Constant
 		Mission MISSION_THREE = new Mission(MISSION_THREE_NAME, MISSION_THREE_DESCRIPTION, MISSION_THREE_MAP, MISSION_THREE_REWARDS);
+
 	}
 
 
 	@ConstantInterface
 	interface MissionFour
 	{
+
 		@Constant
 		String MISSION_FOUR_NAME = "";
 
@@ -88,6 +95,7 @@ public interface MissionConstants
 
 		@Constant
 		Mission MISSION_FOUR = new Mission(MISSION_FOUR_NAME, MISSION_FOUR_DESCRIPTION, MISSION_FOUR_MAP, MISSION_FOUR_REWARDS);
+
 	}
 
 }

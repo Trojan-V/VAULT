@@ -28,7 +28,7 @@ public interface TroopConstants
 	 *
 	 * @author Lasse-Leander Hille n
 	 * @see me.vault.game.model.troop.impl.Sniper
-	 * @see me.vault.game.model.troop.Troop 
+	 * @see me.vault.game.model.troop.Troop
 	 * @since 21.06.2024
 	 */
 	@ConstantInterface
@@ -485,6 +485,7 @@ public interface TroopConstants
 			new DexterityStatistic(2, -2),
 			new DefensiveStatistic(46, 20, 15, 20),
 			new OffensiveStatistics(9, 10, 0, 0, 1));
+
 		/**
 		 * A constant which represents the attributes of the engineer troop.
 		 */
@@ -502,7 +503,6 @@ public interface TroopConstants
 			new DexterityStatistic(2, -3),
 			new DefensiveStatistic(80, 30, 0, 30),
 			new OffensiveStatistics(0, 35, 35, 4, 2));
-
 
 	}
 

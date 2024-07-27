@@ -13,10 +13,12 @@ import java.util.List;
 
 public final class FigureController
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger Logger = new Logger(FigureController.class.getName());
+
 
 	private FigureController () {}
 
