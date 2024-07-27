@@ -1,11 +1,12 @@
 package me.vault.game.view;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
@@ -25,11 +26,9 @@ import me.vault.game.utility.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
-import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.ArenaConstants.*;
 import static me.vault.game.utility.constant.LoggingConstants.Arena.ARENA_DISPLAY_FAILED;
@@ -88,12 +87,23 @@ public class ArenaDelegate
 		this.currentQueue = arena.getTimeline().getPriorityQueue();
 		this.initializeTimelineVbox();
 		this.initializeGameBoardGridPane();
+		this.gameBoardGridPane.setDisable(true);
 	}
 
 
 	private void show (final @NotNull Scene scene)
 	{
 		ViewUtil.show(GameApplication.getStage(), scene, ArenaDelegate.class);
+	}
+
+
+	@FXML
+	void onStartGameClick (final ActionEvent actionEvent)
+	{
+		final Button sender = (Button) actionEvent.getSource();
+		sender.setDisable(true);
+		this.gameBoardGridPane.setDisable(false);
+		this.executeTurn();
 	}
 
 
@@ -120,10 +130,10 @@ public class ArenaDelegate
 	{
 		this.timelineVBox.getChildren().clear();
 		this.arena.setSelectedFigure(this.currentQueue.peek());
-
-		while (!this.currentQueue.isEmpty())
+		final PriorityQueue<Figure<Troop>> figurePriorityQueue = this.figureTimeline.getPriorityQueue();
+		while (!figurePriorityQueue.isEmpty())
 		{
-			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(this.currentQueue.poll())));
+			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(figurePriorityQueue.poll())));
 		}
 		this.timelineVBox.setSpacing(TIMELINE_SPACING);
 	}
@@ -151,22 +161,25 @@ public class ArenaDelegate
 		final Figure<Troop> attacker = this.arena.getSelectedFigure();
 		final Placable nextTileElement = this.arena.getGameBoard().getTile(position).getCurrentElement();
 
+		boolean interactionFailed = true;
 		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(this.arena, attacker, position))
 		{
 			FigureController.moveFigure(this.arena, attacker, position);
+			interactionFailed = false;
 		}
 		else if (nextTileElement instanceof final Figure<? extends Troop> defender && FigureController.figureCanAttackFigure(this.arena, attacker, position))
 		{
 			FigureController.attackFigure(this.arena, attacker, defender);
+			interactionFailed = false;
 		}
-		else if (nextTileElement instanceof Blocked)
+		if (interactionFailed)
 		{
 			return;
 		}
-
 		this.updateTimeline();
 		this.gameBoardGridPane.getChildren().clear();
 		this.initializeGameBoardGridPane();
+		this.executeTurn();
 	}
 
 
@@ -177,6 +190,10 @@ public class ArenaDelegate
 		if (playerTwoTroops.contains(this.arena.getSelectedFigure()))
 		{
 			this.HandleEnemyTurn();
+			this.gameBoardGridPane.getChildren().clear();
+			this.initializeGameBoardGridPane();
+			this.updateTimeline();
+			this.executeTurn();
 		}
 	}
 
@@ -199,7 +216,6 @@ public class ArenaDelegate
 		{
 			FigureController.moveFigure(this.arena, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst());
 		}
-		this.updateTimeline();
 	}
 
 
@@ -211,7 +227,14 @@ public class ArenaDelegate
 			this.currentQueue = new PriorityQueue<>(this.figureTimeline.getPriorityQueue());
 			this.incrementRound();
 		}
-		this.initializeTimelineVbox();
+
+		this.arena.setSelectedFigure(this.currentQueue.peek());
+		final PriorityQueue<Figure<Troop>> tempPriorityQueue = new PriorityQueue<>(this.currentQueue);
+		this.timelineVBox.getChildren().clear();
+		while (!tempPriorityQueue.isEmpty())
+		{
+			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(tempPriorityQueue.poll())));
+		}
 	}
 
 

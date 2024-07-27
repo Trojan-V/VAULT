@@ -19,8 +19,7 @@ public class EnemyController
 
 	public static void handleEnemyAction (final ArenaDelegate instance, final Arena arena, final Figure<Troop> troop)
 	{
-		Platform.runLater(new EnemyActionRunnable(instance, arena, troop));
-
+		// Platform.runLater(new EnemyActionRunnable(instance, arena, troop));
 	}
 
 

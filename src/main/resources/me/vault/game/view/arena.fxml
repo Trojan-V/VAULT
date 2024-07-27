@@ -76,7 +76,7 @@
         </Label>
         <VBox fx:id="timelineVBox" layoutX="957.0" layoutY="71.0" prefHeight="605.0" prefWidth="271.0" />
         <Line endX="126.0" layoutX="1095.0" layoutY="64.0" startX="-131.0" />
-      <Button defaultButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="159.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Start Arena" textAlignment="CENTER" underline="true" wrapText="true">
+      <Button defaultButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onStartGameClick" prefHeight="148.0" prefWidth="159.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Start Arena" textAlignment="CENTER" underline="true" wrapText="true">
          <font>
             <Font name="Segoe UI Semibold" size="22.0" />
          </font>

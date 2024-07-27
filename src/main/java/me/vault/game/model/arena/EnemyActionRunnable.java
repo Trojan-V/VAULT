@@ -11,18 +11,16 @@ import java.util.List;
 public class EnemyActionRunnable implements Runnable
 {
 
-	private final ArenaDelegate arenaDelegate;
 
 	private final Arena arena;
 
 	private final Figure<Troop> troop;
 
 
-	public EnemyActionRunnable (final ArenaDelegate instance, final Arena arena, final Figure<Troop> troop)
+	public EnemyActionRunnable (final Arena arena, final Figure<Troop> troopFigure)
 	{
-		this.arenaDelegate = instance;
 		this.arena = arena;
-		this.troop = troop;
+		this.troop = troopFigure;
 	}
 
 
@@ -49,7 +47,6 @@ public class EnemyActionRunnable implements Runnable
 		{
 			EnemyController.moveToAdjacentTile(this.arena, adjacentAccessibleTiles.getFirst(), this.troop);
 		}
-		this.arenaDelegate.initializeGameBoardGridPane();
 	}
 
 }
