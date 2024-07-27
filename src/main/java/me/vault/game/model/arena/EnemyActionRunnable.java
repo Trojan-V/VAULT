@@ -1,7 +1,6 @@
 package me.vault.game.model.arena;
 
 
-import javafx.geometry.Pos;
 import me.vault.game.control.EnemyController;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.view.ArenaDelegate;
@@ -50,7 +49,7 @@ public class EnemyActionRunnable implements Runnable
 		{
 			EnemyController.moveToAdjacentTile(this.arena, adjacentAccessibleTiles.getFirst(), this.troop);
 		}
-		this.arenaDelegate.initializeGameBoard();
+		this.arenaDelegate.initializeGameBoardGridPane();
 	}
 
 }

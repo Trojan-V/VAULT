@@ -1,21 +1,18 @@
 package me.vault.game.model.network;
 
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import me.vault.game.GameApplication;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.GameBoard;
 import me.vault.game.utility.constant.StringConstants;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.ArenaDelegate;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
-import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
+import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
 
 public class Server implements Runnable
@@ -46,6 +43,7 @@ public class Server implements Runnable
 	private static boolean isAccepted = false;
 
 	private ObjectInputStream in;
+
 	private ObjectOutputStream out;
 
 
@@ -114,32 +112,28 @@ public class Server implements Runnable
 	{
 		try
 		{
-			final ObjectInputStream in =
-				new ObjectInputStream(aClient.getInputStream());
-			final ObjectOutputStream out = new ObjectOutputStream(aClient.getOutputStream());
+			final ObjectInputStream objectInputStream = new ObjectInputStream(aClient.getInputStream());
+			final ObjectOutputStream objectOutputStream = new ObjectOutputStream(aClient.getOutputStream());
 
-			FXMLLoader fxmlLoader = (new FXMLLoader().load(getClass().getResource(ArenaDelegate.ARENA_FXML).openStream()));
-			ArenaDelegate arenaDelegate = (ArenaDelegate) fxmlLoader.getController();
+			final FXMLLoader fxmlLoader = (new FXMLLoader().load(this.getClass().getResource(ARENA_FXML).openStream()));
+			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
 
-			arenaDelegate.setArena((Arena) in.readObject());
+			arenaDelegate.setArena((Arena) objectInputStream.readObject());
 
-			in.close();
-			out.close();
+			objectInputStream.close();
+			objectOutputStream.close();
 			aClient.close();
 		}
-		catch (final IOException e)
-		{
-			throw new RuntimeException(e);
-		}
-		catch (ClassNotFoundException e)
+		catch (final IOException | ClassNotFoundException e)
 		{
 			throw new RuntimeException(e);
 		}
 	}
 
+
 	public Object getMessage () throws IOException, ClassNotFoundException
 	{
-		return in.readObject();
+		return this.in.readObject();
 	}
 
 }

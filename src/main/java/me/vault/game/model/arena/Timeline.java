@@ -26,7 +26,7 @@ public class Timeline
 	}
 
 
-	public PriorityQueue<Figure<Troop>> getSortedTimeline ()
+	public PriorityQueue<Figure<Troop>> getPriorityQueue ()
 	{
 		final PriorityQueue<Figure<Troop>> sortedTimeline = new PriorityQueue<Figure<Troop>>(new InitiativeComparator());
 		sortedTimeline.addAll(this.timelineElements);

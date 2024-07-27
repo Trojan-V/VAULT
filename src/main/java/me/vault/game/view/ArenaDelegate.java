@@ -20,7 +20,9 @@ import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,149 +31,84 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAIL;
+import static me.vault.game.utility.constant.ArenaConstants.*;
+import static me.vault.game.utility.constant.LoggingConstants.Arena.ARENA_DISPLAY_FAILED;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
-public class ArenaDelegate implements Initializable
+public class ArenaDelegate
 {
-
-	private static final Logger LOGGER = new Logger(ArenaDelegate.class.getSimpleName());
-
-
-	private static final String ENCOUNTER_FXML = "arena.fxml";
-
-
-	private static final int NUMBER_OF_ROWS = 12;
-
-
-	private static final int NUMBER_OF_COLUMNS = 12;
-
-
-	private static final String NAME = "Name: ";
-
-
-	private static final String HEALTH = "Health: ";
-
-
-	private static final String ARMOR = "Armor: ";
-
-
-	private static final double TIMELINE_SPACING = 5.0;
-
-
-	private static final double STATISTICS_SPACING = TIMELINE_SPACING;
-
-
-	private static final int DROP_SHADOW_RADIUS = 15;
-
-
-	private static final int IMAGE_OFFSET = 10;
-
-
-	private static final int H_BOX_OFFSET = 10;
-
-
-	private static final double DROP_SHADOW_SPREAD = 0.5;
-
-	private static final int SPRITE_WIDTH = 70;
-
-	private static final float SPRITE_HEIGHT = 70;
-
-	private static final int VBOX_WIDTH = 200;
-
-	private static final int VBOX_HEIGHT = 72;
-
-
-	public static final String ARENA_FXML = "arena.fxml";
-
-
-	private Arena arena;
-
-	private int round = 1;
-
 
 	@FXML
 	private GridPane gameBoardGridPane;
 
-
 	@FXML
 	private Label roundNumber;
-
 
 	@FXML
 	private VBox timelineVBox;
 
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(ArenaDelegate.class.getSimpleName());
 
-	private PriorityQueue<Figure<Troop>> troopTimeline;
+
+	private PriorityQueue<Figure<Troop>> currentQueue = null;
+
+	private Timeline figureTimeline = null;
+
+	private Arena arena = null;
+
+	private int round = 1;
 
 
-	public static void show (final Arena arena)
+	public static void show (final @NotNull Arena arena)
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(ArenaDelegate.class.getResource(ENCOUNTER_FXML));
+			final FXMLLoader fxmlLoader = new FXMLLoader(ArenaDelegate.class.getResource(ARENA_FXML));
 			final Parent root = fxmlLoader.load();
+			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
 
-			final ArenaDelegate delegate = fxmlLoader.getController();
-			delegate.setArena(arena);
-			delegate.show(new Scene(root));
+			arenaDelegate.setArena(arena);
+			arenaDelegate.show(new Scene(root));
 		}
 		catch (final IOException e)
 		{
-			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL, arena.toString());
+			LOGGER.logf(WARNING, ARENA_DISPLAY_FAILED, arena.toString());
 		}
 	}
 
 
-	private static void wait (final int ms)
-	{
-		try
-		{
-			Thread.sleep(ms);
-		}
-		catch (final InterruptedException ex)
-		{
-			Thread.currentThread().interrupt();
-		}
-	}
-
-
-	public void setArena (final Arena arena)
+	public void setArena (final @NotNull Arena arena)
 	{
 		this.arena = arena;
-		this.troopTimeline = arena.getTimeline().getSortedTimeline();
-		this.initializeTimeline();
-		this.initializeGameBoard();
+		this.figureTimeline = arena.getTimeline();
+		this.currentQueue = arena.getTimeline().getPriorityQueue();
+		this.initializeTimelineVbox();
+		this.initializeGameBoardGridPane();
 	}
 
 
-	public void show (final Scene scene)
+	private void show (final @NotNull Scene scene)
 	{
 		ViewUtil.show(GameApplication.getStage(), scene, ArenaDelegate.class);
 	}
 
 
-	@Override
-	public void initialize (final URL url, final ResourceBundle resourceBundle)
+	public void initializeGameBoardGridPane ()
 	{
-
-	}
-
-
-	@FXML
-	public void initializeGameBoard ()
-	{
-		for (int i = 0; i < NUMBER_OF_ROWS; i++)
+		for (int i = 0; i < ARENA_ROW_COUNT; i++)
 		{
-			for (int j = 0; j < NUMBER_OF_COLUMNS; j++)
+			for (int j = 0; j < ARENA_COLUMN_COUNT; j++)
 			{
 				final Position position = new Position(i, j);
 				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(position).getCurrentElement());
 
 				button.setOnMouseClicked(_ ->
 				{
-					this.handleMapObjectInteraction(position, this.arena);
+					this.handleFigureInteraction(position);
 				});
 				this.gameBoardGridPane.add(button, i, j);
 			}
@@ -179,98 +116,105 @@ public class ArenaDelegate implements Initializable
 	}
 
 
-	private void setTroopGlow (final Arena arena, final ImageView imageView, final Placable placable)
+	private void initializeTimelineVbox ()
 	{
-		if (placable instanceof Troop)
+		this.timelineVBox.getChildren().clear();
+		this.arena.setSelectedFigure(this.currentQueue.peek());
+
+		while (!this.currentQueue.isEmpty())
 		{
-			if (arena.getPlayerOneTroops().contains(placable))
-			{
-				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
-				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-				imageView.setEffect(playerIdentity);
-			}
-			else if (arena.getPlayerTwoTroops().contains(placable))
-			{
-				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
-				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-				imageView.setEffect(playerIdentity);
-			}
+			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(this.currentQueue.poll())));
+		}
+		this.timelineVBox.setSpacing(TIMELINE_SPACING);
+	}
+
+
+	private void setTroopGlow (final @NotNull Arena arena, final @NotNull ImageView imageView, final @NotNull Figure<? extends Troop> troopFigure)
+	{
+		if (arena.getPlayerOneTroops().contains(troopFigure))
+		{
+			final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
+			playerIdentity.setSpread(DROP_SHADOW_SPREAD);
+			imageView.setEffect(playerIdentity);
+		}
+		else if (arena.getPlayerTwoTroops().contains(troopFigure))
+		{
+			final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
+			playerIdentity.setSpread(DROP_SHADOW_SPREAD);
+			imageView.setEffect(playerIdentity);
 		}
 	}
 
 
-	private void handleMapObjectInteraction (final Position position, final Arena arena)
+	private void handleFigureInteraction (final @NotNull Position position)
 	{
-		final Figure<Troop> attacker = arena.getSelectedFigure();
-		final Placable nextTileElement = arena.getGameBoard().getTile(position).getCurrentElement();
+		final Figure<Troop> attacker = this.arena.getSelectedFigure();
+		final Placable nextTileElement = this.arena.getGameBoard().getTile(position).getCurrentElement();
 
-		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(arena, attacker, position))
+		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(this.arena, attacker, position))
 		{
-			FigureController.moveFigure(arena, attacker, position);
+			FigureController.moveFigure(this.arena, attacker, position);
 		}
-		else if (nextTileElement instanceof final Figure defender && FigureController.figureCanAttackFigure(arena, attacker, position))
+		else if (nextTileElement instanceof final Figure<? extends Troop> defender && FigureController.figureCanAttackFigure(this.arena, attacker, position))
 		{
-			FigureController.attackFigure(arena, attacker, defender);
+			FigureController.attackFigure(this.arena, attacker, defender);
 		}
-		else
+		else if (nextTileElement instanceof Blocked)
 		{
 			return;
 		}
+
 		this.updateTimeline();
 		this.gameBoardGridPane.getChildren().clear();
-		this.initializeGameBoard();
+		this.initializeGameBoardGridPane();
 	}
 
 
-	public void initializeTimeline ()
+	private void executeTurn ()
 	{
-		this.arena.setSelectedFigure(this.troopTimeline.peek());
-		final PriorityQueue<Figure<Troop>> displayQueue = new PriorityQueue<Figure<Troop>>(this.troopTimeline);
-		while (!displayQueue.isEmpty())
+		final List<Figure<Troop>> playerTwoTroops = this.arena.getPlayerTwoTroops();
+
+		if (playerTwoTroops.contains(this.arena.getSelectedFigure()))
 		{
-			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(displayQueue.poll())));
-		}
-		this.timelineVBox.setSpacing(TIMELINE_SPACING);
-		this.initializeGameBoard();
-
-		if (this.arena.getPlayerTwoTroops().contains(this.arena.getSelectedFigure()))
-		{
-			// TODO: Fix enemy movement and attack
-			final Position position = this.arena.getGameBoard().getFigurePosition(this.arena.getSelectedFigure());
-			final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensiveStatistic().getGrenadeRange();
-			final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterityStatistic().getMovementTiles();
-
-			final List<Tile> reachableTroopFigureTiles = this.arena.getGameBoard().getReachableTroopFigureTiles(position, attackRange);
-			final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position, movementRange);
-
-			boolean hasAttacked = false;
-			if (!reachableTroopFigureTiles.isEmpty())
-			{
-				hasAttacked = EnemyController.attackAdjacentTroop(this.arena, reachableTroopFigureTiles, this.arena.getSelectedFigure());
-			}
-			if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
-			{
-				FigureController.moveFigure(this.arena, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst());
-			}
-			this.updateTimeline();
+			this.HandleEnemyTurn();
 		}
 	}
 
 
-	public void updateTimeline ()
+	private void HandleEnemyTurn ()
 	{
-		this.troopTimeline.poll();
-		if (this.troopTimeline.isEmpty())
+		final Position position = this.arena.getGameBoard().getFigurePosition(this.arena.getSelectedFigure());
+		final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensiveStatistic().getGrenadeRange();
+		final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterityStatistic().getMovementTiles();
+
+		final List<Tile> reachableTroopFigureTiles = this.arena.getGameBoard().getReachableTroopFigureTiles(position, attackRange);
+		final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position, movementRange);
+
+		boolean hasAttacked = false;
+		if (!reachableTroopFigureTiles.isEmpty())
 		{
-			this.troopTimeline = new PriorityQueue<>(this.arena.getTimeline().getSortedTimeline());
+			hasAttacked = EnemyController.attackAdjacentTroop(this.arena, reachableTroopFigureTiles, this.arena.getSelectedFigure());
+		}
+		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
+		{
+			FigureController.moveFigure(this.arena, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst());
+		}
+		this.updateTimeline();
+	}
+
+
+	private void updateTimeline ()
+	{
+		this.currentQueue.poll();
+		if (this.currentQueue.isEmpty())
+		{
+			this.currentQueue = new PriorityQueue<>(this.figureTimeline.getPriorityQueue());
 			this.incrementRound();
 		}
-		this.timelineVBox.getChildren().clear();
-		this.initializeTimeline();
+		this.initializeTimelineVbox();
 	}
 
 
-	@FXML
 	private void incrementRound ()
 	{
 		this.round++;
@@ -278,7 +222,6 @@ public class ArenaDelegate implements Initializable
 	}
 
 
-	@FXML
 	private HBox createTimelineElement (final Figure<Troop> troopFigure)
 	{
 		final HBox container = new HBox();

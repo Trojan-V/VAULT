@@ -5,12 +5,18 @@ import me.vault.game.model.arena.*;
 import me.vault.game.model.troop.DefensiveStatistic;
 import me.vault.game.model.troop.OffensiveStatistics;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 import java.util.List;
 
 
 public final class FigureController
 {
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger Logger = new Logger(FigureController.class.getName());
 
 	private FigureController () {}
 
@@ -34,7 +40,7 @@ public final class FigureController
 	}
 
 
-	public static void attackFigure (final Arena arena, final Figure<Troop> attackerFigure, final Figure<Troop> defenderFigure)
+	public static void attackFigure (final Arena arena, final Figure<Troop> attackerFigure, final Figure<? extends Troop> defenderFigure)
 	{
 		final OffensiveStatistics attackerOffensiveStats = attackerFigure.getStatistics().getOffensiveStatistic();
 		final DefensiveStatistic defenderDefensiveStats = defenderFigure.getStatistics().getDefensiveStatistic();

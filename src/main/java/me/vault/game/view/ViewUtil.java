@@ -17,8 +17,8 @@ import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.io.File;
 import java.text.MessageFormat;
+import java.util.Objects;
 
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
@@ -81,9 +81,9 @@ public class ViewUtil
 	}
 
 
-	public static void show (final Stage stage, final Scene scene, final Class<? extends Initializable> clazz)
+	public static void show (final Stage stage, final Scene scene, final Class<?> clazz)
 	{
-		scene.getStylesheets().add(GameApplication.class.getResource("button_long.css").toExternalForm());
+		scene.getStylesheets().add(Objects.requireNonNull(GameApplication.class.getResource("button_long.css")).toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 

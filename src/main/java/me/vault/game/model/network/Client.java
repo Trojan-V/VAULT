@@ -2,19 +2,16 @@ package me.vault.game.model.network;
 
 
 import javafx.fxml.FXMLLoader;
-import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.GameBoard;
-import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.ArenaDelegate;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
-import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
+import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
 
 public class Client implements Runnable
@@ -67,18 +64,18 @@ public class Client implements Runnable
 
 		try
 		{
-			final ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-			final ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+			final ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+			final ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 			String oneLine;
 
-			FXMLLoader fxmlLoader = (new FXMLLoader().load(getClass().getResource(ArenaDelegate.ARENA_FXML).openStream()));
-			ArenaDelegate arenaDelegate = (ArenaDelegate) fxmlLoader.getController();
+			final FXMLLoader fxmlLoader = (new FXMLLoader().load(this.getClass().getResource(ARENA_FXML).openStream()));
+			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
 
-			out.writeObject(arenaDelegate.getArena());
-			out.flush();
+			objectOutputStream.writeObject(arenaDelegate.getArena());
+			objectOutputStream.flush();
 
-			out.close();
-			in.close();
+			objectOutputStream.close();
+			objectInputStream.close();
 			socket.close();
 		}
 		catch (final IOException e)
