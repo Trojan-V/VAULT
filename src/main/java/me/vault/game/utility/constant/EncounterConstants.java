@@ -20,15 +20,13 @@ public interface EncounterConstants
 
 	public static final ArrayList<Figure<Troop>> ALLIES = new ArrayList<>()
 	{{
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(Ranger.getAllyInstance()));
+		this.add(new Figure<Troop>(Sniper.getAllyInstance()));
+		this.add(new Figure<Troop>(Lieutenant.getAllyInstance()));
 	}};
 
 	public static final ArrayList<Figure<Troop>> ENCOUNTER_ONE_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
 		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
 		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
 		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));

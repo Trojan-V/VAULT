@@ -16,13 +16,9 @@ import javafx.scene.paint.Color;
 import me.vault.game.GameApplication;
 import me.vault.game.control.EnemyController;
 import me.vault.game.control.FigureController;
-import me.vault.game.control.TroopController;
 import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placable;
-import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.Figure;
-import me.vault.game.model.arena.Placeholder;
-import me.vault.game.model.arena.Tile;
+import me.vault.game.model.arena.*;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.Logger;
 
@@ -170,12 +166,12 @@ public class ArenaDelegate implements Initializable
 		{
 			for (int j = 0; j < NUMBER_OF_COLUMNS; j++)
 			{
-				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(i, j).getCurrentElement());
+				final Position position = new Position(i, j);
+				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(position).getCurrentElement());
 
-				final int row = i;
-				final int column = j;
-				button.setOnMouseClicked(_ -> {
-					this.handleMapObjectInteraction(row, column, this.arena);
+				button.setOnMouseClicked(_ ->
+				{
+					this.handleMapObjectInteraction(position, this.arena);
 				});
 				this.gameBoardGridPane.add(button, i, j);
 			}
@@ -203,18 +199,16 @@ public class ArenaDelegate implements Initializable
 	}
 
 
-	private void handleMapObjectInteraction (final int row, final int column, final Arena arena)
+	private void handleMapObjectInteraction (final Position position, final Arena arena)
 	{
-		// TODO: Position fuer row und column anlegen
-
 		final Figure<Troop> attacker = arena.getSelectedFigure();
-		final Placable nextTileElement = arena.getGameBoard().getTile(row, column).getCurrentElement();
+		final Placable nextTileElement = arena.getGameBoard().getTile(position).getCurrentElement();
 
-		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(arena, attacker, row, column))
+		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(arena, attacker, position))
 		{
-			FigureController.moveFigure(arena, attacker, row, column);
+			FigureController.moveFigure(arena, attacker, position);
 		}
-		else if (nextTileElement instanceof final Figure defender && FigureController.figureCanAttackFigure(arena, attacker, row, column))
+		else if (nextTileElement instanceof final Figure defender && FigureController.figureCanAttackFigure(arena, attacker, position))
 		{
 			FigureController.attackFigure(arena, attacker, defender);
 		}
@@ -242,18 +236,21 @@ public class ArenaDelegate implements Initializable
 		if (this.arena.getPlayerTwoTroops().contains(this.arena.getSelectedFigure()))
 		{
 			// TODO: Fix enemy movement and attack
-			final int[] position = this.arena.getGameBoard().getFigurePosition(this.arena.getSelectedFigure());
-			final List<Tile> adjacentTroopTiles = this.arena.getGameBoard().getAdjacentTroopTiles(position);
-			final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position);
+			final Position position = this.arena.getGameBoard().getFigurePosition(this.arena.getSelectedFigure());
+			final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensiveStatistic().getGrenadeRange();
+			final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterityStatistic().getMovementTiles();
+
+			final List<Tile> reachableTroopFigureTiles = this.arena.getGameBoard().getReachableTroopFigureTiles(position, attackRange);
+			final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position, movementRange);
 
 			boolean hasAttacked = false;
-			if (!adjacentTroopTiles.isEmpty())
+			if (!reachableTroopFigureTiles.isEmpty())
 			{
-				hasAttacked = EnemyController.attackAdjacentTroop(this.arena, adjacentTroopTiles, this.arena.getSelectedFigure());
+				hasAttacked = EnemyController.attackAdjacentTroop(this.arena, reachableTroopFigureTiles, this.arena.getSelectedFigure());
 			}
 			if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 			{
-				EnemyController.moveToAdjacentTile(this.arena, adjacentAccessibleTiles.getFirst(), this.arena.getSelectedFigure());
+				FigureController.moveFigure(this.arena, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst());
 			}
 			this.updateTimeline();
 		}
@@ -309,8 +306,10 @@ public class ArenaDelegate implements Initializable
 		return container;
 	}
 
+
 	public Arena getArena ()
 	{
 		return this.arena;
 	}
+
 }

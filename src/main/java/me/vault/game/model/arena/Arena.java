@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Arena
 {
+
 	private static final int MULTIPLIER = 11;
 
 
@@ -68,12 +69,11 @@ public class Arena
 
 	private void placePlayerOneTroopAtRandomPosition (final Figure<Troop> troop)
 	{
-		final int randomYCoordinate = (int) Math.round(Math.random() * MULTIPLIER);
-		final int randomXCoordinate = (int) Math.round(Math.random());
+		final Position randomPosition = new Position((int) Math.round(Math.random()), (int) Math.round(Math.random() * MULTIPLIER));
 
-		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() == Placeholder.class)
+		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() == Placeholder.class)
 		{
-			this.getGameBoard().placeFigure(randomXCoordinate, randomYCoordinate, troop);
+			this.getGameBoard().placeFigure(randomPosition, troop);
 			return;
 		}
 		this.placePlayerOneTroopAtRandomPosition(troop);
@@ -82,12 +82,11 @@ public class Arena
 
 	private void placePlayerTwoTroopAtRandomPosition (final Figure<Troop> troop)
 	{
-		final int randomYCoordinate = (int) Math.round(Math.random() * MULTIPLIER);
-		final int randomXCoordinate = (int) Math.round(Math.random() + OFFSET);
+		final Position randomPosition = new Position((int) Math.round(Math.random() + +OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
 
-		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() == Placeholder.class)
+		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() == Placeholder.class)
 		{
-			this.getGameBoard().placeFigure(randomXCoordinate, randomYCoordinate, troop);
+			this.getGameBoard().placeFigure(randomPosition, troop);
 			return;
 		}
 		this.placePlayerTwoTroopAtRandomPosition(troop);

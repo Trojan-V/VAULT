@@ -1,6 +1,7 @@
 package me.vault.game.model.arena;
 
 
+import javafx.geometry.Pos;
 import me.vault.game.control.EnemyController;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.view.ArenaDelegate;
@@ -32,17 +33,18 @@ public class EnemyActionRunnable implements Runnable
 	@Override
 	public void run ()
 	{
-		final int[] position = this.arena.getGameBoard().getFigurePosition(this.troop);
-		final List<Tile> adjacentTroopTiles = this.arena.getGameBoard().getAdjacentTroopTiles(position);
+		final Position position = this.arena.getGameBoard().getFigurePosition(this.troop);
+		final int range = this.troop.getStatistics().getOffensiveStatistic().getGrenadeRange();
+		final List<Tile> reachableTroopFigureTiles = this.arena.getGameBoard().getReachableTroopFigureTiles(position, range);
 		final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position);
 
 		System.out.println("getAdjacentAccessibleTiles = " + adjacentAccessibleTiles);
-		System.out.println("getAdjacentTroopTiles = " + adjacentTroopTiles);
+		System.out.println("getAdjacentTroopTiles = " + reachableTroopFigureTiles);
 
 		boolean hasAttacked = false;
-		if (!adjacentTroopTiles.isEmpty())
+		if (!reachableTroopFigureTiles.isEmpty())
 		{
-			hasAttacked = EnemyController.attackAdjacentTroop(this.arena, adjacentTroopTiles, this.troop);
+			hasAttacked = EnemyController.attackAdjacentTroop(this.arena, reachableTroopFigureTiles, this.troop);
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{

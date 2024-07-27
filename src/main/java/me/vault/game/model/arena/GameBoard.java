@@ -1,6 +1,7 @@
 package me.vault.game.model.arena;
 
 
+import javafx.geometry.Pos;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.troop.Troop;
 
@@ -9,7 +10,7 @@ import java.util.List;
 
 
 // TODO imple.
-public class GameBoard implements GameBoardConstants
+public class GameBoard
 {
 
 	private static final int RANGE = 1;
@@ -30,7 +31,7 @@ public class GameBoard implements GameBoardConstants
 	}
 
 
-	public int[] getFigurePosition (final Figure<Troop> troop)
+	public Position getFigurePosition (final Figure<Troop> troop)
 	{
 		for (int i = 0; i < this.gameBoard.length; i++)
 		{
@@ -38,7 +39,7 @@ public class GameBoard implements GameBoardConstants
 			{
 				if (this.gameBoard[i][j].getCurrentElement() == troop)
 				{
-					return new int[]{i, j};
+					return new Position(i, j);
 				}
 			}
 		}
@@ -46,57 +47,57 @@ public class GameBoard implements GameBoardConstants
 	}
 
 
-	public Tile getTile (final int row, final int column)
+	public Tile getTile (final Position position)
 	{
-		return this.gameBoard[row][column];
+		return this.gameBoard[position.x()][position.y()];
 	}
 
 
-	public Figure<Troop> getFigure (final int row, final int column) throws Exception
+	public Figure<Troop> getFigure (final Position position) throws Exception
 	{
-		if (!(this.gameBoard[row][column].getCurrentElement() instanceof Figure))
+		if (!(this.gameBoard[position.x()][position.y()].getCurrentElement() instanceof Figure))
 		{
 			throw new Exception("Not a troop exception..."); // TODO: Implementieren der neuen exception
 		}
-		return (Figure<Troop>) this.gameBoard[row][column].getCurrentElement();
+		return (Figure<Troop>) this.gameBoard[position.x()][position.y()].getCurrentElement();
 	}
 
 
-	public void placeFigure (final int row, final int column, final Figure<Troop> troopFigure)
+	public void placeFigure (final Position position, final Figure<Troop> troopFigure)
 	{
-		if (this.gameBoard[row][column].getCurrentElement().getClass() == Placeholder.class)
+		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == Placeholder.class)
 		{
-			this.gameBoard[row][column].setCurrentElement(troopFigure);
+			this.setPlaceable(position, troopFigure);
 		}
 	}
 
 
-	public void setPlaceable (final int row, final int column, final Placable placeable)
+	public void setPlaceable (final Position position, final Placable placeable)
 	{
-		this.gameBoard[row][column].setCurrentElement(placeable);
+		this.gameBoard[position.x()][position.y()].setCurrentElement(placeable);
 	}
 
 
-	public List<Tile> getAdjacentTroopTiles (final int[] position)
+	public List<Tile> getReachableTroopFigureTiles (final Position position, final int attackRange)
 	{
-		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[RANGE]);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Troop));
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, attackRange);
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Figure<? extends Troop>));
 		return adjacentTiles;
 	}
 
 
-	public List<Tile> getAdjacentTiles (final int row, final int column)
+	public List<Tile> getAdjacentTiles (final Position position)
 	{
-		return this.getAdjacentTiles(row, column, RANGE);
+		return this.getAdjacentTiles(position, RANGE);
 	}
 
 
-	public List<Tile> getAdjacentTiles (final int row, final int column, final int range)
+	public List<Tile> getAdjacentTiles (final Position position, final int range)
 	{
 		final List<Tile> adjacentTiles = new ArrayList<>();
-		for (int i = (row - range); i <= row + range; i++)
+		for (int i = (position.x() - range); i <= position.x() + range; i++)
 		{
-			for (int j = column - range; j <= column + range; j++)
+			for (int j = position.y() - range; j <= position.y() + range; j++)
 			{
 				try
 				{
@@ -107,22 +108,22 @@ public class GameBoard implements GameBoardConstants
 				}
 			}
 		}
-		adjacentTiles.remove(this.gameBoard[row][column]);
+		adjacentTiles.remove(this.gameBoard[position.x()][position.y()]);
 		return adjacentTiles;
 	}
 
 
-	public List<Tile> getAdjacentAccessibleTiles (final int[] position)
+	public List<Tile> getAdjacentAccessibleTiles (final Position position)
 	{
-		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[RANGE]);
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
 		return adjacentTiles;
 	}
 
 
-	public List<Tile> getAdjacentAccessibleTiles (final int[] position, final int range)
+	public List<Tile> getAdjacentAccessibleTiles (final Position position, final int range)
 	{
-		final List<Tile> adjacentTiles = this.getAdjacentTiles(position[0], position[RANGE], range);
+		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, range);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
 		return adjacentTiles;
 	}
