@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.EnemyActionRunnable;
+import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
@@ -16,28 +17,28 @@ import java.util.ArrayList;
 public class EnemyController
 {
 
-	public static void handleEnemyAction (final ArenaDelegate instance, final Arena arena, final Troop troop)
+	public static void handleEnemyAction (final ArenaDelegate instance, final Arena arena, final Figure<Troop> troop)
 	{
 		Platform.runLater(new EnemyActionRunnable(instance, arena, troop));
 
 	}
 
 
-	public static void moveToAdjacentTile (final Arena arena, final Tile adjacentAccessibleTile, final Troop troop)
+	public static void moveToAdjacentTile (final Arena arena, final Tile adjacentAccessibleTile, final Figure<Troop> troopFigure)
 	{
-		TroopController.moveTroop(arena, troop, adjacentAccessibleTile.getRow(), adjacentAccessibleTile.getColumn());
+		FigureController.moveFigure(arena, troopFigure, adjacentAccessibleTile.getRow(), adjacentAccessibleTile.getColumn());
 	}
 
 
-	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Troop troop)
+	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure<Troop> troopFigure)
 	{
 		for (final Tile tile : adjacentTroopTiles)
 		{
-			final Troop adjacentTroop = (Troop) tile.getCurrentElement();
-			if (arena.getPlayerOneTroops().contains(adjacentTroop))
+			final Figure<Troop> adjacentTroopFigure = (Figure<Troop>) tile.getCurrentElement();
+			if (arena.getPlayerOneTroops().contains(adjacentTroopFigure))
 			{
-				TroopController.attackTroop(arena, troop, adjacentTroop);
-				System.out.println(troop.getName() + " attacked " + adjacentTroop.getName());
+				FigureController.attackFigure(arena, troopFigure, adjacentTroopFigure);
+				System.out.println(troopFigure.getName() + " attacked " + adjacentTroopFigure.getName());
 				return true;
 			}
 		}

@@ -1,6 +1,7 @@
 package me.vault.game.utility.constant;
 
 
+import me.vault.game.model.arena.Figure;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.*;
 
@@ -17,44 +18,44 @@ public interface EncounterConstants
 
 	String ENCOUNTER_TWO_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_2.txt";
 
-	public static final ArrayList<Troop> ALLIES = new ArrayList<>()
+	public static final ArrayList<Figure<Troop>> ALLIES = new ArrayList<>()
 	{{
-		this.add(Recruit.getAllyInstance());
-		this.add(Guard.getAllyInstance());
-		this.add(Lieutenant.getAllyInstance());
-		this.add(Officer.getAllyInstance());
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
 	}};
 
-	public static final ArrayList<Troop> ENCOUNTER_ONE_ENEMIES = new ArrayList<>()
+	public static final ArrayList<Figure<Troop>> ENCOUNTER_ONE_ENEMIES = new ArrayList<>()
 	{{
-		this.add(SpaceMarine.getEnemyInstance());
-		this.add(Ranger.getEnemyInstance());
-		this.add(Medic.getEnemyInstance());
-		this.add(Grenadier.getEnemyInstance());
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
 	}};
 
-	public static final ArrayList<Troop> ENCOUNTER_TWO_ENEMIES = new ArrayList<>()
+	public static final ArrayList<Figure<Troop>> ENCOUNTER_TWO_ENEMIES = new ArrayList<>()
 	{{
-		this.add(SpaceMarine.getEnemyInstance());
-		this.add(Ranger.getEnemyInstance());
-		this.add(Medic.getEnemyInstance());
-		this.add(Grenadier.getEnemyInstance());
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
 	}};
 
-	public static final ArrayList<Troop> ENCOUNTER_THREE_ENEMIES = new ArrayList<>()
+	public static final ArrayList<Figure<Troop>> ENCOUNTER_THREE_ENEMIES = new ArrayList<>()
 	{{
-		this.add(SpaceMarine.getEnemyInstance());
-		this.add(Ranger.getEnemyInstance());
-		this.add(Medic.getEnemyInstance());
-		this.add(Grenadier.getEnemyInstance());
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
 	}};
 
-	public static final ArrayList<Troop> ENCOUNTER_FOUR_ENEMIES = new ArrayList<>()
+	public static final ArrayList<Figure<Troop>> ENCOUNTER_FOUR_ENEMIES = new ArrayList<>()
 	{{
-		this.add(SpaceMarine.getEnemyInstance());
-		this.add(Ranger.getEnemyInstance());
-		this.add(Medic.getEnemyInstance());
-		this.add(Grenadier.getEnemyInstance());
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
 	}};
 
 }

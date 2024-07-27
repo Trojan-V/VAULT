@@ -43,9 +43,7 @@ public class Tile
 	}
 
 
-	/**
-	 * {@return a string representation of the object}
-	 */
+
 	@Override
 	public String toString ()
 	{

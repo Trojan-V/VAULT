@@ -11,24 +11,24 @@ import java.util.PriorityQueue;
 public class Timeline
 {
 
-	private ArrayList<Troop> timelineElements = new ArrayList<>();
+	private ArrayList<Figure<Troop>> timelineElements = new ArrayList<>();
 
 
-	public Timeline (final ArrayList<Troop> timelineElements)
+	public Timeline (final ArrayList<Figure<Troop>> timelineElements)
 	{
 		this.timelineElements = timelineElements;
 	}
 
 
-	public ArrayList<Troop> getTimelineElements ()
+	public ArrayList<Figure<Troop>> getTimelineElements ()
 	{
 		return this.timelineElements;
 	}
 
 
-	public PriorityQueue<Troop> getSortedTimeline ()
+	public PriorityQueue<Figure<Troop>> getSortedTimeline ()
 	{
-		final PriorityQueue<Troop> sortedTimeline = new PriorityQueue<>(new InitiativeComparator());
+		final PriorityQueue<Figure<Troop>> sortedTimeline = new PriorityQueue<Figure<Troop>>(new InitiativeComparator());
 		sortedTimeline.addAll(this.timelineElements);
 
 		return sortedTimeline;

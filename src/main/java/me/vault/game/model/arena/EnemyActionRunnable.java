@@ -15,10 +15,10 @@ public class EnemyActionRunnable implements Runnable
 
 	private final Arena arena;
 
-	private final Troop troop;
+	private final Figure<Troop> troop;
 
 
-	public EnemyActionRunnable (final ArenaDelegate instance, final Arena arena, final Troop troop)
+	public EnemyActionRunnable (final ArenaDelegate instance, final Arena arena, final Figure<Troop> troop)
 	{
 		this.arenaDelegate = instance;
 		this.arena = arena;
@@ -32,7 +32,7 @@ public class EnemyActionRunnable implements Runnable
 	@Override
 	public void run ()
 	{
-		final int[] position = this.arena.getGameBoard().getTroopPosition(this.troop);
+		final int[] position = this.arena.getGameBoard().getFigurePosition(this.troop);
 		final List<Tile> adjacentTroopTiles = this.arena.getGameBoard().getAdjacentTroopTiles(position);
 		final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position);
 

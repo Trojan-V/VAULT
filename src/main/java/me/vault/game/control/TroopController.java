@@ -9,10 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import me.vault.game.interfaces.Upgrader;
-import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.GameBoard;
-import me.vault.game.model.arena.Placeholder;
-import me.vault.game.model.arena.Tile;
+import me.vault.game.model.arena.*;
 import me.vault.game.model.troop.*;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
@@ -177,55 +174,6 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 		return attributeHBox;
 	}
-
-
-	public static boolean troopCanMoveToPosition (final Arena arena, final Troop troop, final int i, final int j)
-	{
-		final GameBoard arenaGameBoard = arena.getGameBoard();
-		final int[] previousTroopPosition = arenaGameBoard.getTroopPosition(troop);
-		final int troopMovementRange = troop.getStatistics().getDexterityStatistic().getMovementTiles();
-		final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
-		return accessibleTiles.contains(arena.getGameBoard().getTile(i, j));
-	}
-
-
-	public static boolean troopCanAttackTroop (final Arena arena, final Troop attacker, final int row, final int column)
-	{
-		try
-		{
-			final Troop defender = arena.getGameBoard().getTroop(row, column);
-			final int[] attackerPos = arena.getGameBoard().getTroopPosition(attacker);
-			final List<Tile> reachableTiles = arena.getGameBoard().getAdjacentTiles(attackerPos[0], attackerPos[1], attacker.getStatistics().getOffensiveStatistic().getGrenadeRange());
-
-			final List<Troop> defenderGroup = arena.getPlayerOneTroops().contains(defender) ? arena.getPlayerOneTroops() : arena.getPlayerTwoTroops();
-			return !defenderGroup.contains(attacker) && reachableTiles.contains(arena.getGameBoard().getTile(row, column));
-		}
-		catch (final Exception e)
-		{
-			throw new RuntimeException(e);
-		}
-	}
-
-
-	public static void moveTroop (final Arena arena, final Troop troop, final int i, final int j)
-	{
-		final GameBoard arenaGameBoard = arena.getGameBoard();
-		final int[] previousTroopPosition = arenaGameBoard.getTroopPosition(troop);
-		arenaGameBoard.setTroop(i, j, troop);
-		arenaGameBoard.setPlaceable(previousTroopPosition[0], previousTroopPosition[1], new Placeholder());
-	}
-
-
-	public static void attackTroop (final Arena arena, final Troop attacker, final Troop defender)
-	{
-		final OffensiveStatistics attackerOffensiveStats = attacker.getStatistics().getOffensiveStatistic();
-		final DefensiveStatistic defenderDefensiveStats = defender.getStatistics().getDefensiveStatistic();
-
-		System.out.println("attacker = " + attacker);
-		System.out.println("defender = " + defender);
-
-	}
-
 
 	/**
 	 * {@inheritDoc}

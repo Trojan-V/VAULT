@@ -4,22 +4,22 @@ package me.vault.game.model.arena;
 import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 public class Arena
 {
+	private static final int MULTIPLIER = 11;
 
 
-	public static final int MULTIPLIER = 11;
+	private static final int OFFSET = 10;
 
 
-	public static final int OFFSET = 10;
+	private final List<Figure<Troop>> playerOneTroops;
 
 
-	private final ArrayList<Troop> playerOneTroops;
-
-
-	private final ArrayList<Troop> playerTwoTroops;
+	private final List<Figure<Troop>> playerTwoTroops;
 
 
 	private final Timeline timeline;
@@ -28,10 +28,10 @@ public class Arena
 	private final GameBoard gameBoard;
 
 
-	private Troop selectedTroop;
+	private Figure<Troop> selectedFigure;
 
 
-	public Arena (final ArrayList<Troop> playerOneTroops, final ArrayList<Troop> playerTwoTroops, final GameBoard gameBoard)
+	public Arena (final List<Figure<Troop>> playerOneTroops, final List<Figure<Troop>> playerTwoTroops, final GameBoard gameBoard)
 	{
 		this.playerOneTroops = playerOneTroops;
 		this.playerTwoTroops = playerTwoTroops;
@@ -44,9 +44,9 @@ public class Arena
 	}
 
 
-	private Timeline initializeTimeline (final ArrayList<Troop> playerOneTroops, final ArrayList<Troop> playerTwoTroops)
+	private Timeline initializeTimeline (final Collection<Figure<Troop>> playerOneTroops, final Collection<Figure<Troop>> playerTwoTroops)
 	{
-		final ArrayList<Troop> troops = new ArrayList<>();
+		final ArrayList<Figure<Troop>> troops = new ArrayList<>();
 		troops.addAll(playerOneTroops);
 		troops.addAll(playerTwoTroops);
 
@@ -66,28 +66,28 @@ public class Arena
 	}
 
 
-	private void placePlayerOneTroopAtRandomPosition (final Troop troop)
+	private void placePlayerOneTroopAtRandomPosition (final Figure<Troop> troop)
 	{
 		final int randomYCoordinate = (int) Math.round(Math.random() * MULTIPLIER);
 		final int randomXCoordinate = (int) Math.round(Math.random());
 
 		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() == Placeholder.class)
 		{
-			this.getGameBoard().setTroop(randomXCoordinate, randomYCoordinate, troop);
+			this.getGameBoard().placeFigure(randomXCoordinate, randomYCoordinate, troop);
 			return;
 		}
 		this.placePlayerOneTroopAtRandomPosition(troop);
 	}
 
 
-	private void placePlayerTwoTroopAtRandomPosition (final Troop troop)
+	private void placePlayerTwoTroopAtRandomPosition (final Figure<Troop> troop)
 	{
 		final int randomYCoordinate = (int) Math.round(Math.random() * MULTIPLIER);
 		final int randomXCoordinate = (int) Math.round(Math.random() + OFFSET);
 
 		if (this.getGameBoard().getTile(randomXCoordinate, randomYCoordinate).getCurrentElement().getClass() == Placeholder.class)
 		{
-			this.getGameBoard().setTroop(randomXCoordinate, randomYCoordinate, troop);
+			this.getGameBoard().placeFigure(randomXCoordinate, randomYCoordinate, troop);
 			return;
 		}
 		this.placePlayerTwoTroopAtRandomPosition(troop);
@@ -96,41 +96,41 @@ public class Arena
 
 	private void setPlayerOneTroopPositions ()
 	{
-		for (final Troop troop : this.playerOneTroops)
+		for (final Figure<Troop> troopFigure : this.playerOneTroops)
 		{
-			this.placePlayerOneTroopAtRandomPosition(troop);
+			this.placePlayerOneTroopAtRandomPosition(troopFigure);
 		}
 	}
 
 
 	private void setPlayerTwoTroopPositions ()
 	{
-		for (final Troop troop : this.playerTwoTroops)
+		for (final Figure<Troop> troopFigure : this.playerTwoTroops)
 		{
-			this.placePlayerTwoTroopAtRandomPosition(troop);
+			this.placePlayerTwoTroopAtRandomPosition(troopFigure);
 		}
 	}
 
 
-	public Troop getSelectedTroop ()
+	public Figure<Troop> getSelectedFigure ()
 	{
-		return this.selectedTroop;
+		return this.selectedFigure;
 	}
 
 
-	public void setSelectedTroop (final Troop selectedTroop)
+	public void setSelectedFigure (final Figure<Troop> selectedTroop)
 	{
-		this.selectedTroop = selectedTroop;
+		this.selectedFigure = selectedTroop;
 	}
 
 
-	public ArrayList<Troop> getPlayerOneTroops ()
+	public List<Figure<Troop>> getPlayerOneTroops ()
 	{
 		return this.playerOneTroops;
 	}
 
 
-	public ArrayList<Troop> getPlayerTwoTroops ()
+	public List<Figure<Troop>> getPlayerTwoTroops ()
 	{
 		return this.playerTwoTroops;
 	}

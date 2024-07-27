@@ -16,11 +16,7 @@ public class Blocked implements Placable
 	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
-	public Blocked ()
-	{
-
-
-	}
+	public Blocked () {}
 
 
 	/**

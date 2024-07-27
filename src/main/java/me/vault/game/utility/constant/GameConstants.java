@@ -44,8 +44,7 @@ public interface GameConstants
 
 	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/config";
 
-	Arena ARENA = new Arena(ALLIES, ENCOUNTER_ONE_ENEMIES,
-		new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
-		                                                     "/Encounter_2.txt")));
+	Arena ARENA = new Arena(ALLIES, ENCOUNTER_ONE_ENEMIES, new GameBoard(ResourceLoader.createGameBoardFromFile(
+		"src/main/resources/me/vault/game/map/Encounter_2.txt")));
 
 }

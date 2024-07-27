@@ -15,10 +15,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import me.vault.game.GameApplication;
 import me.vault.game.control.EnemyController;
+import me.vault.game.control.FigureController;
 import me.vault.game.control.TroopController;
 import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Placeholder;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.troop.Troop;
@@ -105,7 +107,7 @@ public class ArenaDelegate implements Initializable
 	private VBox timelineVBox;
 
 
-	private PriorityQueue<Troop> troopTimeline;
+	private PriorityQueue<Figure<Troop>> troopTimeline;
 
 
 	public static void show (final Arena arena)
@@ -205,16 +207,16 @@ public class ArenaDelegate implements Initializable
 	{
 		// TODO: Position fuer row und column anlegen
 
-		final Troop attacker = arena.getSelectedTroop();
+		final Figure<Troop> attacker = arena.getSelectedFigure();
 		final Placable nextTileElement = arena.getGameBoard().getTile(row, column).getCurrentElement();
 
-		if (nextTileElement instanceof Placeholder && TroopController.troopCanMoveToPosition(arena, attacker, row, column))
+		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(arena, attacker, row, column))
 		{
-			TroopController.moveTroop(arena, attacker, row, column);
+			FigureController.moveFigure(arena, attacker, row, column);
 		}
-		else if (nextTileElement instanceof final Troop defender && TroopController.troopCanAttackTroop(arena, attacker, row, column))
+		else if (nextTileElement instanceof final Figure defender && FigureController.figureCanAttackFigure(arena, attacker, row, column))
 		{
-			TroopController.attackTroop(arena, attacker, defender);
+			FigureController.attackFigure(arena, attacker, defender);
 		}
 		else
 		{
@@ -228,8 +230,8 @@ public class ArenaDelegate implements Initializable
 
 	public void initializeTimeline ()
 	{
-		this.arena.setSelectedTroop(this.troopTimeline.peek());
-		final PriorityQueue<Troop> displayQueue = new PriorityQueue<Troop>(this.troopTimeline);
+		this.arena.setSelectedFigure(this.troopTimeline.peek());
+		final PriorityQueue<Figure<Troop>> displayQueue = new PriorityQueue<Figure<Troop>>(this.troopTimeline);
 		while (!displayQueue.isEmpty())
 		{
 			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(displayQueue.poll())));
@@ -237,21 +239,21 @@ public class ArenaDelegate implements Initializable
 		this.timelineVBox.setSpacing(TIMELINE_SPACING);
 		this.initializeGameBoard();
 
-		if (this.arena.getPlayerTwoTroops().contains(this.arena.getSelectedTroop()))
+		if (this.arena.getPlayerTwoTroops().contains(this.arena.getSelectedFigure()))
 		{
 			// TODO: Fix enemy movement and attack
-			final int[] position = this.arena.getGameBoard().getTroopPosition(this.arena.getSelectedTroop());
+			final int[] position = this.arena.getGameBoard().getFigurePosition(this.arena.getSelectedFigure());
 			final List<Tile> adjacentTroopTiles = this.arena.getGameBoard().getAdjacentTroopTiles(position);
 			final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position);
 
 			boolean hasAttacked = false;
 			if (!adjacentTroopTiles.isEmpty())
 			{
-				hasAttacked = EnemyController.attackAdjacentTroop(this.arena, adjacentTroopTiles, this.arena.getSelectedTroop());
+				hasAttacked = EnemyController.attackAdjacentTroop(this.arena, adjacentTroopTiles, this.arena.getSelectedFigure());
 			}
 			if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 			{
-				EnemyController.moveToAdjacentTile(this.arena, adjacentAccessibleTiles.getFirst(), this.arena.getSelectedTroop());
+				EnemyController.moveToAdjacentTile(this.arena, adjacentAccessibleTiles.getFirst(), this.arena.getSelectedFigure());
 			}
 			this.updateTimeline();
 		}
@@ -280,23 +282,23 @@ public class ArenaDelegate implements Initializable
 
 
 	@FXML
-	private HBox createTimelineElement (final Troop troop)
+	private HBox createTimelineElement (final Figure<Troop> troopFigure)
 	{
 		final HBox container = new HBox();
 		final VBox statistics = new VBox();
 
 		statistics.setPrefSize(VBOX_WIDTH, VBOX_HEIGHT);
-		final ImageView sprite = new ImageView(troop.getSprite());
+		final ImageView sprite = new ImageView(troopFigure.getSprite());
 
 		sprite.setFitWidth(SPRITE_WIDTH - IMAGE_OFFSET);
 		sprite.setFitHeight(SPRITE_HEIGHT - IMAGE_OFFSET);
 
 
-		this.setTroopGlow(this.arena, sprite, troop);
+		this.setTroopGlow(this.arena, sprite, troopFigure);
 
-		statistics.getChildren().add(new Label(NAME + troop.getName()));
-		statistics.getChildren().add(new Label(HEALTH + troop.getStatistics().getDefensiveStatistic().getHealthPoints()));
-		statistics.getChildren().add(new Label(ARMOR + troop.getStatistics().getDefensiveStatistic().getArmor()));
+		statistics.getChildren().add(new Label(NAME + troopFigure.getName()));
+		statistics.getChildren().add(new Label(HEALTH + troopFigure.getStatistics().getDefensiveStatistic().getHealthPoints()));
+		statistics.getChildren().add(new Label(ARMOR + troopFigure.getStatistics().getDefensiveStatistic().getArmor()));
 		statistics.setSpacing(STATISTICS_SPACING);
 
 		container.getChildren().add(sprite);

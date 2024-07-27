@@ -12,8 +12,7 @@ import java.util.List;
 public class GameBoard implements GameBoardConstants
 {
 
-
-	public static final int RANGE = 1;
+	private static final int RANGE = 1;
 
 
 	private final Tile[][] gameBoard;
@@ -31,7 +30,7 @@ public class GameBoard implements GameBoardConstants
 	}
 
 
-	public int[] getTroopPosition (final Troop troop)
+	public int[] getFigurePosition (final Figure<Troop> troop)
 	{
 		for (int i = 0; i < this.gameBoard.length; i++)
 		{
@@ -53,21 +52,21 @@ public class GameBoard implements GameBoardConstants
 	}
 
 
-	public Troop getTroop (final int row, final int column) throws Exception
+	public Figure<Troop> getFigure (final int row, final int column) throws Exception
 	{
-		if (!(this.gameBoard[row][column].getCurrentElement() instanceof Troop))
+		if (!(this.gameBoard[row][column].getCurrentElement() instanceof Figure))
 		{
 			throw new Exception("Not a troop exception..."); // TODO: Implementieren der neuen exception
 		}
-		return (Troop) this.gameBoard[row][column].getCurrentElement();
+		return (Figure<Troop>) this.gameBoard[row][column].getCurrentElement();
 	}
 
 
-	public void setTroop (final int row, final int column, final Troop troop)
+	public void placeFigure (final int row, final int column, final Figure<Troop> troopFigure)
 	{
 		if (this.gameBoard[row][column].getCurrentElement().getClass() == Placeholder.class)
 		{
-			this.gameBoard[row][column].setCurrentElement(troop);
+			this.gameBoard[row][column].setCurrentElement(troopFigure);
 		}
 	}
 
