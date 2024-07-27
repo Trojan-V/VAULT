@@ -28,6 +28,16 @@ public class OffensiveStatistics
 	}
 
 
+	public OffensiveStatistics (final OffensiveStatistics offensiveStatistics)
+	{
+		this.energyPoints = new SimpleIntegerProperty(offensiveStatistics.getEnergyPoints());
+		this.meleeDamage = new SimpleIntegerProperty(offensiveStatistics.getMeleeDamage());
+		this.grenadeDamage = new SimpleIntegerProperty(offensiveStatistics.getGrenadeDamage());
+		this.grenadeAmount = new SimpleIntegerProperty(offensiveStatistics.getGrenadeAmount());
+		this.grenadeRange = new SimpleIntegerProperty(offensiveStatistics.getGrenadeRange());
+	}
+
+
 	public int getEnergyPoints ()
 	{
 		return this.energyPoints.get();

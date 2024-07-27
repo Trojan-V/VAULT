@@ -49,6 +49,23 @@ public final class FigureController
 
 		System.out.println("attackerFigure = " + attackerOffensiveStats);
 		System.out.println("defenderFigure = " + defenderDefensiveStats);
+
+		final int calculatedDamage = FigureController.calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
+		final int newDefenderHealthPoints = defenderDefensiveStats.getHealthPoints() - calculatedDamage;
+		System.out.println("calculatedDamage = " + calculatedDamage);
+		System.out.println("newDefenderHealthPoints = " + newDefenderHealthPoints);
+		if (newDefenderHealthPoints <= 0)
+		{
+			arena.removeTroopFigure(defenderFigure);
+			return;
+		}
+		defenderDefensiveStats.setHealthPoints(newDefenderHealthPoints);
+	}
+
+
+	private static int calculateDamage (final OffensiveStatistics attackerOffensiveStats, final DefensiveStatistic defenderDefensiveStats)
+	{
+		return (int) (attackerOffensiveStats.getMeleeDamage() * (1 - defenderDefensiveStats.getArmor() / 100));
 	}
 
 

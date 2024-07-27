@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-// TODO imple.
 public class GameBoard
 {
 
@@ -52,17 +51,17 @@ public class GameBoard
 	}
 
 
-	public Figure<Troop> getFigure (final Position position) throws Exception
+	public Figure<? extends Troop> getFigure (final Position position) throws Exception
 	{
 		if (!(this.gameBoard[position.x()][position.y()].getCurrentElement() instanceof Figure))
 		{
 			throw new Exception("Not a troop exception..."); // TODO: Implementieren der neuen exception
 		}
-		return (Figure<Troop>) this.gameBoard[position.x()][position.y()].getCurrentElement();
+		return (Figure<? extends Troop>) this.gameBoard[position.x()][position.y()].getCurrentElement();
 	}
 
 
-	public void placeFigure (final Position position, final Figure<? extends Troop> troopFigure)
+	public void placeFigure (final Position position, final Placable troopFigure)
 	{
 		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == Placeholder.class)
 		{
@@ -125,6 +124,12 @@ public class GameBoard
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, range);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
 		return adjacentTiles;
+	}
+
+
+	public void removeFigure (final Figure<? extends Troop> troopFigure)
+	{
+		this.setPlaceable(this.getFigurePosition(troopFigure), new Placeholder());
 	}
 
 }

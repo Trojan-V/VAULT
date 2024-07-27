@@ -16,13 +16,13 @@ public final class Figure<T extends Troop> implements Placable
 
 	private static final ILogger LOGGER = new Logger(Figure.class.getSimpleName());
 
-	private final T troop;
+	private T troop = null;
 
-	private final SimpleStringProperty name;
+	private SimpleStringProperty name = null;
 
-	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
+	private SimpleObjectProperty<MetaDataImage> spriteProperty = null;
 
-	private final TroopStatistics statistics;
+	private TroopStatistics statistics = null;
 
 
 	public Figure (final T troop)
@@ -30,7 +30,7 @@ public final class Figure<T extends Troop> implements Placable
 		this.troop = troop;
 		this.name = troop.getNameProperty();
 		this.spriteProperty = troop.getSpriteProperty();
-		this.statistics = troop.getStatistics();
+		this.statistics = new TroopStatistics(troop.getStatistics());
 	}
 
 

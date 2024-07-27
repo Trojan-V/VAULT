@@ -17,6 +17,7 @@ import me.vault.game.utility.struct.UpgradeRunnable;
 import static me.vault.game.utility.constant.AttributeConstants.*;
 
 
+
 public final class TroopController implements Upgrader<Troop, TroopLevel>
 {
 

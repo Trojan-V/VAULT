@@ -16,13 +16,21 @@ public class DefensiveStatistic
 	private final SimpleIntegerProperty resistance;
 
 
-	public DefensiveStatistic (final int healthPoints, final int armour, final int dodgeRate,
-		final int resistance)
+	public DefensiveStatistic (final int healthPoints, final int armour, final int dodgeRate, final int resistance)
 	{
 		this.healthPoints = new SimpleIntegerProperty(healthPoints);
 		this.armour = new SimpleIntegerProperty(armour);
 		this.dodgeRate = new SimpleIntegerProperty(dodgeRate);
 		this.resistance = new SimpleIntegerProperty(resistance);
+	}
+
+
+	public DefensiveStatistic (final DefensiveStatistic defensiveStatistic)
+	{
+		this.healthPoints = new SimpleIntegerProperty(defensiveStatistic.getHealthPoints());
+		this.armour = new SimpleIntegerProperty(defensiveStatistic.getArmor());
+		this.dodgeRate = new SimpleIntegerProperty(defensiveStatistic.getDodgeRate());
+		this.resistance = new SimpleIntegerProperty(defensiveStatistic.getResistance());
 	}
 
 

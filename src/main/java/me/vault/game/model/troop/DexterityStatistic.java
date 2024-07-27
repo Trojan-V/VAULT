@@ -19,6 +19,13 @@ public class DexterityStatistic
 	}
 
 
+	public DexterityStatistic (final DexterityStatistic dexterityStatistic)
+	{
+		this.movementTiles = new SimpleIntegerProperty(dexterityStatistic.getMovementTiles());
+		this.initiative = new SimpleIntegerProperty(dexterityStatistic.getInitiative());
+	}
+
+
 	public int getMovementTiles ()
 	{
 		return this.movementTiles.get();

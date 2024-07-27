@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
+import static me.vault.game.model.arena.Arena.State;
 import static me.vault.game.utility.constant.ArenaConstants.*;
 import static me.vault.game.utility.constant.LoggingConstants.Arena.ARENA_DISPLAY_FAILED;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
@@ -175,14 +176,28 @@ public class ArenaDelegate
 	{
 		final List<Figure<? extends Troop>> playerTwoTroops = this.arena.getPlayerTwoTroops();
 
-		if (playerTwoTroops.contains(this.arena.getSelectedFigure()))
+		final boolean finished = this.checkForFinish();
+		if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
 			this.HandleEnemyTurn();
 			this.gameBoardGridPane.getChildren().clear();
 			this.initializeGameBoardGridPane();
 			this.updateTimeline();
+
 			this.executeTurn();
 		}
+	}
+
+
+	private boolean checkForFinish ()
+	{
+		final State state = this.arena.getState();
+		if (state == State.LOST || state == State.WON)
+		{
+			ArenaFinishedDialogDelegate.show(this.arena.getState());
+			return true;
+		}
+		return false;
 	}
 
 
@@ -209,14 +224,18 @@ public class ArenaDelegate
 
 	private void updateTimeline ()
 	{
+		// Entfernt die oberste Truppe aus der Queue und f&uuml;llt die Queue ggf. wieder auf
 		this.currentQueue.poll();
 		if (this.currentQueue.isEmpty())
 		{
 			this.currentQueue = new PriorityQueue<>(this.figureTroopTimeline.getPriorityQueue());
 			this.incrementRound();
 		}
-
+		this.currentQueue.removeAll(this.arena.getEliminatedFigures());
 		this.arena.setSelectedFigure(this.currentQueue.peek());
+
+
+		// Aktualisiert die TimeLine am rechten Rand des Bildschirms
 		final PriorityQueue<Figure<? extends Troop>> tempPriorityQueue = new PriorityQueue<>(this.currentQueue);
 		this.timelineVBox.getChildren().clear();
 		while (!tempPriorityQueue.isEmpty())

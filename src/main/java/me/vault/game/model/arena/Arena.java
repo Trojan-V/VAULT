@@ -5,16 +5,25 @@ import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+
+import static me.vault.game.utility.constant.ArenaConstants.MULTIPLIER;
+import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
 
 
 public class Arena
 {
 
-	private static final int MULTIPLIER = 11;
+	private State state = State.RUNNING;
 
 
-	private static final int OFFSET = 10;
+	public enum State
+	{
+		RUNNING,
+		LOST,
+		WON
+	}
 
 
 	private final List<Figure<? extends Troop>> playerOneTroops;
@@ -29,7 +38,9 @@ public class Arena
 	private final GameBoard gameBoard;
 
 
-	private Figure<? extends Troop> selectedFigure;
+	private Figure<? extends Troop> selectedFigure = null;
+
+	private final List<Figure<? extends Troop>> eliminatedTroops = new ArrayList<>();
 
 
 	public Arena (final List<Figure<? extends Troop>> playerOneTroops, final List<Figure<? extends Troop>> playerTwoTroops, final GameBoard gameBoard)
@@ -82,7 +93,7 @@ public class Arena
 
 	private void placePlayerTwoTroopAtRandomPosition (final Figure<? extends Troop> troop)
 	{
-		final Position randomPosition = new Position((int) Math.round(Math.random() + +OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
+		final Position randomPosition = new Position((int) Math.round(Math.random() + OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
 
 		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() == Placeholder.class)
 		{
@@ -132,6 +143,44 @@ public class Arena
 	public List<Figure<? extends Troop>> getPlayerTwoTroops ()
 	{
 		return this.playerTwoTroops;
+	}
+
+
+	public void removeTroopFigure (final Figure<? extends Troop> troopFigure)
+	{
+		this.gameBoard.removeFigure(troopFigure);
+		this.troopTimeline.removeTimelineElement(troopFigure);
+		this.eliminatedTroops.add(troopFigure);
+		this.checkForChangedState();
+	}
+
+
+	private void checkForChangedState ()
+	{
+		if (new HashSet<>(this.eliminatedTroops).containsAll(this.playerOneTroops))
+		{
+			this.state = State.LOST;
+		}
+		else if (new HashSet<>(this.eliminatedTroops).containsAll(this.playerTwoTroops))
+		{
+			this.state = State.WON;
+		}
+		else
+		{
+			this.state = State.RUNNING;
+		}
+	}
+
+
+	public List<Figure<? extends Troop>> getEliminatedFigures ()
+	{
+		return this.eliminatedTroops;
+	}
+
+
+	public State getState ()
+	{
+		return this.state;
 	}
 
 }

@@ -26,6 +26,11 @@ public interface ArenaConstants
 	@Constant
 	String ARENA_FXML = "arena.fxml";
 
+	int MULTIPLIER = 11;
+
+
+	int OFFSET = 10;
+
 	@Constant
 	double TIMELINE_SPACING = 5.0;
 
