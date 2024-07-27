@@ -27,11 +27,11 @@ public class EnemyController
 	}
 
 
-	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure<Troop> troopFigure)
+	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure<? extends Troop> troopFigure)
 	{
 		for (final Tile tile : adjacentTroopTiles)
 		{
-			final Figure<Troop> adjacentTroopFigure = (Figure<Troop>) tile.getCurrentElement();
+			final Figure<? extends Troop> adjacentTroopFigure = (Figure<? extends Troop>) tile.getCurrentElement();
 			if (arena.getPlayerOneTroops().contains(adjacentTroopFigure))
 			{
 				FigureController.attackFigure(arena, troopFigure, adjacentTroopFigure);
@@ -43,7 +43,7 @@ public class EnemyController
 	}
 
 
-	public static ArrayList<Troop> adjustEnemiesByDifficulty (final ArrayList<Troop> encounterEnemies)
+	public static ArrayList<? extends Troop> adjustEnemiesByDifficulty (final ArrayList<? extends Troop> encounterEnemies)
 	{
 		final TroopLevel troopLevelForDifficulty = getTroopLevelForDifficulty();
 

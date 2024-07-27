@@ -30,7 +30,7 @@ public class GameBoard
 	}
 
 
-	public Position getFigurePosition (final Figure<Troop> troop)
+	public Position getFigurePosition (final Figure<? extends Troop> troop)
 	{
 		for (int i = 0; i < this.gameBoard.length; i++)
 		{
@@ -62,7 +62,7 @@ public class GameBoard
 	}
 
 
-	public void placeFigure (final Position position, final Figure<Troop> troopFigure)
+	public void placeFigure (final Position position, final Figure<? extends Troop> troopFigure)
 	{
 		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == Placeholder.class)
 		{

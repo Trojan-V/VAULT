@@ -17,27 +17,27 @@ public class Arena
 	private static final int OFFSET = 10;
 
 
-	private final List<Figure<Troop>> playerOneTroops;
+	private final List<Figure<? extends Troop>> playerOneTroops;
 
 
-	private final List<Figure<Troop>> playerTwoTroops;
+	private final List<Figure<? extends Troop>> playerTwoTroops;
 
 
-	private final Timeline timeline;
+	private final TroopTimeline troopTimeline;
 
 
 	private final GameBoard gameBoard;
 
 
-	private Figure<Troop> selectedFigure;
+	private Figure<? extends Troop> selectedFigure;
 
 
-	public Arena (final List<Figure<Troop>> playerOneTroops, final List<Figure<Troop>> playerTwoTroops, final GameBoard gameBoard)
+	public Arena (final List<Figure<? extends Troop>> playerOneTroops, final List<Figure<? extends Troop>> playerTwoTroops, final GameBoard gameBoard)
 	{
 		this.playerOneTroops = playerOneTroops;
 		this.playerTwoTroops = playerTwoTroops;
 		this.gameBoard = gameBoard;
-		this.timeline = this.initializeTimeline(playerOneTroops, playerTwoTroops);
+		this.troopTimeline = this.initializeTimeline(playerOneTroops, playerTwoTroops);
 
 		this.setPlayerOneTroopPositions();
 		this.setPlayerTwoTroopPositions();
@@ -45,13 +45,13 @@ public class Arena
 	}
 
 
-	private Timeline initializeTimeline (final Collection<Figure<Troop>> playerOneTroops, final Collection<Figure<Troop>> playerTwoTroops)
+	private TroopTimeline initializeTimeline (final Collection<Figure<? extends Troop>> playerOneTroops, final Collection<Figure<? extends Troop>> playerTwoTroops)
 	{
-		final ArrayList<Figure<Troop>> troops = new ArrayList<>();
+		final ArrayList<Figure<? extends Troop>> troops = new ArrayList<>();
 		troops.addAll(playerOneTroops);
 		troops.addAll(playerTwoTroops);
 
-		return new Timeline(troops);
+		return new TroopTimeline(troops);
 	}
 
 
@@ -61,13 +61,13 @@ public class Arena
 	}
 
 
-	public Timeline getTimeline ()
+	public TroopTimeline getTimeline ()
 	{
-		return this.timeline;
+		return this.troopTimeline;
 	}
 
 
-	private void placePlayerOneTroopAtRandomPosition (final Figure<Troop> troop)
+	private void placePlayerOneTroopAtRandomPosition (final Figure<? extends Troop> troop)
 	{
 		final Position randomPosition = new Position((int) Math.round(Math.random()), (int) Math.round(Math.random() * MULTIPLIER));
 
@@ -80,7 +80,7 @@ public class Arena
 	}
 
 
-	private void placePlayerTwoTroopAtRandomPosition (final Figure<Troop> troop)
+	private void placePlayerTwoTroopAtRandomPosition (final Figure<? extends Troop> troop)
 	{
 		final Position randomPosition = new Position((int) Math.round(Math.random() + +OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
 
@@ -95,7 +95,7 @@ public class Arena
 
 	private void setPlayerOneTroopPositions ()
 	{
-		for (final Figure<Troop> troopFigure : this.playerOneTroops)
+		for (final Figure<? extends Troop> troopFigure : this.playerOneTroops)
 		{
 			this.placePlayerOneTroopAtRandomPosition(troopFigure);
 		}
@@ -104,32 +104,32 @@ public class Arena
 
 	private void setPlayerTwoTroopPositions ()
 	{
-		for (final Figure<Troop> troopFigure : this.playerTwoTroops)
+		for (final Figure<? extends Troop> troopFigure : this.playerTwoTroops)
 		{
 			this.placePlayerTwoTroopAtRandomPosition(troopFigure);
 		}
 	}
 
 
-	public Figure<Troop> getSelectedFigure ()
+	public Figure<? extends Troop> getSelectedFigure ()
 	{
 		return this.selectedFigure;
 	}
 
 
-	public void setSelectedFigure (final Figure<Troop> selectedTroop)
+	public void setSelectedFigure (final Figure<? extends Troop> selectedTroop)
 	{
 		this.selectedFigure = selectedTroop;
 	}
 
 
-	public List<Figure<Troop>> getPlayerOneTroops ()
+	public List<Figure<? extends Troop>> getPlayerOneTroops ()
 	{
 		return this.playerOneTroops;
 	}
 
 
-	public List<Figure<Troop>> getPlayerTwoTroops ()
+	public List<Figure<? extends Troop>> getPlayerTwoTroops ()
 	{
 		return this.playerTwoTroops;
 	}

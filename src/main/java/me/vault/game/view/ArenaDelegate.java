@@ -52,9 +52,9 @@ public class ArenaDelegate
 	@FXML
 	private VBox timelineVBox;
 
-	private PriorityQueue<Figure<Troop>> currentQueue = null;
+	private PriorityQueue<Figure<? extends Troop>> currentQueue = null;
 
-	private Timeline figureTimeline = null;
+	private TroopTimeline figureTroopTimeline = null;
 
 	private Arena arena = null;
 
@@ -118,7 +118,7 @@ public class ArenaDelegate
 	{
 		this.timelineVBox.getChildren().clear();
 		this.arena.setSelectedFigure(this.currentQueue.peek());
-		final PriorityQueue<Figure<Troop>> figurePriorityQueue = this.figureTimeline.getPriorityQueue();
+		final PriorityQueue<Figure<? extends Troop>> figurePriorityQueue = this.figureTroopTimeline.getPriorityQueue();
 		while (!figurePriorityQueue.isEmpty())
 		{
 			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(figurePriorityQueue.poll())));
@@ -146,7 +146,7 @@ public class ArenaDelegate
 
 	private void handleFigureInteraction (final @NotNull Position position)
 	{
-		final Figure<Troop> attacker = this.arena.getSelectedFigure();
+		final Figure<? extends Troop> attacker = this.arena.getSelectedFigure();
 		final Placable nextTileElement = this.arena.getGameBoard().getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
@@ -173,7 +173,7 @@ public class ArenaDelegate
 
 	private void executeTurn ()
 	{
-		final List<Figure<Troop>> playerTwoTroops = this.arena.getPlayerTwoTroops();
+		final List<Figure<? extends Troop>> playerTwoTroops = this.arena.getPlayerTwoTroops();
 
 		if (playerTwoTroops.contains(this.arena.getSelectedFigure()))
 		{
@@ -212,12 +212,12 @@ public class ArenaDelegate
 		this.currentQueue.poll();
 		if (this.currentQueue.isEmpty())
 		{
-			this.currentQueue = new PriorityQueue<>(this.figureTimeline.getPriorityQueue());
+			this.currentQueue = new PriorityQueue<>(this.figureTroopTimeline.getPriorityQueue());
 			this.incrementRound();
 		}
 
 		this.arena.setSelectedFigure(this.currentQueue.peek());
-		final PriorityQueue<Figure<Troop>> tempPriorityQueue = new PriorityQueue<>(this.currentQueue);
+		final PriorityQueue<Figure<? extends Troop>> tempPriorityQueue = new PriorityQueue<>(this.currentQueue);
 		this.timelineVBox.getChildren().clear();
 		while (!tempPriorityQueue.isEmpty())
 		{
@@ -233,7 +233,7 @@ public class ArenaDelegate
 	}
 
 
-	private HBox createTimelineElement (final Figure<Troop> troopFigure)
+	private HBox createTimelineElement (final Figure<? extends Troop> troopFigure)
 	{
 		final HBox container = new HBox();
 		final VBox statistics = new VBox();
@@ -270,7 +270,7 @@ public class ArenaDelegate
 	public void setArena (final @NotNull Arena arena)
 	{
 		this.arena = arena;
-		this.figureTimeline = arena.getTimeline();
+		this.figureTroopTimeline = arena.getTimeline();
 		this.currentQueue = arena.getTimeline().getPriorityQueue();
 		this.initializeTimelineVbox();
 		this.initializeGameBoardGridPane();

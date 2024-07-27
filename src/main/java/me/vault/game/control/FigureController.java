@@ -23,7 +23,7 @@ public final class FigureController
 	private FigureController () {}
 
 
-	public static void moveFigure (final Arena arena, final Figure<Troop> troopFigure, final Position nextPosition)
+	public static void moveFigure (final Arena arena, final Figure<? extends Troop> troopFigure, final Position nextPosition)
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
@@ -32,7 +32,7 @@ public final class FigureController
 	}
 
 
-	public static void moveFigure (final Arena arena, final Figure<Troop> troopFigure, final Tile nextTile)
+	public static void moveFigure (final Arena arena, final Figure<? extends Troop> troopFigure, final Tile nextTile)
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
@@ -42,17 +42,17 @@ public final class FigureController
 	}
 
 
-	public static void attackFigure (final Arena arena, final Figure<Troop> attackerFigure, final Figure<? extends Troop> defenderFigure)
+	public static void attackFigure (final Arena arena, final Figure<? extends Troop> attackerFigure, final Figure<? extends Troop> defenderFigure)
 	{
 		final OffensiveStatistics attackerOffensiveStats = attackerFigure.getStatistics().getOffensiveStatistic();
 		final DefensiveStatistic defenderDefensiveStats = defenderFigure.getStatistics().getDefensiveStatistic();
 
-		System.out.println("attackerFigure = " + attackerFigure);
-		System.out.println("defenderFigure = " + defenderFigure);
+		System.out.println("attackerFigure = " + attackerOffensiveStats);
+		System.out.println("defenderFigure = " + defenderDefensiveStats);
 	}
 
 
-	public static boolean figureCanMoveToPosition (final Arena arena, final Figure<Troop> troopFigure, final Position position)
+	public static boolean figureCanMoveToPosition (final Arena arena, final Figure<? extends Troop> troopFigure, final Position position)
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
@@ -62,15 +62,15 @@ public final class FigureController
 	}
 
 
-	public static boolean figureCanAttackFigure (final Arena arena, final Figure<Troop> attackerFigure, final Position position)
+	public static boolean figureCanAttackFigure (final Arena arena, final Figure<? extends Troop> attackerFigure, final Position position)
 	{
 		try
 		{
-			final Figure<Troop> defender = arena.getGameBoard().getFigure(position);
+			final Figure<? extends Troop> defender = arena.getGameBoard().getFigure(position);
 			final Position attackerPos = arena.getGameBoard().getFigurePosition(attackerFigure);
 			final List<Tile> reachableTiles = arena.getGameBoard().getAdjacentTiles(attackerPos, attackerFigure.getStatistics().getOffensiveStatistic().getGrenadeRange());
 
-			final List<Figure<Troop>> defenderGroup = arena.getPlayerOneTroops().contains(defender) ? arena.getPlayerOneTroops() : arena.getPlayerTwoTroops();
+			final List<Figure<? extends Troop>> defenderGroup = arena.getPlayerOneTroops().contains(defender) ? arena.getPlayerOneTroops() : arena.getPlayerTwoTroops();
 			return !defenderGroup.contains(attackerFigure) && reachableTiles.contains(arena.getGameBoard().getTile(position));
 		}
 		catch (final Exception e)
