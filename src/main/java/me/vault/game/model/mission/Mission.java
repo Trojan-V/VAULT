@@ -4,7 +4,6 @@ package me.vault.game.model.mission;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.model.player.Player;
 import me.vault.game.utility.constant.EncounterConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
@@ -38,7 +37,7 @@ public class Mission
 		this.gameBoard = gameBoard;
 		this.description = description;
 		this.missionReward = missionReward;
-		this.availableArenaEncounters.add(new Arena(Player.getInstance().getSelectedTroops(), EncounterConstants.ENCOUNTER_ONE_ENEMIES, new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map/Encounter_2.txt"))));
+		this.availableArenaEncounters.add(new Arena(List.of(), EncounterConstants.ENCOUNTER_ONE_ENEMIES, new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map/Encounter_2.txt"))));
 	}
 
 

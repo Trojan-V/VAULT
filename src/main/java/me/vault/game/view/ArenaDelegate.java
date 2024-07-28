@@ -17,6 +17,7 @@ import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.fxcontrols.TimelineElementHBox;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
+import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -163,7 +164,7 @@ public class ArenaDelegate
 		final boolean finished = this.checkForFinish();
 		if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
-			this.HandleEnemyTurn();
+			this.handleEnemyTurn();
 			this.arenaBoardGridPane.getChildren().clear();
 			this.initializeGameBoardGridPane();
 			this.updateTimeline();
@@ -185,7 +186,7 @@ public class ArenaDelegate
 	}
 
 
-	private void HandleEnemyTurn ()
+	private void handleEnemyTurn ()
 	{
 		final GameBoard arenaGameBoard = this.arena.getGameBoard();
 
@@ -246,6 +247,8 @@ public class ArenaDelegate
 
 	public void setArena (final @NotNull Arena arena)
 	{
+		arena.setPlayerOneTroops(Player.getInstance().getSelectedTroops());
+
 		this.arena = arena;
 		this.figureTroopTimeline = arena.getTimeline();
 		this.currentQueue = arena.getTimeline().getPriorityQueue();

@@ -88,6 +88,10 @@ public final class Player implements Placeable
 
 	public void addSelectedTroop (final Figure<? extends Troop> troop)
 	{
+		if (this.selectedTroops.size() >= 3)
+		{
+			this.selectedTroops.removeFirst();
+		}
 		this.selectedTroops.add(troop);
 	}
 

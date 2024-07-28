@@ -25,13 +25,13 @@ public class Arena
 	}
 
 
-	private final List<Figure<? extends Troop>> playerOneTroops;
+	private List<Figure<? extends Troop>> playerOneTroops;
 
 
 	private final List<Figure<? extends Troop>> playerTwoTroops;
 
 
-	private final TroopTimeline troopTimeline;
+	private TroopTimeline troopTimeline = null;
 
 
 	private final GameBoard gameBoard;
@@ -47,11 +47,6 @@ public class Arena
 		this.playerOneTroops = playerOneTroops;
 		this.playerTwoTroops = playerTwoTroops;
 		this.gameBoard = gameBoard;
-		this.troopTimeline = this.initializeTimeline(playerOneTroops, playerTwoTroops);
-
-		this.setPlayerOneTroopPositions();
-		this.setPlayerTwoTroopPositions();
-
 	}
 
 
@@ -120,6 +115,15 @@ public class Arena
 		{
 			this.placePlayerTwoTroopAtRandomPosition(troopFigure);
 		}
+	}
+
+
+	public void setPlayerOneTroops (final List<Figure<? extends Troop>> playerOneTroops)
+	{
+		this.playerOneTroops = playerOneTroops;
+		this.setPlayerOneTroopPositions();
+		this.setPlayerTwoTroopPositions();
+		this.troopTimeline = this.initializeTimeline(playerOneTroops, this.playerTwoTroops);
 	}
 
 
