@@ -39,6 +39,15 @@ public interface Upgrader<T extends Upgradable<E>, E>
 	boolean checkIsUpgradable (final T upgradable);
 
 
+	/**
+	 * Updates the values of the {@link Upgradable}, so it contains the newest set of data.
+	 * <br>
+	 * This data is usually displayed in the GUI.
+	 * Most {@link Upgradable}'s contain JavaFX properties that are bound to the GUI,
+	 * so the data of them can be dynamically updated.
+	 *
+	 * @param upgradable The {@link Upgradable} instance whose values should be updated.
+	 */
 	void updateValues (final T upgradable);
 
 }

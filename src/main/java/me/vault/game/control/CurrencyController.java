@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -23,9 +21,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * The {@code CurrencyController} class primarily provides methods and isn't meant to be implemented. It's used to handle the {@link Currency} class.
+ * Controller class for the {@link Currency} enum. Handles a ton of stuff related to factoring currencies or
+ * displaying the banner scene that shows all currencies the player owns as the top bar of the GUI.
  *
- * @author Lasse-Leander Hillen, Vincent Wolf, Alexander Goethel,
+ * @author Lasse-Leander Hillen, Vincent Wolf, Alexander Goethel
  * @see Currency
  * @since 21.05.2024
  */
@@ -37,46 +36,61 @@ public final class CurrencyController implements Initializable
 	 */
 	private static final ILogger LOGGER = new Logger(CurrencyController.class.getSimpleName());
 
-	/**
-	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
-	 * elements.
-	 */
-	private static final String BANNER_FXML_FILENAME = "currency_view.fxml";
 
 	/**
-	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
-	 * elements.
+	 * The path to the .fxml file which contains all the styling for the currency view at the top of the screen.
 	 */
-	private static final String REWARD_GRID_FXML_FILENAME = "currencyRewardGrid.fxml";
+	private static final String BANNER_FXML_FILE_PATH = "currency_view.fxml";
 
 
+	/**
+	 * This label is used within the GUI to display the steel amount in the top row that contains all the currencies.
+	 */
 	@FXML
 	private Label steelAmountLabel;
 
+
+	/**
+	 * This label is used within the GUI to display the composite amount in the top row that contains all the
+	 * currencies.
+	 */
 	@FXML
 	private Label compositeAmountLabel;
 
+
+	/**
+	 * This label is used within the GUI to display the science amount in the top row that contains all the currencies.
+	 */
 	@FXML
 	private Label scienceAmountLabel;
 
+
+	/**
+	 * This label is used within the GUI to display the food amount in the top row that contains all the currencies.
+	 */
 	@FXML
 	private Label foodAmountLabel;
 
+
+	/**
+	 * This label is used within the GUI to display the credit amount in the top row that contains all the currencies.
+	 */
 	@FXML
 	private Label creditAmountLabel;
 
 
 	/**
-	 * Accepts a {@link CurrencyTransaction} as input and factors in every amount of {@link Currency} which is saved in the transaction.
+	 * Accepts a {@link CurrencyTransaction} as input and factors in every amount of {@link Currency} which is saved
+	 * in the transaction.
 	 *
 	 * @param transaction The {@code CurrencyTransaction} object which is meant to be factored in.
 	 */
-	public static void factorCurrencyTransaction (final CurrencyTransaction transaction)
+	public static void factorCurrency (final CurrencyTransaction transaction)
 	{
 		for (int i = 0; i < Currency.values().length; i++)
 		{
 			final Currency currency = Currency.values()[i];
-			factorCurrencyTransaction(currency, transaction.getAmount(currency));
+			factorCurrency(currency, transaction.getAmount(currency));
 		}
 
 		// Logging the used amount and the new currency values
@@ -85,43 +99,49 @@ public final class CurrencyController implements Initializable
 	}
 
 
-	public static void factorCurrencyTransaction (final Currency currency, final int amount)
+	/**
+	 * Factors a single {@link Currency} and adds the supplied amount to the 'bank account'.
+	 * <br>
+	 * It's also possible to supply a negative to essentially subtract the supplied amount from the 'bank account'.
+	 *
+	 * @param currency The {@link Currency} the supplied amount will be added to.
+	 * @param amount   The amount that'll be added to the {@link Currency}.
+	 */
+	public static void factorCurrency (final Currency currency, final int amount)
 	{
 		currency.addAmount(amount);
 	}
 
 
+	/**
+	 * Loads and returns the scene that displays the currency banner as the top row within a lot of GUI's used by the
+	 * program.
+	 *
+	 * @return The scene that displays the currency banner as the top row.
+	 */
 	public static Scene getCurrencyBannerScene ()
 	{
-		return ResourceLoader.loadScene(CurrencyController.class, BANNER_FXML_FILENAME);
+		return ResourceLoader.loadScene(CurrencyController.class, BANNER_FXML_FILE_PATH);
 	}
 
 
-	public static GridPane getCurrencyRewardGrid (final CurrencyTransaction currencyTransaction)
-	{
-		final GridPane gridPane = new GridPane();
-		gridPane.setHgap(40);
-		gridPane.setVgap(8);
-		for (int row = 0; row < Currency.values().length; row++)
-		{
-			final Currency currency = Currency.values()[row];
-			final ImageView currencyImageView = new ImageView(currency.getSprite());
-			currencyImageView.fitHeightProperty().set(32);
-			currencyImageView.fitWidthProperty().set(32);
-			gridPane.add(currencyImageView, 0, row);
-			gridPane.add(new Label(currency.toString()), 1, row);
-			gridPane.add(new Label(String.valueOf(currencyTransaction.getAmount(currency))), 2, row);
-		}
-		return gridPane;
-	}
-
-
+	/**
+	 * Initializes the supplied currency in the GUI by binding the property to the GUI.
+	 *
+	 * @param currency The currency that's initialized to the GUI.
+	 * @param label    The label where the currency is being displayed in the GUI.
+	 */
 	private static void initCurrency (final Currency currency, final Label label)
 	{
 		label.textProperty().bind(currency.getAmountProperty().asString());
 	}
 
 
+	/**
+	 * Initializes all the currencies in the top row of the GUI.
+	 * <br>
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{

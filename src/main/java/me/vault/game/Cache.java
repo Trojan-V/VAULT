@@ -11,9 +11,7 @@ package me.vault.game;
  */
 public class Cache
 {
-
-	// TODO: Mosemann fragen, ob eine Cache-Klasse sinnvoll ist.
-	private static boolean areCheatsEnabled = false; // öaöaöaö
+	private static boolean areCheatsEnabled = false;
 
 
 	public static boolean getAreCheatsEnabled ()

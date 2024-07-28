@@ -19,4 +19,7 @@ public interface ArenaConstants
 
 	@Constant
 	double TIMELINE_SPACING = 5.0;
+
+
+	String ATTACKED_MSG = "{0} attacked {1}.";
 }

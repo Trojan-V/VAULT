@@ -44,8 +44,7 @@ public class EnemyActionRunnable implements Runnable
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{
-			EnemyController.moveToAdjacentTile(this.arena, adjacentAccessibleTiles.getFirst(), this.troop);
+			EnemyController.moveTo(this.arena, adjacentAccessibleTiles.getFirst(), this.troop);
 		}
 	}
-
 }

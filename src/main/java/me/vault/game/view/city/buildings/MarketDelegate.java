@@ -208,8 +208,8 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 		{
 			final String amountString = textField.getText();
 			final int inputAmount = Integer.parseInt(amountString);
-			CurrencyController.factorCurrencyTransaction(Currency.ENERGY_CREDIT, -inputAmount);
-			CurrencyController.factorCurrencyTransaction(currency, inputAmount / price);
+			CurrencyController.factorCurrency(Currency.ENERGY_CREDIT, -inputAmount);
+			CurrencyController.factorCurrency(currency, inputAmount / price);
 		}
 		catch (final NumberFormatException e)
 		{

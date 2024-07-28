@@ -21,6 +21,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
+ * This class contains any methods that are responsible for controlling all the logic that's related to artifacts.
+ * <br>
+ * Currently, it's responsible for upgrading the artifacts to the next level.
+ *
  * @author Vincent Wolf, Lasse-Leander Hillen
  * @version 1.0.0
  * @see Upgrader
@@ -30,7 +34,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class ArtifactController implements Upgrader<Artifact, ArtifactLevel>
 {
-
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link ArtifactController}.
 	 * <br>
@@ -58,7 +61,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * Checks if the supplied artifact is at the maximum level. If yes, true is returned, otherwise false.
 	 *
 	 * @param artifact The instance of {@link Artifact} which is checked.
-	 *
 	 * @return True if the artifact is maxed, otherwise false.
 	 */
 	private static boolean checkIsArtifactMaxed (final Artifact artifact)
@@ -115,7 +117,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * {@inheritDoc}
 	 *
 	 * @param artifact The {@link Artifact} instance which is checked if it can be upgraded to the next level.
-	 *
 	 * @return True if the {@link Artifact} can be upgraded, otherwise false.
 	 */
 	@Override

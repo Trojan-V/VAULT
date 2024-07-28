@@ -92,7 +92,7 @@ public final class CurrencyTest
 			new CurrencyTransaction(TEST_STEEL_AMOUNT, TEST_COMPOSITE_AMOUNT, TEST_SCIENCE_AMOUNT,
 				TEST_FOOD_RATION_AMOUNT, TEST_ENERGY_CREDIT_AMOUNT);
 
-		CurrencyController.factorCurrencyTransaction(transaction);
+		CurrencyController.factorCurrency(transaction);
 
 		Assertions.assertEquals(TEST_CURRENCY_STARTING_AMOUNT +
 		                        transaction.getAmount(STEEL), STEEL.getAmountProperty(),
