@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.control.TroopController;
-import me.vault.game.interfaces.Placable;
+import me.vault.game.interfaces.Placeable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.logging.Logger;
@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 
-public abstract class Troop implements Upgradable<TroopLevel>, Placable
+public abstract class Troop implements Upgradable<TroopLevel>, Placeable
 {
 
 	/**

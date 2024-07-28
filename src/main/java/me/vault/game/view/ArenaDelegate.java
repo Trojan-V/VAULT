@@ -15,7 +15,7 @@ import me.vault.game.control.EnemyController;
 import me.vault.game.control.FigureController;
 import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.fxcontrols.TimelineElementHBox;
-import me.vault.game.interfaces.Placable;
+import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.ILogger;
@@ -95,9 +95,9 @@ public class ArenaDelegate
 
 	private void initializeGameBoardGridPane ()
 	{
-		for (int i = 0; i < ARENA_ROW_COUNT; i++)
+		for (int i = 0; i < GAME_BOARD_ROW_COUNT; i++)
 		{
-			for (int j = 0; j < ARENA_COLUMN_COUNT; j++)
+			for (int j = 0; j < GAME_BOARD_COLUMN_COUNT; j++)
 			{
 				final Position position = new Position(i, j);
 				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(position).getCurrentElement());
@@ -127,7 +127,7 @@ public class ArenaDelegate
 	private void handleFigureInteraction (final @NotNull Position position)
 	{
 		final Figure<? extends Troop> attacker = this.arena.getSelectedFigure();
-		final Placable nextTileElement = this.arena.getGameBoard().getTile(position).getCurrentElement();
+		final Placeable nextTileElement = this.arena.getGameBoard().getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
 		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(this.arena, attacker, position))

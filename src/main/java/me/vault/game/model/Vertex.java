@@ -1,7 +1,7 @@
 package me.vault.game.model;
 
 
-import me.vault.game.interfaces.Placable;
+import me.vault.game.interfaces.Placeable;
 
 
 public class Vertex
@@ -10,13 +10,13 @@ public class Vertex
 	private final String vertexName;
 
 
-	private Placable currentElement;
+	private Placeable currentElement;
 
 
 	private boolean marked = false;
 
 
-	public Vertex (final String vertexName, final Placable currentElement)
+	public Vertex (final String vertexName, final Placeable currentElement)
 	{
 		this.vertexName = vertexName;
 		this.currentElement = currentElement;
@@ -29,13 +29,13 @@ public class Vertex
 	}
 
 
-	public Placable getCurrentElement ()
+	public Placeable getCurrentElement ()
 	{
 		return this.currentElement;
 	}
 
 
-	public void setCurrentElement (final Placable newElement)
+	public void setCurrentElement (final Placeable newElement)
 	{
 		this.currentElement = newElement;
 	}

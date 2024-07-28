@@ -1,6 +1,7 @@
 package me.vault.game.model.mission;
 
 
+import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.currency.CurrencyTransaction;
 
 
@@ -11,18 +12,20 @@ public class Mission
 
 	private final String description;
 
-	private final MissionMap missionMap;
+
+	private final GameBoard gameBoard;
 
 	private final CurrencyTransaction missionReward;
 
 	private boolean completed;
 
 
-	public Mission (final String name, final String description, final MissionMap missionMap, final CurrencyTransaction missionReward)
+	public Mission (final String name, final String description, final GameBoard gameBoard,
+		final CurrencyTransaction missionReward)
 	{
 		this.name = name;
 		this.completed = false;
-		this.missionMap = missionMap;
+		this.gameBoard = gameBoard;
 		this.description = description;
 		this.missionReward = missionReward;
 	}
@@ -52,9 +55,9 @@ public class Mission
 	}
 
 
-	public MissionMap getMissionMap ()
+	public GameBoard getGameBoard ()
 	{
-		return this.missionMap;
+		return this.gameBoard;
 	}
 
 

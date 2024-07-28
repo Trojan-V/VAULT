@@ -3,12 +3,12 @@ package me.vault.game.model.arena;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import me.vault.game.interfaces.Placable;
+import me.vault.game.interfaces.Placeable;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
 
-public class Blocked implements Placable
+public class Blocked implements Placeable
 {
 
 	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/attributes/resistance_icon.png";
