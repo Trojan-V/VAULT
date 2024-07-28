@@ -8,8 +8,10 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import me.vault.game.control.FigureController;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.Figure;
 import me.vault.game.model.troop.Troop;
 import org.jetbrains.annotations.Nullable;
 
@@ -61,9 +63,9 @@ public final class GameBoardButton extends Button
 		imageView.setPreserveRatio(false);
 		imageView.setImage(placeable.getSprite());
 
-		if (arena != null)
+		if (arena != null && placeable instanceof final Figure<? extends Troop> figure)
 		{
-			this.setTroopGlow(arena, imageView, placeable);
+			FigureController.setTroopFigureGlow(arena, imageView, figure);
 		}
 		this.setGraphic(imageView);
 	}
