@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  * implemented by another class.
  * <br>
  * If an interface is annotated by {@link ConstantInterface}, it should never be implemented by another class. The reason is that implementing an
- * interface usually suggests that there is some API which has to be implemented. Also, the class which implements the interface is of the type of the
+ * interface usually suggests that there's some API which has to be implemented. Also, the class which implements the interface is of the type of the
  * interface, which doesn't make sense because a concrete will never be an instance of a {@link ConstantInterface}.
  * <br>
  * To allow easy access to the constants the interface provides without having to specify the fully qualified name of the constant, static imports for
@@ -24,10 +24,8 @@ import java.lang.annotation.Target;
  */
 @Retention (RetentionPolicy.CLASS)
 @Target (ElementType.TYPE)
-public @interface ConstantInterface
+@interface ConstantInterface
 {
-
-	// TODO: Mit Annotations beschäftigen
 	@Retention (RetentionPolicy.CLASS)
 	@Target (ElementType.FIELD)
 	@interface Constant

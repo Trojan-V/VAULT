@@ -22,7 +22,6 @@ import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_EN
 @ConstantInterface
 public interface GameConstants
 {
-
 	/**
 	 * The top level path to the assets directory which contains all sprites used within the game.
 	 */
@@ -35,15 +34,19 @@ public interface GameConstants
 	/**
 	 * The window title which will be displayed in the top bar of the game window.
 	 */
+	@Constant
 	String WINDOW_TITLE = "VAULT Game";
 
+	@Constant
 	String BACKGROUND_FILENAME = ASSETS_PATH + "general_background.png";
 
+	@Constant
 	String TAB_PANE_STYLE = "floating";
 
-
+	@Constant
 	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/config";
 
+	@Constant
 	Arena ARENA = new Arena(ALLIES, ENCOUNTER_ONE_ENEMIES, new GameBoard(ResourceLoader.createGameBoardFromFile(
 		"src/main/resources/me/vault/game/map/Encounter_2.txt")));
 

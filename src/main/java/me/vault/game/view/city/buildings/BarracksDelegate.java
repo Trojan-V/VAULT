@@ -44,8 +44,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 public class BarracksDelegate implements Initializable
 {
 
-	// CONSTANTS -------------------------------------------------------------------------------------------------------
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -62,10 +60,8 @@ public class BarracksDelegate implements Initializable
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */
-	private static final String TO_STRING_PATTERN = "BarracksDelegate[backgroundImageView={0}, barracksAnchorPane={1}]";
+	private static final String TO_STRING_PATTERN = "BarracksDelegate'{'barracksAnchorPane={0}, chooseTerraFactionButton={1}'}'";
 
-
-	// FXML ------------------------------------------------------------------------------------------------------------
 
 	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
@@ -73,6 +69,10 @@ public class BarracksDelegate implements Initializable
 	@FXML
 	private AnchorPane barracksAnchorPane;
 
+
+	/**
+	 * The {@link Button} which makes it able to choose the New-Terra-Faction as the main faction.
+	 */
 	@FXML
 	private Button chooseTerraFactionButton;
 
@@ -96,7 +96,7 @@ public class BarracksDelegate implements Initializable
 
 
 	/**
-	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
+	 * A method that gets called when the user presses the "BACK"-Button, it resets the current view to the city view.
 	 *
 	 * @param ignored {@link ActionEvent}-parameter, that contains information about the event-caller.
 	 */
@@ -121,6 +121,14 @@ public class BarracksDelegate implements Initializable
 
 		// Logging the finalization of the initialization
 		LOGGER.logf(DEBUG, CLASS_INITIALIZED, BarracksDelegate.class.getSimpleName());
+	}
+
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.barracksAnchorPane, this.chooseTerraFactionButton);
 	}
 
 }

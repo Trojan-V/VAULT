@@ -192,7 +192,6 @@ public interface LoggingConstants
 
 	interface Arena
 	{
-
 		String ARENA_DISPLAY_FAILED = "Failed to load ArenaDelegate for an arena: {0}";
 
 	}

@@ -89,8 +89,6 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	@FXML
 	private Button chooseMilitaryFactionButton;
 
-	// Methods ---------------------------------------------------------------------------------------------------------
-
 
 	public static void show ()
 	{

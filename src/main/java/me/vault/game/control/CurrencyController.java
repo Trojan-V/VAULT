@@ -50,8 +50,6 @@ public final class CurrencyController implements Initializable
 	private static final String REWARD_GRID_FXML_FILENAME = "currencyRewardGrid.fxml";
 
 
-	// Labels ---------------------------------------------------------------------------------------------------------------
-
 	@FXML
 	private Label steelAmountLabel;
 
@@ -66,8 +64,6 @@ public final class CurrencyController implements Initializable
 
 	@FXML
 	private Label creditAmountLabel;
-
-	// Methods --------------------------------------------------------------------------------------------------------------
 
 
 	/**
