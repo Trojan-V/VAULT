@@ -2,6 +2,7 @@ package me.vault.game.view;
 
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -9,25 +10,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import me.vault.game.GameApplication;
-import me.vault.game.control.ArtifactController;
-import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.GameBoard;
-import me.vault.game.model.artifact.impl.DefenseArtifact;
-import me.vault.game.model.troop.impl.Sniper;
-import me.vault.game.utility.constant.MissionConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
-import me.vault.game.view.mission.MissionMapDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.EncounterConstants.ALLIES;
-import static me.vault.game.utility.constant.EncounterConstants.ENCOUNTER_ONE_ENEMIES;
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
 
@@ -35,8 +27,7 @@ import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE
  * This class acts as the controller and view for the main menu.
  *<br>
  * The class provides methods to display the main menu {@link MainMenuDelegate#show()} as well as methods for
- * the user to interact with the application {@link MainMenuDelegate#buttonClick(MouseEvent)}
- * {@link MainMenuDelegate#buttonClickMenu(ActionEvent)}.
+ * the user to interact with the application {@link MainMenuDelegate#click(Event)}.
  *
  * @author Timothy Hoegen-Jupp
  * @version 2.0.0
@@ -124,93 +115,79 @@ public class MainMenuDelegate implements Initializable
 
 
 	/**
-	 * Handles the buttonAction "buttonClick" that is defined in the FXML-File.
+	 * Handles the action "click" that is defined in the FXML-File.
 	 * <br>
-	 * The method differentiates between the different buttons and executes the specified methods for the button that
-	 * has been pressed.
 	 * <br>
-	 * If the "continue"-button is pressed the Save is loaded by the Config loader and the City-View is shown.
+	 * The method differentiates between the different actions that can be triggered by interacting with eiter the
+	 * buttons or the MenuItems in the Scene.
 	 * <br>
-	 * If the "new game"-button is pressed the Config File is reset and the Difficulty-View is shown.
+	 * <br>
+	 * Note: As both the MenuItems and the Buttons in the Scene have the same functionality, they are combined in one
+	 * method. However, as the buttons use an {@link MouseEvent} and the MenuItems use an {@link ActionEvent}, the
+	 * super-Class {@link Event} has been used in order to combine both in a single method.
+	 * <br>
+	 * <br>
+	 * The actions that are triggered by their respective button/menuItem are listed below:
+	 * <br>
+	 * If "continue" is clicked the Save is loaded by the Config loader and the City-View is shown.
+	 * <br>
+	 * If "new game" is clicked the Config File is reset and the Difficulty-View is shown.
 	 * <br>
 	 * If the "load game"-button is pressed the File-Chooser view is shown.
 	 * <br>
-	 * If the
+	 * If the "settings"-button is pressed the settings view is shown.
+	 * <br>
+	 * If the "exit game"-button is pressed the exit dialog is shown.
+	 * <br>
+	 * If the "arena"-button is pressed the network connection dialog is shown.
 	 *
-	 * @param mouseEvent the Event on which the method acts.
+	 * @param event the Event on which the method acts.
 	 *
 	 * @precondition The MainMenu Scene has to be displayed on a stage.
 	 * @postcondition The specified actions for each button are executed.
 	 */
 	@FXML
-	private void buttonClick (final MouseEvent mouseEvent)
+	private void click (final Event event)
 	{
-		if (mouseEvent.getSource().equals(this.continueButton))
+		if (event.getSource().equals(this.continueButton) || event.getSource().equals(this.continueMenuItem))
 		{
 			ConfigLoader.getInstance().load();
 			CityDelegate.show(GameApplication.getStage());
 		}
-		else if (mouseEvent.getSource().equals(this.newGameButton))
+		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
 			ConfigLoader.getInstance().reset();
 			DifficultyDelegate.show();
 		}
-		else if (mouseEvent.getSource().equals(this.loadGameButton))
+		else if (event.getSource().equals(this.loadGameButton)|| event.getSource().equals(this.loadGameMenuItem))
 		{
 			//TODO: Config Loader functions
+			//TODO: Update Java Doc
 			FileChooserView.show(GameApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH,
 				StringConstants.chooseGameFile);
 		}
-		else if (mouseEvent.getSource().equals(this.settingsButton))
+		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
 		{
 			SettingsDelegate.show();
 		}
-		else if (mouseEvent.getSource().equals(this.exitGameButton))
+		else if (event.getSource().equals(this.exitGameButton) || event.getSource().equals(this.exitGameMenuItem))
 		{
 			ExitGameDialogDelegate.show();
 		}
-		else if (mouseEvent.getSource().equals(this.arenaButton))
+		else if (event.getSource().equals(this.arenaButton) || event.getSource().equals(this.arenaMenuItem))
 		{
+			//TODO: finish Arena
+			//TODO: update java Doc
 			NetworkDelegate.show();
 		}
 	}
 
 
-	@FXML
-	private void buttonClickMenu (final ActionEvent actionEvent)
-	{
-		if (actionEvent.getSource().equals(this.continueMenuItem))
-		{
-			System.out.println(Sniper.getAllyInstance().toString());
-		}
-		else if (actionEvent.getSource().equals(this.newGameMenuItem))
-		{
-			DifficultyDelegate.show();
-		}
-		else if (actionEvent.getSource().equals(this.loadGameMenuItem))
-		{
-			FileChooserView.show(GameApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH,
-				StringConstants.chooseGameFile);
-		}
-		else if (actionEvent.getSource().equals(this.settingsMenuItem))
-		{
-			SettingsDelegate.show();
-		}
-		else if (actionEvent.getSource().equals(this.exitGameMenuItem))
-		{
-			// TODO: Replace with actual functionality
-			// ExitGameDialogDelegate.show();
-			MissionMapDelegate.show(MissionConstants.MissionOne.MISSION_ONE);
-
-		}
-		else if (actionEvent.getSource().equals(this.arenaMenuItem))
-		{
-			ArenaDelegate.show(new Arena(ALLIES, ENCOUNTER_ONE_ENEMIES,
-				new GameBoard(ResourceLoader.createGameBoardFromFile(EncounterConstants.ENCOUNTER_TWO_FILEPATH))));
-		}
-	}
-
-
+	/**
+	 *
+	 * @param url
+	 * @param resourceBundle
+	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
@@ -220,9 +197,13 @@ public class MainMenuDelegate implements Initializable
 	}
 
 
+	/**
+	 *
+	 */
 	@FXML
 	private void initializeContinue ()
 	{
+
 		if (ResourceLoader.collectFiles(GAME_SAVE_FOLDER_FILE_PATH).isEmpty())
 		{
 			ViewUtil.setMenuItemInactive(this.continueMenuItem);
@@ -231,6 +212,9 @@ public class MainMenuDelegate implements Initializable
 	}
 
 
+	/**
+	 *
+	 */
 	@FXML
 	private void initializeLoadGame () //TODO: Add checks for loading a save file
 	{
