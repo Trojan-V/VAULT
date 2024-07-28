@@ -118,7 +118,6 @@ public class ArenaDelegate
 		final PriorityQueue<Figure<? extends Troop>> figurePriorityQueue = this.figureTroopTimeline.getPriorityQueue();
 		while (!figurePriorityQueue.isEmpty())
 		{
-			// this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(figurePriorityQueue.poll())));
 			this.timelineVBox.getChildren().add(new TimelineElementHBox(this.arena, Objects.requireNonNull(figurePriorityQueue.poll())));
 		}
 		this.timelineVBox.setSpacing(TIMELINE_SPACING);

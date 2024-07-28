@@ -14,9 +14,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import static me.vault.game.utility.constant.ArenaConstants.DROP_SHADOW_RADIUS;
-import static me.vault.game.utility.constant.ArenaConstants.DROP_SHADOW_SPREAD;
-
 
 public final class FigureController
 {
@@ -24,7 +21,11 @@ public final class FigureController
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger Logger = new Logger(FigureController.class.getName());
+	private static final ILogger LOGGER = new Logger(FigureController.class.getName());
+
+	private static final int DROP_SHADOW_RADIUS = 15;
+
+	private static final double DROP_SHADOW_SPREAD = 0.5;
 
 
 	private FigureController () {}

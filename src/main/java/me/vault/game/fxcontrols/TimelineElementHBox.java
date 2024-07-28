@@ -9,12 +9,38 @@ import me.vault.game.control.FigureController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
-import static me.vault.game.utility.constant.ArenaConstants.*;
 
-
+/**
+ *
+ */
 public final class TimelineElementHBox extends HBox
 {
+
+	private static final ILogger LOGGER = new Logger(TimelineElementHBox.class.getSimpleName());
+
+	private static final String NAME = "Name: ";
+
+	private static final String HEALTH = "Health: ";
+
+	private static final String ARMOR = "Armor: ";
+
+	private static final int VERTICAL_SPACING = 5;
+
+	private static final int VBOX_WIDTH = 200;
+
+	private static final int VBOX_HEIGHT = 200;
+
+	private static final int SPRITE_WIDTH = 70;
+
+	private static final int SPRITE_HEIGHT = 70;
+
+	private static final int IMAGE_OFFSET = 10;
+
+	private static final int H_BOX_OFFSET = 10;
+
 
 	public TimelineElementHBox (final Arena arena, final Figure<? extends Troop> troopFigure)
 	{
@@ -23,7 +49,7 @@ public final class TimelineElementHBox extends HBox
 		statistics.getChildren().add(new Label(NAME + troopFigure.getName()));
 		statistics.getChildren().add(new Label(HEALTH + troopFigure.getStatistics().getDefensiveStatistic().getHealthPoints()));
 		statistics.getChildren().add(new Label(ARMOR + troopFigure.getStatistics().getDefensiveStatistic().getArmor()));
-		statistics.setSpacing(TIMELINE_SPACING);
+		statistics.setSpacing(VERTICAL_SPACING);
 
 		final ImageView sprite = new ImageView(troopFigure.getSprite());
 		sprite.setFitWidth(SPRITE_WIDTH - IMAGE_OFFSET);
@@ -34,5 +60,4 @@ public final class TimelineElementHBox extends HBox
 		this.getChildren().add(statistics);
 		this.setSpacing(H_BOX_OFFSET);
 	}
-
 }
