@@ -30,6 +30,7 @@ public interface MissionConstants
 		@Constant
 		CurrencyTransaction MISSION_ONE_REWARDS = new CurrencyTransaction(1000, 1000, 1000, 1000, 1000);
 
+
 		@Constant
 		Mission MISSION_ONE =
 			new Mission(MISSION_ONE_NAME, MISSION_ONE_DESCRIPTION, MISSION_ONE_GAME_BOARD, MISSION_ONE_REWARDS);

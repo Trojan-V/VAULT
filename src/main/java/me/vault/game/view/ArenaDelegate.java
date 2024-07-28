@@ -45,7 +45,7 @@ public class ArenaDelegate
 	private static final ILogger LOGGER = new Logger(ArenaDelegate.class.getSimpleName());
 
 	@FXML
-	private GridPane gameBoardGridPane;
+	private GridPane arenaBoardGridPane;
 
 	@FXML
 	private Label roundNumber;
@@ -91,7 +91,7 @@ public class ArenaDelegate
 	{
 		final Button sender = (Button) actionEvent.getSource();
 		sender.setDisable(true);
-		this.gameBoardGridPane.setDisable(false);
+		this.arenaBoardGridPane.setDisable(false);
 		this.executeTurn();
 	}
 
@@ -108,7 +108,7 @@ public class ArenaDelegate
 				{
 					this.handleFigureInteraction(position);
 				});
-				this.gameBoardGridPane.add(button, i, j);
+				this.arenaBoardGridPane.add(button, i, j);
 			}
 		}
 	}
@@ -129,14 +129,15 @@ public class ArenaDelegate
 
 	private void handleFigureInteraction (final @NotNull Position position)
 	{
+		final GameBoard arenaGameBoard = this.arena.getGameBoard();
 		final Figure<? extends Troop> attacker = this.arena.getSelectedFigure();
-		final Placeable nextTileElement = this.arena.getGameBoard().getTile(position).getCurrentElement();
+		final Placeable nextTileElement = arenaGameBoard.getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
 		if (nextTileElement instanceof PlaceholderTileAppearance &&
-		    FigureController.figureCanMoveToPosition(this.arena, attacker, position))
+		    FigureController.figureCanMoveToPosition(arenaGameBoard, attacker, position))
 		{
-			FigureController.moveFigure(this.arena, attacker, position);
+			FigureController.moveFigure(arenaGameBoard, attacker, position);
 			interactionFailed = false;
 		}
 		else if (nextTileElement instanceof final Figure<? extends Troop> defender && FigureController.figureCanAttackFigure(this.arena, attacker, position))
@@ -149,7 +150,7 @@ public class ArenaDelegate
 			return;
 		}
 		this.updateTimeline();
-		this.gameBoardGridPane.getChildren().clear();
+		this.arenaBoardGridPane.getChildren().clear();
 		this.initializeGameBoardGridPane();
 		this.executeTurn();
 	}
@@ -163,7 +164,7 @@ public class ArenaDelegate
 		if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
 			this.HandleEnemyTurn();
-			this.gameBoardGridPane.getChildren().clear();
+			this.arenaBoardGridPane.getChildren().clear();
 			this.initializeGameBoardGridPane();
 			this.updateTimeline();
 
@@ -186,12 +187,14 @@ public class ArenaDelegate
 
 	private void HandleEnemyTurn ()
 	{
-		final Position position = this.arena.getGameBoard().getFigurePosition(this.arena.getSelectedFigure());
+		final GameBoard arenaGameBoard = this.arena.getGameBoard();
+
+		final Position position = arenaGameBoard.getFigurePosition(this.arena.getSelectedFigure());
 		final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensiveStatistic().getGrenadeRange();
 		final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterityStatistic().getMovementTiles();
 
-		final List<Tile> reachableTroopFigureTiles = this.arena.getGameBoard().getReachableTroopFigureTiles(position, attackRange);
-		final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position, movementRange);
+		final List<Tile> reachableTroopFigureTiles = arenaGameBoard.getReachableTroopFigureTiles(position, attackRange);
+		final List<Tile> adjacentAccessibleTiles = arenaGameBoard.getAdjacentPlaceholderTiles(position, movementRange);
 
 		boolean hasAttacked = false;
 		if (!reachableTroopFigureTiles.isEmpty())
@@ -200,7 +203,7 @@ public class ArenaDelegate
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{
-			FigureController.moveFigure(this.arena, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst());
+			FigureController.moveFigure(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst().getPosition());
 		}
 	}
 
@@ -248,7 +251,7 @@ public class ArenaDelegate
 		this.currentQueue = arena.getTimeline().getPriorityQueue();
 		this.initializeTimelineVbox();
 		this.initializeGameBoardGridPane();
-		this.gameBoardGridPane.setDisable(true);
+		this.arenaBoardGridPane.setDisable(true);
 	}
 
 }

@@ -10,10 +10,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import me.vault.game.GameApplication;
+import me.vault.game.control.FigureController;
 import me.vault.game.fxcontrols.GameBoardButton;
+import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.arena.ArenaStartTileAppearance;
+import me.vault.game.model.arena.GameBoard;
+import me.vault.game.model.arena.PlaceholderTileAppearance;
 import me.vault.game.model.arena.Position;
 import me.vault.game.model.mission.Mission;
+import me.vault.game.model.player.Player;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.ArenaDelegate;
 import me.vault.game.view.ViewUtil;
 import org.jetbrains.annotations.NotNull;
 
@@ -43,7 +50,7 @@ public class MissionMapDelegate implements Initializable
 
 
 	@FXML
-	private GridPane gameBoardGridPane;
+	private GridPane missionBoardGridPane;
 
 
 	private Mission mission;
@@ -80,7 +87,7 @@ public class MissionMapDelegate implements Initializable
 	@Override
 	public void initialize (final URL location, final ResourceBundle resources)
 	{
-		this.gameBoardGridPane.setDisable(true);
+		this.missionBoardGridPane.setDisable(true);
 	}
 
 
@@ -89,7 +96,7 @@ public class MissionMapDelegate implements Initializable
 	{
 		final Button sender = (Button) event.getSource();
 		sender.setDisable(true);
-		this.gameBoardGridPane.setDisable(false);
+		this.missionBoardGridPane.setDisable(false);
 	}
 
 
@@ -97,7 +104,7 @@ public class MissionMapDelegate implements Initializable
 	{
 		this.mission = mission;
 		this.initializeGameBoardGridPane();
-		this.gameBoardGridPane.setDisable(true);
+		this.missionBoardGridPane.setDisable(true);
 	}
 
 
@@ -112,7 +119,7 @@ public class MissionMapDelegate implements Initializable
 					button = new GameBoardButton(this.mission.getGameBoard().getTile(position).getCurrentElement());
 
 				button.setOnMouseClicked(_ -> this.handleFigureInteraction(position));
-				this.gameBoardGridPane.add(button, column, row);
+				this.missionBoardGridPane.add(button, column, row);
 			}
 		}
 	}
@@ -120,24 +127,26 @@ public class MissionMapDelegate implements Initializable
 
 	private void handleFigureInteraction (final @NotNull Position position)
 	{
-		//		final Placeable nextTileElement = this.mission.getGameBoard().getTile(position).getCurrentElement();
-		//
-		//		boolean interactionFailed = true;
-		//		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(this.mission,
-		//		attacker,
-		//			position))
-		//		{
-		//			FigureController.moveFigure(this.arena, attacker, position);
-		//			interactionFailed = false;
-		//		}
-		//
-		//
-		//
-		//		if (interactionFailed)
-		//		{
-		//			return;
-		//		}
-		//		this.gameBoardGridPane.getChildren().clear();
-		//		this.initializeGameBoardGridPane();
+		final GameBoard missionGameBoard = this.mission.getGameBoard();
+		final Player player = Player.getInstance();
+
+		// the clicked element
+		final Placeable nextTileElement = missionGameBoard.getTile(position).getCurrentElement();
+
+		final boolean playerCanMove = FigureController.playerCanMoveToPosition(missionGameBoard, player, position);
+		final boolean playerCanReach = FigureController.playerCanReachPosition(missionGameBoard, player, position);
+
+		if (nextTileElement instanceof PlaceholderTileAppearance && playerCanMove)
+		{
+			FigureController.movePlayer(missionGameBoard, player, position);
+		}
+		else if (nextTileElement instanceof ArenaStartTileAppearance && playerCanReach)
+		{
+			ArenaDelegate.show(this.mission.getAvailableArenaEncounters().removeFirst());
+		}
+
+
+		this.missionBoardGridPane.getChildren().clear();
+		this.initializeGameBoardGridPane();
 	}
 }

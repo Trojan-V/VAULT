@@ -1,8 +1,15 @@
 package me.vault.game.model.mission;
 
 
+import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.model.player.Player;
+import me.vault.game.utility.constant.EncounterConstants;
+import me.vault.game.utility.loading.ResourceLoader;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Mission
@@ -20,6 +27,9 @@ public class Mission
 	private boolean completed;
 
 
+	private final List<Arena> availableArenaEncounters = new ArrayList<>();
+
+
 	public Mission (final String name, final String description, final GameBoard gameBoard,
 		final CurrencyTransaction missionReward)
 	{
@@ -28,6 +38,7 @@ public class Mission
 		this.gameBoard = gameBoard;
 		this.description = description;
 		this.missionReward = missionReward;
+		this.availableArenaEncounters.add(new Arena(Player.getInstance().getSelectedTroops(), EncounterConstants.ENCOUNTER_ONE_ENEMIES, new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map/Encounter_2.txt"))));
 	}
 
 
@@ -66,4 +77,9 @@ public class Mission
 		return this.missionReward;
 	}
 
+
+	public List<Arena> getAvailableArenaEncounters ()
+	{
+		return this.availableArenaEncounters;
+	}
 }

@@ -22,7 +22,7 @@
                         <Image url="@../../assets/info_field.png"/>
                     </image>
                 </ImageView>
-                <GridPane fx:id="gameBoardGridPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="635.0"
+                <GridPane fx:id="missionBoardGridPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="635.0"
                           prefWidth="635.0" StackPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>

@@ -4,6 +4,7 @@ package me.vault.game.model.player;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.arena.Figure;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.troop.Faction;
@@ -31,7 +32,8 @@ public final class Player implements Placeable
 
 	private Faction selectedFaction;
 
-	private ArrayList<Troop> selectedTroops;
+
+	private ArrayList<Figure<? extends Troop>> selectedTroops;
 
 
 	private Player ()
@@ -72,19 +74,19 @@ public final class Player implements Placeable
 	}
 
 
-	public ArrayList<Troop> getSelectedTroops ()
+	public ArrayList<Figure<? extends Troop>> getSelectedTroops ()
 	{
 		return this.selectedTroops;
 	}
 
 
-	public void setSelectedTroops (final ArrayList<Troop> troopArrayList)
+	public void setSelectedTroops (final ArrayList<Figure<? extends Troop>> troopArrayList)
 	{
 		this.selectedTroops = troopArrayList;
 	}
 
 
-	public void addSelectedTroop (final Troop troop)
+	public void addSelectedTroop (final Figure<? extends Troop> troop)
 	{
 		this.selectedTroops.add(troop);
 	}

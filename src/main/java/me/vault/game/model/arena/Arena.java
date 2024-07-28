@@ -84,7 +84,7 @@ public class Arena
 		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
 		    PlaceholderTileAppearance.class)
 		{
-			this.getGameBoard().placeFigure(randomPosition, troop);
+			this.getGameBoard().placeIfPlaceholder(randomPosition, troop);
 			return;
 		}
 		this.placePlayerOneTroopAtRandomPosition(troop);
@@ -98,7 +98,7 @@ public class Arena
 		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
 		    PlaceholderTileAppearance.class)
 		{
-			this.getGameBoard().placeFigure(randomPosition, troop);
+			this.getGameBoard().placeIfPlaceholder(randomPosition, troop);
 			return;
 		}
 		this.placePlayerTwoTroopAtRandomPosition(troop);

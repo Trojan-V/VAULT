@@ -23,7 +23,7 @@ public class EnemyController
 
 	public static void moveToAdjacentTile (final Arena arena, final Tile adjacentAccessibleTile, final Figure<Troop> troopFigure)
 	{
-		FigureController.moveFigure(arena, troopFigure, adjacentAccessibleTile);
+		FigureController.moveFigure(arena.getGameBoard(), troopFigure, adjacentAccessibleTile.getPosition());
 	}
 
 

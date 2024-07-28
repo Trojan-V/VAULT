@@ -19,5 +19,4 @@ public interface ArenaConstants
 
 	@Constant
 	double TIMELINE_SPACING = 5.0;
-
 }
