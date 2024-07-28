@@ -1,7 +1,7 @@
 package me.vault.game.model.arena;
 
 
-import me.vault.game.interfaces.Placable;
+import me.vault.game.interfaces.Placeable;
 
 
 public class Tile
@@ -13,10 +13,11 @@ public class Tile
 
 	private final int column;
 
-	private Placable currentElement;
+
+	private Placeable currentElement;
 
 
-	public Tile (final String tileName, final int row, final int column, final Placable currentElement)
+	public Tile (final String tileName, final int row, final int column, final Placeable currentElement)
 	{
 		this.tileName = tileName;
 		this.row = row;
@@ -25,15 +26,15 @@ public class Tile
 	}
 
 
-	public Placable getCurrentElement ()
+	public Placeable getCurrentElement ()
 	{
 		return this.currentElement;
 	}
 
 
-	public void setCurrentElement (final Placable placable)
+	public void setCurrentElement (final Placeable placeable)
 	{
-		this.currentElement = placable;
+		this.currentElement = placeable;
 	}
 
 

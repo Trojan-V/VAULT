@@ -14,7 +14,7 @@ import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.troop.impl.Sniper;
-import me.vault.game.utility.constant.EncounterConstants;
+import me.vault.game.utility.constant.MissionConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -163,6 +163,7 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (mouseEvent.getSource().equals(this.settingsButton))
 		{
+			SettingsDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.exitGameButton))
 		{
@@ -193,13 +194,13 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (actionEvent.getSource().equals(this.settingsMenuItem))
 		{
-			UpgradeDialogDelegate.show(DefenseArtifact.getInstance(), ArtifactController.getInstance());
+			SettingsDelegate.show();
 		}
 		else if (actionEvent.getSource().equals(this.exitGameMenuItem))
 		{
 			// TODO: Replace with actual functionality
 			// ExitGameDialogDelegate.show();
-			MissionMapDelegate.show();
+			MissionMapDelegate.show(MissionConstants.MissionOne.MISSION_ONE);
 
 		}
 		else if (actionEvent.getSource().equals(this.arenaMenuItem))
@@ -239,4 +240,5 @@ public class MainMenuDelegate implements Initializable
 			ViewUtil.setButtonInactive(this.loadGameButton);
 		}
 	}
+
 }

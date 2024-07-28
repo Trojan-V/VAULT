@@ -21,10 +21,10 @@ public interface ArenaConstants
 	double TIMELINE_SPACING = 5.0;
 
 	@Constant
-	int ARENA_ROW_COUNT = 12;
+	int GAME_BOARD_ROW_COUNT = 12;
 
 
 	@Constant
-	int ARENA_COLUMN_COUNT = 12;
+	int GAME_BOARD_COLUMN_COUNT = 12;
 
 }

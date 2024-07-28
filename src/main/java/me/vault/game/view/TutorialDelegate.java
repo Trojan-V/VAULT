@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.utility.constant.StringConstants;
+import me.vault.game.utility.loading.Config;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -84,6 +85,7 @@ public final class TutorialDelegate implements Initializable
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
+			Config.getInstance().updateConfigFromModels();
 			CityDelegate.show(GameApplication.getStage());
 		}
 	}

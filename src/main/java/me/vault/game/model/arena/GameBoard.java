@@ -1,7 +1,7 @@
 package me.vault.game.model.arena;
 
 
-import me.vault.game.interfaces.Placable;
+import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class GameBoard
 	}
 
 
-	public void placeFigure (final Position position, final Placable troopFigure)
+	public void placeFigure (final Position position, final Placeable troopFigure)
 	{
 		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == Placeholder.class)
 		{
@@ -70,7 +70,7 @@ public class GameBoard
 	}
 
 
-	public void setPlaceable (final Position position, final Placable placeable)
+	public void setPlaceable (final Position position, final Placeable placeable)
 	{
 		this.gameBoard[position.x()][position.y()].setCurrentElement(placeable);
 	}
