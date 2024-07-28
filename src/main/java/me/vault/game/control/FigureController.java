@@ -44,7 +44,7 @@ public final class FigureController
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
-		final Position nextTroopPosition = new Position(nextTile.getRow(), nextTile.getColumn());
+		final Position nextTroopPosition = new Position(nextTile.getPosition().x(), nextTile.getPosition().y());
 		arenaGameBoard.placeFigure(nextTroopPosition, troopFigure);
 		arenaGameBoard.setPlaceable(previousTroopPosition, new Placeholder());
 	}
@@ -58,7 +58,7 @@ public final class FigureController
 		System.out.println("attackerFigure = " + attackerOffensiveStats);
 		System.out.println("defenderFigure = " + defenderDefensiveStats);
 
-		final int calculatedDamage = FigureController.calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
+		final int calculatedDamage = calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
 		final int newDefenderHealthPoints = defenderDefensiveStats.getHealthPoints() - calculatedDamage;
 		System.out.println("calculatedDamage = " + calculatedDamage);
 		System.out.println("newDefenderHealthPoints = " + newDefenderHealthPoints);

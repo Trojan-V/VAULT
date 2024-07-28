@@ -3,13 +3,7 @@ package me.vault.game.utility.loading;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import me.vault.game.model.arena.Blocked;
-import me.vault.game.model.arena.GameBoardConstants;
-import me.vault.game.model.arena.Placeholder;
-import me.vault.game.model.arena.Tile;
-import me.vault.game.model.mission.AccessibleTile;
-import me.vault.game.model.mission.MapObject;
-import me.vault.game.model.mission.Obstacle;
+import me.vault.game.model.arena.*;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -21,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static me.vault.game.utility.constant.GameBoardConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
@@ -73,7 +68,6 @@ public final class ResourceLoader
 	 * Loads an image from the supplied resourcePath.
 	 *
 	 * @param resourcePath The path from which the resource (the image) is loaded.
-	 *
 	 * @return An instance of {@link MetaDataImage}.
 	 */
 	public static MetaDataImage loadImage (final String resourcePath)
@@ -97,11 +91,11 @@ public final class ResourceLoader
 	 * <br>
 	 * The class is required to be provided to find the path to the view by using {@link Class#getResource(String)}.
 	 *
-	 * @param <T>              The datatype of the class instance. No boundaries, as there's no class that bundles all classes
+	 * @param <T>              The datatype of the class instance. No boundaries, as there's no class that bundles all
+	 *                         classes
 	 *                         that can be scenes to one datatype.
 	 * @param clazz            The class that corresponds to the view (fxml).
 	 * @param fxmlResourcePath The path from which the resource (the scene) is loaded.
-	 *
 	 * @return An instance of {@link Scene}.
 	 */
 	public static <T> Scene loadScene (final Class<T> clazz, final String fxmlResourcePath)
@@ -127,7 +121,6 @@ public final class ResourceLoader
 	 * Returns a new instance of {@link File} for the provided path.
 	 *
 	 * @param filePath The path of the file.
-	 *
 	 * @return An instance {@link File}.
 	 */
 	public static File getDirectory (final String filePath)
@@ -140,7 +133,6 @@ public final class ResourceLoader
 	 * Collects all files in the supplied directory and returns them as a {@link List}.
 	 *
 	 * @param directoryPath The path to the directory.
-	 *
 	 * @return The {@link List} of files.
 	 */
 	public static List<File> collectFiles (final String directoryPath)
@@ -155,73 +147,36 @@ public final class ResourceLoader
 	}
 
 
-	public static MapObject[][] readMapFile (final String filePath)
-	{
-		final char accessibleTileChar = 'n';
-		final char obstacleTileChar = 'h';
-		final MapObject[][] mapObjectArray = new MapObject[12][12];
-
-		try (final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8)))
-		{
-			for (int i = 0; i < 12; i++)
-			{
-				final String line = reader.readLine();
-				if (line.length() != 12)
-				{
-					throw new RuntimeException(); // TODO: EIGENE EXCEPTION
-				}
-				final char[] charArray = line.toCharArray(); // TODO: char[] laenge ueberpruefen
-				for (int j = 0; j < 12; j++)
-				{
-					if (charArray[j] == accessibleTileChar)
-					{
-						mapObjectArray[i][j] = new AccessibleTile();
-					}
-					else if (charArray[j] == obstacleTileChar)
-					{
-						mapObjectArray[i][j] = new Obstacle();
-					}
-				}
-			}
-		}
-		catch (final IOException e)
-		{
-			throw new RuntimeException(e);
-		}
-		return mapObjectArray;
-	}
-
-
 	public static Tile[][] createGameBoardFromFile (final String filePath)
 	{
-		final char accessibleTileChar = 'n';
-		final char obstacleTileChar = 'h';
-
-
-		final Tile[][] gameBoard =
-			new Tile[GameBoardConstants.DEFAULT_NUBER_OF_ROWS][GameBoardConstants.DEFAULT_NUBER_OF_COLUMS];
+		final Tile[][] gameBoard = new Tile[GAME_BOARD_ROW_COUNT][GAME_BOARD_COLUMN_COUNT];
 
 		try (
 			final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),
 				StandardCharsets.UTF_8)))
 		{
-			for (int i = 0; i < GameBoardConstants.DEFAULT_NUBER_OF_ROWS; i++)
+			for (int row = 0; row < GAME_BOARD_ROW_COUNT; row++)
 			{
 				final String line = reader.readLine();
-				if (line.length() != GameBoardConstants.DEFAULT_NUBER_OF_ROWS)
+				if (line.length() != GAME_BOARD_ROW_COUNT)
 				{
 					throw new RuntimeException(); // TODO: EIGENE EXCEPTION
 				}
-				final char[] charArray = line.toCharArray(); // TODO: char[] laenge ueberpruefen
-				for (int j = 0; j < GameBoardConstants.DEFAULT_NUBER_OF_COLUMS; j++)
+
+				final char[] charArray = line.toCharArray();
+				for (int column = 0; column < GAME_BOARD_COLUMN_COUNT; column++)
 				{
-					if (charArray[j] == accessibleTileChar)
+					switch (charArray[column])
 					{
-						gameBoard[i][j] = new Tile(TILE + i + j, i, j, new Placeholder());
-					}
-					else if (charArray[j] == obstacleTileChar)
-					{
-						gameBoard[i][j] = new Tile(TILE + i + j, i, j, new Blocked());
+						case OBSTACLE_TILE ->
+							gameBoard[row][column] = new Tile(new Position(row, column), new Blocked());
+						case RESOURCE_TILE ->
+							gameBoard[row][column] = new Tile(new Position(row, column), new Resource());
+						case ARENA_TILE -> gameBoard[row][column] = new Tile(new Position(row, column), new Arena());
+						case MISSION_FINISH_TILE -> gameBoard[row][column] = new Tile(new Position(row, column),
+							new MissionFinish());
+						// any char besides the preceding reserved ones are accepted as placeholders.
+						default -> gameBoard[row][column] = new Tile(new Position(row, column), new Placeholder());
 					}
 				}
 			}
@@ -232,5 +187,4 @@ public final class ResourceLoader
 		}
 		return gameBoard;
 	}
-
 }

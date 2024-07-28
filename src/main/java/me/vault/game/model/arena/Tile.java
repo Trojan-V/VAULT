@@ -3,25 +3,25 @@ package me.vault.game.model.arena;
 
 import me.vault.game.interfaces.Placeable;
 
+import java.text.MessageFormat;
+
 
 public class Tile
 {
 
-	private final String tileName;
 
-	private final int row;
+	private static final String TO_STRING_PATTERN = "Tile'{'position={0}, currentElement={1}'}'";
 
-	private final int column;
+
+	private final Position position;
 
 
 	private Placeable currentElement;
 
 
-	public Tile (final String tileName, final int row, final int column, final Placeable currentElement)
+	public Tile (final Position position, final Placeable currentElement)
 	{
-		this.tileName = tileName;
-		this.row = row;
-		this.column = column;
+		this.position = position;
 		this.currentElement = currentElement;
 	}
 
@@ -38,28 +38,15 @@ public class Tile
 	}
 
 
-	public String getTileName ()
-	{
-		return this.tileName;
-	}
-
-
 	@Override
 	public String toString ()
 	{
-		return this.tileName;
+		return MessageFormat.format(TO_STRING_PATTERN, this.position, this.currentElement);
 	}
 
 
-	public int getRow ()
+	public Position getPosition ()
 	{
-		return this.row;
+		return this.position;
 	}
-
-
-	public int getColumn ()
-	{
-		return this.column;
-	}
-
 }

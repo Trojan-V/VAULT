@@ -28,7 +28,10 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 import static me.vault.game.model.arena.Arena.State;
-import static me.vault.game.utility.constant.ArenaConstants.*;
+import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
+import static me.vault.game.utility.constant.ArenaConstants.TIMELINE_SPACING;
+import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
+import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_ROW_COUNT;
 import static me.vault.game.utility.constant.LoggingConstants.Arena.ARENA_DISPLAY_FAILED;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 

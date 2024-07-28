@@ -183,11 +183,6 @@ public class MainMenuDelegate implements Initializable
 	}
 
 
-	/**
-	 *
-	 * @param url
-	 * @param resourceBundle
-	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
@@ -197,9 +192,6 @@ public class MainMenuDelegate implements Initializable
 	}
 
 
-	/**
-	 *
-	 */
 	@FXML
 	private void initializeContinue ()
 	{
@@ -212,9 +204,6 @@ public class MainMenuDelegate implements Initializable
 	}
 
 
-	/**
-	 *
-	 */
 	@FXML
 	private void initializeLoadGame () //TODO: Add checks for loading a save file
 	{

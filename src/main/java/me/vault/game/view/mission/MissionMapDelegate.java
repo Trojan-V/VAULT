@@ -21,8 +21,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.ArenaConstants.GAME_BOARD_COLUMN_COUNT;
-import static me.vault.game.utility.constant.ArenaConstants.GAME_BOARD_ROW_COUNT;
+import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
+import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_ROW_COUNT;
 
 
 /**
