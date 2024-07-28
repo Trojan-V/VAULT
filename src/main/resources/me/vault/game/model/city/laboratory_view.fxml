@@ -199,7 +199,7 @@
                                 </VBox>
                                 <VBox prefHeight="159.0" prefWidth="105.0">
                                     <children>
-                                        <Label fx:id="meleeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="dodgeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -209,7 +209,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="meleeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="dodgeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -219,7 +219,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="meleeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="dodgeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -318,7 +318,7 @@
                                 </VBox>
                                 <VBox prefHeight="159.0" prefWidth="105.0">
                                     <children>
-                                        <Label fx:id="dodgeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="initiativeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                textAlignment="RIGHT" wrapText="true">
                                             <font>
@@ -328,7 +328,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="dodgeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="initiativeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -338,7 +338,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="dodgeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="initiativeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -436,7 +436,7 @@
                                 </VBox>
                                 <VBox prefHeight="159.0" prefWidth="105.0">
                                     <children>
-                                        <Label fx:id="initiativeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="meleeEnergyAbilityMeleeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                textAlignment="RIGHT" wrapText="true">
                                             <font>
@@ -446,7 +446,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="initiativeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="meleeEnergyAbilityDodgeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
@@ -456,7 +456,7 @@
                                                 <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
                                             </VBox.margin>
                                         </Label>
-                                        <Label fx:id="initiativeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
+                                        <Label fx:id="meleeEnergyAbilityInitiativeModifierLabel" alignment="CENTER"
                                                contentDisplay="TEXT_ONLY" prefHeight="23.0" prefWidth="96.0" text="1.0"
                                                wrapText="true">
                                             <font>
