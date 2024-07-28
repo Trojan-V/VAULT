@@ -8,16 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import me.vault.game.GameApplication;
 import me.vault.game.control.EnemyController;
 import me.vault.game.control.FigureController;
 import me.vault.game.fxcontrols.GameBoardButton;
+import me.vault.game.fxcontrols.TimelineElementHBox;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.troop.Troop;
@@ -104,7 +101,6 @@ public class ArenaDelegate
 			{
 				final Position position = new Position(i, j);
 				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(position).getCurrentElement());
-
 				button.setOnMouseClicked(_ ->
 				{
 					this.handleFigureInteraction(position);
@@ -122,26 +118,10 @@ public class ArenaDelegate
 		final PriorityQueue<Figure<? extends Troop>> figurePriorityQueue = this.figureTroopTimeline.getPriorityQueue();
 		while (!figurePriorityQueue.isEmpty())
 		{
-			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(figurePriorityQueue.poll())));
+			// this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(figurePriorityQueue.poll())));
+			this.timelineVBox.getChildren().add(new TimelineElementHBox(this.arena, Objects.requireNonNull(figurePriorityQueue.poll())));
 		}
 		this.timelineVBox.setSpacing(TIMELINE_SPACING);
-	}
-
-
-	private void setTroopGlow (final @NotNull Arena arena, final @NotNull ImageView imageView, final @NotNull Figure<? extends Troop> troopFigure)
-	{
-		if (arena.getPlayerOneTroops().contains(troopFigure))
-		{
-			final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
-			playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-			imageView.setEffect(playerIdentity);
-		}
-		else if (arena.getPlayerTwoTroops().contains(troopFigure))
-		{
-			final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
-			playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-			imageView.setEffect(playerIdentity);
-		}
 	}
 
 
@@ -240,7 +220,7 @@ public class ArenaDelegate
 		this.timelineVBox.getChildren().clear();
 		while (!tempPriorityQueue.isEmpty())
 		{
-			this.timelineVBox.getChildren().add(this.createTimelineElement(Objects.requireNonNull(tempPriorityQueue.poll())));
+			this.timelineVBox.getChildren().add(new TimelineElementHBox(this.arena, Objects.requireNonNull(tempPriorityQueue.poll())));
 		}
 	}
 
@@ -249,34 +229,6 @@ public class ArenaDelegate
 	{
 		this.round++;
 		this.roundNumber.setText(String.valueOf(this.round));
-	}
-
-
-	private HBox createTimelineElement (final Figure<? extends Troop> troopFigure)
-	{
-		final HBox container = new HBox();
-		final VBox statistics = new VBox();
-
-		statistics.setPrefSize(VBOX_WIDTH, VBOX_HEIGHT);
-		final ImageView sprite = new ImageView(troopFigure.getSprite());
-
-		sprite.setFitWidth(SPRITE_WIDTH - IMAGE_OFFSET);
-		sprite.setFitHeight(SPRITE_HEIGHT - IMAGE_OFFSET);
-
-
-		this.setTroopGlow(this.arena, sprite, troopFigure);
-
-		statistics.getChildren().add(new Label(NAME + troopFigure.getName()));
-		statistics.getChildren().add(new Label(HEALTH + troopFigure.getStatistics().getDefensiveStatistic().getHealthPoints()));
-		statistics.getChildren().add(new Label(ARMOR + troopFigure.getStatistics().getDefensiveStatistic().getArmor()));
-		statistics.setSpacing(STATISTICS_SPACING);
-
-		container.getChildren().add(sprite);
-		container.getChildren().add(statistics);
-
-		container.setSpacing(H_BOX_OFFSET);
-
-		return container;
 	}
 
 

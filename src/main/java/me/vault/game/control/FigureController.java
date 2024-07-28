@@ -1,14 +1,21 @@
 package me.vault.game.control;
 
 
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.troop.DefensiveStatistic;
 import me.vault.game.model.troop.OffensiveStatistics;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+
+import static me.vault.game.utility.constant.ArenaConstants.DROP_SHADOW_RADIUS;
+import static me.vault.game.utility.constant.ArenaConstants.DROP_SHADOW_SPREAD;
 
 
 public final class FigureController
@@ -65,7 +72,7 @@ public final class FigureController
 
 	private static int calculateDamage (final OffensiveStatistics attackerOffensiveStats, final DefensiveStatistic defenderDefensiveStats)
 	{
-		return (int) (attackerOffensiveStats.getMeleeDamage() * (1 - defenderDefensiveStats.getArmor() / 100));
+		return attackerOffensiveStats.getMeleeDamage() * (1 - defenderDefensiveStats.getArmor() / 100);
 	}
 
 
@@ -93,6 +100,23 @@ public final class FigureController
 		catch (final Exception e)
 		{
 			throw new RuntimeException(e);
+		}
+	}
+
+
+	public static void setTroopFigureGlow (final @NotNull Arena arena, final @NotNull ImageView imageView, final @NotNull Figure<? extends Troop> troopFigure)
+	{
+		if (arena.getPlayerOneTroops().contains(troopFigure))
+		{
+			final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
+			playerIdentity.setSpread(DROP_SHADOW_SPREAD);
+			imageView.setEffect(playerIdentity);
+		}
+		else if (arena.getPlayerTwoTroops().contains(troopFigure))
+		{
+			final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
+			playerIdentity.setSpread(DROP_SHADOW_SPREAD);
+			imageView.setEffect(playerIdentity);
 		}
 	}
 

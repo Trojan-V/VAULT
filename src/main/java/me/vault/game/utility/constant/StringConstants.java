@@ -18,7 +18,8 @@ public interface StringConstants
 	                  "worlds. When the team arrives at Proxima Tau, they discover that they are on a " +
 	                  "Hitanian space station. As with many systems explored in the past, Proxima Tau " +
 	                  "was already populated. But the team soon discovered a serious problem. The " +
-	                  "transportation system that the team relied on for their return journey had " + "malfunctioned and needed to be repaired.";
+	                  "transportation system that the team relied on for their return journey had " +
+	                  "malfunctioned and needed to be repaired.";
 
 
 	/**

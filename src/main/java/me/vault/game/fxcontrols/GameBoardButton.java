@@ -4,13 +4,17 @@ package me.vault.game.fxcontrols;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import me.vault.game.control.FigureController;
+import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Placable;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.Figure;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 
 /**
@@ -28,50 +32,30 @@ import me.vault.game.model.troop.Troop;
 public final class GameBoardButton extends Button
 {
 
+	private static final ILogger LOGGER = new Logger(GameBoardButton.class.getSimpleName());
+
 	private static final int TILE_SIDE_LENGTH = 35;
 
-	private static final int DROP_SHADOW_RADIUS = 15;
 
-	private static final double DROP_SHADOW_SPREAD = 0.5;
-
-
-	public GameBoardButton (final Arena arena, final Placable placable)
+	public GameBoardButton (final Arena arena, final Displayable displayable)
 	{
 		this.designButtonAppearance();
-
-		this.designButtonImageViewAppearance(arena, placable);
+		this.designButtonImageViewAppearance(arena, displayable);
 	}
 
 
-	private void designButtonImageViewAppearance (final Arena arena, final Placable placable)
+	private void designButtonImageViewAppearance (final Arena arena, final Displayable displayable)
 	{
 		final ImageView imageView = new ImageView();
 		imageView.setFitHeight(TILE_SIDE_LENGTH);
 		imageView.setFitWidth(TILE_SIDE_LENGTH);
 		imageView.setPreserveRatio(false);
-		imageView.setImage(placable.getSprite());
-		this.setTroopGlow(arena, imageView, placable);
-		this.setGraphic(imageView);
-	}
-
-
-	private void setTroopGlow (final Arena arena, final ImageView imageView, final Placable placable)
-	{
-		if (placable instanceof Troop)
+		imageView.setImage(displayable.getSprite());
+		if (displayable instanceof final Figure<? extends Troop> troopFigure)
 		{
-			if (arena.getPlayerOneTroops().contains(placable))
-			{
-				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
-				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-				imageView.setEffect(playerIdentity);
-			}
-			else if (arena.getPlayerTwoTroops().contains(placable))
-			{
-				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
-				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-				imageView.setEffect(playerIdentity);
-			}
+			FigureController.setTroopFigureGlow(arena, imageView, troopFigure);
 		}
+		this.setGraphic(imageView);
 	}
 
 
