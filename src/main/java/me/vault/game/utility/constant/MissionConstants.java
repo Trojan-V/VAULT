@@ -24,8 +24,8 @@ public interface MissionConstants
 
 		@Constant
 		GameBoard MISSION_ONE_GAME_BOARD =
-			new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map/Encounter_2" +
-			                                                     ".txt"));
+			new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map" +
+			                                                     "/story_mission_one.txt"));
 
 		@Constant
 		CurrencyTransaction MISSION_ONE_REWARDS = new CurrencyTransaction(1000, 1000, 1000, 1000, 1000);

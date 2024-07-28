@@ -4,6 +4,7 @@ package me.vault.game.utility.loading;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import me.vault.game.model.arena.*;
+import me.vault.game.model.player.Player;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -166,17 +167,22 @@ public final class ResourceLoader
 				final char[] charArray = line.toCharArray();
 				for (int column = 0; column < GAME_BOARD_COLUMN_COUNT; column++)
 				{
+					// TODO: bundle these classes into an enum or sth
 					switch (charArray[column])
 					{
 						case OBSTACLE_TILE ->
-							gameBoard[row][column] = new Tile(new Position(row, column), new Blocked());
+							gameBoard[column][row] = new Tile(new Position(column, row), new BlockedTileAppearance());
 						case RESOURCE_TILE ->
-							gameBoard[row][column] = new Tile(new Position(row, column), new Resource());
-						case ARENA_TILE -> gameBoard[row][column] = new Tile(new Position(row, column), new Arena());
-						case MISSION_FINISH_TILE -> gameBoard[row][column] = new Tile(new Position(row, column),
-							new MissionFinish());
+							gameBoard[column][row] = new Tile(new Position(column, row), new ResourceTileAppearance());
+						case ARENA_TILE -> gameBoard[column][row] = new Tile(new Position(column, row),
+							new ArenaStartTileAppearance());
+						case MISSION_FINISH_TILE -> gameBoard[column][row] = new Tile(new Position(column, row),
+							new MissionFinishTileAppearance());
+						case PLAYER_START_TILE -> gameBoard[column][row] = new Tile(new Position(column, row),
+							Player.getInstance());
 						// any char besides the preceding reserved ones are accepted as placeholders.
-						default -> gameBoard[row][column] = new Tile(new Position(row, column), new Placeholder());
+						default -> gameBoard[column][row] =
+							new Tile(new Position(column, row), new PlaceholderTileAppearance());
 					}
 				}
 			}

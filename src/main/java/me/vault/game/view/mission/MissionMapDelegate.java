@@ -103,16 +103,16 @@ public class MissionMapDelegate implements Initializable
 
 	private void initializeGameBoardGridPane ()
 	{
-		for (int i = 0; i < GAME_BOARD_ROW_COUNT; i++)
+		for (int row = 0; row < GAME_BOARD_ROW_COUNT; row++)
 		{
-			for (int j = 0; j < GAME_BOARD_COLUMN_COUNT; j++)
+			for (int column = 0; column < GAME_BOARD_COLUMN_COUNT; column++)
 			{
-				final Position position = new Position(i, j);
+				final Position position = new Position(column, row);
 				final GameBoardButton
 					button = new GameBoardButton(this.mission.getGameBoard().getTile(position).getCurrentElement());
 
 				button.setOnMouseClicked(_ -> this.handleFigureInteraction(position));
-				this.gameBoardGridPane.add(button, i, j);
+				this.gameBoardGridPane.add(button, column, row);
 			}
 		}
 	}

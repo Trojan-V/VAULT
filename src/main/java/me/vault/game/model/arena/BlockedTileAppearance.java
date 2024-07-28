@@ -8,15 +8,12 @@ import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
 
-public class Blocked implements Placeable
+public class BlockedTileAppearance implements Placeable
 {
 
 	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/attributes/resistance_icon.png";
 
 	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
-
-
-	public Blocked () {}
 
 
 	/**

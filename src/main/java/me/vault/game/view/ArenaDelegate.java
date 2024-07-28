@@ -133,7 +133,8 @@ public class ArenaDelegate
 		final Placeable nextTileElement = this.arena.getGameBoard().getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
-		if (nextTileElement instanceof Placeholder && FigureController.figureCanMoveToPosition(this.arena, attacker, position))
+		if (nextTileElement instanceof PlaceholderTileAppearance &&
+		    FigureController.figureCanMoveToPosition(this.arena, attacker, position))
 		{
 			FigureController.moveFigure(this.arena, attacker, position);
 			interactionFailed = false;

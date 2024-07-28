@@ -36,7 +36,7 @@ public final class FigureController
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
 		arenaGameBoard.placeFigure(nextPosition, troopFigure);
-		arenaGameBoard.setPlaceable(previousTroopPosition, new Placeholder());
+		arenaGameBoard.setPlaceable(previousTroopPosition, new PlaceholderTileAppearance());
 	}
 
 
@@ -46,7 +46,7 @@ public final class FigureController
 		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
 		final Position nextTroopPosition = new Position(nextTile.getPosition().x(), nextTile.getPosition().y());
 		arenaGameBoard.placeFigure(nextTroopPosition, troopFigure);
-		arenaGameBoard.setPlaceable(previousTroopPosition, new Placeholder());
+		arenaGameBoard.setPlaceable(previousTroopPosition, new PlaceholderTileAppearance());
 	}
 
 

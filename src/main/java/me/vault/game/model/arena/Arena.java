@@ -1,12 +1,7 @@
 package me.vault.game.model.arena;
 
 
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.troop.Troop;
-import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.struct.MetaDataImage;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,16 +10,10 @@ import java.util.List;
 
 import static me.vault.game.utility.constant.ArenaConstants.MULTIPLIER;
 import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
-import static me.vault.game.utility.constant.GameConstants.WINDOW_ICON_PATH;
 
 
-public class Arena implements Placeable
+public class Arena
 {
-	private final SimpleStringProperty nameProperty = new SimpleStringProperty();
-
-
-	private final SimpleObjectProperty<MetaDataImage> spriteProperty = new SimpleObjectProperty<>();
-
 	private State state = State.RUNNING;
 
 
@@ -55,7 +44,6 @@ public class Arena implements Placeable
 
 	public Arena (final List<Figure<? extends Troop>> playerOneTroops, final List<Figure<? extends Troop>> playerTwoTroops, final GameBoard gameBoard)
 	{
-		this.spriteProperty.set(ResourceLoader.loadImage(WINDOW_ICON_PATH));
 		this.playerOneTroops = playerOneTroops;
 		this.playerTwoTroops = playerTwoTroops;
 		this.gameBoard = gameBoard;
@@ -93,7 +81,8 @@ public class Arena implements Placeable
 	{
 		final Position randomPosition = new Position((int) Math.round(Math.random()), (int) Math.round(Math.random() * MULTIPLIER));
 
-		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() == Placeholder.class)
+		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
+		    PlaceholderTileAppearance.class)
 		{
 			this.getGameBoard().placeFigure(randomPosition, troop);
 			return;
@@ -106,7 +95,8 @@ public class Arena implements Placeable
 	{
 		final Position randomPosition = new Position((int) Math.round(Math.random() + OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
 
-		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() == Placeholder.class)
+		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
+		    PlaceholderTileAppearance.class)
 		{
 			this.getGameBoard().placeFigure(randomPosition, troop);
 			return;
@@ -192,77 +182,5 @@ public class Arena implements Placeable
 	public State getState ()
 	{
 		return this.state;
-	}
-
-
-	/**
-	 * Returns the sprite that is stored within the property of the displayable object as an {@link MetaDataImage}.
-	 *
-	 * @return The sprite of the displayable object.
-	 */
-	@Override
-	public MetaDataImage getSprite ()
-	{
-		return this.spriteProperty.get();
-	}
-
-
-	/**
-	 * Sets the sprite of the displayable object to the supplied sprite.
-	 *
-	 * @param sprite The new sprite for the displayable object.
-	 */
-	@Override
-	public void setSprite (final MetaDataImage sprite)
-	{
-		this.spriteProperty.set(sprite);
-	}
-
-
-	/**
-	 * Returns the sprite property of the displayable object.
-	 *
-	 * @return The sprite property of the displayable object.
-	 */
-	@Override
-	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
-	{
-		return this.spriteProperty;
-	}
-
-
-	/**
-	 * Returns the name stored within the property of the nameable object as a {@link String}.
-	 *
-	 * @return The name of the nameable object.
-	 */
-	@Override
-	public String getName ()
-	{
-		return this.nameProperty.get();
-	}
-
-
-	/**
-	 * Sets the name of the nameable object to the supplied name.
-	 *
-	 * @param name The new name for the nameable object.
-	 */
-	@Override
-	public void setName (final String name)
-	{
-		this.nameProperty.set(name);
-	}
-
-
-	/**
-	 * Returns the name property of the nameable object.
-	 *
-	 * @return The name property of the nameable object.
-	 */
-	@Override
-	public SimpleStringProperty getNameProperty ()
-	{
-		return this.nameProperty;
 	}
 }

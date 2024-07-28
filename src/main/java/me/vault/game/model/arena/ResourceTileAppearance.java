@@ -16,7 +16,7 @@ import me.vault.game.utility.struct.MetaDataImage;
  * @see
  * @since 28.07.2024
  */
-public class Resource implements Placeable
+public class ResourceTileAppearance implements Placeable
 {
 	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/currency/credit_icon.png";
 
@@ -25,7 +25,7 @@ public class Resource implements Placeable
 		new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
-	public Resource () {}
+	public ResourceTileAppearance () {}
 
 
 	@Override

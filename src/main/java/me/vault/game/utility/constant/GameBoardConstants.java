@@ -14,6 +14,7 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
  */
 public interface GameBoardConstants
 {
+	char PLAYER_START_TILE = 'd';
 	char OBSTACLE_TILE = 'h';
 
 

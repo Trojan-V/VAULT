@@ -8,8 +8,6 @@ import java.text.MessageFormat;
 
 public class Tile
 {
-
-
 	private static final String TO_STRING_PATTERN = "Tile'{'position={0}, currentElement={1}'}'";
 
 

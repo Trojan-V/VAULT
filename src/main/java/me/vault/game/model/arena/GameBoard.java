@@ -63,7 +63,8 @@ public class GameBoard
 
 	public void placeFigure (final Position position, final Placeable troopFigure)
 	{
-		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == Placeholder.class)
+		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() ==
+		    PlaceholderTileAppearance.class)
 		{
 			this.setPlaceable(position, troopFigure);
 		}
@@ -114,7 +115,7 @@ public class GameBoard
 	public List<Tile> getAdjacentAccessibleTiles (final Position position)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof PlaceholderTileAppearance));
 		return adjacentTiles;
 	}
 
@@ -122,14 +123,14 @@ public class GameBoard
 	public List<Tile> getAdjacentAccessibleTiles (final Position position, final int range)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, range);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof PlaceholderTileAppearance));
 		return adjacentTiles;
 	}
 
 
 	public void removeFigure (final Figure<? extends Troop> troopFigure)
 	{
-		this.setPlaceable(this.getFigurePosition(troopFigure), new Placeholder());
+		this.setPlaceable(this.getFigurePosition(troopFigure), new PlaceholderTileAppearance());
 	}
 
 }

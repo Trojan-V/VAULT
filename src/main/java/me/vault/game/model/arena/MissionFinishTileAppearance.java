@@ -16,7 +16,7 @@ import me.vault.game.utility.struct.MetaDataImage;
  * @see
  * @since 28.07.2024
  */
-public class MissionFinish implements Placeable
+public class MissionFinishTileAppearance implements Placeable
 {
 	private static final String SPRITE_PATH =
 		"src/main/resources/me/vault/game/assets/difficulty/hard_difficulty_icon.png";
@@ -26,7 +26,7 @@ public class MissionFinish implements Placeable
 		new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
-	public MissionFinish () {}
+	public MissionFinishTileAppearance () {}
 
 
 	@Override
