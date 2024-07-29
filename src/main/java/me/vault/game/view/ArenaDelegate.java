@@ -158,8 +158,8 @@ public final class ArenaDelegate
 
 	private void executeTurn ()
 	{
-		final List<Figure> playerOneTroops = this.arena.getPlayerOneTroops();
-		final List<Figure> playerTwoTroops = this.arena.getPlayerTwoTroops();
+		final List<Figure> playerOneTroops = this.arena.getPlayerOneFigures();
+		final List<Figure> playerTwoTroops = this.arena.getPlayerTwoFigures();
 
 		final boolean finished = this.checkForFinish();
 		if (playerOneTroops.contains(this.arena.getSelectedFigure()) && !finished)
@@ -251,7 +251,9 @@ public final class ArenaDelegate
 
 	public void setArena (final @NotNull Arena arena)
 	{
-		arena.setPlayerOneTroops(Player.getInstance().getSelectedTroops());
+		arena.setPlayerOneFigures(Player.getInstance().getSelectedTroops());
+		arena.placePlayerOneFiguresRandomly();
+		arena.placePlayerTwoFiguresRandomly();
 
 		this.arena = arena;
 		this.figureTroopTimeline = arena.getTimeline();

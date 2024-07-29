@@ -75,13 +75,13 @@ public final class GameBoardButton extends Button
 	{
 		if (placeable instanceof Troop)
 		{
-			if (arena.getPlayerOneTroops().contains(placeable))
+			if (arena.getPlayerOneFigures().contains(placeable))
 			{
 				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
 				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
 				imageView.setEffect(playerIdentity);
 			}
-			else if (arena.getPlayerTwoTroops().contains(placeable))
+			else if (arena.getPlayerTwoFigures().contains(placeable))
 			{
 				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
 				playerIdentity.setSpread(DROP_SHADOW_SPREAD);

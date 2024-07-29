@@ -73,7 +73,7 @@ public final class EnemyController
 		for (final Tile tile : adjacentTroopTiles)
 		{
 			final Figure adjacentTroopFigure = (Figure) tile.getCurrentElement();
-			if (arena.getPlayerOneTroops().contains(adjacentTroopFigure))
+			if (arena.getPlayerOneFigures().contains(adjacentTroopFigure))
 			{
 				FigureController.attack(arena, troopFigure, adjacentTroopFigure);
 				LOGGER.logf(DEBUG, ATTACKED_MSG, troopFigure.getName(), adjacentTroopFigure.getName());

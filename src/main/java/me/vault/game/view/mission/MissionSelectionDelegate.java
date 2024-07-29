@@ -11,11 +11,11 @@ import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.model.mission.Mission;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.RewardGridPane;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.ViewUtil;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
@@ -54,8 +54,10 @@ public final class MissionSelectionDelegate implements Initializable
 	 */
 	private static final ILogger LOGGER = new Logger(MissionSelectionDelegate.class.getSimpleName());
 
+
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionSelectionDelegate#toString()} is called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionSelectionDelegate#toString()} is
+	 * called.
 	 */
 	private static final String TO_STRING_PATTERN = "MissionSelectionDelegate'{'fxml={0}'}'";
 

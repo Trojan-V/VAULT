@@ -5,8 +5,6 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import me.vault.game.model.arena.*;
-import me.vault.game.model.energy.AbilityMultiplier;
-import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.troop.TroopStatistics.Defensive;
 import me.vault.game.model.troop.TroopStatistics.Offensive;
@@ -79,7 +77,7 @@ public final class FigureController
 			if (newDefenderHealthPoints <= 0)
 			{
 				// Remove the defender from the arena if his HP dropped to zero or below, as the unit died.
-				arena.removeTroopFigure(defender);
+				arena.eliminateFigure(defender);
 				return;
 			}
 			defenderDefensiveStats.setHealth(newDefenderHealthPoints);
@@ -145,15 +143,15 @@ public final class FigureController
 	{
 		try
 		{
-			GameBoard arenaGameBoard = arena.getGameBoard();
+			final GameBoard arenaGameBoard = arena.getGameBoard();
 			final Figure defender = arenaGameBoard.getFigure(position);
 			final Position attackerPos = arenaGameBoard.getPosition(attackerFigure);
 			final List<Tile> reachableTiles = arenaGameBoard
 				.getAdjacentTiles(attackerPos, attackerFigure.getStatistics().getOffensive().getGrenadeRange());
 
 			final List<Figure> defenderGroup =
-				arena.getPlayerOneTroops().contains(defender) ? arena.getPlayerOneTroops() :
-				arena.getPlayerTwoTroops();
+				arena.getPlayerOneFigures().contains(defender) ? arena.getPlayerOneFigures() :
+				arena.getPlayerTwoFigures();
 			return !defenderGroup.contains(attackerFigure) &&
 			       reachableTiles.contains(arenaGameBoard.getTile(position));
 		}
@@ -206,9 +204,9 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an enemy or not.
 	 * @return True if the {@link Figure} is an enemy, otherwise false.
 	 */
-	private static boolean isEnemy (@NotNull Arena arena, @NotNull Figure troopFigure)
+	private static boolean isEnemy (@NotNull final Arena arena, @NotNull final Figure troopFigure)
 	{
-		return arena.getPlayerTwoTroops().contains(troopFigure);
+		return arena.getPlayerTwoFigures().contains(troopFigure);
 	}
 
 
@@ -219,8 +217,8 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an ally or not.
 	 * @return True if the {@link Figure} is an ally, otherwise false.
 	 */
-	private static boolean isAlly (@NotNull Arena arena, @NotNull Figure troopFigure)
+	private static boolean isAlly (@NotNull final Arena arena, @NotNull final Figure troopFigure)
 	{
-		return arena.getPlayerOneTroops().contains(troopFigure);
+		return arena.getPlayerOneFigures().contains(troopFigure);
 	}
 }
