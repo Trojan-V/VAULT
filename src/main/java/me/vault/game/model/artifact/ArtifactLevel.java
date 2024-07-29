@@ -21,7 +21,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * {@link ArtifactLevel#checkIsMinimumLevel(ArtifactLevel)} and
  * {@link ArtifactLevel#checkIsMaximumLevel(ArtifactLevel)} function correctly.
  *
- * @author Vincent Wolf, Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Artifact
  * @see ArtifactController

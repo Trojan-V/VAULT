@@ -23,7 +23,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * This class basically provides a very simple enemy engine to let the 'computer' enemies move by themselves in the
  * arena.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 28.07.2024
  */

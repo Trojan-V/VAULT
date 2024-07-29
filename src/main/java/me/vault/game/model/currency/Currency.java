@@ -25,7 +25,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * which manages mission rewards
  * and building costs.
  *
- * @author Lasse-Leander Hillen, Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @see CurrencyController
  * @since 21.05.2024
  */

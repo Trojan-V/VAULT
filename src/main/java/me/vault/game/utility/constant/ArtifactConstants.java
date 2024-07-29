@@ -10,7 +10,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 /**
  * This class provides constants for the artifact statistics.
  *
- * @author Vincent Wolf, Alexander Goethel
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 05.06.2024
  */

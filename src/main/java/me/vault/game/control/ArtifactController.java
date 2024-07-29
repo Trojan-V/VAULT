@@ -25,7 +25,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br>
  * Currently, it's responsible for upgrading the artifacts to the next level.
  *
- * @author Vincent Wolf, Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Upgrader
  * @see Artifact

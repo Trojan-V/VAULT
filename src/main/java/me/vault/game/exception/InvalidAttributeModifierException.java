@@ -12,7 +12,7 @@ import java.text.MessageFormat;
  * To see the requirements for a valid instance of {@link AttributeMultiplier}, check the validate() method within the
  * {@link AttributeMultiplier} class.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see AttributeMultiplier
  * @since 05.06.2024

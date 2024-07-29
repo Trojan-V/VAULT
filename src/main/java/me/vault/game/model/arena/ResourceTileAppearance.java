@@ -11,7 +11,7 @@ import me.vault.game.utility.struct.MetaDataImage;
 /**
  * Description
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see
  * @since 28.07.2024

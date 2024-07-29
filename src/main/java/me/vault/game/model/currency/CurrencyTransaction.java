@@ -25,7 +25,7 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
  * are required for certain upgrades of {@link Artifact}s, {@link CityBuilding}s and other
  * {@link Upgradable}s.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Currency
  * @see Logger

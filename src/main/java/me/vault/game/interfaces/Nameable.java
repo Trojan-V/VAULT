@@ -13,7 +13,7 @@ import javafx.beans.property.SimpleStringProperty;
  * controller is responsible for updating the values of the properties and therefore the controller needs a method to
  * be able to access these inner properties of the nameable object.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 06.06.2024
  */

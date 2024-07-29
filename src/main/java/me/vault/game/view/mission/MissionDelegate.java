@@ -19,71 +19,82 @@ import me.vault.game.model.arena.PlaceholderTileAppearance;
 import me.vault.game.model.arena.Position;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
-import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ArenaDelegate;
 import me.vault.game.view.ViewUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
 import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_ROW_COUNT;
+import static me.vault.game.utility.constant.LoggingConstants.MissionDelegate.MISSION_DISPLAY_FAILED;
+import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 /**
  * Description
  *
- * @author Vincent Wolf
- * @version 1.0.0
- * @see
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @see Mission
+ * @see me.vault.game.utility.constant.MissionConstants
+ * @see me.vault.game.utility.constant.LoggingConstants.MissionDelegate
  * @since 25.07.2024
  */
-public class MissionMapDelegate implements Initializable
+public class MissionDelegate implements Initializable
 {
-	private static final String MISSION_MAP_VIEW_FXML = "mission_map_view.fxml";
-
-
-	private static final Scene MISSION_MAP_SCENE =
-		ResourceLoader.loadScene(MissionMapDelegate.class, MISSION_MAP_VIEW_FXML);
-
-
+	/**
+	 * The {@link GridPane}, which contains the game board of the mission. It contains all the clickable tiles in the map.
+	 */
 	@FXML
 	private GridPane missionBoardGridPane;
 
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(MissionDelegate.class.getSimpleName());
 
-	private Mission mission;
+	/**
+	 * The path to the respective fxml file of the delegate as a {@link String}.
+	 */
+	private static final String MISSION_MAP_VIEW_FXML = "mission_map_view.fxml";
+
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionDelegate#toString()} is called.
+	 */
+	private static final String TO_STRING_PATTERN = "MissionMapDelegate'{'missionBoardGridPane={0}, mission={1}'}'";
+
+	/**
+	 * The {@link Mission} object, which is handled by the controller. Gets injected into the controller, when the
+	 * {@link MissionDelegate#show(Mission)} method gets called.
+	 */
+	private Mission mission = null;
 
 
+	/**
+	 * @param mission
+	 */
 	public static void show (final @NotNull Mission mission)
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(MissionMapDelegate.class.getResource(MISSION_MAP_VIEW_FXML));
+			final FXMLLoader fxmlLoader = new FXMLLoader(MissionDelegate.class.getResource(MISSION_MAP_VIEW_FXML));
 			final Parent root = fxmlLoader.load();
-			final MissionMapDelegate missionMapDelegate = fxmlLoader.getController();
-
-			missionMapDelegate.setMission(mission);
-			missionMapDelegate.show(new Scene(root));
+			final MissionDelegate missionDelegate = fxmlLoader.getController();
+			missionDelegate.setMission(mission);
+			ViewUtil.show(GameApplication.getStage(), new Scene(root), MissionDelegate.class);
 		}
 		catch (final IOException e)
 		{
-			// TODO: add logger
-			//			LOGGER.logf(WARNING, ARENA_DISPLAY_FAILED, arena.toString());
+			LOGGER.logf(WARNING, MISSION_DISPLAY_FAILED, mission.toString());
 		}
 	}
 
 
-	private void show (final @NotNull Scene scene)
-	{
-		ViewUtil.show(GameApplication.getStage(), scene, MissionMapDelegate.class);
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void initialize (final URL location, final ResourceBundle resources)
 	{
@@ -91,9 +102,15 @@ public class MissionMapDelegate implements Initializable
 	}
 
 
+	/**
+	 * @param event
+	 * @precondition
+	 * @postcondition
+	 */
 	@FXML
 	void onStartGameClick (final ActionEvent event)
 	{
+		// When the button (sender) gets clicked, he disables and the grid pane enables
 		final Button sender = (Button) event.getSource();
 		sender.setDisable(true);
 		this.missionBoardGridPane.setDisable(false);
@@ -102,6 +119,7 @@ public class MissionMapDelegate implements Initializable
 
 	public void setMission (final @NotNull Mission mission)
 	{
+		// Sets the mission of the controller class and initializes the grid pane once.
 		this.mission = mission;
 		this.initializeGameBoardGridPane();
 		this.missionBoardGridPane.setDisable(true);
@@ -116,7 +134,7 @@ public class MissionMapDelegate implements Initializable
 			{
 				final Position position = new Position(column, row);
 				final GameBoardButton
-					button = new GameBoardButton(this.mission.getGameBoard().getTile(position).getCurrentElement());
+						button = new GameBoardButton(this.mission.getGameBoard().getTile(position).getCurrentElement());
 
 				button.setOnMouseClicked(_ -> this.handleFigureInteraction(position));
 				this.missionBoardGridPane.add(button, column, row);
@@ -145,8 +163,14 @@ public class MissionMapDelegate implements Initializable
 			ArenaDelegate.show(this.mission.getAvailableArenaEncounters().removeFirst());
 		}
 
-
 		this.missionBoardGridPane.getChildren().clear();
 		this.initializeGameBoardGridPane();
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.missionBoardGridPane, this.mission);
 	}
 }

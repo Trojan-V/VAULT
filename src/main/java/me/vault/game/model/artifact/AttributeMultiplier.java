@@ -25,7 +25,7 @@ import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
  * For instance, these multipliers are used by the {@link Artifact} class to store the buffs and de-buffs the
  * artifact provides.
  *
- * @author Vincent Wolf, Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Artifact
  * @see AttributeMultiplier.Type

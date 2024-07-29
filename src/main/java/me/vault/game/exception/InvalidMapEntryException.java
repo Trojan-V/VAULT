@@ -12,7 +12,7 @@ import java.util.Map.Entry;
  * <br>
  * Only entries that contain valid data for both the key and the value can be entered.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see ValidatedEntriesHashMap
  * @since 28.05.2024

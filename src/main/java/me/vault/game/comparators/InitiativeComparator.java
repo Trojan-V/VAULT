@@ -12,7 +12,7 @@ import java.util.Comparator;
  * This comparator is used for the priority queue to apply the initiative values of troops in the calculation.
  * The calculation determines which troop will make the next move.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see TroopTimeline#getPriorityQueue()
  * @since 28.07.2024

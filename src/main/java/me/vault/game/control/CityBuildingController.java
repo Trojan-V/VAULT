@@ -20,7 +20,7 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
  * There are several 'Delegates' that extend from this controller as these delegates are all responsible for their
  * own CityBuilding.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see DocksDelegate
  * @see LaboratoryDelegate

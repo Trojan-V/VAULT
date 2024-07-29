@@ -15,7 +15,7 @@ import me.vault.game.utility.struct.MetaDataImage;
  * controller is responsible for updating the values of the properties and therefore the controller needs a method to
  * be able to access these inner properties of the displayable object.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 2.0.0
  * @since 12.06.2024
  */

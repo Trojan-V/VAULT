@@ -134,7 +134,7 @@ public class TroopSelectionDialogDelegate implements Initializable
 	@FXML
 	void onStartMission (final ActionEvent ignored)
 	{
-		MissionMapDelegate.show(this.mission);
+		MissionDelegate.show(this.mission);
 	}
 
 

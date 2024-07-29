@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
  * The {@code GameBoardButton} is mainly used in the arena and the encounters and allows the player to click and move or click and attack the
  * different troops on the field.
  *
- * @author Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @see Button
  * @see Arena
  * @see Placeable

@@ -55,7 +55,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br> <br>
  * To do so, a static initializer can be used whose last statement is {@code INSTANCE = new AbsArtifact();}.
  *
- * @author Vincent Wolf, Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 2.0.0
  * @see DamageArtifact
  * @see DefenseArtifact

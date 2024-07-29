@@ -26,7 +26,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * As this specification is a damage artifact, it mainly provides positive attribute modifiers towards the damage attribute. Other attribute modifiers
  * might be affected as well by the damage artifact, the highest multiplier is for the damage though for obvious reasons.
  *
- * @author Vincent Wolf, Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Artifact
  * @since 05.06.2024
