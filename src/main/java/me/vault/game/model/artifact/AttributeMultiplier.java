@@ -14,7 +14,7 @@ import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSS
 import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 
 
-// TODO: Apply multipliers to the stats of the player/troops.
+
 
 
 /**

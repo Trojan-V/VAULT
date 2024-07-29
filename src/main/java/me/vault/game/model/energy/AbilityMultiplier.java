@@ -96,7 +96,7 @@ public class AbilityMultiplier
 			LOGGER.log(ILogger.Level.ERROR, e.getMessage());
 			LOGGER.log(ILogger.Level.ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE);
 
-			// TODO: System.exit überarbeiten
+			// TODO: System.exit überarbeiten, Fenster vllt.
 			System.exit(ERROR_EXIT_CODE);
 		}
 	}

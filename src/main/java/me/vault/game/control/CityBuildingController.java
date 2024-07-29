@@ -10,6 +10,8 @@ import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
 import me.vault.game.view.city.buildings.*;
 
+import java.util.Currency;
+
 import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
 
 

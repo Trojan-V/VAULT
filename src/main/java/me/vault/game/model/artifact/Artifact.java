@@ -13,6 +13,8 @@ import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.utility.loading.Config;
+import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -146,9 +148,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected Artifact ()
 	{
-		// TODO: currentLevel aus Config einlesen
 		this.currentLevel = ArtifactLevel.getMinimum();
-
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
 		this.attributeMultiplier = new AttributeMultiplier(this.getAllModifiers().get(ArtifactLevel.getMinimum()));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));

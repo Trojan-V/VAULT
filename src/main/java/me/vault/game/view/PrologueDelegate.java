@@ -53,7 +53,7 @@ public final class PrologueDelegate implements Initializable
 	private Button backButton;
 
 	@FXML
-	private Text storyText; //TODO: put story text in interface (not FXML)
+	private Text storyText;
 
 
 	public static void show ()

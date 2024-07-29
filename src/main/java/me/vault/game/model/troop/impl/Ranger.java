@@ -67,7 +67,6 @@ public final class Ranger extends Troop
 		UPGRADE_COSTS.put(TroopLevel.COUPLE, COUPLE_UPGRADE_COST);
 		UPGRADE_COSTS.put(TroopLevel.SQUAD, SQUAD_UPGRADE_COST);
 
-		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, RANGER_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, RANGER_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, RANGER_SQUAD_STATISTICS);

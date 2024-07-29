@@ -77,18 +77,20 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	}
 
 
-	// TODO: FIX !!!
+
 	private void useCorrespondingDelegate (final CityBuilding cityBuilding)
 	{
-		if (cityBuilding == Workshop.getInstance())
+		// TODO: FIX !!! mach mal switch lasse
+		switch (cityBuilding)
 		{
-			WorkshopDelegate.show();
+			case Workshop workshop -> WorkshopDelegate.show();
+			case Barracks barracks -> BarracksDelegate.show();
+			case null, default ->
+			{
+			}
 		}
-		else if (cityBuilding == Barracks.getInstance())
-		{
-			BarracksDelegate.show();
-		}
-		else if (cityBuilding == Laboratory.getInstance())
+
+		if (cityBuilding == Laboratory.getInstance())
 		{
 			LaboratoryDelegate.show();
 		}

@@ -169,7 +169,7 @@ public final class ArenaFinishedDialogDelegate
 	@FXML
 	void onContinue (final ActionEvent ignored)
 	{
-		// TODO: Behaviour einfügen, siehe JavaDoc
+		// TODO: Behaviour einfügen, siehe JavaDoc - Lasse
 		STAGE.close();
 		if (this.arenaResult == ArenaResult.LOST)
 		{

@@ -30,6 +30,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  */
 public final class ConfigLoader implements Loader
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -54,8 +55,6 @@ public final class ConfigLoader implements Loader
 	 * The configuration file where the data is written to or read from.
 	 * <br>
 	 * The configuration file is in JSON format, so {@link Gson} can be used to easily convert between JSON and POJO.
-	 *
-	 * @link <a href="https://en.wikipedia.org/wiki/Plain_old_Java_object">POJO</a>
 	 */
 	private final File configFile;
 
@@ -195,15 +194,13 @@ public final class ConfigLoader implements Loader
 	{
 		try
 		{
-			final Config configObject = this.gson.fromJson(new JsonReader(new FileReader(configFile)),
-				Config.class);
+			final Config configObject = this.gson.fromJson(new JsonReader(new FileReader(configFile)), Config.class);
 			Config.setInstance(configObject);
 			Config.getInstance().updateModelsFromConfig();
 		}
 		catch (final FileNotFoundException e)
 		{
-			System.out.println(e.getMessage());
-			// TODO: add logging
+			LOGGER.log(WARNING, e.getMessage());
 		}
 	}
 
@@ -212,10 +209,9 @@ public final class ConfigLoader implements Loader
 	{
 		try
 		{
-			if (Files.mismatch(ResourceLoader.getFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
-					GameConstants.DEFAULT_CONFIG_FILE).toPath(),
-				ResourceLoader.getFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
-					GameConstants.CONFIG_FILE).toPath()) == MiscConstants.FILE_MISMATCH_INDICATOR)
+			// TODO:SHORTEN Vincent
+			if (Files.mismatch(ResourceLoader.getFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, GameConstants.DEFAULT_CONFIG_FILE)
+				.toPath(), ResourceLoader.getFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, GameConstants.CONFIG_FILE).toPath()) == MiscConstants.FILE_MISMATCH_INDICATOR)
 			{
 				return true;
 			}
@@ -233,10 +229,8 @@ public final class ConfigLoader implements Loader
 		this.save(this.configFile);
 		try
 		{
-			this.saveToFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
-				(StringConstants.SAVE_NAME +
-				 new SimpleDateFormat(StringConstants.DATE_TIME_PATTERN).format(Calendar.getInstance().getTime()) +
-				 StringConstants.JSON_FILE_ENDING));
+			this.saveToFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, (StringConstants.SAVE_NAME + new SimpleDateFormat(StringConstants.DATE_TIME_PATTERN).format(Calendar.getInstance().getTime()) +
+			                                                           StringConstants.JSON_FILE_ENDING));
 		}
 		catch (Exception e)
 		{

@@ -66,7 +66,6 @@ public final class Officer extends Troop
 		UPGRADE_COSTS.put(TroopLevel.COUPLE, COUPLE_UPGRADE_COST);
 		UPGRADE_COSTS.put(TroopLevel.SQUAD, SQUAD_UPGRADE_COST);
 
-		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, OFFICER_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, OFFICER_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, OFFICER_SQUAD_STATISTICS);

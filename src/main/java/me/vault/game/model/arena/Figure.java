@@ -30,6 +30,7 @@ import me.vault.game.utility.struct.MetaDataImage;
  */
 public final class Figure<T extends Troop> implements Movable, Nameable
 {
+	// TODO: VIncent mach mal
 	private final T troop;
 
 

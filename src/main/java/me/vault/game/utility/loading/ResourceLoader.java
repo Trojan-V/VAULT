@@ -56,9 +56,6 @@ public final class ResourceLoader
 	private static final String SCENE_NOT_LOADED_MSG = "The scene-resource \"{0}\" couldn't load.";
 
 
-	private static final String TILE = "Tile";
-
-
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it.
 	 * <br>
@@ -302,23 +299,18 @@ public final class ResourceLoader
 			//goes through each column of the gameboard
 			for (int column = 0; column < GAME_BOARD_COLUMN_COUNT; column++)
 			{
-				// TODO: bundle these classes into an enum or sth
-				//determines the tile that is added to the gameboard from the file with the help of characters
+				// TODO: bundle these classes into an enum or sth - vincent
+				//determines the tile that is added to the game board from the file with the help of characters
 				switch (charArray[column])
 				{
-					case OBSTACLE_TILE ->
-						gameBoard[column][row] = new Tile(new Position(column, row), new BlockedTileAppearance());
-					case RESOURCE_TILE ->
-						gameBoard[column][row] = new Tile(new Position(column, row), new ResourceTileAppearance());
-					case ARENA_TILE -> gameBoard[column][row] = new Tile(new Position(column, row),
-						new ArenaStartTileAppearance());
-					case MISSION_FINISH_TILE -> gameBoard[column][row] = new Tile(new Position(column, row),
-						new MissionFinishTileAppearance());
-					case PLAYER_START_TILE -> gameBoard[column][row] = new Tile(new Position(column, row),
-						Player.getInstance());
+					case OBSTACLE_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new BlockedTileAppearance());
+					case RESOURCE_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new ResourceTileAppearance());
+					case ARENA_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new ArenaStartTileAppearance());
+					case MISSION_FINISH_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new MissionFinishTileAppearance());
+					case PLAYER_START_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), Player.getInstance());
+
 					// any char besides the preceding reserved ones are accepted as placeholders.
-					default -> gameBoard[column][row] =
-						new Tile(new Position(column, row), new AccessibleTileAppearance());
+					default -> gameBoard[column][row] = new Tile(new Position(column, row), new AccessibleTileAppearance());
 				}
 			}
 		}

@@ -84,10 +84,6 @@ public final class DifficultyDelegate implements Initializable
 	}
 
 
-	/**
-	 *
-	 * @param gameDifficulty
-	 */
 	private void setGameDifficultyAndContinue (final GameDifficulty gameDifficulty)
 	{
 		GameController.setDifficulty(gameDifficulty);

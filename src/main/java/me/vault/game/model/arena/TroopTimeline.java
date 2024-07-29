@@ -40,7 +40,7 @@ public class TroopTimeline
 	{
 		if (!this.timelineElements.contains(timelineElement))
 		{
-			throw new NullPointerException(); //TODO: Add Exception Message
+			throw new NullPointerException(); // TODO: Add Exception Message
 		}
 		this.timelineElements.remove(timelineElement);
 	}

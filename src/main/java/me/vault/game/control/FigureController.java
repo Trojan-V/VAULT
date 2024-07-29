@@ -73,16 +73,8 @@ public final class FigureController
 		final Offensive attackerOffensiveStats = attacker.getStatistics().getOffensive();
 		final Defensive defenderDefensiveStats = defender.getStatistics().getDefensive();
 
-		// TODO: remove prints
-		System.out.println("attacker = " + attackerOffensiveStats);
-		System.out.println("defender = " + defenderDefensiveStats);
-
 		final int calculatedDamage = calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
 		final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;
-
-		// TODO: remove prints
-		System.out.println("calculatedDamage = " + calculatedDamage);
-		System.out.println("newDefenderHealthPoints = " + newDefenderHealthPoints);
 
 		// Remove the defender from the arena if his HP dropped to zero or below, as the unit died.
 		if (newDefenderHealthPoints <= 0)
@@ -108,6 +100,7 @@ public final class FigureController
 	private static int calculateDamage (final Offensive attackerStats, final Defensive defenderDefensiveStats)
 	{
 		// TODO: Literals
+		// TODO: Apply multipliers to the stats of the player/troops.
 		return attackerStats.getMeleeDamage() * (1 - defenderDefensiveStats.getArmor() / 100);
 	}
 
@@ -127,8 +120,7 @@ public final class FigureController
 
 		final Position previousTroopPosition = arenaGameBoard.getPosition(troopFigure);
 		final int troopMovementRange = troopFigure.getStatistics().getDexterity().getMovementTiles();
-		final List<Tile> accessibleTiles =
-			arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
+		final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
 		return accessibleTiles.contains(arenaGameBoard.getTile(position));
 	}
 

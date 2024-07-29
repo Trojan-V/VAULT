@@ -16,19 +16,16 @@ import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
 
 public class Arena
 {
+
 	private ArenaResult arenaResult = ArenaResult.UNDEFINED;
 
 	private List<Figure<? extends Troop>> playerOneTroops;
 
-
 	private final List<Figure<? extends Troop>> playerTwoTroops;
-
 
 	private TroopTimeline troopTimeline = null;
 
-
 	private final GameBoard gameBoard;
-
 
 	private Figure<? extends Troop> selectedFigure = null;
 
@@ -180,4 +177,5 @@ public class Arena
 	{
 		return this.arenaResult;
 	}
+
 }

@@ -67,7 +67,6 @@ public final class Recruit extends Troop
 		UPGRADE_COSTS.put(TroopLevel.COUPLE, COUPLE_UPGRADE_COST);
 		UPGRADE_COSTS.put(TroopLevel.SQUAD, SQUAD_UPGRADE_COST);
 
-		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, RECRUIT_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, RECRUIT_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, RECRUIT_SQUAD_STATISTICS);
