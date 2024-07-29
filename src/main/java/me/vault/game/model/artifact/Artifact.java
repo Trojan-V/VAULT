@@ -13,8 +13,6 @@ import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.utility.loading.Config;
-import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
