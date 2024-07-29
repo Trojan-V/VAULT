@@ -104,9 +104,7 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 
 	/**
 	 * This field contains the ability modifiers, which are the status effects the player receives in the form of
-	 * buffs or de-buffs depending on the
-	 * energy ability.
-	 *
+	 * buffs on the energy ability.
 	 * @see AbilityMultiplier
 	 */
 	private final AbilityMultiplier abilityMultiplier;
@@ -151,7 +149,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected Energy ()
 	{
-		// TODO: currentLevel aus Config einlesen
 		this.currentLevel = EnergyLevel.getMinimum();
 
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
@@ -305,15 +302,15 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 
 
 	/**
-	 * Returns the current sprite property of the artifact. The sprite may or may not change. It technically depends
-	 * on the level of the artifact, but
-	 * in some cases, the same sprite is used for multiple artifact levels, hence why it doesn't change visually in
+	 * Returns the current sprite property of the energy ability. The sprite may or may not change. It technically depends
+	 * on the level of the energy ability, but
+	 * in some cases, the same sprite is used for multiple energy ability levels, hence why it doesn't change visually in
 	 * that case.
 	 * <br>
 	 * This property is bound to an element in the GUI. Check {@link LaboratoryDelegate#initialize(URL, ResourceBundle)}
 	 * to see the binding process.
 	 *
-	 * @return The current sprite property of the artifact.
+	 * @return The current sprite property of the energy ability.
 	 *
 	 * @see SimpleObjectProperty
 	 * @see Image
@@ -376,9 +373,9 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 
 
 	/**
-	 * Returns the current price to upgrade the artifact.
+	 * Returns the current price to upgrade the energy ability.
 	 *
-	 * @return The current price to upgrade the artifact to the next level.
+	 * @return The current price to upgrade the energy ability to the next level.
 	 *
 	 * @see CurrencyTransaction
 	 */
@@ -394,7 +391,7 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * required to upgrade the energy ability to the next level.
 	 * <br>
 	 * This method should be invoked each time the energy ability is upgraded, as the upgrade costs usually increase the
-	 * higher the artifact level gets.
+	 * higher the energy ability level gets.
 	 *
 	 * @param upgradeCosts The new upgrade costs the energy ability requires to be upgraded to the next level.
 	 */
@@ -424,7 +421,7 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * allowing for easy access by using
 	 * this meaningful key ({@link EnergyLevel}).
 	 *
-	 * @return The {@link Map} which contains all upgrade cost transactions for the artifact.
+	 * @return The {@link Map} which contains all upgrade cost transactions for the energy ability.
 	 *
 	 * @see Map
 	 * @see EnergyLevel

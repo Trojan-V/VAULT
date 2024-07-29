@@ -24,7 +24,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 /**
  * This class is an implementation of {@link Energy}.
  * <br>
- * As this specification is a dodge energy ability, it mainly provides positive ability modifiers towards the dodge
+ * As this specification is a dodge energy ability, it provides positive ability modifiers towards the dodge
  * ability.
  *
  * @author Alexander Göthel

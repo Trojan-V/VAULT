@@ -23,7 +23,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 /**
  * This class is an implementation of {@link Energy}.
  * <br>
- * As this specification is an initiative energy ability, it mainly provides positive ability modifiers towards the
+ * As this specification is an initiative energy ability, it provides positive ability modifiers towards the
  * initiative
  * ability.
  *

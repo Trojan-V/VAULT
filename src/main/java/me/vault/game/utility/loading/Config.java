@@ -1,10 +1,7 @@
 package me.vault.game.utility.loading;
 
 
-import me.vault.game.control.ArtifactController;
-import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.GameController;
-import me.vault.game.control.TroopController;
+import me.vault.game.control.*;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.artifact.impl.DamageArtifact;
@@ -13,6 +10,10 @@ import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.city.*;
 import me.vault.game.model.currency.Currency;
+import me.vault.game.model.energy.EnergyLevel;
+import me.vault.game.model.energy.impl.DodgeAbility;
+import me.vault.game.model.energy.impl.InitiativeAbility;
+import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.impl.*;
 
@@ -67,6 +68,16 @@ public class Config
 
 
 	private ArtifactLevel damageArtifactLevel = ArtifactLevel.getMinimum();
+
+	// Energy Ability related config entries
+
+	private EnergyLevel dodgeEnergyLevel = EnergyLevel.getMinimum();
+
+
+	private EnergyLevel initiativeEnergyLevel = EnergyLevel.getMinimum();
+
+
+	private EnergyLevel meleeEnergyLevel = EnergyLevel.getMinimum();
 
 	// CityBuilding related config entries
 
@@ -202,6 +213,25 @@ public class Config
 		ArtifactController.getInstance().updateValues(HealthArtifact.getInstance());
 		ArtifactController.getInstance().updateValues(DamageArtifact.getInstance());
 		ArtifactController.getInstance().updateValues(DefenseArtifact.getInstance());
+	}
+
+	private void updateEnergyLevelsFromModels ()
+	{
+		this.dodgeEnergyLevel = DodgeAbility.getInstance().getLevel();
+		this.initiativeEnergyLevel = InitiativeAbility.getInstance().getLevel();
+		this.meleeEnergyLevel = MeleeAbility.getInstance().getLevel();
+	}
+
+
+	private void updateEnergyLevelsFromConfig ()
+	{
+		DodgeAbility.getInstance().setLevel(this.dodgeEnergyLevel);
+		InitiativeAbility.getInstance().setLevel(this.initiativeEnergyLevel);
+		MeleeAbility.getInstance().setLevel(this.meleeEnergyLevel);
+
+		EnergyAbilityController.getInstance().updateValues(DodgeAbility.getInstance());
+		EnergyAbilityController.getInstance().updateValues(InitiativeAbility.getInstance());
+		EnergyAbilityController.getInstance().updateValues(MeleeAbility.getInstance());
 	}
 
 
