@@ -1,6 +1,9 @@
 package me.vault.game.model;
 
 
+/**
+ *
+ */
 public enum GameDifficulty
 {
 	EASY("easy", 1.0),

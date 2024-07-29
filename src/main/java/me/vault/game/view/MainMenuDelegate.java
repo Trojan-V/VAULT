@@ -78,7 +78,7 @@ public final class MainMenuDelegate implements Initializable
 
 
 	/**
-	 * These are used to facilitate the interaction between the user and the application in the menu section of the
+	 * Are used to facilitate the interaction between the user and the application in the menu section of the
 	 * mainMenu-scene.
 	 *
 	 * @see MenuItem
@@ -160,23 +160,13 @@ public final class MainMenuDelegate implements Initializable
 		}
 		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
-			// TODO: Kapseln
-			if (!ConfigLoader.getInstance().isConfigDefault())
-			{
-				ConfigLoader.getInstance().saveExistingGameToFile();
-			}
-			ConfigLoader.getInstance().reset();
-			DifficultyDelegate.show();
+			createNewGame();
 		}
 		else if (event.getSource().equals(this.loadGameButton) || event.getSource().equals(this.loadGameMenuItem))
 		{
-			//TODO: Update Java Doc // TODO: Kapseln
-			if (!ConfigLoader.getInstance().isConfigDefault())
-			{
-				ConfigLoader.getInstance().saveExistingGameToFile();
-			}
-			ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
-			CityDelegate.show();
+			//TODO: Update Java Doc
+			this.loadGameFromFile();
+
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
 		{
@@ -194,6 +184,32 @@ public final class MainMenuDelegate implements Initializable
 		}
 	}
 
+
+	/**
+	 *
+	 */
+	private void createNewGame ()
+	{
+		if (!ConfigLoader.getInstance().isConfigDefault())
+		{
+			ConfigLoader.getInstance().saveExistingGameToFile();
+		}
+		ConfigLoader.getInstance().reset();
+		DifficultyDelegate.show();
+	}
+
+	/**
+	 *
+	 */
+	private void loadGameFromFile ()
+	{
+		if (!ConfigLoader.getInstance().isConfigDefault())
+		{
+			ConfigLoader.getInstance().saveExistingGameToFile();
+		}
+		ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
+		CityDelegate.show();
+	}
 
 	/**
 	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
@@ -214,7 +230,12 @@ public final class MainMenuDelegate implements Initializable
 
 
 	/**
+	 * Checks, if the Config file is identical to the default (config) file. If the files are identical,
+	 * {@link MainMenuDelegate#continueButton} and {@link MainMenuDelegate#continueMenuItem} is set to inactive
 	 *
+	 * @precondition The main menu controller has to have been called.
+	 * @postcondition The {@link MainMenuDelegate#continueButton} and {@link MainMenuDelegate#continueMenuItem} are
+	 * set to inactive if the Config file is identical to the default (config) file
 	 */
 	@FXML
 	private void initializeContinue ()
@@ -229,7 +250,6 @@ public final class MainMenuDelegate implements Initializable
 
 	/**
 	 * Checks, if there is at least one file with a ".json" ending in the specified folder.
-	 * <br>
 	 * If there is no file with a .json ending, the "load game"-button and menuItem is set to Inactive
 	 *
 	 * @precondition The main menu controller has to have been called.

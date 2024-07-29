@@ -18,7 +18,8 @@ import java.util.ResourceBundle;
 
 
 /**
- * The {@link PrologueDelegate} is responsive for the control (Controller) and display (View) of the prolog scene at the beginning of the game.
+ * The {@code  PrologueDelegate} is responsive for the control (Controller) and display (View) of the prologue scene at
+ * the beginning of the game.
  * It provides a GUI and methods to scroll and read through different sections of the game lore.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
