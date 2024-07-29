@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.image.Image;
-import me.vault.game.control.EnergyAbilityConroller;
+import me.vault.game.control.EnergyAbilityController;
 import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
@@ -25,9 +25,8 @@ import java.text.MessageFormat;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.*;
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET;
-import static me.vault.game.utility.constant.LoggingConstants.NAME_PROPERTY_SET;
+import static me.vault.game.utility.constant.LoggingConstants.*;
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
@@ -119,7 +118,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * attributes the ability consists of.
 	 * <br>
 	 * Check the constructor {@link Energy#Energy()} and the
-	 * {@link EnergyAbilityConroller#updateValues(Energy)} method to see the control flow.
+	 * {@link EnergyAbilityController#updateValues(Energy)} method to see the control flow.
 	 */
 	private me.vault.game.model.energy.EnergyLevel currentLevel;
 
@@ -190,7 +189,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * This method is used to be able to access the map of all ability multipliers to be able to set the new values
 	 * after an energy ability was upgraded.
 	 * <br>
-	 * This method is invoked by {@link EnergyAbilityConroller#updateValues(Energy)}.
+	 * This method is invoked by {@link EnergyAbilityController#updateValues(Energy)}.
 	 *
 	 * @param level The energy ability level whose map of ability multipliers should be returned.
 	 *

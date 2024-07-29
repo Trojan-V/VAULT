@@ -33,6 +33,7 @@ module me.vault.game {
 	exports me.vault.game.fxcontrols;
 	exports me.vault.game.model.troop;
 	exports me.vault.game.model.arena;
+	exports me.vault.game.model.energy;
 
 	opens me.vault.game to javafx.fxml;
 	opens me.vault.game.utility.loading to javafx.fxml, com.google.gson;
