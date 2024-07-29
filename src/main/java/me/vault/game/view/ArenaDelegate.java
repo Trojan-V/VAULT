@@ -138,8 +138,7 @@ public final class ArenaDelegate
 			MovableController.move(arenaGameBoard, attacker, position);
 			interactionFailed = false;
 		}
-		else if (nextTileElement instanceof final Figure defender &&
-		         FigureController.canAttackAtPosition(this.arena, attacker, position))
+		else if (nextTileElement instanceof final Figure defender && FigureController.canAttackAtPosition(this.arena, attacker, position))
 		{
 			FigureController.attack(this.arena, attacker, defender);
 			interactionFailed = false;

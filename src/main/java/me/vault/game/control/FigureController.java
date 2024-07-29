@@ -84,6 +84,7 @@ public final class FigureController
 			{
 				// Remove the defender from the arena if his HP dropped to zero or below, as the unit died.
 				arena.eliminateFigure(defender);
+				MovableController.move(arena.getGameBoard(), attacker, arena.getGameBoard().getPosition(defender));
 				return;
 			}
 			defenderDefensiveStats.setHealth(newDefenderHealthPoints);
