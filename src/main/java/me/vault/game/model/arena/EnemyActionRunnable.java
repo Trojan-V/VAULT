@@ -29,10 +29,10 @@ public class EnemyActionRunnable implements Runnable
 	@Override
 	public void run ()
 	{
-		final Position position = this.arena.getGameBoard().getFigurePosition(this.troop);
-		final int range = this.troop.getStatistics().getOffensiveStatistic().getGrenadeRange();
+		final Position position = this.arena.getGameBoard().getPosition(this.troop);
+		final int range = this.troop.getStatistics().getOffensive().getGrenadeRange();
 		final List<Tile> reachableTroopFigureTiles = this.arena.getGameBoard().getReachableTroopFigureTiles(position, range);
-		final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentPlaceholderTiles(position);
+		final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position);
 
 		System.out.println("getAdjacentAccessibleTiles = " + adjacentAccessibleTiles);
 		System.out.println("getAdjacentTroopTiles = " + reachableTroopFigureTiles);

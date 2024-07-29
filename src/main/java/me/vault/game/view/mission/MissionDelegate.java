@@ -12,11 +12,13 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.FigureController;
-import me.vault.game.fxcontrols.GameBoardButton;
+import me.vault.game.control.MovableController;
+import me.vault.game.control.PlayerController;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
+import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ArenaDelegate;
@@ -44,7 +46,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * @see me.vault.game.utility.constant.LoggingConstants.MissionDelegate
  * @since 25.07.2024
  */
-public class MissionDelegate implements Initializable
+public final class MissionDelegate implements Initializable
 {
 
 	/**
@@ -137,12 +139,12 @@ public class MissionDelegate implements Initializable
 
 
 	/**
-	 * Sets the {@link Mission} object in an instance of {@link MissionDelegate} to the passed {@link Mission} object.
+	 * Sets the {@link Mission} object in an instance of this class to the passed {@link Mission} object.
 	 *
 	 * @param mission The new {@link Mission} object, meant to replace the current one in the instance.
 	 *
 	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
-	 * @postcondition The {@link MissionDelegate} replaced the old {@link Mission} with the passed one.
+	 * @postcondition The old {@link Mission} instance was replaced with the supplied one.
 	 */
 	public void setMission (final @NotNull Mission mission)
 	{
@@ -195,12 +197,12 @@ public class MissionDelegate implements Initializable
 		// the clicked element
 		final Placeable nextTileElement = missionGameBoard.getTile(position).getCurrentElement();
 
-		final boolean playerCanMove = FigureController.playerCanMoveToPosition(missionGameBoard, player, position);
-		final boolean playerCanReach = FigureController.playerCanReachPosition(missionGameBoard, player, position);
+		final boolean playerCanMove = PlayerController.canMoveToPosition(missionGameBoard, player, position);
+		final boolean playerCanReach = PlayerController.canReachPosition(missionGameBoard, player, position);
 
-		if (nextTileElement instanceof PlaceholderTileAppearance && playerCanMove)
+		if (nextTileElement instanceof AccessibleTileAppearance && playerCanMove)
 		{
-			FigureController.movePlayer(missionGameBoard, player, position);
+			MovableController.move(missionGameBoard, player, position);
 		}
 		else if (nextTileElement instanceof ArenaStartTileAppearance && playerCanReach)
 		{

@@ -21,6 +21,7 @@ import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.MainMenuDelegate;
 import me.vault.game.view.TutorialDelegate;
 import me.vault.game.view.UpgradeDialogDelegate;
+import me.vault.game.view.ViewUtil;
 import me.vault.game.view.city.buildings.*;
 
 import java.net.URL;
@@ -39,7 +40,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see
  * @since 15.05.2024
  */
-public class CityDelegate implements Initializable
+public final class CityDelegate implements Initializable
 {
 
 	/**
@@ -122,11 +123,9 @@ public class CityDelegate implements Initializable
 	}
 
 
-	public static void show (final Stage stage)
+	public static void show ()
 	{
-		stage.setScene(SCENE);
-		stage.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, CityDelegate.class.getSimpleName()));
+		ViewUtil.show(GameApplication.getStage(), SCENE, CityDelegate.class);
 	}
 
 

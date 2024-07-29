@@ -15,9 +15,9 @@ public interface MissionConstants
 	@ConstantInterface
 	interface MissionOne
 	{
+
 		@Constant
 		String MISSION_ONE_NAME = "";
-
 
 		@Constant
 		String MISSION_ONE_DESCRIPTION = "";
@@ -25,23 +25,22 @@ public interface MissionConstants
 		@Constant
 		String MISSION_ONE_FILE_PATH = "src/main/resources/me/vault/game/map/story_mission_one.txt";
 
-
 		@Constant
-		GameBoard MISSION_ONE_GAME_BOARD =
-			new GameBoard(ResourceLoader.createGameBoardFromFile(MISSION_ONE_FILE_PATH));
+		GameBoard MISSION_ONE_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_ONE_FILE_PATH));
 
 		@Constant
 		CurrencyTransaction MISSION_ONE_REWARDS = new CurrencyTransaction(1000, 1000, 1000, 1000, 1000);
 
 		@Constant
-		Mission MISSION_ONE =
-			new Mission(MISSION_ONE_NAME, MISSION_ONE_DESCRIPTION, MISSION_ONE_GAME_BOARD, MISSION_ONE_REWARDS);
+		Mission MISSION_ONE = new Mission(MISSION_ONE_NAME, MISSION_ONE_DESCRIPTION, MISSION_ONE_GAME_BOARD, MISSION_ONE_REWARDS);
+
 	}
 
 
 	@ConstantInterface
 	interface MissionTwo
 	{
+
 		@Constant
 		String MISSION_TWO_NAME = "";
 

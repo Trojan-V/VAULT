@@ -14,16 +14,7 @@ import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
 
 public class Arena
 {
-	private State state = State.RUNNING;
-
-
-	public enum State
-	{
-		RUNNING,
-		LOST,
-		WON
-	}
-
+	private ArenaResult arenaResult = ArenaResult.UNDEFINED;
 
 	private List<Figure<? extends Troop>> playerOneTroops;
 
@@ -77,9 +68,9 @@ public class Arena
 		final Position randomPosition = new Position((int) Math.round(Math.random()), (int) Math.round(Math.random() * MULTIPLIER));
 
 		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
-		    PlaceholderTileAppearance.class)
+		    AccessibleTileAppearance.class)
 		{
-			this.getGameBoard().placeIfPlaceholder(randomPosition, troop);
+			this.getGameBoard().placeIfAccessibleTile(randomPosition, troop);
 			return;
 		}
 		this.placePlayerOneTroopAtRandomPosition(troop);
@@ -91,9 +82,9 @@ public class Arena
 		final Position randomPosition = new Position((int) Math.round(Math.random() + OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
 
 		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
-		    PlaceholderTileAppearance.class)
+		    AccessibleTileAppearance.class)
 		{
-			this.getGameBoard().placeIfPlaceholder(randomPosition, troop);
+			this.getGameBoard().placeIfAccessibleTile(randomPosition, troop);
 			return;
 		}
 		this.placePlayerTwoTroopAtRandomPosition(troop);
@@ -153,7 +144,7 @@ public class Arena
 
 	public void removeTroopFigure (final Figure<? extends Troop> troopFigure)
 	{
-		this.gameBoard.removeFigure(troopFigure);
+		this.gameBoard.remove(troopFigure);
 		this.troopTimeline.removeTimelineElement(troopFigure);
 		this.eliminatedTroops.add(troopFigure);
 		this.checkForChangedState();
@@ -164,15 +155,15 @@ public class Arena
 	{
 		if (new HashSet<>(this.eliminatedTroops).containsAll(this.playerOneTroops))
 		{
-			this.state = State.LOST;
+			this.arenaResult = ArenaResult.LOST;
 		}
 		else if (new HashSet<>(this.eliminatedTroops).containsAll(this.playerTwoTroops))
 		{
-			this.state = State.WON;
+			this.arenaResult = ArenaResult.WON;
 		}
 		else
 		{
-			this.state = State.RUNNING;
+			this.arenaResult = ArenaResult.UNDEFINED;
 		}
 	}
 
@@ -183,8 +174,8 @@ public class Arena
 	}
 
 
-	public State getState ()
+	public ArenaResult getState ()
 	{
-		return this.state;
+		return this.arenaResult;
 	}
 }

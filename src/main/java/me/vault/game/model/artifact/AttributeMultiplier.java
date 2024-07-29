@@ -2,7 +2,7 @@ package me.vault.game.model.artifact;
 
 
 import javafx.beans.property.SimpleDoubleProperty;
-import me.vault.game.exception.InvalidAttributeModifierException;
+import me.vault.game.exception.InvalidAttributeMultiplierException;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.ILogger.Level;
 import me.vault.game.utility.logging.Logger;
@@ -29,6 +29,7 @@ import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
  * @version 1.0.0
  * @see Artifact
  * @see AttributeMultiplier.Type
+ * @see InvalidAttributeMultiplierException
  * @since 05.06.2024
  */
 public class AttributeMultiplier
@@ -95,7 +96,7 @@ public class AttributeMultiplier
 		{
 			this.validate();
 		}
-		catch (final InvalidAttributeModifierException e)
+		catch (final InvalidAttributeMultiplierException e)
 		{
 			LOGGER.log(Level.ERROR, e.getMessage());
 			LOGGER.log(Level.ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE);
@@ -121,21 +122,21 @@ public class AttributeMultiplier
 	 * this check is not performed as part
 	 * of the validation.
 	 *
-	 * @exception InvalidAttributeModifierException When one of the supplied modifiers was invalid.
+	 * @exception InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
 	 */
-	private void validate () throws InvalidAttributeModifierException
+	private void validate () throws InvalidAttributeMultiplierException
 	{
 		if (this.healthMultiplierProperty.get() <= 0)
 		{
-			throw new InvalidAttributeModifierException(this.healthMultiplierProperty.get());
+			throw new InvalidAttributeMultiplierException(this.healthMultiplierProperty.get());
 		}
 		if (this.damageMultiplierProperty.get() <= 0)
 		{
-			throw new InvalidAttributeModifierException(this.damageMultiplierProperty.get());
+			throw new InvalidAttributeMultiplierException(this.damageMultiplierProperty.get());
 		}
 		if (this.defenseMultiplierProperty.get() <= 0)
 		{
-			throw new InvalidAttributeModifierException(this.defenseMultiplierProperty.get());
+			throw new InvalidAttributeMultiplierException(this.defenseMultiplierProperty.get());
 		}
 	}
 

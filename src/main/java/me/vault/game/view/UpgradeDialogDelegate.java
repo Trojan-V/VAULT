@@ -31,7 +31,7 @@ import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAI
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
-public class UpgradeDialogDelegate implements Initializable
+public final class UpgradeDialogDelegate implements Initializable
 {
 
 	/**

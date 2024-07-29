@@ -62,7 +62,7 @@ public final class DifficultyDelegate implements Initializable
 
 
 	@FXML
-	private void click (final MouseEvent mouseEvent)
+	void click (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{

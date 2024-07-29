@@ -14,15 +14,14 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
  */
 public interface GameBoardConstants
 {
-	char PLAYER_START_TILE = 'd';
-	char OBSTACLE_TILE = 'h';
 
+	char PLAYER_START_TILE = 'd';
+
+	char OBSTACLE_TILE = 'h';
 
 	char RESOURCE_TILE = 'r';
 
-
 	char ARENA_TILE = 'e';
-
 
 	char MISSION_FINISH_TILE = 'm';
 
@@ -33,4 +32,5 @@ public interface GameBoardConstants
 
 	@Constant
 	int GAME_BOARD_COLUMN_COUNT = 12;
+
 }

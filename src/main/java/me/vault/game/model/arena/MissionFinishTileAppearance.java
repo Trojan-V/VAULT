@@ -2,33 +2,49 @@ package me.vault.game.model.arena;
 
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.mission.Mission;
+import me.vault.game.model.player.Player;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
+import me.vault.game.view.mission.MissionSelectionDelegate;
 
 
 /**
- * Description
+ * This class represents a {@link Placeable} object that can be placed on the {@link GameBoard}, so either on the
+ * {@link GameBoard} of an arena or on the {@link GameBoard} of a mission.
+ * <br>
+ * This object represents the tile where the {@link Player} has to move to finish the {@link Mission}. Upon moving
+ * onto this tile, the player receives the {@link Mission} rewards and will be redirected to the
+ * {@link MissionSelectionDelegate} afterwards.
+ * <br>
+ * This tile type is only available on the {@link GameBoard} of the {@link Mission}.
  *
- * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @author Vincent Wolf
  * @version 1.0.0
- * @see
- * @since 28.07.2024
+ * @see Placeable
+ * @see GameBoard
+ * @since 29.07.2024
  */
 public class MissionFinishTileAppearance implements Placeable
 {
+	/**
+	 * The path to the sprite that represents a blocked tile.
+	 */
 	private static final String SPRITE_PATH =
 		"src/main/resources/me/vault/game/assets/difficulty/hard_difficulty_icon.png";
 
 
+	/**
+	 * The property that contains the sprite. This property is bound to the GUI.
+	 */
 	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY =
 		new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
-	public MissionFinishTileAppearance () {}
-
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public MetaDataImage getSprite ()
 	{
@@ -36,6 +52,9 @@ public class MissionFinishTileAppearance implements Placeable
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
 	{
@@ -43,32 +62,13 @@ public class MissionFinishTileAppearance implements Placeable
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
 	{
 		return SPRITE_PROPERTY;
-	}
-
-
-	// TODO: set some name or some type shit
-	@Override
-	public String getName ()
-	{
-		return "";
-	}
-
-
-	@Override
-	public void setName (final String name)
-	{
-
-	}
-
-
-	@Override
-	public SimpleStringProperty getNameProperty ()
-	{
-		return null;
 	}
 }
 

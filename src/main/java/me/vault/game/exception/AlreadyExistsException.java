@@ -1,6 +1,7 @@
 package me.vault.game.exception;
 
 
+// TODO: no usages atm
 public class AlreadyExistsException extends Exception
 {
 

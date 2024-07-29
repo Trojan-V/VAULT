@@ -33,7 +33,7 @@ import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
-public class TrainingFacilityDelegate extends CityBuildingController implements Initializable
+public final class TrainingFacilityDelegate extends CityBuildingController implements Initializable
 {
 
 	/**
@@ -330,14 +330,14 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 		nameLabel.textProperty().bind(troop.getNameProperty());
 		spriteView.imageProperty().bind(troop.getSpriteProperty());
 		upgradeButton.disableProperty().bind(troop.getIsMaxLevelProperty());
-		attributePane.getChildren().add(TroopController.getAttributeGridPane(troop));
+		attributePane.getChildren().add(TroopController.createAttributeGridPane(troop));
 	}
 
 
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 }

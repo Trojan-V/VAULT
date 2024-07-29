@@ -16,14 +16,15 @@ import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.text.MessageFormat;
 import java.util.Objects;
 
+import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED;
 import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
-public class ViewUtil
+public final class ViewUtil
 {
 
 	/**
@@ -82,12 +83,19 @@ public class ViewUtil
 
 	public static void show (final Stage stage, final Scene scene, final Class<?> clazz)
 	{
-		scene.getStylesheets().add(Objects.requireNonNull(GameApplication.class.getResource("button_long.css")).toExternalForm());
-		stage.setScene(scene);
-		stage.show();
+		try
+		{
+			scene.getStylesheets().add(Objects.requireNonNull(GameApplication.class.getResource("button_long.css")).toExternalForm());
+			stage.setScene(scene);
+			stage.show();
 
-		// Logging the display of the view on the main stage.
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, clazz.getSimpleName()));
+			LOGGER.logf(DEBUG, SHOWING_VIEW_MSG, clazz.getSimpleName());
+		}
+		catch (final RuntimeException ex)
+		{
+			LOGGER.logf(ERROR, DISPLAY_FAILED, clazz.getSimpleName());
+		}
+
 	}
 
 

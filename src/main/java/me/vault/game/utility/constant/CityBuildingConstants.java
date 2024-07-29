@@ -1,6 +1,7 @@
 package me.vault.game.utility.constant;
 
 
+import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -18,7 +19,7 @@ public interface CityBuildingConstants
 	 *
 	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Barracks
-	 * @see me.vault.game.model.building.CityBuilding
+	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
 	@ConstantInterface
@@ -57,7 +58,7 @@ public interface CityBuildingConstants
 	 *
 	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Market
-	 * @see me.vault.game.model.building.CityBuilding
+	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
 	@ConstantInterface
@@ -96,7 +97,7 @@ public interface CityBuildingConstants
 	 *
 	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.CommandCenter
-	 * @see me.vault.game.model.building.CityBuilding
+	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
 	@ConstantInterface
@@ -135,7 +136,7 @@ public interface CityBuildingConstants
 	 *
 	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Docks
-	 * @see me.vault.game.model.building.CityBuilding
+	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
 	@ConstantInterface
@@ -174,7 +175,7 @@ public interface CityBuildingConstants
 	 *
 	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Laboratory
-	 * @see me.vault.game.model.building.CityBuilding
+	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
 	@ConstantInterface
@@ -213,7 +214,7 @@ public interface CityBuildingConstants
 	 *
 	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.SpaceBar
-	 * @see me.vault.game.model.building.CityBuilding
+	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
 	@ConstantInterface
@@ -252,7 +253,7 @@ public interface CityBuildingConstants
 	 *
 	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.TrainingFacility
-	 * @see me.vault.game.model.building.CityBuilding
+	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
 	@ConstantInterface
@@ -291,7 +292,7 @@ public interface CityBuildingConstants
 	 *
 	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Workshop
-	 * @see me.vault.game.model.building.CityBuilding
+	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
 	@ConstantInterface

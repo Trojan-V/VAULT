@@ -16,7 +16,7 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 
-public class NetworkDelegate implements Initializable
+public final class NetworkDelegate implements Initializable
 {
 
 	private static final Stage STAGE = new Stage();
@@ -144,7 +144,7 @@ public class NetworkDelegate implements Initializable
 				return;
 			}
 			NetworkController.runClient(this.host, this.port);
-			ArenaDelegate.show(GameConstants.ARENA);
+			// ArenaDelegate.show(GameConstants.ARENA);
 			stage.close();
 		}
 	}

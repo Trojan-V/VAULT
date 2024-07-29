@@ -21,19 +21,21 @@ import me.vault.game.view.city.CityDelegate;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.GameConstants.*;
+
 
 /**
  * This class acts as the controller and view for the main menu.
- *<br>
+ * <br>
  * The class provides methods to display the main menu {@link MainMenuDelegate#show()} as well as methods for
  * the user to interact with the application {@link MainMenuDelegate#click(Event)}.
  *
  * @author Timothy Hoegen-Jupp
  * @version 2.0.0
- *
  */
-public class MainMenuDelegate implements Initializable
+public final class MainMenuDelegate implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -47,11 +49,12 @@ public class MainMenuDelegate implements Initializable
 	 */
 	//TODO: Entscheiden, ob die FXML Dateien in den Delegates gespeichert wird
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
+
 	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 
 
 	/**
-	 *  Are used to facilitate the interaction between the user and the application
+	 * Are used to facilitate the interaction between the user and the application
 	 *
 	 * @see Button
 	 */
@@ -100,6 +103,7 @@ public class MainMenuDelegate implements Initializable
 
 	//Methods ---------------------------------------------------------------------------------------
 
+
 	/**
 	 * Calls a method to display the content stored in {@link MainMenuDelegate#MAIN_MENU_VIEW_FXML} and initialized
 	 * by {@link MainMenuDelegate#initialize(URL, ResourceBundle)} on the main stage
@@ -118,28 +122,28 @@ public class MainMenuDelegate implements Initializable
 	 * Handles the action "click" that is defined in the FXML-File.
 	 * <br>
 	 * <br>
-	 * The method differentiates between the different actions that can be triggered by interacting with eiter the
+	 * The method differentiates between the different actions that can be triggered by interacting with either the
 	 * buttons or the MenuItems in the Scene.
 	 * <br>
 	 * <br>
-	 * Note: As both the MenuItems and the Buttons in the Scene have the same functionality, they are combined in one
+	 * Note: As both the MenuItems and the Buttons in the Scene have the same capabilities, they're combined in one
 	 * method. However, as the buttons use an {@link MouseEvent} and the MenuItems use an {@link ActionEvent}, the
-	 * super-Class {@link Event} has been used in order to combine both in a single method.
+	 * super-Class {@link Event} has been used to combine both in a single method.
 	 * <br>
 	 * <br>
 	 * The actions that are triggered by their respective button/menuItem are listed below:
 	 * <br>
-	 * If "continue" is clicked the Save is loaded by the Config loader and the City-View is shown.
+	 * If "continue" is clicked, the Save is loaded by the Config loader and the City-View is shown.
 	 * <br>
-	 * If "new game" is clicked the Config File is reset and the Difficulty-View is shown.
+	 * If "new game" is clicked, the Config File is reset and the Difficulty-View is shown.
 	 * <br>
-	 * If the "load game"-button is pressed the File-Chooser view is shown.
+	 * If the "load game"-button is pressed, the File-Chooser view is shown.
 	 * <br>
-	 * If the "settings"-button is pressed the settings view is shown.
+	 * If the "settings"-button is pressed, the settings view is shown.
 	 * <br>
-	 * If the "exit game"-button is pressed the exit dialog is shown.
+	 * If the "exit game"-button is pressed, the exit dialog is shown.
 	 * <br>
-	 * If the "arena"-button is pressed the network connection dialog is shown.
+	 * If the "arena"-button is pressed, the network connection dialog is shown.
 	 *
 	 * @param event the Event on which the method acts.
 	 *
@@ -152,7 +156,7 @@ public class MainMenuDelegate implements Initializable
 		if (event.getSource().equals(this.continueButton) || event.getSource().equals(this.continueMenuItem))
 		{
 			ConfigLoader.getInstance().load();
-			CityDelegate.show(GameApplication.getStage());
+			CityDelegate.show();
 		}
 		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
@@ -163,17 +167,15 @@ public class MainMenuDelegate implements Initializable
 			ConfigLoader.getInstance().reset();
 			DifficultyDelegate.show();
 		}
-		else if (event.getSource().equals(this.loadGameButton)|| event.getSource().equals(this.loadGameMenuItem))
+		else if (event.getSource().equals(this.loadGameButton) || event.getSource().equals(this.loadGameMenuItem))
 		{
 			//TODO: Update Java Doc
 			if (!ConfigLoader.getInstance().isConfigDefault())
 			{
 				ConfigLoader.getInstance().saveExistingGameToFile();
 			}
-			ConfigLoader.getInstance().load(FileChooserView.show(GameApplication.getStage(),
-				GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
-				StringConstants.chooseGameFile));
-			CityDelegate.show(GameApplication.getStage());
+			ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
+			CityDelegate.show();
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
 		{
@@ -190,6 +192,7 @@ public class MainMenuDelegate implements Initializable
 			NetworkDelegate.show();
 		}
 	}
+
 
 	/**
 	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
@@ -215,11 +218,11 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private void initializeContinue ()
 	{
-			if (ConfigLoader.getInstance().isConfigDefault())
-			{
-				ViewUtil.setMenuItemInactive(this.continueMenuItem);
-				ViewUtil.setButtonInactive(this.continueButton);
-			}
+		if (ConfigLoader.getInstance().isConfigDefault())
+		{
+			ViewUtil.setMenuItemInactive(this.continueMenuItem);
+			ViewUtil.setButtonInactive(this.continueButton);
+		}
 	}
 
 
@@ -236,8 +239,7 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private void initializeLoadGame () //TODO: Add checks for loading a save file
 	{
-		if (ResourceLoader.collectFilesContaining(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
-			StringConstants.SAVE_NAME).isEmpty())
+		if (ResourceLoader.collectFilesContaining(GAME_SAVE_FOLDER_FILE_PATH, StringConstants.SAVE_NAME).isEmpty())
 		{
 			ViewUtil.setMenuItemInactive(this.loadGameMenuItem);
 			ViewUtil.setButtonInactive(this.loadGameButton);

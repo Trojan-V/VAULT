@@ -30,9 +30,10 @@ module me.vault.game {
 	exports me.vault.game.model.city;
 	exports me.vault.game.model.mission;
 	exports me.vault.game.model;
-	exports me.vault.game.fxcontrols;
+	exports me.vault.game.utility.fx;
 	exports me.vault.game.model.troop;
 	exports me.vault.game.model.arena;
+	exports me.vault.game.model.energy;
 
 	opens me.vault.game to javafx.fxml;
 	opens me.vault.game.utility.loading to javafx.fxml, com.google.gson;
@@ -47,6 +48,8 @@ module me.vault.game {
 	opens me.vault.game.view.city.buildings to javafx.fxml;
 	opens me.vault.game.model.mission to javafx.fxml;
 	opens me.vault.game.view.mission to javafx.fxml;
-	opens me.vault.game.fxcontrols to javafx.fxml;
 	opens me.vault.game.model.arena to javafx.fxml;
+	opens me.vault.game.model.energy to javafx.fxml;
+
+	opens me.vault.game.utility.fx to javafx.fxml;
 }

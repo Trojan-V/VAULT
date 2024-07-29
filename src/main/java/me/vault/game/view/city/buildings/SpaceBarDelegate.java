@@ -39,7 +39,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see SpaceBar
  * @since 11.06.2024
  */
-public class SpaceBarDelegate extends CityBuildingController implements Initializable
+public final class SpaceBarDelegate extends CityBuildingController implements Initializable
 {
 
 	/**
@@ -111,7 +111,7 @@ public class SpaceBarDelegate extends CityBuildingController implements Initiali
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 

@@ -13,12 +13,13 @@ import javafx.scene.layout.VBox;
 import me.vault.game.GameApplication;
 import me.vault.game.control.EnemyController;
 import me.vault.game.control.FigureController;
-import me.vault.game.fxcontrols.GameBoardButton;
-import me.vault.game.fxcontrols.TimelineElementHBox;
+import me.vault.game.control.MovableController;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.utility.fx.GameBoardButton;
+import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -28,7 +29,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
-import static me.vault.game.model.arena.Arena.State;
 import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 import static me.vault.game.utility.constant.ArenaConstants.TIMELINE_SPACING;
 import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
@@ -37,7 +37,7 @@ import static me.vault.game.utility.constant.LoggingConstants.ArenaDelegate.AREN
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
-public class ArenaDelegate
+public final class ArenaDelegate
 {
 
 	/**
@@ -72,18 +72,12 @@ public class ArenaDelegate
 			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
 
 			arenaDelegate.setArena(arena);
-			arenaDelegate.show(new Scene(root));
+			ViewUtil.show(GameApplication.getStage(), new Scene(root), ArenaDelegate.class);
 		}
 		catch (final IOException e)
 		{
 			LOGGER.logf(WARNING, ARENA_DISPLAY_FAILED, arena.toString());
 		}
-	}
-
-
-	private void show (final @NotNull Scene scene)
-	{
-		ViewUtil.show(GameApplication.getStage(), scene, ArenaDelegate.class);
 	}
 
 
@@ -135,21 +129,23 @@ public class ArenaDelegate
 		final Placeable nextTileElement = arenaGameBoard.getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
-		if (nextTileElement instanceof PlaceholderTileAppearance &&
-		    FigureController.figureCanMoveToPosition(arenaGameBoard, attacker, position))
+		if (nextTileElement instanceof AccessibleTileAppearance &&
+		    FigureController.canMoveToPosition(this.arena, attacker, position))
 		{
-			FigureController.moveFigure(arenaGameBoard, attacker, position);
+			MovableController.move(arenaGameBoard, attacker, position);
 			interactionFailed = false;
 		}
-		else if (nextTileElement instanceof final Figure<? extends Troop> defender && FigureController.figureCanAttackFigure(this.arena, attacker, position))
+		else if (nextTileElement instanceof final Figure<? extends Troop> defender &&
+		         FigureController.canAttackAtPosition(this.arena, attacker, position))
 		{
-			FigureController.attackFigure(this.arena, attacker, defender);
+			FigureController.attack(this.arena, attacker, defender);
 			interactionFailed = false;
 		}
 		if (interactionFailed)
 		{
 			return;
 		}
+
 		this.updateTimeline();
 		this.arenaBoardGridPane.getChildren().clear();
 		this.initializeGameBoardGridPane();
@@ -159,10 +155,15 @@ public class ArenaDelegate
 
 	private void executeTurn ()
 	{
+		final List<Figure<? extends Troop>> playerOneTroops = this.arena.getPlayerOneTroops();
 		final List<Figure<? extends Troop>> playerTwoTroops = this.arena.getPlayerTwoTroops();
 
 		final boolean finished = this.checkForFinish();
-		if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
+		if (playerOneTroops.contains(this.arena.getSelectedFigure()) && !finished)
+		{
+			return;
+		}
+		else if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
 			this.handleEnemyTurn();
 			this.arenaBoardGridPane.getChildren().clear();
@@ -176,8 +177,8 @@ public class ArenaDelegate
 
 	private boolean checkForFinish ()
 	{
-		final State state = this.arena.getState();
-		if (state == State.LOST || state == State.WON)
+		final ArenaResult arenaResult = this.arena.getState();
+		if (arenaResult == ArenaResult.LOST || arenaResult == ArenaResult.WON)
 		{
 			ArenaFinishedDialogDelegate.show(this.arena.getState());
 			return true;
@@ -190,12 +191,12 @@ public class ArenaDelegate
 	{
 		final GameBoard arenaGameBoard = this.arena.getGameBoard();
 
-		final Position position = arenaGameBoard.getFigurePosition(this.arena.getSelectedFigure());
-		final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensiveStatistic().getGrenadeRange();
-		final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterityStatistic().getMovementTiles();
+		final Position position = arenaGameBoard.getPosition(this.arena.getSelectedFigure());
+		final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensive().getGrenadeRange();
+		final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterity().getMovementTiles();
 
 		final List<Tile> reachableTroopFigureTiles = arenaGameBoard.getReachableTroopFigureTiles(position, attackRange);
-		final List<Tile> adjacentAccessibleTiles = arenaGameBoard.getAdjacentPlaceholderTiles(position, movementRange);
+		final List<Tile> adjacentAccessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(position, movementRange);
 
 		boolean hasAttacked = false;
 		if (!reachableTroopFigureTiles.isEmpty())
@@ -204,7 +205,8 @@ public class ArenaDelegate
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{
-			FigureController.moveFigure(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst().getPosition());
+			MovableController.move(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst()
+				.getPosition());
 		}
 	}
 

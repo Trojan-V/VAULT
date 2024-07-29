@@ -41,7 +41,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Docks
  * @since 11.06.2024
  */
-public class DocksDelegate extends CityBuildingController implements Initializable
+public final class DocksDelegate extends CityBuildingController implements Initializable
 {
 
 	/**
@@ -142,7 +142,7 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 

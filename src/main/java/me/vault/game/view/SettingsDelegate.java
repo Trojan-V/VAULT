@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class SettingsDelegate implements Initializable
+public final class SettingsDelegate implements Initializable
 {
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
@@ -33,11 +33,14 @@ public class SettingsDelegate implements Initializable
 
 	private static final Scene SCENE = ResourceLoader.loadScene(SettingsDelegate.class, SETTINGS_FXML);
 
-	private final int easy = 0;
 
-	private final int normal = 1;
+	private static final int EASY_SLIDER_INT = 0;
 
-	private final int hard = 2;
+
+	private static final int NORMAL_SLIDER_INT = 1;
+
+
+	private static final int HARD_SLIDER_INT = 2;
 
 	@FXML
 	private Button backButton;
@@ -67,14 +70,14 @@ public class SettingsDelegate implements Initializable
 	{
 		switch (this.difficultySlider.valueProperty().intValue())
 		{
-			case easy:
-				GameController.getInstance().setDifficulty(GameDifficulty.EASY_MODE);
+			case EASY_SLIDER_INT:
+				GameController.setDifficulty(GameDifficulty.EASY);
 				break;
-			case normal:
-				GameController.getInstance().setDifficulty(GameDifficulty.NORMAL_MODE);
+			case NORMAL_SLIDER_INT:
+				GameController.setDifficulty(GameDifficulty.NORMAL);
 				break;
-			case hard:
-				GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
+			case HARD_SLIDER_INT:
+				GameController.setDifficulty(GameDifficulty.HARD);
 				break;
 		}
 	}
@@ -90,7 +93,7 @@ public class SettingsDelegate implements Initializable
 	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
 	 */
 	@Override
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.initializeDifficultySlider();
 	}
@@ -98,11 +101,11 @@ public class SettingsDelegate implements Initializable
 
 	private void initializeDifficultySlider ()
 	{
-		switch (GameController.getInstance().getDifficulty())
+		switch (GameController.getDifficulty())
 		{
-			case EASY_MODE -> this.difficultySlider.setValue(easy);
-			case NORMAL_MODE -> this.difficultySlider.setValue(normal);
-			case HARD_MODE -> this.difficultySlider.setValue(hard);
+			case EASY -> this.difficultySlider.setValue(EASY_SLIDER_INT);
+			case NORMAL -> this.difficultySlider.setValue(NORMAL_SLIDER_INT);
+			case HARD -> this.difficultySlider.setValue(HARD_SLIDER_INT);
 		}
 	}
 }

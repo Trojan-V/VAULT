@@ -394,7 +394,7 @@
                         </Accordion>
                      </children>
                   </GridPane>
-                  <AnchorPane fx:id="selectorPane" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <AnchorPane fx:id="selectedTroopsPane" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
@@ -403,7 +403,7 @@
             </GridPane>
          </children>
         </GridPane>
-        <Button layoutX="45.0" layoutY="671.0" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: lightsalmon; -fx-border-color: salmon;" text="Back" textAlignment="CENTER" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="930.0" AnchorPane.topAnchor="640.0">
+        <Button layoutX="45.0" layoutY="671.0" mnemonicParsing="false" onAction="#onBackToMissionSelectionView" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: lightsalmon; -fx-border-color: salmon;" text="Back" textAlignment="CENTER" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="930.0" AnchorPane.topAnchor="640.0">
             <font>
                 <Font name="Segoe UI" size="22.0" />
             </font>

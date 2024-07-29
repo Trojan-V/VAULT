@@ -10,8 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.fxcontrols.RewardGridPane;
 import me.vault.game.model.mission.Mission;
+import me.vault.game.utility.fx.RewardGridPane;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -46,7 +46,7 @@ import static me.vault.game.utility.constant.MissionConstants.MissionTwo.MISSION
  * @see me.vault.game.utility.constant.LoggingConstants.MissionDelegate
  * @since 25.07.2024
  */
-public class MissionSelectionDelegate implements Initializable
+public final class MissionSelectionDelegate implements Initializable
 {
 
 	/**
@@ -173,7 +173,7 @@ public class MissionSelectionDelegate implements Initializable
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 
@@ -246,7 +246,7 @@ public class MissionSelectionDelegate implements Initializable
 	 *
 	 * @return A {@link String} which has been formatted in the {@link MissionSelectionDelegate#TO_STRING_PATTERN}.
 	 *
-	 * @precondition The {@link MissionSelectionDelegate#TO_STRING_PATTERN} is {@code != null} and both of the instance variables are set.
+	 * @precondition The {@link MissionSelectionDelegate#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
