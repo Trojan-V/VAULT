@@ -38,7 +38,8 @@ public class Config
 
 	// Config attributes for the whole game
 
-	private GameDifficulty difficulty = GameDifficulty.HARD_MODE;
+
+	private GameDifficulty difficulty = GameDifficulty.HARD;
 
 	// Currency related config entries
 
@@ -291,7 +292,7 @@ public class Config
 		this.updateTroopLevelsFromConfig();
 		this.updateCityBuildingLevelsFromConfig();
 		this.updateArtifactLevelsFromConfig();
-		GameController.getInstance().setDifficulty(this.difficulty);
+		GameController.setDifficulty(this.difficulty);
 		this.updateCurrencyAmountsFromConfig();
 	}
 
@@ -301,7 +302,7 @@ public class Config
 		this.updateCurrencyAmountsFromModels();
 		this.updateArtifactLevelsFromModels();
 		this.updateCityBuildingLevelsFromModels();
-		this.difficulty = GameController.getInstance().getDifficulty();
+		this.difficulty = GameController.getDifficulty();
 		this.updateTroopLevelsFromModels();
 	}
 

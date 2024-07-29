@@ -18,7 +18,7 @@ import java.util.List;
 
 
 /**
- * Controller class to handle allie actions in the arena, such as moving or attacking.
+ * Controller class to handle enemy actions in the arena, such as moving or attacking.
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -116,21 +116,32 @@ public final class FigureController
 	 * <br>
 	 * The formula takes the melee damage the attacker deals into account as well as the armor the defender has.
 	 *
-	 * @param attackerStats          The {@link me.vault.game.model.troop.TroopStatistics.Offensive} statistics of the
+	 * @param attackerStats          The {@link Offensive} statistics of the
 	 *                               attacking unit.
-	 * @param defenderDefensiveStats The {@link me.vault.game.model.troop.TroopStatistics.Defensive} statistics of the
+	 * @param defenderDefensiveStats The {@link Defensive} statistics of the
 	 *                               defensive unit.
 	 * @return The amount of damage the defender will receive.
 	 */
 	private static int calculateDamage (final Offensive attackerStats, final Defensive defenderDefensiveStats)
 	{
+		// TODO: Literals
 		return attackerStats.getMeleeDamage() * (1 - defenderDefensiveStats.getArmor() / 100);
 	}
 
 
-	public static boolean figureCanMoveToPosition (final GameBoard arenaGameBoard,
+	/**
+	 * Checks if the {@link Figure} can move to the supplied {@link Position}.
+	 *
+	 * @param arena       The arena where the encounter takes place.
+	 * @param troopFigure The {@link Figure} for which will be checked if it can move to the supplied position.
+	 * @param position    The position the {@link Figure} wants to move to.
+	 * @return True if the {@link Figure} can move to the supplied {@link Position}, otherwise false.
+	 */
+	public static boolean canMoveToPosition (final Arena arena,
 		final Figure<? extends Troop> troopFigure, final Position position)
 	{
+		final GameBoard arenaGameBoard = arena.getGameBoard();
+
 		final Position previousTroopPosition = arenaGameBoard.getPosition(troopFigure);
 		final int troopMovementRange = troopFigure.getStatistics().getDexterity().getMovementTiles();
 		final List<Tile> accessibleTiles =
@@ -139,30 +150,31 @@ public final class FigureController
 	}
 
 
-	public static boolean playerCanMoveToPosition (final GameBoard missionGameBoard, final Player player,
-		final Position position)
-	{
-		final Position previousTroopPosition = missionGameBoard.getPosition(player);
-		final List<Tile> accessibleTiles = missionGameBoard.getAdjacentPlaceholderTiles(previousTroopPosition);
-		return accessibleTiles.contains(missionGameBoard.getTile(position));
-	}
-
-
-	public static boolean figureCanAttackFigure (final Arena arena, final Figure<? extends Troop> attackerFigure,
+	/**
+	 * Checks if the {@link Figure} can attack the other {@link Figure} at the supplied {@link Position}.
+	 *
+	 * @param arena          The arena where the encounter takes place.
+	 * @param attackerFigure The {@link Figure} which wants to attack another {@link Figure}.
+	 * @param position       The position the {@link Figure} wants to attack at.
+	 * @return True if the {@link Figure} can attack the {@link Figure} at the supplied {@link Position}, otherwise
+	 * false.
+	 */
+	public static boolean canAttackAtPosition (final Arena arena, final Figure<? extends Troop> attackerFigure,
 		final Position position)
 	{
 		try
 		{
-			final Figure<? extends Troop> defender = arena.getGameBoard().getFigure(position);
-			final Position attackerPos = arena.getGameBoard().getPosition(attackerFigure);
-			final List<Tile> reachableTiles = arena.getGameBoard()
+			GameBoard arenaGameBoard = arena.getGameBoard();
+			final Figure<? extends Troop> defender = arenaGameBoard.getFigure(position);
+			final Position attackerPos = arenaGameBoard.getPosition(attackerFigure);
+			final List<Tile> reachableTiles = arenaGameBoard
 				.getAdjacentTiles(attackerPos, attackerFigure.getStatistics().getOffensive().getGrenadeRange());
 
 			final List<Figure<? extends Troop>> defenderGroup =
 				arena.getPlayerOneTroops().contains(defender) ? arena.getPlayerOneTroops() :
 				arena.getPlayerTwoTroops();
 			return !defenderGroup.contains(attackerFigure) &&
-			       reachableTiles.contains(arena.getGameBoard().getTile(position));
+			       reachableTiles.contains(arenaGameBoard.getTile(position));
 		}
 		catch (final Exception e)
 		{
@@ -171,30 +183,64 @@ public final class FigureController
 	}
 
 
-	public static boolean playerCanReachPosition (final GameBoard missionGameBoard, final Player player,
-		final Position position)
-	{
-		final Position previousTroopPosition = missionGameBoard.getPosition(player);
-		final List<Tile> accessibleTiles = missionGameBoard.getAdjacentTiles(previousTroopPosition);
-		return accessibleTiles.contains(missionGameBoard.getTile(position));
-	}
-
-
-	public static void setTroopFigureGlow (final @NotNull Arena arena, final @NotNull ImageView imageView,
+	/**
+	 * Sets the glow effect of the supplied {@link Figure}.
+	 *
+	 * @param arena       The arena where the figure is located.
+	 * @param imageView   The image view (basically the sprite) which gets manipulated to apply the glow effect.
+	 * @param troopFigure The {@link Figure} whose glow effect should be set. There are two checks happening: If the
+	 *                    {@link Figure} is an ally, the glow effect will be colored blue, if the {@link Figure} is
+	 *                    an enemy, the glow effect will be colored red.
+	 */
+	public static void setGlow (final @NotNull Arena arena, final @NotNull ImageView imageView,
 		final @NotNull Figure<? extends Troop> troopFigure)
 	{
 		if (arena.getPlayerOneTroops().contains(troopFigure))
+		// Define the DropShadow (the glow) depending on the Figure's team: Blue glow means ally, red glow means enemy.
+		DropShadow playerIdentity = null;
+		if (isAlly(arena, troopFigure))
 		{
-			final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
-			playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-			imageView.setEffect(playerIdentity);
+			playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
 		}
-		else if (arena.getPlayerTwoTroops().contains(troopFigure))
+		else if (isEnemy(arena, troopFigure))
 		{
-			final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
-			playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-			imageView.setEffect(playerIdentity);
+			playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
 		}
+
+		// This case should never happen, as the supplied Figure should always be either an ally or an enemy.
+		// This case is just here to satisfy the compiler that there's no NullPointerException.
+		else
+		{
+			return;
+		}
+
+		playerIdentity.setSpread(DROP_SHADOW_SPREAD);
+		imageView.setEffect(playerIdentity);
 	}
 
+
+	/**
+	 * Checks if the {@link Figure} is an enemy.
+	 *
+	 * @param arena       The arena where the {@link Figure} stands in.
+	 * @param troopFigure The {@link Figure} which is checked if it's an enemy or not.
+	 * @return True if the {@link Figure} is an enemy, otherwise false.
+	 */
+	private static boolean isEnemy (@NotNull Arena arena, @NotNull Figure<? extends Troop> troopFigure)
+	{
+		return arena.getPlayerTwoTroops().contains(troopFigure);
+	}
+
+
+	/**
+	 * Checks if the {@link Figure} is an ally.
+	 *
+	 * @param arena       The arena where the {@link Figure} stands in.
+	 * @param troopFigure The {@link Figure} which is checked if it's an ally or not.
+	 * @return True if the {@link Figure} is an ally, otherwise false.
+	 */
+	private static boolean isAlly (@NotNull Arena arena, @NotNull Figure<? extends Troop> troopFigure)
+	{
+		return arena.getPlayerOneTroops().contains(troopFigure);
+	}
 }

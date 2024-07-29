@@ -65,7 +65,7 @@ public final class GameBoardButton extends Button
 
 		if (arena != null && placeable instanceof final Figure<? extends Troop> figure)
 		{
-			FigureController.setTroopFigureGlow(arena, imageView, figure);
+			FigureController.setGlow(arena, imageView, figure);
 		}
 		this.setGraphic(imageView);
 	}

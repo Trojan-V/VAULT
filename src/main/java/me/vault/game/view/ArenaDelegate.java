@@ -136,12 +136,13 @@ public class ArenaDelegate
 
 		boolean interactionFailed = true;
 		if (nextTileElement instanceof AccessibleTileAppearance &&
-		    FigureController.figureCanMoveToPosition(arenaGameBoard, attacker, position))
+		    FigureController.canMoveToPosition(this.arena, attacker, position))
 		{
 			FigureController.move(arenaGameBoard, attacker, position);
 			interactionFailed = false;
 		}
-		else if (nextTileElement instanceof final Figure<? extends Troop> defender && FigureController.figureCanAttackFigure(this.arena, attacker, position))
+		else if (nextTileElement instanceof final Figure<? extends Troop> defender &&
+		         FigureController.canAttackAtPosition(this.arena, attacker, position))
 		{
 			FigureController.attack(this.arena, attacker, defender);
 			interactionFailed = false;
@@ -150,6 +151,7 @@ public class ArenaDelegate
 		{
 			return;
 		}
+
 		this.updateTimeline();
 		this.arenaBoardGridPane.getChildren().clear();
 		this.initializeGameBoardGridPane();

@@ -18,7 +18,7 @@ public class ConfigTest
 	public static void main (final String[] args)
 	{
 		ConfigLoader.getInstance();
-		GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
+		GameController.setDifficulty(GameDifficulty.HARD);
 		Config.getInstance().updateConfigFromModels();
 		ConfigLoader.getInstance().save();
 	}

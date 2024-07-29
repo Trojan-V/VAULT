@@ -9,7 +9,6 @@ import javafx.scene.input.MouseEvent;
 import me.vault.game.GameApplication;
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
-import me.vault.game.utility.loading.Config;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -63,17 +62,17 @@ public final class DifficultyDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
-			GameController.getInstance().setDifficulty(GameDifficulty.EASY_MODE);
+			GameController.setDifficulty(GameDifficulty.EASY);
 			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
-			GameController.getInstance().setDifficulty(GameDifficulty.NORMAL_MODE);
+			GameController.setDifficulty(GameDifficulty.NORMAL);
 			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
-			GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
+			GameController.setDifficulty(GameDifficulty.HARD);
 			PrologueDelegate.show(GameApplication.getStage());
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))

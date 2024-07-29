@@ -54,7 +54,7 @@ public final class TimelineElementHBox extends HBox
 		final ImageView sprite = new ImageView(troopFigure.getSprite());
 		sprite.setFitWidth(SPRITE_WIDTH - IMAGE_OFFSET);
 		sprite.setFitHeight(SPRITE_HEIGHT - IMAGE_OFFSET);
-		FigureController.setTroopFigureGlow(arena, sprite, troopFigure);
+		FigureController.setGlow(arena, sprite, troopFigure);
 
 		this.getChildren().add(sprite);
 		this.getChildren().add(statistics);

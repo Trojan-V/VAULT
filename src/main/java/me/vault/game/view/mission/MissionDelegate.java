@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.FigureController;
+import me.vault.game.control.PlayerController;
 import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;

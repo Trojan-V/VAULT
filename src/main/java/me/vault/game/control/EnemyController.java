@@ -107,13 +107,13 @@ public final class EnemyController
 	 */
 	private static TroopLevel getEnemyLevelForDifficulty ()
 	{
-		final GameDifficulty difficulty = GameController.getInstance().getDifficulty();
+		final GameDifficulty difficulty = GameController.getDifficulty();
 		TroopLevel adjustedLevel = null;
 		switch (difficulty)
 		{
-			case EASY_MODE -> adjustedLevel = TroopLevel.SINGLE_COMBATANT;
-			case NORMAL_MODE -> adjustedLevel = TroopLevel.COUPLE;
-			case HARD_MODE -> adjustedLevel = TroopLevel.SQUAD;
+			case EASY -> adjustedLevel = TroopLevel.SINGLE_COMBATANT;
+			case NORMAL -> adjustedLevel = TroopLevel.COUPLE;
+			case HARD -> adjustedLevel = TroopLevel.SQUAD;
 		}
 		return adjustedLevel;
 	}
