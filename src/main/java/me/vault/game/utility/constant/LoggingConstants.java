@@ -83,6 +83,7 @@ public interface LoggingConstants
 
 	String CLASS_INITIALIZED = "{0} initialised.";
 
+	String DISPLAY_FAILED = "Couldn't display: {0}";
 
 	String UPGRADE_DIALOG_FAIL = "Couldn't display upgrade dialog for {0}";
 
