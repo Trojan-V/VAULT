@@ -322,6 +322,7 @@ public class Config
 		this.updateTroopLevelsFromConfig();
 		this.updateCityBuildingLevelsFromConfig();
 		this.updateArtifactLevelsFromConfig();
+		this.updateEnergyLevelsFromConfig();
 		GameController.setDifficulty(this.difficulty);
 		this.updateCurrencyAmountsFromConfig();
 	}
