@@ -196,8 +196,8 @@ public class MissionDelegate implements Initializable
 		// the clicked element
 		final Placeable nextTileElement = missionGameBoard.getTile(position).getCurrentElement();
 
-		final boolean playerCanMove = FigureController.playerCanMoveToPosition(missionGameBoard, player, position);
-		final boolean playerCanReach = FigureController.playerCanReachPosition(missionGameBoard, player, position);
+		final boolean playerCanMove = PlayerController.canMoveToPosition(missionGameBoard, player, position);
+		final boolean playerCanReach = PlayerController.canReachPosition(missionGameBoard, player, position);
 
 		if (nextTileElement instanceof AccessibleTileAppearance && playerCanMove)
 		{
