@@ -111,7 +111,7 @@ public class SpaceBarDelegate extends CityBuildingController implements Initiali
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 

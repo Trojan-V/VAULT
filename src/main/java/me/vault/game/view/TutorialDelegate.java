@@ -86,7 +86,7 @@ public final class TutorialDelegate implements Initializable
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
 			Config.getInstance().updateConfigFromModels();
-			CityDelegate.show(GameApplication.getStage());
+			CityDelegate.show();
 		}
 	}
 

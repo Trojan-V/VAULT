@@ -142,7 +142,7 @@ public class DocksDelegate extends CityBuildingController implements Initializab
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 

@@ -198,7 +198,7 @@ public class MarketDelegate extends CityBuildingController implements Initializa
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 

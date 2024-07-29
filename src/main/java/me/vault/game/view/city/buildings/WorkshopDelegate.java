@@ -214,7 +214,7 @@ public class WorkshopDelegate extends CityBuildingController implements Initiali
 	@FXML
 	private void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 }

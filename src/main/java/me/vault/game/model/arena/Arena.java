@@ -14,16 +14,7 @@ import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
 
 public class Arena
 {
-	private State state = State.RUNNING;
-
-
-	public enum State
-	{
-		RUNNING,
-		LOST,
-		WON
-	}
-
+	private ArenaResult arenaResult = ArenaResult.UNDEFINED;
 
 	private List<Figure<? extends Troop>> playerOneTroops;
 
@@ -164,15 +155,15 @@ public class Arena
 	{
 		if (new HashSet<>(this.eliminatedTroops).containsAll(this.playerOneTroops))
 		{
-			this.state = State.LOST;
+			this.arenaResult = ArenaResult.LOST;
 		}
 		else if (new HashSet<>(this.eliminatedTroops).containsAll(this.playerTwoTroops))
 		{
-			this.state = State.WON;
+			this.arenaResult = ArenaResult.WON;
 		}
 		else
 		{
-			this.state = State.RUNNING;
+			this.arenaResult = ArenaResult.UNDEFINED;
 		}
 	}
 
@@ -183,8 +174,8 @@ public class Arena
 	}
 
 
-	public State getState ()
+	public ArenaResult getState ()
 	{
-		return this.state;
+		return this.arenaResult;
 	}
 }

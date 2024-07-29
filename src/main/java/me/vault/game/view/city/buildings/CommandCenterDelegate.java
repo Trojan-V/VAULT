@@ -83,7 +83,7 @@ public class CommandCenterDelegate implements Initializable
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 

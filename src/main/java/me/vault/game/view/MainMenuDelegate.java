@@ -152,7 +152,7 @@ public class MainMenuDelegate implements Initializable
 		if (event.getSource().equals(this.continueButton) || event.getSource().equals(this.continueMenuItem))
 		{
 			ConfigLoader.getInstance().load();
-			CityDelegate.show(GameApplication.getStage());
+			CityDelegate.show();
 		}
 		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
@@ -173,7 +173,7 @@ public class MainMenuDelegate implements Initializable
 			ConfigLoader.getInstance().load(FileChooserView.show(GameApplication.getStage(),
 				GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
 				StringConstants.chooseGameFile));
-			CityDelegate.show(GameApplication.getStage());
+			CityDelegate.show();
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
 		{

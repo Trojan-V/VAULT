@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
-import static me.vault.game.model.arena.Arena.State;
 import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 import static me.vault.game.utility.constant.ArenaConstants.TIMELINE_SPACING;
 import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
@@ -72,18 +71,12 @@ public class ArenaDelegate
 			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
 
 			arenaDelegate.setArena(arena);
-			arenaDelegate.show(new Scene(root));
+			ViewUtil.show(GameApplication.getStage(), new Scene(root), ArenaDelegate.class);
 		}
 		catch (final IOException e)
 		{
 			LOGGER.logf(WARNING, ARENA_DISPLAY_FAILED, arena.toString());
 		}
-	}
-
-
-	private void show (final @NotNull Scene scene)
-	{
-		ViewUtil.show(GameApplication.getStage(), scene, ArenaDelegate.class);
 	}
 
 
@@ -161,10 +154,15 @@ public class ArenaDelegate
 
 	private void executeTurn ()
 	{
+		final List<Figure<? extends Troop>> playerOneTroops = this.arena.getPlayerOneTroops();
 		final List<Figure<? extends Troop>> playerTwoTroops = this.arena.getPlayerTwoTroops();
 
 		final boolean finished = this.checkForFinish();
-		if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
+		if (playerOneTroops.contains(this.arena.getSelectedFigure()) && !finished)
+		{
+			return;
+		}
+		else if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
 			this.handleEnemyTurn();
 			this.arenaBoardGridPane.getChildren().clear();
@@ -178,8 +176,8 @@ public class ArenaDelegate
 
 	private boolean checkForFinish ()
 	{
-		final State state = this.arena.getState();
-		if (state == State.LOST || state == State.WON)
+		final ArenaResult arenaResult = this.arena.getState();
+		if (arenaResult == ArenaResult.LOST || arenaResult == ArenaResult.WON)
 		{
 			ArenaFinishedDialogDelegate.show(this.arena.getState());
 			return true;

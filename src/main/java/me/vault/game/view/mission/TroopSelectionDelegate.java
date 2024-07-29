@@ -172,7 +172,7 @@ public class TroopSelectionDelegate implements Initializable
 	 *
 	 * @return A {@link String} which has been formatted in the {@link TroopSelectionDelegate#TO_STRING_PATTERN}.
 	 *
-	 * @precondition The {@link TroopSelectionDelegate#TO_STRING_PATTERN} is {@code != null} and both of the instance variables are set.
+	 * @precondition The {@link TroopSelectionDelegate#TO_STRING_PATTERN} is {@code != null} and {@link TroopSelectionDelegate#mission} is set.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override

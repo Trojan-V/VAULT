@@ -159,7 +159,7 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		CityDelegate.show(GameApplication.getStage());
+		CityDelegate.show();
 	}
 
 
