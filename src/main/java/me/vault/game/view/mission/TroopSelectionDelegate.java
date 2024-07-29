@@ -128,7 +128,7 @@ public final class TroopSelectionDelegate implements Initializable
 	 *                troop selection is finished.
 	 *
 	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
-	 * @postcondition The main {@link Stage} displays the {@link Scene} of the  on the main {@link Stage}.
+	 * @postcondition The main {@link Stage} displays the {@link Scene} of the on the main {@link Stage}.
 	 */
 	public static void show (final Mission mission)
 	{

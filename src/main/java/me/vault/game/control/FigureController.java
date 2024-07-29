@@ -4,10 +4,9 @@ package me.vault.game.control;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.Figure;
-import me.vault.game.model.arena.Position;
-import me.vault.game.model.arena.Tile;
+import me.vault.game.model.arena.*;
+import me.vault.game.model.energy.AbilityMultiplier;
+import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.troop.TroopStatistics.Defensive;
 import me.vault.game.model.troop.TroopStatistics.Offensive;
@@ -71,17 +70,24 @@ public final class FigureController
 		// Get the statistics of the attacker and defender so the damage can be calculated.
 		final Offensive attackerOffensiveStats = attacker.getStatistics().getOffensive();
 		final Defensive defenderDefensiveStats = defender.getStatistics().getDefensive();
+		final double dice = DiceRoll.getDice();
 
-		final int calculatedDamage = calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
-		final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;
-
-		// Remove the defender from the arena if his HP dropped to zero or below, as the unit died.
-		if (newDefenderHealthPoints <= 0)
+		if (dice > defenderDefensiveStats.getDodgeRate())
 		{
-			arena.removeTroopFigure(defender);
-			return;
+			final int calculatedDamage = calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
+			final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;
+			if (newDefenderHealthPoints <= 0)
+			{
+				// Remove the defender from the arena if his HP dropped to zero or below, as the unit died.
+				arena.removeTroopFigure(defender);
+				return;
+			}
+			defenderDefensiveStats.setHealth(newDefenderHealthPoints);
 		}
-		defenderDefensiveStats.setHealth(newDefenderHealthPoints);
+		else
+		{
+			defenderDefensiveStats.setHealth(defenderDefensiveStats.getHealth());
+		}
 	}
 
 
@@ -96,7 +102,8 @@ public final class FigureController
 	 *                               defensive unit.
 	 * @return The amount of damage the defender will receive.
 	 */
-	private static int calculateDamage (final Offensive attackerStats, final Defensive defenderDefensiveStats)
+	private static int calculateDamage (final Offensive attackerStats,
+		final Defensive defenderDefensiveStats)
 	{
 		// TODO: Literals
 		// TODO: Apply multipliers to the stats of the player/troops.
@@ -138,7 +145,7 @@ public final class FigureController
 	{
 		try
 		{
-			final GameBoard arenaGameBoard = arena.getGameBoard();
+			GameBoard arenaGameBoard = arena.getGameBoard();
 			final Figure defender = arenaGameBoard.getFigure(position);
 			final Position attackerPos = arenaGameBoard.getPosition(attackerFigure);
 			final List<Tile> reachableTiles = arenaGameBoard
@@ -199,7 +206,7 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an enemy or not.
 	 * @return True if the {@link Figure} is an enemy, otherwise false.
 	 */
-	private static boolean isEnemy (@NotNull final Arena arena, @NotNull final Figure troopFigure)
+	private static boolean isEnemy (@NotNull Arena arena, @NotNull Figure troopFigure)
 	{
 		return arena.getPlayerTwoTroops().contains(troopFigure);
 	}
@@ -212,7 +219,7 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an ally or not.
 	 * @return True if the {@link Figure} is an ally, otherwise false.
 	 */
-	private static boolean isAlly (@NotNull final Arena arena, @NotNull final Figure troopFigure)
+	private static boolean isAlly (@NotNull Arena arena, @NotNull Figure troopFigure)
 	{
 		return arena.getPlayerOneTroops().contains(troopFigure);
 	}

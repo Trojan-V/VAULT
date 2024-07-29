@@ -68,8 +68,7 @@ public final class EnemyController
 	 *
 	 * @return True, if the enemy attacked an allied troop, otherwise false.
 	 */
-	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles,
-		final Figure troopFigure)
+	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure troopFigure)
 	{
 		for (final Tile tile : adjacentTroopTiles)
 		{

@@ -4,17 +4,16 @@ package me.vault.game.control;
 import javafx.application.Platform;
 import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.currency.Currency;
-import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.AbilityMultiplier;
 import me.vault.game.model.energy.Energy;
 import me.vault.game.model.energy.EnergyLevel;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_MAXED;
 import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
 import static me.vault.game.utility.constant.LoggingConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
@@ -30,6 +29,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class EnergyAbilityController implements Upgrader<Energy, EnergyLevel>
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link EnergyAbilityController}.
 	 * <br>
@@ -66,18 +66,6 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 
 
 	/**
-	 * Checks if the supplied energy ability is at the maximum level. If yes, true is returned, otherwise false.
-	 *
-	 * @param energy The instance of {@link Energy} which is checked.
-	 * @return True if the energy ability is maxed, otherwise false.
-	 */
-	private static boolean isEnergyMaxed (final Energy energy)
-	{
-		return energy.getLevel() == EnergyLevel.getMaximum();
-	}
-
-
-	/**
 	 * Updates the values within the energy ability to the new values of the new level.
 	 * <br>
 	 * This method should be invoked every time after the energy ability was upgraded.
@@ -96,8 +84,7 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 		energy.setSprite(energy.getSprite(energy.getLevel()));
 		energy.setUpgradeCosts(energy.getUpgradeCosts(energy.getLevel()));
 
-		final Map<AbilityMultiplier.Type, Double> abilityMultipliersMap =
-			energy.getAbilityMultipliers(energy.getLevel());
+		final Map<AbilityMultiplier.Type, Double> abilityMultipliersMap = energy.getAbilityMultipliers(energy.getLevel());
 		final AbilityMultiplier currentAbilityMultipliers = energy.getAbilityMultiplier();
 
 		currentAbilityMultipliers.setDodgeMultiplier(abilityMultipliersMap.get(AbilityMultiplier.Type.DODGE));
@@ -115,38 +102,28 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * {@inheritDoc}
 	 *
 	 * @param energy The {@link Energy} instance which is checked if it can be upgraded to the next level.
+	 *
 	 * @return True if the {@link Energy} can be upgraded, otherwise false.
 	 */
 	@Override
-	public boolean checkIsUpgradable (final Energy energy)
+	public boolean checkIsUpgradable (final @NotNull Energy energy)
 	{
 		// Checks if the energy ability is already at the maximum level. If yes, it can't be upgraded any further.
-		if (isEnergyMaxed(energy))
+		if (energy.getIsMaxLevelProperty().get())
 		{
-			LOGGER.logf(DEBUG, ENERGY_MAXED, energy.getName());
-			LOGGER.log(DEBUG, RETURNING_FALSE);
 			return false;
 		}
-
-		final CurrencyTransaction upgradeCosts = energy.getUpgradeCosts();
-		LOGGER.logf(DEBUG, UPGRADE_COST, upgradeCosts.toString());
-
 
 		// Checks if the user has enough of each required currency to purchase the upgrade. If the amount of at least
 		// one currency isn't enough, the energy ability can't be upgraded.
 		for (final Currency currency : Currency.values())
 		{
-			if (currency.getAmount() < upgradeCosts.getAbsoluteAmount(currency))
+			if (currency.getAmount() < energy.getUpgradeCosts().getAbsoluteAmount(currency))
 			{
-				LOGGER.logf(DEBUG, INSUFFICIENT_CURRENCY_AMOUNT, currency.name(), upgradeCosts.getAmount(currency));
-				LOGGER.log(DEBUG, RETURNING_FALSE);
 				return false;
 			}
 		}
-
-		// If all checks are passed, the method returns true.
-		LOGGER.log(DEBUG, RETURNING_TRUE);
-		return true;
+		return energy.getLevel().ordinal() < EnergyLevel.getMaximum().ordinal();
 	}
 
 
@@ -158,8 +135,7 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	@Override
 	public void upgrade (final Energy energy)
 	{
-		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, energy.getName(), energy.getLevel(),
-			energy.getLevel().getNextHigherLevel());
+		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, energy.getName(), energy.getLevel(), energy.getLevel().getNextHigherLevel());
 		Platform.runLater(new UpgradeRunnable(energy, getInstance()));
 	}
 

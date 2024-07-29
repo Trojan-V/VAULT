@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
-import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.EnergyAbilityController;
 import me.vault.game.model.city.Laboratory;
@@ -123,7 +122,11 @@ public final class LaboratoryDelegate implements Initializable
 	@FXML
 	private void onDodgeAbilityUpgrade (final ActionEvent ignored)
 	{
-		UpgradeDialogDelegate.show(DodgeAbility.getInstance(), EnergyAbilityController.getInstance());
+		if (EnergyAbilityController.getInstance().checkIsUpgradable(DodgeAbility.getInstance()))
+		{
+			UpgradeDialogDelegate.show(DodgeAbility.getInstance(), EnergyAbilityController.getInstance());
+		}
+
 		// zum richtigen anzeigen der modifier melee
 	}
 
@@ -131,7 +134,10 @@ public final class LaboratoryDelegate implements Initializable
 	@FXML
 	private void onInitiativeAbilityUpgrade (final ActionEvent ignored)
 	{
-		UpgradeDialogDelegate.show(InitiativeAbility.getInstance(), EnergyAbilityController.getInstance());
+		if (EnergyAbilityController.getInstance().checkIsUpgradable(DodgeAbility.getInstance()))
+		{
+			UpgradeDialogDelegate.show(InitiativeAbility.getInstance(), EnergyAbilityController.getInstance());
+		}
 		// zum richtigen anzeigen der modifier Dodge
 	}
 
@@ -139,7 +145,10 @@ public final class LaboratoryDelegate implements Initializable
 	@FXML
 	private void onMeleeAbilityUpgrade (final ActionEvent ignored)
 	{
-		UpgradeDialogDelegate.show(MeleeAbility.getInstance(), EnergyAbilityController.getInstance());
+		if (EnergyAbilityController.getInstance().checkIsUpgradable(DodgeAbility.getInstance()))
+		{
+			UpgradeDialogDelegate.show(MeleeAbility.getInstance(), EnergyAbilityController.getInstance());
+		}
 		// zum richtigen anzeigen der modifier initiative
 	}
 

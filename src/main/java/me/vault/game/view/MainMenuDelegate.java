@@ -22,7 +22,7 @@ import me.vault.game.view.city.CityDelegate;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.*;
+import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
 
 /**
@@ -160,13 +160,23 @@ public final class MainMenuDelegate implements Initializable
 		}
 		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
-			createNewGame();
+			// TODO: Kapseln
+			if (!ConfigLoader.getInstance().isConfigDefault())
+			{
+				ConfigLoader.getInstance().saveExistingGameToFile();
+			}
+			ConfigLoader.getInstance().reset();
+			DifficultyDelegate.show();
 		}
 		else if (event.getSource().equals(this.loadGameButton) || event.getSource().equals(this.loadGameMenuItem))
 		{
-			//TODO: Update Java Doc
-			this.loadGameFromFile();
-
+			//TODO: Update Java Doc // TODO: Kapseln
+			if (!ConfigLoader.getInstance().isConfigDefault())
+			{
+				ConfigLoader.getInstance().saveExistingGameToFile();
+			}
+			ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
+			CityDelegate.show();
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
 		{
