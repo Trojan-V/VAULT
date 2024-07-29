@@ -36,7 +36,7 @@ import static me.vault.game.utility.constant.LoggingConstants.ArenaDelegate.AREN
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
-public class ArenaDelegate
+public final class ArenaDelegate
 {
 
 	/**

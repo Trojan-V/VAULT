@@ -45,7 +45,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * @see me.vault.game.utility.constant.LoggingConstants.MissionDelegate
  * @since 25.07.2024
  */
-public class MissionDelegate implements Initializable
+public final class MissionDelegate implements Initializable
 {
 
 	/**
