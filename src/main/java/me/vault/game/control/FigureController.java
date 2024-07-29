@@ -4,9 +4,7 @@ package me.vault.game.control;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
-import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopStatistics.Defensive;
 import me.vault.game.model.troop.TroopStatistics.Offensive;
@@ -18,7 +16,7 @@ import java.util.List;
 
 
 /**
- * Controller class to handle enemy actions in the arena, such as moving or attacking.
+ * Controller class to handle enemy actions in the arena, such as attacking.
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -54,25 +52,6 @@ public final class FigureController
 	 */
 	private FigureController ()
 	{
-	}
-
-
-	/**
-	 * Moves the {@link Placeable} on the {@link GameBoard} to the supplied {@link Position}.
-	 *
-	 * @param gameBoard    The {@link GameBoard} where the encounter is happening.
-	 * @param placeable    Should be either a {@link Figure <? extends Troop>} or a {@link Player}. But generally
-	 *                     speaking, this is the {@link Placeable} that will be moved on the {@link GameBoard}.
-	 * @param nextPosition The position the {@link Placeable} should be moved to.
-	 */
-	public static void move (final GameBoard gameBoard, final Placeable placeable, final Position nextPosition)
-	{
-		final Position previousTroopPosition = gameBoard.getPosition(placeable);
-		gameBoard.placeIfAccessibleTile(nextPosition, placeable);
-
-		// Set the previous position of the troop back to an accessible tile
-		// so the troop isn't displayed multiple times.
-		gameBoard.place(previousTroopPosition, new AccessibleTileAppearance());
 	}
 
 

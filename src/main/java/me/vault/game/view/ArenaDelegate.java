@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import me.vault.game.GameApplication;
 import me.vault.game.control.EnemyController;
 import me.vault.game.control.FigureController;
+import me.vault.game.control.MovableController;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.player.Player;
@@ -131,7 +132,7 @@ public final class ArenaDelegate
 		if (nextTileElement instanceof AccessibleTileAppearance &&
 		    FigureController.canMoveToPosition(this.arena, attacker, position))
 		{
-			FigureController.move(arenaGameBoard, attacker, position);
+			MovableController.move(arenaGameBoard, attacker, position);
 			interactionFailed = false;
 		}
 		else if (nextTileElement instanceof final Figure<? extends Troop> defender &&
@@ -204,7 +205,7 @@ public final class ArenaDelegate
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{
-			FigureController.move(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst()
+			MovableController.move(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst()
 				.getPosition());
 		}
 	}

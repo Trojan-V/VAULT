@@ -8,6 +8,7 @@ import me.vault.game.interfaces.Loader;
 import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.MiscConstants;
 import me.vault.game.utility.constant.StringConstants;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import java.io.*;
@@ -29,32 +30,51 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  */
 public final class ConfigLoader implements Loader
 {
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(ConfigLoader.class.getSimpleName());
 
-	private static final Logger LOGGER = new Logger(ConfigLoader.class.getSimpleName());
 
-
+	/**
+	 * Singleton instance, as there's no reason to have more than one {@link ConfigLoader}.
+	 * <br>
+	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 */
 	private static final ConfigLoader INSTANCE = new ConfigLoader();
 
 
+	/**
+	 * The {@link Gson} instance that's used to load or save data from/to the {@link ConfigLoader#configFile}.
+	 */
 	private final Gson gson;
 
 
+	/**
+	 * The configuration file where the data is written to or read from.
+	 * <br>
+	 * The configuration file is in JSON format, so {@link Gson} can be used to easily convert between JSON and POJO.
+	 *
+	 * @link <a href="https://en.wikipedia.org/wiki/Plain_old_Java_object">POJO</a>
+	 */
 	private final File configFile;
 
 
-	private final File defaultsFile;
-
-
-	private final File configDirectoryPath;
+	/**
+	 * The default configuration file which will be used if no other one was specified.
+	 */
+	private final File defaultFile;
 
 
 	private ConfigLoader ()
 	{
 		this.gson = new GsonBuilder().setPrettyPrinting().create();
-		this.configDirectoryPath = new File(GameConstants.GAME_SAVE_FOLDER_FILE_PATH);
-		this.configDirectoryPath.mkdirs();
-		this.configFile = new File(String.valueOf(this.configDirectoryPath), GameConstants.CONFIG_FILE);
-		this.defaultsFile = new File(String.valueOf(this.configDirectoryPath), GameConstants.DEFAULT_CONFIG_FILE);
+
+		final File configDirectoryPath = new File(GameConstants.GAME_SAVE_FOLDER_FILE_PATH);
+		configDirectoryPath.mkdirs();
+
+		this.configFile = new File(String.valueOf(configDirectoryPath), GameConstants.CONFIG_FILE);
+		this.defaultFile = new File(String.valueOf(configDirectoryPath), GameConstants.DEFAULT_CONFIG_FILE);
 
 		try
 		{
@@ -65,10 +85,10 @@ public final class ConfigLoader implements Loader
 				this.configFile.createNewFile();
 			}
 
-			if (!this.defaultsFile.exists())
+			if (!this.defaultFile.exists())
 			{
 				LOGGER.log(NORMAL, "Creating default configuration file.");
-				this.defaultsFile.createNewFile();
+				this.defaultFile.createNewFile();
 			}
 
 			this.writeDefaultFile();
@@ -117,7 +137,15 @@ public final class ConfigLoader implements Loader
 	}
 
 
-	private void save (final File configFile)
+	@Override
+	public void save ()
+	{
+		this.save(this.configFile);
+	}
+
+
+	@Override
+	public void save (final File configFile)
 	{
 		// Pull all values from different parts of the game to have the latest version of them within the Config
 		// object which is then written to the save file.
@@ -135,17 +163,10 @@ public final class ConfigLoader implements Loader
 	}
 
 
-	@Override
-	public void save ()
-	{
-		this.save(this.configFile);
-	}
-
-
 	public void writeDefaultFile ()
 	{
 		// Write to file
-		try (final FileWriter writer = new FileWriter(this.defaultsFile))
+		try (final FileWriter writer = new FileWriter(this.defaultFile))
 		{
 			this.gson.toJson(Config.getInstance(), writer);
 		}
@@ -169,6 +190,7 @@ public final class ConfigLoader implements Loader
 	}
 
 
+	@Override
 	public void load (final File configFile)
 	{
 		try
@@ -184,6 +206,7 @@ public final class ConfigLoader implements Loader
 			// TODO: add logging
 		}
 	}
+
 
 	public boolean isConfigDefault ()
 	{
@@ -204,13 +227,16 @@ public final class ConfigLoader implements Loader
 		return false;
 	}
 
+
 	public void saveExistingGameToFile ()
 	{
-		this.save();
+		this.save(this.configFile);
 		try
 		{
 			this.saveToFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
-				(StringConstants.SAVE_NAME + new SimpleDateFormat(StringConstants.DATE_TIME_PATTERN).format(Calendar.getInstance().getTime())+StringConstants.JSON_FILE_ENDING));
+				(StringConstants.SAVE_NAME +
+				 new SimpleDateFormat(StringConstants.DATE_TIME_PATTERN).format(Calendar.getInstance().getTime()) +
+				 StringConstants.JSON_FILE_ENDING));
 		}
 		catch (Exception e)
 		{
@@ -227,7 +253,7 @@ public final class ConfigLoader implements Loader
 
 	public void reset ()
 	{
-		this.load(this.defaultsFile);
+		this.load(this.defaultFile);
 		this.save(this.configFile);
 	}
 
