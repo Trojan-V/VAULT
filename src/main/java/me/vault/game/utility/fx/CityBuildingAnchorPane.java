@@ -57,8 +57,17 @@ public final class CityBuildingAnchorPane extends AnchorPane
 		upgradeButton.setPrefWidth(DIMENSION);
 		upgradeButton.setPrefHeight(UPGRADE_BUTTON_HEIGHT);
 		upgradeButton.disableProperty().bind(cityBuilding.getMaxLevelProperty());
-		upgradeButton.setOnMouseClicked(_ -> UpgradeDialogDelegate.show(cityBuilding, CityBuildingController.getInstance()));
+		upgradeButton.setOnMouseClicked(_ -> this.handleUpgradeEvent(cityBuilding));
 		return upgradeButton;
+	}
+
+
+	private void handleUpgradeEvent (final CityBuilding cityBuilding)
+	{
+		if (CityBuildingController.getInstance().checkIsUpgradable(cityBuilding))
+		{
+			UpgradeDialogDelegate.show(cityBuilding, CityBuildingController.getInstance());
+		}
 	}
 
 
@@ -77,14 +86,13 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	}
 
 
-
 	private void useCorrespondingDelegate (final CityBuilding cityBuilding)
 	{
 		// TODO: FIX !!! mach mal switch lasse
 		switch (cityBuilding)
 		{
-			case Workshop workshop -> WorkshopDelegate.show();
-			case Barracks barracks -> BarracksDelegate.show();
+			case final Workshop workshop -> WorkshopDelegate.show();
+			case final Barracks barracks -> BarracksDelegate.show();
 			case null, default ->
 			{
 			}

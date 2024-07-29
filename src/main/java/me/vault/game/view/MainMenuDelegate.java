@@ -11,7 +11,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import me.vault.game.GameApplication;
 import me.vault.game.utility.ViewUtil;
-import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -22,7 +21,7 @@ import me.vault.game.view.city.CityDelegate;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.*;
+import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
 
 /**
@@ -108,9 +107,6 @@ public final class MainMenuDelegate implements Initializable
 	 * Calls a method to display the content stored in {@link MainMenuDelegate#MAIN_MENU_VIEW_FXML} and initialized
 	 * by {@link MainMenuDelegate#initialize(URL, ResourceBundle)} on the main stage
 	 * of this application ({@link GameApplication#getStage()})
-	 *
-	 * @precondition The GameApplication has to have a stage.
-	 * @postcondition The initialized main menu is shown on the GameApplication Stage.
 	 */
 	public static void show ()
 	{
@@ -146,37 +142,21 @@ public final class MainMenuDelegate implements Initializable
 	 * If the "arena"-button is pressed, the network connection dialog is shown.
 	 *
 	 * @param event the Event on which the method acts.
-	 *
-	 * @precondition The MainMenu Scene has to be displayed on a stage.
-	 * @postcondition The specified actions for each button are executed.
 	 */
 	@FXML
 	private void click (final Event event)
 	{
 		if (event.getSource().equals(this.continueButton) || event.getSource().equals(this.continueMenuItem))
 		{
-			ConfigLoader.getInstance().load();
-			CityDelegate.show();
+			handleContinueEvent();
 		}
 		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
-			// TODO: Kapseln
-			if (!ConfigLoader.getInstance().isConfigDefault())
-			{
-				ConfigLoader.getInstance().saveExistingGameToFile();
-			}
-			ConfigLoader.getInstance().reset();
-			DifficultyDelegate.show();
+			handleNewGameEvent();
 		}
 		else if (event.getSource().equals(this.loadGameButton) || event.getSource().equals(this.loadGameMenuItem))
 		{
-			//TODO: Update Java Doc // TODO: Kapseln
-			if (!ConfigLoader.getInstance().isConfigDefault())
-			{
-				ConfigLoader.getInstance().saveExistingGameToFile();
-			}
-			ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
-			CityDelegate.show();
+			handleLoadGameEvent();
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
 		{
@@ -189,9 +169,37 @@ public final class MainMenuDelegate implements Initializable
 		else if (event.getSource().equals(this.arenaButton) || event.getSource().equals(this.arenaMenuItem))
 		{
 			//TODO: finish Arena
-			//TODO: update java Doc
 			NetworkDelegate.show();
 		}
+	}
+
+
+	private static void handleContinueEvent ()
+	{
+		ConfigLoader.getInstance().load();
+		CityDelegate.show();
+	}
+
+
+	private static void handleLoadGameEvent ()
+	{
+		if (!ConfigLoader.getInstance().isConfigDefault())
+		{
+			ConfigLoader.getInstance().saveExistingGameToFile();
+		}
+		ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
+		CityDelegate.show();
+	}
+
+
+	private static void handleNewGameEvent ()
+	{
+		if (!ConfigLoader.getInstance().isConfigDefault())
+		{
+			ConfigLoader.getInstance().saveExistingGameToFile();
+		}
+		ConfigLoader.getInstance().reset();
+		DifficultyDelegate.show();
 	}
 
 
@@ -200,9 +208,6 @@ public final class MainMenuDelegate implements Initializable
 	 *
 	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
 	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
-	 *
-	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
-	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
 	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
@@ -231,11 +236,6 @@ public final class MainMenuDelegate implements Initializable
 	 * Checks, if there is at least one file with a ".json" ending in the specified folder.
 	 * <br>
 	 * If there is no file with a .json ending, the "load game"-button and menuItem is set to Inactive
-	 *
-	 * @precondition The main menu controller has to have been called.
-	 * @postcondition The {@link MainMenuDelegate#loadGameButton} and {@link MainMenuDelegate#loadGameMenuItem} are
-	 * set to inactive if there is no File with the {@link StringConstants#JSON_FILE_ENDING} ending in
-	 * {@link GameConstants#GAME_SAVE_FOLDER_FILE_PATH}.
 	 */
 	@FXML
 	private void initializeLoadGame ()
@@ -246,4 +246,5 @@ public final class MainMenuDelegate implements Initializable
 			ViewUtil.setButtonInactive(this.loadGameButton);
 		}
 	}
+
 }

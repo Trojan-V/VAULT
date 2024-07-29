@@ -33,7 +33,6 @@ public interface ArenaConstants
 	@Constant
 	double TIMELINE_SPACING = 5.0;
 
-	// TODO: Die tatsächlichen Dateien einsetzen , aktuell sind alle die gleiche
 	@Constant
 	String ARENA_ONE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_1.txt";
 

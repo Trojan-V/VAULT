@@ -7,14 +7,12 @@ import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.currency.Currency;
-import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
 
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ARTIFACT_MAXED;
 import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
 import static me.vault.game.utility.constant.LoggingConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
@@ -34,6 +32,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class ArtifactController implements Upgrader<Artifact, ArtifactLevel>
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link ArtifactController}.
 	 * <br>
@@ -61,6 +60,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * Checks if the supplied artifact is at the maximum level. If yes, true is returned, otherwise false.
 	 *
 	 * @param artifact The instance of {@link Artifact} which is checked.
+	 *
 	 * @return True if the artifact is maxed, otherwise false.
 	 */
 	private static boolean checkIsArtifactMaxed (final Artifact artifact)
@@ -117,36 +117,27 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * {@inheritDoc}
 	 *
 	 * @param artifact The {@link Artifact} instance which is checked if it can be upgraded to the next level.
+	 *
 	 * @return True if the {@link Artifact} can be upgraded, otherwise false.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final Artifact artifact)
 	{
 		// Checks if the artifact is already at the maximum level. If yes, it can't be upgraded any further.
-		if (checkIsArtifactMaxed(artifact))
+		if (artifact.getIsMaxLevelProperty().get())
 		{
-			LOGGER.logf(DEBUG, ARTIFACT_MAXED, artifact.getName());
-			LOGGER.log(DEBUG, RETURNING_FALSE);
 			return false;
 		}
-
-		final CurrencyTransaction upgradeCosts = artifact.getUpgradeCosts();
-		LOGGER.logf(DEBUG, UPGRADE_COST, upgradeCosts.toString());
-
 
 		// Checks if the user has enough of each required currency to purchase the upgrade. If the amount of at least
 		// one currency isn't enough, the artifact can't be upgraded.
 		for (final Currency currency : Currency.values())
 		{
-			if (currency.getAmount() < upgradeCosts.getAbsoluteAmount(currency))
+			if (currency.getAmount() < artifact.getUpgradeCosts().getAbsoluteAmount(currency))
 			{
-				LOGGER.logf(DEBUG, INSUFFICIENT_CURRENCY_AMOUNT, currency.name(), upgradeCosts.getAmount(currency));
-				LOGGER.log(DEBUG, RETURNING_FALSE);
 				return false;
 			}
 		}
-		// If all checks are passed, the method returns true.
-		LOGGER.log(DEBUG, RETURNING_TRUE);
 		return true;
 	}
 
@@ -159,8 +150,12 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	@Override
 	public void upgrade (final Artifact artifact)
 	{
-		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, artifact.getName(), artifact.getLevel(), artifact.getLevel().getNextHigherLevel());
-		Platform.runLater(new UpgradeRunnable(artifact, getInstance()));
+		if (this.checkIsUpgradable(artifact))
+		{
+			LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, artifact.getName(), artifact.getLevel(), artifact.getLevel().getNextHigherLevel());
+			Platform.runLater(new UpgradeRunnable(artifact, getInstance()));
+		}
+
 	}
 
 }

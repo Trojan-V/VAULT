@@ -14,10 +14,6 @@ import java.util.List;
 public class Mission
 {
 
-	private final String name;
-
-	private final String description;
-
 	private final GameBoard gameBoard;
 
 	private final CurrencyTransaction missionReward;
@@ -36,12 +32,10 @@ public class Mission
 	}
 
 
-	public Mission (final String name, final String description, final GameBoard gameBoard, final CurrencyTransaction missionReward)
+	public Mission (final GameBoard gameBoard, final CurrencyTransaction missionReward)
 	{
-		this.name = name;
 		this.completedProperty = new SimpleBooleanProperty(false);
 		this.gameBoard = gameBoard;
-		this.description = description;
 		this.missionReward = missionReward;
 	}
 
@@ -64,18 +58,6 @@ public class Mission
 	}
 
 
-	public String getName ()
-	{
-		return this.name;
-	}
-
-
-	public String getDescription ()
-	{
-		return this.description;
-	}
-
-
 	public GameBoard getGameBoard ()
 	{
 		return this.gameBoard;
@@ -90,7 +72,7 @@ public class Mission
 
 	public List<Arena> getAvailableArenaEncounters ()
 	{
-		return this.AVAILABLE_ARENA_ENCOUNTERS;
+		return AVAILABLE_ARENA_ENCOUNTERS;
 	}
 
 }

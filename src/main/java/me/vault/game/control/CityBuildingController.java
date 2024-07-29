@@ -5,12 +5,12 @@ import javafx.application.Platform;
 import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
+import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
 import me.vault.game.view.city.buildings.*;
-
-import java.util.Currency;
+import org.jetbrains.annotations.NotNull;
 
 import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
 
@@ -37,6 +37,7 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
  */
 public class CityBuildingController implements Upgrader<CityBuilding, CityBuildingLevel>
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link CityBuildingController}.
 	 * <br>
@@ -68,13 +69,8 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	@Override
 	public void upgrade (final CityBuilding cityBuilding)
 	{
-		if (!cityBuilding.isMaxLevel())
-		{
-			LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, cityBuilding.getName(), cityBuilding.getLevel(),
-				cityBuilding.getLevel()
-					.getNextHigherLevel());
-			Platform.runLater(new UpgradeRunnable(cityBuilding, getInstance()));
-		}
+		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, cityBuilding.getName(), cityBuilding.getLevel(), cityBuilding.getLevel().getNextHigherLevel());
+		Platform.runLater(new UpgradeRunnable(cityBuilding, getInstance()));
 	}
 
 
@@ -82,10 +78,20 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean checkIsUpgradable (final CityBuilding cityBuilding)
+	public boolean checkIsUpgradable (final @NotNull CityBuilding cityBuilding)
 	{
-		// TODO: Currency Check fehlt noch, ob genug vorhanden ist.
-		return cityBuilding != null && cityBuilding.getLevel() != CityBuildingLevel.getMaximum();
+		if (cityBuilding.isMaxLevel())
+		{
+			return false;
+		}
+		for (final Currency currency : Currency.values())
+		{
+			if (currency.getAmount() < cityBuilding.getUpgradeCosts().getAbsoluteAmount(currency))
+			{
+				return false;
+			}
+		}
+		return cityBuilding.getLevel().ordinal() < CityBuildingLevel.getMaximum().ordinal();
 	}
 
 

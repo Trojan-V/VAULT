@@ -43,7 +43,8 @@ public final class UpgradeDialogDelegate implements Initializable
 
 	private static final String TO_STRING_PATTERN = "UpgradeDialogDelegate[upgradable={0}, upgrader={1}, fxml={2}]";
 
-	private static final String FXML_FILENAME = "upgradeDialog.fxml";
+	private static final String UPGRADE_DIALOG_VIEW_FXML = "upgradeDialog.fxml";
+
 
 	@FXML
 	private Label afterUpgradeLabel;
@@ -92,7 +93,7 @@ public final class UpgradeDialogDelegate implements Initializable
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(FXML_FILENAME));
+			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(UPGRADE_DIALOG_VIEW_FXML));
 			final Parent root = fxmlLoader.load();
 
 			final UpgradeDialogDelegate controller = fxmlLoader.getController();
@@ -109,7 +110,10 @@ public final class UpgradeDialogDelegate implements Initializable
 	@FXML
 	void onUpgradeButtonAction (final ActionEvent ignored)
 	{
-		this.upgrader.upgrade(this.upgradable);
+		if (this.upgrader.checkIsUpgradable(this.upgradable))
+		{
+			this.upgrader.upgrade(this.upgradable);
+		}
 		this.stage.close();
 	}
 
@@ -175,7 +179,7 @@ public final class UpgradeDialogDelegate implements Initializable
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.upgradable, this.upgrader, FXML_FILENAME);
+		return MessageFormat.format(TO_STRING_PATTERN, this.upgradable, this.upgrader, UPGRADE_DIALOG_VIEW_FXML);
 	}
 
 }
