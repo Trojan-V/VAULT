@@ -1,8 +1,12 @@
 package me.vault.game.model.energy;
+
+
 import me.vault.game.interfaces.Level;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
+
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_IS_LOWEST;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_MAXED;
 import static me.vault.game.utility.constant.MiscConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
@@ -10,11 +14,9 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 public enum EnergyLevel implements Level
 {
 	/**
-	 * The base energy ability level. This is the lowest possible energy ability level. Every energy ability starts with this
-	 * level.
+	 * The base energy ability level. This is the lowest possible energy ability level. Every energy ability starts with this level.
 	 */
 	BASE,
-
 
 	/**
 	 * The improved energy ability level. This is currently the maximum possible energy ability level. This level is reached
@@ -29,10 +31,10 @@ public enum EnergyLevel implements Level
 
 
 	/**
-	 * Returns the minimum level an {@link me.vault.game.model.energy.Energy} can have. The minimum level is determined by the ordinal of the first
+	 * Returns the minimum level an {@link Energy} can have. The minimum level is determined by the ordinal of the first
 	 * enum entry.
 	 *
-	 * @return The minimum level an {@link me.vault.game.model.energy.Energy} can have.
+	 * @return The minimum level an {@link Energy} can have.
 	 */
 	public static EnergyLevel getMinimum ()
 	{
@@ -41,10 +43,10 @@ public enum EnergyLevel implements Level
 
 
 	/**
-	 * Returns the maximum level an {@link me.vault.game.model.energy.Energy} can have. The maximum level is determined by the ordinal of the last
+	 * Returns the maximum level an {@link Energy} can have. The maximum level is determined by the ordinal of the last
 	 * enum entry.
 	 *
-	 * @return The maximum level an {@link me.vault.game.model.energy.Energy} can have.
+	 * @return The maximum level an {@link Energy} can have.
 	 */
 	public static EnergyLevel getMaximum ()
 	{

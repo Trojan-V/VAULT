@@ -18,7 +18,6 @@ import java.util.Map;
 
 import static me.vault.game.utility.constant.EnergyConstants.*;
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.SPRITE_MAP_SET;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -112,6 +111,7 @@ public class DodgeAbility extends Energy
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the dodge energy ability.
+	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 * @see CurrencyTransaction
@@ -139,6 +139,7 @@ public class DodgeAbility extends Energy
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of ability modifiers for the dodge energy ability.
+	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 * @see AbilityMultiplier.Type
@@ -178,6 +179,7 @@ public class DodgeAbility extends Energy
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of names for the dodge energy ability.
+	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 */
@@ -203,6 +205,7 @@ public class DodgeAbility extends Energy
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of sprites for the dodge energy ability.
+	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 */

@@ -19,7 +19,6 @@ import java.util.Map;
 import static me.vault.game.utility.constant.EnergyConstants.*;
 import static me.vault.game.utility.constant.EnergyConstants.DEFAULT;
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.SPRITE_MAP_SET;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -30,7 +29,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * melee
  * ability.
  *
- * @author Alexander Göthel
+ * @author Alexander Goethel
  * @version 1.0.0
  * @see Energy
  * @since 25.07.2024
@@ -42,7 +41,7 @@ public class MeleeAbility extends Energy
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger LOGGER = new Logger(me.vault.game.model.energy.impl.InitiativeAbility.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(InitiativeAbility.class.getSimpleName());
 
 	/**
 	 * Singleton instance, as there's never a reason to have more than one {@link MeleeAbility}. Instead of using a singleton,
@@ -115,6 +114,7 @@ public class MeleeAbility extends Energy
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the melee energy ability.
+	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 * @see CurrencyTransaction
@@ -142,6 +142,7 @@ public class MeleeAbility extends Energy
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of ability modifiers for the melee energy ability.
+	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 * @see AbilityMultiplier.Type
@@ -181,6 +182,7 @@ public class MeleeAbility extends Energy
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of names for the melee energy ability.
+	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 */
@@ -206,6 +208,7 @@ public class MeleeAbility extends Energy
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of sprites for the melee energy ability.
+	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 */

@@ -3,7 +3,6 @@ package me.vault.game.model.energy;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import me.vault.game.exception.InvalidAttributeMultiplierException;
-
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -13,17 +12,18 @@ import java.util.Map;
 import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSSIBLE_ANYMORE;
 import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 
+
 /**
  * This class is used as a data structure to store buffs in the form of multipliers which are then
  * applied to all troops that
  * are eligible to receive buffs.
  * <br>
- * For instance, these multipliers are used by the {@link me.vault.game.model.energy.Energy} class to store the buffs
+ * For instance, these multipliers are used by the {@link Energy} class to store the buffs
  * the energy ability provides.
  *
- * @author Alexander Göthel
+ * @author Alexander Goethel
  * @version 1.0.0
- * @see me.vault.game.model.energy.Energy
+ * @see Energy
  * @see AbilityMultiplier
  * @since 25.07.2024
  */
@@ -34,13 +34,13 @@ public class AbilityMultiplier
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger LOGGER = new Logger(me.vault.game.model.energy.AbilityMultiplier.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(AbilityMultiplier.class.getSimpleName());
 
 
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */
-	private static final String TO_STRING_PATTERN = "AttributeMultiplier[damage={0}x, health={1}x, defense={2}x]";
+	private static final String TO_STRING_PATTERN = "AbilityMultiplier[damage={0}x, health={1}x, defense={2}x]";
 
 
 	/**

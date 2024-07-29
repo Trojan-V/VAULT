@@ -81,7 +81,7 @@ public final class TutorialDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{
-			PrologueDelegate.show(GameApplication.getStage());
+			PrologueDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{

@@ -57,18 +57,18 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br> <br>
  * To do so, a static initializer can be used whose last statement is {@code INSTANCE = new AbsEnergy();}.
  *
- * @author Alexander Göthel
+ * @author Alexander G&ouml;thel
  * @version 2.0.0
  * @see DodgeAbility
  * @see InitiativeAbility
  * @see MeleeAbility
- * @see me.vault.game.model.energy.AbilityMultiplier
- * @see me.vault.game.model.energy.AbilityMultiplier
- * @see me.vault.game.model.energy.EnergyLevel
+ * @see AbilityMultiplier
+ * @see AbilityMultiplier
+ * @see EnergyLevel
  * @since 25.07.2024
  */
 
-public abstract class Energy implements Displayable, Upgradable<me.vault.game.model.energy.EnergyLevel>, Nameable
+public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Nameable
 {
 
 	/**
@@ -80,8 +80,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */
-	private static final String TO_STRING_PATTERN =
-		"Energy[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
+	private static final String TO_STRING_PATTERN = "Energy[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
 
 
 	/**
@@ -108,19 +107,19 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * buffs or de-buffs depending on the
 	 * energy ability.
 	 *
-	 * @see me.vault.game.model.energy.AbilityMultiplier
+	 * @see AbilityMultiplier
 	 */
-	private final me.vault.game.model.energy.AbilityMultiplier abilityMultiplier;
+	private final AbilityMultiplier abilityMultiplier;
 
 
 	/**
-	 * This field stores the current {@link me.vault.game.model.energy.EnergyLevel} of the ability. The value of this field controls the values of many
+	 * This field stores the current {@link EnergyLevel} of the ability. The value of this field controls the values of many
 	 * attributes the ability consists of.
 	 * <br>
 	 * Check the constructor {@link Energy#Energy()} and the
 	 * {@link EnergyAbilityController#updateValues(Energy)} method to see the control flow.
 	 */
-	private me.vault.game.model.energy.EnergyLevel currentLevel;
+	private EnergyLevel currentLevel;
 
 
 	/**
@@ -153,13 +152,13 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	protected Energy ()
 	{
 		// TODO: currentLevel aus Config einlesen
-		this.currentLevel = me.vault.game.model.energy.EnergyLevel.getMinimum();
+		this.currentLevel = EnergyLevel.getMinimum();
 
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
-		this.abilityMultiplier = new me.vault.game.model.energy.AbilityMultiplier(this.getAllModifiers().get(me.vault.game.model.energy.EnergyLevel.getMinimum()));
+		this.abilityMultiplier = new AbilityMultiplier(this.getAllModifiers().get(EnergyLevel.getMinimum()));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
-		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == me.vault.game.model.energy.EnergyLevel.getMaximum());
+		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == EnergyLevel.getMaximum());
 
 		// Logging outputs
 		LOGGER.logf(DEBUG, LEVEL_SET, this.currentLevel.name());
@@ -175,9 +174,10 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 *
 	 * @return The ability multipliers of the energy ability, which are the status effects the player receives in the
 	 * form of buffs.
-	 * @see me.vault.game.model.energy.AbilityMultiplier
+	 *
+	 * @see AbilityMultiplier
 	 */
-	public me.vault.game.model.energy.AbilityMultiplier getAbilityMultiplier ()
+	public AbilityMultiplier getAbilityMultiplier ()
 	{
 		return this.abilityMultiplier;
 	}
@@ -195,7 +195,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 *
 	 * @return The map of ability multipliers for the supplied level.
 	 */
-	public Map<me.vault.game.model.energy.AbilityMultiplier.Type, Double> getAbilityMultipliers (final me.vault.game.model.energy.EnergyLevel level)
+	public Map<AbilityMultiplier.Type, Double> getAbilityMultipliers (final EnergyLevel level)
 	{
 		return this.getAllModifiers().get(level);
 	}
@@ -228,13 +228,13 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 
 
 	/**
-	 * Returns the name of the energy ability for the supplied {@link me.vault.game.model.energy.EnergyLevel}.
+	 * Returns the name of the energy ability for the supplied {@link EnergyLevel}.
 	 *
 	 * @param level The energy ability level whose name should be returned.
 	 *
-	 * @return The name of the energy ability for the supplied {@link me.vault.game.model.energy.EnergyLevel}.
+	 * @return The name of the energy ability for the supplied {@link EnergyLevel}.
 	 */
-	public String getName (final me.vault.game.model.energy.EnergyLevel level)
+	public String getName (final EnergyLevel level)
 	{
 		return this.getAllNames().get(level);
 	}
@@ -248,6 +248,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * energy ability levels, hence why it doesn't change visually in that case.
 	 *
 	 * @return The current sprite of the energy ability.
+	 *
 	 * @see MetaDataImage
 	 */
 	@Override
@@ -273,13 +274,13 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 
 
 	/**
-	 * Returns the sprite of the energy ability for the supplied {@link me.vault.game.model.energy.EnergyLevel}.
+	 * Returns the sprite of the energy ability for the supplied {@link EnergyLevel}.
 	 *
 	 * @param level The energy ability level whose sprite should be returned.
 	 *
-	 * @return The sprite of the energy ability for the supplied {@link me.vault.game.model.energy.EnergyLevel}.
+	 * @return The sprite of the energy ability for the supplied {@link EnergyLevel}.
 	 */
-	public MetaDataImage getSprite (final me.vault.game.model.energy.EnergyLevel level)
+	public MetaDataImage getSprite (final EnergyLevel level)
 	{
 		return this.getAllSprites().get(level);
 	}
@@ -292,6 +293,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * to see the binding process.
 	 *
 	 * @return The property that contains the name of the energy ability.
+	 *
 	 * @see WorkshopDelegate
 	 * @see SimpleStringProperty
 	 */
@@ -312,6 +314,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * to see the binding process.
 	 *
 	 * @return The current sprite property of the artifact.
+	 *
 	 * @see SimpleObjectProperty
 	 * @see Image
 	 */
@@ -348,10 +351,11 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * {@link Energy#getAllModifiers()}.
 	 *
 	 * @return The current level of the energy ability.
-	 * @see me.vault.game.model.energy.EnergyLevel
+	 *
+	 * @see EnergyLevel
 	 */
 	@Override
-	public me.vault.game.model.energy.EnergyLevel getLevel ()
+	public EnergyLevel getLevel ()
 	{
 		return this.currentLevel;
 	}
@@ -360,12 +364,12 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	/**
 	 * Sets the level of the energy ability to a new level.
 	 *
-	 * @param level The new level of the artifact in form of an instance of {@link me.vault.game.model.energy.EnergyLevel}.
+	 * @param level The new level of the artifact in form of an instance of {@link EnergyLevel}.
 	 *
-	 * @see me.vault.game.model.energy.EnergyLevel
+	 * @see EnergyLevel
 	 */
 	@Override
-	public void setLevel (final me.vault.game.model.energy.EnergyLevel level)
+	public void setLevel (final EnergyLevel level)
 	{
 		this.currentLevel = level;
 	}
@@ -375,6 +379,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * Returns the current price to upgrade the artifact.
 	 *
 	 * @return The current price to upgrade the artifact to the next level.
+	 *
 	 * @see CurrencyTransaction
 	 */
 	@Override
@@ -404,7 +409,7 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CurrencyTransaction getUpgradeCosts (final me.vault.game.model.energy.EnergyLevel level)
+	public CurrencyTransaction getUpgradeCosts (final EnergyLevel level)
 	{
 		return this.getAllUpgradeCosts().get(level);
 	}
@@ -415,66 +420,70 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	 * can't upgrade the energy ability
 	 * depending on the number of currencies he owns.
 	 * <br>
-	 * These {@link CurrencyTransaction}'s are sorted by the {@link me.vault.game.model.energy.EnergyLevel} as key within this {@link Map},
+	 * These {@link CurrencyTransaction}'s are sorted by the {@link EnergyLevel} as key within this {@link Map},
 	 * allowing for easy access by using
-	 * this meaningful key ({@link me.vault.game.model.energy.EnergyLevel}).
+	 * this meaningful key ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all upgrade cost transactions for the artifact.
+	 *
 	 * @see Map
-	 * @see me.vault.game.model.energy.EnergyLevel
+	 * @see EnergyLevel
 	 * @see CurrencyTransaction
 	 */
 	@NotNull
-	protected abstract Map<me.vault.game.model.energy.EnergyLevel, CurrencyTransaction> getAllUpgradeCosts ();
+	protected abstract Map<EnergyLevel, CurrencyTransaction> getAllUpgradeCosts ();
 
 
 	/**
 	 * Returns all names the energy ability can have. An energy ability has different names depending on its level.
 	 * <br>
-	 * Therefore, these names are sorted by the {@link me.vault.game.model.energy.EnergyLevel} as key in a {@link Map}, allowing for easy
+	 * Therefore, these names are sorted by the {@link EnergyLevel} as key in a {@link Map}, allowing for easy
 	 * access by using this meaningful key
-	 * ({@link me.vault.game.model.energy.EnergyLevel}).
+	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all names for the energy ability.
+	 *
 	 * @see Map
-	 * @see me.vault.game.model.energy.EnergyLevel
+	 * @see EnergyLevel
 	 */
 	@NotNull
-	protected abstract Map<me.vault.game.model.energy.EnergyLevel, String> getAllNames ();
+	protected abstract Map<EnergyLevel, String> getAllNames ();
 
 
 	/**
 	 * Returns all sprites the energy ability can have. An energy ability can have, but doesn't always have, different sprites
 	 * depending on its level.
 	 * <br>
-	 * Therefore, these sprites are sorted by the {@link me.vault.game.model.energy.EnergyLevel} as key in a {@link Map}, allowing for easy
+	 * Therefore, these sprites are sorted by the {@link EnergyLevel} as key in a {@link Map}, allowing for easy
 	 * access by using this meaningful key
-	 * ({@link me.vault.game.model.energy.EnergyLevel}).
+	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all sprites for the energy ability.
+	 *
 	 * @see Map
-	 * @see me.vault.game.model.energy.EnergyLevel
+	 * @see EnergyLevel
 	 * @see Image
 	 */
 	@NotNull
-	protected abstract Map<me.vault.game.model.energy.EnergyLevel, MetaDataImage> getAllSprites ();
+	protected abstract Map<EnergyLevel, MetaDataImage> getAllSprites ();
 
 
 	/**
 	 * Returns all sets of modifiers the energy ability can have, depending on it's level.
 	 * <br>
-	 * Therefore, these sets of modifiers are sorted by the {@link me.vault.game.model.energy.EnergyLevel} as key in a {@link Map}, allowing
+	 * Therefore, these sets of modifiers are sorted by the {@link EnergyLevel} as key in a {@link Map}, allowing
 	 * for easy access by using this
-	 * meaningful key ({@link me.vault.game.model.energy.EnergyLevel}).
+	 * meaningful key ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all different sets of modifiers the energy ability can have, depending on it's
 	 * level.
+	 *
 	 * @see Map
-	 * @see me.vault.game.model.energy.EnergyLevel
+	 * @see EnergyLevel
 	 * @see AbilityMultiplier.Type
 	 */
 	@NotNull
-	protected abstract Map<me.vault.game.model.energy.EnergyLevel, Map<me.vault.game.model.energy.AbilityMultiplier.Type, Double>> getAllModifiers ();
+	protected abstract Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> getAllModifiers ();
 
 
 	/**
@@ -485,10 +494,8 @@ public abstract class Energy implements Displayable, Upgradable<me.vault.game.mo
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.currentLevel.name(), this.nameProperty.get(),
-			this.spriteProperty.get()
-				.toString(),
-			this.abilityMultiplier.toString(), this.currentUpgradeCost.toString());
+		return MessageFormat.format(TO_STRING_PATTERN, this.currentLevel.name(), this.nameProperty.get(), this.spriteProperty.get()
+			.toString(), this.abilityMultiplier.toString(), this.currentUpgradeCost.toString());
 	}
 
 }

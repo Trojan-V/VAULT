@@ -54,7 +54,7 @@ public final class ArenaFinishedDialogDelegate
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.
 	 */
-	private static final String FXML_FILENAME = "arenaFinishedDialog.fxml";
+	private static final String ARENA_FINISHED_DIALOG_FXML = "arenaFinishedDialog.fxml";
 
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link ArenaFinishedDialogDelegate#toString()} is called.
@@ -110,7 +110,7 @@ public final class ArenaFinishedDialogDelegate
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(FXML_FILENAME));
+			final FXMLLoader fxmlLoader = new FXMLLoader(UpgradeDialogDelegate.class.getResource(ARENA_FINISHED_DIALOG_FXML));
 			final Parent root = fxmlLoader.load();
 
 			final ArenaFinishedDialogDelegate dialogDelegate = fxmlLoader.getController();
@@ -190,7 +190,7 @@ public final class ArenaFinishedDialogDelegate
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, FXML_FILENAME, this.arenaResult);
+		return MessageFormat.format(TO_STRING_PATTERN, ARENA_FINISHED_DIALOG_FXML, this.arenaResult);
 	}
 
 }

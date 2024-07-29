@@ -63,17 +63,17 @@ public final class DifficultyDelegate implements Initializable
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
 			GameController.setDifficulty(GameDifficulty.EASY);
-			PrologueDelegate.show(GameApplication.getStage());
+			PrologueDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
 			GameController.setDifficulty(GameDifficulty.NORMAL);
-			PrologueDelegate.show(GameApplication.getStage());
+			PrologueDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
 			GameController.setDifficulty(GameDifficulty.HARD);
-			PrologueDelegate.show(GameApplication.getStage());
+			PrologueDelegate.show();
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
