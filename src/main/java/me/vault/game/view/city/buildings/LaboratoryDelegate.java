@@ -12,10 +12,16 @@ import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.control.EnergyAbilityConroller;
 import me.vault.game.model.city.Laboratory;
+import me.vault.game.model.energy.AbilityMultiplier;
+import me.vault.game.model.energy.impl.DodgeAbility;
+import me.vault.game.model.energy.impl.InitiativeAbility;
+import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
@@ -49,58 +55,58 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 	private AnchorPane mainPane;
 
 	@FXML
-	private ImageView ability1ImageView;
+	private ImageView dodgeImageView;
 
 	@FXML
-	private Label ability1Label;
+	private Label dodgeLabel;
 
 	@FXML
-	private Button ability1UpgradeButton;
+	private Button dodgeUpgradeButton;
 
 	@FXML
-	private ImageView ability2ImageView;
+	private ImageView initiativeImageView;
 
 	@FXML
-	private Label ability2Label;
+	private Label initiativeLabel;
 
 	@FXML
-	private Button ability2UpgradeButton;
+	private Button initiativeUpgradeButton;
 
 	@FXML
-	private ImageView ability3ImageView;
+	private ImageView meleeImageView;
 
 	@FXML
-	private Label ability3Label;
+	private Label meleeLabel;
 
 	@FXML
-	private Button ability3UpgradeButton;
+	private Button meleeUpgradeButton;
 
 	@FXML
-	private Label damageArtifactDamageModifierLabel;
+	private Label dodgeEnergyAbilityDodgeModifierLabel;
 
 	@FXML
-	private Label damageArtifactDefenseModifierLabel;
+	private Label dodgeEnergyAbilityInitiativeModifierLabel;
 
 	@FXML
-	private Label damageArtifactHealthModifierLabel;
+	private Label dodgeEnergyAbilityMeleeModifierLabel;
 
 	@FXML
-	private Label defenseArtifactDamageModifierLabel;
+	private Label initiativeEnergyAbilityDodgeModifierLabel;
 
 	@FXML
-	private Label defenseArtifactDefenseModifierLabel;
+	private Label initiativeEnergyAbilityInitiativeModifierLabel;
 
 	@FXML
-	private Label defenseArtifactHealthModifierLabel;
+	private Label initiativeEnergyAbilityMeleeModifierLabel;
 
 	@FXML
-	private Label healthArtifactDamageModifierLabel;
+	private Label meleeEnergyAbilityDodgeModifierLabel;
 
 	@FXML
-	private Label healthArtifactDefenseModifierLabel;
+	private Label meleeEnergyAbilityInitiativeModifierLabel;
 
 	@FXML
-	private Label healthArtifactHealthModifierLabel;
+	private Label meleeEnergyAbilityMeleeModifierLabel;
 
 
 	public static void show ()
@@ -115,68 +121,95 @@ public class LaboratoryDelegate extends CityBuildingController implements Initia
 
 
 	@FXML
-	void onAbilityOneUpgrade (final ActionEvent event)
+	private void onDodgeAbilityUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(DodgeAbility.getInstance(), EnergyAbilityConroller.getInstance());
+		// zum richtigen anzeigen der modifier melee
 	}
 
 
 	@FXML
-	void onAbilityThreeUpgrade (final ActionEvent event)
+	private void onInitiativeAbilityUpgrade (final ActionEvent ignored)
 	{
-
+		UpgradeDialogDelegate.show(InitiativeAbility.getInstance(), EnergyAbilityConroller.getInstance());
+		// zum richtigen anzeigen der modifier Dodge
 	}
 
 
 	@FXML
-	void onAbilityTwoUpgrade (final ActionEvent event)
+	private void onMeleeAbilityUpgrade (final ActionEvent ignored)
 	{
-
-	}
-
-
-	@FXML
-	void onDamageArtifactUpgrade (final ActionEvent event)
-	{
-
-	}
-
-
-	@FXML
-	void onDefenseArtifactUpgrade (final ActionEvent event)
-	{
-
-	}
-
-
-	@FXML
-	void onHealthArtifactUpgrade (final ActionEvent event)
-	{
-
-	}
-
-
-	@FXML
-	void onBackToCityView (final ActionEvent ignored)
-	{
-		CityDelegate.show();
+		UpgradeDialogDelegate.show(MeleeAbility.getInstance(), EnergyAbilityConroller.getInstance());
+		// zum richtigen anzeigen der modifier initiative
 	}
 
 
 	/**
-	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
+	 * Initialises the fxml-view and sets program-specific bindings and properties.
 	 *
-	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
+	 * @param url            The {@link URL} object, which represents the fxml-file of the view.
 	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
-	 *
-	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
-	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
 	 */
+
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.bindEnergyTextProperties();
+		this.bindEnergyImageProperties();
+		this.bindEnergyMultiplierTextProperties();
+		this.bindUpgradeButtonProperties();
 
+	}
+
+
+	private void bindUpgradeButtonProperties ()
+	{
+		this.dodgeUpgradeButton.disableProperty().bind(DodgeAbility.getInstance().getIsMaxLevelProperty());
+		this.initiativeUpgradeButton.disableProperty().bind(InitiativeAbility.getInstance().getIsMaxLevelProperty());
+		this.meleeUpgradeButton.disableProperty().bind(MeleeAbility.getInstance().getIsMaxLevelProperty());
+	}
+
+
+	private void bindEnergyTextProperties ()
+	{
+		this.dodgeUpgradeButton.textProperty().bind(DodgeAbility.getInstance().getNameProperty());
+		this.initiativeUpgradeButton.textProperty().bind(InitiativeAbility.getInstance().getNameProperty());
+		this.meleeUpgradeButton.textProperty().bind(MeleeAbility.getInstance().getNameProperty());
+	}
+
+
+	private void bindEnergyImageProperties ()
+	{
+		this.dodgeImageView.imageProperty().bind(DodgeAbility.getInstance().getSpriteProperty());
+		this.initiativeImageView.imageProperty().bind(InitiativeAbility.getInstance().getSpriteProperty());
+		this.meleeImageView.imageProperty().bind(MeleeAbility.getInstance().getSpriteProperty());
+	}
+
+
+	private void bindEnergyMultiplierTextProperties ()
+	{
+		final AbilityMultiplier dodgeAbilityModifiers = DodgeAbility.getInstance().getAbilityMultiplier();
+		this.dodgeEnergyAbilityDodgeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getDodgeMultiplierProperty().asString());
+		this.dodgeEnergyAbilityInitiativeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getInitiativeMultiplierProperty().asString());
+		this.dodgeEnergyAbilityMeleeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getMeleeMultiplierProperty().asString());
+
+		final AbilityMultiplier initiativeAbilityModifiers = InitiativeAbility.getInstance().getAbilityMultiplier();
+		this.initiativeEnergyAbilityDodgeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getDodgeMultiplierProperty().asString());
+		this.initiativeEnergyAbilityInitiativeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getInitiativeMultiplierProperty().asString());
+		this.initiativeEnergyAbilityMeleeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getMeleeMultiplierProperty().asString());
+
+		final AbilityMultiplier meleeAbilityModifiers = MeleeAbility.getInstance().getAbilityMultiplier();
+		this.meleeEnergyAbilityDodgeModifierLabel.textProperty().bind(meleeAbilityModifiers.getDodgeMultiplierProperty().asString());
+		this.meleeEnergyAbilityInitiativeModifierLabel.textProperty().bind(meleeAbilityModifiers.getInitiativeMultiplierProperty().asString());
+		this.meleeEnergyAbilityMeleeModifierLabel.textProperty().bind(meleeAbilityModifiers.getMeleeMultiplierProperty().asString());
+	}
+
+
+	@FXML
+	private void onBackToCityView (final ActionEvent ignored)
+	{
+		CityDelegate.show();
 	}
 
 }

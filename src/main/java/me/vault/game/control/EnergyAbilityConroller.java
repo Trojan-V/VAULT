@@ -2,43 +2,55 @@ package me.vault.game.control;
 
 
 import javafx.application.Platform;
-import javafx.beans.binding.NumberExpression;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+
 import me.vault.game.interfaces.Upgrader;
-import me.vault.game.model.energy.*;
-import me.vault.game.utility.loading.ResourceLoader;
+
+import me.vault.game.model.currency.Currency;
+import me.vault.game.model.currency.CurrencyTransaction;
+
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
 
-import static me.vault.game.utility.constant.AttributeConstants.*;
+import java.util.Map;
 
 
-public class EnergyAbilityConroller implements Upgrader<EnergyAbility, EnergyAbilityLevel>
+import static me.vault.game.utility.constant.LoggingConstants.*;
+
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_MAXED;
+import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
+import static me.vault.game.utility.constant.LoggingConstants.RETURNING_TRUE;
+import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
+
+/**
+ * @author Alexander Göthel
+ * @version 1.0.0
+ * @see Upgrader
+ * @see me.vault.game.model.energy.Energy
+ * @see me.vault.game.model.energy.EnergyLevel
+ * @since 25.07.2024
+ */
+
+public class EnergyAbilityConroller implements Upgrader<me.vault.game.model.energy.Energy, me.vault.game.model.energy.EnergyLevel>
 {
+
+	/**
+	 * Singleton instance, as there's no reason to have more than one {@link EnergyAbilityConroller}.
+	 * <br>
+	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 */
+	private static final EnergyAbilityConroller INSTANCE = new EnergyAbilityConroller();
+
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final Logger LOGGER = new Logger(EnergyAbilityConroller.class.getSimpleName());
-
-	/**
-	 * Singleton instance, as there's no reason to have more than one {@link EnergyAbilityConroller}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
-	 */
-	private static final EnergyAbilityConroller ENERGY_INSTANCE = new EnergyAbilityConroller();
-
-	/**
-	 * Represents the spacing of the troop attributes in the attribute grid pane.
-	 */
-	private static final int ATTRIBUTE_SPACING = 10;
+	private static final ILogger LOGGER = new Logger(EnergyAbilityConroller.class.getSimpleName());
 
 
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it.
+	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
 	 */
 	private EnergyAbilityConroller ()
@@ -46,154 +58,112 @@ public class EnergyAbilityConroller implements Upgrader<EnergyAbility, EnergyAbi
 
 
 	/**
+	 * Checks if the supplied energy ability is at the maximum level. If yes, true is returned, otherwise false.
+	 *
+	 * @param energy The instance of {@link me.vault.game.model.energy.Energy} which is checked.
+	 *
+	 * @return True if the energy ability is maxed, otherwise false.
+	 */
+	private static boolean checkIsEnergyMaxed (final me.vault.game.model.energy.Energy energy)
+	{
+		return energy.getLevel() == me.vault.game.model.energy.EnergyLevel.getMaximum();
+	}
+
+
+	/**
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static EnergyAbilityConroller getEnergyInstance ()
+	public static EnergyAbilityConroller getInstance ()
 	{
-		return ENERGY_INSTANCE;
+		return INSTANCE;
 	}
 
 
-	private static void updateDexterityStatistic (final EnergyAbility energyAbility)
+	/**
+	 * Updates the values within the energy ability to the new values of the new level.
+	 * <br>
+	 * This method should be invoked every time after the energy ability was upgraded.
+	 *
+	 * @param energy The instance of the {@link me.vault.game.model.energy.Energy} that was upgraded.
+	 */
+	@Override
+	public void updateValues (final me.vault.game.model.energy.Energy energy)
 	{
-		final DexterityEnergyStatistic dexterityStatistic = energyAbility.getStatistic().getDexterityStatistic();
-		final float dexterityLevelMultiplier = energyAbility.getMultiplicationFactor().getDexterityLevelMultiplier();
+		if (energy.getLevel() == me.vault.game.model.energy.EnergyLevel.getMaximum())
+		{
+			energy.setIsMaxLevel(true);
+		}
 
-		dexterityStatistic.setInitiative(dexterityStatistic.getInitiative() * dexterityLevelMultiplier);
-		dexterityStatistic.setMovementTiles(dexterityStatistic.getMovementTiles() * dexterityLevelMultiplier);
+		energy.setName(energy.getName(energy.getLevel()));
+		energy.setSprite(energy.getSprite(energy.getLevel()));
+		energy.setUpgradeCosts(energy.getUpgradeCosts(energy.getLevel()));
 
-	}
+		final Map<me.vault.game.model.energy.AbilityMultiplier.Type, Double> abilityMultipliersMap = energy.getAbilityMultipliers(energy.getLevel());
+		final me.vault.game.model.energy.AbilityMultiplier currentAbilityMultipliers = energy.getAbilityMultiplier();
 
+		currentAbilityMultipliers.setDodgeMultiplier(abilityMultipliersMap.get(me.vault.game.model.energy.AbilityMultiplier.Type.DODGE));
+		currentAbilityMultipliers.setInitiativeMultiplier(abilityMultipliersMap.get(me.vault.game.model.energy.AbilityMultiplier.Type.INITIATIVE));
+		currentAbilityMultipliers.setMeleeMultiplier(abilityMultipliersMap.get(me.vault.game.model.energy.AbilityMultiplier.Type.MELEE));
 
-	private static void updateDefensiveStatistic (final EnergyAbility energyAbility)
-	{
-		final DefensivStatistic defensivStatistic = energyAbility.getStatistic().getDefensiveStatistic();
-		final float defensiveLevelMultiplier = energyAbility.getMultiplicationFactor().getDefensiveLevelMultiplier();
-
-		defensivStatistic.setDodgeRate(defensivStatistic.getDodgeRate() * defensiveLevelMultiplier);
-		defensivStatistic.setResistance(defensivStatistic.getResistance() * defensiveLevelMultiplier);
-		defensivStatistic.setArmour(defensivStatistic.getArmour() * defensiveLevelMultiplier);
-
-	}
-
-
-	private static void updateOffensiveStatistic (final EnergyAbility energyAbility)
-	{
-		final OffensiveEnergyStatistic offensiveStatistic = energyAbility.getStatistic().getOffensiveStatistic();
-		final float offensiveLevelMultiplier = energyAbility.getMultiplicationFactor().getOffensiveLevelMultiplier();
-		offensiveStatistic.setMeleeDamage(offensiveStatistic.getMeleeDamage() * offensiveLevelMultiplier);
-
-	}
-
-
-	public static GridPane getAttributeGridPane (final EnergyAbility energyAbility)
-	{
-		final GridPane attributeGridPane = new GridPane();
-		attributeGridPane.setVgap(ATTRIBUTE_SPACING);
-		attributeGridPane.setHgap(ATTRIBUTE_SPACING);
-
-		addDexterityAttributesToGrid(energyAbility, attributeGridPane);
-		addDefensiveAttributesToGrid(energyAbility, attributeGridPane);
-		addOffensiveAttributesToGrid(energyAbility, attributeGridPane);
-		return attributeGridPane;
-	}
-
-
-	private static void addDexterityAttributesToGrid (final EnergyAbility energyAbility, final GridPane gridPane)
-	{
-		final DexterityEnergyStatistic dexterityStatistic = energyAbility.getStatistic().getDexterityStatistic();
-
-		gridPane.add(getSingleAttributeHBox(MOVEMENT_ATTRIBUTE_ICON_PATH, MOVEMENT_ATTRIBUTE_NAME, dexterityStatistic.getMovementTileProperty()),
-			MOVEMENT_ATTRIBUTE_GRID_X, MOVEMENT_ATTRIBUTE_GRID_Y);
-
-		gridPane.add(getSingleAttributeHBox(INITIATIVE_ATTRIBUTE_ICON_PATH, INITIATIVE_ATTRIBUTE_NAME, dexterityStatistic.getInitiativeProperty()),
-			INITIATIVE_ATTRIBUTE_GRID_X, INITIATIVE_ATTRIBUTE_GRID_Y);
-	}
-
-
-	private static void addDefensiveAttributesToGrid (final EnergyAbility energyAbility, final GridPane gridPane)
-	{
-		final DefensivStatistic defensivStatistic = energyAbility.getStatistic().getDefensiveStatistic();
-
-		gridPane.add(getSingleAttributeHBox(DODGE_ATTRIBUTE_ICON_PATH, DODGE_ATTRIBUTE_NAME, defensivStatistic.getDodgeRateProperty()),
-			DODGE_ATTRIBUTE_GRID_X, DODGE_ATTRIBUTE_GRID_Y);
-
-
-		gridPane.add(getSingleAttributeHBox(ARMOR_ATTRIBUTE_ICON_PATH, ARMOR_ATTRIBUTE_NAME, defensivStatistic.getMeleeDamageReductionProperty()),
-			ARMOR_ATTRIBUTE_GRID_X, ARMOR_ATTRIBUTE_GRID_Y);
-
-		gridPane.add(getSingleAttributeHBox(RESISTANCE_ATTRIBUTE_ICON_PATH, RESISTANCE_ATTRIBUTE_NAME,
-				defensivStatistic.getResistanceProperty()),
-			RESISTANCE_ATTRIBUTE_GRID_X, RESISTANCE_ATTRIBUTE_GRID_Y);
-	}
-
-
-	private static void addOffensiveAttributesToGrid (final EnergyAbility energyAbility, final GridPane gridPane)
-	{
-		final OffensiveEnergyStatistic offensiveStatistic = energyAbility.getStatistic().getOffensiveStatistic();
-
-		gridPane.add(getSingleAttributeHBox(MELEE_ATTACK_ATTRIBUTE_ICON_PATH, MELEE_ATTRIBUTE_NAME, offensiveStatistic.getMeleeDamageProperty()),
-			MELEE_ATTACK_ATTRIBUTE_GRID_X, MELEE_ATTACK_ATTRIBUTE_GRID_Y);
-	}
-
-
-	private static HBox getSingleAttributeHBox (final String imagePath, final String attributeName, final NumberExpression attributeProperty)
-	{
-		final HBox attributeHBox = new HBox();
-		attributeHBox.setAlignment(Pos.CENTER_LEFT);
-		attributeHBox.setSpacing(ATTRIBUTE_SPACING);
-
-		final Label attributeValueLabel = new Label();
-		attributeValueLabel.textProperty().bind(attributeProperty.asString());
-
-		attributeHBox.getChildren().add(new ImageView(ResourceLoader.loadImage(imagePath)));
-		attributeHBox.getChildren().add(new Label(attributeName));
-		attributeHBox.getChildren().add(attributeValueLabel);
-
-		return attributeHBox;
+		// Logging output
+		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, energy.getNameProperty().get());
+		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, energy.getSpriteProperty().get().toString());
+		LOGGER.logf(DEBUG, UPGRADE_COST_SET, energy.getUpgradeCosts().toString());
 	}
 
 
 	/**
 	 * {@inheritDoc}
+	 *
+	 * @param energy The {@link me.vault.game.model.energy.Energy} instance which is checked if it can be upgraded to the next level.
+	 *
+	 * @return True if the {@link me.vault.game.model.energy.Energy} can be upgraded, otherwise false.
 	 */
 	@Override
-	public void upgrade (final EnergyAbility energyAbility)
+	public boolean checkIsUpgradable (final me.vault.game.model.energy.Energy energy)
 	{
-		Platform.runLater(new UpgradeRunnable(energyAbility, EnergyAbilityConroller.getEnergyInstance()));
-	}
+		// Checks if the energy ability is already at the maximum level. If yes, it can't be upgraded any further.
+		if (checkIsEnergyMaxed(energy))
+		{
+			LOGGER.logf(DEBUG, ENERGY_MAXED, energy.getName());
+			LOGGER.log(DEBUG, RETURNING_FALSE);
+			return false;
+		}
+
+		final CurrencyTransaction upgradeCosts = energy.getUpgradeCosts();
+		LOGGER.logf(DEBUG, UPGRADE_COST, upgradeCosts.toString());
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean checkIsUpgradable (final EnergyAbility energyAbility)
-	{
+		// Checks if the user has enough of each required currency to purchase the upgrade. If the amount of at least
+		// one currency isn't enough, the artifact can't be upgraded.
+		for (final Currency currency : Currency.values())
+		{
+			if (currency.getAmount() < upgradeCosts.getAbsoluteAmount(currency))
+			{
+				LOGGER.logf(DEBUG, INSUFFICIENT_CURRENCY_AMOUNT, currency.name(), upgradeCosts.getAmount(currency));
+				LOGGER.log(DEBUG, RETURNING_FALSE);
+				return false;
+			}
+		}
+		// If all checks are passed, the method returns true.
+		LOGGER.log(DEBUG, RETURNING_TRUE);
 		return true;
 	}
 
 
 	/**
 	 * {@inheritDoc}
+	 *
+	 * @param energy The {@link me.vault.game.model.energy.Energy} instance that gets upgraded.
 	 */
 	@Override
-	public void updateValues (final EnergyAbility energyAbility)
+	public void upgrade (final me.vault.game.model.energy.Energy energy)
 	{
-		if (energyAbility.getLevel() == EnergyAbilityLevel.getMaxLevel())
-		{
-			energyAbility.setIsMaxLevel(true);
-		}
-
-		energyAbility.setName(energyAbility.getName(energyAbility.getLevel()));
-		energyAbility.setSprite(energyAbility.getSprite(energyAbility.getLevel()));
-		energyAbility.setUpgradeCosts(energyAbility.getUpgradeCosts(energyAbility.getLevel()));
-
-		updateOffensiveStatistic(energyAbility);
-		updateDexterityStatistic(energyAbility);
-		updateDefensiveStatistic(energyAbility);
+		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, energy.getName(), energy.getLevel(),
+			energy.getLevel().getNextHigherLevel());
+		Platform.runLater(new UpgradeRunnable(energy, getInstance()));
 	}
 
 }
