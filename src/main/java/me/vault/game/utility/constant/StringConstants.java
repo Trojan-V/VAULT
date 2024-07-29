@@ -3,6 +3,7 @@ package me.vault.game.utility.constant;
 
 public interface StringConstants
 {
+
 	/**
 	 * This string contains the ending for the format JSON.
 	 */
@@ -178,8 +179,6 @@ public interface StringConstants
 	String buttonImageName = "button.png";
 
 	String colorLightBlue = "1584AD";
-
-	String chooseGameFile = "Choose a gamefile to load";
 
 
 	String TILE_IMAGE_NAME = "tile.png";

@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.FigureController;
+import me.vault.game.control.MovableController;
 import me.vault.game.control.PlayerController;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
@@ -201,7 +202,7 @@ public final class MissionDelegate implements Initializable
 
 		if (nextTileElement instanceof AccessibleTileAppearance && playerCanMove)
 		{
-			FigureController.move(missionGameBoard, player, position);
+			MovableController.move(missionGameBoard, player, position);
 		}
 		else if (nextTileElement instanceof ArenaStartTileAppearance && playerCanReach)
 		{

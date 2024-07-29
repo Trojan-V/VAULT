@@ -21,6 +21,8 @@ import me.vault.game.view.city.CityDelegate;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.GameConstants.*;
+
 
 /**
  * This class acts as the controller and view for the main menu.
@@ -172,7 +174,7 @@ public class MainMenuDelegate implements Initializable
 			{
 				ConfigLoader.getInstance().saveExistingGameToFile();
 			}
-			ConfigLoader.getInstance().load(FileChooserView.show(GameApplication.getStage(), GameConstants.GAME_SAVE_FOLDER_FILE_PATH, StringConstants.chooseGameFile));
+			ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
 			CityDelegate.show();
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
@@ -237,7 +239,7 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private void initializeLoadGame () //TODO: Add checks for loading a save file
 	{
-		if (ResourceLoader.collectFilesContaining(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, StringConstants.SAVE_NAME).isEmpty())
+		if (ResourceLoader.collectFilesContaining(GAME_SAVE_FOLDER_FILE_PATH, StringConstants.SAVE_NAME).isEmpty())
 		{
 			ViewUtil.setMenuItemInactive(this.loadGameMenuItem);
 			ViewUtil.setButtonInactive(this.loadGameButton);

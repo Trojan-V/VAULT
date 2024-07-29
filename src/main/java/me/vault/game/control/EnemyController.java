@@ -1,6 +1,7 @@
 package me.vault.game.control;
 
 
+import me.vault.game.interfaces.Movable;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
@@ -51,9 +52,9 @@ public final class EnemyController
 	 * @param tile        The tile the enemy should move to.
 	 * @param troopFigure The enemy {@link Figure}.
 	 */
-	public static void moveTo (final Arena arena, final Tile tile, final Figure<Troop> troopFigure)
+	public static void moveTo (final Arena arena, final Tile tile, final Movable troopFigure)
 	{
-		FigureController.move(arena.getGameBoard(), troopFigure, tile.getPosition());
+		MovableController.move(arena.getGameBoard(), troopFigure, tile.getPosition());
 	}
 
 

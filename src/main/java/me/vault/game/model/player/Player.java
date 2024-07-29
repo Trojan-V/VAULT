@@ -4,6 +4,7 @@ package me.vault.game.model.player;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.interfaces.Movable;
+import me.vault.game.interfaces.Nameable;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
@@ -16,7 +17,7 @@ import me.vault.game.utility.struct.MetaDataImage;
 import java.util.ArrayList;
 
 
-public final class Player implements Movable
+public final class Player implements Movable, Nameable
 {
 
 	private static final Player INSTANCE = new Player();
