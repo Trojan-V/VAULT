@@ -137,13 +137,13 @@ public final class MainMenuDelegate implements Initializable
 	 * <br>
 	 * If "new game" is clicked, the Config File is reset and the Difficulty-View is shown.
 	 * <br>
-	 * If the "load game"-button is pressed, the File-Chooser view is shown.
+	 * If "load game" is clicked, the File-Chooser view is shown.
 	 * <br>
-	 * If the "settings"-button is pressed, the settings view is shown.
+	 * If "settings" is clicked, the settings view is shown.
 	 * <br>
-	 * If the "exit game"-button is pressed, the exit dialog is shown.
+	 * If "exit game" is clicked, the exit dialog is shown.
 	 * <br>
-	 * If the "arena"-button is pressed, the network connection dialog is shown.
+	 * If "arena" is clicked, the network connection dialog is shown.
 	 *
 	 * @param event the Event on which the method acts.
 	 *
@@ -160,23 +160,12 @@ public final class MainMenuDelegate implements Initializable
 		}
 		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
-			// TODO: Kapseln
-			if (!ConfigLoader.getInstance().isConfigDefault())
-			{
-				ConfigLoader.getInstance().saveExistingGameToFile();
-			}
-			ConfigLoader.getInstance().reset();
-			DifficultyDelegate.show();
+			this.createNewGame();
 		}
 		else if (event.getSource().equals(this.loadGameButton) || event.getSource().equals(this.loadGameMenuItem))
 		{
-			//TODO: Update Java Doc // TODO: Kapseln
-			if (!ConfigLoader.getInstance().isConfigDefault())
-			{
-				ConfigLoader.getInstance().saveExistingGameToFile();
-			}
-			ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
-			CityDelegate.show();
+			//TODO: update java Doc
+			this.loadGameFromFile();
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
 		{
@@ -196,7 +185,12 @@ public final class MainMenuDelegate implements Initializable
 
 
 	/**
+	 * Handles the creation of a new game. The method checks, if the current configuration is equivalent to the
+	 * default configuration. If this is not the case, the current configuration is saved and the configuartion is
+	 * resetted, before {@link DifficultyDelegate#show()} is called to start a new game.
 	 *
+	 * @precondition
+	 * @postcondition
 	 */
 	private void createNewGame ()
 	{
@@ -237,7 +231,6 @@ public final class MainMenuDelegate implements Initializable
 		this.initializeLoadGame();
 
 	}
-
 
 	/**
 	 * Checks, if the Config file is identical to the default (config) file. If the files are identical,
