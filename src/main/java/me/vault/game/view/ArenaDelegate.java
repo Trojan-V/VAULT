@@ -116,7 +116,7 @@ public final class ArenaDelegate
 	{
 		this.timelineVBox.getChildren().clear();
 		this.arena.setSelectedFigure(this.currentQueue.peek());
-		final PriorityQueue<Figure> figurePriorityQueue = this.figureFigureTimeline.getPriorityQueue();
+		final PriorityQueue<Figure> figurePriorityQueue = this.figureFigureTimeline.createPriorityQueue();
 		while (!figurePriorityQueue.isEmpty())
 		{
 			this.timelineVBox.getChildren().add(new TimelineElementHBox(this.arena, Objects.requireNonNull(figurePriorityQueue.poll())));
@@ -218,7 +218,7 @@ public final class ArenaDelegate
 		this.currentQueue.poll();
 		if (this.currentQueue.isEmpty())
 		{
-			this.currentQueue = new PriorityQueue<>(this.figureFigureTimeline.getPriorityQueue());
+			this.currentQueue = new PriorityQueue<>(this.figureFigureTimeline.createPriorityQueue());
 			this.incrementRound();
 		}
 		this.currentQueue.removeAll(this.arena.getEliminatedFigures());
@@ -256,7 +256,7 @@ public final class ArenaDelegate
 
 		this.arena = arena;
 		this.figureFigureTimeline = arena.getTimeline();
-		this.currentQueue = arena.getTimeline().getPriorityQueue();
+		this.currentQueue = arena.getTimeline().createPriorityQueue();
 		this.initializeTimelineVbox();
 		this.initializeGameBoardGridPane();
 		this.arenaBoardGridPane.setDisable(true);

@@ -13,7 +13,7 @@ import java.util.Comparator;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see FigureTimeline#getPriorityQueue()
+ * @see FigureTimeline#createPriorityQueue()
  * @since 28.07.2024
  */
 public class InitiativeComparator implements Comparator<Figure>

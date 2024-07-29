@@ -6,8 +6,6 @@ import java.util.Random;
 
 public class DiceRoll
 {
-
-
 	private static final int DICE_EYE_SUM = 20;
 
 
@@ -18,10 +16,10 @@ public class DiceRoll
 
 	private static double diceRollD20 (double dice)
 	{
-		Random rand = new Random();
-		dice = rand.nextInt(DICE_EYE_SUM);
+		final Random random = new Random();
+		dice = random.nextInt(DICE_EYE_SUM);
 		dice += DICE_EYE_SUM;
-		dice = dice * FIVE_PERCENT_MULTIPLICATOR;
+		dice *= FIVE_PERCENT_MULTIPLICATOR;
 		return dice;
 	}
 
