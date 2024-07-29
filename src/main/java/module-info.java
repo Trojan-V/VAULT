@@ -58,4 +58,6 @@ module me.vault.game {
 	opens me.vault.game.model.gameboard.tiles to javafx.fxml;
 	exports me.vault.game.utility;
 	opens me.vault.game.utility to javafx.fxml;
+	exports me.vault.game.utility.math;
+	opens me.vault.game.utility.math to javafx.fxml;
 }

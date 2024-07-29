@@ -1,4 +1,4 @@
-package me.vault.game.model.arena;
+package me.vault.game.utility.math;
 
 
 import java.util.Random;
