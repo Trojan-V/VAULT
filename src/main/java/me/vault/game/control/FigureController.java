@@ -5,7 +5,10 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import me.vault.game.model.arena.*;
+import me.vault.game.model.artifact.Artifact;
+import me.vault.game.model.energy.Energy;
 import me.vault.game.model.gameboard.GameBoard;
+import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.TroopStatistics.Defensive;
 import me.vault.game.model.troop.TroopStatistics.Offensive;
 import me.vault.game.utility.logging.ILogger;
@@ -44,6 +47,12 @@ public final class FigureController
 	private static final double DROP_SHADOW_SPREAD = 0.5;
 
 
+	private static final int HUNDRED = 100;
+
+
+	private static final int ONE = 1;
+
+
 	/**
 	 * As this class solely contains static methods and therefore is a utility class,
 	 * no other class should be able to instantiate it.
@@ -62,17 +71,15 @@ public final class FigureController
 	 * @param attacker The {@link Figure} who is the attacker.
 	 * @param defender The {@link Figure} who is the defender.
 	 */
-	public static void attack (final Arena arena, final Figure attacker,
-		final Figure defender)
+	public static void attack (final Arena arena, final Figure attacker, final Figure defender)
 	{
 		// Get the statistics of the attacker and defender so the damage can be calculated.
-		final Offensive attackerOffensiveStats = attacker.getStatistics().getOffensive();
 		final Defensive defenderDefensiveStats = defender.getStatistics().getDefensive();
 		final double dice = DiceRoll.getDice();
 
-		if (dice > defenderDefensiveStats.getDodgeRate())
+		if (dice < defenderDefensiveStats.getDodgeRate())
 		{
-			final int calculatedDamage = calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
+			final int calculatedDamage = calculateDamage(attacker, defender);
 			final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;
 			if (newDefenderHealthPoints <= 0)
 			{
@@ -94,18 +101,23 @@ public final class FigureController
 	 * <br>
 	 * The formula takes the melee damage the attacker deals into account as well as the armor the defender has.
 	 *
-	 * @param attackerStats          The {@link Offensive} statistics of the
+	 * @param attackerStats          The {@link Figure} statistics of the
 	 *                               attacking unit.
-	 * @param defenderDefensiveStats The {@link Defensive} statistics of the
+	 * @param defenderDefensiveStats The {@link Figure} statistics of the
 	 *                               defensive unit.
 	 * @return The amount of damage the defender will receive.
 	 */
-	private static int calculateDamage (final Offensive attackerStats,
-		final Defensive defenderDefensiveStats)
+	private static int calculateDamage (final Figure attackerStats, final Figure defenderDefensiveStats)
+
 	{
-		// TODO: Literals
-		// TODO: Apply multipliers to the stats of the player/troops.
-		return attackerStats.getMeleeDamage() * (1 - defenderDefensiveStats.getArmor() / 100);
+		Artifact currentArtifact = Player.getInstance().getSelectedArtifact();
+		Energy currenrEnergy = Player.getInstance().getSelectedEnergy();
+		double damageMultiplier = currentArtifact.getAttributeMultipliers().getDamageMultiplierProperty().get();
+		double defenseMultiplier = currentArtifact.getAttributeMultipliers().getDefenseMultiplierProperty().get();
+		double meleeMultiplier = currenrEnergy.getAbilityMultiplier().getMeleeMultiplierProperty().get();
+		int meleeDamage = attackerStats.getStatistics().getOffensive().getMeleeDamage();
+		int armor = defenderDefensiveStats.getStatistics().getDefensive().getArmor();
+		return (int) (meleeDamage * (ONE - (armor * defenseMultiplier) / HUNDRED) * damageMultiplier * meleeMultiplier);
 	}
 
 
@@ -143,7 +155,7 @@ public final class FigureController
 	{
 		try
 		{
-			final GameBoard arenaGameBoard = arena.getGameBoard();
+			GameBoard arenaGameBoard = arena.getGameBoard();
 			final Figure defender = arenaGameBoard.getFigure(position);
 			final Position attackerPos = arenaGameBoard.getPosition(attackerFigure);
 			final List<Tile> reachableTiles = arenaGameBoard
@@ -151,7 +163,7 @@ public final class FigureController
 
 			final List<Figure> defenderGroup =
 				arena.getPlayerOneFigures().contains(defender) ? arena.getPlayerOneFigures() :
-				arena.getPlayerTwoFigures();
+				arena.getPlayerOneFigures();
 			return !defenderGroup.contains(attackerFigure) &&
 			       reachableTiles.contains(arenaGameBoard.getTile(position));
 		}
@@ -204,7 +216,7 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an enemy or not.
 	 * @return True if the {@link Figure} is an enemy, otherwise false.
 	 */
-	private static boolean isEnemy (@NotNull final Arena arena, @NotNull final Figure troopFigure)
+	private static boolean isEnemy (@NotNull Arena arena, @NotNull Figure troopFigure)
 	{
 		return arena.getPlayerTwoFigures().contains(troopFigure);
 	}
@@ -217,8 +229,8 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an ally or not.
 	 * @return True if the {@link Figure} is an ally, otherwise false.
 	 */
-	private static boolean isAlly (@NotNull final Arena arena, @NotNull final Figure troopFigure)
+	private static boolean isAlly (@NotNull Arena arena, @NotNull Figure troopFigure)
 	{
-		return arena.getPlayerOneFigures().contains(troopFigure);
+		return arena.getPlayerTwoFigures().contains(troopFigure);
 	}
 }

@@ -8,6 +8,8 @@ import me.vault.game.interfaces.Nameable;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
+import me.vault.game.model.energy.Energy;
+import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -30,6 +32,8 @@ public final class Player implements Movable, Nameable
 
 	private Artifact selectedArtifact;
 
+	private Energy selectedEnergy;
+
 	private Faction selectedFaction;
 
 
@@ -40,6 +44,7 @@ public final class Player implements Movable, Nameable
 	{
 		this.selectedFaction = Faction.NEW_TERRA;
 		this.selectedArtifact = DamageArtifact.getInstance();
+		this.selectedEnergy = MeleeAbility.getInstance();
 		this.selectedTroops = new ArrayList<>();
 	}
 
@@ -65,6 +70,12 @@ public final class Player implements Movable, Nameable
 	public Artifact getSelectedArtifact ()
 	{
 		return this.selectedArtifact;
+	}
+
+
+	public Energy getSelectedEnergy ()
+	{
+		return selectedEnergy;
 	}
 
 

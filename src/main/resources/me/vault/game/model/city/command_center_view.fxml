@@ -248,7 +248,7 @@
                                         </ImageView>
                                         <Label fx:id="currentNewsLabel" alignment="TOP_LEFT" prefHeight="64.0"
                                                prefWidth="594.0"
-                                               text="NEWS (TEMP): DA WAR EINMAL EIN FUCHS, LALALALALALALA"
+                                               text="Breaking: The System is cut off from the rest of the galaxy. Tensions are high with small skirmishes occurring."
                                                wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1"
                                                GridPane.valignment="BOTTOM">
                                             <font>
