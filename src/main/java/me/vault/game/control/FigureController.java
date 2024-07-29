@@ -145,7 +145,7 @@ public final class FigureController
 		final Position previousTroopPosition = arenaGameBoard.getPosition(troopFigure);
 		final int troopMovementRange = troopFigure.getStatistics().getDexterity().getMovementTiles();
 		final List<Tile> accessibleTiles =
-			arenaGameBoard.getAdjacentPlaceholderTiles(previousTroopPosition, troopMovementRange);
+			arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
 		return accessibleTiles.contains(arenaGameBoard.getTile(position));
 	}
 

@@ -112,7 +112,7 @@ public class GameBoard
 	}
 
 
-	public List<Tile> getAdjacentPlaceholderTiles (final Position position)
+	public List<Tile> getAdjacentAccessibleTiles (final Position position)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof AccessibleTileAppearance));
@@ -120,7 +120,7 @@ public class GameBoard
 	}
 
 
-	public List<Tile> getAdjacentPlaceholderTiles (final Position position, final int range)
+	public List<Tile> getAdjacentAccessibleTiles (final Position position, final int range)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, range);
 		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof AccessibleTileAppearance));

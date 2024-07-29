@@ -197,7 +197,7 @@ public class ArenaDelegate
 		final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterity().getMovementTiles();
 
 		final List<Tile> reachableTroopFigureTiles = arenaGameBoard.getReachableTroopFigureTiles(position, attackRange);
-		final List<Tile> adjacentAccessibleTiles = arenaGameBoard.getAdjacentPlaceholderTiles(position, movementRange);
+		final List<Tile> adjacentAccessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(position, movementRange);
 
 		boolean hasAttacked = false;
 		if (!reachableTroopFigureTiles.isEmpty())

@@ -69,6 +69,18 @@ public enum Faction implements Displayable
 	}
 
 
+	public boolean getIsSelected ()
+	{
+		return this.isSelectedProperty.get();
+	}
+
+
+	public void setIsSelected (final boolean isSelected)
+	{
+		this.isSelectedProperty.set(isSelected);
+	}
+
+
 	/**
 	 * Returns the sprite that is stored within the property of the displayable object as an {@link MetaDataImage}.
 	 *
