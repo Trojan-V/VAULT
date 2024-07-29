@@ -1,6 +1,8 @@
 package me.vault.game.model.arena;
 
 
+import me.vault.game.model.gameboard.GameBoard;
+import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;

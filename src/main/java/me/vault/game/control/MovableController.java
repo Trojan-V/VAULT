@@ -3,10 +3,10 @@ package me.vault.game.control;
 
 import me.vault.game.interfaces.Movable;
 import me.vault.game.interfaces.Placeable;
-import me.vault.game.model.arena.AccessibleTileAppearance;
 import me.vault.game.model.arena.Figure;
-import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.arena.Position;
+import me.vault.game.model.gameboard.GameBoard;
+import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.player.Player;
 
 

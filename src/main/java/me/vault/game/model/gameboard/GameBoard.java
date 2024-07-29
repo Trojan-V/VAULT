@@ -1,7 +1,11 @@
-package me.vault.game.model.arena;
+package me.vault.game.model.gameboard;
 
 
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.arena.Figure;
+import me.vault.game.model.arena.Position;
+import me.vault.game.model.arena.Tile;
+import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;

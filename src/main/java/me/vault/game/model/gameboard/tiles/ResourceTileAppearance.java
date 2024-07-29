@@ -1,22 +1,21 @@
-package me.vault.game.model.arena;
+package me.vault.game.model.gameboard.tiles;
 
 
 import javafx.beans.property.SimpleObjectProperty;
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.currency.Currency;
+import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.mission.Mission;
-import me.vault.game.model.player.Player;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
-import me.vault.game.view.mission.MissionSelectionDelegate;
 
 
 /**
  * This class represents a {@link Placeable} object that can be placed on the {@link GameBoard}, so either on the
  * {@link GameBoard} of an arena or on the {@link GameBoard} of a mission.
  * <br>
- * This object represents the tile where the {@link Player} has to move to finish the {@link Mission}. Upon moving
- * onto this tile, the player receives the {@link Mission} rewards and will be redirected to the
- * {@link MissionSelectionDelegate} afterwards.
+ * This object represents a tile where a resource, for instance some {@link Currency}, is located. Once the player
+ * moves to this tile, he'll be rewarded with some amount of {@link Currency}.
  * <br>
  * This tile type is only available on the {@link GameBoard} of the {@link Mission}.
  *
@@ -26,13 +25,12 @@ import me.vault.game.view.mission.MissionSelectionDelegate;
  * @see GameBoard
  * @since 29.07.2024
  */
-public class MissionFinishTileAppearance implements Placeable
+public class ResourceTileAppearance implements Placeable
 {
 	/**
 	 * The path to the sprite that represents a blocked tile.
 	 */
-	private static final String SPRITE_PATH =
-		"src/main/resources/me/vault/game/assets/difficulty/hard_difficulty_icon.png";
+	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/currency/credit_icon.png";
 
 
 	/**
@@ -71,4 +69,3 @@ public class MissionFinishTileAppearance implements Placeable
 		return SPRITE_PROPERTY;
 	}
 }
-

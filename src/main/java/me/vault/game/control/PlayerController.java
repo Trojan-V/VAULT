@@ -1,9 +1,9 @@
 package me.vault.game.control;
 
 
-import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.arena.Position;
 import me.vault.game.model.arena.Tile;
+import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Faction;

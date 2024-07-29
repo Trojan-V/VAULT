@@ -3,8 +3,8 @@ package me.vault.game.model.mission;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.utility.constant.ArenaConstants;
 
 import java.util.ArrayList;

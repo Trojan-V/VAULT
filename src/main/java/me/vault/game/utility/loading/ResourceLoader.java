@@ -3,7 +3,9 @@ package me.vault.game.utility.loading;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import me.vault.game.model.arena.*;
+import me.vault.game.model.arena.Position;
+import me.vault.game.model.arena.Tile;
+import me.vault.game.model.gameboard.tiles.*;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
