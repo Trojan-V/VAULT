@@ -57,7 +57,7 @@ public class TroopSelectionDelegate implements Initializable
 	private static final ILogger LOGGER = new Logger(TroopSelectionDelegate.class.getSimpleName());
 
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionSelectionDelegate#toString()} is called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link TroopSelectionDelegate#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "TroopSelectionDelegate'{'fxml={0}, mission={1}'}'";
 

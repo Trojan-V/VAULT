@@ -57,7 +57,7 @@ public final class ArenaFinishedDialogDelegate
 	private static final String FXML_FILENAME = "arenaFinishedDialog.fxml";
 
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionDelegate#toString()} is called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link ArenaFinishedDialogDelegate#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "ArenaFinishedDialogDelegate'{'fxml={0}, state={1}'}'";
 
