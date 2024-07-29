@@ -41,7 +41,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Barracks
  * @since 11.06.2024
  */
-public class BarracksDelegate implements Initializable
+public final class BarracksDelegate implements Initializable
 {
 
 	/**

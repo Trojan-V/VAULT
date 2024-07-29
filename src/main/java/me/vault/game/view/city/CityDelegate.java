@@ -40,7 +40,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see
  * @since 15.05.2024
  */
-public class CityDelegate implements Initializable
+public final class CityDelegate implements Initializable
 {
 
 	/**

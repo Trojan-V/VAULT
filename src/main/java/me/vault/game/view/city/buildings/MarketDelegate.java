@@ -39,7 +39,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Market
  * @since 11.06.2024
  */
-public class MarketDelegate extends CityBuildingController implements Initializable
+public final class MarketDelegate extends CityBuildingController implements Initializable
 {
 	// CONSTANTS -------------------------------------------------------------------------------------------------------
 

@@ -33,7 +33,7 @@ import static me.vault.game.utility.constant.GameConstants.*;
  * @author Timothy Hoegen-Jupp
  * @version 2.0.0
  */
-public class MainMenuDelegate implements Initializable
+public final class MainMenuDelegate implements Initializable
 {
 
 	/**

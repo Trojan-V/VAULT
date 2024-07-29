@@ -46,7 +46,7 @@ import static me.vault.game.utility.constant.MissionConstants.MissionTwo.MISSION
  * @see me.vault.game.utility.constant.LoggingConstants.MissionDelegate
  * @since 25.07.2024
  */
-public class MissionSelectionDelegate implements Initializable
+public final class MissionSelectionDelegate implements Initializable
 {
 
 	/**

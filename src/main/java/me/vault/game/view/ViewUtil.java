@@ -16,7 +16,6 @@ import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.text.MessageFormat;
 import java.util.Objects;
 
 import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED;
@@ -25,7 +24,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
-public class ViewUtil
+public final class ViewUtil
 {
 
 	/**

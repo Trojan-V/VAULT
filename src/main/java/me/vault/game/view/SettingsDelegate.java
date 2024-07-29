@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class SettingsDelegate implements Initializable
+public final class SettingsDelegate implements Initializable
 {
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.

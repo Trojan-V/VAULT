@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
  * @see MainMenuDelegate
  * @since 29.07.2024
  */
-public class PrologueDelegate implements Initializable
+public final class PrologueDelegate implements Initializable
 {
 
 	/**

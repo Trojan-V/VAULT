@@ -16,7 +16,7 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 
-public class NetworkDelegate implements Initializable
+public final class NetworkDelegate implements Initializable
 {
 
 	private static final Stage STAGE = new Stage();

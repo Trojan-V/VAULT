@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
 
-public class SaveCompleteDelegate implements Initializable
+public final class SaveCompleteDelegate implements Initializable
 {
 
 	private static final Stage STAGE = new Stage();
