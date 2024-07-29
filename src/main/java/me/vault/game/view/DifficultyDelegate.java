@@ -9,7 +9,6 @@ import javafx.scene.input.MouseEvent;
 import me.vault.game.GameApplication;
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
-import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -67,15 +66,15 @@ public final class DifficultyDelegate implements Initializable
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
-			setGameDifficultyAndContinue(GameDifficulty.EASY);
+			this.setGameDifficultyAndContinue(GameDifficulty.EASY);
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
-			setGameDifficultyAndContinue(GameDifficulty.NORMAL);
+			this.setGameDifficultyAndContinue(GameDifficulty.NORMAL);
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
-			setGameDifficultyAndContinue(GameDifficulty.HARD);
+			this.setGameDifficultyAndContinue(GameDifficulty.HARD);
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
@@ -88,7 +87,7 @@ public final class DifficultyDelegate implements Initializable
 	 *
 	 * @param gameDifficulty
 	 */
-	private void setGameDifficultyAndContinue (GameDifficulty gameDifficulty)
+	private void setGameDifficultyAndContinue (final GameDifficulty gameDifficulty)
 	{
 		GameController.setDifficulty(gameDifficulty);
 		PrologueDelegate.show();

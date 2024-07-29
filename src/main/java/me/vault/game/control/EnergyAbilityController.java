@@ -30,7 +30,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class EnergyAbilityController implements Upgrader<Energy, EnergyLevel>
 {
-
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link EnergyAbilityController}.
 	 * <br>
