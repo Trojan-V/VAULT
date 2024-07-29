@@ -197,12 +197,12 @@ public final class TroopSelectionDelegate implements Initializable
 
 
 	/**
-	 * Sets the {@link TroopSelectionDelegate#mission} attribute in the instance of  to the passed {@link Mission} object.
+	 * Sets the {@link TroopSelectionDelegate#mission} attribute in the instance of to the passed {@link Mission} object.
 	 *
 	 * @param mission The new {@link Mission} object, meant to replace the current attribute in the instance.
 	 *
 	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
-	 * @postcondition The  replaced the old {@link TroopSelectionDelegate#mission} attribute with the passed one.
+	 * @postcondition The replaced the old {@link TroopSelectionDelegate#mission} attribute with the passed one.
 	 */
 	public void setMission (final Mission mission)
 	{
