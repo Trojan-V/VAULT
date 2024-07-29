@@ -330,7 +330,7 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 		nameLabel.textProperty().bind(troop.getNameProperty());
 		spriteView.imageProperty().bind(troop.getSpriteProperty());
 		upgradeButton.disableProperty().bind(troop.getIsMaxLevelProperty());
-		attributePane.getChildren().add(TroopController.getAttributeGridPane(troop));
+		attributePane.getChildren().add(TroopController.createAttributeGridPane(troop));
 	}
 
 
