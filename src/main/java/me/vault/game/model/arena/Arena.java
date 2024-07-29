@@ -3,7 +3,6 @@ package me.vault.game.model.arena;
 
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
-import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,25 +13,54 @@ import static me.vault.game.utility.constant.ArenaConstants.MULTIPLIER;
 import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
 
 
+/**
+ * This class is the model for the arena where the encounters take place.
+ *
+ * @author Vincent Wolf
+ * @version 1.0.0
+ * @see
+ * @since 29.07.2024
+ */
 public class Arena
 {
+	/**
+	 * A list of all figures that belong to player two.
+	 * <br>
+	 * In Singleplayer, this is the computer player one fights against.
+	 */
+	private final List<Figure> playerTwoTroops;
 
+
+	private final List<Figure> eliminatedTroops = new ArrayList<>();
+
+
+	/**
+	 * The result of the encounter.
+	 * Determines if the encounter was won or lost.
+	 * <br>
+	 * As long as the arena fight isn't finished, the {@link ArenaResult} is undefined.
+	 */
 	private ArenaResult arenaResult = ArenaResult.UNDEFINED;
-
-	private List<Figure<? extends Troop>> playerOneTroops;
-
-	private final List<Figure<? extends Troop>> playerTwoTroops;
 
 	private TroopTimeline troopTimeline = null;
 
+
 	private final GameBoard gameBoard;
 
-	private Figure<? extends Troop> selectedFigure = null;
 
-	private final List<Figure<? extends Troop>> eliminatedTroops = new ArrayList<>();
+	/**
+	 * A list of all figures that belong to player one.
+	 * <br>
+	 * In Singleplayer, this is the player who plays the game.
+	 */
+	private List<Figure> playerOneTroops;
 
 
-	public Arena (final List<Figure<? extends Troop>> playerOneTroops, final List<Figure<? extends Troop>> playerTwoTroops, final GameBoard gameBoard)
+	private Figure selectedFigure = null;
+
+
+	public Arena (final List<Figure> playerOneTroops,
+		final List<Figure> playerTwoTroops, final GameBoard gameBoard)
 	{
 		this.playerOneTroops = playerOneTroops;
 		this.playerTwoTroops = playerTwoTroops;
@@ -40,9 +68,10 @@ public class Arena
 	}
 
 
-	private TroopTimeline initializeTimeline (final Collection<Figure<? extends Troop>> playerOneTroops, final Collection<Figure<? extends Troop>> playerTwoTroops)
+	private TroopTimeline initializeTimeline (final Collection<Figure> playerOneTroops,
+		final Collection<Figure> playerTwoTroops)
 	{
-		final ArrayList<Figure<? extends Troop>> troops = new ArrayList<>();
+		final ArrayList<Figure> troops = new ArrayList<>();
 		troops.addAll(playerOneTroops);
 		troops.addAll(playerTwoTroops);
 
@@ -62,9 +91,10 @@ public class Arena
 	}
 
 
-	private void placePlayerOneTroopAtRandomPosition (final Figure<? extends Troop> troop)
+	private void placePlayerOneTroopAtRandomPosition (final Figure troop)
 	{
-		final Position randomPosition = new Position((int) Math.round(Math.random()), (int) Math.round(Math.random() * MULTIPLIER));
+		final Position randomPosition =
+			new Position((int) Math.round(Math.random()), (int) Math.round(Math.random() * MULTIPLIER));
 
 		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
 		    AccessibleTileAppearance.class)
@@ -76,9 +106,10 @@ public class Arena
 	}
 
 
-	private void placePlayerTwoTroopAtRandomPosition (final Figure<? extends Troop> troop)
+	private void placePlayerTwoTroopAtRandomPosition (final Figure troop)
 	{
-		final Position randomPosition = new Position((int) Math.round(Math.random() + OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
+		final Position randomPosition =
+			new Position((int) Math.round(Math.random() + OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
 
 		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
 		    AccessibleTileAppearance.class)
@@ -92,7 +123,7 @@ public class Arena
 
 	private void setPlayerOneTroopPositions ()
 	{
-		for (final Figure<? extends Troop> troopFigure : this.playerOneTroops)
+		for (final Figure troopFigure : this.playerOneTroops)
 		{
 			this.placePlayerOneTroopAtRandomPosition(troopFigure);
 		}
@@ -101,14 +132,32 @@ public class Arena
 
 	private void setPlayerTwoTroopPositions ()
 	{
-		for (final Figure<? extends Troop> troopFigure : this.playerTwoTroops)
+		for (final Figure troopFigure : this.playerTwoTroops)
 		{
 			this.placePlayerTwoTroopAtRandomPosition(troopFigure);
 		}
 	}
 
 
-	public void setPlayerOneTroops (final List<Figure<? extends Troop>> playerOneTroops)
+	public Figure getSelectedFigure ()
+	{
+		return this.selectedFigure;
+	}
+
+
+	public void setSelectedFigure (final Figure selectedTroop)
+	{
+		this.selectedFigure = selectedTroop;
+	}
+
+
+	public List<Figure> getPlayerOneTroops ()
+	{
+		return this.playerOneTroops;
+	}
+
+
+	public void setPlayerOneTroops (final List<Figure> playerOneTroops)
 	{
 		this.playerOneTroops = playerOneTroops;
 		this.setPlayerOneTroopPositions();
@@ -117,31 +166,13 @@ public class Arena
 	}
 
 
-	public Figure<? extends Troop> getSelectedFigure ()
-	{
-		return this.selectedFigure;
-	}
-
-
-	public void setSelectedFigure (final Figure<? extends Troop> selectedTroop)
-	{
-		this.selectedFigure = selectedTroop;
-	}
-
-
-	public List<Figure<? extends Troop>> getPlayerOneTroops ()
-	{
-		return this.playerOneTroops;
-	}
-
-
-	public List<Figure<? extends Troop>> getPlayerTwoTroops ()
+	public List<Figure> getPlayerTwoTroops ()
 	{
 		return this.playerTwoTroops;
 	}
 
 
-	public void removeTroopFigure (final Figure<? extends Troop> troopFigure)
+	public void removeTroopFigure (final Figure troopFigure)
 	{
 		this.gameBoard.remove(troopFigure);
 		this.troopTimeline.removeTimelineElement(troopFigure);
@@ -167,7 +198,7 @@ public class Arena
 	}
 
 
-	public List<Figure<? extends Troop>> getEliminatedFigures ()
+	public List<Figure> getEliminatedFigures ()
 	{
 		return this.eliminatedTroops;
 	}

@@ -68,11 +68,12 @@ public final class EnemyController
 	 *
 	 * @return True, if the enemy attacked an allied troop, otherwise false.
 	 */
-	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure<? extends Troop> troopFigure)
+	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles,
+		final Figure troopFigure)
 	{
 		for (final Tile tile : adjacentTroopTiles)
 		{
-			final Figure<? extends Troop> adjacentTroopFigure = (Figure<? extends Troop>) tile.getCurrentElement();
+			final Figure adjacentTroopFigure = (Figure) tile.getCurrentElement();
 			if (arena.getPlayerOneTroops().contains(adjacentTroopFigure))
 			{
 				FigureController.attack(arena, troopFigure, adjacentTroopFigure);

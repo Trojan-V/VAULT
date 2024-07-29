@@ -6,7 +6,6 @@ import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Position;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
-import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,13 +54,13 @@ public class GameBoard
 	}
 
 
-	public Figure<? extends Troop> getFigure (final Position position) throws Exception
+	public Figure getFigure (final Position position) throws Exception
 	{
 		if (!(this.gameBoard[position.x()][position.y()].getCurrentElement() instanceof Figure))
 		{
 			throw new Exception("Not a troop exception..."); // TODO: Implementieren der neuen exception
 		}
-		return (Figure<? extends Troop>) this.gameBoard[position.x()][position.y()].getCurrentElement();
+		return (Figure) this.gameBoard[position.x()][position.y()].getCurrentElement();
 	}
 
 
@@ -84,7 +83,7 @@ public class GameBoard
 	public List<Tile> getReachableTroopFigureTiles (final Position position, final int attackRange)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, attackRange);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Figure<? extends Troop>));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Figure));
 		return adjacentTiles;
 	}
 

@@ -3,7 +3,6 @@ package me.vault.game.comparators;
 
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.TroopTimeline;
-import me.vault.game.model.troop.Troop;
 
 import java.util.Comparator;
 
@@ -17,7 +16,7 @@ import java.util.Comparator;
  * @see TroopTimeline#getPriorityQueue()
  * @since 28.07.2024
  */
-public class InitiativeComparator implements Comparator<Figure<? extends Troop>>
+public class InitiativeComparator implements Comparator<Figure>
 {
 	/**
 	 * Compares two {@link Figure}'s by their initiative value.
@@ -31,7 +30,7 @@ public class InitiativeComparator implements Comparator<Figure<? extends Troop>>
 	 * 0 if the first figure is equal to the second figure and 1 if the first figure is greater than the second figure.
 	 */
 	@Override
-	public int compare (final Figure<? extends Troop> figure, final Figure<? extends Troop> anotherFigure)
+	public int compare (final Figure figure, final Figure anotherFigure)
 	{
 		return Integer.compare(figure.getStatistics().getDexterity().getInitiativePoints(),
 			anotherFigure.getStatistics().getDexterity().getInitiativePoints());

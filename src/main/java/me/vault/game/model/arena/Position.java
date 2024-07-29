@@ -1,19 +1,29 @@
 package me.vault.game.model.arena;
 
 
-import me.vault.game.utility.logging.Logger;
-
 import java.text.MessageFormat;
 
 
+/**
+ * A record that consists of an X and Y coordinate, which represents a position in the two-dimensional room.
+ *
+ * @author Vincent Wolf
+ * @version 1.0.0
+ * @since 29.07.2024
+ */
 public final record Position(int x, int y)
 {
-
-	private static final Logger LOGGER = new Logger(Position.class.getSimpleName());
-
+	/**
+	 * The pattern used to create the string which describes the class in a human-readable format.
+	 */
 	private static final String TO_STRING_PATTERN = "Pos[x:{0},y:{1}]";
 
 
+	/**
+	 * Returns the instance of this class in a human-readable format by creating a string.
+	 *
+	 * @return The instance in its string representation.
+	 */
 	@Override
 	public String toString ()
 	{

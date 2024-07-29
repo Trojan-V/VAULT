@@ -20,10 +20,10 @@ import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.*;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.SelectedAlliesGridPane;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.ViewUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -122,13 +122,13 @@ public final class TroopSelectionDelegate implements Initializable
 
 
 	/**
-	 * Displays the {@link Scene} of the {@link TroopSelectionDelegate} on the main {@link Stage} of the application.
+	 * Displays the {@link Scene} of the  on the main {@link Stage} of the application.
 	 *
 	 * @param mission The {@link Mission} object, which is meant to be displayed on the main {@link Stage} after the
 	 *                troop selection is finished.
 	 *
 	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
-	 * @postcondition The main {@link Stage} displays the {@link Scene} of the {@link TroopSelectionDelegate} on the main {@link Stage}.
+	 * @postcondition The main {@link Stage} displays the {@link Scene} of the  on the main {@link Stage}.
 	 */
 	public static void show (final Mission mission)
 	{
@@ -183,11 +183,11 @@ public final class TroopSelectionDelegate implements Initializable
 
 
 	/**
-	 * Gets the {@link TroopSelectionDelegate#mission} attribute of the instance of {@link TroopSelectionDelegate}.
+	 * Gets the {@link TroopSelectionDelegate#mission} attribute of the instance of .
 	 *
 	 * @return The {@link TroopSelectionDelegate#mission} attribute as a {@link Mission} object.
 	 *
-	 * @precondition The {@link TroopSelectionDelegate#mission} attribute has already been set in the {@link TroopSelectionDelegate}.
+	 * @precondition The {@link TroopSelectionDelegate#mission} attribute has already been set in the .
 	 * @postcondition The method returned the {@link Mission} attribute.
 	 */
 	public Mission getMission ()
@@ -197,12 +197,12 @@ public final class TroopSelectionDelegate implements Initializable
 
 
 	/**
-	 * Sets the {@link TroopSelectionDelegate#mission} attribute in the instance of {@link TroopSelectionDelegate} to the passed {@link Mission} object.
+	 * Sets the {@link TroopSelectionDelegate#mission} attribute in the instance of  to the passed {@link Mission} object.
 	 *
 	 * @param mission The new {@link Mission} object, meant to replace the current attribute in the instance.
 	 *
 	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
-	 * @postcondition The {@link TroopSelectionDelegate} replaced the old {@link TroopSelectionDelegate#mission} attribute with the passed one.
+	 * @postcondition The  replaced the old {@link TroopSelectionDelegate#mission} attribute with the passed one.
 	 */
 	public void setMission (final Mission mission)
 	{
@@ -244,7 +244,7 @@ public final class TroopSelectionDelegate implements Initializable
 	private void selectTroop (final @NotNull Troop troop)
 	{
 		this.selectedAlliesGridPane.addTroop(troop);
-		Player.getInstance().addSelectedTroop(new Figure<>(troop));
+		Player.getInstance().addSelectedTroop(new Figure(troop));
 	}
 
 

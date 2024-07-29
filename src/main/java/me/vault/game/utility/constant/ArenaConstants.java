@@ -4,7 +4,6 @@ package me.vault.game.utility.constant;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.SpaceMarine;
 import me.vault.game.utility.loading.ResourceLoader;
 
@@ -48,38 +47,38 @@ public interface ArenaConstants
 	String ARENA_FOUR_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_4.txt";
 
 	@Constant
-	ArrayList<Figure<? extends Troop>> ARENA_ONE_ENEMIES = new ArrayList<>()
+	ArrayList<Figure> ARENA_ONE_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
 	}};
 
 	@Constant
-	ArrayList<Figure<? extends Troop>> ARENA_TWO_ENEMIES = new ArrayList<>()
+	ArrayList<Figure> ARENA_TWO_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
 	}};
 
 	@Constant
-	ArrayList<Figure<? extends Troop>> ARENA_THREE_ENEMIES = new ArrayList<>()
+	ArrayList<Figure> ARENA_THREE_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
 	}};
 
 	@Constant
-	ArrayList<Figure<? extends Troop>> ARENA_FOUR_ENEMIES = new ArrayList<>()
+	ArrayList<Figure> ARENA_FOUR_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
-		this.add(new Figure<Troop>(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(SpaceMarine.getAllyInstance()));
 	}};
 
 	@Constant
