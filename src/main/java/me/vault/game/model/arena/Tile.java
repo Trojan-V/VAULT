@@ -3,7 +3,6 @@ package me.vault.game.model.arena;
 
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.view.mission.MissionSelectionDelegate;
 
 import java.text.MessageFormat;
 
@@ -26,7 +25,7 @@ import java.text.MessageFormat;
 public class Tile
 {
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionSelectionDelegate#toString()} is
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Tile#toString()} is
 	 * called.
 	 */
 	private static final String TO_STRING_PATTERN = "Tile'{'position={0}, currentElement={1}'}'";

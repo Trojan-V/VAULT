@@ -3,6 +3,8 @@ package me.vault.game.model.arena;
 
 import me.vault.game.comparators.InitiativeComparator;
 
+import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -21,6 +23,13 @@ import java.util.PriorityQueue;
  */
 public class FigureTimeline
 {
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link FigureTimeline#toString()} is
+	 * called.
+	 */
+	private static final String TO_STRING_PATTERN = "FigureTimeline'{'elements={0}'}'";
+
+
 	/**
 	 * This {@link List} contains all elements of the timeline.
 	 * <br>
@@ -83,4 +92,18 @@ public class FigureTimeline
 		this.elements.remove(figure);
 	}
 
+
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link FigureTimeline#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link FigureTimeline#TO_STRING_PATTERN}.
+	 * @precondition The {@link FigureTimeline#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, Arrays.deepToString(this.elements.toArray()));
+	}
 }

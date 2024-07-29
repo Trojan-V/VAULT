@@ -5,7 +5,6 @@ import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.fx.TimelineElementHBox;
-import me.vault.game.view.mission.MissionSelectionDelegate;
 
 import java.text.MessageFormat;
 import java.util.*;
@@ -25,9 +24,8 @@ import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
  */
 public class Arena
 {
-
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionSelectionDelegate#toString()} is
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is
 	 * called.
 	 */
 	private static final String TO_STRING_PATTERN =
