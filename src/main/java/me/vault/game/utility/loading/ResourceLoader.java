@@ -332,7 +332,7 @@ public final class ResourceLoader
 	 * @param filePath The path to the file
 	 * @return number of lines in the specified file
 	 *
-	 * @precondition filePath must point to a valid file (not null)
+	 * @precondition filePath must point to a valid file (not null); file must adhere to the UTF-8 characterset
 	 * @postcondition number of lines in the file are returned
 	 */
 	public static int getNumberOfLinesInFile (String filePath)
