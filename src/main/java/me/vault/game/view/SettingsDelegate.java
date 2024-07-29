@@ -45,6 +45,7 @@ public class SettingsDelegate implements Initializable
 	@FXML
 	private Slider difficultySlider;
 
+
 	/**
 	 *
 	 */
@@ -53,32 +54,47 @@ public class SettingsDelegate implements Initializable
 		ViewUtil.show(GameApplication.getStage(), SCENE, SettingsDelegate.class);
 	}
 
+
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)
 	{
 		MainMenuDelegate.show();
 	}
 
+
 	@FXML
 	void updateDifficulty (final MouseEvent mouseEvent)
 	{
 		switch (this.difficultySlider.valueProperty().intValue())
 		{
-			case easy :     GameController.getInstance().setDifficulty(GameDifficulty.EASY_MODE);
-							break;
-			case normal:    GameController.getInstance().setDifficulty(GameDifficulty.NORMAL_MODE);
-							break;
-			case hard:      GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
-							break;
+			case easy:
+				GameController.getInstance().setDifficulty(GameDifficulty.EASY_MODE);
+				break;
+			case normal:
+				GameController.getInstance().setDifficulty(GameDifficulty.NORMAL_MODE);
+				break;
+			case hard:
+				GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
+				break;
 		}
 	}
 
 
+	/**
+	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
+	 *
+	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
+	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
+	 *
+	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
+	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
+	 */
 	@Override
 	public void initialize (URL url, ResourceBundle resourceBundle)
 	{
-		initializeDifficultySlider();
+		this.initializeDifficultySlider();
 	}
+
 
 	private void initializeDifficultySlider ()
 	{

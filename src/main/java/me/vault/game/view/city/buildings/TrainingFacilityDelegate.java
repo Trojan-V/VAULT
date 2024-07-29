@@ -19,6 +19,7 @@ import me.vault.game.model.city.TrainingFacility;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.*;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
@@ -42,7 +43,7 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 	private static final Scene SCENE = ResourceLoader.loadScene(TrainingFacility.class, "training_facility_view.fxml");
 
 
-	private static final Logger LOGGER = new Logger(TrainingFacility.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(TrainingFacility.class.getSimpleName());
 
 	@FXML
 	private AnchorPane engineerAttributePane;
@@ -291,10 +292,13 @@ public class TrainingFacilityDelegate extends CityBuildingController implements 
 
 
 	/**
-	 * Initialises the fxml-view and sets program-specific bindings and properties.
+	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
 	 *
-	 * @param url            The {@link URL} object, which represents the fxml-file of the view.
+	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
 	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
+	 *
+	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
+	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
 	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.FigureController;
 import me.vault.game.fxcontrols.GameBoardButton;
@@ -37,7 +38,8 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 /**
- * Description
+ * The {@link MissionDelegate} is responsive for the control (Controller) and display (View) of the different {@link Mission} instances. It provides
+ * methods to create the mission game board, alter {@code Mission} instances and allows the player to move and progress in the different missions.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @see Mission
@@ -76,7 +78,12 @@ public class MissionDelegate implements Initializable
 
 
 	/**
-	 * @param mission
+	 * Displays the passed {@link Mission} instance on the main {@link Stage} of the application.
+	 *
+	 * @param mission The {@code Mission} object, which is meant to be displayed on the main {@code Stage}
+	 *
+	 * @precondition A {@link NotNull} {@code Mission} object is passed into the method.
+	 * @postcondition The main {@code Stage} displays the view of the passed method.
 	 */
 	public static void show (final @NotNull Mission mission)
 	{
@@ -95,6 +102,15 @@ public class MissionDelegate implements Initializable
 	}
 
 
+	/**
+	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
+	 *
+	 * @param location  The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
+	 * @param resources A {@link ResourceBundle} object, which contains locale-specific objects.
+	 *
+	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
+	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
+	 */
 	@Override
 	public void initialize (final URL location, final ResourceBundle resources)
 	{
@@ -103,9 +119,14 @@ public class MissionDelegate implements Initializable
 
 
 	/**
-	 * @param event
-	 * @precondition
-	 * @postcondition
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Start Mission" {@link Button} in the GUI. Disables the sending {@code Button} and
+	 * enables
+	 * the game board {@link GridPane} so that the user can start playing.
+	 *
+	 * @param event The {@code ActionEvent} which represents the action of the {@code Button} press.
+	 *
+	 * @precondition The {@code Button} on the GUI gets clicked and JavaFx generates the {@code ActionEvent}.
+	 * @postcondition The sending {@code Button} disables and the game board {@code GridPane} enables in the GUI.
 	 */
 	@FXML
 	void onStartGameClick (final ActionEvent event)
@@ -117,6 +138,9 @@ public class MissionDelegate implements Initializable
 	}
 
 
+	/**
+	 * @param mission
+	 */
 	public void setMission (final @NotNull Mission mission)
 	{
 		// Sets the mission of the controller class and initializes the grid pane once.
@@ -133,8 +157,7 @@ public class MissionDelegate implements Initializable
 			for (int column = 0; column < GAME_BOARD_COLUMN_COUNT; column++)
 			{
 				final Position position = new Position(column, row);
-				final GameBoardButton
-						button = new GameBoardButton(this.mission.getGameBoard().getTile(position).getCurrentElement());
+				final GameBoardButton button = new GameBoardButton(this.mission.getGameBoard().getTile(position).getCurrentElement());
 
 				button.setOnMouseClicked(_ -> this.handleFigureInteraction(position));
 				this.missionBoardGridPane.add(button, column, row);

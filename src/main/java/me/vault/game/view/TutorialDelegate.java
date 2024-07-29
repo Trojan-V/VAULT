@@ -91,6 +91,15 @@ public final class TutorialDelegate implements Initializable
 	}
 
 
+	/**
+	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
+	 *
+	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
+	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
+	 *
+	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
+	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
+	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
