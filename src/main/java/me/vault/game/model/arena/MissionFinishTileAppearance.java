@@ -2,7 +2,6 @@ package me.vault.game.model.arena;
 
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -47,28 +46,6 @@ public class MissionFinishTileAppearance implements Placeable
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
 	{
 		return SPRITE_PROPERTY;
-	}
-
-
-	// TODO: set some name or some type shit
-	@Override
-	public String getName ()
-	{
-		return "";
-	}
-
-
-	@Override
-	public void setName (final String name)
-	{
-
-	}
-
-
-	@Override
-	public SimpleStringProperty getNameProperty ()
-	{
-		return null;
 	}
 }
 

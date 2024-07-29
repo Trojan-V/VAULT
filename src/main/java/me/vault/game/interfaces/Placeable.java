@@ -19,6 +19,6 @@ import me.vault.game.model.player.Player;
  * @see Player
  * @since 29.07.2024
  */
-public interface Placeable extends Displayable, Nameable
+public interface Placeable extends Displayable
 {
 }

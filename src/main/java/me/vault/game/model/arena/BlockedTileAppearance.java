@@ -2,7 +2,6 @@ package me.vault.game.model.arena;
 
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -50,41 +49,4 @@ public class BlockedTileAppearance implements Placeable
 	{
 		return SPRITE_PROPERTY;
 	}
-
-
-	/**
-	 * Returns the name stored within the property of the nameable object as a {@link String}.
-	 *
-	 * @return The name of the nameable object.
-	 */
-	@Override
-	public String getName ()
-	{
-		return "";
-	}
-
-
-	/**
-	 * Sets the name of the nameable object to the supplied name.
-	 *
-	 * @param name The new name for the nameable object.
-	 */
-	@Override
-	public void setName (final String name)
-	{
-
-	}
-
-
-	/**
-	 * Returns the name property of the nameable object.
-	 *
-	 * @return The name property of the nameable object.
-	 */
-	@Override
-	public SimpleStringProperty getNameProperty ()
-	{
-		return null;
-	}
-
 }

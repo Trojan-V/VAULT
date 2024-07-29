@@ -2,29 +2,40 @@ package me.vault.game.model.arena;
 
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.player.Player;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
 
+/**
+ * This class represents a {@link Placeable} object that can be placed on the {@link GameBoard}, so either on the
+ * {@link GameBoard} of an arena or on the {@link GameBoard} of a mission.
+ * <br>
+ * This object is an accessible tile, so {@link Player}s and {@link Figure}s can move onto it.
+ *
+ * @author Vincent Wolf
+ * @version 1.0.0
+ * @see Placeable
+ * @see GameBoard
+ * @since 29.07.2024
+ */
 public class AccessibleTileAppearance implements Placeable
 {
-
+	/**
+	 * The path to the sprite that represents an accessible tile.
+	 */
 	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/tile.png";
 
 
+	/**
+	 * The property that contains the sprite. This property is bound to the GUI.
+	 */
 	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
-	public AccessibleTileAppearance ()
-	{
-
-	}
-
-
 	/**
-	 * Returns the sprite that is stored within the property of the displayable object as an {.
+	 * Returns the sprite stored within the property of the displayable object as a {@link MetaDataImage}.
 	 *
 	 * @return The sprite of the displayable object.
 	 */
@@ -57,41 +68,4 @@ public class AccessibleTileAppearance implements Placeable
 	{
 		return SPRITE_PROPERTY;
 	}
-
-
-	/**
-	 * Returns the name stored within the property of the nameable object as a {@link String}.
-	 *
-	 * @return The name of the nameable object.
-	 */
-	@Override
-	public String getName ()
-	{
-		return "";
-	}
-
-
-	/**
-	 * Sets the name of the nameable object to the supplied name.
-	 *
-	 * @param name The new name for the nameable object.
-	 */
-	@Override
-	public void setName (final String name)
-	{
-
-	}
-
-
-	/**
-	 * Returns the name property of the nameable object.
-	 *
-	 * @return The name property of the nameable object.
-	 */
-	@Override
-	public SimpleStringProperty getNameProperty ()
-	{
-		return null;
-	}
-
 }
