@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Objects;
 
 import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
@@ -19,13 +20,13 @@ public class Server implements Runnable
 {
 
 
-	public static final String ACCEPTED = "Accepted";
+	private static final String ACCEPTED = "Accepted";
 
-	public static final String ERROR_ACCEPT = "Error accept!";
+	private static final String ERROR_ACCEPT = "Error accept!";
 
-	public static final String WAIT_FOR_CONNECTIONREQUEST = "Wait for Connectionrequest";
+	private static final String WAIT_FOR_CONNECTIONREQUEST = "Wait for Connection request";
 
-	public static final String ERROR_SERVER_SOCKET_CONSTRUCTOR = "Error ServerSocket-Constructor!";
+	private static final String ERROR_SERVER_SOCKET_CONSTRUCTOR = "Error ServerSocket-Constructor!";
 
 	private static final String ERROR_SERVER_SOCKET = StringConstants.ERROR_SERVER_SOCKET;
 
@@ -108,7 +109,8 @@ public class Server implements Runnable
 			final ObjectInputStream objectInputStream = new ObjectInputStream(aClient.getInputStream());
 			final ObjectOutputStream objectOutputStream = new ObjectOutputStream(aClient.getOutputStream());
 
-			final FXMLLoader fxmlLoader = (new FXMLLoader().load(this.getClass().getResource(ARENA_FXML).openStream()));
+			final FXMLLoader fxmlLoader = (new FXMLLoader().load(Objects.requireNonNull(this.getClass()
+				.getResource(ARENA_FXML)).openStream()));
 			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
 
 			arenaDelegate.setArena((Arena) objectInputStream.readObject());

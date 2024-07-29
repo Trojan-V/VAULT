@@ -243,5 +243,4 @@ public class MainMenuDelegate implements Initializable
 			ViewUtil.setButtonInactive(this.loadGameButton);
 		}
 	}
-
 }

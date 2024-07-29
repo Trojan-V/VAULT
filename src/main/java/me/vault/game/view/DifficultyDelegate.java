@@ -9,7 +9,6 @@ import javafx.scene.input.MouseEvent;
 import me.vault.game.GameApplication;
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
-import me.vault.game.utility.loading.Config;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -38,6 +37,10 @@ public final class DifficultyDelegate implements Initializable
 
 	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(DifficultyDelegate.class, DIFFICULTY_VIEW_FXML);
 
+
+	/**
+	 *
+	 */
 	@FXML
 	private Button easyDifficultyButton;
 
@@ -59,27 +62,35 @@ public final class DifficultyDelegate implements Initializable
 
 
 	@FXML
-	void click (final MouseEvent mouseEvent)
+	private void click (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.easyDifficultyButton))
 		{
-			GameController.getInstance().setDifficulty(GameDifficulty.EASY_MODE);
-			PrologueDelegate.show(GameApplication.getStage());
+			setGameDifficultyAndContinue(GameDifficulty.EASY_MODE);
 		}
 		else if (mouseEvent.getSource().equals(this.normalDifficultyButton))
 		{
-			GameController.getInstance().setDifficulty(GameDifficulty.NORMAL_MODE);
-			PrologueDelegate.show(GameApplication.getStage());
+			setGameDifficultyAndContinue(GameDifficulty.NORMAL_MODE);
 		}
 		else if (mouseEvent.getSource().equals(this.hardDifficultyButton))
 		{
-			GameController.getInstance().setDifficulty(GameDifficulty.HARD_MODE);
-			PrologueDelegate.show(GameApplication.getStage());
+			setGameDifficultyAndContinue(GameDifficulty.HARD_MODE);
 		}
 		else if (mouseEvent.getSource().equals(this.backButton))
 		{
 			MainMenuDelegate.show();
 		}
+	}
+
+
+	/**
+	 *
+	 * @param gameDifficulty
+	 */
+	private void setGameDifficultyAndContinue (GameDifficulty gameDifficulty)
+	{
+		GameController.getInstance().setDifficulty(gameDifficulty);
+		PrologueDelegate.show(GameApplication.getStage());
 	}
 
 	/**
