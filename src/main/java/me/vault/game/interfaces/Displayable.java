@@ -23,7 +23,7 @@ public interface Displayable
 {
 
 	/**
-	 * Returns the sprite that is stored within the property of the displayable object as an {@link Image}.
+	 * Returns the sprite stored within the property of the displayable object as an {@link Image}.
 	 *
 	 * @return The sprite of the displayable object.
 	 */

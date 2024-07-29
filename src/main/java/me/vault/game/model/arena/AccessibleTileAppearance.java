@@ -3,6 +3,7 @@ package me.vault.game.model.arena;
 
 import javafx.beans.property.SimpleObjectProperty;
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -13,6 +14,8 @@ import me.vault.game.utility.struct.MetaDataImage;
  * {@link GameBoard} of an arena or on the {@link GameBoard} of a mission.
  * <br>
  * This object is an accessible tile, so {@link Player}s and {@link Figure}s can move onto it.
+ * <br>
+ * This tile type is available on the {@link GameBoard} of the {@link Mission} as well as the {@link Arena}.
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -35,9 +38,7 @@ public class AccessibleTileAppearance implements Placeable
 
 
 	/**
-	 * Returns the sprite stored within the property of the displayable object as a {@link MetaDataImage}.
-	 *
-	 * @return The sprite of the displayable object.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -47,9 +48,7 @@ public class AccessibleTileAppearance implements Placeable
 
 
 	/**
-	 * Sets the sprite of the displayable object to the supplied sprite.
-	 *
-	 * @param sprite The new sprite for the displayable object.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
@@ -59,9 +58,7 @@ public class AccessibleTileAppearance implements Placeable
 
 
 	/**
-	 * Returns the sprite property of the displayable object.
-	 *
-	 * @return The sprite property of the displayable object.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
