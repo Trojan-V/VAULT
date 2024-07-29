@@ -1,4 +1,4 @@
-package me.vault.game.fxcontrols;
+package me.vault.game.utility.fx;
 
 
 import javafx.scene.control.Button;
