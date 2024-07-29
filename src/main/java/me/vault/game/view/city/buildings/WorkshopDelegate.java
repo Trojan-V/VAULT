@@ -44,7 +44,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Workshop
  * @since 11.06.2024
  */
-public final class WorkshopDelegate extends CityBuildingController implements Initializable
+public final class WorkshopDelegate implements Initializable
 {
 
 	/**

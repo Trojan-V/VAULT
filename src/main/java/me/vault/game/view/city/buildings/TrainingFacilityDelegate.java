@@ -33,7 +33,7 @@ import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
-public final class TrainingFacilityDelegate extends CityBuildingController implements Initializable
+public final class TrainingFacilityDelegate implements Initializable
 {
 
 	/**

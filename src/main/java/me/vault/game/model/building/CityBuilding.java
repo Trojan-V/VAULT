@@ -10,6 +10,7 @@ import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.struct.MetaDataImage;
+import me.vault.game.view.city.CityDelegate;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;

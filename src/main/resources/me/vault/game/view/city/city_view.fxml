@@ -1,288 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="cityAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.city.CityDelegate">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="cityAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.CityDelegate">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <viewport>
-                <Rectangle2D height="720.0" width="1280.0"/>
+                <Rectangle2D height="720.0" width="1280.0" />
             </viewport>
             <image>
-                <Image url="@../../assets/background/city_background.png"/>
+                <Image url="@../../assets/background/city_background.png" />
             </image>
         </ImageView>
-        <GridPane AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                  AnchorPane.topAnchor="115.0">
+        <GridPane fx:id="cityGridPane" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
-            <children>
-                <Button fx:id="barracksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onBarracksUpgrade" prefHeight="0.0" prefWidth="270.0"
-                        style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE"
-                        GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                        GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="marketButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onMarketButtonClick" prefHeight="175.0" prefWidth="425.0"
-                        style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Market"
-                        GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="65.0" left="25.0" right="25.0" top="50.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="marketUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onMarketUpgrade" prefHeight="0.0" prefWidth="270.0"
-                        style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE"
-                        GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                        GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="docksButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onDocksButtonClick" prefHeight="175.0" prefWidth="425.0"
-                        style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Docks"
-                        GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="65.0" left="25.0" right="25.0" top="50.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="docksUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onDocksUpgrade" prefHeight="0.0" prefWidth="270.0"
-                        style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE"
-                        GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="spaceBarButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onSpaceBarButtonClick" prefHeight="175.0" prefWidth="425.0"
-                        style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Space-Bar"
-                        GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="65.0" left="25.0" right="25.0" top="50.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="spaceBarUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onSpaceBarUpgrade" prefHeight="0.0" prefWidth="270.0"
-                        style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE"
-                        GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="workshopButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onWorkshopButtonClick" prefHeight="175.0" prefWidth="425.0"
-                        style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Workshop"
-                        GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="65.0" left="25.0" right="25.0" top="50.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="workshopUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onWorkshopUpgrade" prefHeight="0.0" prefWidth="270.0"
-                        style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE"
-                        GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="commandCenterButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onCommandCenterButtonClick" prefHeight="175.0" prefWidth="425.0"
-                        style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Command Center"
-                        GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="65.0" left="25.0" right="25.0" top="50.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="commandCenterUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM"
-                        mnemonicParsing="false" onAction="#onCommandCenterUpgrade" prefHeight="0.0" prefWidth="270.0"
-                        style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE"
-                        GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="trainingfacilityButton" alignment="CENTER" contentDisplay="BOTTOM"
-                        mnemonicParsing="false" onAction="#onTrainingFacilityButtonClick" prefHeight="175.0"
-                        prefWidth="425.0" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;"
-                        text="Training Facility" GridPane.columnIndex="3">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="65.0" left="25.0" right="25.0" top="50.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="trainingfacilityUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM"
-                        mnemonicParsing="false" onAction="#onTrainingFacilityUpgrade" prefHeight="0.0" prefWidth="270.0"
-                        style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE"
-                        GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="barracksButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onBarracksButtonClick" prefHeight="175.0" prefWidth="425.0"
-                        style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Barracks"
-                        GridPane.columnIndex="2" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="65.0" left="25.0" right="25.0" top="50.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="laboratoryButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false"
-                        onAction="#onLaboratoryButtonClick" prefHeight="175.0" prefWidth="425.0"
-                        style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;" text="Laboratory"
-                        GridPane.columnIndex="3" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="65.0" left="25.0" right="25.0" top="50.0"/>
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="laboratoryUpgradeButton" alignment="CENTER" contentDisplay="BOTTOM"
-                        mnemonicParsing="false" onAction="#onLaboratoryUpgrade" prefHeight="0.0" prefWidth="270.0"
-                        style="-fx-background-color: lightgreen; -fx-border-color: green;" text="UPGRADE"
-                        GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                        GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="Segoe UI Semibold" size="18.0"/>
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                    <GridPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-                    </GridPane.margin>
-                </Button>
-            </children>
         </GridPane>
-        <Button layoutX="45.0" layoutY="671.0" mnemonicParsing="false" onAction="#onBackToMainMenu" prefHeight="55.0"
-                prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Back To Main Menu"
-                AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="895.0"
-                AnchorPane.topAnchor="640.0">
+        <Button layoutX="45.0" layoutY="671.0" mnemonicParsing="false" onAction="#onBackToMainMenu" prefHeight="55.0" prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Back To Main Menu" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="895.0" AnchorPane.topAnchor="640.0">
             <font>
-                <Font name="Segoe UI" size="22.0"/>
+                <Font name="Segoe UI" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="895.0" layoutY="640.0" mnemonicParsing="false" onAction="#onOpenHelpMenu" prefHeight="55.0"
-                prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Open Help Menu"
-                AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="895.0" AnchorPane.rightAnchor="25.0"
-                AnchorPane.topAnchor="640.0">
+        <Button layoutX="895.0" layoutY="640.0" mnemonicParsing="false" onAction="#onOpenHelpMenu" prefHeight="55.0" prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Open Help Menu" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="895.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="640.0">
             <font>
-                <Font name="Segoe UI" size="22.0"/>
+                <Font name="Segoe UI" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="460.0" layoutY="640.0" mnemonicParsing="false" onAction="#onSaveToConfig" prefHeight="55.0"
-                prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: grey;"
-                text="Save game to config" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="460.0"
-                AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="640.0">
+        <Button layoutX="460.0" layoutY="640.0" mnemonicParsing="false" onAction="#onSaveToConfig" prefHeight="55.0" prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: grey;" text="Save game to config" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="640.0">
             <font>
-                <Font name="Segoe UI" size="22.0"/>
+                <Font name="Segoe UI" size="22.0" />
             </font>
         </Button>
     </children>
