@@ -61,7 +61,7 @@ public final class FigureController
 	 * Moves the {@link Placeable} on the {@link GameBoard} to the supplied {@link Position}.
 	 *
 	 * @param gameBoard    The {@link GameBoard} where the encounter is happening.
-	 * @param placeable    Should be either a {@link Figure<? extends Troop>} or a {@link Player}. But generally
+	 * @param placeable    Should be either a {@link Figure <? extends Troop>} or a {@link Player}. But generally
 	 *                     speaking, this is the {@link Placeable} that will be moved on the {@link GameBoard}.
 	 * @param nextPosition The position the {@link Placeable} should be moved to.
 	 */
@@ -96,6 +96,8 @@ public final class FigureController
 
 		final int calculatedDamage = calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
 		final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;
+
+		// TODO: remove prints
 		System.out.println("calculatedDamage = " + calculatedDamage);
 		System.out.println("newDefenderHealthPoints = " + newDefenderHealthPoints);
 

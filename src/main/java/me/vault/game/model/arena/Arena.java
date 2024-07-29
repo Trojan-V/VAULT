@@ -153,7 +153,7 @@ public class Arena
 
 	public void removeTroopFigure (final Figure<? extends Troop> troopFigure)
 	{
-		this.gameBoard.removeFigure(troopFigure);
+		this.gameBoard.remove(troopFigure);
 		this.troopTimeline.removeTimelineElement(troopFigure);
 		this.eliminatedTroops.add(troopFigure);
 		this.checkForChangedState();

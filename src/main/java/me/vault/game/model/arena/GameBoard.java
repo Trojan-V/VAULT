@@ -128,9 +128,8 @@ public class GameBoard
 	}
 
 
-	public void removeFigure (final Figure<? extends Troop> troopFigure)
+	public void remove (final Placeable placeable)
 	{
-		this.place(this.getPosition(troopFigure), new AccessibleTileAppearance());
+		this.place(this.getPosition(placeable), new AccessibleTileAppearance());
 	}
-
 }

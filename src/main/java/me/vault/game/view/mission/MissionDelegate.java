@@ -137,12 +137,12 @@ public class MissionDelegate implements Initializable
 
 
 	/**
-	 * Sets the {@link Mission} object in an instance of {@link MissionDelegate} to the passed {@link Mission} object.
+	 * Sets the {@link Mission} object in an instance of this class to the passed {@link Mission} object.
 	 *
 	 * @param mission The new {@link Mission} object, meant to replace the current one in the instance.
 	 *
 	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
-	 * @postcondition The {@link MissionDelegate} replaced the old {@link Mission} with the passed one.
+	 * @postcondition The old {@link Mission} instance was replaced with the supplied one.
 	 */
 	public void setMission (final @NotNull Mission mission)
 	{
@@ -198,9 +198,9 @@ public class MissionDelegate implements Initializable
 		final boolean playerCanMove = FigureController.playerCanMoveToPosition(missionGameBoard, player, position);
 		final boolean playerCanReach = FigureController.playerCanReachPosition(missionGameBoard, player, position);
 
-		if (nextTileElement instanceof PlaceholderTileAppearance && playerCanMove)
+		if (nextTileElement instanceof AccessibleTileAppearance && playerCanMove)
 		{
-			FigureController.movePlayer(missionGameBoard, player, position);
+			FigureController.move(missionGameBoard, player, position);
 		}
 		else if (nextTileElement instanceof ArenaStartTileAppearance && playerCanReach)
 		{
