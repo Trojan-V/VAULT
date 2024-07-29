@@ -604,11 +604,11 @@ public class TroopStatistics
 		 * <br>
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
-		 * @param healthPoints The number of health points of the {@link Troop}.
+		 * @param health The number of health points of the {@link Troop}.
 		 */
-		public void setHealthPoints (final float healthPoints)
+		public void setHealth (final float health)
 		{
-			this.health.set(Math.round(healthPoints));
+			this.health.set(Math.round(health));
 		}
 
 
@@ -618,7 +618,7 @@ public class TroopStatistics
 		 *
 		 * @return The property used to store and display the health points that are available to the {@link Troop}.
 		 */
-		public SimpleIntegerProperty getHealthPointsProperty ()
+		public SimpleIntegerProperty getHealthProperty ()
 		{
 			return this.health;
 		}
@@ -651,11 +651,11 @@ public class TroopStatistics
 		 * <br>
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
-		 * @param armorPoints The number of armor points of the {@link Troop}.
+		 * @param armor The number of armor points of the {@link Troop}.
 		 */
-		public void setArmorPoints (final float armorPoints)
+		public void setArmor (final float armor)
 		{
-			this.armor.set(Math.round(armorPoints));
+			this.armor.set(Math.round(armor));
 		}
 
 
@@ -744,11 +744,11 @@ public class TroopStatistics
 		 * <br>
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
-		 * @param resistancePoints The number of resistance points of the {@link Troop}.
+		 * @param resistance The number of resistance points of the {@link Troop}.
 		 */
-		public void setResistancePoints (final float resistancePoints)
+		public void setResistance (final float resistance)
 		{
-			this.resistance.set(Math.round(resistancePoints));
+			this.resistance.set(Math.round(resistance));
 		}
 
 
@@ -917,7 +917,7 @@ public class TroopStatistics
 		 *
 		 * @param initiative The number of initiative points that are available to the {@link Troop}.
 		 */
-		public void setInitiativePoints (final int initiative)
+		public void setInitiative (final int initiative)
 		{
 			this.initiative.set(initiative);
 		}
@@ -930,7 +930,7 @@ public class TroopStatistics
 		 *
 		 * @param initiative The number of initiative points that are available to the {@link Troop}.
 		 */
-		public void setInitiativePoints (final float initiative)
+		public void setInitiative (final float initiative)
 		{
 			this.initiative.set(Math.round(initiative));
 		}

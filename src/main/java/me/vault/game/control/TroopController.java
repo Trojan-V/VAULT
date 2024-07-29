@@ -64,7 +64,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 		final Dexterity dexterityStats = troop.getStatistics().getDexterity();
 		final Dexterity newDexterityStats = troop.getStatistics(troop.getLevel()).getDexterity();
 
-		dexterityStats.setInitiativePoints(newDexterityStats.getInitiativePoints());
+		dexterityStats.setInitiative(newDexterityStats.getInitiativePoints());
 		dexterityStats.setMovementTiles(newDexterityStats.getMovementTiles());
 	}
 
@@ -130,7 +130,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 			DODGE_ATTRIBUTE_GRID_X, DODGE_ATTRIBUTE_GRID_Y);
 
 		gridPane.add(getSingleAttributeHBox(HEALTH_ATTRIBUTE_ICON_PATH, HEALTH_ATTRIBUTE_NAME,
-				defensive.getHealthPointsProperty()),
+				defensive.getHealthProperty()),
 			HEALTH_ATTRIBUTE_GRID_X, HEALTH_ATTRIBUTE_GRID_Y);
 
 		gridPane.add(getSingleAttributeHBox(ARMOR_ATTRIBUTE_ICON_PATH, ARMOR_ATTRIBUTE_NAME,
