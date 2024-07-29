@@ -74,9 +74,9 @@ public final class FigureController
 	{
 		// Get the statistics of the attacker and defender so the damage can be calculated.
 		final Defensive defenderDefensiveStats = defender.getStatistics().getDefensive();
-		final double dice = DiceRoll.getDice();
+		final double dice = DiceRoll.D20();
 
-		if (dice < defenderDefensiveStats.getDodgeRate())
+		if (dice >= defenderDefensiveStats.getDodgeRate())
 		{
 			final int calculatedDamage = calculateDamage(attacker, defender);
 			final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;

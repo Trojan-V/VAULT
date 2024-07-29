@@ -6,26 +6,17 @@ import java.util.Random;
 
 public class DiceRoll
 {
-	private static final int DICE_EYE_SUM = 20;
 
 
-	private static final double FIVE_PERCENT_MULTIPLICATOR = 0.05;
+	private static final int D20_UPPER_BOUND = 20;
+
+	private static final int D20_LOWER_BOUND = 1;
 
 
-	private static double dice;
-
-	private static double diceRollD20 (double dice)
+	public static double D20 ()
 	{
 		final Random random = new Random();
-		dice = random.nextInt(DICE_EYE_SUM);
-		dice += DICE_EYE_SUM;
-		dice *= FIVE_PERCENT_MULTIPLICATOR;
-		return dice;
+		return random.nextInt(D20_LOWER_BOUND, D20_UPPER_BOUND);
 	}
 
-
-	public static double getDice ()
-	{
-		return dice;
-	}
 }
