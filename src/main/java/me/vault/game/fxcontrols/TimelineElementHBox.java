@@ -47,8 +47,8 @@ public final class TimelineElementHBox extends HBox
 		final VBox statistics = new VBox();
 		statistics.setPrefSize(VBOX_WIDTH, VBOX_HEIGHT);
 		statistics.getChildren().add(new Label(NAME + troopFigure.getName()));
-		statistics.getChildren().add(new Label(HEALTH + troopFigure.getStatistics().getDefensiveStatistic().getHealthPoints()));
-		statistics.getChildren().add(new Label(ARMOR + troopFigure.getStatistics().getDefensiveStatistic().getArmor()));
+		statistics.getChildren().add(new Label(HEALTH + troopFigure.getStatistics().getDefensive().getHealth()));
+		statistics.getChildren().add(new Label(ARMOR + troopFigure.getStatistics().getDefensive().getArmor()));
 		statistics.setSpacing(VERTICAL_SPACING);
 
 		final ImageView sprite = new ImageView(troopFigure.getSprite());

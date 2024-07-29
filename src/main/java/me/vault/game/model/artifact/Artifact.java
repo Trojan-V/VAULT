@@ -83,8 +83,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 	/**
 	 * This property is used to store and dynamically display the name of the artifact. If the name is updated within
-	 * this property, JavaFX instantly
-	 * applies the change, so it's visible in the GUI.
+	 * this property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 *
 	 * @see SimpleStringProperty
 	 */
@@ -476,7 +475,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	/**
 	 * Returns the instance of this class in a human-readable format by creating a string.
 	 *
-	 * @return The message in its string representation.
+	 * @return The instance in its string representation.
 	 */
 	@Override
 	public String toString ()

@@ -2,7 +2,6 @@ package me.vault.game.model.arena;
 
 
 import me.vault.game.interfaces.Placeable;
-import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;
@@ -30,19 +29,7 @@ public class GameBoard
 	}
 
 
-	public Position getFigurePosition (final Figure<? extends Troop> figure)
-	{
-		return this.getEntityPosition(figure);
-	}
-
-
-	public Position getFigurePosition (final Player player)
-	{
-		return this.getEntityPosition(player);
-	}
-
-
-	private Position getEntityPosition (final Placeable placeable)
+	public Position getPosition (final Placeable placeable)
 	{
 		for (int i = 0; i < this.gameBoard.length; i++)
 		{
@@ -74,10 +61,10 @@ public class GameBoard
 	}
 
 
-	public void placeIfPlaceholder (final Position position, final Placeable troopFigure)
+	public void placeIfAccessibleTile (final Position position, final Placeable troopFigure)
 	{
 		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() ==
-		    PlaceholderTileAppearance.class)
+		    AccessibleTileAppearance.class)
 		{
 			this.place(position, troopFigure);
 		}
@@ -128,7 +115,7 @@ public class GameBoard
 	public List<Tile> getAdjacentPlaceholderTiles (final Position position)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof PlaceholderTileAppearance));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof AccessibleTileAppearance));
 		return adjacentTiles;
 	}
 
@@ -136,14 +123,14 @@ public class GameBoard
 	public List<Tile> getAdjacentPlaceholderTiles (final Position position, final int range)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, range);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof PlaceholderTileAppearance));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof AccessibleTileAppearance));
 		return adjacentTiles;
 	}
 
 
 	public void removeFigure (final Figure<? extends Troop> troopFigure)
 	{
-		this.place(this.getFigurePosition(troopFigure), new PlaceholderTileAppearance());
+		this.place(this.getPosition(troopFigure), new AccessibleTileAppearance());
 	}
 
 }

@@ -35,7 +35,6 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  */
 public final class ResourceLoader
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -226,7 +225,7 @@ public final class ResourceLoader
 							Player.getInstance());
 						// any char besides the preceding reserved ones are accepted as placeholders.
 						default -> gameBoard[column][row] =
-							new Tile(new Position(column, row), new PlaceholderTileAppearance());
+							new Tile(new Position(column, row), new AccessibleTileAppearance());
 					}
 				}
 			}

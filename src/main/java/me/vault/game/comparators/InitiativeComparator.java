@@ -33,7 +33,7 @@ public class InitiativeComparator implements Comparator<Figure<? extends Troop>>
 	@Override
 	public int compare (final Figure<? extends Troop> figure, final Figure<? extends Troop> anotherFigure)
 	{
-		return Integer.compare(figure.getStatistics().getDexterityStatistic().getInitiative(),
-			anotherFigure.getStatistics().getDexterityStatistic().getInitiative());
+		return Integer.compare(figure.getStatistics().getDexterity().getInitiativePoints(),
+			anotherFigure.getStatistics().getDexterity().getInitiativePoints());
 	}
 }

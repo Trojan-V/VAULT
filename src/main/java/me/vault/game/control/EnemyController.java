@@ -53,7 +53,7 @@ public final class EnemyController
 	 */
 	public static void moveTo (final Arena arena, final Tile tile, final Figure<Troop> troopFigure)
 	{
-		FigureController.moveFigure(arena.getGameBoard(), troopFigure, tile.getPosition());
+		FigureController.move(arena.getGameBoard(), troopFigure, tile.getPosition());
 	}
 
 
@@ -73,7 +73,7 @@ public final class EnemyController
 			final Figure<? extends Troop> adjacentTroopFigure = (Figure<? extends Troop>) tile.getCurrentElement();
 			if (arena.getPlayerOneTroops().contains(adjacentTroopFigure))
 			{
-				FigureController.attackFigure(arena, troopFigure, adjacentTroopFigure);
+				FigureController.attack(arena, troopFigure, adjacentTroopFigure);
 				LOGGER.log(DEBUG, MessageFormat.format(ATTACKED_MSG, troopFigure.getName(),
 					adjacentTroopFigure.getName()));
 				return true;

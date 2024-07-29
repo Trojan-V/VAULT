@@ -8,7 +8,7 @@ import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
 
-public class PlaceholderTileAppearance implements Placeable
+public class AccessibleTileAppearance implements Placeable
 {
 
 	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/tile.png";
@@ -17,7 +17,7 @@ public class PlaceholderTileAppearance implements Placeable
 	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
-	public PlaceholderTileAppearance ()
+	public AccessibleTileAppearance ()
 	{
 
 	}

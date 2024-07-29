@@ -135,15 +135,15 @@ public class ArenaDelegate
 		final Placeable nextTileElement = arenaGameBoard.getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
-		if (nextTileElement instanceof PlaceholderTileAppearance &&
+		if (nextTileElement instanceof AccessibleTileAppearance &&
 		    FigureController.figureCanMoveToPosition(arenaGameBoard, attacker, position))
 		{
-			FigureController.moveFigure(arenaGameBoard, attacker, position);
+			FigureController.move(arenaGameBoard, attacker, position);
 			interactionFailed = false;
 		}
 		else if (nextTileElement instanceof final Figure<? extends Troop> defender && FigureController.figureCanAttackFigure(this.arena, attacker, position))
 		{
-			FigureController.attackFigure(this.arena, attacker, defender);
+			FigureController.attack(this.arena, attacker, defender);
 			interactionFailed = false;
 		}
 		if (interactionFailed)
@@ -190,9 +190,9 @@ public class ArenaDelegate
 	{
 		final GameBoard arenaGameBoard = this.arena.getGameBoard();
 
-		final Position position = arenaGameBoard.getFigurePosition(this.arena.getSelectedFigure());
-		final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensiveStatistic().getGrenadeRange();
-		final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterityStatistic().getMovementTiles();
+		final Position position = arenaGameBoard.getPosition(this.arena.getSelectedFigure());
+		final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensive().getGrenadeRange();
+		final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterity().getMovementTiles();
 
 		final List<Tile> reachableTroopFigureTiles = arenaGameBoard.getReachableTroopFigureTiles(position, attackRange);
 		final List<Tile> adjacentAccessibleTiles = arenaGameBoard.getAdjacentPlaceholderTiles(position, movementRange);
@@ -204,7 +204,8 @@ public class ArenaDelegate
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{
-			FigureController.moveFigure(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst().getPosition());
+			FigureController.move(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst()
+				.getPosition());
 		}
 	}
 
