@@ -13,6 +13,7 @@ import me.vault.game.utility.struct.MetaDataImage;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -336,20 +337,16 @@ public final class ResourceLoader
 	 */
 	public static int getNumberOfLinesInFile (String filePath)
 	{
-		int numberOfLines = 0;
-
+		int numberOfLines;
 		try
 		{
-			while (createBufferedReaderFromFile(filePath).readLine() != null)
-			{
-				numberOfLines++;
-			}
+			numberOfLines = (int) Files.lines(new File(filePath).toPath(), StandardCharsets.UTF_8).count();
 		}
 		catch (IOException e)
 		{
 			throw new RuntimeException(e);
 		}
-		return numberOfLines;
+		 return numberOfLines;
 	}
 
 	/**
