@@ -355,9 +355,7 @@ public final class ResourceLoader
 	 * @param filePath The Path to the file that should be converted to a {@link BufferedReader}
 	 * @return {@link BufferedReader} of the specified File
 	 *
-	 * @precondition The filePath has to point to a valid file (not null); The file must contain only characters in
-	 * the UTF-8
-	 * characterset
+	 * @precondition The filePath has to point to a valid file (not null); The file must contain only UTF-8 characters
 	 * @postcondition A BufferedReader of the specifiedFile
 	 */
 	public static BufferedReader createBufferedReaderFromFile (String filePath)
