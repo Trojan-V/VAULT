@@ -191,7 +191,7 @@ public final class ResourceLoader
 	}
 
 
-	public static Tile[][] createGameBoardFromFile (final String filePath)
+	public static Tile[][] createTileArrayFromFile (final String filePath)
 	{
 		final Tile[][] gameBoard = new Tile[GAME_BOARD_ROW_COUNT][GAME_BOARD_COLUMN_COUNT];
 

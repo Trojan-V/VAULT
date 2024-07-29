@@ -5,8 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.utility.constant.EncounterConstants;
-import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.utility.constant.ArenaConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +22,18 @@ public class Mission
 
 	private final CurrencyTransaction missionReward;
 
-	private SimpleBooleanProperty completedProperty;
+	private final SimpleBooleanProperty completedProperty;
+
+	private static final List<Arena> AVAILABLE_ARENA_ENCOUNTERS = new ArrayList<>();
 
 
-	private final List<Arena> availableArenaEncounters = new ArrayList<>();
+	static
+	{
+		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ARENA_ONE);
+		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ARENA_TWO);
+		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ARENA_THREE);
+		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ARENA_FOUR);
+	}
 
 
 	public Mission (final String name, final String description, final GameBoard gameBoard, final CurrencyTransaction missionReward)
@@ -36,8 +43,6 @@ public class Mission
 		this.gameBoard = gameBoard;
 		this.description = description;
 		this.missionReward = missionReward;
-		this.availableArenaEncounters.add(new Arena(List.of(), EncounterConstants.ENCOUNTER_ONE_ENEMIES,
-			new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map/Encounter_2.txt"))));
 	}
 
 
@@ -85,7 +90,7 @@ public class Mission
 
 	public List<Arena> getAvailableArenaEncounters ()
 	{
-		return this.availableArenaEncounters;
+		return this.AVAILABLE_ARENA_ENCOUNTERS;
 	}
 
 }

@@ -29,8 +29,7 @@ public interface LoggingConstants
 	String PROGRAM_START = "Program started - arguments: {0}";
 
 
-	String EXECUTION_NOT_POSSIBLE_ANYMORE =
-		"Exiting the program because a meaningful execution isn't possible anymore.";
+	String EXECUTION_NOT_POSSIBLE_ANYMORE = "Exiting the program because a meaningful execution isn't possible anymore.";
 
 
 	String STATIC_INITIALIZER_ENTERED = "The static initializer of {0} was entered.";
@@ -157,12 +156,10 @@ public interface LoggingConstants
 		String HEADER = ConsoleColor.MAGENTA_UNDERLINED + "JVM Arguments" + ConsoleColor.RESET;
 
 
-		String NO_LOG_DEPTH_ARGUMENT =
-			"No argument found after -log_depth, the default depth " + "value {0} is now applied.";
+		String NO_LOG_DEPTH_ARGUMENT = "No argument found after -log_depth, the default depth " + "value {0} is now applied.";
 
 
-		String INVALID_LOG_DEPTH_ARGUMENT =
-			"Invalid argument {0} found after -log_depth, the default depth value {1} is now " + "applied.";
+		String INVALID_LOG_DEPTH_ARGUMENT = "Invalid argument {0} found after -log_depth, the default depth value {1} is now " + "applied.";
 
 
 		String LOG_DEPTH_SET = "The log depth has been set to {0}";
@@ -174,8 +171,7 @@ public interface LoggingConstants
 		String INVALID_ARGUMENT = "Invalid argument {0} found at position {1}.";
 
 
-		String VALID_ARGUMENT_LIST =
-			"Valid arguments are: " + Arrays.toString(me.vault.game.utility.jvm.JvmArgument.values());
+		String VALID_ARGUMENT_LIST = "Valid arguments are: " + Arrays.toString(me.vault.game.utility.jvm.JvmArgument.values());
 
 
 		String LOG_DEPTH_STATUS = ConsoleColor.MAGENTA_BOLD + "logDepth is set to: {0}" + ConsoleColor.RESET;
@@ -184,21 +180,26 @@ public interface LoggingConstants
 		String CHEATS_STATUS = ConsoleColor.MAGENTA_BOLD + "Cheats are set to: {0}" + ConsoleColor.RESET;
 
 
-		String JVM_ARGUMENT_CONSTRUCTION_ERROR =
-			"The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" +
-			" | actual = {1}]";
+		String JVM_ARGUMENT_CONSTRUCTION_ERROR = "The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" + " | actual = {1}]";
 
 	}
 
 
 	interface ArenaDelegate
 	{
+
 		String ARENA_DISPLAY_FAILED = "Failed to load ArenaDelegate for an arena: {0}";
 
+		String ATTACKED_MSG = "{0} attacked {1}.";
+
 	}
+
 
 	interface MissionDelegate
 	{
+
 		String MISSION_DISPLAY_FAILED = "Failed to load MissionDelegate for a mission: {0}";
+
 	}
+
 }

@@ -10,11 +10,10 @@ import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import static me.vault.game.utility.constant.ArenaConstants.ATTACKED_MSG;
+import static me.vault.game.utility.constant.LoggingConstants.ArenaDelegate.ATTACKED_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -29,6 +28,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class EnemyController
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -61,9 +61,10 @@ public final class EnemyController
 	 * Scans the area around the enemy. If an allied troop (so an enemy for the enemy) is next to the enemy, it'll
 	 * attack.
 	 *
-	 * @param arena The instance of the arena where the encounter is happening.
+	 * @param arena              The instance of the arena where the encounter is happening.
 	 * @param adjacentTroopTiles An {@link Iterable} of all tiles that are adjacent to the enemy.
-	 * @param troopFigure The enemy {@link Figure}.
+	 * @param troopFigure        The enemy {@link Figure}.
+	 *
 	 * @return True, if the enemy attacked an allied troop, otherwise false.
 	 */
 	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure<? extends Troop> troopFigure)
@@ -74,8 +75,7 @@ public final class EnemyController
 			if (arena.getPlayerOneTroops().contains(adjacentTroopFigure))
 			{
 				FigureController.attack(arena, troopFigure, adjacentTroopFigure);
-				LOGGER.log(DEBUG, MessageFormat.format(ATTACKED_MSG, troopFigure.getName(),
-					adjacentTroopFigure.getName()));
+				LOGGER.logf(DEBUG, ATTACKED_MSG, troopFigure.getName(), adjacentTroopFigure.getName());
 				return true;
 			}
 		}
@@ -87,6 +87,7 @@ public final class EnemyController
 	 * The level of the enemies is increased depending on the difficulty that was selected in the main menu.
 	 *
 	 * @param encounterEnemies A list of all enemies that appear in the encounter.
+	 *
 	 * @return A {@link List} of the supplied enemies with the adjusted difficulty level.
 	 */
 	public static ArrayList<? extends Troop> adjustEnemiesByDifficulty (final ArrayList<? extends Troop> encounterEnemies)

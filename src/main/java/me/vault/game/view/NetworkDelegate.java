@@ -144,7 +144,7 @@ public class NetworkDelegate implements Initializable
 				return;
 			}
 			NetworkController.runClient(this.host, this.port);
-			ArenaDelegate.show(GameConstants.ARENA);
+			// ArenaDelegate.show(GameConstants.ARENA);
 			stage.close();
 		}
 	}
