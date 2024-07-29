@@ -2,6 +2,7 @@ package me.vault.game.model.arena;
 
 
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Troop;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 public class GameBoard
 {
 
-	private static final int RANGE = 1;
+	private static final int DEFAULT_RANGE = 1;
 
 
 	private final Tile[][] gameBoard;
@@ -29,13 +30,25 @@ public class GameBoard
 	}
 
 
-	public Position getFigurePosition (final Figure<? extends Troop> troop)
+	public Position getFigurePosition (final Figure<? extends Troop> figure)
+	{
+		return this.getEntityPosition(figure);
+	}
+
+
+	public Position getFigurePosition (final Player player)
+	{
+		return this.getEntityPosition(player);
+	}
+
+
+	private Position getEntityPosition (final Placeable placeable)
 	{
 		for (int i = 0; i < this.gameBoard.length; i++)
 		{
 			for (int j = 0; j < this.gameBoard[0].length; j++)
 			{
-				if (this.gameBoard[i][j].getCurrentElement() == troop)
+				if (this.gameBoard[i][j].getCurrentElement() == placeable)
 				{
 					return new Position(i, j);
 				}
@@ -61,16 +74,17 @@ public class GameBoard
 	}
 
 
-	public void placeFigure (final Position position, final Placeable troopFigure)
+	public void placeIfPlaceholder (final Position position, final Placeable troopFigure)
 	{
-		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == Placeholder.class)
+		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() ==
+		    PlaceholderTileAppearance.class)
 		{
-			this.setPlaceable(position, troopFigure);
+			this.place(position, troopFigure);
 		}
 	}
 
 
-	public void setPlaceable (final Position position, final Placeable placeable)
+	public void place (final Position position, final Placeable placeable)
 	{
 		this.gameBoard[position.x()][position.y()].setCurrentElement(placeable);
 	}
@@ -86,7 +100,7 @@ public class GameBoard
 
 	public List<Tile> getAdjacentTiles (final Position position)
 	{
-		return this.getAdjacentTiles(position, RANGE);
+		return this.getAdjacentTiles(position, DEFAULT_RANGE);
 	}
 
 
@@ -101,7 +115,7 @@ public class GameBoard
 				{
 					adjacentTiles.add(this.gameBoard[i][j]);
 				}
-				catch (final IndexOutOfBoundsException ignored)
+				catch (final IndexOutOfBoundsException _)
 				{
 				}
 			}
@@ -111,25 +125,25 @@ public class GameBoard
 	}
 
 
-	public List<Tile> getAdjacentAccessibleTiles (final Position position)
+	public List<Tile> getAdjacentPlaceholderTiles (final Position position)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof PlaceholderTileAppearance));
 		return adjacentTiles;
 	}
 
 
-	public List<Tile> getAdjacentAccessibleTiles (final Position position, final int range)
+	public List<Tile> getAdjacentPlaceholderTiles (final Position position, final int range)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, range);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof Placeholder));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof PlaceholderTileAppearance));
 		return adjacentTiles;
 	}
 
 
 	public void removeFigure (final Figure<? extends Troop> troopFigure)
 	{
-		this.setPlaceable(this.getFigurePosition(troopFigure), new Placeholder());
+		this.place(this.getFigurePosition(troopFigure), new PlaceholderTileAppearance());
 	}
 
 }

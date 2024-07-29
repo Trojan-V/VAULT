@@ -32,7 +32,7 @@ public class EnemyActionRunnable implements Runnable
 		final Position position = this.arena.getGameBoard().getFigurePosition(this.troop);
 		final int range = this.troop.getStatistics().getOffensiveStatistic().getGrenadeRange();
 		final List<Tile> reachableTroopFigureTiles = this.arena.getGameBoard().getReachableTroopFigureTiles(position, range);
-		final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentAccessibleTiles(position);
+		final List<Tile> adjacentAccessibleTiles = this.arena.getGameBoard().getAdjacentPlaceholderTiles(position);
 
 		System.out.println("getAdjacentAccessibleTiles = " + adjacentAccessibleTiles);
 		System.out.println("getAdjacentTroopTiles = " + reachableTroopFigureTiles);
@@ -44,8 +44,7 @@ public class EnemyActionRunnable implements Runnable
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{
-			EnemyController.moveToAdjacentTile(this.arena, adjacentAccessibleTiles.getFirst(), this.troop);
+			EnemyController.moveTo(this.arena, adjacentAccessibleTiles.getFirst(), this.troop);
 		}
 	}
-
 }

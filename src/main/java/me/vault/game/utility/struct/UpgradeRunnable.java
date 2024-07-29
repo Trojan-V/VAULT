@@ -44,7 +44,7 @@ public class UpgradeRunnable implements Runnable
 		final Level beforeUpgradeLevel = this.upgradable.getLevel();
 		final Level afterUpgradeLevel = beforeUpgradeLevel.getNextHigherLevel();
 
-		CurrencyController.factorCurrencyTransaction(upgradeCost);
+		CurrencyController.factorCurrency(upgradeCost);
 		this.upgradable.setLevel(afterUpgradeLevel);
 		this.upgrader.updateValues(this.upgradable);
 	}

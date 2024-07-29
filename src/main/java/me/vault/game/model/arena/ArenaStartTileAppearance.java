@@ -8,19 +8,14 @@ import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
 
-public class Placeholder implements Placeable
+public class ArenaStartTileAppearance implements Placeable
 {
 
-	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/tile.png";
+	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/troops/engineer_icon.png";
 
 
-	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
-
-
-	public Placeholder ()
-	{
-
-	}
+	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY =
+		new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
 	/**

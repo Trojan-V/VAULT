@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 
+// TODO: implements MapObject???
 public abstract class EnergyAbility implements Nameable, Upgradable<EnergyAbilityLevel>, MapObject
 {
 

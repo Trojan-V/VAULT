@@ -190,10 +190,14 @@ public interface LoggingConstants
 	}
 
 
-	interface Arena
+	interface ArenaDelegate
 	{
 		String ARENA_DISPLAY_FAILED = "Failed to load ArenaDelegate for an arena: {0}";
 
 	}
 
+	interface MissionDelegate
+	{
+		String MISSION_DISPLAY_FAILED = "Failed to load MissionDelegate for a mission: {0}";
+	}
 }

@@ -27,7 +27,7 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
  * As this specification is a defense artifact, it mainly provides positive attribute modifiers towards the defense attribute. Other attribute
  * modifiers might be affected as well by the defense artifact, the highest multiplier is for the defense though for obvious reasons.
  *
- * @author Vincent Wolf, Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Artifact
  * @since 05.06.2024

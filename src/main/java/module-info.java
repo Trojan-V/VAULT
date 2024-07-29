@@ -48,4 +48,5 @@ module me.vault.game {
 	opens me.vault.game.model.mission to javafx.fxml;
 	opens me.vault.game.view.mission to javafx.fxml;
 	opens me.vault.game.fxcontrols to javafx.fxml;
+	opens me.vault.game.model.arena to javafx.fxml;
 }

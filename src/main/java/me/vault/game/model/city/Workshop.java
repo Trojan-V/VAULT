@@ -19,7 +19,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Workshop.*;
  * <br>
  * The {@link Workshop} holds all different artifacts of the player and is used to display and upgrade each one of them.
  *
- * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 2.0.0
  * @see CityBuilding
  * @see me.vault.game.interfaces.Upgradable

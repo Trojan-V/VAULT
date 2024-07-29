@@ -19,7 +19,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Laboratory.*;
  * <br>
  * The {@link Laboratory} city building allows the user to see and upgrade the different abilities he can use while in combat.
  *
- * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 2.0.0
  * @see CityBuilding
  * @see me.vault.game.interfaces.Upgradable

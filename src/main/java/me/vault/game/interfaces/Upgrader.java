@@ -10,7 +10,7 @@ package me.vault.game.interfaces;
  * @param <E> The level type.
  * @param <T> The data type of the class that implements the {@link Upgradable} interface.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 2.0.0
  * @see Upgrader
  * @see Upgradable
@@ -39,6 +39,15 @@ public interface Upgrader<T extends Upgradable<E>, E>
 	boolean checkIsUpgradable (final T upgradable);
 
 
+	/**
+	 * Updates the values of the {@link Upgradable}, so it contains the newest set of data.
+	 * <br>
+	 * This data is usually displayed in the GUI.
+	 * Most {@link Upgradable}'s contain JavaFX properties that are bound to the GUI,
+	 * so the data of them can be dynamically updated.
+	 *
+	 * @param upgradable The {@link Upgradable} instance whose values should be updated.
+	 */
 	void updateValues (final T upgradable);
 
 }

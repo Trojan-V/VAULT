@@ -32,8 +32,7 @@ public class CommandCenterDelegate implements Initializable
 {
 
 	/**
-	 * The {@link Scene} of the {@link CommandCenter} city building, which is extracted from the related .fxml-file
-	 * with the {@link ResourceLoader}
+	 * The {@link Scene} of the {@link CommandCenter} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader}
 	 * class.
 	 */
 	private static final Scene SCENE = ResourceLoader.loadScene(CommandCenter.class, "command_center_view.fxml");
@@ -98,10 +97,19 @@ public class CommandCenterDelegate implements Initializable
 	@FXML
 	void onGoToMissionBoard (final ActionEvent ignored)
 	{
-		MissionSelectionDelegate.show(GameApplication.getStage());
+		MissionSelectionDelegate.show();
 	}
 
 
+	/**
+	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
+	 *
+	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
+	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
+	 *
+	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
+	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
+	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{

@@ -17,10 +17,11 @@ import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
-import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
 
 /**
@@ -48,7 +49,6 @@ public class MainMenuDelegate implements Initializable
 	 */
 	//TODO: Entscheiden, ob die FXML Dateien in den Delegates gespeichert wird
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
-
 	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 
 
@@ -189,8 +189,17 @@ public class MainMenuDelegate implements Initializable
 		}
 	}
 
+	/**
+	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
+	 *
+	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
+	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
+	 *
+	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
+	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
+	 */
 	@Override
-	public void initialize (URL url, ResourceBundle resourceBundle)
+	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.initializeContinue();
 		this.initializeLoadGame();
@@ -223,13 +232,13 @@ public class MainMenuDelegate implements Initializable
 	 * {@link GameConstants#GAME_SAVE_FOLDER_FILE_PATH}.
 	 */
 	@FXML
-	private void initializeLoadGame ()
+	private void initializeLoadGame () //TODO: Add checks for loading a save file
 	{
-		if (ResourceLoader.collectFilesWithSpecifiedEnding(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
-			StringConstants.JSON_FILE_ENDING).isEmpty() || ResourceLoader.collectFilesContaining(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, StringConstants.SAVE_NAME).isEmpty()) //TODO: Update Java DOC
+		if (ResourceLoader.collectFiles(GAME_SAVE_FOLDER_FILE_PATH).isEmpty())
 		{
 			ViewUtil.setMenuItemInactive(this.loadGameMenuItem);
 			ViewUtil.setButtonInactive(this.loadGameButton);
 		}
 	}
+
 }

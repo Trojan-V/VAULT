@@ -4,7 +4,7 @@ package me.vault.game.model.troop;
 /**
  * Description
  *
- * @author Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see
  * @since 23.05.2024

@@ -14,7 +14,7 @@ import me.vault.game.model.currency.CurrencyTransaction;
  * @param <T> The leveling enum that the upgradable object corresponds to. For instance, if an implementation of this
  *            interface is an "Artifact", the corresponding leveling enum would be something like "ArtifactLevel".
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.1.0
  * @since 06.06.2024
  */

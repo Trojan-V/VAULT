@@ -13,7 +13,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 /**
  * Description
  *
- * @author Alexander Göthel
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see
  * @since 25.06.2024

@@ -14,7 +14,6 @@ import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
 
 public class Arena
 {
-
 	private State state = State.RUNNING;
 
 
@@ -26,13 +25,13 @@ public class Arena
 	}
 
 
-	private final List<Figure<? extends Troop>> playerOneTroops;
+	private List<Figure<? extends Troop>> playerOneTroops;
 
 
 	private final List<Figure<? extends Troop>> playerTwoTroops;
 
 
-	private final TroopTimeline troopTimeline;
+	private TroopTimeline troopTimeline = null;
 
 
 	private final GameBoard gameBoard;
@@ -48,11 +47,6 @@ public class Arena
 		this.playerOneTroops = playerOneTroops;
 		this.playerTwoTroops = playerTwoTroops;
 		this.gameBoard = gameBoard;
-		this.troopTimeline = this.initializeTimeline(playerOneTroops, playerTwoTroops);
-
-		this.setPlayerOneTroopPositions();
-		this.setPlayerTwoTroopPositions();
-
 	}
 
 
@@ -82,9 +76,10 @@ public class Arena
 	{
 		final Position randomPosition = new Position((int) Math.round(Math.random()), (int) Math.round(Math.random() * MULTIPLIER));
 
-		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() == Placeholder.class)
+		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
+		    PlaceholderTileAppearance.class)
 		{
-			this.getGameBoard().placeFigure(randomPosition, troop);
+			this.getGameBoard().placeIfPlaceholder(randomPosition, troop);
 			return;
 		}
 		this.placePlayerOneTroopAtRandomPosition(troop);
@@ -95,9 +90,10 @@ public class Arena
 	{
 		final Position randomPosition = new Position((int) Math.round(Math.random() + OFFSET), (int) Math.round(Math.random() * MULTIPLIER));
 
-		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() == Placeholder.class)
+		if (this.getGameBoard().getTile(randomPosition).getCurrentElement().getClass() ==
+		    PlaceholderTileAppearance.class)
 		{
-			this.getGameBoard().placeFigure(randomPosition, troop);
+			this.getGameBoard().placeIfPlaceholder(randomPosition, troop);
 			return;
 		}
 		this.placePlayerTwoTroopAtRandomPosition(troop);
@@ -119,6 +115,15 @@ public class Arena
 		{
 			this.placePlayerTwoTroopAtRandomPosition(troopFigure);
 		}
+	}
+
+
+	public void setPlayerOneTroops (final List<Figure<? extends Troop>> playerOneTroops)
+	{
+		this.playerOneTroops = playerOneTroops;
+		this.setPlayerOneTroopPositions();
+		this.setPlayerTwoTroopPositions();
+		this.troopTimeline = this.initializeTimeline(playerOneTroops, this.playerTwoTroops);
 	}
 
 
@@ -182,5 +187,4 @@ public class Arena
 	{
 		return this.state;
 	}
-
 }

@@ -5,6 +5,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import me.vault.game.model.arena.*;
+import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.DefensiveStatistic;
 import me.vault.game.model.troop.OffensiveStatistics;
 import me.vault.game.model.troop.Troop;
@@ -23,7 +24,9 @@ public final class FigureController
 	 */
 	private static final ILogger LOGGER = new Logger(FigureController.class.getName());
 
+
 	private static final int DROP_SHADOW_RADIUS = 15;
+
 
 	private static final double DROP_SHADOW_SPREAD = 0.5;
 
@@ -31,22 +34,19 @@ public final class FigureController
 	private FigureController () {}
 
 
-	public static void moveFigure (final Arena arena, final Figure<? extends Troop> troopFigure, final Position nextPosition)
+	public static void moveFigure (final GameBoard arenaGameBoard, final Figure<? extends Troop> troopFigure, final Position nextPosition)
 	{
-		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
-		arenaGameBoard.placeFigure(nextPosition, troopFigure);
-		arenaGameBoard.setPlaceable(previousTroopPosition, new Placeholder());
+		arenaGameBoard.placeIfPlaceholder(nextPosition, troopFigure);
+		arenaGameBoard.place(previousTroopPosition, new PlaceholderTileAppearance());
 	}
 
 
-	public static void moveFigure (final Arena arena, final Figure<? extends Troop> troopFigure, final Tile nextTile)
+	public static void movePlayer (final GameBoard missionBoard, final Player player, final Position nextPosition)
 	{
-		final GameBoard arenaGameBoard = arena.getGameBoard();
-		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
-		final Position nextTroopPosition = new Position(nextTile.getRow(), nextTile.getColumn());
-		arenaGameBoard.placeFigure(nextTroopPosition, troopFigure);
-		arenaGameBoard.setPlaceable(previousTroopPosition, new Placeholder());
+		final Position previousPlayerPosition = missionBoard.getFigurePosition(player);
+		missionBoard.placeIfPlaceholder(nextPosition, player);
+		missionBoard.place(previousPlayerPosition, new PlaceholderTileAppearance());
 	}
 
 
@@ -55,10 +55,11 @@ public final class FigureController
 		final OffensiveStatistics attackerOffensiveStats = attackerFigure.getStatistics().getOffensiveStatistic();
 		final DefensiveStatistic defenderDefensiveStats = defenderFigure.getStatistics().getDefensiveStatistic();
 
+		// TODO: remove prints
 		System.out.println("attackerFigure = " + attackerOffensiveStats);
 		System.out.println("defenderFigure = " + defenderDefensiveStats);
 
-		final int calculatedDamage = FigureController.calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
+		final int calculatedDamage = calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
 		final int newDefenderHealthPoints = defenderDefensiveStats.getHealthPoints() - calculatedDamage;
 		System.out.println("calculatedDamage = " + calculatedDamage);
 		System.out.println("newDefenderHealthPoints = " + newDefenderHealthPoints);
@@ -77,13 +78,20 @@ public final class FigureController
 	}
 
 
-	public static boolean figureCanMoveToPosition (final Arena arena, final Figure<? extends Troop> troopFigure, final Position position)
+	public static boolean figureCanMoveToPosition (final GameBoard arenaGameBoard, final Figure<? extends Troop> troopFigure, final Position position)
 	{
-		final GameBoard arenaGameBoard = arena.getGameBoard();
 		final Position previousTroopPosition = arenaGameBoard.getFigurePosition(troopFigure);
 		final int troopMovementRange = troopFigure.getStatistics().getDexterityStatistic().getMovementTiles();
-		final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
-		return accessibleTiles.contains(arena.getGameBoard().getTile(position));
+		final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentPlaceholderTiles(previousTroopPosition, troopMovementRange);
+		return accessibleTiles.contains(arenaGameBoard.getTile(position));
+	}
+
+
+	public static boolean playerCanMoveToPosition (final GameBoard missionGameBoard, final Player player, final Position position)
+	{
+		final Position previousTroopPosition = missionGameBoard.getFigurePosition(player);
+		final List<Tile> accessibleTiles = missionGameBoard.getAdjacentPlaceholderTiles(previousTroopPosition);
+		return accessibleTiles.contains(missionGameBoard.getTile(position));
 	}
 
 
@@ -102,6 +110,14 @@ public final class FigureController
 		{
 			throw new RuntimeException(e);
 		}
+	}
+
+
+	public static boolean playerCanReachPosition (final GameBoard missionGameBoard, final Player player, final Position position)
+	{
+		final Position previousTroopPosition = missionGameBoard.getFigurePosition(player);
+		final List<Tile> accessibleTiles = missionGameBoard.getAdjacentTiles(previousTroopPosition);
+		return accessibleTiles.contains(missionGameBoard.getTile(position));
 	}
 
 

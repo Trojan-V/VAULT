@@ -14,9 +14,10 @@ import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.fxcontrols.SelectedAlliesGridPane;
+import me.vault.game.model.arena.Figure;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
-import me.vault.game.model.troop.Faction;
+import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.*;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -31,15 +32,17 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
-public class TroopSelectionDialogDelegate implements Initializable
+public class TroopSelectionDelegate implements Initializable
 {
 
 	private static final Stage STAGE = GameApplication.getStage();
 
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger LOGGER = new Logger(TroopSelectionDialogDelegate.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(TroopSelectionDelegate.class.getSimpleName());
+
 
 	private static final String FXML_FILENAME = "troop_selection_view.fxml";
 
@@ -47,25 +50,33 @@ public class TroopSelectionDialogDelegate implements Initializable
 	@FXML
 	private TitledPane corporationTitledPane;
 
+
 	@FXML
 	private TitledPane explorerTitledPane;
+
 
 	@FXML
 	private AnchorPane mainPane;
 
+
 	@FXML
 	private TitledPane militaryTitledPane;
+
 
 	@FXML
 	private AnchorPane selectorPane;
 
+
 	@FXML
 	private TitledPane terraTitledPane;
+
 
 	@FXML
 	private Accordion troopAccordion;
 
+
 	private SelectedAlliesGridPane selectedAlliesGridPane;
+
 
 	private Mission mission = null;
 
@@ -74,10 +85,10 @@ public class TroopSelectionDialogDelegate implements Initializable
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(TroopSelectionDialogDelegate.class.getResource(FXML_FILENAME));
+			final FXMLLoader fxmlLoader = new FXMLLoader(TroopSelectionDelegate.class.getResource(FXML_FILENAME));
 			final Parent root = fxmlLoader.load();
 
-			final TroopSelectionDialogDelegate controller = fxmlLoader.getController();
+			final TroopSelectionDelegate controller = fxmlLoader.getController();
 			controller.setMission(mission);
 			controller.enableSelectedFactionPane();
 			controller.show(new Scene(root));
@@ -93,7 +104,7 @@ public class TroopSelectionDialogDelegate implements Initializable
 	{
 		STAGE.setScene(scene);
 		STAGE.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, TroopSelectionDialogDelegate.class.getSimpleName()));
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, TroopSelectionDelegate.class.getSimpleName()));
 	}
 
 
@@ -105,10 +116,10 @@ public class TroopSelectionDialogDelegate implements Initializable
 		}
 		switch (Player.getInstance().getSelectedFaction())
 		{
-			case Faction.NEW_TERRA -> this.terraTitledPane.setDisable(false);
-			case Faction.EXPLORER_ASSOCIATION -> this.explorerTitledPane.setDisable(false);
-			case Faction.MILITARISTIC_GOVERNMENT -> this.militaryTitledPane.setDisable(false);
-			case Faction.MEGA_CORPORATION -> this.corporationTitledPane.setDisable(false);
+			case NEW_TERRA -> this.terraTitledPane.setDisable(false);
+			case EXPLORER_ASSOCIATION -> this.explorerTitledPane.setDisable(false);
+			case MILITARISTIC_GOVERNMENT -> this.militaryTitledPane.setDisable(false);
+			case MEGA_CORPORATION -> this.corporationTitledPane.setDisable(false);
 		}
 	}
 
@@ -116,17 +127,25 @@ public class TroopSelectionDialogDelegate implements Initializable
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		MissionSelectionDelegate.show(GameApplication.getStage());
+		MissionSelectionDelegate.show();
 	}
 
 
 	@FXML
 	void onStartMission (final ActionEvent ignored)
 	{
-
+		MissionDelegate.show(this.mission);
 	}
 
-
+	/**
+	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
+	 *
+	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
+	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
+	 *
+	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
+	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
+	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
@@ -139,84 +158,91 @@ public class TroopSelectionDialogDelegate implements Initializable
 	@FXML
 	void selectEngineer (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Engineer.getAllyInstance());
+		this.selectTroop(Engineer.getAllyInstance());
+	}
+
+
+	private void selectTroop (final Troop troop)
+	{
+		this.selectedAlliesGridPane.addTroop(troop);
+		Player.getInstance().addSelectedTroop(new Figure<>(troop));
 	}
 
 
 	@FXML
 	void selectGrenadier (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Grenadier.getAllyInstance());
+		this.selectTroop(Grenadier.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectGuard (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Guard.getAllyInstance());
+		this.selectTroop(Guard.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectInfantry (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Infantry.getAllyInstance());
+		this.selectTroop(Infantry.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectLieutenant (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Lieutenant.getAllyInstance());
+		this.selectTroop(Lieutenant.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectMedic (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Medic.getAllyInstance());
+		this.selectTroop(Medic.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectOfficer (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Officer.getAllyInstance());
+		this.selectTroop(Officer.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectPrecisionShooter (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(PrecisionShooter.getAllyInstance());
+		this.selectTroop(PrecisionShooter.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectRanger (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Ranger.getAllyInstance());
+		this.selectTroop(Ranger.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectRecruit (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Recruit.getAllyInstance());
+		this.selectTroop(Recruit.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectSniper (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(Sniper.getAllyInstance());
+		this.selectTroop(Sniper.getAllyInstance());
 	}
 
 
 	@FXML
 	void selectSpaceMarine (final ActionEvent ignored)
 	{
-		this.selectedAlliesGridPane.addTroop(SpaceMarine.getAllyInstance());
+		this.selectTroop(SpaceMarine.getAllyInstance());
 	}
 
 

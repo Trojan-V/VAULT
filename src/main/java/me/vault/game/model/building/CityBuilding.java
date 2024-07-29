@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Description
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see CityBuildingLevel
  * @since 06.06.2024
