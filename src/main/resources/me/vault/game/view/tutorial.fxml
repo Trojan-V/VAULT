@@ -207,12 +207,12 @@
                                         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Button fx:id="continueButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" styleClass="button_long" text="continue" GridPane.columnIndex="2">
+                                        <Button fx:id="continueButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#click" prefHeight="121.0" prefWidth="383.0" styleClass="button_long" text="continue" GridPane.columnIndex="2">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button fx:id="backButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="121.0" prefWidth="383.0" styleClass="button_long" text="back">
+                                        <Button fx:id="backButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#click" prefHeight="121.0" prefWidth="383.0" styleClass="button_long" text="back">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>

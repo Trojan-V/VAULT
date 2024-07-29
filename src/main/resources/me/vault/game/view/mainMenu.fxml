@@ -52,7 +52,7 @@
                             <children>
                                 <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER"
                                         maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                                        mnemonicParsing="false" onMouseReleased="#click" prefHeight="75.0"
+                                        mnemonicParsing="false" onMouseClicked="#click" prefHeight="75.0"
                                         prefWidth="400.0" styleClass="button_long" text="continue"
                                         GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                                     <cursor>
@@ -62,7 +62,10 @@
                                         <Font size="26.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseReleased="#click" prefHeight="75.0" prefWidth="400.0" styleClass="button_long" text="new game" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER"
+                                        maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                        mnemonicParsing="false" onMouseClicked="#click" prefHeight="75.0"
+                                        prefWidth="400.0" styleClass="button_long" text="new game" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -70,7 +73,10 @@
                                         <Font size="26.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="loadGameButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseReleased="#click" prefHeight="75.0" prefWidth="400.0" styleClass="button_long" text="load game" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                <Button fx:id="loadGameButton" alignment="CENTER" contentDisplay="CENTER"
+                                        maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                        mnemonicParsing="false" onMouseClicked="#click" prefHeight="75.0" prefWidth="400.0"
+                                        styleClass="button_long" text="load game" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -78,7 +84,7 @@
                                         <Font size="26.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="settingsButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseReleased="#click" prefHeight="75.0" prefWidth="400.0" styleClass="button_long" text="settings" GridPane.rowIndex="3">
+                                <Button fx:id="settingsButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#click" prefHeight="75.0" prefWidth="400.0" styleClass="button_long" text="settings" GridPane.rowIndex="3">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -86,7 +92,7 @@
                                         <Font size="26.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="exitGameButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseReleased="#click" prefHeight="75.0" prefWidth="400.0" styleClass="button_long" text="exit game" GridPane.rowIndex="4">
+                                <Button fx:id="exitGameButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#click" prefHeight="75.0" prefWidth="400.0" styleClass="button_long" text="exit game" GridPane.rowIndex="4">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -94,7 +100,7 @@
                                         <Font size="26.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="arenaButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseReleased="#click" prefHeight="75.0" prefWidth="400.0" styleClass="button_long" text="arena" GridPane.rowIndex="5">
+                                <Button fx:id="arenaButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#click" prefHeight="75.0" prefWidth="400.0" styleClass="button_long" text="arena" GridPane.rowIndex="5">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>

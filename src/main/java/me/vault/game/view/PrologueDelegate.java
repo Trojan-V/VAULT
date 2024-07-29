@@ -56,7 +56,7 @@ public class PrologueDelegate implements Initializable
 
 
 	@FXML
-	void buttonClick (final MouseEvent mouseEvent)
+	void click (final MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getSource().equals(this.backButton))
 		{

@@ -78,7 +78,7 @@
                                 </ScrollPane>
                                 <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="68.0" prefWidth="680.0" spacing="100.0">
                                     <children>
-                                        <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="300.0" styleClass="button_long" text="back">
+                                        <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#click" prefHeight="75.0" prefWidth="300.0" styleClass="button_long" text="back">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
@@ -86,7 +86,7 @@
                                     <Font size="26.0" />
                                  </font>
                                         </Button>
-                              <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#buttonClick" prefHeight="75.0" prefWidth="300.0" styleClass="button_long" text="continue">
+                              <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#click" prefHeight="75.0" prefWidth="300.0" styleClass="button_long" text="continue">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
