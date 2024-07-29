@@ -32,7 +32,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
-public class TroopSelectionDialogDelegate implements Initializable
+public class TroopSelectionDelegate implements Initializable
 {
 
 	private static final Stage STAGE = GameApplication.getStage();
@@ -41,7 +41,7 @@ public class TroopSelectionDialogDelegate implements Initializable
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger LOGGER = new Logger(TroopSelectionDialogDelegate.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(TroopSelectionDelegate.class.getSimpleName());
 
 
 	private static final String FXML_FILENAME = "troop_selection_view.fxml";
@@ -85,10 +85,10 @@ public class TroopSelectionDialogDelegate implements Initializable
 	{
 		try
 		{
-			final FXMLLoader fxmlLoader = new FXMLLoader(TroopSelectionDialogDelegate.class.getResource(FXML_FILENAME));
+			final FXMLLoader fxmlLoader = new FXMLLoader(TroopSelectionDelegate.class.getResource(FXML_FILENAME));
 			final Parent root = fxmlLoader.load();
 
-			final TroopSelectionDialogDelegate controller = fxmlLoader.getController();
+			final TroopSelectionDelegate controller = fxmlLoader.getController();
 			controller.setMission(mission);
 			controller.enableSelectedFactionPane();
 			controller.show(new Scene(root));
@@ -104,7 +104,7 @@ public class TroopSelectionDialogDelegate implements Initializable
 	{
 		STAGE.setScene(scene);
 		STAGE.show();
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, TroopSelectionDialogDelegate.class.getSimpleName()));
+		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, TroopSelectionDelegate.class.getSimpleName()));
 	}
 
 

@@ -1,6 +1,7 @@
 package me.vault.game.model.mission;
 
 
+import javafx.beans.property.SimpleBooleanProperty;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.currency.CurrencyTransaction;
@@ -18,38 +19,43 @@ public class Mission
 
 	private final String description;
 
-
 	private final GameBoard gameBoard;
 
 	private final CurrencyTransaction missionReward;
 
-	private boolean completed;
+	private SimpleBooleanProperty completedProperty;
 
 
 	private final List<Arena> availableArenaEncounters = new ArrayList<>();
 
 
-	public Mission (final String name, final String description, final GameBoard gameBoard,
-		final CurrencyTransaction missionReward)
+	public Mission (final String name, final String description, final GameBoard gameBoard, final CurrencyTransaction missionReward)
 	{
 		this.name = name;
-		this.completed = false;
+		this.completedProperty = new SimpleBooleanProperty(false);
 		this.gameBoard = gameBoard;
 		this.description = description;
 		this.missionReward = missionReward;
-		this.availableArenaEncounters.add(new Arena(List.of(), EncounterConstants.ENCOUNTER_ONE_ENEMIES, new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map/Encounter_2.txt"))));
+		this.availableArenaEncounters.add(new Arena(List.of(), EncounterConstants.ENCOUNTER_ONE_ENEMIES,
+			new GameBoard(ResourceLoader.createGameBoardFromFile("src/main/resources/me/vault/game/map/Encounter_2.txt"))));
 	}
 
 
 	public boolean isCompleted ()
 	{
-		return this.completed;
+		return this.completedProperty.get();
 	}
 
 
 	public void setCompleted (final boolean completed)
 	{
-		this.completed = completed;
+		this.completedProperty.set(completed);
+	}
+
+
+	public SimpleBooleanProperty getCompletedProperty ()
+	{
+		return this.completedProperty;
 	}
 
 
@@ -81,4 +87,5 @@ public class Mission
 	{
 		return this.availableArenaEncounters;
 	}
+
 }
