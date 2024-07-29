@@ -2,7 +2,7 @@ package me.vault.game.comparators;
 
 
 import me.vault.game.model.arena.Figure;
-import me.vault.game.model.arena.TroopTimeline;
+import me.vault.game.model.arena.FigureTimeline;
 
 import java.util.Comparator;
 
@@ -13,7 +13,7 @@ import java.util.Comparator;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see TroopTimeline#getPriorityQueue()
+ * @see FigureTimeline#getPriorityQueue()
  * @since 28.07.2024
  */
 public class InitiativeComparator implements Comparator<Figure>

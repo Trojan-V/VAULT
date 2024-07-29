@@ -59,7 +59,7 @@ public final class ArenaDelegate
 
 	private PriorityQueue<Figure> currentQueue = null;
 
-	private TroopTimeline figureTroopTimeline = null;
+	private FigureTimeline figureFigureTimeline = null;
 
 	private Arena arena = null;
 
@@ -116,7 +116,7 @@ public final class ArenaDelegate
 	{
 		this.timelineVBox.getChildren().clear();
 		this.arena.setSelectedFigure(this.currentQueue.peek());
-		final PriorityQueue<Figure> figurePriorityQueue = this.figureTroopTimeline.getPriorityQueue();
+		final PriorityQueue<Figure> figurePriorityQueue = this.figureFigureTimeline.getPriorityQueue();
 		while (!figurePriorityQueue.isEmpty())
 		{
 			this.timelineVBox.getChildren().add(new TimelineElementHBox(this.arena, Objects.requireNonNull(figurePriorityQueue.poll())));
@@ -219,7 +219,7 @@ public final class ArenaDelegate
 		this.currentQueue.poll();
 		if (this.currentQueue.isEmpty())
 		{
-			this.currentQueue = new PriorityQueue<>(this.figureTroopTimeline.getPriorityQueue());
+			this.currentQueue = new PriorityQueue<>(this.figureFigureTimeline.getPriorityQueue());
 			this.incrementRound();
 		}
 		this.currentQueue.removeAll(this.arena.getEliminatedFigures());
@@ -256,7 +256,7 @@ public final class ArenaDelegate
 		arena.placePlayerTwoFiguresRandomly();
 
 		this.arena = arena;
-		this.figureTroopTimeline = arena.getTimeline();
+		this.figureFigureTimeline = arena.getTimeline();
 		this.currentQueue = arena.getTimeline().getPriorityQueue();
 		this.initializeTimelineVbox();
 		this.initializeGameBoardGridPane();

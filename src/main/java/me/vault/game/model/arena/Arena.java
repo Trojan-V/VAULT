@@ -75,7 +75,7 @@ public class Arena
 	 * <br>
 	 * For the GUI element, check {@link TimelineElementHBox}.
 	 */
-	private TroopTimeline troopTimeline = null;
+	private FigureTimeline figureTimeline = null;
 
 
 	/**
@@ -117,16 +117,16 @@ public class Arena
 	 *
 	 * @param playerOneFigures The {@link Figure}s that player one uses in the encounter.
 	 * @param playerTwoFigures The {@link Figure}s that player two uses in the encounter.
-	 * @return An instance of {@link TroopTimeline} which contains the timeline for the encounter.
+	 * @return An instance of {@link FigureTimeline} which contains the timeline for the encounter.
 	 */
-	private TroopTimeline createTimeline (final Collection<Figure> playerOneFigures,
+	private FigureTimeline createTimeline (final Collection<Figure> playerOneFigures,
 		final Collection<Figure> playerTwoFigures)
 	{
 		final ArrayList<Figure> troops = new ArrayList<>();
 		troops.addAll(playerOneFigures);
 		troops.addAll(playerTwoFigures);
 
-		return new TroopTimeline(troops);
+		return new FigureTimeline(troops);
 	}
 
 
@@ -148,9 +148,9 @@ public class Arena
 	 *
 	 * @return The timeline that contains all {@link Figure}s that are currently on the {@link GameBoard}.
 	 */
-	public TroopTimeline getTimeline ()
+	public FigureTimeline getTimeline ()
 	{
-		return this.troopTimeline;
+		return this.figureTimeline;
 	}
 
 
@@ -257,7 +257,7 @@ public class Arena
 	public void setPlayerOneFigures (final List<Figure> playerOneFigures)
 	{
 		this.playerOneFigures = playerOneFigures;
-		this.troopTimeline = this.createTimeline(playerOneFigures, this.playerTwoFigures);
+		this.figureTimeline = this.createTimeline(playerOneFigures, this.playerTwoFigures);
 	}
 
 
@@ -275,7 +275,7 @@ public class Arena
 
 
 	/**
-	 * Removes a {@link Figure} from the {@link GameBoard} and from the {@link TroopTimeline}.
+	 * Removes a {@link Figure} from the {@link GameBoard} and from the {@link FigureTimeline}.
 	 * <br>
 	 * Additionally, the {@link Figure} is added to the {@link List} of eliminated {@link Figure}s, so to
 	 * {@link Arena#eliminatedFigures}.
@@ -285,7 +285,7 @@ public class Arena
 	public void eliminateFigure (final Figure figure)
 	{
 		this.gameBoard.remove(figure);
-		this.troopTimeline.removeTimelineElement(figure);
+		this.figureTimeline.removeFigure(figure);
 		this.eliminatedFigures.add(figure);
 		this.adjustArenaResultIfNeeded();
 	}
@@ -356,7 +356,7 @@ public class Arena
 		return MessageFormat.format(TO_STRING_PATTERN, this.gameBoard.toString(),
 			Arrays.deepToString(this.playerTwoFigures.toArray()),
 			Arrays.deepToString(this.eliminatedFigures.toArray()), this.arenaResult.toString(),
-			this.troopTimeline.toString(),
+			this.figureTimeline.toString(),
 			Arrays.deepToString(this.playerOneFigures.toArray()), this.selectedFigure.toString());
 	}
 }

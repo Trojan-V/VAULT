@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 
-public class TroopTimeline
+public class FigureTimeline
 {
 
 	private final List<Figure> timelineElements;
 
 
-	public TroopTimeline (final List<Figure> figures)
+	public FigureTimeline (final List<Figure> figures)
 	{
 		this.timelineElements = figures;
 	}
@@ -34,13 +34,13 @@ public class TroopTimeline
 	}
 
 
-	public void removeTimelineElement (final Figure timelineElement)
+	public void removeFigure (final Figure figure)
 	{
-		if (!this.timelineElements.contains(timelineElement))
+		if (!this.timelineElements.contains(figure))
 		{
 			throw new NullPointerException(); // TODO: Add Exception Message
 		}
-		this.timelineElements.remove(timelineElement);
+		this.timelineElements.remove(figure);
 	}
 
 }
