@@ -5,9 +5,15 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import me.vault.game.interfaces.Loader;
+import me.vault.game.utility.constant.GameConstants;
+import me.vault.game.utility.constant.MiscConstants;
+import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.logging.Logger;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
@@ -45,10 +51,10 @@ public final class ConfigLoader implements Loader
 	private ConfigLoader ()
 	{
 		this.gson = new GsonBuilder().setPrettyPrinting().create();
-		this.configDirectoryPath = new File("src/main/resources/me/vault/game/config/");
+		this.configDirectoryPath = new File(GameConstants.GAME_SAVE_FOLDER_FILE_PATH);
 		this.configDirectoryPath.mkdirs();
-		this.configFile = new File(String.valueOf(this.configDirectoryPath), "config.json");
-		this.defaultsFile = new File(String.valueOf(this.configDirectoryPath), "defaults.json");
+		this.configFile = new File(String.valueOf(this.configDirectoryPath), GameConstants.CONFIG_FILE);
+		this.defaultsFile = new File(String.valueOf(this.configDirectoryPath), GameConstants.DEFAULT_CONFIG_FILE);
 
 		try
 		{
@@ -150,7 +156,20 @@ public final class ConfigLoader implements Loader
 	}
 
 
-	private void load (final File configFile)
+	public void saveToFile (final String directoryPath, String fileName) throws Exception
+	{
+		File directory = ResourceLoader.getDirectory(directoryPath);
+		if (!directory.isDirectory() || ResourceLoader.getFile(directoryPath, fileName) != null)
+		{
+			throw new Exception(); //TODO: specify exception;
+		}
+
+		File save = new File(directory, fileName);
+		this.save(save);
+	}
+
+
+	public void load (final File configFile)
 	{
 		try
 		{
@@ -163,6 +182,38 @@ public final class ConfigLoader implements Loader
 		{
 			System.out.println(e.getMessage());
 			// TODO: add logging
+		}
+	}
+
+	public boolean isConfigDefault ()
+	{
+		try
+		{
+			if (Files.mismatch(ResourceLoader.getFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
+					GameConstants.DEFAULT_CONFIG_FILE).toPath(),
+				ResourceLoader.getFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
+					GameConstants.CONFIG_FILE).toPath()) == MiscConstants.FILE_MISMATCH_INDICATOR)
+			{
+				return true;
+			}
+		}
+		catch (IOException e)
+		{
+			throw new RuntimeException(e);
+		}
+		return false;
+	}
+
+	public void saveExistingGameToFile ()
+	{
+		this.save();
+		try
+		{
+			this.saveToFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
+				(StringConstants.SAVE_NAME + new SimpleDateFormat(StringConstants.DATE_TIME_PATTERN).format(Calendar.getInstance().getTime())+StringConstants.JSON_FILE_ENDING));
+		}
+		catch (Exception e)
+		{
 		}
 	}
 

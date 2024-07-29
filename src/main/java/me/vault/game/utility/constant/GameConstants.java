@@ -44,7 +44,13 @@ public interface GameConstants
 	String TAB_PANE_STYLE = "floating";
 
 	@Constant
-	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/config";
+	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/config/";
+
+	@Constant
+	String CONFIG_FILE = "config.json";
+
+	@Constant
+	String DEFAULT_CONFIG_FILE = "defaults.json";
 
 	@Constant
 	Arena ARENA = new Arena(ALLIES, ENCOUNTER_ONE_ENEMIES, new GameBoard(ResourceLoader.createGameBoardFromFile(

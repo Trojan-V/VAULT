@@ -10,17 +10,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import me.vault.game.GameApplication;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
+import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
 
 
 /**
@@ -48,11 +48,12 @@ public class MainMenuDelegate implements Initializable
 	 */
 	//TODO: Entscheiden, ob die FXML Dateien in den Delegates gespeichert wird
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
+
 	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 
 
 	/**
-	 * These Buttons are used to facilitate the interaction between the user and the application
+	 *  Are used to facilitate the interaction between the user and the application
 	 *
 	 * @see Button
 	 */
@@ -76,7 +77,8 @@ public class MainMenuDelegate implements Initializable
 
 
 	/**
-	 * These are used to facilitate the interaction between the user and the application in the menu section of the GUI.
+	 * These are used to facilitate the interaction between the user and the application in the menu section of the
+	 * mainMenu-scene.
 	 *
 	 * @see MenuItem
 	 */
@@ -156,15 +158,20 @@ public class MainMenuDelegate implements Initializable
 		}
 		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
+			if (!ConfigLoader.getInstance().isConfigDefault())
+			{
+				ConfigLoader.getInstance().saveExistingGameToFile();
+			}
 			ConfigLoader.getInstance().reset();
 			DifficultyDelegate.show();
 		}
 		else if (event.getSource().equals(this.loadGameButton)|| event.getSource().equals(this.loadGameMenuItem))
 		{
-			//TODO: Config Loader functions
 			//TODO: Update Java Doc
-			FileChooserView.show(GameApplication.getStage(), GAME_SAVE_FOLDER_FILE_PATH,
-				StringConstants.chooseGameFile);
+			ConfigLoader.getInstance().load(FileChooserView.show(GameApplication.getStage(),
+				GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
+				StringConstants.chooseGameFile));
+			CityDelegate.show(GameApplication.getStage());
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
 		{
@@ -182,14 +189,8 @@ public class MainMenuDelegate implements Initializable
 		}
 	}
 
-
-	/**
-	 *
-	 * @param url
-	 * @param resourceBundle
-	 */
 	@Override
-	public void initialize (final URL url, final ResourceBundle resourceBundle)
+	public void initialize (URL url, ResourceBundle resourceBundle)
 	{
 		this.initializeContinue();
 		this.initializeLoadGame();
@@ -203,26 +204,32 @@ public class MainMenuDelegate implements Initializable
 	@FXML
 	private void initializeContinue ()
 	{
-
-		if (ResourceLoader.collectFiles(GAME_SAVE_FOLDER_FILE_PATH).isEmpty())
-		{
-			ViewUtil.setMenuItemInactive(this.continueMenuItem);
-			ViewUtil.setButtonInactive(this.continueButton);
-		}
+			if (ConfigLoader.getInstance().isConfigDefault())
+			{
+				ViewUtil.setMenuItemInactive(this.continueMenuItem);
+				ViewUtil.setButtonInactive(this.continueButton);
+			}
 	}
 
 
 	/**
+	 * Checks, if there is at least one file with a ".json" ending in the specified folder.
+	 * <br>
+	 * If there is no file with a .json ending, the "load game"-button and menuItem is set to Inactive
 	 *
+	 * @precondition The main menu controller has to have been called.
+	 * @postcondition The {@link MainMenuDelegate#loadGameButton} and {@link MainMenuDelegate#loadGameMenuItem} are
+	 * set to inactive if there is no File with the {@link StringConstants#JSON_FILE_ENDING} ending in
+	 * {@link GameConstants#GAME_SAVE_FOLDER_FILE_PATH}.
 	 */
 	@FXML
-	private void initializeLoadGame () //TODO: Add checks for loading a save file
+	private void initializeLoadGame ()
 	{
-		if (ResourceLoader.collectFiles(GAME_SAVE_FOLDER_FILE_PATH).isEmpty())
+		if (ResourceLoader.collectFilesWithSpecifiedEnding(GameConstants.GAME_SAVE_FOLDER_FILE_PATH,
+			StringConstants.JSON_FILE_ENDING).isEmpty() || ResourceLoader.collectFilesContaining(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, StringConstants.SAVE_NAME).isEmpty()) //TODO: Update Java DOC
 		{
 			ViewUtil.setMenuItemInactive(this.loadGameMenuItem);
 			ViewUtil.setButtonInactive(this.loadGameButton);
 		}
 	}
-
 }

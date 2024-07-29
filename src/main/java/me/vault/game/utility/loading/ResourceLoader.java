@@ -154,6 +154,50 @@ public final class ResourceLoader
 		return new ArrayList<>(List.of(files));
 	}
 
+	public static List<File> collectFilesWithSpecifiedEnding (final String directoryPath, String fileEnding)
+	{
+		final File[] allFiles = getDirectory(directoryPath).listFiles();
+		List<File> validFiles = new ArrayList<>();
+
+		for (File file: allFiles)
+		{
+			if (file.getName().endsWith(fileEnding))
+			{
+				validFiles.add(file);
+			}
+		}
+		return validFiles;
+	}
+
+	public static List<File> collectFilesContaining (final String directoryPath, String pattern)
+	{
+		final File[] allFiles = getDirectory(directoryPath).listFiles();
+		List<File> validFiles = new ArrayList<>();
+
+		for (File file: allFiles)
+		{
+			if (file.getName().contains(pattern))
+			{
+				validFiles.add(file);
+			}
+		}
+		return validFiles;
+	}
+
+	public static File getFile (final String directoryPath, String fileName)
+	{
+		final File[] files = getDirectory(directoryPath).listFiles();
+
+		for (File currentFile: files)
+		{
+			if (currentFile.getName().equals(fileName))
+			{
+				return currentFile;
+			}
+		}
+		return null;
+	}
+
 
 	public static MapObject[][] readMapFile (final String filePath)
 	{

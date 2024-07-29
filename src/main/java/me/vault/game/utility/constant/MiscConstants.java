@@ -36,4 +36,6 @@ public interface MiscConstants
 
 	int ZERO_INDEXED_LENGTH_CORRECTION = 1;
 
+	long FILE_MISMATCH_INDICATOR = -1L;
+
 }

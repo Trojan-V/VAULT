@@ -3,6 +3,14 @@ package me.vault.game.utility.constant;
 
 public interface StringConstants
 {
+	/**
+	 * This string contains the ending for the format JSON.
+	 */
+	String JSON_FILE_ENDING = ".json";
+
+	String SAVE_NAME = "save";
+
+	String DATE_TIME_PATTERN = "yyyyMMdd_HHmmss";
 
 	/**
 	 * This string contains the text for the story of the game.
