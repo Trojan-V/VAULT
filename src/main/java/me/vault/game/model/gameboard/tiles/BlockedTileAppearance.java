@@ -1,10 +1,13 @@
-package me.vault.game.model.arena;
+package me.vault.game.model.gameboard.tiles;
 
 
 import javafx.beans.property.SimpleObjectProperty;
 import me.vault.game.interfaces.Placeable;
-import me.vault.game.model.currency.Currency;
+import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.Figure;
+import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.mission.Mission;
+import me.vault.game.model.player.Player;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
@@ -13,10 +16,10 @@ import me.vault.game.utility.struct.MetaDataImage;
  * This class represents a {@link Placeable} object that can be placed on the {@link GameBoard}, so either on the
  * {@link GameBoard} of an arena or on the {@link GameBoard} of a mission.
  * <br>
- * This object represents a tile where a resource, for instance some {@link Currency}, is located. Once the player
- * moves to this tile, he'll be rewarded with some amount of {@link Currency}.
+ * This object represents a tile that is blocked, so it's an obstacle and neither the {@link Player} nor any other
+ * {@link Figure} can move onto it.
  * <br>
- * This tile type is only available on the {@link GameBoard} of the {@link Mission}.
+ * This tile type is available on the {@link GameBoard} of the {@link Mission} as well as the {@link Arena}.
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -24,19 +27,18 @@ import me.vault.game.utility.struct.MetaDataImage;
  * @see GameBoard
  * @since 29.07.2024
  */
-public class ResourceTileAppearance implements Placeable
+public class BlockedTileAppearance implements Placeable
 {
 	/**
 	 * The path to the sprite that represents a blocked tile.
 	 */
-	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/currency/credit_icon.png";
+	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/attributes/resistance_icon.png";
 
 
 	/**
 	 * The property that contains the sprite. This property is bound to the GUI.
 	 */
-	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY =
-		new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
+	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
 	/**

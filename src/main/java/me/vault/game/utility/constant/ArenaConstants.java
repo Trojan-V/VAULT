@@ -3,7 +3,7 @@ package me.vault.game.utility.constant;
 
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
-import me.vault.game.model.arena.GameBoard;
+import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.SpaceMarine;
 import me.vault.game.utility.loading.ResourceLoader;

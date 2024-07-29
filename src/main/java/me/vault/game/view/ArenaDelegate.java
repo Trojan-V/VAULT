@@ -16,6 +16,8 @@ import me.vault.game.control.FigureController;
 import me.vault.game.control.MovableController;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
+import me.vault.game.model.gameboard.GameBoard;
+import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.fx.GameBoardButton;

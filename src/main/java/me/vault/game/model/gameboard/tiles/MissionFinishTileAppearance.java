@@ -1,22 +1,25 @@
-package me.vault.game.model.arena;
+package me.vault.game.model.gameboard.tiles;
 
 
 import javafx.beans.property.SimpleObjectProperty;
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
+import me.vault.game.view.mission.MissionSelectionDelegate;
 
 
 /**
  * This class represents a {@link Placeable} object that can be placed on the {@link GameBoard}, so either on the
  * {@link GameBoard} of an arena or on the {@link GameBoard} of a mission.
  * <br>
- * This object represents a tile that is blocked, so it's an obstacle and neither the {@link Player} nor any other
- * {@link Figure} can move onto it.
+ * This object represents the tile where the {@link Player} has to move to finish the {@link Mission}. Upon moving
+ * onto this tile, the player receives the {@link Mission} rewards and will be redirected to the
+ * {@link MissionSelectionDelegate} afterwards.
  * <br>
- * This tile type is available on the {@link GameBoard} of the {@link Mission} as well as the {@link Arena}.
+ * This tile type is only available on the {@link GameBoard} of the {@link Mission}.
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -24,18 +27,20 @@ import me.vault.game.utility.struct.MetaDataImage;
  * @see GameBoard
  * @since 29.07.2024
  */
-public class BlockedTileAppearance implements Placeable
+public class MissionFinishTileAppearance implements Placeable
 {
 	/**
 	 * The path to the sprite that represents a blocked tile.
 	 */
-	private static final String SPRITE_PATH = "src/main/resources/me/vault/game/assets/attributes/resistance_icon.png";
+	private static final String SPRITE_PATH =
+		"src/main/resources/me/vault/game/assets/difficulty/hard_difficulty_icon.png";
 
 
 	/**
 	 * The property that contains the sprite. This property is bound to the GUI.
 	 */
-	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
+	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY =
+		new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
 	/**
@@ -67,3 +72,4 @@ public class BlockedTileAppearance implements Placeable
 		return SPRITE_PROPERTY;
 	}
 }
+

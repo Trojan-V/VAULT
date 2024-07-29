@@ -1,8 +1,8 @@
 package me.vault.game.utility.constant;
 
 
-import me.vault.game.model.arena.GameBoard;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.utility.constant.ConstantInterface.Constant;
 import me.vault.game.utility.loading.ResourceLoader;
