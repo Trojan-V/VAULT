@@ -23,7 +23,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * The {@link MissionDelegate} is responsive for the control (Controller) and display (View) of the dialog that appears when the user saves the game to config.
+ * The {@link SaveCompleteDelegate} is responsive for the control (Controller) and display (View) of the dialog that appears when the user saves the game to config.
  * It doesn't provide the actual methods to save the game to config but more so acts like a notification popup, that the user's input has been registered.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel

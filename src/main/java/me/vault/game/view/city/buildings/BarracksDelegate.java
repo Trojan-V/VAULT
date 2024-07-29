@@ -41,6 +41,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Barracks
  * @since 11.06.2024
  */
+// TODO: Citybuilding delgate noch erstellen oder bei citydelegate belassen?
 public final class BarracksDelegate implements Initializable
 {
 
@@ -125,7 +126,6 @@ public final class BarracksDelegate implements Initializable
 		// Logging the finalization of the initialization
 		LOGGER.logf(DEBUG, CLASS_INITIALIZED, BarracksDelegate.class.getSimpleName());
 	}
-
 
 
 	@Override

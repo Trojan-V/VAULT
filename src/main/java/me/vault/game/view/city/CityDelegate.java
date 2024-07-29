@@ -4,32 +4,22 @@ package me.vault.game.view.city;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.scene.layout.GridPane;
 import me.vault.game.GameApplication;
-import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
+import me.vault.game.utility.fx.CityBuildingAnchorPane;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.MainMenuDelegate;
 import me.vault.game.view.TutorialDelegate;
-import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.ViewUtil;
-import me.vault.game.view.city.buildings.*;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -40,7 +30,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see
  * @since 15.05.2024
  */
-public final class CityDelegate implements Initializable
+public class CityDelegate implements Initializable
 {
 
 	/**
@@ -52,80 +42,20 @@ public final class CityDelegate implements Initializable
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
-	private static final String STYLESHEET = "city_view.fxml";
+	private static final String CITY_VIEW_FXML = "city_view.fxml";
 
-	private static final Scene SCENE = ResourceLoader.loadScene(CityDelegate.class, STYLESHEET);
-
-	@FXML
-	private Button barracksButton;
 
 	@FXML
-	private Button barracksUpgradeButton;
+	private GridPane cityGridPane;
+
 
 	@FXML
 	private AnchorPane cityAnchorPane;
 
-	@FXML
-	private Button commandCenterButton;
-
-	@FXML
-	private Button commandCenterUpgradeButton;
-
-	@FXML
-	private Button docksButton;
-
-	@FXML
-	private Button docksUpgradeButton;
-
-	@FXML
-	private Button laboratoryButton;
-
-	@FXML
-	private Button laboratoryUpgradeButton;
-
-	@FXML
-	private Button marketButton;
-
-	@FXML
-	private Button marketUpgradeButton;
-
-	@FXML
-	private Button spaceBarButton;
-
-	@FXML
-	private Button spaceBarUpgradeButton;
-
-	@FXML
-	private Button trainingfacilityButton;
-
-	@FXML
-	private Button trainingfacilityUpgradeButton;
-
-	@FXML
-	private Button workshopButton;
-
-	@FXML
-	private Button workshopUpgradeButton;
-
-
-	private static void initCityBuildingButton (final Button button, final Button upgradeButton, final CityBuilding cityBuilding)
-	{
-		// Sprite property gets bound to the button.
-		final ImageView imageView = new ImageView();
-		imageView.imageProperty().bind(cityBuilding.getSpriteProperty());
-		button.setGraphic(imageView);
-
-		// Name property gets bound to the button.
-		button.textProperty().bind(cityBuilding.getNameProperty());
-
-		// Boolean property gets bound to the upgrade button
-		upgradeButton.disableProperty().bind(cityBuilding.getMaxLevelProperty());
-	}
-
 
 	public static void show ()
 	{
-		ViewUtil.show(GameApplication.getStage(), SCENE, CityDelegate.class);
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(CityDelegate.class, CITY_VIEW_FXML), CityDelegate.class);
 	}
 
 
@@ -151,118 +81,6 @@ public final class CityDelegate implements Initializable
 	}
 
 
-	@FXML
-	void onBarracksUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Barracks.getInstance(), CityBuildingController.getInstance());
-	}
-
-
-	@FXML
-	void onCommandCenterUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(CommandCenter.getInstance(), CityBuildingController.getInstance());
-	}
-
-
-	@FXML
-	void onDocksUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Docks.getInstance(), CityBuildingController.getInstance());
-	}
-
-
-	@FXML
-	void onLaboratoryUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Laboratory.getInstance(), CityBuildingController.getInstance());
-	}
-
-
-	@FXML
-	void onMarketUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Market.getInstance(), CityBuildingController.getInstance());
-	}
-
-
-	@FXML
-	void onSpaceBarUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(SpaceBar.getInstance(), CityBuildingController.getInstance());
-	}
-
-
-	@FXML
-	void onTrainingFacilityUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(TrainingFacility.getInstance(), CityBuildingController.getInstance());
-	}
-
-
-	@FXML
-	void onWorkshopUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Workshop.getInstance(), CityBuildingController.getInstance());
-	}
-
-
-	@FXML
-	void onBarracksButtonClick (final ActionEvent ignored)
-	{
-		BarracksDelegate.show();
-	}
-
-
-	@FXML
-	void onCommandCenterButtonClick (final ActionEvent ignored)
-	{
-		CommandCenterDelegate.show();
-	}
-
-
-	@FXML
-	void onDocksButtonClick (final ActionEvent ignored)
-	{
-		DocksDelegate.show();
-	}
-
-
-	@FXML
-	void onLaboratoryButtonClick (final ActionEvent ignored)
-	{
-		LaboratoryDelegate.show();
-	}
-
-
-	@FXML
-	void onMarketButtonClick (final ActionEvent ignored)
-	{
-		MarketDelegate.show();
-	}
-
-
-	@FXML
-	void onSpaceBarButtonClick (final ActionEvent ignored)
-	{
-		SpaceBarDelegate.show();
-	}
-
-
-	@FXML
-	void onTrainingFacilityButtonClick (final ActionEvent ignored)
-	{
-		TrainingFacilityDelegate.show();
-	}
-
-
-	@FXML
-	void onWorkshopButtonClick (final ActionEvent ignored)
-	{
-		WorkshopDelegate.show();
-	}
-
-
 	/**
 	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
 	 *
@@ -283,14 +101,14 @@ public final class CityDelegate implements Initializable
 
 	private void initBuildingButtons ()
 	{
-		initCityBuildingButton(this.workshopButton, this.workshopUpgradeButton, Workshop.getInstance());
-		initCityBuildingButton(this.barracksButton, this.barracksUpgradeButton, Barracks.getInstance());
-		initCityBuildingButton(this.laboratoryButton, this.laboratoryUpgradeButton, Laboratory.getInstance());
-		initCityBuildingButton(this.spaceBarButton, this.spaceBarUpgradeButton, SpaceBar.getInstance());
-		initCityBuildingButton(this.marketButton, this.marketUpgradeButton, Market.getInstance());
-		initCityBuildingButton(this.docksButton, this.docksUpgradeButton, Docks.getInstance());
-		initCityBuildingButton(this.commandCenterButton, this.commandCenterUpgradeButton, CommandCenter.getInstance());
-		initCityBuildingButton(this.trainingfacilityButton, this.trainingfacilityUpgradeButton, TrainingFacility.getInstance());
+		this.cityGridPane.add(new CityBuildingAnchorPane(Workshop.getInstance()), 0, 0);
+		this.cityGridPane.add(new CityBuildingAnchorPane(Barracks.getInstance()), 1, 0);
+		this.cityGridPane.add(new CityBuildingAnchorPane(CommandCenter.getInstance()), 2, 0);
+		this.cityGridPane.add(new CityBuildingAnchorPane(TrainingFacility.getInstance()), 3, 0);
+		this.cityGridPane.add(new CityBuildingAnchorPane(Docks.getInstance()), 0, 1);
+		this.cityGridPane.add(new CityBuildingAnchorPane(SpaceBar.getInstance()), 1, 1);
+		this.cityGridPane.add(new CityBuildingAnchorPane(Laboratory.getInstance()), 2, 1);
+		this.cityGridPane.add(new CityBuildingAnchorPane(Market.getInstance()), 3, 1);
 	}
 
 }
