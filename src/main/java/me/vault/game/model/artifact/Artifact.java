@@ -77,8 +77,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */
-	private static final String TO_STRING_PATTERN =
-		"Artifact[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
+	private static final String TO_STRING_PATTERN = "Artifact[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
 
 
 	/**
