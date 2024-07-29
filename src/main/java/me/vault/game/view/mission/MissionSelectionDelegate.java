@@ -15,7 +15,7 @@ import me.vault.game.utility.fx.RewardGridPane;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.ViewUtil;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;

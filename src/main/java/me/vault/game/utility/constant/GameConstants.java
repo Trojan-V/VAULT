@@ -44,4 +44,6 @@ public interface GameConstants
 	@Constant
 	String DEFAULT_CONFIG_FILE = "defaults.json";
 
+	@Constant
+	String CSS_FILE_NAME = "button_long.css";
 }

@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
-import me.vault.game.control.FigureController;
 import me.vault.game.control.MovableController;
 import me.vault.game.control.PlayerController;
 import me.vault.game.interfaces.Placeable;
@@ -22,7 +21,7 @@ import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ArenaDelegate;
-import me.vault.game.view.ViewUtil;
+import me.vault.game.utility.ViewUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;

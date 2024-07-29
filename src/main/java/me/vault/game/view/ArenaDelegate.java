@@ -18,6 +18,7 @@ import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.logging.ILogger;

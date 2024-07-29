@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.loading.Config;
 import me.vault.game.utility.loading.ResourceLoader;

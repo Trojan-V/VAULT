@@ -16,7 +16,7 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.MainMenuDelegate;
 import me.vault.game.view.TutorialDelegate;
-import me.vault.game.view.ViewUtil;
+import me.vault.game.utility.ViewUtil;
 
 import java.net.URL;
 import java.util.ResourceBundle;

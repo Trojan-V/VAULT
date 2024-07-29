@@ -23,7 +23,7 @@ import me.vault.game.model.troop.impl.*;
 import me.vault.game.utility.fx.SelectedAlliesGridPane;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.ViewUtil;
+import me.vault.game.utility.ViewUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;

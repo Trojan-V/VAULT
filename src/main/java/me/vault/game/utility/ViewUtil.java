@@ -1,4 +1,4 @@
-package me.vault.game.view;
+package me.vault.game.utility;
 
 
 import javafx.scene.Scene;
@@ -12,6 +12,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
+import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -24,6 +25,20 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
+/**
+ * This class is a utility class that provides methods to manipulate GUI-elements, such as {@link Button}s.
+ *
+ * @autor Timothy Hoegen-Jupp
+ *
+ * @version 1.0.0
+ * @see Button
+ * @see ImageView
+ * @see TabPane
+ * @see Text
+ * @see Stage
+ * @see Scene
+ * @see MenuItem
+ */
 public final class ViewUtil
 {
 
@@ -85,7 +100,7 @@ public final class ViewUtil
 	{
 		try
 		{
-			scene.getStylesheets().add(Objects.requireNonNull(GameApplication.class.getResource("button_long.css")).toExternalForm());
+			scene.getStylesheets().add(Objects.requireNonNull(GameApplication.class.getResource(GameConstants.CSS_FILE_NAME)).toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 
