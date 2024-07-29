@@ -81,7 +81,7 @@ public class MissionDelegate implements Initializable
 	 * @param mission The {@link Mission} object, which is meant to be displayed on the main {@link Stage}
 	 *
 	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
-	 * @postcondition The main {@link Stage} displays the view of the passed method.
+	 * @postcondition The main {@link Stage} displays the view of the passed mission.
 	 */
 	public static void show (final @NotNull Mission mission)
 	{
@@ -216,6 +216,7 @@ public class MissionDelegate implements Initializable
 	 * Builds a formatted {@link String} which represents the object, and it's current state using the {@link MissionDelegate#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link MissionDelegate#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link MissionDelegate#TO_STRING_PATTERN} is {@code != null} and both of the instance variables are set.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

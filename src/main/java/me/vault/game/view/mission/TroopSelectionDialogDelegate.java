@@ -127,7 +127,7 @@ public class TroopSelectionDialogDelegate implements Initializable
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
-		MissionSelectionDelegate.show(GameApplication.getStage());
+		MissionSelectionDelegate.show();
 	}
 
 

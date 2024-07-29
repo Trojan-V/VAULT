@@ -97,7 +97,7 @@ public class CommandCenterDelegate implements Initializable
 	@FXML
 	void onGoToMissionBoard (final ActionEvent ignored)
 	{
-		MissionSelectionDelegate.show(GameApplication.getStage());
+		MissionSelectionDelegate.show();
 	}
 
 
