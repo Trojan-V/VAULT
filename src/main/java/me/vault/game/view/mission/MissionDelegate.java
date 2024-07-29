@@ -14,10 +14,7 @@ import me.vault.game.GameApplication;
 import me.vault.game.control.FigureController;
 import me.vault.game.fxcontrols.GameBoardButton;
 import me.vault.game.interfaces.Placeable;
-import me.vault.game.model.arena.ArenaStartTileAppearance;
-import me.vault.game.model.arena.GameBoard;
-import me.vault.game.model.arena.PlaceholderTileAppearance;
-import me.vault.game.model.arena.Position;
+import me.vault.game.model.arena.*;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.logging.ILogger;
@@ -49,11 +46,6 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  */
 public class MissionDelegate implements Initializable
 {
-	/**
-	 * The {@link GridPane}, which contains the game board of the mission. It contains all the clickable tiles in the map.
-	 */
-	@FXML
-	private GridPane missionBoardGridPane;
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
@@ -71,6 +63,12 @@ public class MissionDelegate implements Initializable
 	private static final String TO_STRING_PATTERN = "MissionMapDelegate'{'missionBoardGridPane={0}, mission={1}'}'";
 
 	/**
+	 * The {@link GridPane}, which contains the game board of the mission. It contains all the clickable tiles in the map.
+	 */
+	@FXML
+	private GridPane missionBoardGridPane;
+
+	/**
 	 * The {@link Mission} object, which is handled by the controller. Gets injected into the controller, when the
 	 * {@link MissionDelegate#show(Mission)} method gets called.
 	 */
@@ -80,10 +78,10 @@ public class MissionDelegate implements Initializable
 	/**
 	 * Displays the passed {@link Mission} instance on the main {@link Stage} of the application.
 	 *
-	 * @param mission The {@code Mission} object, which is meant to be displayed on the main {@code Stage}
+	 * @param mission The {@link Mission} object, which is meant to be displayed on the main {@link Stage}
 	 *
-	 * @precondition A {@link NotNull} {@code Mission} object is passed into the method.
-	 * @postcondition The main {@code Stage} displays the view of the passed method.
+	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
+	 * @postcondition The main {@link Stage} displays the view of the passed method.
 	 */
 	public static void show (final @NotNull Mission mission)
 	{
@@ -119,14 +117,14 @@ public class MissionDelegate implements Initializable
 
 
 	/**
-	 * Handles the {@code Click}-{@link ActionEvent} of the "Start Mission" {@link Button} in the GUI. Disables the sending {@code Button} and
-	 * enables
-	 * the game board {@link GridPane} so that the user can start playing.
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Start Mission" {@link Button} in the GUI.
+	 * <br>
+	 * Disables the sending {@link Button} and enables the game board {@link GridPane} so that the user can start playing.
 	 *
-	 * @param event The {@code ActionEvent} which represents the action of the {@code Button} press.
+	 * @param event The {@link ActionEvent} which represents the action of the {@link Button} press.
 	 *
-	 * @precondition The {@code Button} on the GUI gets clicked and JavaFx generates the {@code ActionEvent}.
-	 * @postcondition The sending {@code Button} disables and the game board {@code GridPane} enables in the GUI.
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The sending {@link Button} disables and the game board {@link GridPane} enables in the GUI.
 	 */
 	@FXML
 	void onStartGameClick (final ActionEvent event)
@@ -139,34 +137,57 @@ public class MissionDelegate implements Initializable
 
 
 	/**
-	 * @param mission
+	 * Sets the {@link Mission} object in an instance of {@link MissionDelegate} to the passed {@link Mission} object.
+	 *
+	 * @param mission The new {@link Mission} object, meant to replace the current one in the instance.
+	 *
+	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
+	 * @postcondition The {@link MissionDelegate} replaced the old {@link Mission} with the passed one.
 	 */
 	public void setMission (final @NotNull Mission mission)
 	{
 		// Sets the mission of the controller class and initializes the grid pane once.
 		this.mission = mission;
-		this.initializeGameBoardGridPane();
+		this.buildGameBoardGridPane();
 		this.missionBoardGridPane.setDisable(true);
 	}
 
 
-	private void initializeGameBoardGridPane ()
+	/**
+	 * Builds the {@link GridPane} of the game board / field ({@link MissionDelegate#missionBoardGridPane}) of the {@link Mission} by mirroring the
+	 * {@link GameBoard} object of the {@link Mission} from a two-dimensional-array to a {@link GridPane}.
+	 *
+	 * @precondition The {@link MissionDelegate#mission} contains a {@link GameBoard} object != null.
+	 * The {@link MissionDelegate#missionBoardGridPane} has been initialized.
+	 * @postcondition The {@link GameBoard} object was mirrored into the {@link MissionDelegate#missionBoardGridPane}.
+	 */
+	private void buildGameBoardGridPane ()
 	{
 		for (int row = 0; row < GAME_BOARD_ROW_COUNT; row++)
 		{
 			for (int column = 0; column < GAME_BOARD_COLUMN_COUNT; column++)
 			{
+				// The Button gets created in the respective position, and the onClick-Method gets connected to it
 				final Position position = new Position(column, row);
 				final GameBoardButton button = new GameBoardButton(this.mission.getGameBoard().getTile(position).getCurrentElement());
-
-				button.setOnMouseClicked(_ -> this.handleFigureInteraction(position));
+				button.setOnMouseClicked(_ -> this.onMissionBoardButtonClick(position));
 				this.missionBoardGridPane.add(button, column, row);
 			}
 		}
 	}
 
 
-	private void handleFigureInteraction (final @NotNull Position position)
+	/**
+	 * Handles the click of a {@link GameBoardButton} in the GUI of the mission.
+	 * <br>
+	 * It checks the clicked button for its type and makes the player act differently for each type.
+	 *
+	 * @param position The {@link Position} of the {@link GameBoardButton}, which is used for locating it in the {@link GameBoard}.
+	 *
+	 * @precondition A {@link NotNull} {@link Position} is passed into the method and both instance variables have been set.
+	 * @postcondition The {@link Player} made the expected interaction with the clicked {@link Tile}/{@link Button}
+	 */
+	private void onMissionBoardButtonClick (final @NotNull Position position)
 	{
 		final GameBoard missionGameBoard = this.mission.getGameBoard();
 		final Player player = Player.getInstance();
@@ -187,13 +208,21 @@ public class MissionDelegate implements Initializable
 		}
 
 		this.missionBoardGridPane.getChildren().clear();
-		this.initializeGameBoardGridPane();
+		this.buildGameBoardGridPane();
 	}
 
 
+	/**
+	 * Builds a formatted {@link String} which represents the object, and it's current state using the {@link MissionDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link MissionDelegate#TO_STRING_PATTERN}.
+	 * @precondition The {@link MissionDelegate#TO_STRING_PATTERN} is {@code != null} and both of the instance variables are set.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
 	@Override
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.missionBoardGridPane, this.mission);
 	}
+
 }
