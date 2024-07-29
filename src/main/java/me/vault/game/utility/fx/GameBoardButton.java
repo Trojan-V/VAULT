@@ -63,7 +63,7 @@ public final class GameBoardButton extends Button
 		imageView.setPreserveRatio(false);
 		imageView.setImage(placeable.getSprite());
 
-		if (arena != null && placeable instanceof final Figure<? extends Troop> figure)
+		if (arena != null && placeable instanceof final Figure figure)
 		{
 			FigureController.setGlow(arena, imageView, figure);
 		}

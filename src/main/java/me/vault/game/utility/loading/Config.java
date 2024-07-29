@@ -1,10 +1,12 @@
 package me.vault.game.utility.loading;
 
 
+import me.vault.game.control.*;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.GameController;
 import me.vault.game.control.TroopController;
+import me.vault.game.exception.UnexpectedValueException;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.artifact.impl.DamageArtifact;
@@ -13,8 +15,15 @@ import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.city.*;
 import me.vault.game.model.currency.Currency;
+import me.vault.game.model.energy.EnergyLevel;
+import me.vault.game.model.energy.impl.DodgeAbility;
+import me.vault.game.model.energy.impl.InitiativeAbility;
+import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.impl.*;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 
 /**
@@ -27,9 +36,8 @@ import me.vault.game.model.troop.impl.*;
  */
 public class Config
 {
-	// TODO: Wenn der "Exit" Button gedrueckt wird, kommt ein Dialog, dass noch nicht gespeichert wurde und es wird
-	//  gefragt, ob gespeichert werden soll.
-	//  Außerdem sollte ein Autosave implementiert werden, der alle 15 Minuten oaespeichert.
+
+	private static final ILogger LOGGER = new Logger(Config.class.getSimpleName());
 
 	// TODO: isDefault getter and setter and attribute. Set isDefault from ConfigLoader. If isDefault == true, gray
 	//  out continue button in main menu.
@@ -67,6 +75,16 @@ public class Config
 
 
 	private ArtifactLevel damageArtifactLevel = ArtifactLevel.getMinimum();
+
+	// Energy Ability related config entries
+
+	private EnergyLevel dodgeEnergyLevel = EnergyLevel.getMinimum();
+
+
+	private EnergyLevel initiativeEnergyLevel = EnergyLevel.getMinimum();
+
+
+	private EnergyLevel meleeEnergyLevel = EnergyLevel.getMinimum();
 
 	// CityBuilding related config entries
 
@@ -147,7 +165,7 @@ public class Config
 	}
 
 
-	private void updateCurrencyAmountsFromModels ()
+	private void updateCurrencyAmountsFromModels () throws UnexpectedValueException
 	{
 		for (final Currency currency : Currency.values())
 		{
@@ -158,15 +176,13 @@ public class Config
 				case FOOD_RATION -> this.foodRationAmount = currency.getAmount();
 				case SCIENCE -> this.scienceAmount = currency.getAmount();
 				case ENERGY_CREDIT -> this.energyCreditAmount = currency.getAmount();
-
-				// TODO: keep or remove this default branch
-				case null, default -> throw new IllegalStateException("Unexpected value: " + currency);
+				default -> throw new UnexpectedValueException(currency.toString());
 			}
 		}
 	}
 
 
-	private void updateCurrencyAmountsFromConfig ()
+	private void updateCurrencyAmountsFromConfig () throws UnexpectedValueException
 	{
 		for (final Currency currency : Currency.values())
 		{
@@ -177,9 +193,7 @@ public class Config
 				case FOOD_RATION -> currency.setAmount(this.foodRationAmount);
 				case SCIENCE -> currency.setAmount(this.scienceAmount);
 				case ENERGY_CREDIT -> currency.setAmount(this.energyCreditAmount);
-
-				// TODO: keep or remove this default branch
-				case null, default -> throw new IllegalStateException("Unexpected value: " + currency);
+				default -> throw new UnexpectedValueException(currency.toString());
 			}
 		}
 	}
@@ -202,6 +216,25 @@ public class Config
 		ArtifactController.getInstance().updateValues(HealthArtifact.getInstance());
 		ArtifactController.getInstance().updateValues(DamageArtifact.getInstance());
 		ArtifactController.getInstance().updateValues(DefenseArtifact.getInstance());
+	}
+
+	private void updateEnergyLevelsFromModels ()
+	{
+		this.dodgeEnergyLevel = DodgeAbility.getInstance().getLevel();
+		this.initiativeEnergyLevel = InitiativeAbility.getInstance().getLevel();
+		this.meleeEnergyLevel = MeleeAbility.getInstance().getLevel();
+	}
+
+
+	private void updateEnergyLevelsFromConfig ()
+	{
+		DodgeAbility.getInstance().setLevel(this.dodgeEnergyLevel);
+		InitiativeAbility.getInstance().setLevel(this.initiativeEnergyLevel);
+		MeleeAbility.getInstance().setLevel(this.meleeEnergyLevel);
+
+		EnergyAbilityController.getInstance().updateValues(DodgeAbility.getInstance());
+		EnergyAbilityController.getInstance().updateValues(InitiativeAbility.getInstance());
+		EnergyAbilityController.getInstance().updateValues(MeleeAbility.getInstance());
 	}
 
 
@@ -289,21 +322,37 @@ public class Config
 
 	public void updateModelsFromConfig ()
 	{
-		this.updateTroopLevelsFromConfig();
-		this.updateCityBuildingLevelsFromConfig();
-		this.updateArtifactLevelsFromConfig();
-		GameController.setDifficulty(this.difficulty);
-		this.updateCurrencyAmountsFromConfig();
+
+		try
+		{
+			this.updateTroopLevelsFromConfig();
+			this.updateCityBuildingLevelsFromConfig();
+			this.updateArtifactLevelsFromConfig();
+			this.updateEnergyLevelsFromConfig();
+			GameController.setDifficulty(this.difficulty);
+			this.updateCurrencyAmountsFromConfig();
+		}
+		catch (UnexpectedValueException e)
+		{
+			LOGGER.log(ILogger.Level.WARNING, e.getMessage());
+		}
 	}
 
 
 	public void updateConfigFromModels ()
 	{
-		this.updateCurrencyAmountsFromModels();
-		this.updateArtifactLevelsFromModels();
-		this.updateCityBuildingLevelsFromModels();
-		this.difficulty = GameController.getDifficulty();
-		this.updateTroopLevelsFromModels();
+		try
+		{
+			this.updateCurrencyAmountsFromModels();
+			this.updateArtifactLevelsFromModels();
+			this.updateCityBuildingLevelsFromModels();
+			this.difficulty = GameController.getDifficulty();
+			this.updateTroopLevelsFromModels();
+		}
+		catch (UnexpectedValueException e)
+		{
+			LOGGER.log(ILogger.Level.WARNING, e.getMessage());
+		}
 	}
 
 }

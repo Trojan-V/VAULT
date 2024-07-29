@@ -51,9 +51,6 @@ public class GameApplication extends Application
 	 */
 	public static void main (final String[] args)
 	{
-		LOGGER.logf(ILogger.Level.NORMAL, PROGRAM_START, Arrays.toString(args));
-
-		// TODO: createDefaultConfig();
 		JvmArgumentParser.apply(args);
 		launch();
 	}

@@ -8,7 +8,6 @@ import javafx.scene.layout.VBox;
 import me.vault.game.control.FigureController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
-import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -42,7 +41,7 @@ public final class TimelineElementHBox extends HBox
 	private static final int H_BOX_OFFSET = 10;
 
 
-	public TimelineElementHBox (final Arena arena, final Figure<? extends Troop> troopFigure)
+	public TimelineElementHBox (final Arena arena, final Figure troopFigure)
 	{
 		final VBox statistics = new VBox();
 		statistics.setPrefSize(VBOX_WIDTH, VBOX_HEIGHT);

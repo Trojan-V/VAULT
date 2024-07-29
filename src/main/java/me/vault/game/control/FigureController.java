@@ -9,7 +9,6 @@ import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Position;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopStatistics.Defensive;
 import me.vault.game.model.troop.TroopStatistics.Offensive;
 import me.vault.game.utility.logging.ILogger;
@@ -66,23 +65,15 @@ public final class FigureController
 	 * @param attacker The {@link Figure} who is the attacker.
 	 * @param defender The {@link Figure} who is the defender.
 	 */
-	public static void attack (final Arena arena, final Figure<? extends Troop> attacker,
-		final Figure<? extends Troop> defender)
+	public static void attack (final Arena arena, final Figure attacker,
+		final Figure defender)
 	{
 		// Get the statistics of the attacker and defender so the damage can be calculated.
 		final Offensive attackerOffensiveStats = attacker.getStatistics().getOffensive();
 		final Defensive defenderDefensiveStats = defender.getStatistics().getDefensive();
 
-		// TODO: remove prints
-		System.out.println("attacker = " + attackerOffensiveStats);
-		System.out.println("defender = " + defenderDefensiveStats);
-
 		final int calculatedDamage = calculateDamage(attackerOffensiveStats, defenderDefensiveStats);
 		final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;
-
-		// TODO: remove prints
-		System.out.println("calculatedDamage = " + calculatedDamage);
-		System.out.println("newDefenderHealthPoints = " + newDefenderHealthPoints);
 
 		// Remove the defender from the arena if his HP dropped to zero or below, as the unit died.
 		if (newDefenderHealthPoints <= 0)
@@ -108,6 +99,7 @@ public final class FigureController
 	private static int calculateDamage (final Offensive attackerStats, final Defensive defenderDefensiveStats)
 	{
 		// TODO: Literals
+		// TODO: Apply multipliers to the stats of the player/troops.
 		return attackerStats.getMeleeDamage() * (1 - defenderDefensiveStats.getArmor() / 100);
 	}
 
@@ -121,14 +113,13 @@ public final class FigureController
 	 * @return True if the {@link Figure} can move to the supplied {@link Position}, otherwise false.
 	 */
 	public static boolean canMoveToPosition (final Arena arena,
-		final Figure<? extends Troop> troopFigure, final Position position)
+		final Figure troopFigure, final Position position)
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 
 		final Position previousTroopPosition = arenaGameBoard.getPosition(troopFigure);
 		final int troopMovementRange = troopFigure.getStatistics().getDexterity().getMovementTiles();
-		final List<Tile> accessibleTiles =
-			arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
+		final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
 		return accessibleTiles.contains(arenaGameBoard.getTile(position));
 	}
 
@@ -142,18 +133,18 @@ public final class FigureController
 	 * @return True if the {@link Figure} can attack the {@link Figure} at the supplied {@link Position}, otherwise
 	 * false.
 	 */
-	public static boolean canAttackAtPosition (final Arena arena, final Figure<? extends Troop> attackerFigure,
+	public static boolean canAttackAtPosition (final Arena arena, final Figure attackerFigure,
 		final Position position)
 	{
 		try
 		{
-			GameBoard arenaGameBoard = arena.getGameBoard();
-			final Figure<? extends Troop> defender = arenaGameBoard.getFigure(position);
+			final GameBoard arenaGameBoard = arena.getGameBoard();
+			final Figure defender = arenaGameBoard.getFigure(position);
 			final Position attackerPos = arenaGameBoard.getPosition(attackerFigure);
 			final List<Tile> reachableTiles = arenaGameBoard
 				.getAdjacentTiles(attackerPos, attackerFigure.getStatistics().getOffensive().getGrenadeRange());
 
-			final List<Figure<? extends Troop>> defenderGroup =
+			final List<Figure> defenderGroup =
 				arena.getPlayerOneTroops().contains(defender) ? arena.getPlayerOneTroops() :
 				arena.getPlayerTwoTroops();
 			return !defenderGroup.contains(attackerFigure) &&
@@ -176,7 +167,7 @@ public final class FigureController
 	 *                    an enemy, the glow effect will be colored red.
 	 */
 	public static void setGlow (final @NotNull Arena arena, final @NotNull ImageView imageView,
-		final @NotNull Figure<? extends Troop> troopFigure)
+		final @NotNull Figure troopFigure)
 	{
 		// Define the DropShadow (the glow) depending on the Figure's team: Blue glow means ally, red glow means enemy.
 		DropShadow playerIdentity = null;
@@ -208,7 +199,7 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an enemy or not.
 	 * @return True if the {@link Figure} is an enemy, otherwise false.
 	 */
-	private static boolean isEnemy (@NotNull Arena arena, @NotNull Figure<? extends Troop> troopFigure)
+	private static boolean isEnemy (@NotNull final Arena arena, @NotNull final Figure troopFigure)
 	{
 		return arena.getPlayerTwoTroops().contains(troopFigure);
 	}
@@ -221,7 +212,7 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an ally or not.
 	 * @return True if the {@link Figure} is an ally, otherwise false.
 	 */
-	private static boolean isAlly (@NotNull Arena arena, @NotNull Figure<? extends Troop> troopFigure)
+	private static boolean isAlly (@NotNull final Arena arena, @NotNull final Figure troopFigure)
 	{
 		return arena.getPlayerOneTroops().contains(troopFigure);
 	}

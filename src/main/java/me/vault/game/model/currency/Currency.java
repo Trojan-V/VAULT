@@ -15,8 +15,6 @@ import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
-// TODO: Amount should either be retrieved by Serialization or JSON config file.
-
 
 /**
  * The {@code Currency} enum represents the resources or currencies which the user can use to upgrade troops and

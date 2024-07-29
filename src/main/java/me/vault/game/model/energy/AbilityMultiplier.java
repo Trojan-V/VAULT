@@ -44,7 +44,7 @@ public class AbilityMultiplier
 
 
 	/**
-	 * This property is used to store and dynamically display the damage multiplier the energy ability provides. If the
+	 * This property is used to store and dynamically display the dodge multiplier the energy ability provides. If the
 	 * value is updated within this
 	 * property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 *
@@ -54,8 +54,8 @@ public class AbilityMultiplier
 
 
 	/**
-	 * This property is used to store and dynamically display the health multiplier the energy ability provides. If the
-	 * value is updated within this
+	 * This property is used to store and dynamically display the initiative multiplier the energy ability provides. If
+	 * the value is updated within this
 	 * property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 *
 	 * @see SimpleDoubleProperty
@@ -64,9 +64,8 @@ public class AbilityMultiplier
 
 
 	/**
-	 * This property is used to store and dynamically display the defense multiplier the energy ability provides. If the
-	 * value is updated within this
-	 * property, JavaFX instantly applies the change, so it's visible in the GUI.
+	 * This property is used to store and dynamically display the melee multiplier the energy ability provides. If the
+	 * value is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 *
 	 * @see SimpleDoubleProperty
 	 */
@@ -97,7 +96,7 @@ public class AbilityMultiplier
 			LOGGER.log(ILogger.Level.ERROR, e.getMessage());
 			LOGGER.log(ILogger.Level.ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE);
 
-			// TODO: System.exit überarbeiten
+			// TODO: System.exit überarbeiten, Fenster vllt.
 			System.exit(ERROR_EXIT_CODE);
 		}
 	}
@@ -106,13 +105,13 @@ public class AbilityMultiplier
 	/**
 	 * Validates that the supplied modifiers are valid.
 	 * <br>
-	 * Checks if the dodge multiplier isn't equal or below zero, because negative health or defense wouldn't make any
+	 * Checks if the melee multiplier isn't equal or below zero, because negative melee or dodge wouldn't make any
 	 * sense.
 	 * <br>
-	 * The initiative and melee multiplier is validated as well: this method checks if these aren't below zero,
+	 * The initiative and dodge multiplier is validated as well: this method checks if these aren't below zero,
 	 * because
-	 * negative initiative or melee
-	 * values wouldn't make any sense. Zero initiative or melee could technically be valid in niche cases, hence why
+	 * negative dodge or melee
+	 * values wouldn't make any sense. Zero initiative could technically be valid in niche cases, hence why
 	 * this check is not performed as part
 	 * of the validation.
 	 *
@@ -138,7 +137,7 @@ public class AbilityMultiplier
 	/**
 	 * Sets the dodge multiplier to the supplied value.
 	 * <br>
-	 * The damage multiplier is set within the {@link AbilityMultiplier#dodgeMultiplierProperty}, so the damage
+	 * The damage multiplier is set within the {@link AbilityMultiplier#dodgeMultiplierProperty}, so the dodge
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param dodgeMultiplier The new value for the dodge multiplier.
@@ -153,7 +152,7 @@ public class AbilityMultiplier
 	 * Sets the initiative multiplier to the supplied value.
 	 * <br>
 	 * The initiative multiplier is set within the
-	 * {@link AbilityMultiplier#initiativeMultiplierProperty}, so the health
+	 * {@link AbilityMultiplier#initiativeMultiplierProperty}, so the initiative
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param initiativeMultiplier The new value for the initiative multiplier.
@@ -168,7 +167,7 @@ public class AbilityMultiplier
 	 * Sets the melee multiplier to the supplied value.
 	 * <br>
 	 * The melee multiplier is set within the
-	 * {@link AbilityMultiplier#meleeMultiplierProperty}, so the defense
+	 * {@link AbilityMultiplier#meleeMultiplierProperty}, so the melee
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param meleeMultiplier The new value for the melee multiplier.
@@ -243,7 +242,7 @@ public class AbilityMultiplier
 	public enum Type
 	{
 		/**
-		 * Ability-multiplier type for the damage multiplier.
+		 * Ability-multiplier type for the dodge multiplier.
 		 */
 		DODGE,
 

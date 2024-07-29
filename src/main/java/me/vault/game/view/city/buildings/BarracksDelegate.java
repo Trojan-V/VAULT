@@ -41,7 +41,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Barracks
  * @since 11.06.2024
  */
-// TODO: Citybuilding delgate noch erstellen oder bei citydelegate belassen?
 public final class BarracksDelegate implements Initializable
 {
 
@@ -113,9 +112,6 @@ public final class BarracksDelegate implements Initializable
 	 *
 	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
 	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
-	 *
-	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
-	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
 	 */
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)

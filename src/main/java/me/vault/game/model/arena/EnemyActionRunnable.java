@@ -2,7 +2,6 @@ package me.vault.game.model.arena;
 
 
 import me.vault.game.control.EnemyController;
-import me.vault.game.model.troop.Troop;
 
 import java.util.List;
 
@@ -13,10 +12,11 @@ public class EnemyActionRunnable implements Runnable
 
 	private final Arena arena;
 
-	private final Figure<Troop> troop;
+
+	private final Figure troop;
 
 
-	public EnemyActionRunnable (final Arena arena, final Figure<Troop> troopFigure)
+	public EnemyActionRunnable (final Arena arena, final Figure troopFigure)
 	{
 		this.arena = arena;
 		this.troop = troopFigure;

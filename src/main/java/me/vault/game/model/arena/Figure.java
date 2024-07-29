@@ -11,6 +11,8 @@ import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.struct.MetaDataImage;
 
+import java.text.MessageFormat;
+
 
 /**
  * A figure can be placed and moved on the {@link GameBoard}.
@@ -19,7 +21,6 @@ import me.vault.game.utility.struct.MetaDataImage;
  * <br>
  * Additionally, figures can also appear on the {@link GameBoard} of {@link Mission}s.
  *
- * @param <T> // TODO: What is the T for?
  * @author Vincent Wolf
  * @version 1.0.0
  * @see GameBoard
@@ -28,9 +29,22 @@ import me.vault.game.utility.struct.MetaDataImage;
  * @see Nameable
  * @since 29.07.2024
  */
-public final class Figure<T extends Troop> implements Movable, Nameable
+public final class Figure implements Movable, Nameable
 {
-	private final T troop;
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Figure#toString()} is called.
+	 */
+	private static final String TO_STRING_PATTERN =
+		"Figure'{'troop={0}, name={1}, spriteProperty={2}, statistics={3}'}'";
+
+
+	/**
+	 * The troop that'll be used to generate the figure.
+	 * <br>
+	 * The figure is basically just a copy of this troop, but the values of the figure are changed during the fight
+	 * to reflect the outcomes of battles.
+	 */
+	private final Troop troop;
 
 
 	/**
@@ -64,7 +78,7 @@ public final class Figure<T extends Troop> implements Movable, Nameable
 	 *
 	 * @param troop The troop model whose statistics are used to create the corresponding figure to it.
 	 */
-	public Figure (final T troop)
+	public Figure (final Troop troop)
 	{
 		this.troop = troop;
 		this.name = troop.getNameProperty();
@@ -78,7 +92,7 @@ public final class Figure<T extends Troop> implements Movable, Nameable
 	 *
 	 * @return The troop whose statistics were used to create this figure instance.
 	 */
-	public T getTroop ()
+	public Troop getTroop ()
 	{
 		return this.troop;
 	}
@@ -152,5 +166,22 @@ public final class Figure<T extends Troop> implements Movable, Nameable
 	public SimpleStringProperty getNameProperty ()
 	{
 		return this.name;
+	}
+
+
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link Figure#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link Figure#TO_STRING_PATTERN}.
+	 * @precondition The {@link Figure#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.troop.toString(), this.name.get(),
+			this.spriteProperty.get()
+				.toString(), this.statistics.toString());
 	}
 }

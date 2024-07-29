@@ -70,7 +70,6 @@ public final class Engineer extends Troop
 		UPGRADE_COSTS.put(TroopLevel.SQUAD, SQUAD_UPGRADE_COST);
 
 
-		// TODO: Troop statistics in den Konstanten differenzieren
 		TROOP_STATISTICS.put(TroopLevel.SINGLE_COMBATANT, ENGINEER_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, ENGINEER_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, ENGINEER_SQUAD_STATISTICS);

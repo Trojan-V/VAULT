@@ -19,7 +19,6 @@ import me.vault.game.model.arena.*;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.player.Player;
-import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.fx.TimelineElementHBox;
@@ -57,7 +56,8 @@ public final class ArenaDelegate
 	@FXML
 	private VBox timelineVBox;
 
-	private PriorityQueue<Figure<? extends Troop>> currentQueue = null;
+
+	private PriorityQueue<Figure> currentQueue = null;
 
 	private TroopTimeline figureTroopTimeline = null;
 
@@ -116,7 +116,7 @@ public final class ArenaDelegate
 	{
 		this.timelineVBox.getChildren().clear();
 		this.arena.setSelectedFigure(this.currentQueue.peek());
-		final PriorityQueue<Figure<? extends Troop>> figurePriorityQueue = this.figureTroopTimeline.getPriorityQueue();
+		final PriorityQueue<Figure> figurePriorityQueue = this.figureTroopTimeline.getPriorityQueue();
 		while (!figurePriorityQueue.isEmpty())
 		{
 			this.timelineVBox.getChildren().add(new TimelineElementHBox(this.arena, Objects.requireNonNull(figurePriorityQueue.poll())));
@@ -128,7 +128,7 @@ public final class ArenaDelegate
 	private void handleFigureInteraction (final @NotNull Position position)
 	{
 		final GameBoard arenaGameBoard = this.arena.getGameBoard();
-		final Figure<? extends Troop> attacker = this.arena.getSelectedFigure();
+		final Figure attacker = this.arena.getSelectedFigure();
 		final Placeable nextTileElement = arenaGameBoard.getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
@@ -138,7 +138,7 @@ public final class ArenaDelegate
 			MovableController.move(arenaGameBoard, attacker, position);
 			interactionFailed = false;
 		}
-		else if (nextTileElement instanceof final Figure<? extends Troop> defender &&
+		else if (nextTileElement instanceof final Figure defender &&
 		         FigureController.canAttackAtPosition(this.arena, attacker, position))
 		{
 			FigureController.attack(this.arena, attacker, defender);
@@ -158,13 +158,12 @@ public final class ArenaDelegate
 
 	private void executeTurn ()
 	{
-		final List<Figure<? extends Troop>> playerOneTroops = this.arena.getPlayerOneTroops();
-		final List<Figure<? extends Troop>> playerTwoTroops = this.arena.getPlayerTwoTroops();
+		final List<Figure> playerOneTroops = this.arena.getPlayerOneTroops();
+		final List<Figure> playerTwoTroops = this.arena.getPlayerTwoTroops();
 
 		final boolean finished = this.checkForFinish();
 		if (playerOneTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
-			return;
 		}
 		else if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
@@ -228,7 +227,7 @@ public final class ArenaDelegate
 
 
 		// Aktualisiert die TimeLine am rechten Rand des Bildschirms
-		final PriorityQueue<Figure<? extends Troop>> tempPriorityQueue = new PriorityQueue<>(this.currentQueue);
+		final PriorityQueue<Figure> tempPriorityQueue = new PriorityQueue<>(this.currentQueue);
 		this.timelineVBox.getChildren().clear();
 		while (!tempPriorityQueue.isEmpty())
 		{

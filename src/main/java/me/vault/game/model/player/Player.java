@@ -9,7 +9,6 @@ import me.vault.game.model.arena.Figure;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.troop.Faction;
-import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
@@ -34,7 +33,7 @@ public final class Player implements Movable, Nameable
 	private Faction selectedFaction;
 
 
-	private ArrayList<Figure<? extends Troop>> selectedTroops;
+	private ArrayList<Figure> selectedTroops;
 
 
 	private Player ()
@@ -75,19 +74,19 @@ public final class Player implements Movable, Nameable
 	}
 
 
-	public ArrayList<Figure<? extends Troop>> getSelectedTroops ()
+	public ArrayList<Figure> getSelectedTroops ()
 	{
 		return this.selectedTroops;
 	}
 
 
-	public void setSelectedTroops (final ArrayList<Figure<? extends Troop>> troopArrayList)
+	public void setSelectedTroops (final ArrayList<Figure> troopArrayList)
 	{
 		this.selectedTroops = troopArrayList;
 	}
 
 
-	public void addSelectedTroop (final Figure<? extends Troop> troop)
+	public void addSelectedTroop (final Figure troop)
 	{
 		if (this.selectedTroops.size() >= 3)
 		{

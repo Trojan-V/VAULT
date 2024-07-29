@@ -26,7 +26,6 @@ public enum CityBuildingLevel implements Level
 
 	public static CityBuildingLevel getMinimum ()
 	{
-		// TODO: Logging Messages
 		return values()[MINIMUM_LEVEL_ORDINAL];
 	}
 

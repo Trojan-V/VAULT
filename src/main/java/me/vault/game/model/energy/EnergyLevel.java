@@ -55,7 +55,7 @@ public enum EnergyLevel implements Level
 
 
 	/**
-	 * Checks if the supplied artifact level is the minimum level.
+	 * Checks if the supplied energy ability level is the minimum level.
 	 *
 	 * @param level The level which is checked.
 	 *
@@ -68,7 +68,7 @@ public enum EnergyLevel implements Level
 
 
 	/**
-	 * Checks if the supplied artifact level is the maximum level.
+	 * Checks if the supplied energy ability level is the maximum level.
 	 *
 	 * @param level The level which is checked.
 	 *

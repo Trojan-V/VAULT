@@ -10,10 +10,12 @@ import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.struct.MetaDataImage;
-import me.vault.game.view.city.CityDelegate;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
+
+import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
+import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
 
 
 /**
@@ -85,11 +87,10 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
 	 */
+	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected CityBuilding ()
 	{
-		// TODO: currentLevel aus Config einlesen
 		this.currentLevel = CityBuildingLevel.getMinimum();
-
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
@@ -108,9 +109,9 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	}
 
 
-	// TODO: Vielleicht ins Interface Nameable schieben.
-
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setName (final String name)
 	{
@@ -247,7 +248,6 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	}
 
 
-	// TODO: Interface Layer?
 	@NotNull
 	public abstract Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ();
 

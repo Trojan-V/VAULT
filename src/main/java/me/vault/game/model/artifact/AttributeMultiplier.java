@@ -14,7 +14,7 @@ import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSS
 import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 
 
-// TODO: Apply multipliers to the stats of the player/troops.
+
 
 
 /**
@@ -86,7 +86,7 @@ public class AttributeMultiplier
 	 *
 	 * @param modifiers The modifiers which are applied to the properties.
 	 */
-	public AttributeMultiplier (final Map<Type, Double> modifiers)
+	AttributeMultiplier (final Map<Type, Double> modifiers)
 	{
 		this.damageMultiplierProperty = new SimpleDoubleProperty(modifiers.get(Type.DAMAGE));
 		this.defenseMultiplierProperty = new SimpleDoubleProperty(modifiers.get(Type.DEFENSE));
@@ -101,7 +101,6 @@ public class AttributeMultiplier
 			LOGGER.log(Level.ERROR, e.getMessage());
 			LOGGER.log(Level.ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE);
 
-			// TODO: System.exit überarbeiten
 			System.exit(ERROR_EXIT_CODE);
 		}
 	}
@@ -113,13 +112,12 @@ public class AttributeMultiplier
 	 * Checks if the health multiplier isn't equal or below zero, because negative health or defense wouldn't make any
 	 * sense. Zero health multiplier
 	 * wouldn't make any sense either, as the unit would instantly be dead in that case, as the health would always be
-	 * equal to zero if you multiply
-	 * it with zero.
+	 * equal to zero if you multiply it with zero.
 	 * <br>
 	 * The damage and defense multiplier is validated as well: this method checks if these aren't below zero, because
 	 * negative damage or defense
 	 * values wouldn't make any sense. Zero damage or defense could technically be valid in niche cases, hence why
-	 * this check is not performed as part
+	 * this check isn't performed as part
 	 * of the validation.
 	 *
 	 * @exception InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
@@ -231,8 +229,7 @@ public class AttributeMultiplier
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.damageMultiplierProperty.get(),
-			this.healthMultiplierProperty.get(),
-			this.defenseMultiplierProperty.get());
+			this.healthMultiplierProperty.get(), this.defenseMultiplierProperty.get());
 	}
 
 

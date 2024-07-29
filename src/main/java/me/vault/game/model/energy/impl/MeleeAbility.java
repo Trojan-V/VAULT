@@ -25,7 +25,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 /**
  * This class is an implementation of {@link Energy}.
  * <br>
- * As this specification is a melee energy ability, it mainly provides positive ability modifiers towards the
+ * As this specification is a melee energy ability, it provides positive ability modifiers towards the
  * melee
  * ability.
  *

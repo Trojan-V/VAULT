@@ -48,7 +48,6 @@ public final class MainMenuDelegate implements Initializable
 	 * <br>
 	 * As only this class needs access to this file, it is defined here, instead of in an interface
 	 */
-	//TODO: Entscheiden, ob die FXML Dateien in den Delegates gespeichert wird
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
 
 	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
@@ -161,6 +160,7 @@ public final class MainMenuDelegate implements Initializable
 		}
 		else if (event.getSource().equals(this.newGameButton) || event.getSource().equals(this.newGameMenuItem))
 		{
+			// TODO: Kapseln
 			if (!ConfigLoader.getInstance().isConfigDefault())
 			{
 				ConfigLoader.getInstance().saveExistingGameToFile();
@@ -170,7 +170,7 @@ public final class MainMenuDelegate implements Initializable
 		}
 		else if (event.getSource().equals(this.loadGameButton) || event.getSource().equals(this.loadGameMenuItem))
 		{
-			//TODO: Update Java Doc
+			//TODO: Update Java Doc // TODO: Kapseln
 			if (!ConfigLoader.getInstance().isConfigDefault())
 			{
 				ConfigLoader.getInstance().saveExistingGameToFile();
@@ -238,7 +238,7 @@ public final class MainMenuDelegate implements Initializable
 	 * {@link GameConstants#GAME_SAVE_FOLDER_FILE_PATH}.
 	 */
 	@FXML
-	private void initializeLoadGame () //TODO: Add checks for loading a save file
+	private void initializeLoadGame ()
 	{
 		if (ResourceLoader.collectFilesContaining(GAME_SAVE_FOLDER_FILE_PATH, StringConstants.SAVE_NAME).isEmpty())
 		{
