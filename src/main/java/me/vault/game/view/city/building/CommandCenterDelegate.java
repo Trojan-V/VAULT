@@ -24,7 +24,10 @@ import me.vault.game.view.mission.MissionSelectionDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
+import java.util.Random;
 import java.util.ResourceBundle;
+
+import static me.vault.game.utility.constant.CityBuildingConstants.CommandCenter.RANDOM_NEWS_LIST;
 
 
 /**
@@ -122,8 +125,8 @@ public final class CommandCenterDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		// TODO: Random news generieren
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.currentNewsLabel.setText(RANDOM_NEWS_LIST.get(new Random().nextInt(RANDOM_NEWS_LIST.size())));
 		this.selectedArtifactLabel.setText(Player.getInstance().getSelectedArtifact().getName());
 		this.selectedFactionLabel.setText(Player.getInstance().getSelectedFaction().name());
 		this.selectedArtifactImageView.setImage(Player.getInstance().getSelectedArtifact().getSprite());

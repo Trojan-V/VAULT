@@ -100,8 +100,6 @@ public final class SpaceBarDelegate implements Initializable
 	{
 		this.spaceBarAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.chooseMegaCorporationButton.disableProperty().bind(Faction.MEGA_CORPORATION.getIsSelectedProperty());
-
-		LOGGER.logf(DEBUG, CLASS_INITIALIZED, SpaceBarDelegate.class.getSimpleName());
 	}
 
 

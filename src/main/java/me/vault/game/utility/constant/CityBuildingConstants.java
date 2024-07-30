@@ -6,6 +6,8 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
+import java.util.ArrayList;
+
 import static me.vault.game.utility.constant.ConstantInterface.Constant;
 import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 
@@ -143,6 +145,23 @@ public interface CityBuildingConstants
 
 		@Constant
 		CurrencyTransaction NORMAL_UPGRADE_COSTS = new CurrencyTransaction(-2000, -2000, -5000, -1000, -400);
+
+		String RANDOM_NEWS_ONE = "Breaking: The System is cut off from the rest of the galaxy. Tensions are " + "high with small skirmishes occurring.";
+
+		String RANDOM_NEWS_TWO =
+			"Breaking: Despite rising tension in the system, the Explorer-Association announces that " + "ita members find more and more hints that this was a major Hitani system.";
+
+		String RANDOM_NEWS_THREE = "Breaking: The various factions in the system seem to employ the Mega Corporation soldiers more and more.";
+
+		String RANDOM_NEWS_FOUR = "Breaking: The skirmishes escalate, and now it moves to capturing of outposts from each other.";
+
+		ArrayList<String> RANDOM_NEWS_LIST = new ArrayList<>()
+		{{
+			this.add(RANDOM_NEWS_ONE);
+			this.add(RANDOM_NEWS_TWO);
+			this.add(RANDOM_NEWS_THREE);
+			this.add(RANDOM_NEWS_FOUR);
+		}};
 
 	}
 

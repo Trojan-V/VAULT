@@ -66,19 +66,6 @@ public interface StringConstants
 	 */
 	String COMMAND_CENTER_SLOGAN = "Fight your way back";
 
-	String COMMAND_CENTER_NEWS_BEFORE_STORY_MISSION_ONE =
-		"Breaking: The System is cut off from the rest of the galaxy. Tensions are high with small skirmishes occurring.";
-
-	String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_ONE =
-		"Despite rising tension in the system the" + " " + "Explorer-Association announces that it " + "members find more and more hints that " +
-		"this was a major Hitani system.";
-
-	String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_TWO =
-		"The various factions in the system seems to employ the Mega Corporation soldiers more and more.";
-
-	String COMMAND_CENTER_NEWS_AFTER_STORY_MISSION_ONE_THREE =
-		"The skirmishes escalate and now it " + "moves to capturing of outposts from " + "each other.";
-
 	/**
 	 * The following Strings contain the texts for the energy ability's of the troops.
 	 */

@@ -1,216 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.city.building.CommandCenterDelegate">
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.building.CommandCenterDelegate">
     <children>
-        <ImageView fx:id="backgroundImageView" fitHeight="720.0" fitWidth="1280.0" layoutX="-6.0" pickOnBounds="true"
-                   preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0"
-                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <ImageView fx:id="backgroundImageView" fitHeight="720.0" fitWidth="1280.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <viewport>
-                <Rectangle2D height="720.0" width="1280.0"/>
+                <Rectangle2D height="720.0" width="1280.0" />
             </viewport>
             <image>
-                <Image url="@../../../assets/background/city_background.png"/>
+                <Image url="@../../../assets/background/city_background.png" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0"
-                    minWidth="0.0" prefHeight="510.0" prefWidth="1230.0"
-                    style="-fx-background-color: lightblue; -fx-border-color: darkblue;" AnchorPane.bottomAnchor="100.0"
-                    AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="115.0">
+        <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="1230.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="115.0">
             <children>
-                <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                          minWidth="-Infinity" prefHeight="500.0" prefWidth="1230.0" AnchorPane.bottomAnchor="0.0"
-                          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1230.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
-                        <RowConstraints maxHeight="521.0" minHeight="10.0" prefHeight="515.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="521.0" minHeight="10.0" prefHeight="515.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label prefHeight="55.0" prefWidth="447.0" text="Command Center: Fight your way back"
-                               underline="true" GridPane.columnSpan="2147483647">
+                        <Label prefHeight="55.0" prefWidth="447.0" text="Command Center: Fight your way back" underline="true" GridPane.columnSpan="2147483647">
                             <font>
-                                <Font name="Segoe UI Semibold" size="24.0"/>
+                                <Font name="Segoe UI Semibold" size="24.0" />
                             </font>
                             <GridPane.margin>
-                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                             </GridPane.margin>
                             <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </padding>
                         </Label>
                         <GridPane GridPane.rowIndex="1">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints maxHeight="515.0" minHeight="10.0" prefHeight="505.0"
-                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="515.0" minHeight="10.0" prefHeight="505.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
                                 <GridPane gridLinesVisible="true">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     </columnConstraints>
                                     <rowConstraints>
-                                        <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0"
-                                                        vgrow="SOMETIMES"/>
-                                        <RowConstraints maxHeight="449.0" minHeight="98.0" prefHeight="139.0"
-                                                        vgrow="SOMETIMES"/>
-                                        <RowConstraints maxHeight="404.0" minHeight="108.0" prefHeight="147.0"
-                                                        vgrow="SOMETIMES"/>
-                                        <RowConstraints maxHeight="404.0" minHeight="130.0" prefHeight="145.0"
-                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="449.0" minHeight="98.0" prefHeight="139.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="404.0" minHeight="108.0" prefHeight="147.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="404.0" minHeight="130.0" prefHeight="145.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label text="Inventory-Overview" GridPane.halignment="CENTER"
-                                               GridPane.valignment="CENTER">
+                                        <Label text="Inventory-Overview" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                             </GridPane.margin>
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
-                                                   preserveRatio="true" GridPane.halignment="RIGHT"
-                                                   GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                             </GridPane.margin>
                                         </ImageView>
-                                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
-                                                   preserveRatio="true" GridPane.halignment="RIGHT"
-                                                   GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                             </GridPane.margin>
                                         </ImageView>
                                         <GridPane GridPane.rowIndex="1">
                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0"
-                                                                   prefWidth="250.0"/>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0"
-                                                                   prefWidth="198.0"/>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0"
-                                                                   prefWidth="166.0"/>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="250.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="198.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="166.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                                <RowConstraints vgrow="SOMETIMES"/>
+                                                <RowConstraints vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
-                                                <Label text="Selected Faction:" GridPane.halignment="CENTER"
-                                                       GridPane.valignment="CENTER">
+                                                <Label text="Selected Faction:" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                     <GridPane.margin>
-                                                        <Insets/>
+                                                        <Insets />
                                                     </GridPane.margin>
                                                 </Label>
-                                                <ImageView fx:id="selectedFactionImageView" fitHeight="100.0"
-                                                           fitWidth="100.0" onMouseClicked="#onFactionClick"
-                                                           pickOnBounds="true" preserveRatio="true"
-                                                           GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                                <ImageView fx:id="selectedFactionImageView" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onFactionClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                                                     <GridPane.margin>
-                                                        <Insets/>
+                                                        <Insets />
                                                     </GridPane.margin>
                                                 </ImageView>
-                                                <Label fx:id="selectedFactionLabel" onMouseClicked="#onFactionClick"
-                                                       text="FACTION (TEMP)" GridPane.columnIndex="1"
-                                                       GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label fx:id="selectedFactionLabel" onMouseClicked="#onFactionClick" text="FACTION (TEMP)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                 </Label>
                                             </children>
                                         </GridPane>
                                         <GridPane GridPane.rowIndex="2">
                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0"
-                                                                   prefWidth="250.0"/>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0"
-                                                                   prefWidth="198.0"/>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0"
-                                                                   prefWidth="166.0"/>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="250.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="198.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="166.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                                <RowConstraints maxHeight="152.0" minHeight="152.0" prefHeight="152.0"
-                                                                vgrow="SOMETIMES"/>
+                                                <RowConstraints maxHeight="152.0" minHeight="152.0" prefHeight="152.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
-                                                <Label text="Selected Artifact:" GridPane.halignment="CENTER"
-                                                       GridPane.valignment="CENTER">
+                                                <Label text="Selected Artifact:" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                     <GridPane.margin>
-                                                        <Insets/>
+                                                        <Insets />
                                                     </GridPane.margin>
                                                 </Label>
-                                                <ImageView fx:id="selectedArtifactImageView" fitHeight="100.0"
-                                                           fitWidth="100.0" onMouseClicked="#onArtifactClick"
-                                                           pickOnBounds="true" preserveRatio="true"
-                                                           GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                                <ImageView fx:id="selectedArtifactImageView" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onArtifactClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                                                     <GridPane.margin>
-                                                        <Insets/>
+                                                        <Insets />
                                                     </GridPane.margin>
                                                 </ImageView>
-                                                <Label fx:id="selectedArtifactLabel" onMouseClicked="#onArtifactClick"
-                                                       text="ARTIFACT (TEMP)" GridPane.columnIndex="1"
-                                                       GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                <Label fx:id="selectedArtifactLabel" onMouseClicked="#onArtifactClick" text="ARTIFACT (TEMP)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                 </Label>
                                             </children>
                                         </GridPane>
                                         <GridPane GridPane.rowIndex="3">
                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0"
-                                                                   prefWidth="250.0"/>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0"
-                                                                   prefWidth="198.0"/>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0"
-                                                                   prefWidth="166.0"/>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="250.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="198.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="166.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                                <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="30.0"
-                                                                vgrow="SOMETIMES"/>
+                                                <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
-                                                <Label text="Mercenaries bought:" GridPane.halignment="CENTER"
-                                                       GridPane.valignment="CENTER">
+                                                <Label text="Mercenaries bought:" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                     <GridPane.margin>
-                                                        <Insets/>
+                                                        <Insets />
                                                     </GridPane.margin>
                                                 </Label>
-                                                <ImageView fitHeight="100.0" fitWidth="100.0"
-                                                           onMouseClicked="#onMegaCorpClick" pickOnBounds="true"
-                                                           preserveRatio="true" GridPane.columnIndex="2"
-                                                           GridPane.halignment="CENTER">
+                                                <ImageView fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onMegaCorpClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                                                     <GridPane.margin>
-                                                        <Insets/>
+                                                        <Insets />
                                                     </GridPane.margin>
                                                 </ImageView>
-                                                <Label onMouseClicked="#onMegaCorpClick" text="MEGA-CORP (TEMP)"
-                                                       GridPane.columnIndex="1" GridPane.halignment="CENTER"
-                                                       GridPane.valignment="CENTER">
+                                                <Label onMouseClicked="#onMegaCorpClick" text="MEGA-CORP (TEMP)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                 </Label>
                                             </children>
@@ -219,71 +176,46 @@
                                 </GridPane>
                                 <GridPane gridLinesVisible="true" GridPane.columnIndex="1">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     </columnConstraints>
                                     <rowConstraints>
-                                        <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0"
-                                                        vgrow="SOMETIMES"/>
-                                        <RowConstraints maxHeight="449.0" minHeight="82.0" prefHeight="134.0"
-                                                        vgrow="SOMETIMES"/>
-                                        <RowConstraints maxHeight="404.0" minHeight="123.0" prefHeight="284.0"
-                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="449.0" minHeight="82.0" prefHeight="134.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="404.0" minHeight="123.0" prefHeight="284.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label prefHeight="35.0" prefWidth="158.0" text="Mission-Board"
-                                               GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                        <Label prefHeight="35.0" prefWidth="158.0" text="Mission-Board" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                             </GridPane.margin>
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
-                                                   preserveRatio="true" GridPane.halignment="RIGHT"
-                                                   GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                             </GridPane.margin>
                                         </ImageView>
-                                        <Label fx:id="currentNewsLabel" alignment="TOP_LEFT" prefHeight="64.0"
-                                               prefWidth="594.0"
-                                               text="Breaking: The System is cut off from the rest of the galaxy. Tensions are high with small skirmishes occurring."
-                                               wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                                               GridPane.valignment="BOTTOM">
+                                        <Label fx:id="currentNewsLabel" alignment="TOP_LEFT" prefHeight="126.0" prefWidth="564.0" text="Breaking: The System is cut off from the rest of the galaxy. Tensions are high with small skirmishes occurring." wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                                             <font>
-                                                <Font size="22.0"/>
+                                                <Font size="22.0" />
                                             </font>
                                             <GridPane.margin>
-                                                <Insets bottom="10.0" left="25.0" right="25.0" top="10.0"/>
+                                                <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label alignment="TOP_LEFT" prefHeight="38.0" prefWidth="597.0"
-                                               text="Current News:" underline="true" wrapText="true"
-                                               GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                                               GridPane.valignment="TOP">
-                                            <font>
-                                                <Font size="22.0"/>
-                                            </font>
+                                        <Button fx:id="goToMissionBoardButton" mnemonicParsing="false" onAction="#onGoToMissionBoard" prefHeight="269.0" prefWidth="570.0" style="-fx-background-color: lightgreen; -fx-border-color: green;" text="Select Mission" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets bottom="10.0" left="25.0" right="25.0" top="10.0"/>
-                                            </GridPane.margin>
-                                        </Label>
-                                        <Button fx:id="goToMissionBoardButton" mnemonicParsing="false"
-                                                onAction="#onGoToMissionBoard" prefHeight="269.0" prefWidth="570.0"
-                                                style="-fx-background-color: lightgreen; -fx-border-color: green;"
-                                                text="Select Mission" GridPane.halignment="CENTER" GridPane.rowIndex="2"
-                                                GridPane.valignment="CENTER">
-                                            <GridPane.margin>
-                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                             </GridPane.margin>
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Button>
                                     </children>
                                     <GridPane.margin>
-                                        <Insets/>
+                                        <Insets />
                                     </GridPane.margin>
                                 </GridPane>
                             </children>
@@ -292,11 +224,9 @@
                 </GridPane>
             </children>
         </AnchorPane>
-        <Button layoutX="25.0" layoutY="655.0" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="55.0"
-                prefWidth="326.0" style="-fx-background-color: lightsalmon; -fx-border-color: salmon;" text="Back"
-                AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="640.0">
+        <Button layoutX="25.0" layoutY="655.0" mnemonicParsing="false" onAction="#onBackToCityView" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: lightsalmon; -fx-border-color: salmon;" text="Back" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="640.0">
             <font>
-                <Font name="Segoe UI" size="22.0"/>
+                <Font name="Segoe UI" size="22.0" />
             </font>
         </Button>
     </children>
