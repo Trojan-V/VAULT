@@ -22,9 +22,15 @@ public final class NetworkDelegate implements Initializable
 	private static final Stage STAGE = new Stage();
 
 
+	/**
+	 * {@link String} used as the window title
+	 */
 	private static final String WINDOW_TITLE = "Arena Connection";
 
 
+	/**
+	 * The path to the respective fxml file of the delegate as a {@link String}.
+	 */
 	private static final String FXML_FILENAME = "network_connection_dialog.fxml";
 
 
@@ -38,6 +44,7 @@ public final class NetworkDelegate implements Initializable
 		STAGE.initModality(Modality.APPLICATION_MODAL);
 		STAGE.getIcons().add(ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH));
 	}
+
 
 
 	@FXML

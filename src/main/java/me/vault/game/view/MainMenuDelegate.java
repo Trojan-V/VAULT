@@ -53,50 +53,80 @@ public final class MainMenuDelegate implements Initializable
 	private static final String TO_STRING_PATTERN = "MainMenuDelegate'{'fxml={0}'}'";
 
 	/**
-	 * Are used to facilitate the interaction between the user and the application
-	 *
-	 * @see Button
+	 * {@link Button} that provides the player with the ability to continue the game.
 	 */
 	@FXML
 	private Button continueButton;
 
+
+	/**
+	 * {@link Button} that provides the player with the ability to play a new game.
+	 */
 	@FXML
 	private Button newGameButton;
 
+
+	/**
+	 * {@link Button} that provides the player with the ability to load a game from a file.
+	 */
 	@FXML
 	private Button loadGameButton;
 
+
+	/**
+	 * {@link Button} that provides the player with the ability to open the settings.
+	 */
 	@FXML
 	private Button settingsButton;
 
+
+	/**
+	 * {@link Button} that provides the player with the ability to exit the game.
+	 */
 	@FXML
 	private Button exitGameButton;
 
+
+	/**
+	 * {@link Button} that provides the player with the ability to enter the arena.
+	 */
 	@FXML
 	private Button arenaButton;
 
 
 	/**
-	 * Are used to facilitate the interaction between the user and the application in the menu section of the
-	 * mainMenu-scene.
-	 *
-	 * @see MenuItem
+	 * {@link MenuItem} that provides the player with the ability to continue the game.
 	 */
 	@FXML
 	private MenuItem continueMenuItem;
 
+	/**
+	 * {@link MenuItem} that provides the player with the ability to play a new game.
+	 */
 	@FXML
 	private MenuItem newGameMenuItem;
 
+	/**
+	 * {@link MenuItem} that provides the player with the ability to load a game from a file.
+	 */
 	@FXML
 	private MenuItem loadGameMenuItem;
 
+	/**
+	 * {@link MenuItem} that provides the player with the ability to open the settings.
+	 */
 	@FXML
 	private MenuItem settingsMenuItem;
 
+	/**
+	 * {@link MenuItem} that provides the player with the ability to exit the game.
+	 */
 	@FXML
 	private MenuItem exitGameMenuItem;
 
+	/**
+	 * {@link MenuItem} that provides the player with the ability to enter the arena.
+	 */
 	@FXML
 	private MenuItem arenaMenuItem;
 
@@ -187,7 +217,7 @@ public final class MainMenuDelegate implements Initializable
 	 * If this isn't the case, the current configuration is saved, and the configuration is reset,
 	 * before {@link DifficultyDelegate#show()} is called to start a new game.
 	 *
-	 * @precondition -
+	 * @precondition The method gets called
 	 * @postcondition If the config file is not identical to the default config file the information from the config
 	 * file is saved in a new file; the config file is set to the default values and the difficulty (scene) is shown
 	 */
