@@ -72,7 +72,7 @@ public class Client implements Runnable
 				if (inputLine.length() > 0)
 				{
 					out.println(inputLine);
-					System.out.println(StringConstants.ECHO + CharacterConstants.WHITESPACE + inputLine);
+					System.out.println(StringConstants.ECHO + CharacterConstants.WHITESPACE + in.readLine());
 				}
 				else
 				{

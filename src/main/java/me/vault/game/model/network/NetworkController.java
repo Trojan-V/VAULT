@@ -34,12 +34,13 @@ public class NetworkController
 				throw new RuntimeException(e);
 			}
 		}
+		(new Thread(new Client(HOST_NAME, PORT_NUMBER))).start();
 	}
 
 
-	public static void runClient (final String hostName, final int portName)
+	public static void runClient (final String hostName, final int portNumber)
 	{
-		(new Thread(new Client(hostName, portName))).start();
+		(new Thread(new Client(hostName, portNumber))).start();
 	}
 
 }
