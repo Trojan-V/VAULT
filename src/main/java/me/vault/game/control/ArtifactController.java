@@ -62,6 +62,8 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @param artifact The instance of {@link Artifact} which is checked.
 	 *
 	 * @return True if the artifact is maxed, otherwise false.
+	 * @pre.condition An artifact exists.
+	 * @post.condition Says if the artifact is at its maximum.
 	 */
 	private static boolean isArtifactMaxed (final Artifact artifact)
 	{
@@ -73,6 +75,8 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @pre.condition The singleton Instance exists.
+	 * @post.condition The singleton Instance can be accessed in the program.
 	 */
 	public static ArtifactController getInstance ()
 	{
@@ -88,11 +92,13 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * This method should be invoked every time after the artifact was upgraded.
 	 *
 	 * @param artifact The instance of the {@link Artifact} that was upgraded.
+	 * @pre.condition Artifact values are not the maximal level.
+	 * @post.condition The values of the artifact are updated to the value of the new level.
 	 */
 	@Override
 	public void updateValues (final Artifact artifact)
 	{
-		if (artifact.getLevel() == ArtifactLevel.getMaximum())
+		if (isArtifactMaxed(artifact))
 		{
 			artifact.setIsMaxLevel(true);
 		}
@@ -121,6 +127,8 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @param artifact The {@link Artifact} instance which is checked if it can be upgraded to the next level.
 	 *
 	 * @return True if the {@link Artifact} can be upgraded, otherwise false.
+	 * @pre.condition The artifact exists.
+	 * @post.condition Gives back if the artifact is upgradeable.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final Artifact artifact)
@@ -148,6 +156,8 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * {@inheritDoc}
 	 *
 	 * @param artifact The {@link Artifact} instance that gets upgraded.
+	 * @pre.condition The artifact exists and can be upgraded.
+	 * @post.condition The instance of the artifact gets upgraded.
 	 */
 	@Override
 	public void upgrade (final Artifact artifact)

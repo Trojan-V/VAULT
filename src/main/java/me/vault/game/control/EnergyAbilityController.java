@@ -56,6 +56,19 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	{
 	}
 
+	/**
+	 * Checks if the supplied energy ability is at the maximum level. If yes, true is returned, otherwise false.
+	 *
+	 * @param energy The instance of {@link Energy} which is checked.
+	 *
+	 * @return True if the energy ability is maxed, otherwise false.
+	 * @pre.condition An energy ability exists.
+	 * @post.condition Says if the energy ability is at its maximum.
+	 */
+	private static boolean isEnergyAbilityMaxed (final Energy energy)
+	{
+		return energy.getLevel() == EnergyLevel.getMaximum();
+	}
 
 	/**
 	 * Returns the singleton instance of this class.
@@ -82,7 +95,7 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	@Override
 	public void updateValues (final Energy energy)
 	{
-		if (energy.getLevel() == EnergyLevel.getMaximum())
+		if (isEnergyAbilityMaxed(energy))
 		{
 			energy.setIsMaxLevel(true);
 		}
