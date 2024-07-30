@@ -30,19 +30,17 @@ import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METH
  */
 public abstract class CityBuilding implements Displayable, Nameable, Upgradable<CityBuildingLevel>
 {
+
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link Artifact#toString()} is
-	 * called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Artifact#toString()} is called.
 	 */
-	private static final String TO_STRING_PATTERN =
-		"CityBuilding'{'nameProperty={0}, spriteProperty={1}, isMaxLevelProperty={2}, currentLevel={3}, currentUpgradeCost={4}'}'";
+	private static final String TO_STRING_PATTERN = "CityBuilding'{'nameProperty={0}, spriteProperty={1}, " +
+	                                                "isMaxLevelProperty={2}, currentLevel={3}, currentUpgradeCost={4}'}'";
 
 
 	/**
 	 * This property is used to store and dynamically display the name of the city building.
 	 * If the name is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
-	 *
-	 * @see SimpleStringProperty
 	 */
 	private final SimpleStringProperty nameProperty;
 
@@ -50,9 +48,6 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	/**
 	 * This property is used to store and dynamically display the sprite of the city building.
 	 * If the sprite is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
-	 *
-	 * @see SimpleObjectProperty
-	 * @see MetaDataImage
 	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
@@ -60,8 +55,6 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	/**
 	 * This property is used to store and dynamically display if the city building is at the maximum level.
 	 * If the data is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
-	 *
-	 * @see SimpleBooleanProperty
 	 */
 	private final SimpleBooleanProperty isMaxLevelProperty;
 
@@ -71,10 +64,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * The value of this field controls the values of many attributes the city building consists of.
 	 * <br>
 	 * Check the constructor {@link CityBuilding#CityBuilding()} and the
-	 * {@link CityBuildingController#updateValues(CityBuilding)} method to see the
-	 * control flow.
-	 *
-	 * @see CityBuildingLevel
+	 * {@link CityBuildingController#updateValues(CityBuilding)} method to see the control flow.
 	 */
 	private CityBuildingLevel currentLevel;
 
@@ -86,8 +76,6 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * It's important to keep that into account to ensure no algebraic sign issues are coming up.
 	 * It's not hard to mess that up, as upgrade costs could be thought about with a positive algebraic sign instead
 	 * of a negative one.
-	 *
-	 * @see CurrencyTransaction
 	 */
 	private CurrencyTransaction currentUpgradeCost;
 
@@ -102,6 +90,9 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * level.
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
+	 *
+	 * @precondition The CityBuilding constructor was called from a subclass.
+	 * @postcondition A new instance of the CityBuilding was created.
 	 */
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected CityBuilding ()
@@ -111,6 +102,80 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == CityBuildingLevel.getMaximum());
+	}
+
+
+	/**
+	 * Returns the sprite for the supplied level of the city building.
+	 *
+	 * @param level The level whose sprite should be returned.
+	 *
+	 * @return The sprite for the supplied level.
+	 *
+	 * @precondition A {@link CityBuildingLevel} is passed into the method.
+	 * @postcondition The corresponding sprite for the {@link CityBuildingLevel} was returned.
+	 */
+	public MetaDataImage getSprite (final CityBuildingLevel level)
+	{
+		return this.getAllSprites().get(level);
+	}
+
+
+	/**
+	 * Returns true if the city building is at the maximum level, otherwise false.
+	 *
+	 * @return True if the city building is at the maximum level, otherwise false.
+	 *
+	 * @precondition Method gets called and the isMaxLevelProperty has been set within the instance.
+	 * @postcondition A boolean gets returned, that describes, if the Citybuilding is already at the maximum level.
+	 */
+	public boolean isMaxLevel ()
+	{
+		return this.isMaxLevelProperty.get();
+	}
+
+
+	/**
+	 * Sets the isMaxLevel status of the city building to the supplied boolean value.
+	 *
+	 * @param value True if the city building should be at the maximum level, otherwise false.
+	 *
+	 * @precondition A valid boolean value is passed into the method.
+	 * @postcondition The isMaxLevelProperty attribute within the object is set to the passed value.
+	 */
+	public void setIsMaxLevel (final boolean value)
+	{
+		this.isMaxLevelProperty.set(value);
+	}
+
+
+	/**
+	 * Returns the property used to store the isMaxLevel data.
+	 *
+	 * @return The property used to store the isMaxLevel data.
+	 *
+	 * @precondition Method gets called and the isMaxLevelProperty has been set within the instance.
+	 * @postcondition The isMaxLevelProperty of the object has been returned.
+	 */
+	public SimpleBooleanProperty getIsMaxLevelProperty ()
+	{
+		return this.isMaxLevelProperty;
+	}
+
+
+	/**
+	 * Returns the name for the supplied level of the city building.
+	 *
+	 * @param level The level whose name should be returned.
+	 *
+	 * @return The name for the supplied level.
+	 *
+	 * @precondition A {@link CityBuildingLevel} is passed into the method.
+	 * @postcondition The corresponding name for the {@link CityBuildingLevel} was returned.
+	 */
+	public String getName (final CityBuildingLevel level)
+	{
+		return this.getAllNames().get(level);
 	}
 
 
@@ -146,20 +211,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 
 
 	/**
-	 * Returns the name for the supplied level of the city building.
-	 *
-	 * @param level The level whose name should be returned.
-	 * @return The name for the supplied level.
-	 */
-	public String getName (final CityBuildingLevel level)
-	{
-		return this.getAllNames().get(level);
-	}
-
-
-	/**
 	 * {@inheritDoc}
-	 * Returns the name for the current level of the city building.
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -168,6 +220,9 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
 	{
@@ -202,51 +257,6 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	public void setLevel (final CityBuildingLevel level)
 	{
 		this.currentLevel = level;
-	}
-
-
-	/**
-	 * Returns the sprite for the supplied level of the city building.
-	 *
-	 * @param level The level whose sprite should be returned.
-	 * @return The sprite for the supplied level.
-	 */
-	public MetaDataImage getSprite (final CityBuildingLevel level)
-	{
-		return this.getAllSprites().get(level);
-	}
-
-
-	/**
-	 * Returns true if the city building is at the maximum level, otherwise false.
-	 *
-	 * @return True if the city building is at the maximum level, otherwise false.
-	 */
-	public boolean isMaxLevel ()
-	{
-		return this.isMaxLevelProperty.get();
-	}
-
-
-	/**
-	 * Sets the isMaxLevel status of the city building to the supplied boolean value.
-	 *
-	 * @param value True if the city building should be at the maximum level, otherwise false.
-	 */
-	public void setIsMaxLevel (final boolean value)
-	{
-		this.isMaxLevelProperty.set(value);
-	}
-
-
-	/**
-	 * Returns the property used to store the isMaxLevel data.
-	 *
-	 * @return The property used to store the isMaxLevel data.
-	 */
-	public SimpleBooleanProperty getIsMaxLevelProperty ()
-	{
-		return this.isMaxLevelProperty;
 	}
 
 
@@ -297,6 +307,9 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 *
 	 * @return A {@link Map} of all {@link CurrencyTransaction}s which are mapped to the {@link CityBuildingLevel} they belong to.
 	 * These key-value combinations represent the upgrade costs to upgrade the city building to the next level.
+	 *
+	 * @precondition The method has been implemented by a subclass and is called from there.
+	 * @postcondition A Map with the CityBuildingLevels as keys and the CurrencyTransactions as values of all the different upgrade costs is returned.
 	 */
 	@NotNull
 	public abstract Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ();
@@ -319,6 +332,9 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 *
 	 * @return A {@link Map} of all {@link String}s which are mapped to the {@link CityBuildingLevel} they belong to.
 	 * These key-value combinations represent the name of the city building at the selected level.
+	 *
+	 * @precondition The method has been implemented by a subclass and is called from there.
+	 * @postcondition A Map with the CityBuildingLevels as keys and the Name-String as values of all the different upgrade costs is returned.
 	 */
 	@NotNull
 	public abstract Map<CityBuildingLevel, String> getAllNames ();
@@ -341,6 +357,9 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 *
 	 * @return A {@link Map} of all {@link MetaDataImage}s which are mapped to the {@link CityBuildingLevel} they belong to.
 	 * These key-value combinations represent the sprite of the city building at the selected level.
+	 *
+	 * @precondition The method has been implemented by a subclass and is called from there.
+	 * @postcondition A Map with the CityBuildingLevels as keys and the MetaDataImages as values of all the different upgrade costs is returned.
 	 */
 	@NotNull
 	public abstract Map<CityBuildingLevel, MetaDataImage> getAllSprites ();
@@ -351,6 +370,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * {@link CityBuilding#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link CityBuilding#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link CityBuilding#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -358,7 +378,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.nameProperty.get(), this.spriteProperty.get()
-				.toString(), this.isMaxLevelProperty.get(), this.currentLevel.toString(),
-			this.currentUpgradeCost.toString());
+			.toString(), this.isMaxLevelProperty.get(), this.currentLevel.toString(), this.currentUpgradeCost.toString());
 	}
+
 }
