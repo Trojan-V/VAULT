@@ -244,7 +244,7 @@ public final class TroopSelectionDelegate implements Initializable
 	private void selectTroop (final @NotNull Troop troop)
 	{
 		this.selectedAlliesGridPane.addTroop(troop);
-		Player.getInstance().addSelectedFigures(new Figure(troop));
+		Player.getInstance().addSelectedFigure(new Figure(troop));
 	}
 
 

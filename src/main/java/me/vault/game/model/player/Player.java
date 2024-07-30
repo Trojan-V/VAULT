@@ -41,6 +41,7 @@ import java.util.List;
  */
 public final class Player implements Movable, Nameable
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link Player}.
 	 * <br>
@@ -61,13 +62,11 @@ public final class Player implements Movable, Nameable
 	 * <br>
 	 * Although there's no plan to change the sprite of the player, a property is used here anyway for consistency reasons throughout the entire project.
 	 */
-	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY =
-		new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
+	private static final SimpleObjectProperty<MetaDataImage> SPRITE_PROPERTY = new SimpleObjectProperty<>(ResourceLoader.loadImage(SPRITE_PATH));
 
 
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is
-	 * called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "Player'{'selectedArtifact={0}, selectedEnergy={1}, selectedFaction={2}, selectedFigures={3}'}'";
 
@@ -104,6 +103,9 @@ public final class Player implements Movable, Nameable
 	 * As this class is a singleton, no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of Player is created.
 	 */
 	private Player ()
 	{
@@ -118,6 +120,9 @@ public final class Player implements Movable, Nameable
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance of this class has been returned.
 	 */
 	public static Player getInstance ()
 	{
@@ -129,6 +134,9 @@ public final class Player implements Movable, Nameable
 	 * Returns the {@link Faction} that's currently selected by the player.
 	 *
 	 * @return The {@link Faction} that's currently selected by the player.
+	 *
+	 * @precondition The selectedFaction attribute has been set and contains a list.
+	 * @postcondition The selectedFaction attribute of the instance was returned.
 	 */
 	public Faction getSelectedFaction ()
 	{
@@ -140,6 +148,9 @@ public final class Player implements Movable, Nameable
 	 * Sets the {@link Faction} that's selected by the player.
 	 *
 	 * @param faction The {@link Faction} that'll be selected by the player.
+	 *
+	 * @precondition The selectedFaction attribute has been set and contains a list. A valid Faction is passed into the method.
+	 * @postcondition The selectedFaction within the instance were set to the passed Faction.
 	 */
 	public void setSelectedFaction (final Faction faction)
 	{
@@ -151,6 +162,9 @@ public final class Player implements Movable, Nameable
 	 * Returns the {@link Artifact} that's currently selected by the player.
 	 *
 	 * @return The {@link Artifact} that's currently selected by the player.
+	 *
+	 * @precondition The selectedArtifact attribute has been set and contains a list.
+	 * @postcondition The selectedArtifact attribute of the instance was returned.
 	 */
 	public Artifact getSelectedArtifact ()
 	{
@@ -162,6 +176,9 @@ public final class Player implements Movable, Nameable
 	 * Sets the {@link Artifact} that's selected by the player.
 	 *
 	 * @param selectedArtifact The {@link Artifact} that'll be selected by the player.
+	 *
+	 * @precondition The selectedArtifact attribute has been set and contains a list. A valid Artifact is passed into the method.
+	 * @postcondition The selectedArtifact within the instance were set to the passed Artifact.
 	 */
 	public void setSelectedArtifact (final Artifact selectedArtifact)
 	{
@@ -173,6 +190,9 @@ public final class Player implements Movable, Nameable
 	 * Returns the {@link EnergyAbility} that's currently selected by the player.
 	 *
 	 * @return The {@link EnergyAbility} that's currently selected by the player.
+	 *
+	 * @precondition The selectedEnergyAbility attribute has been set and contains a list.
+	 * @postcondition The selectedEnergyAbility attribute of the instance was returned.
 	 */
 	public EnergyAbility getSelectedEnergy ()
 	{
@@ -184,6 +204,9 @@ public final class Player implements Movable, Nameable
 	 * Returns a {@link List} of {@link Figure}s that are currently selected by the player.
 	 *
 	 * @return A {@link List} of {@link Figure}s that are currently selected by the player.
+	 *
+	 * @precondition The selectedFigures attribute has been set and contains a list.
+	 * @postcondition The selectedFigures attribute of the instance was returned.
 	 */
 	public List<Figure> getSelectedFigures ()
 	{
@@ -194,11 +217,14 @@ public final class Player implements Movable, Nameable
 	/**
 	 * Sets the {@link List} of {@link Figure}s that are currently selected by the player to the supplied {@link List}.
 	 *
-	 * @param figureArrayList The {@link List} of {@link Figure}s that'll be selected by the player.
+	 * @param selectedFigures The {@link List} of {@link Figure}s that'll be selected by the player.
+	 *
+	 * @precondition The selectedFigures attribute has been set and contains a list. A valid list of troop figures is passed into the method.
+	 * @postcondition The selectedFigures within the instance were set to the passed list of troop figures.
 	 */
-	public void setSelectedFigures (final List<Figure> figureArrayList)
+	public void setSelectedFigures (final List<Figure> selectedFigures)
 	{
-		this.selectedFigures = figureArrayList;
+		this.selectedFigures = selectedFigures;
 	}
 
 
@@ -209,8 +235,11 @@ public final class Player implements Movable, Nameable
 	 * {@link Figure}.
 	 *
 	 * @param figure The {@link Figure} that'll be added to the {@link Player#selectedFigures} {@link List}.
+	 *
+	 * @precondition The selectedFigures attribute has been set and contains a list. A valid Figure of a troop is passed into the method.
+	 * @postcondition The figure was added to the selectedFigures. If the selectedFigures were too long, then the first element is removed.
 	 */
-	public void addSelectedFigures (final Figure figure)
+	public void addSelectedFigure (final Figure figure)
 	{
 		if (this.selectedFigures.size() >= 3)
 		{
@@ -256,7 +285,7 @@ public final class Player implements Movable, Nameable
 	@Override
 	public String getName ()
 	{
-		return "";
+		return Player.class.getSimpleName();
 	}
 
 
@@ -264,10 +293,7 @@ public final class Player implements Movable, Nameable
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setName (final String name)
-	{
-
-	}
+	public void setName (final String name) {}
 
 
 	/**
@@ -285,14 +311,15 @@ public final class Player implements Movable, Nameable
 	 * {@link Player#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link Player#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link Player#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.selectedArtifact.toString(), this.selectedEnergyAbility.toString(),
-			this.selectedFaction.toString(),
+		return MessageFormat.format(TO_STRING_PATTERN, this.selectedArtifact.toString(), this.selectedEnergyAbility.toString(), this.selectedFaction.toString(),
 			Arrays.toString(this.selectedFigures.toArray()));
 	}
+
 }
