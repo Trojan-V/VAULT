@@ -8,14 +8,14 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0"
             xmlns="http://javafx.com/javafx/21"
-            fx:controller="me.vault.game.view.city.buildings.TrainingFacilityDelegate">
+            fx:controller="me.vault.game.view.city.building.TrainingFacilityDelegate">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <viewport>
                 <Rectangle2D height="720.0" width="1280.0"/>
             </viewport>
             <image>
-                <Image url="@../../assets/background/city_background.png"/>
+                <Image url="@../../../assets/background/city_background.png"/>
             </image>
         </ImageView>
         <TabPane fx:id="factionsTabPane" layoutX="-1.0" layoutY="114.0" prefHeight="581.0" prefWidth="1230.0"
@@ -54,7 +54,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/space_marine_icon.png"/>
+                                                <Image url="@../../../assets/troops/space_marine_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="engineerImageView" fitHeight="128.0" fitWidth="128.0"
@@ -63,7 +63,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/engineer_icon.png"/>
+                                                <Image url="@../../../assets/troops/engineer_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="officerImageView" fitHeight="128.0" fitWidth="128.0"
@@ -72,7 +72,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/officer_icon.png"/>
+                                                <Image url="@../../../assets/troops/officer_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -356,7 +356,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/medic_icon.png"/>
+                                                <Image url="@../../../assets/troops/medic_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="sniperImageView" fitHeight="128.0" fitWidth="128.0"
@@ -365,7 +365,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/sniper_icon.png"/>
+                                                <Image url="@../../../assets/troops/sniper_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="rangerImageView" fitHeight="128.0" fitWidth="128.0"
@@ -374,7 +374,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/ranger_icon.png"/>
+                                                <Image url="@../../../assets/troops/ranger_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -658,7 +658,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/guard_icon.png"/>
+                                                <Image url="@../../../assets/troops/guard_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="grenadierImageView" fitHeight="128.0" fitWidth="128.0"
@@ -667,7 +667,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/grenadier_icon.png"/>
+                                                <Image url="@../../../assets/troops/grenadier_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="recruitImageView" fitHeight="128.0" fitWidth="128.0"
@@ -676,7 +676,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/recruit_icon.png"/>
+                                                <Image url="@../../../assets/troops/recruit_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -958,7 +958,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/infantry_icon.png"/>
+                                                <Image url="@../../../assets/troops/infantry_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="lieutenantImageView" fitHeight="128.0" fitWidth="128.0"
@@ -967,7 +967,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/lieutenant_icon.png"/>
+                                                <Image url="@../../../assets/troops/lieutenant_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="precShooterImageView" fitHeight="128.0" fitWidth="128.0"
@@ -976,7 +976,7 @@
                                                 <Insets bottom="25.0" left="35.0" right="25.0" top="25.0"/>
                                             </GridPane.margin>
                                             <image>
-                                                <Image url="@../../assets/troops/precision_shooter_icon.png"/>
+                                                <Image url="@../../../assets/troops/precision_shooter_icon.png"/>
                                             </image>
                                         </ImageView>
                                         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">

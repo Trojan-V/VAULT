@@ -11,7 +11,7 @@ import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
 import me.vault.game.view.UpgradeDialogDelegate;
-import me.vault.game.view.city.buildings.*;
+import me.vault.game.view.city.building.*;
 
 import java.text.MessageFormat;
 

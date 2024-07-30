@@ -1,4 +1,4 @@
-package me.vault.game.view.city.buildings;
+package me.vault.game.view.city.building;
 
 
 import javafx.event.ActionEvent;
@@ -19,6 +19,7 @@ import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.city.Barracks;
 import me.vault.game.model.city.Workshop;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -48,14 +49,11 @@ public final class WorkshopDelegate implements Initializable
 {
 
 	/**
-	 * The {@link Scene} of the {@link Workshop} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader} class.
-	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(Workshop.class, "workshop_view.fxml");
-
-	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(WorkshopDelegate.class.getSimpleName());
+
+	private static final String WORKSHOP_VIEW_FXML = "workshop_view.fxml";
 
 	@FXML
 	private Label damageArtifactDamageModifierLabel;
@@ -117,12 +115,7 @@ public final class WorkshopDelegate implements Initializable
 
 	public static void show ()
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(WorkshopDelegate.class, WORKSHOP_VIEW_FXML), WorkshopDelegate.class);
 	}
 
 

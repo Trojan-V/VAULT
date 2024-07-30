@@ -1,10 +1,9 @@
-package me.vault.game.view.city.buildings;
+package me.vault.game.view.city.building;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -12,11 +11,11 @@ import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.EnergyAbilityController;
-import me.vault.game.model.city.Laboratory;
 import me.vault.game.model.energy.AbilityMultiplier;
 import me.vault.game.model.energy.impl.DodgeAbility;
 import me.vault.game.model.energy.impl.InitiativeAbility;
 import me.vault.game.model.energy.impl.MeleeAbility;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -24,31 +23,18 @@ import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public final class LaboratoryDelegate implements Initializable
 {
 
 	/**
-	 * The {@link Scene} of the {@link Laboratory} city building, which is extracted from the related .fxml-file with
-	 * the {@link ResourceLoader} class.
-	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(Laboratory.class, "laboratory_view.fxml");
-
-	// CONSTANTS -------------------------------------------------------------------------------------------------------
-
-	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(LaboratoryDelegate.class.getSimpleName());
 
-
-	// FXML ------------------------------------------------------------------------------------------------------------
+	private static final String LABORATORY_VIEW_FXML = "laboratory_view.fxml";
 
 	@FXML
 	private AnchorPane mainPane;
@@ -110,12 +96,7 @@ public final class LaboratoryDelegate implements Initializable
 
 	public static void show ()
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Laboratory.getInstance().getName()));
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(LaboratoryDelegate.class, LABORATORY_VIEW_FXML), LaboratoryDelegate.class);
 	}
 
 

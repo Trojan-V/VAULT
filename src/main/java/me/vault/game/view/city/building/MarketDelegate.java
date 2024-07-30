@@ -1,30 +1,28 @@
-package me.vault.game.view.city.buildings;
+package me.vault.game.view.city.building;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.model.city.Barracks;
 import me.vault.game.model.city.Market;
 import me.vault.game.model.currency.Currency;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.constant.CharacterConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
+import static me.vault.game.utility.constant.CityBuildingConstants.Market.*;
 import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -41,42 +39,14 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class MarketDelegate implements Initializable
 {
-	// CONSTANTS -------------------------------------------------------------------------------------------------------
+	// TODO: man kann noch traden, auch wenn das geld nicht ausreicht
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final Logger LOGGER = new Logger(MarketDelegate.class.getSimpleName());
 
-
-	/**
-	 * The {@link Scene} of the {@link Market} city building, which is extracted from the related .fxml-file with the
-	 * {@link ResourceLoader} class.
-	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(Market.class, "market_view.fxml");
-
-	private static final int STEEL_PRICE = 50;
-
-	private static final int COMPOSITE_PRICE = 50;
-
-	private static final int SCIENCE_PRICE = 50;
-
-	private static final int FOOD_PRICE = 50;
-
-
-	private static final String STEEL_PROMPT = STEEL_PRICE + "-1 Rate";
-
-
-	private static final String COMPOSITE_PROMPT = COMPOSITE_PRICE + "-1 Rate";
-
-
-	private static final String SCIENCE_PROMPT = SCIENCE_PRICE + "-1 Rate";
-
-
-	private static final String FOOD_PROMPT = FOOD_PRICE + "-1 Rate";
-
-
-	// FXML ------------------------------------------------------------------------------------------------------------
+	private static final String MARKET_VIEW_FXML = "market_view.fxml";
 
 	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
@@ -111,12 +81,7 @@ public final class MarketDelegate implements Initializable
 
 	public static void show ()
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(MarketDelegate.class, MARKET_VIEW_FXML), MarketDelegate.class);
 	}
 
 

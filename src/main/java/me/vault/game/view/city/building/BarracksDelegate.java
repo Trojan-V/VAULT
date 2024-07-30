@@ -1,10 +1,9 @@
-package me.vault.game.view.city.buildings;
+package me.vault.game.view.city.building;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
@@ -14,6 +13,7 @@ import me.vault.game.control.PlayerController;
 import me.vault.game.model.city.Barracks;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Faction;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -24,7 +24,6 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -49,19 +48,15 @@ public final class BarracksDelegate implements Initializable
 	 */
 	private static final ILogger LOGGER = new Logger(BarracksDelegate.class.getSimpleName());
 
-
 	/**
-	 * The {@link Scene} of the {@link Barracks} city building, which is extracted from the related .fxml-file with
-	 * the {@link ResourceLoader} class.
+	 * The path to the respective fxml file of the delegate as a {@link String}.
 	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(Barracks.class, "barracks_view.fxml");
-
+	private static final String BARRACKS_VIEW_FXML = "barracks_view.fxml";
 
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */
 	private static final String TO_STRING_PATTERN = "BarracksDelegate'{'barracksAnchorPane={0}, chooseTerraFactionButton={1}'}'";
-
 
 	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
@@ -79,12 +74,7 @@ public final class BarracksDelegate implements Initializable
 
 	public static void show ()
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(BarracksDelegate.class, BARRACKS_VIEW_FXML), BarracksDelegate.class);
 	}
 
 

@@ -65,6 +65,22 @@ public interface CityBuildingConstants
 	interface Market
 	{
 
+		int STEEL_PRICE = 50;
+
+		int COMPOSITE_PRICE = 50;
+
+		int SCIENCE_PRICE = 50;
+
+		int FOOD_PRICE = 50;
+
+		String STEEL_PROMPT = "%d-1 Rate".formatted(STEEL_PRICE);
+
+		String COMPOSITE_PROMPT = "%d-1 Rate".formatted(COMPOSITE_PRICE);
+
+		String SCIENCE_PROMPT = "%d-1 Rate".formatted(SCIENCE_PRICE);
+
+		String FOOD_PROMPT = "%d-1 Rate".formatted(FOOD_PRICE);
+
 		@Constant
 		String OLD_NAME = "Old Market";
 

@@ -9,7 +9,7 @@ import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.UpgradeRunnable;
-import me.vault.game.view.city.buildings.*;
+import me.vault.game.view.city.building.*;
 import org.jetbrains.annotations.NotNull;
 
 import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
@@ -24,7 +24,7 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see DocksDelegate
+ * @see me.vault.game.view.city.building.DocksDelegate
  * @see LaboratoryDelegate
  * @see MarketDelegate
  * @see SpaceBarDelegate

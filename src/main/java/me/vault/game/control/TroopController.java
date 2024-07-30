@@ -12,7 +12,7 @@ import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.fx.SingleStatisticHBox;
 import me.vault.game.utility.struct.UpgradeRunnable;
-import me.vault.game.view.city.buildings.TrainingFacilityDelegate;
+import me.vault.game.view.city.building.TrainingFacilityDelegate;
 
 import static me.vault.game.model.troop.TroopStatistics.*;
 import static me.vault.game.utility.constant.AttributeConstants.*;

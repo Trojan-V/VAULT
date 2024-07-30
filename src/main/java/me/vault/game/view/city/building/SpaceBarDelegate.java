@@ -1,30 +1,27 @@
-package me.vault.game.view.city.buildings;
+package me.vault.game.view.city.building;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.PlayerController;
-import me.vault.game.model.city.Barracks;
 import me.vault.game.model.city.SpaceBar;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Faction;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -47,14 +44,7 @@ public final class SpaceBarDelegate implements Initializable
 	 */
 	private static final Logger LOGGER = new Logger(SpaceBarDelegate.class.getSimpleName());
 
-
-	/**
-	 * The {@link Scene} of the {@link SpaceBar} city building, which is extracted from the related .fxml-file with
-	 * the {@link ResourceLoader} class.
-	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(SpaceBar.class, "space_bar_view.fxml");
-
-	private static final String TO_STRING_PATTERN = "SpaceBarDelegate'{'spaceBarAnchorPane={0}, chooseMegaCorporationButton={1}'}'";
+	private static final String SPACE_BAR_VIEW_FXML = "space_bar_view.fxml";
 
 	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
@@ -68,12 +58,7 @@ public final class SpaceBarDelegate implements Initializable
 
 	public static void show ()
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.logf(DEBUG, SHOWING_VIEW_MSG, Barracks.getInstance().getName());
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(SpaceBarDelegate.class, SPACE_BAR_VIEW_FXML), SpaceBarDelegate.class);
 	}
 
 
@@ -113,12 +98,4 @@ public final class SpaceBarDelegate implements Initializable
 	{
 		CityDelegate.show();
 	}
-
-
-	@Override
-	public String toString ()
-	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.spaceBarAnchorPane, this.chooseMegaCorporationButton);
-	}
-
 }

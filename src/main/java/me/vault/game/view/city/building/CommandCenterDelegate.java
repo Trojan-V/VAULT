@@ -1,20 +1,17 @@
-package me.vault.game.view.city.buildings;
+package me.vault.game.view.city.building;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.model.city.Barracks;
-import me.vault.game.model.city.CommandCenter;
 import me.vault.game.model.player.Player;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
@@ -24,30 +21,28 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-
 
 public final class CommandCenterDelegate implements Initializable
 {
 
 	/**
-	 * The {@link Scene} of the {@link CommandCenter} city building, which is extracted from the related .fxml-file with the {@link ResourceLoader}
-	 * class.
+	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(CommandCenter.class, "command_center_view.fxml");
-
-
 	private static final Logger LOGGER = new Logger(CommandCenterDelegate.class.getSimpleName());
+
+	/**
+	 * The path to the respective fxml file of the delegate as a {@link String}.
+	 */
+	private static final String COMMAND_CENTER_VIEW_FXML = "command_center_view.fxml";
+
+	private static final String TO_STRING_PATTERN = "CommandCenterDelegate'{'fxml={0}'}'";
+
 
 	@FXML
 	private AnchorPane mainAnchorPane;
 
 	@FXML
 	private Label currentNewsLabel;
-
-	@FXML
-	private Button goToMissionBoardButton;
 
 	@FXML
 	private ImageView selectedArtifactImageView;
@@ -64,12 +59,7 @@ public final class CommandCenterDelegate implements Initializable
 
 	public static void show ()
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(CommandCenterDelegate.class, COMMAND_CENTER_VIEW_FXML), CommandCenterDelegate.class);
 	}
 
 
@@ -129,9 +119,16 @@ public final class CommandCenterDelegate implements Initializable
 	{
 		this.selectedArtifactLabel.setText(Player.getInstance().getSelectedArtifact().getName());
 		this.selectedFactionLabel.setText(Player.getInstance().getSelectedFaction().name());
-
+		// TODO: Random news generieren
 		this.selectedArtifactImageView.setImage(Player.getInstance().getSelectedArtifact().getSprite());
 		this.selectedFactionImageView.setImage(Player.getInstance().getSelectedFaction().getSprite());
+	}
+
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, COMMAND_CENTER_VIEW_FXML);
 	}
 
 }

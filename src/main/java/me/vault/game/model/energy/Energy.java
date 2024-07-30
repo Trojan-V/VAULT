@@ -16,8 +16,8 @@ import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
-import me.vault.game.view.city.buildings.LaboratoryDelegate;
-import me.vault.game.view.city.buildings.WorkshopDelegate;
+import me.vault.game.view.city.building.LaboratoryDelegate;
+import me.vault.game.view.city.building.WorkshopDelegate;
 import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;

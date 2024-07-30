@@ -7,14 +7,14 @@
 <?import javafx.scene.text.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="docksAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.city.buildings.DocksDelegate">
+            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.city.building.DocksDelegate">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <viewport>
                 <Rectangle2D height="720.0" width="1280.0"/>
             </viewport>
             <image>
-                <Image url="@../../assets/background/city_background.png"/>
+                <Image url="@../../../assets/background/city_background.png"/>
             </image>
         </ImageView>
         <TabPane fx:id="factionsTabPane" layoutX="26.0" layoutY="106.0" prefHeight="591.0" prefWidth="1229.0"
@@ -120,7 +120,7 @@
                                                         <Insets bottom="25.0" left="150.0" right="25.0" top="25.0"/>
                                                     </GridPane.margin>
                                                     <image>
-                                                        <Image url="@../../assets/troops/space_marine_icon.png"/>
+                                                        <Image url="@../../../assets/troops/space_marine_icon.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
@@ -130,7 +130,7 @@
                                                         <Insets bottom="25.0" left="150.0" right="25.0" top="25.0"/>
                                                     </GridPane.margin>
                                                     <image>
-                                                        <Image url="@../../assets/troops/engineer_icon.png"/>
+                                                        <Image url="@../../../assets/troops/engineer_icon.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
@@ -140,7 +140,7 @@
                                                         <Insets bottom="25.0" left="150.0" right="25.0" top="25.0"/>
                                                     </GridPane.margin>
                                                     <image>
-                                                        <Image url="@../../assets/troops/officer_icon.png"/>
+                                                        <Image url="@../../../assets/troops/officer_icon.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="93.0"
@@ -317,7 +317,7 @@
                                                         <Insets bottom="25.0" left="150.0" right="25.0" top="25.0"/>
                                                     </GridPane.margin>
                                                     <image>
-                                                        <Image url="@../../assets/troops/medic_icon.png"/>
+                                                        <Image url="@../../../assets/troops/medic_icon.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
@@ -327,7 +327,7 @@
                                                         <Insets bottom="25.0" left="150.0" right="25.0" top="25.0"/>
                                                     </GridPane.margin>
                                                     <image>
-                                                        <Image url="@../../assets/troops/sniper_icon.png"/>
+                                                        <Image url="@../../../assets/troops/sniper_icon.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
@@ -337,7 +337,7 @@
                                                         <Insets bottom="25.0" left="150.0" right="25.0" top="25.0"/>
                                                     </GridPane.margin>
                                                     <image>
-                                                        <Image url="@../../assets/troops/ranger_icon.png"/>
+                                                        <Image url="@../../../assets/troops/ranger_icon.png"/>
                                                     </image>
                                                 </ImageView>
                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="93.0"

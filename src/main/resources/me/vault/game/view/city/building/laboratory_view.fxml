@@ -8,14 +8,14 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.city.buildings.LaboratoryDelegate">
+            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.view.city.building.LaboratoryDelegate">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <viewport>
                 <Rectangle2D height="720.0" width="1280.0"/>
             </viewport>
             <image>
-                <Image url="@../../assets/background/city_background.png"/>
+                <Image url="@../../../assets/background/city_background.png"/>
             </image>
         </ImageView>
         <GridPane gridLinesVisible="true" style="-fx-background-color: #8bcadd; -fx-border-color: darkblue;"

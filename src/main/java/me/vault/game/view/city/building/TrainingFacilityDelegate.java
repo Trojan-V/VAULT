@@ -1,10 +1,9 @@
-package me.vault.game.view.city.buildings;
+package me.vault.game.view.city.building;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
@@ -13,10 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.TroopController;
-import me.vault.game.model.city.Barracks;
 import me.vault.game.model.city.TrainingFacility;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.*;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -24,25 +23,17 @@ import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public final class TrainingFacilityDelegate implements Initializable
 {
 
-	/**
-	 * The {@link Scene} of the {@link TrainingFacility} city building, which is extracted from the related .fxml-file
-	 * with the {@link ResourceLoader} class.
-	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(TrainingFacility.class, "training_facility_view.fxml");
-
-
 	private static final ILogger LOGGER = new Logger(TrainingFacility.class.getSimpleName());
+
+	private static final String TRAINING_FACILITY_VIEW_FXML = "training_facility_view.fxml";
 
 	@FXML
 	private AnchorPane engineerAttributePane;
@@ -197,12 +188,7 @@ public final class TrainingFacilityDelegate implements Initializable
 
 	public static void show ()
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(TrainingFacilityDelegate.class, TRAINING_FACILITY_VIEW_FXML), TrainingFacilityDelegate.class);
 	}
 
 

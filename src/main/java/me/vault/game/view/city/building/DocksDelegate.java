@@ -1,10 +1,9 @@
-package me.vault.game.view.city.buildings;
+package me.vault.game.view.city.building;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -12,10 +11,10 @@ import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.PlayerController;
-import me.vault.game.model.city.Barracks;
 import me.vault.game.model.city.Docks;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Faction;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -26,8 +25,6 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -45,14 +42,6 @@ public final class DocksDelegate implements Initializable
 {
 
 	/**
-	 * The {@link Scene} of the {@link Docks} city building, which is extracted from the related .fxml-file with the
-	 * {@link ResourceLoader} class.
-	 */
-	private static final Scene SCENE = ResourceLoader.loadScene(Docks.class, "docks_view.fxml");
-
-	// CONSTANTS -------------------------------------------------------------------------------------------------------
-
-	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(DocksDelegate.class.getSimpleName());
@@ -66,10 +55,7 @@ public final class DocksDelegate implements Initializable
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/game} and defines the properties (color etc.) of the GUI
 	 * elements.
 	 */
-	private static final Scene FXML_FILENAME = ResourceLoader.loadScene(Docks.class, "docks_view.fxml");
-
-
-	// FXML ------------------------------------------------------------------------------------------------------------
+	private static final String DOCKS_VIEW_FXML = "docks_view.fxml";
 
 	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
@@ -92,12 +78,7 @@ public final class DocksDelegate implements Initializable
 
 	public static void show ()
 	{
-		// Loading the FXML-File and creating a scene from the loaded components
-		GameApplication.getStage().setScene(SCENE);
-		GameApplication.getStage().show();
-
-		// Logging the display of the building
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, Barracks.getInstance().getName()));
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(DocksDelegate.class, DOCKS_VIEW_FXML), DocksDelegate.class);
 	}
 
 
@@ -154,7 +135,7 @@ public final class DocksDelegate implements Initializable
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, FXML_FILENAME);
+		return MessageFormat.format(TO_STRING_PATTERN, DOCKS_VIEW_FXML);
 	}
 
 }
