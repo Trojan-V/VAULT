@@ -49,7 +49,7 @@ public enum JvmArgument
 	 */
 	JvmArgument (final String argument)
 	{
-		// Append a dash to each JvmArgument to require the following JvmArgument format: -verbose, -max_age, -...
+		// Append a dash to each JvmArgument to require the following JvmArgument format: -verbose, -max_age, etc.
 		this.argument = DASH + argument;
 	}
 

@@ -48,7 +48,7 @@ public final class JvmArgumentParser
 	 * It's used to parse parameters of arguments, for instance to parse {@link JvmArgument#LOG_DEPTH}, as this JVM
 	 * argument requires a parameter.
 	 * After the next argument was accessed, it's important to increment the
-	 * {@link JvmArgumentParser#currentArgumentIndex} by one to ensure the parameter of the parsed argument is not
+	 * {@link JvmArgumentParser#currentArgumentIndex} by one to ensure the parameter of the parsed argument isn't
 	 * attempted to be parsed as the next argument.
 	 */
 	private static final int NEXT_ARGUMENT_ADDITION_INDEX = 1;
@@ -68,7 +68,7 @@ public final class JvmArgumentParser
 
 
 	/**
-	 * As this class is solely a collection of static methods, there is no use-case where an instantiation of this
+	 * As this class is solely a collection of static methods, there's no use-case where an instantiation of this
 	 * class would be beneficial, hence
 	 * why a private constructor is used here to prohibit that.
 	 */
@@ -225,6 +225,7 @@ public final class JvmArgumentParser
 	 * @param args The JVM arguments passed into the program at startup. These have to be acquired through the main
 	 *             method of the program.
 	 *
+	 * @param level The level.
 	 * @return True if the supplied parameter is valid, otherwise false.
 	 */
 	private static boolean checkIsValidLogDepthParameter (final String[] args, final Level level)
