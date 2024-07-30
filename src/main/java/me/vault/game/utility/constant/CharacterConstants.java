@@ -15,20 +15,11 @@ import me.vault.game.utility.constant.ConstantInterface.Constant;
 @ConstantInterface
 public interface CharacterConstants
 {
-
 	/**
 	 * Represents the default whitespace character.
 	 */
 	@Constant
 	char WHITESPACE = ' ';
-
-	/**
-	 * Represents the line separator character for the operating system the program is executed on.
-	 *
-	 * @see System#lineSeparator() for more information.
-	 */
-	@Constant
-	String NEWLINE = System.lineSeparator();
 
 
 	/**
@@ -37,57 +28,24 @@ public interface CharacterConstants
 	@Constant
 	char DASH = '-';
 
-	/**
-	 * Represents the opening bracket character.
-	 * <br>
-	 * Here, the American English standard is used to denote the names of different bracket types.
-	 */
-	@Constant
-	char OPENING_BRACKET = '[';
 
 	/**
-	 * Represents the closing bracket character.
-	 * <br>
-	 * Here, the American English standard is used to denote the names of different bracket types.
-	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Bracket">Wikipedia &ndash; Bracket types</a>
+	 * Represents the equals' character.
 	 */
-	@Constant
-	char CLOSING_BRACKET = ']';
-
-	/**
-	 * Represents the opening parentheses' character.
-	 * <br>
-	 * Here, the American English standard is used to denote the names of different bracket types.
-	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Bracket">Wikipedia &ndash; Bracket types</a>
-	 */
-	@Constant
-	char OPENING_PARENTHESES = '(';
-
 	@Constant
 	char EQUALS = '=';
 
+
+	/**
+	 * Represents the semicolon character.
+	 */
 	@Constant
 	char SEMICOLON = ';';
 
-	/**
-	 * Represents the closing parentheses' character.
-	 * <br>
-	 * Here, the American English standard is used to denote the names of different bracket types.
-	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Bracket">Wikipedia &ndash; Bracket types</a>
-	 */
-	@Constant
-	char CLOSING_PARENTHESES = ')';
 
 	/**
-	 * Represents the pipe character.
+	 * Represents an empty string.
 	 */
-	@Constant
-	char PIPE = '|';
-
 	@Constant
 	String EMPTY_STRING = "";
-
 }
