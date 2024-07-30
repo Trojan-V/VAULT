@@ -26,8 +26,10 @@ import java.text.MessageFormat;
  */
 public class TroopStatistics
 {
-
-
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link TroopStatistics#toString()} is
+	 * called.
+	 */
 	private static final String TO_STRING_PATTERN = "TroopStatistics'{'dexterity={0}, defensive={1}, offensive={2}'}'";
 
 
@@ -147,6 +149,10 @@ public class TroopStatistics
 	 */
 	public static class Offensive
 	{
+		/**
+		 * The {@link MessageFormat} pattern, which is used, when the {@link Offensive#toString()} is
+		 * called.
+		 */
 		private static final String TO_STRING_PATTERN =
 			"Offensive'{'energyPoints={0}, meleeDamage={1}, grenadeDamage={2}, grenadeAmount={3}, grenadeRange={4}'}'";
 
@@ -499,8 +505,10 @@ public class TroopStatistics
 	 */
 	public static class Defensive
 	{
-
-
+		/**
+		 * The {@link MessageFormat} pattern, which is used, when the {@link Defensive#toString()} is
+		 * called.
+		 */
 		private static final String TO_STRING_PATTERN =
 			"Defensive'{'health={0}, armor={1}, dodgeRate={2}, resistance={3}'}'";
 
@@ -792,8 +800,10 @@ public class TroopStatistics
 	 */
 	public static class Dexterity
 	{
-
-
+		/**
+		 * The {@link MessageFormat} pattern, which is used, when the {@link Dexterity#toString()} is
+		 * called.
+		 */
 		private static final String TO_STRING_PATTERN = "Dexterity'{'movementTiles={0}, initiative={1}'}'";
 
 
