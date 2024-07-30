@@ -33,7 +33,7 @@ import java.util.ResourceBundle;
 
 
 /**
- * The {@code DocksDelegate} handles the control and view of the {@link Workshop} city building.
+ * The {@code WorkshopDelegate} handles the control and view of the {@link Workshop} city building.
  * <br>
  * On the one hand, it initializes the view from the fxml-file and binds properties from the model to the view.
  * <br>
