@@ -19,7 +19,6 @@ import static me.vault.game.utility.constant.LoggingConstants.Currency.FACTORED_
 import static me.vault.game.utility.constant.LoggingConstants.Currency.NEW_CURRENCY_VALUES;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-// TODO: PRE und POST
 /**
  * Controller class for the {@link Currency} enum. Handles a ton of stuff related to factoring currencies or
  * displaying the banner scene that shows all currencies the player owns as the top bar of the GUI.
@@ -83,8 +82,8 @@ public final class CurrencyController implements Initializable
 	 * in the transaction.
 	 *
 	 * @param transaction The {@code CurrencyTransaction} object which is meant to be factored in.
-	 * @precondition
-	 * @postcondition
+	 * @precondition A transaction can happen.
+	 * @postcondition The transaction is completed.
 	 */
 	public static void factorCurrency (final CurrencyTransaction transaction)
 	{
@@ -107,6 +106,9 @@ public final class CurrencyController implements Initializable
 	 *
 	 * @param currency The {@link Currency} the supplied amount will be added to.
 	 * @param amount   The amount that'll be added to the {@link Currency}.
+	 * @precondition IThe player is for any reason eligible to get a certain amount of currency added or removed form
+	 * its 'bank account'.
+	 * @postcondition A certain amount of currency gets added or subtracted to the 'bank account' of the player.
 	 */
 	public static void factorCurrency (final Currency currency, final int amount)
 	{
@@ -119,6 +121,8 @@ public final class CurrencyController implements Initializable
 	 * program.
 	 *
 	 * @return The scene that displays the currency banner as the top row.
+	 * @precondition The banner that displays the currency`s of the player exist.
+	 * @postcondition The banner that displays the currency of the player is shown to the player.
 	 */
 	public static Scene getCurrencyBannerScene ()
 	{
@@ -131,6 +135,8 @@ public final class CurrencyController implements Initializable
 	 *
 	 * @param currency The currency that's initialized to the GUI.
 	 * @param label    The label where the currency is being displayed in the GUI.
+	 * @precondition The banner that displays the currency`s of the player exist.
+	 * @postcondition The amount of currency that the player has in its procession is show in the displayed banner.
 	 */
 	private static void initCurrency (final Currency currency, final Label label)
 	{
