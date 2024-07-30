@@ -46,17 +46,18 @@ public interface MissionConstants
 		@Constant
 		GameBoard MISSION_ONE_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_ONE_FILE_PATH));
 
-		/**
-		 * The {@link Mission}, which represents the first playable mission of the game.
-		 */
-		@Constant
-		Mission MISSION_ONE = new Mission(MISSION_ONE_GAME_BOARD, MISSION_ONE_REWARDS);
 
 		/**
 		 * The {@link CurrencyTransaction}, which represents the rewards for the player, if the first mission is finished successfully.
 		 */
 		@Constant
 		CurrencyTransaction MISSION_ONE_REWARDS = new CurrencyTransaction(1000, 1000, 1000, 1000, 1000);
+
+		/**
+		 * The {@link Mission}, which represents the first playable mission of the game.
+		 */
+		@Constant
+		Mission MISSION_ONE = new Mission(MISSION_ONE_GAME_BOARD, MISSION_ONE_REWARDS);
 
 	}
 
@@ -85,17 +86,18 @@ public interface MissionConstants
 		@Constant
 		GameBoard MISSION_TWO_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_TWO_FILE_PATH));
 
-		/**
-		 * The {@link Mission}, which represents the second playable mission of the game.
-		 */
-		@Constant
-		Mission MISSION_TWO = new Mission(MISSION_TWO_GAME_BOARD, MISSION_TWO_REWARDS);
 
 		/**
 		 * The {@link CurrencyTransaction}, which represents the rewards for the player, if the second mission is finished successfully.
 		 */
 		@Constant
 		CurrencyTransaction MISSION_TWO_REWARDS = new CurrencyTransaction(2000, 2000, 2000, 2000, 2000);
+
+		/**
+		 * The {@link Mission}, which represents the second playable mission of the game.
+		 */
+		@Constant
+		Mission MISSION_TWO = new Mission(MISSION_TWO_GAME_BOARD, MISSION_TWO_REWARDS);
 
 	}
 
@@ -124,17 +126,18 @@ public interface MissionConstants
 		@Constant
 		GameBoard MISSION_THREE_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_THREE_FILE_PATH));
 
-		/**
-		 * The {@link Mission}, which represents the third playable mission of the game.
-		 */
-		@Constant
-		Mission MISSION_THREE = new Mission(MISSION_THREE_GAME_BOARD, MISSION_THREE_REWARDS);
 
 		/**
 		 * The {@link CurrencyTransaction}, which represents the rewards for the player, if the third mission is finished successfully.
 		 */
 		@Constant
 		CurrencyTransaction MISSION_THREE_REWARDS = new CurrencyTransaction(3000, 3000, 3000, 3000, 3000);
+
+		/**
+		 * The {@link Mission}, which represents the third playable mission of the game.
+		 */
+		@Constant
+		Mission MISSION_THREE = new Mission(MISSION_THREE_GAME_BOARD, MISSION_THREE_REWARDS);
 
 	}
 
@@ -163,17 +166,18 @@ public interface MissionConstants
 		@Constant
 		GameBoard MISSION_FOUR_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_FOUR_FILE_PATH));
 
-		/**
-		 * The {@link Mission}, which represents the fourth playable mission of the game.
-		 */
-		@Constant
-		Mission MISSION_FOUR = new Mission(MISSION_FOUR_GAME_BOARD, MISSION_FOUR_REWARDS);
 
 		/**
 		 * The {@link CurrencyTransaction}, which represents the rewards for the player, if the fourth mission is finished successfully.
 		 */
 		@Constant
 		CurrencyTransaction MISSION_FOUR_REWARDS = new CurrencyTransaction(4000, 4000, 4000, 4000, 4000);
+
+		/**
+		 * The {@link Mission}, which represents the fourth playable mission of the game.
+		 */
+		@Constant
+		Mission MISSION_FOUR = new Mission(MISSION_FOUR_GAME_BOARD, MISSION_FOUR_REWARDS);
 
 	}
 
