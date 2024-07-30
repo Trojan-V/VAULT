@@ -65,13 +65,13 @@ public interface CityBuildingConstants
 	interface Market
 	{
 
-		int STEEL_PRICE = 50;
+		int STEEL_PRICE = 5;
 
-		int COMPOSITE_PRICE = 50;
+		int COMPOSITE_PRICE = 5;
 
-		int SCIENCE_PRICE = 50;
+		int SCIENCE_PRICE = 5;
 
-		int FOOD_PRICE = 50;
+		int FOOD_PRICE = 5;
 
 		String STEEL_PROMPT = "%d-1 Rate".formatted(STEEL_PRICE);
 

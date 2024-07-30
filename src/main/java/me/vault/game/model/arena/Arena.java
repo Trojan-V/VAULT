@@ -372,4 +372,5 @@ public class Arena
 		return this.result;
 	}
 
+	// TODO: Arena müssen nach jeder abgeschlossenen Arena resetted werden, sonst startet man mit mehr Truppen und ähnlichen
 }
