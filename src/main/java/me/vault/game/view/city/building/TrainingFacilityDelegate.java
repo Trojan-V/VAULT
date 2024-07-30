@@ -291,8 +291,7 @@ public final class TrainingFacilityDelegate implements Initializable
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
-		this.initTroopSpecificControls(SpaceMarine.getAllyInstance(), this.spaceMarineLabel, this.spaceMarineImageView
-			, this.spaceMarineUpgradeButton, this.spaceMarineAttributePane);
+		this.initTroopSpecificControls(SpaceMarine.getAllyInstance(), this.spaceMarineLabel, this.spaceMarineImageView, this.spaceMarineUpgradeButton, this.spaceMarineAttributePane);
 		this.initTroopSpecificControls(Officer.getAllyInstance(), this.officerLabel, this.officerImageView, this.officerUpgradeButton, this.officerAttributePane);
 		this.initTroopSpecificControls(Engineer.getAllyInstance(), this.engineerLabel, this.engineerImageView, this.engineerUpgradeButton, this.engineerAttributePane);
 
