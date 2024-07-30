@@ -9,7 +9,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
+import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
+import me.vault.game.model.city.CommandCenter;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -22,6 +24,19 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 
+/**
+ * The {@code CommandCenterDelegate} handles the control and view of the {@link CommandCenter} city building.
+ * <br>
+ * On the one hand, it initializes the view from the fxml-file and binds properties from the model to the view.
+ * <br>
+ * On the other hand, it provides methods to control the model to the {@link CommandCenter} city building.
+ *
+ * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @see CityBuildingController
+ * @see Initializable
+ * @see CommandCenter
+ * @since 11.06.2024
+ */
 public final class CommandCenterDelegate implements Initializable
 {
 
@@ -35,9 +50,15 @@ public final class CommandCenterDelegate implements Initializable
 	 */
 	private static final String COMMAND_CENTER_VIEW_FXML = "command_center_view.fxml";
 
+	/**
+	 * The pattern used to create the string which describes the class in a human-readable format.
+	 */
 	private static final String TO_STRING_PATTERN = "CommandCenterDelegate'{'fxml={0}'}'";
 
 
+	/**
+	 * The {@link AnchorPane} at the top-most position in the scene-tree.
+	 */
 	@FXML
 	private AnchorPane mainAnchorPane;
 
@@ -57,37 +78,17 @@ public final class CommandCenterDelegate implements Initializable
 	private Label selectedFactionLabel;
 
 
+	/**
+	 * Calls a method to display the content stored in {@link CommandCenterDelegate#COMMAND_CENTER_VIEW_FXML} and initialized
+	 * by {@link CommandCenterDelegate#initialize(URL, ResourceBundle)} on the main stage of this application
+	 * ({@link GameApplication#getStage()})
+	 *
+	 * @precondition The GameApplication has to have a stage.
+	 * @postcondition The initialized view is shown on the GameApplication Stage.
+	 */
 	public static void show ()
 	{
 		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(CommandCenterDelegate.class, COMMAND_CENTER_VIEW_FXML), CommandCenterDelegate.class);
-	}
-
-
-	@FXML
-	void onArtifactClick (final MouseEvent ignored)
-	{
-		WorkshopDelegate.show();
-	}
-
-
-	@FXML
-	void onBackToCityView (final ActionEvent ignored)
-	{
-		CityDelegate.show();
-	}
-
-
-	@FXML
-	void onFactionClick (final MouseEvent ignored)
-	{
-		DocksDelegate.show();
-	}
-
-
-	@FXML
-	void onGoToMissionBoard (final ActionEvent ignored)
-	{
-		MissionSelectionDelegate.show();
 	}
 
 
@@ -108,10 +109,10 @@ public final class CommandCenterDelegate implements Initializable
 	}
 
 
-	@FXML
-	void onMegaCorpClick (final MouseEvent ignored)
+	@Override
+	public String toString ()
 	{
-		SpaceBarDelegate.show();
+		return MessageFormat.format(TO_STRING_PATTERN, COMMAND_CENTER_VIEW_FXML);
 	}
 
 
@@ -125,10 +126,38 @@ public final class CommandCenterDelegate implements Initializable
 	}
 
 
-	@Override
-	public String toString ()
+	@FXML
+	void onArtifactClick (final MouseEvent ignored)
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, COMMAND_CENTER_VIEW_FXML);
+		WorkshopDelegate.show();
+	}
+
+
+	@FXML
+	void onMegaCorpClick (final MouseEvent ignored)
+	{
+		SpaceBarDelegate.show();
+	}
+
+
+	@FXML
+	void onFactionClick (final MouseEvent ignored)
+	{
+		DocksDelegate.show();
+	}
+
+
+	@FXML
+	void onBackToCityView (final ActionEvent ignored)
+	{
+		CityDelegate.show();
+	}
+
+
+	@FXML
+	void onGoToMissionBoard (final ActionEvent ignored)
+	{
+		MissionSelectionDelegate.show();
 	}
 
 }

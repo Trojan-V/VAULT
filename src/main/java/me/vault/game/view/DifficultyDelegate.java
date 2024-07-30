@@ -57,7 +57,6 @@ public final class DifficultyDelegate implements Initializable
 
 	public static void show ()
 	{
-		LOGGER.log(DEBUG, MessageFormat.format(SHOWING_VIEW_MSG, DifficultyDelegate.class.getSimpleName()));
 		ViewUtil.show(GameApplication.getStage(), DIFFICULTY_MENU_SCENE, DifficultyDelegate.class);
 	}
 
