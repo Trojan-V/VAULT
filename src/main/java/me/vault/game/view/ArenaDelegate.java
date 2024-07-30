@@ -263,7 +263,7 @@ public final class ArenaDelegate
 
 	public void setArena (final @NotNull Arena arena)
 	{
-		arena.setPlayerOneFigures(Player.getInstance().getSelectedTroops());
+		arena.setPlayerOneFigures(Player.getInstance().getSelectedFigures());
 		arena.placePlayerOneFiguresRandomly();
 		arena.placePlayerTwoFiguresRandomly();
 

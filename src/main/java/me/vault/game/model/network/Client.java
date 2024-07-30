@@ -14,9 +14,9 @@ import java.net.UnknownHostException;
 import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
 
+// TODO: Documentation and continuation of implementing the network stuff.
 public class Client implements Runnable
 {
-
 	private String hostName = null;
 
 
@@ -83,5 +83,4 @@ public class Client implements Runnable
 			System.out.println(e.toString());
 		}
 	}
-
 }

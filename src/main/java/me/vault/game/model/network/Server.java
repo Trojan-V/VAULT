@@ -18,8 +18,6 @@ import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
 public class Server implements Runnable
 {
-
-
 	private static final String ACCEPTED = "Accepted";
 
 	private static final String ERROR_ACCEPT = "Error accept!";
@@ -130,5 +128,4 @@ public class Server implements Runnable
 	{
 		return this.in.readObject();
 	}
-
 }
