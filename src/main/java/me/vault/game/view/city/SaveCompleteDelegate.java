@@ -11,14 +11,13 @@ import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.mission.MissionDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.WINDOW_ICON_PATH;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -86,7 +85,7 @@ public final class SaveCompleteDelegate implements Initializable
 	public static void show ()
 	{
 		STAGE.setScene(ResourceLoader.loadScene(SaveCompleteDelegate.class, SAVE_GAME_DIALOG_VIEW_FXML));
-		LOGGER.logf(DEBUG, SHOWING_VIEW_MSG, SaveCompleteDelegate.class.getSimpleName());
+		LOGGER.logf(DEBUG, SHOWING_VIEW_PATTERN, SaveCompleteDelegate.class.getSimpleName());
 		STAGE.showAndWait();
 	}
 

@@ -13,7 +13,7 @@ import me.vault.game.utility.struct.UpgradeRunnable;
 
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
+import static me.vault.game.utility.constant.LoggingConstants.UPGRADING;
 
 
 /**

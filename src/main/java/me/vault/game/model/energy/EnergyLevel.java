@@ -6,14 +6,14 @@ import me.vault.game.interfaces.Level;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_ABILITY_MAXED;
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_IS_LOWEST;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_MAXED;
 import static me.vault.game.utility.constant.MiscConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * This enum provides all different levels an {@link Energy} can have.
+ * This enum provides all different levels an {@link EnergyAbility} can have.
  * <br>
  * <u>Technical note</u> <br>
  * It's important that the level entries in the enum are in the correct order, from minimum to maximum.
@@ -22,7 +22,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see Energy
+ * @see EnergyAbility
  * @see EnergyAbilityController
  * @since 08.06.2024
  */
@@ -47,10 +47,10 @@ public enum EnergyLevel implements Level
 
 
 	/**
-	 * Returns the minimum level an {@link Energy} can have. The minimum level is determined by the ordinal of the first
+	 * Returns the minimum level an {@link EnergyAbility} can have. The minimum level is determined by the ordinal of the first
 	 * enum entry.
 	 *
-	 * @return The minimum level an {@link Energy} can have.
+	 * @return The minimum level an {@link EnergyAbility} can have.
 	 */
 	public static EnergyLevel getMinimum ()
 	{
@@ -59,10 +59,10 @@ public enum EnergyLevel implements Level
 
 
 	/**
-	 * Returns the maximum level an {@link Energy} can have. The maximum level is determined by the ordinal of the last
+	 * Returns the maximum level an {@link EnergyAbility} can have. The maximum level is determined by the ordinal of the last
 	 * enum entry.
 	 *
-	 * @return The maximum level an {@link Energy} can have.
+	 * @return The maximum level an {@link EnergyAbility} can have.
 	 */
 	public static EnergyLevel getMaximum ()
 	{
@@ -116,7 +116,7 @@ public enum EnergyLevel implements Level
 		// already at the maximum level.
 		if (this.isMaximum())
 		{
-			LOGGER.logf(DEBUG, ENERGY_MAXED, this.name());
+			LOGGER.logf(DEBUG, ENERGY_ABILITY_MAXED, this.name());
 			return this;
 		}
 		return values()[this.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL];

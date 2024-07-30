@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.text.MessageFormat;
 
-import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED;
+import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
@@ -129,18 +129,18 @@ public final class ArenaFinishedDialogDelegate
 		}
 		catch (final IOException e)
 		{
-			LOGGER.logf(ERROR, DISPLAY_FAILED, ArenaFinishedDialogDelegate.class.getSimpleName());
+			LOGGER.logf(ERROR, DISPLAY_FAILED_PATTERN, ArenaFinishedDialogDelegate.class.getSimpleName());
 		}
 	}
 
 
 	/**
-	 * Sets the {@link ArenaFinishedDialogDelegate#mission} attribute in the instance of {@link ArenaFinishedDialogDelegate} to the passed {@link Mission} object.
+	 * Sets the {@link ArenaFinishedDialogDelegate#mission} attribute in the instance of  to the passed {@link Mission} object.
 	 *
 	 * @param mission The new {@link Mission} object, meant to replace the current attribute in the instance.
 	 *
 	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
-	 * @postcondition The {@link ArenaFinishedDialogDelegate} replaced the old {@link ArenaFinishedDialogDelegate#arena} attribute with the passed one.
+	 * @postcondition The  replaced the old {@link ArenaFinishedDialogDelegate#arena} attribute with the passed one.
 	 * The text of the {@link ArenaFinishedDialogDelegate#resultLabel} was replaced with a version of the {@link Mission} object.
 	 */
 	private void setMission (final Mission mission)
@@ -150,11 +150,11 @@ public final class ArenaFinishedDialogDelegate
 
 
 	/**
-	 * Gets the {@link ArenaFinishedDialogDelegate#arena} attribute of the instance of {@link ArenaFinishedDialogDelegate}.
+	 * Gets the {@link ArenaFinishedDialogDelegate#arena} attribute of the instance of .
 	 *
 	 * @return The {@link ArenaFinishedDialogDelegate#arena} attribute as a {@link Arena} object.
 	 *
-	 * @precondition The {@link ArenaFinishedDialogDelegate#arena} attribute has already been set in the {@link ArenaFinishedDialogDelegate}.
+	 * @precondition The {@link ArenaFinishedDialogDelegate#arena} attribute has already been set in the .
 	 * @postcondition The method returned the {@link Arena} attribute.
 	 */
 	public Arena getState ()
@@ -164,13 +164,13 @@ public final class ArenaFinishedDialogDelegate
 
 
 	/**
-	 * Sets the {@link ArenaFinishedDialogDelegate#arena} attribute in the instance of {@link ArenaFinishedDialogDelegate} to the passed {@link Arena} object.
+	 * Sets the {@link ArenaFinishedDialogDelegate#arena} attribute in the instance of  to the passed {@link Arena} object.
 	 * Sets the text of the {@link ArenaFinishedDialogDelegate#resultLabel} to a formatted version of the passed {@link Arena} object.
 	 *
 	 * @param arena The new {@link Arena} object, meant to replace the current attribute in the instance.
 	 *
 	 * @precondition A {@link NotNull} {@link Arena} object is passed into the method.
-	 * @postcondition The {@link ArenaFinishedDialogDelegate} replaced the old {@link ArenaFinishedDialogDelegate#arena} attribute with the passed one.
+	 * @postcondition The  replaced the old {@link ArenaFinishedDialogDelegate#arena} attribute with the passed one.
 	 * The text of the {@link ArenaFinishedDialogDelegate#resultLabel} was replaced with a version of the {@link Arena} object.
 	 */
 	private void setArena (final @NotNull Arena arena)

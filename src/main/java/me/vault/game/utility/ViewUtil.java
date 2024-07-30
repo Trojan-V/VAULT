@@ -19,8 +19,8 @@ import me.vault.game.utility.logging.Logger;
 
 import java.util.Objects;
 
-import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED_PATTERN;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
@@ -100,15 +100,15 @@ public final class ViewUtil
 	{
 		try
 		{
-			scene.getStylesheets().add(Objects.requireNonNull(GameApplication.class.getResource(GameConstants.CSS_FILE_NAME)).toExternalForm());
+			scene.getStylesheets().add(Objects.requireNonNull(GameApplication.class.getResource(GameConstants.BUTTON_LONG_CSS_FILE)).toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 
-			LOGGER.logf(DEBUG, SHOWING_VIEW_MSG, clazz.getSimpleName());
+			LOGGER.logf(DEBUG, SHOWING_VIEW_PATTERN, clazz.getSimpleName());
 		}
 		catch (final RuntimeException ex)
 		{
-			LOGGER.logf(ERROR, DISPLAY_FAILED, clazz.getSimpleName());
+			LOGGER.logf(ERROR, DISPLAY_FAILED_PATTERN, clazz.getSimpleName());
 		}
 
 	}

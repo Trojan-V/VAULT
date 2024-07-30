@@ -24,10 +24,10 @@ import java.text.MessageFormat;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET_PATTERN;
 import static me.vault.game.utility.constant.LoggingConstants.*;
-import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
-import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
+import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
+import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -157,11 +157,11 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == ArtifactLevel.getMaximum());
 
 		// Logging outputs
-		LOGGER.logf(DEBUG, LEVEL_SET, this.currentLevel.name());
-		LOGGER.logf(DEBUG, UPGRADE_COST_SET, this.currentUpgradeCost.toString());
-		LOGGER.logf(DEBUG, ATTRIBUTE_MODIFIERS_SET, this.attributeMultiplier.toString());
-		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, this.spriteProperty.toString());
-		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, this.nameProperty.get());
+		LOGGER.logf(DEBUG, LEVEL_SET_PATTERN, this.currentLevel.name());
+		LOGGER.logf(DEBUG, UPGRADE_COST_SET_PATTERN, this.currentUpgradeCost.toString());
+		LOGGER.logf(DEBUG, ATTRIBUTE_MODIFIERS_SET_PATTERN, this.attributeMultiplier.toString());
+		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET_PATTERN, this.spriteProperty.toString());
+		LOGGER.logf(DEBUG, NAME_PROPERTY_SET_PATTERN, this.nameProperty.get());
 	}
 
 

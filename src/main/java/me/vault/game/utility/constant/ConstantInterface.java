@@ -26,6 +26,13 @@ import java.lang.annotation.Target;
 @Target (ElementType.TYPE)
 @interface ConstantInterface
 {
+	/**
+	 * Decorator that just clarifies that the element is a constant.
+	 *
+	 * @author Vincent Wolf
+	 * @version 1.0.0
+	 * @since 30.07.2024
+	 */
 	@Retention (RetentionPolicy.CLASS)
 	@Target (ElementType.FIELD)
 	@interface Constant

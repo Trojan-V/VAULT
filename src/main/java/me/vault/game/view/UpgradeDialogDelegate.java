@@ -21,15 +21,13 @@ import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.city.SaveCompleteDelegate;
 
 import java.io.IOException;
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
-import java.util.Set;
 
-import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAIL;
+import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAIL_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 // TODO: Anzeigen des dialog bearbeiten -> erst anzeigen und dann "upgrade" ausgrauen
@@ -169,7 +167,7 @@ public final class UpgradeDialogDelegate implements Initializable
 		}
 		catch (final IOException e)
 		{
-			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL, upgradable.toString());
+			LOGGER.logf(WARNING, UPGRADE_DIALOG_FAIL_PATTERN, upgradable.toString());
 		}
 	}
 

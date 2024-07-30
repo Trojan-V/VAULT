@@ -5,7 +5,7 @@ import javafx.application.Platform;
 import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.energy.AbilityMultiplier;
-import me.vault.game.model.energy.Energy;
+import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.energy.EnergyLevel;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
+import static me.vault.game.utility.constant.LoggingConstants.UPGRADING;
 
 
 /**
@@ -26,11 +26,11 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Upgrader
- * @see Energy
+ * @see EnergyAbility
  * @see EnergyLevel
  * @since 25.07.2024
  */
-public final class EnergyAbilityController implements Upgrader<Energy, EnergyLevel>
+public final class EnergyAbilityController implements Upgrader<EnergyAbility, EnergyLevel>
 {
 
 	/**
@@ -61,16 +61,16 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	/**
 	 * Checks if the supplied energy ability is at the maximum level. If yes, true is returned, otherwise false.
 	 *
-	 * @param energy The instance of {@link Energy} which is checked.
+	 * @param energyAbility The instance of {@link EnergyAbility} which is checked.
 	 *
 	 * @return True if the energy ability is maxed, otherwise false.
 	 *
 	 * @precondition An energy ability exists.
 	 * @postcondition Says if the energy ability is at its maximum.
 	 */
-	private static boolean isEnergyAbilityMaxed (final Energy energy)
+	private static boolean isEnergyAbilityMaxed (final EnergyAbility energyAbility)
 	{
-		return energy.getLevel() == EnergyLevel.getMaximum();
+		return energyAbility.getLevel() == EnergyLevel.getMaximum();
 	}
 
 
@@ -92,19 +92,19 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void updateValues (final Energy energy)
+	public void updateValues (final EnergyAbility energyAbility)
 	{
-		if (isEnergyAbilityMaxed(energy))
+		if (isEnergyAbilityMaxed(energyAbility))
 		{
-			energy.setIsMaxLevel(true);
+			energyAbility.setIsMaxLevel(true);
 		}
 
-		energy.setName(energy.getName(energy.getLevel()));
-		energy.setSprite(energy.getSprite(energy.getLevel()));
-		energy.setUpgradeCosts(energy.getUpgradeCosts(energy.getLevel()));
+		energyAbility.setName(energyAbility.getName(energyAbility.getLevel()));
+		energyAbility.setSprite(energyAbility.getSprite(energyAbility.getLevel()));
+		energyAbility.setUpgradeCosts(energyAbility.getUpgradeCosts(energyAbility.getLevel()));
 
-		final Map<AbilityMultiplier.Type, Double> abilityMultipliersMap = energy.getAbilityMultipliers(energy.getLevel());
-		final AbilityMultiplier currentAbilityMultipliers = energy.getAbilityMultiplier();
+		final Map<AbilityMultiplier.Type, Double> abilityMultipliersMap = energyAbility.getAbilityMultipliers(energyAbility.getLevel());
+		final AbilityMultiplier currentAbilityMultipliers = energyAbility.getAbilityMultiplier();
 
 		currentAbilityMultipliers.setDodgeMultiplier(abilityMultipliersMap.get(AbilityMultiplier.Type.DODGE));
 		currentAbilityMultipliers.setInitiativeMultiplier(abilityMultipliersMap.get(AbilityMultiplier.Type.INITIATIVE));
@@ -116,10 +116,10 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean checkIsUpgradable (final @NotNull Energy energy)
+	public boolean checkIsUpgradable (final @NotNull EnergyAbility energyAbility)
 	{
 		// Checks if the energy ability is already at the maximum level. If yes, it can't be upgraded any further.
-		if (energy.getIsMaxLevelProperty().get())
+		if (energyAbility.getIsMaxLevelProperty().get())
 		{
 			return false;
 		}
@@ -128,12 +128,12 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 		// one currency isn't enough, the energy ability can't be upgraded.
 		for (final Currency currency : Currency.values())
 		{
-			if (currency.getAmount() < energy.getUpgradeCosts().getAbsoluteAmount(currency))
+			if (currency.getAmount() < energyAbility.getUpgradeCosts().getAbsoluteAmount(currency))
 			{
 				return false;
 			}
 		}
-		return energy.getLevel().ordinal() < EnergyLevel.getMaximum().ordinal();
+		return energyAbility.getLevel().ordinal() < EnergyLevel.getMaximum().ordinal();
 	}
 
 
@@ -141,10 +141,10 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void upgrade (final Energy energy)
+	public void upgrade (final EnergyAbility energyAbility)
 	{
-		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, energy.getName(), energy.getLevel(), energy.getLevel().getNextHigherLevel());
-		Platform.runLater(new UpgradeRunnable(energy, getInstance()));
+		LOGGER.logf(ILogger.Level.NORMAL, UPGRADING, energyAbility.getName(), energyAbility.getLevel(), energyAbility.getLevel().getNextHigherLevel());
+		Platform.runLater(new UpgradeRunnable(energyAbility, getInstance()));
 	}
 
 }

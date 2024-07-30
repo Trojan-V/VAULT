@@ -24,7 +24,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
+import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_DIRECTORY_PATH;
 
 
 /**
@@ -245,11 +245,11 @@ public final class MainMenuDelegate implements Initializable
 	 */
 	private void loadGameFromFile ()
 	{
-		File file;
+		final File file;
 		try
 		{
 			//The chosen file has to be a valid .json file
-			file = new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show();
+			file = new FileChooserDelegate(GAME_SAVE_DIRECTORY_PATH).show();
 			if (file == null)
 			{
 				return;
@@ -262,7 +262,7 @@ public final class MainMenuDelegate implements Initializable
 
 			ConfigLoader.getInstance().load(file);
 		}
-		catch (JsonSyntaxException e)
+		catch (final JsonSyntaxException e)
 		{
 			this.loadGameFromFile();
 		}
@@ -315,12 +315,12 @@ public final class MainMenuDelegate implements Initializable
 	 * @precondition The main menu controller has to have been called.
 	 * @postcondition The {@link MainMenuDelegate#loadGameButton} and {@link MainMenuDelegate#loadGameMenuItem} are
 	 * set to inactive if there's no File with the {@link StringConstants#JSON_FILE_ENDING} ending in
-	 * {@link GameConstants#GAME_SAVE_FOLDER_FILE_PATH}.
+	 * {@link GameConstants#GAME_SAVE_DIRECTORY_PATH}.
 	 */
 	@FXML
 	private void initializeLoadGame ()
 	{
-		if (ResourceLoader.collectFilesContaining(GAME_SAVE_FOLDER_FILE_PATH, StringConstants.SAVE_NAME).isEmpty())
+		if (ResourceLoader.collectFilesContaining(GAME_SAVE_DIRECTORY_PATH, StringConstants.SAVE_NAME).isEmpty())
 		{
 			ViewUtil.setMenuItemInactive(this.loadGameMenuItem);
 			ViewUtil.setButtonInactive(this.loadGameButton);

@@ -13,104 +13,6 @@ public interface StringConstants
 
 	String DATE_TIME_PATTERN = "yyyyMMdd_HHmmss";
 
-	/**
-	 * This string contains the text for the story of the game.
-	 */
-	String prologue = "The year is 2341 and humanity has spread across the galaxy over the last few " +
-	                  "centuries. During this time, many new systems have been explored and scientific" + " " +
-	                  "discoveries have been made. One of the most relevant discoveries has been the " +
-	                  "single-celled existence of a technologically advanced civilization, the Hitani," + " " +
-	                  "who've developed, among other things, an extensive galactic teleportation " +
-	                  "system. With the development of this technology, humans were able to discover " +
-	                  "and explore other systems. Recently, a new solar system, Proxima Tau, was " +
-	                  "discovered and a mission led by the player was dispatched to explore these new " +
-	                  "worlds. When the team arrives at Proxima Tau, they discover that they are on a " +
-	                  "Hitanian space station. As with many systems explored in the past, Proxima Tau " +
-	                  "was already populated. But the team soon discovered a serious problem. The " +
-	                  "transportation system that the team relied on for their return journey had " +
-	                  "malfunctioned and needed to be repaired.";
-
-
-	/**
-	 * The following Strings contains the texts for the artifacts. There used in the laboratory and workshop.
-	 */
-	String HEALTH_ARTIFACT = "An artifact which improves the health and vitality of your troops.";
-
-	String DAMAGE_ARTIFACT = "An artifact which improves the attacks of all your troops.";
-
-	String DEFENCE_ARTIFACT = "An artifact which improves the defense attribute of your troops.";
-
-	/**
-	 * The following Strings describe to the Player what the mission entails.
-	 */
-
-	String STORY_MISSION_ONE = "Collect blueprints - This mission involves searching for the " +
-	                           "blueprints for the broken transport system. You will need these later " +
-	                           "to repair the system and find a way home. During the mission you can " + "get science and artifacts.";
-
-	String STORY_MISSION_TWO = "Extract VIP - In this mission, a group of people must be rescued after" + " " +
-	                           "the transportation system is operational again. This mission is the " +
-	                           "last one in the game. After completing the mission, the game ends.";
-
-	String REPEATABLE_MISSION_ONE =
-		"Material procurement - The purpose of this mission is to give the" + " " + "player resources to unlock and upgrade buildings, recruit " +
-		"mercenaries, etc. On this mission you will find all steel, " + "composites, food rations, energy credits.";
-
-	String REPEATABLE_MISSION_TWO =
-		"Raid - In the Raid mission, the player acquires the resource " + "Science. However, the opponents in this mission are stronger than" +
-		" " + "normal opponents.";
-
-	/**
-	 * The following Strings contain the texts for the command center. The first is before the first story mission and the rest don't have an order
-	 * for appearing.
-	 */
-	String COMMAND_CENTER_SLOGAN = "Fight your way back";
-
-	/**
-	 * The following Strings contain the texts for the energy ability's of the troops.
-	 */
-	String MILITARISTIC_GOVERNMENT_DIG_IN =
-		"The soldier digs in two be better protected. Ten percent " + "more armour and five percent more resistenz " +
-		"for an energy cost of three energy.";
-
-	String MILITARISTIC_GOVERNMENT_DOUBLE_TIME = "You motivate one soldier to be more accurate or be presented a " +
-	                                             "court-martial. A cost of five energy.";
-
-	String EXPLORER_ASSOCIATION_OVERCHARGE_WEAPON =
-		"The Ranger overcharges his weapon. Deals six " + "points more damage for an energy cost of two " + "energy. ";
-
-	String EXPLORER_ASSOCIATION_OVERCHARGE_EXOSKELETT = "The Exoskelett lets the Ranger be quickened " + "and agiler. One more movement range and " +
-	                                                    "Initiative, dodge increases for five percent " +
-	                                                    "for a three energy cost.";
-
-	String MEGA_CORPORATION_ENERGYFLASH =
-		"A bright flash emits of one off the thrown grenade right " + "before an enemy. A debuff for minus ten percent of dodge " + "and" +
-		" a minus two to initiative for three energy.";
-
-	String MEGA_CORPORATION_ACID_GRENADE =
-		"The acid grenade weakens the armour off the poor soul that" + " " + "was hit with it. Minus ten percent off armour for two " +
-		"energy.";
-
-	String NEW_TERRA_COMBAT_OVERLAY =
-		"The Combat overlay allows the soldier to aim true at a greater " + "distant. Plus one damage range for two energy.";
-
-	String NEW_TERRA_ADVANCED_DEFENCE_SYSTEM =
-		"The Advanced Defence System once deployed intercept " + "projectiles form hostile entity's. Add`s fifteen " +
-		"percent of additional resistance for a cost of three" + " " + "energy.";
-
-	/**
-	 * The following Strings contain the texts for the energy ability's of the player.
-	 */
-	String ENERGY_RESISTANCE_BUFF =
-		"The selected troop becomes more resistent. Takes ten percent less damage for an energy cost of two " +
-		"energy.";
-
-	String ENERGY_BUFF_DAMAGE =
-		"The selected troop becomes deadlier. Deals six points more damage for" + " " + "an energy cost of two energy.";
-
-	String ENERGY_BUFF_MOVEMENT_RANGE =
-		"You motivate one of your troops to do double time. The " + "affected troop get three more movement range for an energy " +
-		"cost of four energy.";
 
 	/**
 	 * The following Strings contain the texts for the tutorial,
@@ -160,20 +62,6 @@ public interface StringConstants
 	                        "The movement range determines how much tiles a unit can once and damage " +
 	                        "and grenade range determines how great the distance there can be between " +
 	                        "the attacker and the defender. If a troop is down to zero health it is " + "out" + " of combat.";
-
-	String buttonRoundImageName = "button_round.png";
-
-	String buttonImageName = "button.png";
-
-	String colorLightBlue = "1584AD";
-
-
-	String TILE_IMAGE_NAME = "tile.png";
-
-	String ALREADY_EXIST_EXCEPTION_MESSAGE = "The Element already exists";
-
-
-	String VERTEX_DOES_NOT_EXIST = "The vertex does not exist";
 
 
 	String ERROR_SERVER_SOCKET = "Error with ServerSocket";

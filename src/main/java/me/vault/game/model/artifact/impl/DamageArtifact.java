@@ -123,7 +123,7 @@ public final class DamageArtifact extends Artifact
 		upgradeCostsMap.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
-		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET, upgradeCostsMap.toString());
+		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
 
 		return upgradeCostsMap;
 	}
@@ -167,7 +167,7 @@ public final class DamageArtifact extends Artifact
 		attributeModifiersMap.put(ArtifactLevel.IMPROVED, improvedLevelModifiers);
 
 		// Logging output
-		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET, attributeModifiersMap.toString());
+		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET_PATTERN, attributeModifiersMap.toString());
 
 		return attributeModifiersMap;
 	}
@@ -196,7 +196,7 @@ public final class DamageArtifact extends Artifact
 		namesMap.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_NAME);
 
 		// Logging output
-		LOGGER.logf(DEBUG, NAME_MAP_SET, namesMap.toString());
+		LOGGER.logf(DEBUG, NAME_MAP_SET_PATTERN, namesMap.toString());
 
 		return namesMap;
 	}
@@ -225,7 +225,7 @@ public final class DamageArtifact extends Artifact
 		spritesMap.put(ArtifactLevel.IMPROVED, ResourceLoader.loadImage(Damage.IMPROVED_SPRITE_PATH));
 
 		// Logging output
-		LOGGER.logf(DEBUG, SPRITE_MAP_SET, spritesMap.toString());
+		LOGGER.logf(DEBUG, SPRITE_MAP_SET_PATTERN, spritesMap.toString());
 
 		return spritesMap;
 	}

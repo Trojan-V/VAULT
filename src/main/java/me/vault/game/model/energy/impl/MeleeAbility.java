@@ -4,7 +4,7 @@ package me.vault.game.model.energy.impl;
 import javafx.scene.image.Image;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.AbilityMultiplier;
-import me.vault.game.model.energy.Energy;
+import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.energy.EnergyLevel;
 import me.vault.game.utility.constant.EnergyConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -22,7 +22,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * This class is an implementation of {@link Energy}.
+ * This class is an implementation of {@link EnergyAbility}.
  * <br>
  * As this specification is a melee energy ability, it provides positive ability modifiers towards the
  * melee
@@ -30,10 +30,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see Energy
+ * @see EnergyAbility
  * @since 25.07.2024
  */
-public final class MeleeAbility extends Energy
+public final class MeleeAbility extends EnergyAbility
 {
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
@@ -124,7 +124,7 @@ public final class MeleeAbility extends Energy
 		upgradeCostsMap.put(EnergyLevel.IMPROVED, EnergyConstants.Melee.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
-		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET, upgradeCostsMap.toString());
+		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
 
 		return upgradeCostsMap;
 	}
@@ -165,7 +165,7 @@ public final class MeleeAbility extends Energy
 		abilityModifiersMap.put(EnergyLevel.IMPROVED, improvedLevelModifiers);
 
 		// Logging output
-		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET, abilityModifiersMap.toString());
+		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET_PATTERN, abilityModifiersMap.toString());
 
 		return abilityModifiersMap;
 	}
@@ -191,7 +191,7 @@ public final class MeleeAbility extends Energy
 		namesMap.put(EnergyLevel.IMPROVED, EnergyConstants.Melee.IMPROVED_NAME);
 
 		// Logging output
-		LOGGER.logf(DEBUG, NAME_MAP_SET, namesMap.toString());
+		LOGGER.logf(DEBUG, NAME_MAP_SET_PATTERN, namesMap.toString());
 
 		return namesMap;
 	}
@@ -217,7 +217,7 @@ public final class MeleeAbility extends Energy
 		spritesMap.put(EnergyLevel.IMPROVED, ResourceLoader.loadImage(EnergyConstants.Melee.IMPROVED_SPRITE_PATH));
 
 		// Logging output
-		LOGGER.logf(DEBUG, SPRITE_MAP_SET, spritesMap.toString());
+		LOGGER.logf(DEBUG, SPRITE_MAP_SET_PATTERN, spritesMap.toString());
 
 		return spritesMap;
 	}

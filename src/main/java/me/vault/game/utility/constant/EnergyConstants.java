@@ -21,7 +21,6 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 @ConstantInterface
 public interface EnergyConstants
 {
-
 	/**
 	 * The default multiplier for the buffs of the different energy abilities.
 	 */
@@ -52,7 +51,6 @@ public interface EnergyConstants
 	@ConstantInterface
 	interface Dodge
 	{
-
 		/**
 		 * The standard/base name of the {@link DodgeAbility}.
 		 */
@@ -88,7 +86,6 @@ public interface EnergyConstants
 		 */
 		@Constant
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
-
 	}
 
 
@@ -103,7 +100,6 @@ public interface EnergyConstants
 	@ConstantInterface
 	interface Initiative
 	{
-
 		/**
 		 * The standard/base name of the {@link InitiativeAbility}.
 		 */
@@ -139,7 +135,6 @@ public interface EnergyConstants
 		 */
 		@Constant
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
-
 	}
 
 
@@ -154,7 +149,6 @@ public interface EnergyConstants
 	@ConstantInterface
 	interface Melee
 	{
-
 		/**
 		 * The standard/base name of the {@link MeleeAbility}.
 		 */
@@ -190,7 +184,5 @@ public interface EnergyConstants
 		 */
 		@Constant
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
-
 	}
-
 }

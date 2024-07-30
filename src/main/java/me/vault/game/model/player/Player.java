@@ -9,7 +9,7 @@ import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
-import me.vault.game.model.energy.Energy;
+import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * This class is a model for the player and stores different data about the player.
  * <br>
- * For instance, the {@link Artifact}, {@link Energy}, {@link Faction} and {@link Troop}s the player has currently selected are stored within this model.
+ * For instance, the {@link Artifact}, {@link EnergyAbility}, {@link Faction} and {@link Troop}s the player has currently selected are stored within this model.
  * <br>
  * As there can only be one player at all time (at least in Singleplayer mode), the player class is written using the singleton pattern.
  *
@@ -35,7 +35,7 @@ import java.util.List;
  * @see Movable
  * @see Nameable
  * @see Artifact
- * @see Energy
+ * @see EnergyAbility
  * @see Faction
  * @since 30.07.2024
  */
@@ -81,9 +81,9 @@ public final class Player implements Movable, Nameable
 
 
 	/**
-	 * The {@link Energy} that's currently selected by the player.
+	 * The {@link EnergyAbility} that's currently selected by the player.
 	 */
-	private final Energy selectedEnergy;
+	private final EnergyAbility selectedEnergyAbility;
 
 
 	/**
@@ -109,7 +109,7 @@ public final class Player implements Movable, Nameable
 	{
 		this.selectedFaction = Faction.NEW_TERRA;
 		this.selectedArtifact = DamageArtifact.getInstance();
-		this.selectedEnergy = MeleeAbility.getInstance();
+		this.selectedEnergyAbility = MeleeAbility.getInstance();
 		this.selectedFigures = new ArrayList<>();
 	}
 
@@ -170,13 +170,13 @@ public final class Player implements Movable, Nameable
 
 
 	/**
-	 * Returns the {@link Energy} that's currently selected by the player.
+	 * Returns the {@link EnergyAbility} that's currently selected by the player.
 	 *
-	 * @return The {@link Energy} that's currently selected by the player.
+	 * @return The {@link EnergyAbility} that's currently selected by the player.
 	 */
-	public Energy getSelectedEnergy ()
+	public EnergyAbility getSelectedEnergy ()
 	{
-		return this.selectedEnergy;
+		return this.selectedEnergyAbility;
 	}
 
 
@@ -291,7 +291,8 @@ public final class Player implements Movable, Nameable
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.selectedArtifact.toString(), this.selectedEnergy.toString(), this.selectedFaction.toString(),
+		return MessageFormat.format(TO_STRING_PATTERN, this.selectedArtifact.toString(), this.selectedEnergyAbility.toString(),
+			this.selectedFaction.toString(),
 			Arrays.toString(this.selectedFigures.toArray()));
 	}
 }

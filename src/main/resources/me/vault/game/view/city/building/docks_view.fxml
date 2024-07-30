@@ -72,7 +72,7 @@
                                                 <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY"
                                                        prefHeight="109.0" prefWidth="359.0"
                                                        style="-fx-border-color: grey; -fx-background-color: white;"
-                                                       text="A government agent who is specialized in the usage of energy based weapons."
+                                                       text="A government agent who is specialized in the usage of energyAbility based weapons."
                                                        wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                     <font>
                                                         <Font name="Segoe UI" size="18.0"/>

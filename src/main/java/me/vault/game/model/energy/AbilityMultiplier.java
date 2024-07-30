@@ -17,12 +17,12 @@ import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
  * This class is used as a data structure to store buffs in the form of multipliers which are then
  * applied to all troops that are eligible to receive buffs.
  * <br>
- * For instance, these multipliers are used by the {@link Energy} class to store the buffs
+ * For instance, these multipliers are used by the {@link EnergyAbility} class to store the buffs
  * the energy ability provides.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see Energy
+ * @see EnergyAbility
  * @see AbilityMultiplier
  * @since 25.07.2024
  */

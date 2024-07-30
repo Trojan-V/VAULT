@@ -3,6 +3,7 @@ package me.vault.game.utility.loading;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import me.vault.game.interfaces.Loader;
 import me.vault.game.utility.constant.GameConstants;
@@ -69,7 +70,7 @@ public final class ConfigLoader implements Loader
 	{
 		this.gson = new GsonBuilder().setPrettyPrinting().create();
 
-		final File configDirectoryPath = new File(GameConstants.GAME_SAVE_FOLDER_FILE_PATH);
+		final File configDirectoryPath = new File(GameConstants.GAME_SAVE_DIRECTORY_PATH);
 		configDirectoryPath.mkdirs();
 
 		this.configFile = new File(String.valueOf(configDirectoryPath), GameConstants.CONFIG_FILE);
@@ -176,15 +177,15 @@ public final class ConfigLoader implements Loader
 	}
 
 
-	public void saveToFile (final String directoryPath, String fileName) throws Exception
+	public void saveToFile (final String directoryPath, final String fileName) throws Exception
 	{
-		File directory = ResourceLoader.getDirectory(directoryPath);
+		final File directory = ResourceLoader.getDirectory(directoryPath);
 		if (!directory.isDirectory() || ResourceLoader.getFile(directoryPath, fileName) != null)
 		{
 			throw new Exception(); //TODO: specify exception;
 		}
 
-		File save = new File(directory, fileName);
+		final File save = new File(directory, fileName);
 		this.save(save);
 	}
 
@@ -193,7 +194,7 @@ public final class ConfigLoader implements Loader
 	 * @param configFile The configuration file the data is loaded from.
 	 */
 	@Override
-	public void load (final File configFile) throws com.google.gson.JsonSyntaxException
+	public void load (final File configFile) throws JsonSyntaxException
 	{
 		try
 		{
@@ -213,13 +214,14 @@ public final class ConfigLoader implements Loader
 		try
 		{
 			// TODO:SHORTEN Vincent
-			if (Files.mismatch(ResourceLoader.getFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, GameConstants.DEFAULT_CONFIG_FILE)
-				.toPath(), ResourceLoader.getFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, GameConstants.CONFIG_FILE).toPath()) == MiscConstants.FILE_MISMATCH_INDICATOR)
+			if (Files.mismatch(ResourceLoader.getFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, GameConstants.DEFAULT_CONFIG_FILE)
+				.toPath(), ResourceLoader.getFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, GameConstants.CONFIG_FILE).toPath()) ==
+			    MiscConstants.FILE_MISMATCH_INDICATOR)
 			{
 				return true;
 			}
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
 			throw new RuntimeException(e);
 		}
@@ -232,10 +234,12 @@ public final class ConfigLoader implements Loader
 		this.save(this.configFile);
 		try
 		{
-			this.saveToFile(GameConstants.GAME_SAVE_FOLDER_FILE_PATH, (StringConstants.SAVE_NAME + new SimpleDateFormat(StringConstants.DATE_TIME_PATTERN).format(Calendar.getInstance().getTime()) +
-			                                                           StringConstants.JSON_FILE_ENDING));
+			this.saveToFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, (StringConstants.SAVE_NAME +
+			                                                         new SimpleDateFormat(StringConstants.DATE_TIME_PATTERN).format(Calendar.getInstance()
+				                                                         .getTime()) +
+			                                                         StringConstants.JSON_FILE_ENDING));
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 		}
 	}

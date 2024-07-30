@@ -26,10 +26,10 @@ import java.text.MessageFormat;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET;
+import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET_PATTERN;
 import static me.vault.game.utility.constant.LoggingConstants.*;
-import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
-import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
+import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
+import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -43,18 +43,18 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br> <br>
  * To ensure that the data is available at construction time, the initialization of the static fields who carry this
  * data must happen before the
- * constructor of {@link Energy} is invoked. The overridden methods {@link Energy#getAllSprites()},
- * {@link Energy#getAllNames()},
- * {@link Energy#getAllModifiers()} and {@link Energy#getAllUpgradeCosts()} provide these static fields of the
- * subclass to the {@link Energy}
- * class by returning them. A protected API is used to pass this layer of data to the {@link Energy} class.
+ * constructor of {@link EnergyAbility} is invoked. The overridden methods {@link EnergyAbility#getAllSprites()},
+ * {@link EnergyAbility#getAllNames()},
+ * {@link EnergyAbility#getAllModifiers()} and {@link EnergyAbility#getAllUpgradeCosts()} provide these static fields of the
+ * subclass to the {@link EnergyAbility}
+ * class by returning them. A protected API is used to pass this layer of data to the {@link EnergyAbility} class.
  * <br> <br>
  * <u>How can this be ensured?</u> <br>
  * Now, to ensure that the data is available, first of all the singleton pattern should be used in every subclass of
- * {@link Energy}. Then, it's
+ * {@link EnergyAbility}. Then, it's
  * important that the instantiation of the static singleton INSTANCE field happens after the instantiation of the
  * other static fields who carry the
- * required data for the constructor of {@link Energy}.
+ * required data for the constructor of {@link EnergyAbility}.
  * <br> <br>
  * To do so, a static initializer can be used whose last statement is {@code INSTANCE = new AbsEnergy();}.
  *
@@ -68,12 +68,12 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see EnergyLevel
  * @since 25.07.2024
  */
-public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Nameable
+public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLevel>, Nameable
 {
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger LOGGER = new Logger(Energy.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(EnergyAbility.class.getSimpleName());
 
 
 	/**
@@ -122,8 +122,8 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * This field stores the current {@link EnergyLevel} of the ability. The value of this field controls the values of many
 	 * attributes the ability consists of.
 	 * <br>
-	 * Check the constructor {@link Energy#Energy()} and the
-	 * {@link EnergyAbilityController#updateValues(Energy)} method to see the control flow.
+	 * Check the constructor {@link EnergyAbility#EnergyAbility()} and the
+	 * {@link EnergyAbilityController#updateValues(EnergyAbility)} method to see the control flow.
 	 */
 	private EnergyLevel currentLevel;
 
@@ -149,13 +149,13 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * <br>
 	 * It's important to note that the constructor accesses overridable methods of the subclass. These methods provide
 	 * the data for the energy ability,
-	 * which can then be accessed and used by using the {@link Energy#currentLevel} as key to retrieve the correct
+	 * which can then be accessed and used by using the {@link EnergyAbility#currentLevel} as key to retrieve the correct
 	 * data for the current level.
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
 	 */
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
-	protected Energy ()
+	protected EnergyAbility ()
 	{
 		this.currentLevel = EnergyLevel.getMinimum();
 
@@ -166,11 +166,11 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == EnergyLevel.getMaximum());
 
 		// Logging outputs
-		LOGGER.logf(DEBUG, LEVEL_SET, this.currentLevel.name());
-		LOGGER.logf(DEBUG, UPGRADE_COST_SET, this.currentUpgradeCost.toString());
-		LOGGER.logf(DEBUG, ATTRIBUTE_MODIFIERS_SET, this.abilityMultiplier.toString());
-		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, this.spriteProperty.toString());
-		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, this.nameProperty.get());
+		LOGGER.logf(DEBUG, LEVEL_SET_PATTERN, this.currentLevel.name());
+		LOGGER.logf(DEBUG, UPGRADE_COST_SET_PATTERN, this.currentUpgradeCost.toString());
+		LOGGER.logf(DEBUG, ATTRIBUTE_MODIFIERS_SET_PATTERN, this.abilityMultiplier.toString());
+		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET_PATTERN, this.spriteProperty.toString());
+		LOGGER.logf(DEBUG, NAME_PROPERTY_SET_PATTERN, this.nameProperty.get());
 	}
 
 
@@ -193,7 +193,7 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * This method is used to be able to access the map of all ability multipliers to be able to set the new values
 	 * after an energy ability was upgraded.
 	 * <br>
-	 * This method is invoked by {@link EnergyAbilityController#updateValues(Energy)}.
+	 * This method is invoked by {@link EnergyAbilityController#updateValues(EnergyAbility)}.
 	 *
 	 * @param level The energy ability level whose map of ability multipliers should be returned.
 	 * @return The map of ability multipliers for the supplied level.
@@ -219,7 +219,7 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	/**
 	 * Sets the name of the energy ability to the supplied name.
 	 * <br>
-	 * The name is set within the {@link Energy#nameProperty}, so the name gets automatically updated in the GUI.
+	 * The name is set within the {@link EnergyAbility#nameProperty}, so the name gets automatically updated in the GUI.
 	 *
 	 * @param name The new name for the energy ability.
 	 */
@@ -262,7 +262,7 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	/**
 	 * Sets the sprite of the energy ability to the supplied sprite.
 	 * <br>
-	 * The sprite is set within the {@link Energy#spriteProperty}, so the sprite gets automatically updated in the
+	 * The sprite is set within the {@link EnergyAbility#spriteProperty}, so the sprite gets automatically updated in the
 	 * GUI.
 	 *
 	 * @param sprite The new sprite for the energy ability.
@@ -360,14 +360,14 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * Returns the current level of the energy ability.
 	 * <br>
 	 * Many components of the energy ability are directly dependent on the level, for instance, the value of the
-	 * {@link Energy#nameProperty} and the
-	 * {@link Energy#spriteProperty}. Therefore, the level determines the data of other attributes, as the key in
+	 * {@link EnergyAbility#nameProperty} and the
+	 * {@link EnergyAbility#spriteProperty}. Therefore, the level determines the data of other attributes, as the key in
 	 * the 'data maps' which the
 	 * subclasses of this class provide is this level and the data is extracted by using this key. The subclasses
 	 * provide this data by implementing
-	 * the abstract methods {@link Energy#getAllUpgradeCosts()}, {@link Energy#getAllNames()},
-	 * {@link Energy#getAllSprites()} and
-	 * {@link Energy#getAllModifiers()}.
+	 * the abstract methods {@link EnergyAbility#getAllUpgradeCosts()}, {@link EnergyAbility#getAllNames()},
+	 * {@link EnergyAbility#getAllSprites()} and
+	 * {@link EnergyAbility#getAllModifiers()}.
 	 *
 	 * @return The current level of the energy ability.
 	 * @see EnergyLevel
@@ -501,10 +501,10 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 
 	/**
 	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
-	 * {@link Energy#TO_STRING_PATTERN}.
+	 * {@link EnergyAbility#TO_STRING_PATTERN}.
 	 *
-	 * @return A {@link String} which has been formatted in the {@link Energy#TO_STRING_PATTERN}.
-	 * @precondition The {@link Energy#TO_STRING_PATTERN} is {@code != null}.
+	 * @return A {@link String} which has been formatted in the {@link EnergyAbility#TO_STRING_PATTERN}.
+	 * @precondition The {@link EnergyAbility#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override

@@ -11,7 +11,7 @@ import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Position;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.artifact.Artifact;
-import me.vault.game.model.energy.Energy;
+import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.TroopStatistics.Defensive;
@@ -140,12 +140,12 @@ public final class FigureController
 	private static int calculateDamage (final Figure attackerStats, final Figure defenderDefensiveStats, final @NotNull Arena arena)
 	{
 		final Artifact currentArtifact = Player.getInstance().getSelectedArtifact();
-		final Energy currenrEnergy = Player.getInstance().getSelectedEnergy();
+		final EnergyAbility currenrEnergyAbility = Player.getInstance().getSelectedEnergy();
 		final Figure troopFigure = arena.getSelectedFigure();
 		final boolean meleeAbilityUsed = arena.isAbilityUsed();
 		final double damageMultiplier = currentArtifact.getAttributeMultipliers().getDamageMultiplierProperty().get();
 		final double defenseMultiplier = currentArtifact.getAttributeMultipliers().getDefenseMultiplierProperty().get();
-		final double meleeMultiplier = currenrEnergy.getAbilityMultiplier().getMeleeMultiplierProperty().get();
+		final double meleeMultiplier = currenrEnergyAbility.getAbilityMultiplier().getMeleeMultiplierProperty().get();
 		final int meleeDamage = attackerStats.getStatistics().getOffensive().getMeleeDamage();
 		final int armor = defenderDefensiveStats.getStatistics().getDefensive().getArmor();
 		double dealtDamage = 0;
