@@ -35,7 +35,7 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
  * @see CityBuildingLevel
  * @since 28.07.2024
  */
-public class CityBuildingController implements Upgrader<CityBuilding, CityBuildingLevel>
+public final class CityBuildingController implements Upgrader<CityBuilding, CityBuildingLevel>
 {
 
 	/**

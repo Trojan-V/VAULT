@@ -15,16 +15,15 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
-import static me.vault.game.utility.constant.LoggingConstants.*;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-// TODO: PRE UND POST
+
 /**
  * This class contains any methods that are responsible for controlling all the logic that's related to energy
- * ability`s.
+ * ability's.
  * <br>
  * Currently, it's responsible for upgrading the artifacts to the next level.
- * @author Alexander Goethel, Vincent Wolf
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Upgrader
  * @see Energy
@@ -33,6 +32,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class EnergyAbilityController implements Upgrader<Energy, EnergyLevel>
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link EnergyAbilityController}.
 	 * <br>
@@ -51,10 +51,12 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * As this class is a singleton, no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class
+	 * @postcondition A new instance of EnergyAbilityController is created.
 	 */
-	private EnergyAbilityController ()
-	{
-	}
+	private EnergyAbilityController () {}
+
 
 	/**
 	 * Checks if the supplied energy ability is at the maximum level. If yes, true is returned, otherwise false.
@@ -62,6 +64,7 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * @param energy The instance of {@link Energy} which is checked.
 	 *
 	 * @return True if the energy ability is maxed, otherwise false.
+	 *
 	 * @precondition An energy ability exists.
 	 * @postcondition Says if the energy ability is at its maximum.
 	 */
@@ -70,10 +73,12 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 		return energy.getLevel() == EnergyLevel.getMaximum();
 	}
 
+
 	/**
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
@@ -104,11 +109,6 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 		currentAbilityMultipliers.setDodgeMultiplier(abilityMultipliersMap.get(AbilityMultiplier.Type.DODGE));
 		currentAbilityMultipliers.setInitiativeMultiplier(abilityMultipliersMap.get(AbilityMultiplier.Type.INITIATIVE));
 		currentAbilityMultipliers.setMeleeMultiplier(abilityMultipliersMap.get(AbilityMultiplier.Type.MELEE));
-
-		// Logging output
-		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, energy.getNameProperty().get());
-		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, energy.getSpriteProperty().get().toString());
-		LOGGER.logf(DEBUG, UPGRADE_COST_SET, energy.getUpgradeCosts().toString());
 	}
 
 

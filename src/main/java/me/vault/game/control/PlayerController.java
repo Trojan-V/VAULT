@@ -23,7 +23,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * Generally contains methods related to the player though; also things within the city, for instance, changing the
  * selected faction.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see GameBoard
  * @see Faction
