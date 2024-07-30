@@ -112,6 +112,8 @@ public final class DamageArtifact extends Artifact
 	 * @see Map
 	 * @see ArtifactLevel
 	 * @see CurrencyTransaction
+	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
+	 * @postcondition A map of upgrade costs for the {@link DamageArtifact} is initialized.
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -141,6 +143,8 @@ public final class DamageArtifact extends Artifact
 	 * @see Map
 	 * @see ArtifactLevel
 	 * @see AttributeMultiplier.Type
+	 * @precondition The attribute modifiers for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of attribute modifiers for the {@link DamageArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -181,6 +185,8 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
+	 * @precondition The names for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the names for the {@link DamageArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -208,6 +214,8 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @see Map
 	 * @see ArtifactLevel
+	 * @precondition The sprites for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the sprites for the {@link DamageArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
@@ -227,6 +235,8 @@ public final class DamageArtifact extends Artifact
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static DamageArtifact getInstance ()
 	{

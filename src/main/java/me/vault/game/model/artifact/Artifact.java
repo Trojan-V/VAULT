@@ -143,6 +143,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * data for the current level.
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
+	 * @precondition The attributes for the {@link Artifact} exists.
+	 * @postcondition Constructs an {@link Artifact} instance with the given attributes.
 	 */
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected Artifact ()
@@ -168,6 +170,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The attribute multipliers of the artifact, which are the status effects the player receives in the form
 	 * of buffs or de-buffs depending on the equipped artifact.
+	 * @precondition The {@link AttributeMultiplier} exists.
+	 * @postcondition The {@link AttributeMultiplier}s are accessible for the program.
 	 */
 	public AttributeMultiplier getAttributeMultipliers ()
 	{
@@ -186,6 +190,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @param level The artifact level whose map of attribute multipliers should be returned.
 	 *
 	 * @return The map of attribute multipliers for the supplied level.
+	 * @precondition The {@link AttributeMultiplier} exists.
+	 * @postcondition The map of the {@link AttributeMultiplier}s are accessible for the program.
 	 */
 	public Map<AttributeMultiplier.Type, Double> getAttributeMultipliers (final ArtifactLevel level)
 	{
@@ -194,9 +200,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the current name of the artifact. The name changes as it depends on the level of the artifact.
-	 *
-	 * @return The current name of the artifact.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getName ()
@@ -206,11 +210,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Sets the name of the artifact to the supplied name.
-	 * <br>
-	 * The name is set within the {@link Artifact#nameProperty}, so the name gets automatically updated in the GUI.
-	 *
-	 * @param name The new name for the artifact.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setName (final String name)
@@ -220,11 +220,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the name of the artifact for the supplied {@link ArtifactLevel}.
-	 *
-	 * @param level The artifact level whose name should be returned.
-	 *
-	 * @return The name of the artifact for the supplied {@link ArtifactLevel}.
+	 * {@inheritDoc}
 	 */
 
 	public String getName (final ArtifactLevel level)
@@ -234,15 +230,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the current sprite of the artifact.
-	 * <br>
-	 * The sprite may or may not change. It technically depends on the level of the artifact, but in some cases, the
-	 * same sprite is used for multiple
-	 * artifact levels, hence why it doesn't change visually in that case.
-	 *
-	 * @return The current sprite of the artifact.
-	 *
-	 * @see MetaDataImage
+	 * {@inheritDoc}
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -252,12 +240,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Sets the sprite of the artifact to the supplied sprite.
-	 * <br>
-	 * The sprite is set within the {@link Artifact#spriteProperty}, so the sprite gets automatically updated in the
-	 * GUI.
-	 *
-	 * @param sprite The new sprite for the artifact.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
@@ -267,11 +250,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the sprite of the artifact for the supplied {@link ArtifactLevel}.
-	 *
-	 * @param level The {@link ArtifactLevel} whose sprite should be returned.
-	 *
-	 * @return The sprite of the artifact for the supplied {@link ArtifactLevel}.
+	 * {@inheritDoc}
 	 */
 	public MetaDataImage getSprite (final ArtifactLevel level)
 	{
@@ -280,15 +259,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the property that contains the name of the artifact.
-	 * <br>
-	 * This property is bound to an element in the GUI. Check {@link WorkshopDelegate#initialize(URL, ResourceBundle)}
-	 * to see the binding process.
-	 *
-	 * @return The property that contains the name of the artifact.
-	 *
-	 * @see WorkshopDelegate
-	 * @see SimpleStringProperty
+	 * {@inheritDoc}
 	 */
 	@Override
 	public SimpleStringProperty getNameProperty ()
@@ -298,18 +269,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the current sprite property of the artifact. The sprite may or may not change. It technically depends
-	 * on the level of the artifact, but
-	 * in some cases, the same sprite is used for multiple artifact levels, hence why it doesn't change visually in
-	 * that case.
-	 * <br>
-	 * This property is bound to an element in the GUI. Check {@link WorkshopDelegate#initialize(URL, ResourceBundle)}
-	 * to see the binding process.
-	 *
-	 * @return The current sprite property of the artifact.
-	 *
-	 * @see SimpleObjectProperty
-	 * @see Image
+	 * {@inheritDoc}
 	 */
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
@@ -322,6 +282,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Returns true if the artifact is at the maximum level, otherwise false.
 	 *
 	 * @return True if the artifact is at the maximum level, otherwise false.
+	 * @precondition
+	 * @postcondition
 	 */
 	public boolean isMaxLevel ()
 	{

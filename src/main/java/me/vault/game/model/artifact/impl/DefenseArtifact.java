@@ -1,6 +1,7 @@
 package me.vault.game.model.artifact.impl;
 
 
+import javafx.scene.image.Image;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.artifact.AttributeMultiplier;
@@ -103,6 +104,11 @@ public final class DefenseArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the defense artifact.
+	 * @see Map
+	 * @see ArtifactLevel
+	 * @see CurrencyTransaction
+	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
+	 * @postcondition A map of upgrade costs for the {@link DefenseArtifact} is initialized.
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -126,6 +132,11 @@ public final class DefenseArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of attribute modifiers for the defense artifact.
+	 * @see Map
+	 * @see ArtifactLevel
+	 * @see AttributeMultiplier.Type
+	 * @precondition The attribute modifiers for the {@link DefenseArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of attribute modifiers for the {@link DefenseArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -162,6 +173,10 @@ public final class DefenseArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of names for the defense artifact.
+	 * @see Map
+	 * @see ArtifactLevel
+	 * @precondition The names for the {@link DefenseArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the names for the {@link DefenseArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -185,6 +200,10 @@ public final class DefenseArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of sprites for the defense artifact.
+	 * @see Map
+	 * @see ArtifactLevel
+	 * @precondition The sprites for the {@link DefenseArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the sprites for the {@link DefenseArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
@@ -204,6 +223,8 @@ public final class DefenseArtifact extends Artifact
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static DefenseArtifact getInstance ()
 	{
