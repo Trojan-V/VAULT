@@ -970,7 +970,5 @@ public class TroopStatistics
 		{
 			return MessageFormat.format(TO_STRING_PATTERN, this.movementTiles.get(), this.initiative.get());
 		}
-
 	}
-
 }

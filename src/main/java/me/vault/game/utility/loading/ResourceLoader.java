@@ -60,6 +60,8 @@ public final class ResourceLoader
 	 * As this class is a singleton, no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 * @precondition None.
+	 * @postcondition An instance of this class was constructed.
 	 */
 	private ResourceLoader () {}
 
