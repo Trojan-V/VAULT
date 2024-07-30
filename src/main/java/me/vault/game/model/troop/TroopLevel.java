@@ -1,7 +1,10 @@
 package me.vault.game.model.troop;
 
 
+import me.vault.game.control.TroopController;
 import me.vault.game.interfaces.Level;
+import me.vault.game.model.artifact.ArtifactLevel;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.TROOP_IS_LOWEST;
@@ -11,17 +14,46 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
+ * This enum provides all different levels a {@link Troop} can have.
+ * <br>
+ * <u>Technical note</u> <br>
+ * It's important that the level entries in the enum are in the correct order, from minimum to maximum.
+ * This is required to ensure that the methods {@link ArtifactLevel#getMinimum()}, {@link ArtifactLevel#getMaximum()},
+ * {@link Level#isMinimum()} and {@link Level#isMaximum()} function correctly.
+ *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @since 28.05.2024
+ * @see Troop
+ * @see TroopController
+ * @since 08.06.2024
  */
 public enum TroopLevel implements Level
 {
+	/**
+	 * The "single combatant" level. Every troop starts with this level.
+	 */
 	SINGLE_COMBATANT,
+
+
+	/**
+	 * The "couple" troop level. This level is reached after upgrading a troop once.
+	 */
 	COUPLE,
+
+
+	/**
+	 * The "squad" troop level.
+	 * This level is reached after upgrading a troop twice.
+	 * <br>
+	 * This is currently the maximum achievable level for troops.
+	 */
 	SQUAD;
 
-	private static final Logger LOGGER = new Logger(TroopLevel.class.getSimpleName());
+
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(TroopLevel.class.getSimpleName());
 
 
 	/**

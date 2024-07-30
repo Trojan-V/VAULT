@@ -17,6 +17,8 @@ import java.util.Map;
 
 import static me.vault.game.utility.constant.TroopConstants.SpaceMarine.*;
 
+// TODO: ALLY INSTANCE UND SO REMOVEN IN ALLEN TRUPPEN!!!!!!!!!!!!!!!!!!
+
 
 public final class SpaceMarine extends Troop
 {
@@ -27,10 +29,7 @@ public final class SpaceMarine extends Troop
 	private static final Logger LOGGER = new Logger(SpaceMarine.class.getSimpleName());
 
 
-	private static final SpaceMarine ALLY_INSTANCE;
-
-
-	private static final SpaceMarine ENEMY_INSTANCE;
+	private static final SpaceMarine INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -72,8 +71,7 @@ public final class SpaceMarine extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, SPACE_MARINE_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, SPACE_MARINE_SQUAD_STATISTICS);
 
-		ALLY_INSTANCE = new SpaceMarine();
-		ENEMY_INSTANCE = new SpaceMarine();
+		INSTANCE = new SpaceMarine();
 	}
 
 
@@ -88,15 +86,9 @@ public final class SpaceMarine extends Troop
 	 *
 	 * @return The ally singleton instance of this class.
 	 */
-	public static SpaceMarine getAllyInstance ()
+	public static SpaceMarine getInstance ()
 	{
-		return ALLY_INSTANCE;
-	}
-
-
-	public static SpaceMarine getEnemyInstance ()
-	{
-		return ENEMY_INSTANCE;
+		return INSTANCE;
 	}
 
 
@@ -130,6 +122,9 @@ public final class SpaceMarine extends Troop
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected @NotNull Map<TroopLevel, TroopStatistics> getAllStatistics ()
 	{

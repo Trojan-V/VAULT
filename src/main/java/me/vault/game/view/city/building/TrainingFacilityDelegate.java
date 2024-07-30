@@ -4,275 +4,113 @@ package me.vault.game.view.city.building;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import me.vault.game.GameApplication;
+import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.control.TroopController;
+import me.vault.game.model.city.CommandCenter;
 import me.vault.game.model.city.TrainingFacility;
-import me.vault.game.model.troop.Troop;
+import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.impl.*;
 import me.vault.game.utility.ViewUtil;
+import me.vault.game.utility.fx.TroopUpgradePane;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
+import me.vault.game.view.mission.MissionSelectionDelegate;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 
+/**
+ * The {@code TrainingFacilityDelegate} handles the control and view of the {@link TrainingFacility} city building.
+ * <br>
+ * On the one hand, it initializes the view from the fxml-file and binds properties from the model to the view.
+ * <br>
+ * On the other hand, it provides methods to control the model to the {@link TrainingFacility} city building.
+ *
+ * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @see CityBuildingController
+ * @see Initializable
+ * @see CommandCenter
+ * @since 11.06.2024
+ */
 public final class TrainingFacilityDelegate implements Initializable
 {
 
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
 	private static final ILogger LOGGER = new Logger(TrainingFacility.class.getSimpleName());
 
+	/**
+	 * The path to the respective fxml file of the delegate as a {@link String}.
+	 */
 	private static final String TRAINING_FACILITY_VIEW_FXML = "training_facility_view.fxml";
 
-	@FXML
-	private AnchorPane engineerAttributePane;
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionSelectionDelegate#toString()} is called.
+	 */
+	private static final String TO_STRING_PATTERN = "TrainingFacilityDelegate'{'fxml={0}'}'";
 
-	@FXML
-	private ImageView engineerImageView;
-
-	@FXML
-	private Button engineerUpgradeButton;
-
-	@FXML
-	private TabPane factionsTabPane;
-
-	@FXML
-	private AnchorPane grenadierAttributePane;
-
-	@FXML
-	private ImageView grenadierImageView;
-
-	@FXML
-	private Button grenadierUpgradeButton;
-
-	@FXML
-	private AnchorPane guardAttributePane;
-
-	@FXML
-	private ImageView guardImageView;
-
-	@FXML
-	private Button guardUpgradeButton;
-
-	@FXML
-	private AnchorPane infantryAttributePane;
-
-	@FXML
-	private ImageView infantryImageView;
-
-	@FXML
-	private Button infantryUpgradeButton;
-
-	@FXML
-	private AnchorPane lieutenantAttributePane;
-
-	@FXML
-	private ImageView lieutenantImageView;
-
-	@FXML
-	private Button lieutenantUpgradeButton;
-
+	/**
+	 * The {@link AnchorPane} at the top-most position in the scene-tree.
+	 */
 	@FXML
 	private AnchorPane mainAnchorPane;
 
+	/**
+	 * The {@link AnchorPane}, which contains the {@link TroopUpgradePane} for the {@link Faction#MEGA_CORPORATION}
+	 */
 	@FXML
-	private AnchorPane medicAttributePane;
+	private AnchorPane corporationPane;
 
+	/**
+	 * The {@link AnchorPane}, which contains the {@link TroopUpgradePane} for the {@link Faction#MEGA_CORPORATION}
+	 */
 	@FXML
-	private ImageView medicImageView;
+	private AnchorPane explorerPane;
 
+	/**
+	 * The {@link AnchorPane}, which contains the {@link TroopUpgradePane} for the {@link Faction#MILITARISTIC_GOVERNMENT}
+	 */
 	@FXML
-	private Button medicUpgradeButton;
+	private AnchorPane militaristicPane;
 
+	/**
+	 * The {@link AnchorPane}, which contains the {@link TroopUpgradePane} for the {@link Faction#NEW_TERRA}
+	 */
 	@FXML
-	private AnchorPane officerAttributePane;
+	private AnchorPane terraPane;
 
+	/**
+	 * The {@link TabPane}, which contains the {@link Tab}s for the different {@link Faction}s.
+	 */
 	@FXML
-	private ImageView officerImageView;
-
-	@FXML
-	private Button officerUpgradeButton;
-
-	@FXML
-	private AnchorPane precShooterAttributePane;
-
-	@FXML
-	private ImageView precShooterImageView;
-
-	@FXML
-	private Button precShooterUpgradeButton;
-
-	@FXML
-	private AnchorPane rangerAttributePane;
-
-	@FXML
-	private ImageView rangerImageView;
-
-	@FXML
-	private Button rangerUpgradeButton;
-
-	@FXML
-	private AnchorPane recruitAttributePane;
-
-	@FXML
-	private ImageView recruitImageView;
-
-	@FXML
-	private Button recruitUpgradeButton;
-
-	@FXML
-	private AnchorPane sniperAttributePane;
-
-	@FXML
-	private ImageView sniperImageView;
-
-	@FXML
-	private Button sniperUpgradeButton;
-
-	@FXML
-	private AnchorPane spaceMarineAttributePane;
-
-	@FXML
-	private ImageView spaceMarineImageView;
-
-	@FXML
-	private Button spaceMarineUpgradeButton;
-
-	@FXML
-	private Label spaceMarineLabel;
-
-	@FXML
-	private Label officerLabel;
-
-	@FXML
-	private Label engineerLabel;
-
-	@FXML
-	private Label medicLabel;
-
-	@FXML
-	private Label sniperLabel;
-
-	@FXML
-	private Label rangerLabel;
-
-	@FXML
-	private Label lieutenantLabel;
-
-	@FXML
-	private Label precShooterLabel;
-
-	@FXML
-	private Label infantryLabel;
-
-	@FXML
-	private Label guardLabel;
-
-	@FXML
-	private Label grenadierLabel;
-
-	@FXML
-	private Label recruitLabel;
+	private TabPane factionsTabPane;
 
 
+	/**
+	 * Calls a method to display the content stored in {@link TrainingFacilityDelegate#TRAINING_FACILITY_VIEW_FXML} and initialized
+	 * by {@link TrainingFacilityDelegate#initialize(URL, ResourceBundle)} on the main stage of this application
+	 * ({@link GameApplication#getStage()})
+	 *
+	 * @precondition The GameApplication has to have a stage.
+	 * @postcondition The initialized view is shown on the GameApplication Stage.
+	 */
 	public static void show ()
 	{
 		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(TrainingFacilityDelegate.class, TRAINING_FACILITY_VIEW_FXML), TrainingFacilityDelegate.class);
-	}
-
-
-	@FXML
-	void onEngineerUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Engineer.getAllyInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onGrenadierUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Grenadier.getAllyInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onGuardUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Guard.getAllyInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onInfantryUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Infantry.getAllyInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onLieutenantUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Lieutenant.getInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onMedicUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Medic.getAllyInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onOfficerUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Officer.getAllyInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onPrecisionShooterUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(PrecisionShooter.getAllyInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onRangerUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Ranger.getInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onRecruitUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Recruit.getInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onSniperUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(Sniper.getInstance(), TroopController.getInstance());
-	}
-
-
-	@FXML
-	void onSpaceMarineUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(SpaceMarine.getAllyInstance(), TroopController.getInstance());
 	}
 
 
@@ -290,38 +128,41 @@ public final class TrainingFacilityDelegate implements Initializable
 	{
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
-
-		this.initTroopSpecificControls(SpaceMarine.getAllyInstance(), this.spaceMarineLabel, this.spaceMarineImageView, this.spaceMarineUpgradeButton, this.spaceMarineAttributePane);
-		this.initTroopSpecificControls(Officer.getAllyInstance(), this.officerLabel, this.officerImageView, this.officerUpgradeButton, this.officerAttributePane);
-		this.initTroopSpecificControls(Engineer.getAllyInstance(), this.engineerLabel, this.engineerImageView, this.engineerUpgradeButton, this.engineerAttributePane);
-
-		this.initTroopSpecificControls(Medic.getAllyInstance(), this.medicLabel, this.medicImageView, this.medicUpgradeButton, this.medicAttributePane);
-		this.initTroopSpecificControls(Sniper.getInstance(), this.sniperLabel, this.sniperImageView, this.sniperUpgradeButton, this.sniperAttributePane);
-		this.initTroopSpecificControls(Ranger.getInstance(), this.rangerLabel, this.rangerImageView, this.rangerUpgradeButton, this.rangerAttributePane);
-
-		this.initTroopSpecificControls(Lieutenant.getInstance(), this.lieutenantLabel, this.lieutenantImageView, this.lieutenantUpgradeButton, this.lieutenantAttributePane);
-		this.initTroopSpecificControls(PrecisionShooter.getAllyInstance(), this.precShooterLabel, this.precShooterImageView, this.precShooterUpgradeButton, this.precShooterAttributePane);
-		this.initTroopSpecificControls(Infantry.getAllyInstance(), this.infantryLabel, this.infantryImageView, this.infantryUpgradeButton, this.infantryAttributePane);
-
-		this.initTroopSpecificControls(Guard.getAllyInstance(), this.guardLabel, this.guardImageView, this.guardUpgradeButton, this.guardAttributePane);
-		this.initTroopSpecificControls(Grenadier.getAllyInstance(), this.grenadierLabel, this.grenadierImageView, this.grenadierUpgradeButton, this.grenadierAttributePane);
-		this.initTroopSpecificControls(Recruit.getInstance(), this.recruitLabel, this.recruitImageView, this.recruitUpgradeButton, this.recruitAttributePane);
+		this.militaristicPane.getChildren().add(new TroopUpgradePane(SpaceMarine.getInstance(), Officer.getAllyInstance(), Engineer.getAllyInstance()));
+		this.explorerPane.getChildren().add(new TroopUpgradePane(Ranger.getInstance(), Sniper.getInstance(), Medic.getAllyInstance()));
+		this.terraPane.getChildren().add(new TroopUpgradePane(Lieutenant.getInstance(), PrecisionShooter.getAllyInstance(), Infantry.getAllyInstance()));
+		this.corporationPane.getChildren().add(new TroopUpgradePane(Guard.getAllyInstance(), Grenadier.getAllyInstance(), Recruit.getInstance()));
 	}
 
 
-	private void initTroopSpecificControls (final Troop troop, final Label nameLabel, final ImageView spriteView, final Button upgradeButton, final AnchorPane attributePane)
-	{
-		nameLabel.textProperty().bind(troop.getNameProperty());
-		spriteView.imageProperty().bind(troop.getSpriteProperty());
-		upgradeButton.disableProperty().bind(troop.getIsMaxLevelProperty());
-		attributePane.getChildren().add(TroopController.createAttributeGridPane(troop));
-	}
-
-
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Back" {@link Button} in the GUI.
+	 * Resets the current {@link Scene} on the main {@link Stage} to the {@link Scene} of the {@link CityDelegate}.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The current {@link Scene} in the main {@link Stage} is reset to the {@link Scene} of the {@link CityDelegate}.
+	 */
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
 		CityDelegate.show();
+	}
+
+
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the {@link TrainingFacilityDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link TrainingFacilityDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link TrainingFacilityDelegate#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, TRAINING_FACILITY_VIEW_FXML);
 	}
 
 }

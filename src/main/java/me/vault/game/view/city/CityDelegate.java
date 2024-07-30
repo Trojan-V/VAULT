@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.model.city.*;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.CityBuildingAnchorPane;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -16,7 +17,7 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.MainMenuDelegate;
 import me.vault.game.view.TutorialDelegate;
-import me.vault.game.utility.ViewUtil;
+import me.vault.game.view.city.building.CommandCenterDelegate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,6 +54,14 @@ public class CityDelegate implements Initializable
 	private AnchorPane cityAnchorPane;
 
 
+	/**
+	 * Calls a method to display the content stored in {@link CityDelegate#CITY_VIEW_FXML} and initialized
+	 * by {@link CityDelegate#initialize(URL, ResourceBundle)} on the main stage of this application
+	 * ({@link GameApplication#getStage()})
+	 *
+	 * @precondition The GameApplication has to have a stage.
+	 * @postcondition The initialized view is shown on the GameApplication Stage.
+	 */
 	public static void show ()
 	{
 		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(CityDelegate.class, CITY_VIEW_FXML), CityDelegate.class);

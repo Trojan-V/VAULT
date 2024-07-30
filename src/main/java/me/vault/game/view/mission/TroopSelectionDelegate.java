@@ -469,7 +469,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@FXML
 	void selectSpaceMarine (final ActionEvent ignored)
 	{
-		this.selectTroop(SpaceMarine.getAllyInstance());
+		this.selectTroop(SpaceMarine.getInstance());
 	}
 
 }

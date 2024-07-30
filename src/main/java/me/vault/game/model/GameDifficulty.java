@@ -1,36 +1,100 @@
 package me.vault.game.model;
 
 
+import java.text.MessageFormat;
+
+
 /**
+ * This enum provides all different game difficulties that are available.
  *
- */
+ * @author Vincent Wolf
+ * @version 1.0.0
+ * @since 30.07.2024 */
 public enum GameDifficulty
 {
+	/**
+	 * "Easy": The first difficulty, which marks the easiest one out of all available ones.
+	 */
 	EASY("easy", 1.0),
+
+
+	/**
+	 * "Normal": The second difficulty.
+	 */
 	NORMAL("normal", 1.5),
+
+
+	/**
+	 * "Hard": The third and currently the highest available difficulty.
+	 */
 	HARD("hard", 2);
 
-	private final String difficulty;
 
-	private final double modifier;
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link GameDifficulty#toString()} is
+	 * called.
+	 */
+	private static final String TO_STRING_PATTERN = "GameDifficulty'{'name=''{0}'', multiplier={1}'}'";
 
 
-	GameDifficulty (final String difficulty, final double modifier)
+	/**
+	 * The name of the difficulty.
+	 */
+	private final String name;
+
+
+	/**
+	 * The multiplier the difficulty adds to the calculation of the enemies statistics, for instance, regarding damage and/or health.
+	 */
+	private final double multiplier;
+
+
+	/**
+	 * Constructs an instance of this class.
+	 *
+	 * @param name       The name of the difficulty.
+	 * @param multiplier The multiplier added to the calculation of the enemies' statistics.
+	 */
+	GameDifficulty (final String name, final double multiplier)
 	{
-		this.difficulty = difficulty;
-		this.modifier = modifier;
+		this.name = name;
+		this.multiplier = multiplier;
 	}
 
 
-	public double getModifier ()
+	/**
+	 * Returns the multiplier the difficulty adds to the calculation of the enemies' statistics.
+	 *
+	 * @return The multiplier the difficulty adds to the calculation of the enemies' statistics.
+	 */
+	public double getMultiplier ()
 	{
-		return this.modifier;
+		return this.multiplier;
 	}
 
 
-	public String getDifficulty ()
+	/**
+	 * Returns the name of the difficulty.
+	 *
+	 * @return The name of the difficulty.
+	 */
+	public String getName ()
 	{
-		return this.difficulty;
+		return this.name;
 	}
 
+
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link GameDifficulty#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link GameDifficulty#TO_STRING_PATTERN}.
+	 * @precondition The {@link GameDifficulty#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.name, this.multiplier);
+	}
 }
