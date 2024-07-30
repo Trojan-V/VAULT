@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
 import me.vault.game.control.EnergyAbilityController;
 import me.vault.game.control.TroopController;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -28,6 +29,7 @@ import java.text.MessageFormat;
  */
 public class SingleStatisticHBox extends HBox
 {
+
 	/**
 	 * Represents the spacing of the statistics in the statistics grid pane.
 	 */
@@ -93,10 +95,12 @@ public class SingleStatisticHBox extends HBox
 		this.setSpacing(ATTRIBUTE_SPACING);
 
 		final Label attributeValueLabel = new Label();
+		attributeValueLabel.setFont(new Font(18));
 		attributeValueLabel.textProperty().bind(this.property.asString());
-
+		final Label nameLabel = new Label(this.name);
+		nameLabel.setFont(new Font(18));
 		this.getChildren().add(new ImageView(ResourceLoader.loadImage(this.spritePath)));
-		this.getChildren().add(new Label(this.name));
+		this.getChildren().add(nameLabel);
 		this.getChildren().add(attributeValueLabel);
 	}
 
@@ -111,4 +115,5 @@ public class SingleStatisticHBox extends HBox
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.spritePath, this.name, this.property);
 	}
+
 }

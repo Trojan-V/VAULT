@@ -285,7 +285,7 @@ public class Config
 		this.rangerLevel = Ranger.getInstance().getLevel();
 		this.recruitLevel = Recruit.getInstance().getLevel();
 		this.sniperLevel = Sniper.getInstance().getLevel();
-		this.spaceMarineLevel = SpaceMarine.getAllyInstance().getLevel();
+		this.spaceMarineLevel = SpaceMarine.getInstance().getLevel();
 	}
 
 
@@ -302,7 +302,7 @@ public class Config
 		Ranger.getInstance().setLevel(this.rangerLevel);
 		Recruit.getInstance().setLevel(this.recruitLevel);
 		Sniper.getInstance().setLevel(this.sniperLevel);
-		SpaceMarine.getAllyInstance().setLevel(this.spaceMarineLevel);
+		SpaceMarine.getInstance().setLevel(this.spaceMarineLevel);
 
 		TroopController.getInstance().updateValues(Engineer.getAllyInstance());
 		TroopController.getInstance().updateValues(Grenadier.getAllyInstance());
@@ -315,7 +315,7 @@ public class Config
 		TroopController.getInstance().updateValues(Ranger.getInstance());
 		TroopController.getInstance().updateValues(Recruit.getInstance());
 		TroopController.getInstance().updateValues(Sniper.getInstance());
-		TroopController.getInstance().updateValues(SpaceMarine.getAllyInstance());
+		TroopController.getInstance().updateValues(SpaceMarine.getInstance());
 	}
 
 

@@ -29,7 +29,7 @@ public interface AttributeConstants
 	// Melee-Attack-Attribute ----------------------------------------------------------------------------------------
 
 	@Constant
-	String MELEE_ATTRIBUTE_NAME = "M.-Damage";
+	String MELEE_ATTRIBUTE_NAME = "Melee-Damage";
 
 	@Constant
 	String MELEE_ATTACK_ATTRIBUTE_ICON_PATH = ATTRIBUTE_ASSETS_PATH + "melee_attack_icon.png";
@@ -43,7 +43,7 @@ public interface AttributeConstants
 	// Grenade-Attack Attribute --------------------------------------------------------------------------------------
 
 	@Constant
-	String GRENADE_ATTACK_ATTRIBUTE_NAME = "G.-Damage";
+	String GRENADE_ATTACK_ATTRIBUTE_NAME = "Grenade-Damage";
 
 	@Constant
 	String GRENADE_ATTACK_ATTRIBUTE_ICON_PATH = ATTRIBUTE_ASSETS_PATH + "range_attack_icon.png";
@@ -127,7 +127,7 @@ public interface AttributeConstants
 	// Grenade-Amount-Attribute --------------------------------------------------------------------------------------
 
 	@Constant
-	String GRENADE_AMOUNT_ATTRIBUTE_NAME = "G.-Amount";
+	String GRENADE_AMOUNT_ATTRIBUTE_NAME = "Grenade-Amount";
 
 	@Constant
 	String GRENADE_AMOUNT_ATTRIBUTE_ICON_PATH = ATTRIBUTE_ASSETS_PATH + "grenade_icon.png";
@@ -141,7 +141,7 @@ public interface AttributeConstants
 	// Grenade-Range-Attribute ---------------------------------------------------------------------------------------
 
 	@Constant
-	String GRENADE_RANGE_ATTRIBUTE_NAME = "G.-Range";
+	String GRENADE_RANGE_ATTRIBUTE_NAME = "Grenade-Range";
 
 	@Constant
 	String GRENADE_RANGE_ATTRIBUTE_ICON_PATH = ATTRIBUTE_ASSETS_PATH + "grenade_icon.png";
@@ -155,7 +155,7 @@ public interface AttributeConstants
 	// Dodge-Attribute -----------------------------------------------------------------------------------------------
 
 	@Constant
-	String DODGE_ATTRIBUTE_NAME = "DODGE";
+	String DODGE_ATTRIBUTE_NAME = "Dodge";
 
 	@Constant
 	String DODGE_ATTRIBUTE_ICON_PATH = ATTRIBUTE_ASSETS_PATH + "dodge_icon.png";
