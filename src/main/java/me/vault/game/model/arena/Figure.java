@@ -5,7 +5,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.interfaces.Movable;
 import me.vault.game.interfaces.Nameable;
-import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.troop.Troop;

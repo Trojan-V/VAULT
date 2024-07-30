@@ -324,7 +324,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return True if the artifact is at the maximum level, otherwise false.
 	 */
-	public boolean getIsMaxLevel ()
+	public boolean isMaxLevel ()
 	{
 		return this.isMaxLevelProperty.get();
 	}

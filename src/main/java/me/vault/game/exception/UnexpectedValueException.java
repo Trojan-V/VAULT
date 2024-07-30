@@ -24,7 +24,7 @@ public class UnexpectedValueException extends Exception
 	 * The message which can be retrieved from the exception instance by invoking {@link UnexpectedValueException#getMessage()}.
 	 * Usually, this message should be printed into the console or some other logging destination to inform the user about the exception.
 	 */
-	private static final String EXCEPTION_MESSAGE_PATTERN = "Unexpected value: {0}";
+	private static final String MESSAGE_PATTERN = "Unexpected value: {0}";
 
 
 	/**
@@ -36,6 +36,6 @@ public class UnexpectedValueException extends Exception
 	 */
 	public UnexpectedValueException (final String unexpectedValue)
 	{
-		super(MessageFormat.format(EXCEPTION_MESSAGE_PATTERN, unexpectedValue));
+		super(MessageFormat.format(MESSAGE_PATTERN, unexpectedValue));
 	}
 }

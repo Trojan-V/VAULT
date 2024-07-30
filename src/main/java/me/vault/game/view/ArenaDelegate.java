@@ -208,7 +208,7 @@ public final class ArenaDelegate
 		boolean hasAttacked = false;
 		if (!reachableTroopFigureTiles.isEmpty())
 		{
-			hasAttacked = EnemyController.attackAdjacentTroop(this.arena, reachableTroopFigureTiles, this.arena.getSelectedFigure());
+			hasAttacked = EnemyController.tryAttackAdjacentTroop(this.arena, reachableTroopFigureTiles, this.arena.getSelectedFigure());
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{
@@ -230,7 +230,7 @@ public final class ArenaDelegate
 		this.arena.setSelectedFigure(this.currentQueue.peek());
 
 
-		// Aktualisiert die TimeLine am rechten Rand des Bildschirms
+		// Aktualisiert die Timeline am rechten Rand des Bildschirms
 		final PriorityQueue<Figure> tempPriorityQueue = new PriorityQueue<>(this.currentQueue);
 		this.timelineVBox.getChildren().clear();
 		while (!tempPriorityQueue.isEmpty())

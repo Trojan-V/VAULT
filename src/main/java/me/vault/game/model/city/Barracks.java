@@ -73,6 +73,7 @@ public final class Barracks extends CityBuilding
 		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, NORMAL_UPGRADE_COSTS);
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
+		// Create the singleton instance at last, so all maps are filled with values as the data in these maps is required to create an instance of this class.
 		INSTANCE = new Barracks();
 	}
 

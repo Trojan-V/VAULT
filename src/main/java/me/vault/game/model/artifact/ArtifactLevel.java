@@ -95,7 +95,7 @@ public enum ArtifactLevel implements Level
 	public ArtifactLevel getNextLowerLevel ()
 	{
 		// Check if the artifact level is already the lowest level.
-		if (isMinimum())
+		if (this.isMinimum())
 		{
 			LOGGER.logf(DEBUG, ARTIFACT_IS_LOWEST, this.name());
 			return this;
@@ -112,7 +112,7 @@ public enum ArtifactLevel implements Level
 	{
 		// Check if the last entry was already reached, so there would be no higher level for the artifact as it's
 		// already at the maximum level.
-		if (isMaximum())
+		if (this.isMaximum())
 		{
 			LOGGER.logf(DEBUG, ARTIFACT_MAXED, this.name());
 			return this;

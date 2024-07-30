@@ -61,7 +61,7 @@ public class Arena
 	 * <br>
 	 * As long as the arena fight isn't finished, the {@link ArenaResult} is undefined.
 	 */
-	private ArenaResult arenaResult = ArenaResult.UNDEFINED;
+	private ArenaResult result = ArenaResult.UNDEFINED;
 
 
 	/**
@@ -187,6 +187,7 @@ public class Arena
 	 */
 	private void placeFigureRandomly (final Figure figure, final int offset)
 	{
+		// TODO: Use random class instead of Math.random()
 		final int xPosition = (int) Math.round(Math.random() + offset);
 		final int yPosition = (int) Math.round(Math.random() * GAME_BOARD_MAXIMUM_INDEX);
 		final Position randomPosition = new Position(xPosition, yPosition);
@@ -293,17 +294,17 @@ public class Arena
 
 
 	/**
-	 * Adjusts the {@link Arena#arenaResult} if either the first or the second player is eliminated.
+	 * Adjusts the {@link Arena#result} if either the first or the second player is eliminated.
 	 */
 	private void adjustArenaResultIfNeeded ()
 	{
 		if (this.isPlayerEliminated(this.playerOneFigures))
 		{
-			this.arenaResult = ArenaResult.LOST;
+			this.result = ArenaResult.LOST;
 		}
 		else if (this.isPlayerEliminated(this.playerTwoFigures))
 		{
-			this.arenaResult = ArenaResult.WON;
+			this.result = ArenaResult.WON;
 		}
 	}
 
@@ -340,7 +341,7 @@ public class Arena
 	 */
 	public ArenaResult getState ()
 	{
-		return this.arenaResult;
+		return this.result;
 	}
 
 
@@ -357,13 +358,18 @@ public class Arena
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.gameBoard.toString(), Arrays.deepToString(this.playerTwoFigures.toArray()), Arrays.deepToString(this.eliminatedFigures.toArray()),
-			this.arenaResult.toString(), this.figureTimeline.toString(), Arrays.deepToString(this.playerOneFigures.toArray()), this.selectedFigure.toString());
+			this.result.toString(), this.figureTimeline.toString(), Arrays.deepToString(this.playerOneFigures.toArray()), this.selectedFigure.toString());
 	}
 
 
+	/**
+	 * Returns the current value of the {@link Arena#result}.
+	 *
+	 * @return The current value of the {@link Arena#result}.
+	 */
 	public ArenaResult getResult ()
 	{
-		return this.arenaResult;
+		return this.result;
 	}
 
 }

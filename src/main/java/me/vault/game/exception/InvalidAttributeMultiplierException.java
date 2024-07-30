@@ -25,8 +25,8 @@ public class InvalidAttributeMultiplierException extends Exception
 	 * {@link InvalidAttributeMultiplierException#getMessage()}. Usually, this message
 	 * should be printed into the console or some other logging destination to inform the user about the exception.
 	 */
-	private static final String EXCEPTION_MESSAGE = "The provided attribute modifier is invalid, " +
-	                                                "due to it being less than or equal to 0. (Provided modifier: {0, number, long})";
+	private static final String MESSAGE_PATTERN = "The provided attribute modifier is invalid, " +
+	                                              "due to it being less than or equal to 0. (Provided modifier: {0, number, long})";
 
 
 	/**
@@ -36,7 +36,7 @@ public class InvalidAttributeMultiplierException extends Exception
 	 */
 	public InvalidAttributeMultiplierException (final double modifier)
 	{
-		super(MessageFormat.format(EXCEPTION_MESSAGE, modifier));
+		super(MessageFormat.format(MESSAGE_PATTERN, modifier));
 	}
 
 }

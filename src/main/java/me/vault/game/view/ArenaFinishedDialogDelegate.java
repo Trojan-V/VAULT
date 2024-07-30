@@ -11,7 +11,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import me.vault.game.exception.UndefinedResultException;
+import me.vault.game.exception.UndefinedArenaResultException;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.ArenaResult;
 import me.vault.game.model.mission.Mission;
@@ -178,7 +178,7 @@ public final class ArenaFinishedDialogDelegate
 	 * or set to the {@link Scene} of the {@link MissionDelegate} if the user has won.
 	 */
 	@FXML
-	void onContinue (final ActionEvent ignored) throws UndefinedResultException
+	void onContinue (final ActionEvent ignored) throws UndefinedArenaResultException
 	{
 		STAGE.close();
 		if (this.arena.getResult() == ArenaResult.LOST)
@@ -191,7 +191,7 @@ public final class ArenaFinishedDialogDelegate
 		}
 		else
 		{
-			throw new UndefinedResultException();
+			throw new UndefinedArenaResultException();
 		}
 	}
 

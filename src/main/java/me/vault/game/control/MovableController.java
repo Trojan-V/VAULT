@@ -17,7 +17,7 @@ import me.vault.game.model.player.Player;
  *
  * @author Vincent Wolf
  * @version 1.0.0
- * @see
+ * @see Movable
  * @since 29.07.2024
  */
 public final class MovableController

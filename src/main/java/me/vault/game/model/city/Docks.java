@@ -4,7 +4,6 @@ package me.vault.game.model.city;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +16,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Docks.*;
 /**
  * This class is an implementation of {@link CityBuilding}.
  * <br>
- * The {@link Docks} city building holds all information about the unlockable factions of the game, which can be selected by the player and be used in
+ * The {@link Docks} city building holds all information about the factions of the game, which can be selected by the player and be used in
  * missions and encounters.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
@@ -28,11 +27,6 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Docks.*;
  */
 public class Docks extends CityBuilding
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final Logger LOGGER = new Logger(Docks.class.getSimpleName());
 
 	/**
 	 * Singleton instance, as there's never a reason to have more than one {@link Docks} city building.
@@ -74,6 +68,7 @@ public class Docks extends CityBuilding
 		UPGRADE_COSTS.put(CityBuildingLevel.NORMAL, NORMAL_UPGRADE_COSTS);
 		UPGRADE_COSTS.put(CityBuildingLevel.SUPER, CurrencyTransaction.EMPTY);
 
+		// Create the singleton instance at last, so all maps are filled with values as the data in these maps is required to create an instance of this class.
 		INSTANCE = new Docks();
 	}
 

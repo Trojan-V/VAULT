@@ -32,7 +32,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class ArtifactController implements Upgrader<Artifact, ArtifactLevel>
 {
-
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link ArtifactController}.
 	 * <br>
@@ -63,7 +62,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 *
 	 * @return True if the artifact is maxed, otherwise false.
 	 */
-	private static boolean checkIsArtifactMaxed (final Artifact artifact)
+	private static boolean isArtifactMaxed (final Artifact artifact)
 	{
 		return artifact.getLevel() == ArtifactLevel.getMaximum();
 	}

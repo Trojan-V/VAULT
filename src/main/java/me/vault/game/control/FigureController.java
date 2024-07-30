@@ -4,6 +4,7 @@ package me.vault.game.control;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import me.vault.game.exception.NotAFigureException;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Position;
@@ -20,6 +21,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+import static me.vault.game.utility.logging.ILogger.Level.WARNING;
+
 
 /**
  * Controller class to handle enemy actions in the arena, such as attacking.
@@ -31,12 +34,10 @@ import java.util.List;
  */
 public final class FigureController
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger LOGGER = new Logger(FigureController.class.getName());
-
+	private static final ILogger LOGGER = new Logger(ArtifactController.class.getSimpleName());
 
 	/**
 	 * The radius of the drop shadow effect that is rendered around the sprites which display the allied figures.
@@ -50,9 +51,11 @@ public final class FigureController
 	private static final double DROP_SHADOW_SPREAD = 0.5;
 
 
+	// TODO: Better identifier: What does the hundred stand for? HUNDRED is a bad identifier.
 	private static final int HUNDRED = 100;
 
 
+	// TODO: Better identifier: What does the one stand for? ONE is a bad identifier.
 	private static final int ONE = 1;
 
 
@@ -123,6 +126,7 @@ public final class FigureController
 		final double meleeMultiplier = currenrEnergy.getAbilityMultiplier().getMeleeMultiplierProperty().get();
 		final int meleeDamage = attackerStats.getStatistics().getOffensive().getMeleeDamage();
 		final int armor = defenderDefensiveStats.getStatistics().getDefensive().getArmor();
+		// TODO: Extract this arithmetic expression into one or several methods, so it's understandable by providing a descriptive name.
 		return (int) (meleeDamage * (ONE - (armor * defenseMultiplier) / HUNDRED) * damageMultiplier * meleeMultiplier);
 	}
 
@@ -169,9 +173,10 @@ public final class FigureController
 			final List<Figure> defenderGroup = arena.getPlayerOneFigures().contains(defender) ? arena.getPlayerOneFigures() : arena.getPlayerTwoFigures();
 			return !defenderGroup.contains(attackerFigure) && reachableTiles.contains(arenaGameBoard.getTile(position));
 		}
-		catch (final Exception e)
+		catch (final NotAFigureException e)
 		{
-			throw new RuntimeException(e);
+			LOGGER.log(WARNING, e.getMessage());
+			return false;
 		}
 	}
 
@@ -188,7 +193,7 @@ public final class FigureController
 	public static void setGlow (final @NotNull Arena arena, final @NotNull ImageView imageView, final @NotNull Figure troopFigure)
 	{
 		// Define the DropShadow (the glow) depending on the Figure's team: Blue glow means ally, red glow means enemy.
-		DropShadow playerIdentity = null;
+		final DropShadow playerIdentity;
 		if (isAlly(arena, troopFigure))
 		{
 			playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);

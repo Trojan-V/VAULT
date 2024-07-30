@@ -24,7 +24,7 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see me.vault.game.view.city.building.DocksDelegate
+ * @see DocksDelegate
  * @see LaboratoryDelegate
  * @see MarketDelegate
  * @see SpaceBarDelegate
@@ -37,7 +37,6 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
  */
 public class CityBuildingController implements Upgrader<CityBuilding, CityBuildingLevel>
 {
-
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link CityBuildingController}.
 	 * <br>

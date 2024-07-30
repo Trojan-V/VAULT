@@ -82,7 +82,7 @@ public final class DamageArtifact extends Artifact
 		MODIFIERS = initModifiersMap();
 		UPGRADE_COSTS = initUpgradeCostsMap();
 
-		// Ensure the instance is created after all the other static fields are initialized.
+		// Create the singleton instance at last, so all maps are filled with values as the data in these maps is required to create an instance of this class.
 		INSTANCE = new DamageArtifact();
 	}
 

@@ -24,25 +24,25 @@ public class InvalidMapEntryException extends Exception
 	 * The message which can be retrieved from the exception instance by invoking {@link InvalidMapEntryException#getMessage()}. Usually, this message
 	 * should be printed into the console or some other logging destination to inform the user about the exception.
 	 */
-	private static final String EXCEPTION_MESSAGE = "The map entry is invalid.";
+	private static final String MESSAGE = "The map entry is invalid.";
 
 	/**
 	 * If the invalid entry was provided within the constructor of this exception {@code throw new InvalidMapEntryException(Entry<K, V> entry)}, this
-	 * appendix is appended as message suffix to the default {@link InvalidMapEntryException#EXCEPTION_MESSAGE}.
+	 * appendix is appended as message suffix to the default {@link InvalidMapEntryException#MESSAGE}.
 	 * <br>
 	 *
 	 * @see InvalidMapEntryException#InvalidMapEntryException(Entry)
 	 */
-	private static final String MESSAGE_APPENDIX = " Key: {0}; Value: {1}";
+	private static final String MESSAGE_APPENDIX_PATTERN = " Key: {0}; Value: {1}";
 
 
 	/**
 	 * The default constructor of the exception. Constructs a new instance of this exception and provides the default
-	 * {@link InvalidMapEntryException#EXCEPTION_MESSAGE}.
+	 * {@link InvalidMapEntryException#MESSAGE}.
 	 */
 	public InvalidMapEntryException ()
 	{
-		super(EXCEPTION_MESSAGE);
+		super(MESSAGE);
 	}
 
 
@@ -56,7 +56,7 @@ public class InvalidMapEntryException extends Exception
 	 */
 	public <K, V> InvalidMapEntryException (final Entry<K, V> entry)
 	{
-		super(EXCEPTION_MESSAGE + MessageFormat.format(MESSAGE_APPENDIX, entry.getKey(), entry.getValue()));
+		super(MESSAGE + MessageFormat.format(MESSAGE_APPENDIX_PATTERN, entry.getKey(), entry.getValue()));
 	}
 
 }

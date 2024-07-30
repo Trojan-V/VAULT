@@ -26,6 +26,6 @@ public enum ArenaResult
 	/**
 	 * If the player won the arena encounter, this is the result.
 	 */
-	WON;
+	WON
 }
 

@@ -29,7 +29,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class EnemyController
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -68,7 +67,7 @@ public final class EnemyController
 	 *
 	 * @return True, if the enemy attacked an allied troop, otherwise false.
 	 */
-	public static boolean attackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure troopFigure)
+	public static boolean tryAttackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure troopFigure)
 	{
 		for (final Tile tile : adjacentTroopTiles)
 		{
@@ -85,7 +84,7 @@ public final class EnemyController
 
 
 	/**
-	 * The level of the enemies is increased depending on the difficulty that was selected in the main menu.
+	 * The level of the enemies is increased depending on the difficulty selected in the main menu.
 	 *
 	 * @param encounterEnemies A list of all enemies that appear in the encounter.
 	 *

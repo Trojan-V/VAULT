@@ -1,6 +1,7 @@
 package me.vault.game.model.gameboard;
 
 
+import me.vault.game.exception.NotAFigureException;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Position;
@@ -54,11 +55,11 @@ public class GameBoard
 	}
 
 
-	public Figure getFigure (final Position position) throws Exception
+	public Figure getFigure (final Position position) throws NotAFigureException
 	{
 		if (!(this.gameBoard[position.x()][position.y()].getCurrentElement() instanceof Figure))
 		{
-			throw new Exception("Not a troop exception..."); // TODO: Implementieren der neuen exception
+			throw new NotAFigureException(this.gameBoard[position.x()][position.y()].getCurrentElement().getClass().getName());
 		}
 		return (Figure) this.gameBoard[position.x()][position.y()].getCurrentElement();
 	}

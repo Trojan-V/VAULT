@@ -37,7 +37,6 @@ import static me.vault.game.utility.constant.AttributeConstants.*;
  */
 public final class TroopController implements Upgrader<Troop, TroopLevel>
 {
-
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link TroopController}.
 	 * <br>
