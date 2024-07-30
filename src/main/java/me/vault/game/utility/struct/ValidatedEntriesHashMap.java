@@ -15,7 +15,7 @@ import java.util.Map;
  * @param <K> The datatype of the key.
  * @param <V> The datatype of the key's value.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see HashMap
  * @since 19.06.2024
@@ -35,6 +35,8 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 * @param entry The entry that's about to be inserted.
 	 *
 	 * @return The value of the inserted entry.
+	 * @precondition The entry is supplied.
+	 * @postcondition The validated Hashmap contains thr supplied entry
 	 */
 	public V put (final Entry<K, V> entry)
 	{
@@ -46,6 +48,8 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 * Returns a string representation of this validated {@link HashMap} including each entry in the map.
 	 *
 	 * @return A string representation of this validated {@link HashMap}.
+	 * @precondition The {@link ValidatedEntriesHashMap#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
@@ -65,7 +69,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 * Each entry runs the validate() method in its constructor to ensure neither the key nor the value of the key
 	 * are equal to null.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see ValidatedEntriesHashMap
 	 * @since 19.06.2024
@@ -99,6 +103,9 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 * @param value The value of the entry.
 		 *
 		 * @exception InvalidMapEntryException When the key or the value of the key is equal to null.
+		 * @precondition The key and the value of it are supplied.
+		 * @postcondition An instance of an entry is constructed, and it is validated that neither the key nor the
+		 * value of it are null.
 		 */
 		public Entry (final E key, final F value) throws InvalidMapEntryException
 		{
@@ -112,6 +119,8 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 * Validates that neither the key nor the value of the key is equal to null.
 		 *
 		 * @exception InvalidMapEntryException When the key or the value of the key is equal to null.
+		 * @precondition The key and the value of it are supplied.
+		 * @postcondition It is validated that neither the key nor the value of it are null.
 		 */
 		private void validate () throws InvalidMapEntryException
 		{

@@ -4,6 +4,7 @@ package me.vault.game.utility.struct;
 import javafx.scene.image.Image;
 import me.vault.game.utility.loading.ResourceLoader;
 
+import javax.lang.model.element.Name;
 import java.io.File;
 import java.io.InputStream;
 
@@ -14,7 +15,7 @@ import java.io.InputStream;
  * <br>
  * This metadata is useful for logging messages in the console.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Image
  * @since 07.06.2024
@@ -45,6 +46,8 @@ public class MetaDataImage extends Image
 	 * Returns the image in a human-readable format by its name.
 	 *
 	 * @return The image in a human-readable format by its name.
+	 * @precondition The {@link Name} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
