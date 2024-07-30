@@ -279,22 +279,11 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns true if the artifact is at the maximum level, otherwise false.
-	 *
-	 * @return True if the artifact is at the maximum level, otherwise false.
-	 * @precondition
-	 * @postcondition
-	 */
-	public boolean isMaxLevel ()
-	{
-		return this.isMaxLevelProperty.get();
-	}
-
-
-	/**
 	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
 	 *
 	 * @param value True if the artifact should be marked as max level, otherwise false.
+	 * @precondition The {@link Artifact} can have multiple level.
+	 * @postcondition Sets if {@link ArtifactLevel} is maximal.
 	 */
 	public void setIsMaxLevel (final boolean value)
 	{
@@ -306,6 +295,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Returns the property used to store the isMaxLevel data.
 	 *
 	 * @return The property used to store the isMaxLevel data.
+	 * @precondition The data of isMaxLevel exists.
+	 * @postcondition The property used to store the isMaxLevel data is accessible for the program.
 	 */
 	public SimpleBooleanProperty getIsMaxLevelProperty ()
 	{
@@ -327,8 +318,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * {@link Artifact#getAllModifiers()}.
 	 *
 	 * @return The current level of the artifact.
-	 *
-	 * @see ArtifactLevel
+	 * @precondition The {@link Artifact} has a level.
+	 * @postcondition The current level of the {@link Artifact} is accessible for the program.
 	 */
 	@Override
 	public ArtifactLevel getLevel ()
@@ -342,7 +333,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link ArtifactLevel}.
 	 *
-	 * @see ArtifactLevel
+	 * @precondition The {@link Artifact} has a level.
+	 * @postcondition The current level of the {@link Artifact} is set.
 	 */
 	@Override
 	public void setLevel (final ArtifactLevel level)
@@ -356,7 +348,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The current price to upgrade the artifact to the next level.
 	 *
-	 * @see CurrencyTransaction
+	 * @precondition The {@link CurrencyTransaction} exists.
+	 * @postcondition The price for the {@link CurrencyTransaction} is accessible for the program.
 	 */
 	@Override
 	public CurrencyTransaction getUpgradeCosts ()
@@ -373,6 +366,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * higher the artifact level gets.
 	 *
 	 * @param upgradeCosts The new upgrade costs the artifact requires to be upgraded to the next level.
+	 * @precondition The {@link CurrencyTransaction} exists.
+	 * @postcondition The price for the {@link CurrencyTransaction} is set.
 	 */
 	@Override
 	public void setUpgradeCosts (final CurrencyTransaction upgradeCosts)
@@ -402,9 +397,9 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The {@link Map} which contains all upgrade cost transactions for the artifact.
 	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
+	 * @precondition The {@link Map} which contains all upgrade cost transactions for the {@link Artifact} exists.
+	 * @postcondition A {@link Map} which contains all upgrade cost transactions for the {@link Artifact} is
+	 * accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<ArtifactLevel, CurrencyTransaction> getAllUpgradeCosts ();
@@ -419,8 +414,9 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The {@link Map} which contains all names for the artifact.
 	 *
-	 * @see Map
-	 * @see ArtifactLevel
+	 * @precondition The {@link Map} which contains all names for the {@link Artifact} exists.
+	 * @postcondition A {@link Map} which contains all names for the {@link Artifact} is
+	 * accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<ArtifactLevel, String> getAllNames ();
@@ -436,9 +432,9 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The {@link Map} which contains all sprites for the artifact.
 	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see Image
+	 * @precondition The {@link Map} which contains all sprites for the {@link Artifact} exists.
+	 * @postcondition A {@link Map} which contains all sprites for the {@link Artifact} is
+	 * accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<ArtifactLevel, MetaDataImage> getAllSprites ();
@@ -454,9 +450,9 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @return The {@link Map} which contains all different sets of modifiers the artifact can have, depending on it's
 	 * level.
 	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
+	 * @precondition The {@link Map} which contains all modifiers for the {@link Artifact} exists.
+	 * @postcondition A {@link Map} which contains all modifiers for the {@link Artifact} is
+	 * accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> getAllModifiers ();
