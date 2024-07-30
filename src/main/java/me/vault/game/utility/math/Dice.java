@@ -25,8 +25,8 @@ public final class Dice
 
 
 	/**
-	 * The upper bound of a D20. As the highest possible roll of a D100 is the number twenty, the upper bound has to
-	 * be set to 100.
+	 * The upper bound of a D100.
+	 * As the highest possible roll of a D100 is the number twenty, the upper bound has to be set to 100.
 	 */
 	private static final int D100_UPPER_BOUND = 100;
 
@@ -40,7 +40,7 @@ public final class Dice
 
 
 	/**
-	 * The here used dice is the D100 dice.
+	 * The dice used here is the D100 dice.
 	 * <br>
 	 * Therefore, an extra method is provided here for convenience.
 	 *
