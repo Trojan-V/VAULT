@@ -213,8 +213,9 @@ public final class MissionDelegate implements Initializable
 		{
 
 			missionGameBoard.place(position, new AccessibleTileAppearance());
-			final int randomArenaIndex = new Random().nextInt(this.mission.getAvailableArenaEncounters().size()); // TODO: Literal
+			final int randomArenaIndex = new Random().nextInt(this.mission.getAvailableArenaEncounters().size());
 			final Arena randomArena = this.mission.getAvailableArenaEncounters().get(randomArenaIndex);
+			this.mission.removeAvailableArena(randomArena);
 			ArenaDelegate.show(this.mission, randomArena);
 		}
 

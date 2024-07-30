@@ -29,6 +29,7 @@ import java.util.List;
  */
 public class Mission
 {
+
 	/**
 	 * A list of all available {@link Arena} encounters.
 	 * These encounters are pre-defined and are located in the {@link ArenaConstants} constant interface.
@@ -71,12 +72,15 @@ public class Mission
 	private final SimpleBooleanProperty isCompletedProperty;
 
 
+	private final List<Arena> availableArenas;
+
+
 	/**
 	 * Constructs an instance of this class.
 	 * <br>
 	 * The missions that are used in the game are all pre-defined and stored in the {@link MissionConstants} constant interface.
 	 *
-	 * @param gameBoard The {@link GameBoard} where the mission will take place.
+	 * @param gameBoard     The {@link GameBoard} where the mission will take place.
 	 * @param missionReward The rewards the player receives upon completing the mission.
 	 */
 	public Mission (final GameBoard gameBoard, final CurrencyTransaction missionReward)
@@ -84,6 +88,8 @@ public class Mission
 		this.isCompletedProperty = new SimpleBooleanProperty(false);
 		this.gameBoard = gameBoard;
 		this.missionReward = missionReward;
+		this.availableArenas = new ArrayList<>();
+		this.availableArenas.addAll(AVAILABLE_ARENA_ENCOUNTERS);
 	}
 
 
@@ -149,7 +155,13 @@ public class Mission
 	 */
 	public List<Arena> getAvailableArenaEncounters ()
 	{
-		return AVAILABLE_ARENA_ENCOUNTERS;
+		return this.availableArenas;
+	}
+
+
+	public void removeAvailableArena (Arena arena)
+	{
+		this.availableArenas.remove(arena);
 	}
 
 
@@ -158,6 +170,7 @@ public class Mission
 	 * {@link Mission#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link Mission#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link Mission#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -166,4 +179,5 @@ public class Mission
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.gameBoard.toString(), this.missionReward.toString(), this.isCompletedProperty.get());
 	}
+
 }
