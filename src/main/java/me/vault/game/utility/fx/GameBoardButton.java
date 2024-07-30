@@ -15,6 +15,7 @@ import me.vault.game.model.arena.Figure;
 import me.vault.game.model.troop.Troop;
 import org.jetbrains.annotations.Nullable;
 
+// TODO: Complete JavaDoc needed
 
 /**
  * The {@code GameBoardButton} represents one clickable button in the game board. It extends the standard {@link Button} and automatically

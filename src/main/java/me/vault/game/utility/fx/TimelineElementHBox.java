@@ -11,6 +11,7 @@ import me.vault.game.model.arena.Figure;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
+// TODO: Complete JavaDoc needed
 
 /**
  *

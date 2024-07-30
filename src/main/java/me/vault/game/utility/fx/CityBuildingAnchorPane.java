@@ -19,6 +19,7 @@ import me.vault.game.view.city.building.*;
 
 import java.text.MessageFormat;
 
+// TODO: Complete JavaDoc needed
 
 public final class CityBuildingAnchorPane extends AnchorPane
 {

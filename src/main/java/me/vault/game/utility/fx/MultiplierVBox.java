@@ -9,6 +9,7 @@ import javafx.scene.text.Font;
 import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.energy.AbilityMultiplier;
 import org.jetbrains.annotations.NotNull;
+// TODO: Complete JavaDoc needed
 
 
 public final class MultiplierVBox extends VBox

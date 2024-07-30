@@ -6,6 +6,7 @@ import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
+// TODO: Complete JavaDoc needed
 
 public class SelectedTroopImageView extends ImageView
 {

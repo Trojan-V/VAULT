@@ -7,6 +7,7 @@ import javafx.scene.layout.GridPane;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 
+// TODO: Complete JavaDoc needed
 
 public final class RewardGridPane extends GridPane
 {

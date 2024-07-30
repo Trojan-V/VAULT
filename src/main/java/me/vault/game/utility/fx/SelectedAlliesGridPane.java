@@ -8,6 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import me.vault.game.model.troop.Troop;
 
+// TODO: Complete JavaDoc needed
 
 public final class SelectedAlliesGridPane extends GridPane
 {

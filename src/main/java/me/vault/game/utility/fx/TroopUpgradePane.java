@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static me.vault.game.utility.constant.TroopStatisticConstants.*;
 
+// TODO: Complete JavaDoc needed
 
 public final class TroopUpgradePane extends GridPane
 {
