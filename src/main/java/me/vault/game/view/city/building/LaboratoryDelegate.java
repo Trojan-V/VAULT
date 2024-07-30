@@ -16,7 +16,7 @@ import me.vault.game.model.energy.impl.DodgeAbility;
 import me.vault.game.model.energy.impl.InitiativeAbility;
 import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.utility.ViewUtil;
-import me.vault.game.utility.fx.ModifierVBox;
+import me.vault.game.utility.fx.MultiplierVBox;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -126,7 +126,7 @@ public final class LaboratoryDelegate implements Initializable
 		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.bindEnergyTextProperties();
 		this.bindEnergyImageProperties();
-		this.addAttributeMultiplierHBoxes();
+		this.addMultiplierBoxes();
 		this.bindUpgradeButtonProperties();
 
 	}
@@ -156,11 +156,11 @@ public final class LaboratoryDelegate implements Initializable
 	}
 
 
-	private void addAttributeMultiplierHBoxes ()
+	private void addMultiplierBoxes ()
 	{
-		this.dodgeHBox.getChildren().add(new ModifierVBox(DodgeAbility.getInstance().getAbilityMultiplier()));
-		this.initiativeHBox.getChildren().add(new ModifierVBox(InitiativeAbility.getInstance().getAbilityMultiplier()));
-		this.meleeHBox.getChildren().add(new ModifierVBox(MeleeAbility.getInstance().getAbilityMultiplier()));
+		this.dodgeHBox.getChildren().add(new MultiplierVBox(DodgeAbility.getInstance().getAbilityMultiplier()));
+		this.initiativeHBox.getChildren().add(new MultiplierVBox(InitiativeAbility.getInstance().getAbilityMultiplier()));
+		this.meleeHBox.getChildren().add(new MultiplierVBox(MeleeAbility.getInstance().getAbilityMultiplier()));
 	}
 
 

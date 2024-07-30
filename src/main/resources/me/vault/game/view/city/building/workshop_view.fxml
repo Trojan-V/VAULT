@@ -36,20 +36,29 @@
                 <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <ImageView fx:id="healthArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                     <GridPane.margin>
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
+               <image>
+                  <Image url="@../../../assets/artifact/health_artifact_icon.png" />
+               </image>
                 </ImageView>
-                <ImageView fx:id="damageArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
+               <image>
+                  <Image url="@../../../assets/artifact/damage_artifact_icon.png" />
+               </image>
                 </ImageView>
-                <ImageView fx:id="defenseArtifactImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
+               <image>
+                  <Image url="@../../../assets/artifact/defense_artifact_icon.png" />
+               </image>
                 </ImageView>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                     <children>

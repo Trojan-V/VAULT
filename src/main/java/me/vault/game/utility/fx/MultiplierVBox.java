@@ -11,7 +11,7 @@ import me.vault.game.model.energy.AbilityMultiplier;
 import org.jetbrains.annotations.NotNull;
 
 
-public final class ModifierVBox extends VBox
+public final class MultiplierVBox extends VBox
 {
 
 	private static final int FONT_SIZE = 20;
@@ -23,7 +23,7 @@ public final class ModifierVBox extends VBox
 	private static final int PADDING = 15;
 
 
-	public ModifierVBox (final AbilityMultiplier abilityMultiplier)
+	public MultiplierVBox (final AbilityMultiplier abilityMultiplier)
 	{
 		this.setPrefWidth(PREF_WIDTH);
 		this.setSpacing(SPACING);
@@ -39,7 +39,7 @@ public final class ModifierVBox extends VBox
 	}
 
 
-	public ModifierVBox (final AttributeMultiplier abilityMultiplier)
+	public MultiplierVBox (final AttributeMultiplier abilityMultiplier)
 	{
 		this.setPrefWidth(PREF_WIDTH);
 		this.setSpacing(SPACING);

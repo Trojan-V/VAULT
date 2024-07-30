@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -15,13 +14,13 @@ import me.vault.game.GameApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
-import me.vault.game.model.artifact.AttributeMultiplier;
+import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.city.Workshop;
 import me.vault.game.utility.ViewUtil;
-import me.vault.game.utility.fx.ModifierVBox;
+import me.vault.game.utility.fx.MultiplierVBox;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -36,7 +35,7 @@ import java.util.ResourceBundle;
 /**
  * The {@code DocksDelegate} handles the control and view of the {@link Workshop} city building.
  * <br>
- * On the one hand it initialises the view from the fxml-file and binds properties from the model to the view.
+ * On the one hand, it initializes the view from the fxml-file and binds properties from the model to the view.
  * <br>
  * On the other hand it provides methods to control the model to the {@link Workshop} city building.
  *
@@ -54,46 +53,73 @@ public final class WorkshopDelegate implements Initializable
 	 */
 	private static final ILogger LOGGER = new Logger(WorkshopDelegate.class.getSimpleName());
 
+	/**
+	 * The path to the respective fxml file of the delegate as a {@link String}.
+	 */
 	private static final String WORKSHOP_VIEW_FXML = "workshop_view.fxml";
 
+	/**
+	 * The pattern used to create the string which describes the class in a human-readable format.
+	 */
 	private static final String TO_STRING_PATTERN = "WorkshopDelegate'{'fxml={0}'}'";
 
+	/**
+	 * The {@link AnchorPane} at the top-most position in the scene-tree.
+	 */
 	@FXML
 	private AnchorPane mainPane;
 
+	/**
+	 * The {@link HBox} that contains the multipliers for the {@link HealthArtifact}
+	 */
 	@FXML
 	private HBox healthHBox;
 
+	/**
+	 * The {@link HBox} that contains the multipliers for the {@link DamageArtifact}
+	 */
 	@FXML
 	private HBox damageHBox;
 
+	/**
+	 * The {@link HBox} that contains the multipliers for the {@link DefenseArtifact}
+	 */
 	@FXML
 	private HBox defenseHBox;
 
-	@FXML
-	private ImageView damageArtifactImageView;
-
+	/**
+	 * The {@link Label} that contains the name for the {@link DamageArtifact}
+	 */
 	@FXML
 	private Label damageArtifactLabel;
 
-	@FXML
-	private Button damageUpgradeButton;
-
-	@FXML
-	private ImageView defenseArtifactImageView;
-
-	@FXML
-	private Label defenseArtifactLabel;
-
-	@FXML
-	private Button defenseUpgradeButton;
-
-	@FXML
-	private ImageView healthArtifactImageView;
-
+	/**
+	 * The {@link Label} that contains the name for the {@link HealthArtifact}
+	 */
 	@FXML
 	private Label healthArtifactLabel;
 
+	/**
+	 * The {@link Label} that contains the name for the {@link DefenseArtifact}
+	 */
+	@FXML
+	private Label defenseArtifactLabel;
+
+	/**
+	 * The {@link Button} that allows the upgrade of the {@link DamageArtifact}
+	 */
+	@FXML
+	private Button damageUpgradeButton;
+
+	/**
+	 * The {@link Button} that allows the upgrade of the {@link DefenseArtifact}
+	 */
+	@FXML
+	private Button defenseUpgradeButton;
+
+	/**
+	 * The {@link Button} that allows the upgrade of the {@link HealthArtifact}
+	 */
 	@FXML
 	private Button healthUpgradeButton;
 
@@ -126,34 +152,19 @@ public final class WorkshopDelegate implements Initializable
 	{
 		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.bindArtifactTextProperties();
-		this.bindArtifactImageProperties();
-		this.bindArtifactMultiplierTextProperties();
+		this.addMultiplierBoxes();
 		this.bindUpgradeButtonProperties();
 
 	}
 
 
-	@FXML
-	private void onDamageArtifactUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(DamageArtifact.getInstance(), ArtifactController.getInstance());
-	}
-
-
-	@FXML
-	private void onDefenseArtifactUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(DefenseArtifact.getInstance(), ArtifactController.getInstance());
-	}
-
-
-	@FXML
-	private void onHealthArtifactUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(HealthArtifact.getInstance(), ArtifactController.getInstance());
-	}
-
-
+	/**
+	 * Binds the {@link Artifact#getIsMaxLevelProperty()} of the artifacts to the disableProperty() of the upgrade buttons on the GUI.
+	 * This causes that the user isn't able to upgrade the artifacts past their maximum level.
+	 *
+	 * @precondition The view has been initialized and the method got called.
+	 * @postcondition The upgrade buttons on the GUI have been turned off if the relative artifact is already at maximum level.
+	 */
 	private void bindUpgradeButtonProperties ()
 	{
 		this.healthUpgradeButton.disableProperty().bind(HealthArtifact.getInstance().getIsMaxLevelProperty());
@@ -162,6 +173,13 @@ public final class WorkshopDelegate implements Initializable
 	}
 
 
+	/**
+	 * Binds the {@link Artifact#getNameProperty()} of the artifacts to the textProperty() of the artifact labels on the GUI.
+	 * This causes that the user has feedback on the design of the workshop when he upgrades an artifact to the next level.
+	 *
+	 * @precondition The view has been initialized and the method got called.
+	 * @postcondition The artifact labels have the same text values as the name of their relative artifact.
+	 */
 	private void bindArtifactTextProperties ()
 	{
 		this.healthArtifactLabel.textProperty().bind(HealthArtifact.getInstance().getNameProperty());
@@ -170,19 +188,66 @@ public final class WorkshopDelegate implements Initializable
 	}
 
 
-	private void bindArtifactImageProperties ()
+	/**
+	 * Adds the multiplier of the different artifacts to the GUI by adding {@link MultiplierVBox}es to pre-defined fxml {@link HBox} controls.
+	 *
+	 * @precondition The view has been initialized and the method got called.
+	 * @postcondition The {@link MultiplierVBox}es have been added to pre-defined fxml {@link HBox} controls and display the multipliers of their
+	 * relative Artifact.
+	 */
+	private void addMultiplierBoxes ()
 	{
-		this.healthArtifactImageView.imageProperty().bind(HealthArtifact.getInstance().getSpriteProperty());
-		this.damageArtifactImageView.imageProperty().bind(DamageArtifact.getInstance().getSpriteProperty());
-		this.defenseArtifactImageView.imageProperty().bind(DefenseArtifact.getInstance().getSpriteProperty());
+		this.healthHBox.getChildren().add(new MultiplierVBox(HealthArtifact.getInstance().getAttributeMultipliers()));
+		this.damageHBox.getChildren().add(new MultiplierVBox(DamageArtifact.getInstance().getAttributeMultipliers()));
+		this.defenseHBox.getChildren().add(new MultiplierVBox(DefenseArtifact.getInstance().getAttributeMultipliers()));
 	}
 
 
-	private void bindArtifactMultiplierTextProperties ()
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Upgrade Damage Artifact" {@link Button} in the GUI.
+	 * Shows the dialog of the {@link UpgradeDialogDelegate} for the {@link DamageArtifact}.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The {@link Scene} of the {@link UpgradeDialogDelegate} is displayed on a new {@link Stage}.
+	 */
+	@FXML
+	private void onDamageArtifactUpgrade (final ActionEvent ignored)
 	{
-		this.healthHBox.getChildren().add(new ModifierVBox(HealthArtifact.getInstance().getAttributeMultipliers()));
-		this.damageHBox.getChildren().add(new ModifierVBox(DamageArtifact.getInstance().getAttributeMultipliers()));
-		this.defenseHBox.getChildren().add(new ModifierVBox(DefenseArtifact.getInstance().getAttributeMultipliers()));
+		UpgradeDialogDelegate.show(DamageArtifact.getInstance(), ArtifactController.getInstance());
+	}
+
+
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Upgrade Defense Artifact" {@link Button} in the GUI.
+	 * Shows the dialog of the {@link UpgradeDialogDelegate} for the {@link DefenseArtifact}.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The {@link Scene} of the {@link UpgradeDialogDelegate} is displayed on a new {@link Stage}.
+	 */
+	@FXML
+	private void onDefenseArtifactUpgrade (final ActionEvent ignored)
+	{
+		UpgradeDialogDelegate.show(DefenseArtifact.getInstance(), ArtifactController.getInstance());
+	}
+
+
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Upgrade Health Artifact" {@link Button} in the GUI.
+	 * Shows the dialog of the {@link UpgradeDialogDelegate} for the {@link HealthArtifact}.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The {@link Scene} of the {@link UpgradeDialogDelegate} is displayed on a new {@link Stage}.
+	 */
+	@FXML
+	private void onHealthArtifactUpgrade (final ActionEvent ignored)
+	{
+		UpgradeDialogDelegate.show(HealthArtifact.getInstance(), ArtifactController.getInstance());
 	}
 
 
