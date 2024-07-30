@@ -187,7 +187,7 @@ public final class MainMenuDelegate implements Initializable
 	 * If this isn't the case, the current configuration is saved, and the configuration is reset,
 	 * before {@link DifficultyDelegate#show()} is called to start a new game.
 	 *
-	 * @precondition
+	 * @precondition -
 	 * @postcondition If the config file is not identical to the default config file the information from the config
 	 * file is saved in a new file; the config file is set to the default values and the difficulty (scene) is shown
 	 */

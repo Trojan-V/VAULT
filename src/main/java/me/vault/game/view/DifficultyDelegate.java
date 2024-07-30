@@ -17,6 +17,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
+/**
+ * This class acts as the controller and view for the difficulty selection.
+ * <br>
+ * The class provides methods to display the difficulty selection as well as methods for the user to interact with
+ * the application.
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 2.0.0
+ */
 public final class DifficultyDelegate implements Initializable
 {
 
