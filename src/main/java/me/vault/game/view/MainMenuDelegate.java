@@ -304,8 +304,8 @@ public final class MainMenuDelegate implements Initializable
 	{
 		if (ConfigLoader.getInstance().isConfigDefault())
 		{
-			ViewUtil.setMenuItemInactive(this.continueMenuItem);
-			ViewUtil.setButtonInactive(this.continueButton);
+			ViewUtil.disableMenuItem(this.continueMenuItem);
+			ViewUtil.disableButton(this.continueButton);
 		}
 	}
 
@@ -324,8 +324,8 @@ public final class MainMenuDelegate implements Initializable
 	{
 		if (ResourceLoader.collectFilesContaining(GAME_SAVE_DIRECTORY_PATH, SAVE_NAME).isEmpty())
 		{
-			ViewUtil.setMenuItemInactive(this.loadGameMenuItem);
-			ViewUtil.setButtonInactive(this.loadGameButton);
+			ViewUtil.disableMenuItem(this.loadGameMenuItem);
+			ViewUtil.disableButton(this.loadGameButton);
 		}
 	}
 

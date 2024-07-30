@@ -5,15 +5,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TabPane;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.utility.constant.GameConstants;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -26,9 +22,9 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
 /**
- * This class is a utility class that provides methods to manipulate GUI-elements, such as {@link Button}s.
+ * This class is a utility class that provides methods to manipulate different GUI-elements.
  *
- * @autor Timothy Hoegen-Jupp
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  *
  * @version 1.0.0
  * @see Button
@@ -38,6 +34,7 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
  * @see Stage
  * @see Scene
  * @see MenuItem
+ * @since 30.07.2024
  */
 public final class ViewUtil
 {
@@ -48,54 +45,77 @@ public final class ViewUtil
 	private static final ILogger LOGGER = new Logger(ViewUtil.class.getSimpleName());
 
 
-	public static void setButtonColor (final Text text, final Color color)
-	{
-		text.setFill(Paint.valueOf(color.toString()));
-	}
-
-
-	public static void setImage (final ImageView imageView, final Image image)
-	{
-		imageView.setImage(image);
-	}
-
-
+	/**
+	 * Sets the text of a given {@link Text}.
+	 *
+	 * @param textElement the GUI element, whose text should be set.
+	 * @param text the text that should be displayed by the GUI element.
+	 *
+	 * @precondition The textElement != null.
+	 * @postcondition The text from the textElement equals the text from the parameter text.
+	 */
 	public static void setText (final Text textElement, final String text)
 	{
 		textElement.setText(text);
 	}
 
 
+	/**
+	 * Sets the TabPane style of the given tabPane to the give style.
+	 *
+	 * @param tabPane The tab pane which style should be set.
+	 * @param style The style that the tab pane should be set to.
+	 *
+	 * @precondition tabPane != null and style must be a valid style.
+	 * @postcondition tabPane has the given style.
+	 */
 	public static void setTabPaneStyle (final TabPane tabPane, final String style)
 	{
 		tabPane.getStyleClass().add(style);
 	}
 
 
-	public static void setButtonInactive (final Button button)
+	/**
+	 * Disables a given {@link Button}.
+	 *
+	 * @param button The button that should be disabled.
+	 *
+	 * @precondition button != null.
+	 * @postcondition button is disabled.
+	 */
+	public static void disableButton (final Button button)
 	{
 		button.setDisable(true);
 	}
 
 
-	public static void setButtonActive (final Button button)
-	{
-		button.setDisable(false);
-	}
-
-
-	public static void setMenuItemInactive (final MenuItem menuItem)
+	/**
+	 * Disables a given {@link MenuItem}.
+	 *
+	 * @param menuItem The menu item that should be disabled.
+	 *
+	 * @precondition menuItem != null.
+	 * @postcondition menuItem is diabled.
+	 */
+	public static void disableMenuItem (final MenuItem menuItem)
 	{
 		menuItem.setDisable(true);
 	}
 
 
-	public static void setMenuItemActive (final MenuItem menuItem)
-	{
-		menuItem.setDisable(false);
-	}
-
-
+	/**
+	 * Shows the given {@link Scene} on the given {@link Stage} and adds a log entry with the class that called the
+	 * method.
+	 *
+	 * @param stage The {@link Stage} on which the Scene is displayed.
+	 * @param scene The {@link Scene} to be displayed.
+	 * @param clazz The class that called the method.
+	 *
+	 * @precondition The stage is != null, the scene is != null and the class is != null;
+	 * @postcondition The {@link GameConstants#BUTTON_LONG_CSS_FILE}-css file is added to the scene. The scene is
+	 * displayed on the given stage and a log entry is created ({@link Logger#logf(ILogger.Level, String, Object...)}). If there is a
+	 * {@link RuntimeException}, a corresponding log entry is also created.
+	 */
 	public static void show (final Stage stage, final Scene scene, final Class<?> clazz)
 	{
 		try
@@ -111,34 +131,6 @@ public final class ViewUtil
 			LOGGER.logf(ERROR, DISPLAY_FAILED_PATTERN, clazz.getSimpleName());
 		}
 
-	}
-
-
-	public static void setButtonImage (final Button button, final String filePath)
-	{
-		final ImageView imageView = new ImageView(ResourceLoader.loadImage(filePath));
-		setButtonImageView(button, imageView);
-	}
-
-
-	public static void setButtonImageView (final Button button, final ImageView imageView)
-	{
-		imageView.setPreserveRatio(false);
-		imageView.setFitWidth(button.getPrefWidth());
-		imageView.setFitHeight(button.getPrefHeight());
-		button.setGraphic(imageView);
-	}
-
-
-	public static void setButtonTextColor (final Button button, final String textColor)
-	{
-		button.setTextFill(Color.valueOf(textColor));
-	}
-
-
-	public static void setButtonTextColor (final Button button, final Color color)
-	{
-		button.setTextFill(color);
 	}
 
 }
