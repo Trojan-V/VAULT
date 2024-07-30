@@ -39,7 +39,7 @@ public interface TutorialConstants
 
 
 	/**
-	 * The {@link String} that contains the tutorial text for the artefacts.
+	 * The {@link String} that contains the tutorial text for the artifacts.
 	 */
 	String TUTORIAL_ARTIFACTS = """
 		Artifacts are mysterious pieces of equipment that were left behind by the Hitani and survived the tests of time. These strange pieces of \
