@@ -79,7 +79,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @return The singleton instance of this class.
 	 *
 	 * @precondition The singleton Instance exists.
-	 * @post.condition The singleton Instance can be accessed in the program.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static ArtifactController getInstance ()
 	{

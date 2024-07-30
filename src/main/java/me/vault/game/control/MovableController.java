@@ -16,18 +16,20 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 // TODO: Pre und POst
 
+
 /**
  * Controller class for any {@link Movable}s.
  * <br>
  * Provides a move() method the Movable's can use to move on the {@link GameBoard}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Movable
  * @since 29.07.2024
  */
 public final class MovableController
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -39,10 +41,11 @@ public final class MovableController
 	 * no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class
+	 * @postcondition A new instance of MovableController is created.
 	 */
-	private MovableController ()
-	{
-	}
+	private MovableController () {}
 
 
 	/**
@@ -52,6 +55,9 @@ public final class MovableController
 	 * @param movable      Should be either a {@link Figure <? extends Troop>} or a {@link Player}. But generally
 	 *                     speaking, this is the {@link Movable} that will be moved on the {@link GameBoard}.
 	 * @param nextPosition The position the {@link Placeable} should be moved to.
+	 *
+	 * @precondition A game board, a movable, and a position on the game board are passed into the method.
+	 * @postcondition The movable object was moved to the passed position on the passed game board.
 	 */
 	public static void move (final GameBoard gameBoard, final Movable movable, final Position nextPosition)
 	{
@@ -70,4 +76,5 @@ public final class MovableController
 		}
 
 	}
+
 }

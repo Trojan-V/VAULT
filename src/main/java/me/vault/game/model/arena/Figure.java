@@ -21,7 +21,7 @@ import java.text.MessageFormat;
  * <br>
  * Additionally, figures can also appear on the {@link GameBoard} of {@link Mission}s.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see GameBoard
  * @see Mission

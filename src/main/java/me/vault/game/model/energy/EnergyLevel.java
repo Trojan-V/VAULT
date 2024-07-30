@@ -23,7 +23,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Energy
- * // TODO: Abweichende Namen: Energy, EnergyLevel aber EnergyAbilityController? Vermutlich Umbenennung zu EnergyController.
  * @see EnergyAbilityController
  * @since 08.06.2024
  */

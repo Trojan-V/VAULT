@@ -11,7 +11,7 @@ import me.vault.game.view.ArenaFinishedDialogDelegate;
  * <br>
  * Usually, this exception should never be thrown unless a programmer messed something up in the control flow of the game.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see ArenaFinishedDialogDelegate
  * @since 30.07.2024

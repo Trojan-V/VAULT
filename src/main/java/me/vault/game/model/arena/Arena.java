@@ -20,7 +20,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 /**
  * This class is the model for the arena where the encounters take place.
  *
- * @author Vincent Wolf, Alexander Goethel
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see GameBoard
  * @see Figure

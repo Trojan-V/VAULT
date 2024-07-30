@@ -7,7 +7,6 @@ import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistics;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
@@ -18,18 +17,21 @@ import java.util.Map;
 import static me.vault.game.utility.constant.TroopConstants.Grenadier.*;
 
 
+/**
+ * This class is an implementation of {@link Troop}.
+ *
+ * @author Vincent Wolf
+ * @version 1.0.0
+ * @see Troop
+ * @since 30.07.2024
+ */
 public final class Grenadier extends Troop
 {
-
 	/**
-	 * The {@link Logger} object for this class used for writing to the console.
+	 * The allied instance.
 	 */
-	private static final Logger LOGGER = new Logger(Grenadier.class.getSimpleName());
+	private static final Grenadier INSTANCE;
 
-
-	private static final Grenadier ALLY_INSTANCE;
-
-	private static final Grenadier ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -37,11 +39,14 @@ public final class Grenadier extends Troop
 	 */
 	private static final Map<TroopLevel, String> NAMES = new ValidatedEntriesHashMap<>();
 
+
 	/**
-	 * All possible sprites ({@link Image}) of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which sprite corresponds to
+	 * All possible sprites ({@link Image}) of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which sprite
+	 * corresponds to
 	 * which {@link TroopLevel}.
 	 */
 	private static final Map<TroopLevel, MetaDataImage> SPRITES = new ValidatedEntriesHashMap<>();
+
 
 	/**
 	 * All possible upgrade cost {@link CurrencyTransaction}'s of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to
@@ -50,6 +55,10 @@ public final class Grenadier extends Troop
 	private static final Map<TroopLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
+	/**
+	 * All possible {@link TroopStatistics} of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to
+	 * denote which set of upgrade costs corresponds to which {@link TroopLevel}.
+	 */
 	private static final Map<TroopLevel, TroopStatistics> TROOP_STATISTICS = new HashMap<>();
 
 
@@ -71,11 +80,15 @@ public final class Grenadier extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, GRENADIER_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, GRENADIER_COUPLE_STATISTICS);
 
-		ALLY_INSTANCE = new Grenadier();
-		ENEMY_INSTANCE = new Grenadier();
+		INSTANCE = new Grenadier();
 	}
 
 
+	/**
+	 * Constructs an instance of this class.
+	 * <br>
+	 * The constructor is private because there should only ever be one instance of this class.
+	 */
 	private Grenadier ()
 	{
 		super(Faction.MEGA_CORPORATION);
@@ -86,21 +99,13 @@ public final class Grenadier extends Troop
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
-	 */
-	public static Grenadier getAllyInstance ()
-	{
-		return ALLY_INSTANCE;
-	}
-
-
-	/**
-	 * Returns the singleton instance of this class.
 	 *
-	 * @return The singleton instance of this class.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
-	public static Grenadier getEnemyInstance ()
+	public static Grenadier getInstance ()
 	{
-		return ENEMY_INSTANCE;
+		return INSTANCE;
 	}
 
 
@@ -134,6 +139,9 @@ public final class Grenadier extends Troop
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected @NotNull Map<TroopLevel, TroopStatistics> getAllStatistics ()
 	{

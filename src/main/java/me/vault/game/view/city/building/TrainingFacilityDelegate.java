@@ -128,10 +128,10 @@ public final class TrainingFacilityDelegate implements Initializable
 	{
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
-		this.militaristicPane.getChildren().add(new TroopUpgradePane(SpaceMarine.getInstance(), Officer.getAllyInstance(), Engineer.getAllyInstance()));
-		this.explorerPane.getChildren().add(new TroopUpgradePane(Ranger.getInstance(), Sniper.getInstance(), Medic.getAllyInstance()));
-		this.terraPane.getChildren().add(new TroopUpgradePane(Lieutenant.getInstance(), PrecisionShooter.getAllyInstance(), Infantry.getAllyInstance()));
-		this.corporationPane.getChildren().add(new TroopUpgradePane(Guard.getAllyInstance(), Grenadier.getAllyInstance(), Recruit.getInstance()));
+		this.militaristicPane.getChildren().add(new TroopUpgradePane(SpaceMarine.getInstance(), Officer.getInstance(), Engineer.getInstance()));
+		this.explorerPane.getChildren().add(new TroopUpgradePane(Ranger.getInstance(), Sniper.getInstance(), Medic.getInstance()));
+		this.terraPane.getChildren().add(new TroopUpgradePane(Lieutenant.getInstance(), PrecisionShooter.getInstance(), Infantry.getInstance()));
+		this.corporationPane.getChildren().add(new TroopUpgradePane(Guard.getInstance(), Grenadier.getInstance(), Recruit.getInstance()));
 	}
 
 

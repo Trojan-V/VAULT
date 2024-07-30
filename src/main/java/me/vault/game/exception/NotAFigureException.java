@@ -12,7 +12,7 @@ import java.text.MessageFormat;
 /**
  * This exception is thrown when an element on the {@link GameBoard} wasn't a {@link Figure} for some reason.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see GameBoard#getFigure(Position)
  * @since 30.07.2024

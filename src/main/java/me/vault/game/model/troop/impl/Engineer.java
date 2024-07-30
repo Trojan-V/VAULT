@@ -7,7 +7,6 @@ import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistics;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
@@ -19,9 +18,6 @@ import static me.vault.game.utility.constant.TroopConstants.Engineer.*;
 
 /**
  * This class is an implementation of {@link Troop}.
- * <br>
- * There are two available instances of this class.
- * One instance is the allied engineer, and the other instance is there for the enemy engineer.
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -30,23 +26,11 @@ import static me.vault.game.utility.constant.TroopConstants.Engineer.*;
  */
 public final class Engineer extends Troop
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final Logger LOGGER = new Logger(Engineer.class.getSimpleName());
-
-
 	/**
 	 * The allied instance.
 	 */
-	private static final Engineer ALLY_INSTANCE;
+	private static final Engineer INSTANCE;
 
-
-	/**
-	 * The enemy instance.
-	 */
-	private static final Engineer ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -54,11 +38,14 @@ public final class Engineer extends Troop
 	 */
 	private static final Map<TroopLevel, String> NAMES = new ValidatedEntriesHashMap<>();
 
+
 	/**
-	 * All possible sprites ({@link Image}) of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which sprite corresponds to
+	 * All possible sprites ({@link Image}) of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which sprite
+	 * corresponds to
 	 * which {@link TroopLevel}.
 	 */
 	private static final Map<TroopLevel, MetaDataImage> SPRITES = new ValidatedEntriesHashMap<>();
+
 
 	/**
 	 * All possible upgrade cost {@link CurrencyTransaction}'s of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to
@@ -94,11 +81,15 @@ public final class Engineer extends Troop
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, ENGINEER_SQUAD_STATISTICS);
 
 		// Create the singleton instance at last, so all maps are filled with values as the data in these maps is required to create an instance of this class.
-		ALLY_INSTANCE = new Engineer();
-		ENEMY_INSTANCE = new Engineer();
+		INSTANCE = new Engineer();
 	}
 
 
+	/**
+	 * Constructs an instance of this class.
+	 * <br>
+	 * The constructor is private because there should only ever be one instance of this class.
+	 */
 	private Engineer ()
 	{
 		super(Faction.MILITARISTIC_GOVERNMENT);
@@ -109,16 +100,13 @@ public final class Engineer extends Troop
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
-	public static Engineer getAllyInstance ()
+	public static Engineer getInstance ()
 	{
-		return ALLY_INSTANCE;
-	}
-
-
-	public static Engineer getEnemyInstance ()
-	{
-		return ENEMY_INSTANCE;
+		return INSTANCE;
 	}
 
 
@@ -152,6 +140,9 @@ public final class Engineer extends Troop
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected @NotNull Map<TroopLevel, TroopStatistics> getAllStatistics ()
 	{

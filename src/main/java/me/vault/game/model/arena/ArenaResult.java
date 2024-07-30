@@ -4,7 +4,7 @@ package me.vault.game.model.arena;
 /**
  * This enumeration contains all possible results of an arena encounter.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Arena
  * @since 29.07.2024

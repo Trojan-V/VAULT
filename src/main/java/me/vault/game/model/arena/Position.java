@@ -7,12 +7,13 @@ import java.text.MessageFormat;
 /**
  * A record that consists of an X and Y coordinate, which represents a position in the two-dimensional room.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 29.07.2024
  */
 public final record Position(int x, int y)
 {
+
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */

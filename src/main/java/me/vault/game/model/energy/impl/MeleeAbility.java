@@ -28,7 +28,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * melee
  * ability.
  *
- * @author Alexander Goethel
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Energy
  * @since 25.07.2024

@@ -293,7 +293,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@FXML
 	void selectEngineer (final ActionEvent ignored)
 	{
-		this.selectTroop(Engineer.getAllyInstance());
+		this.selectTroop(Engineer.getInstance());
 	}
 
 
@@ -309,7 +309,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@FXML
 	void selectGrenadier (final ActionEvent ignored)
 	{
-		this.selectTroop(Grenadier.getAllyInstance());
+		this.selectTroop(Grenadier.getInstance());
 	}
 
 
@@ -325,7 +325,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@FXML
 	void selectGuard (final ActionEvent ignored)
 	{
-		this.selectTroop(Guard.getAllyInstance());
+		this.selectTroop(Guard.getInstance());
 	}
 
 
@@ -341,7 +341,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@FXML
 	void selectInfantry (final ActionEvent ignored)
 	{
-		this.selectTroop(Infantry.getAllyInstance());
+		this.selectTroop(Infantry.getInstance());
 	}
 
 
@@ -373,7 +373,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@FXML
 	void selectMedic (final ActionEvent ignored)
 	{
-		this.selectTroop(Medic.getAllyInstance());
+		this.selectTroop(Medic.getInstance());
 	}
 
 
@@ -389,7 +389,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@FXML
 	void selectOfficer (final ActionEvent ignored)
 	{
-		this.selectTroop(Officer.getAllyInstance());
+		this.selectTroop(Officer.getInstance());
 	}
 
 
@@ -405,7 +405,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@FXML
 	void selectPrecisionShooter (final ActionEvent ignored)
 	{
-		this.selectTroop(PrecisionShooter.getAllyInstance());
+		this.selectTroop(PrecisionShooter.getInstance());
 	}
 
 
