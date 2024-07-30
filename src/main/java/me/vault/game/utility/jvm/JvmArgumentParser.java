@@ -71,6 +71,9 @@ public final class JvmArgumentParser
 	 * As this class is solely a collection of static methods, there's no use-case where an instantiation of this
 	 * class would be beneficial, hence
 	 * why a private constructor is used here to prohibit that.
+	 *
+	 * @precondition None.
+	 * @postcondition An instance of this class was constructed.
 	 */
 	private JvmArgumentParser () {}
 
@@ -82,6 +85,9 @@ public final class JvmArgumentParser
 	 *
 	 * @param args The JVM arguments passed into the program at startup. These have to be acquired through the main
 	 *             method of the program.
+	 * @precondition An array of arguments has to be supplied as parameter. This array shouldn't be equal to null.
+	 * @postcondition The supplied array of arguments was parsed, and the function of these JVM arguments was applied to the program.
+	 *                Additionally, logging messages were printed into the console.
 	 */
 	public static void apply (final String[] args)
 	{
@@ -108,6 +114,9 @@ public final class JvmArgumentParser
 	 *
 	 * @param args The JVM arguments passed into the program at startup. These have to be acquired through the main
 	 *             method of the program.
+	 * @precondition An array of arguments has to be supplied as parameter. This array shouldn't be equal to null.
+	 * @postcondition The supplied array of arguments was parsed, and the function of these JVM arguments was applied to the program.
+	 *                Additionally, logging messages were printed into the console.
 	 */
 	private static void applyJvmArguments (final String[] args)
 	{
@@ -121,7 +130,7 @@ public final class JvmArgumentParser
 				currentArgument = currentArgument.substring(REMOVE_LEADING_DASH_SUBSTRING_INDEX);
 			}
 
-			if (!checkIsValidJvmArgument(currentArgument))
+			if (!isValidJvmArgument(currentArgument))
 			{
 				LOGGER.log(WARNING, MessageFormat.format(INVALID_ARGUMENT, args[currentArgumentIndex],
 					currentArgumentIndex));
@@ -151,10 +160,11 @@ public final class JvmArgumentParser
 	 * Checks if the supplied JVM argument string is a valid JVM argument.
 	 *
 	 * @param argumentToValidate The JVM argument that gets checked if it's valid or not.
-	 *
 	 * @return True if the supplied argument is valid, otherwise false.
+	 * @precondition A string that may or may not represent a valid JVM argument has to be supplied as a parameter.
+	 * @postcondition True was returned if the supplied string represents a valid JVM argument, otherwise false was returned.
 	 */
-	private static boolean checkIsValidJvmArgument (final String argumentToValidate)
+	private static boolean isValidJvmArgument (final String argumentToValidate)
 	{
 		for (final JvmArgument arg : JvmArgument.values())
 		{
@@ -172,6 +182,8 @@ public final class JvmArgumentParser
 	 *
 	 * @param args The JVM arguments passed into the program at startup. These have to be acquired through the main
 	 *             method of the program.
+	 * @precondition An array of arguments has to be supplied as parameter. This array shouldn't be equal to null.
+	 * @postcondition The supplied array of arguments was parsed, and the function of the log depth argument was applied to the program.
 	 */
 	private static void handleLogDepthArgument (final String[] args)
 	{
@@ -207,6 +219,8 @@ public final class JvmArgumentParser
 
 	/**
 	 * Executes the logic that is required to execute if the {@link JvmArgument#CHEATS} argument was supplied.
+	 * @precondition The {@link JvmArgument#CHEATS} must've been injected into the program by the user before this method is invoked.
+	 * @postcondition Cheats have been enabled.
 	 */
 	private static void handleCheatsArgument ()
 	{
@@ -222,11 +236,12 @@ public final class JvmArgumentParser
 	/**
 	 * Checks if the supplied parameter for the {@link JvmArgument#LOG_DEPTH} argument is a valid parameter.
 	 *
-	 * @param args The JVM arguments passed into the program at startup. These have to be acquired through the main
-	 *             method of the program.
-	 *
+	 * @param args  The JVM arguments passed into the program at startup.
+	 *              These have to be acquired through the main method of the program.
 	 * @param level The level.
 	 * @return True if the supplied parameter is valid, otherwise false.
+	 * @precondition The log depth argument must've appeared in the array of arguments.
+	 * @postcondition True was returned if the parameter directly behind the {@link JvmArgument#LOG_DEPTH} argument was valid, otherwise false was returned.
 	 */
 	private static boolean checkIsValidLogDepthParameter (final String[] args, final Level level)
 	{
@@ -236,6 +251,8 @@ public final class JvmArgumentParser
 
 	/**
 	 * Prints the values of the JVM arguments in the console window.
+	 * @precondition None.
+	 * @postcondition The values of all available JVM arguments were printed into the console.
 	 */
 	private static void printJvmArgumentStatus ()
 	{
