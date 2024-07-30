@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.control.CityBuildingController;
@@ -17,9 +19,9 @@ import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
-import me.vault.game.model.city.Barracks;
 import me.vault.game.model.city.Workshop;
 import me.vault.game.utility.ViewUtil;
+import me.vault.game.utility.fx.ModifierVBox;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -30,14 +32,13 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
-
 
 /**
- * The {@code DocksDelegate} handles the control and view of the {@link Workshop} city building. On the one hand it initialises the view from the
- * fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model to the {@link Workshop} cty
- * building.
+ * The {@code DocksDelegate} handles the control and view of the {@link Workshop} city building.
+ * <br>
+ * On the one hand it initialises the view from the fxml-file and binds properties from the model to the view.
+ * <br>
+ * On the other hand it provides methods to control the model to the {@link Workshop} city building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @see CityBuildingController
@@ -55,14 +56,19 @@ public final class WorkshopDelegate implements Initializable
 
 	private static final String WORKSHOP_VIEW_FXML = "workshop_view.fxml";
 
-	@FXML
-	private Label damageArtifactDamageModifierLabel;
+	private static final String TO_STRING_PATTERN = "WorkshopDelegate'{'fxml={0}'}'";
 
 	@FXML
-	private Label damageArtifactDefenseModifierLabel;
+	private AnchorPane mainPane;
 
 	@FXML
-	private Label damageArtifactHealthModifierLabel;
+	private HBox healthHBox;
+
+	@FXML
+	private HBox damageHBox;
+
+	@FXML
+	private HBox defenseHBox;
 
 	@FXML
 	private ImageView damageArtifactImageView;
@@ -74,15 +80,6 @@ public final class WorkshopDelegate implements Initializable
 	private Button damageUpgradeButton;
 
 	@FXML
-	private Label defenseArtifactDamageModifierLabel;
-
-	@FXML
-	private Label defenseArtifactDefenseModifierLabel;
-
-	@FXML
-	private Label defenseArtifactHealthModifierLabel;
-
-	@FXML
 	private ImageView defenseArtifactImageView;
 
 	@FXML
@@ -90,15 +87,6 @@ public final class WorkshopDelegate implements Initializable
 
 	@FXML
 	private Button defenseUpgradeButton;
-
-	@FXML
-	private Label healthArtifactDamageModifierLabel;
-
-	@FXML
-	private Label healthArtifactDefenseModifierLabel;
-
-	@FXML
-	private Label healthArtifactHealthModifierLabel;
 
 	@FXML
 	private ImageView healthArtifactImageView;
@@ -109,34 +97,18 @@ public final class WorkshopDelegate implements Initializable
 	@FXML
 	private Button healthUpgradeButton;
 
-	@FXML
-	private AnchorPane mainPane;
 
-
+	/**
+	 * Calls a method to display the content stored in {@link WorkshopDelegate#WORKSHOP_VIEW_FXML} and initialized
+	 * by {@link WorkshopDelegate#initialize(URL, ResourceBundle)} on the main stage of this application
+	 * ({@link GameApplication#getStage()})
+	 *
+	 * @precondition The GameApplication has to have a stage.
+	 * @postcondition The initialized view is shown on the GameApplication Stage.
+	 */
 	public static void show ()
 	{
 		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(WorkshopDelegate.class, WORKSHOP_VIEW_FXML), WorkshopDelegate.class);
-	}
-
-
-	@FXML
-	private void onDamageArtifactUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(DamageArtifact.getInstance(), ArtifactController.getInstance());
-	}
-
-
-	@FXML
-	private void onDefenseArtifactUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(DefenseArtifact.getInstance(), ArtifactController.getInstance());
-	}
-
-
-	@FXML
-	private void onHealthArtifactUpgrade (final ActionEvent ignored)
-	{
-		UpgradeDialogDelegate.show(HealthArtifact.getInstance(), ArtifactController.getInstance());
 	}
 
 
@@ -158,6 +130,27 @@ public final class WorkshopDelegate implements Initializable
 		this.bindArtifactMultiplierTextProperties();
 		this.bindUpgradeButtonProperties();
 
+	}
+
+
+	@FXML
+	private void onDamageArtifactUpgrade (final ActionEvent ignored)
+	{
+		UpgradeDialogDelegate.show(DamageArtifact.getInstance(), ArtifactController.getInstance());
+	}
+
+
+	@FXML
+	private void onDefenseArtifactUpgrade (final ActionEvent ignored)
+	{
+		UpgradeDialogDelegate.show(DefenseArtifact.getInstance(), ArtifactController.getInstance());
+	}
+
+
+	@FXML
+	private void onHealthArtifactUpgrade (final ActionEvent ignored)
+	{
+		UpgradeDialogDelegate.show(HealthArtifact.getInstance(), ArtifactController.getInstance());
 	}
 
 
@@ -187,27 +180,40 @@ public final class WorkshopDelegate implements Initializable
 
 	private void bindArtifactMultiplierTextProperties ()
 	{
-		final AttributeMultiplier healthArtifactModifiers = HealthArtifact.getInstance().getAttributeMultipliers();
-		this.healthArtifactDamageModifierLabel.textProperty().bind(healthArtifactModifiers.getDamageMultiplierProperty().asString());
-		this.healthArtifactDefenseModifierLabel.textProperty().bind(healthArtifactModifiers.getDefenseMultiplierProperty().asString());
-		this.healthArtifactHealthModifierLabel.textProperty().bind(healthArtifactModifiers.getHealthMultiplierProperty().asString());
-
-		final AttributeMultiplier damageArtifactModifiers = DamageArtifact.getInstance().getAttributeMultipliers();
-		this.damageArtifactDamageModifierLabel.textProperty().bind(damageArtifactModifiers.getDamageMultiplierProperty().asString());
-		this.damageArtifactDefenseModifierLabel.textProperty().bind(damageArtifactModifiers.getDefenseMultiplierProperty().asString());
-		this.damageArtifactHealthModifierLabel.textProperty().bind(damageArtifactModifiers.getHealthMultiplierProperty().asString());
-
-		final AttributeMultiplier defenseArtifactModifiers = DefenseArtifact.getInstance().getAttributeMultipliers();
-		this.defenseArtifactDamageModifierLabel.textProperty().bind(defenseArtifactModifiers.getDamageMultiplierProperty().asString());
-		this.defenseArtifactDefenseModifierLabel.textProperty().bind(defenseArtifactModifiers.getDefenseMultiplierProperty().asString());
-		this.defenseArtifactHealthModifierLabel.textProperty().bind(defenseArtifactModifiers.getHealthMultiplierProperty().asString());
+		this.healthHBox.getChildren().add(new ModifierVBox(HealthArtifact.getInstance().getAttributeMultipliers()));
+		this.damageHBox.getChildren().add(new ModifierVBox(DamageArtifact.getInstance().getAttributeMultipliers()));
+		this.defenseHBox.getChildren().add(new ModifierVBox(DefenseArtifact.getInstance().getAttributeMultipliers()));
 	}
 
 
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Back" {@link Button} in the GUI.
+	 * Shows the scene of the {@link CityDelegate} on the main {@link Stage} of the application.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link CityDelegate}.
+	 */
 	@FXML
 	private void onBackToCityView (final ActionEvent ignored)
 	{
 		CityDelegate.show();
+	}
+
+
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the {@link WorkshopDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link WorkshopDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link WorkshopDelegate#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, WORKSHOP_VIEW_FXML);
 	}
 
 }
