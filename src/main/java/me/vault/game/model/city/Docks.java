@@ -25,7 +25,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Docks.*;
  * @see me.vault.game.interfaces.Upgradable
  * @since 09.06.2024
  */
-public class Docks extends CityBuilding
+public final class Docks extends CityBuilding
 {
 
 	/**
@@ -74,9 +74,21 @@ public class Docks extends CityBuilding
 
 
 	/**
+	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of Docks is created.
+	 */
+	private Docks () {}
+
+
+	/**
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance of this class has been returned.
 	 */
 	public static Docks getInstance ()
 	{
