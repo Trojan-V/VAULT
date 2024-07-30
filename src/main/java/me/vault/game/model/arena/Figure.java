@@ -78,6 +78,8 @@ public final class Figure implements Movable, Nameable
 	 * the movable object on the {@link GameBoard} in the arena.
 	 *
 	 * @param troop The troop model whose statistics are used to create the corresponding figure to it.
+	 * @precondition The {@link Troop} exists.
+	 * @postcondition the {@link Figure} is created from the {@link Troop}.
 	 */
 	public Figure (final Troop troop)
 	{
@@ -92,6 +94,8 @@ public final class Figure implements Movable, Nameable
 	 * Returns the troop whose statistics were used to create this figure instance.
 	 *
 	 * @return The troop whose statistics were used to create this figure instance.
+	 * @precondition {@link Troop} exist.
+	 * @postcondition The {@link Troop} is accessible for the program.
 	 */
 	public Troop getTroop ()
 	{
@@ -103,6 +107,8 @@ public final class Figure implements Movable, Nameable
 	 * Returns the current statistics of the figure.
 	 *
 	 * @return The current statistics of the figure.
+	 * @precondition The {@link TroopStatistics} for the figure.
+	 * @postcondition The statistics of the figure is accessible for the program.
 	 */
 	public TroopStatistics getStatistics ()
 	{

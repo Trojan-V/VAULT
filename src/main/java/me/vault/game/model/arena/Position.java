@@ -24,6 +24,8 @@ public final record Position(int x, int y)
 	 * Returns the instance of this class in a human-readable format by creating a string.
 	 *
 	 * @return The instance in its string representation.
+	 * @precondition The {@link Position#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
