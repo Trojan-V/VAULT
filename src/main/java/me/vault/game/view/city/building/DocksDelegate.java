@@ -4,9 +4,11 @@ package me.vault.game.view.city.building;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
@@ -28,9 +30,11 @@ import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
 
 
 /**
- * The {@code DocksDelegate} handles the control and view of the {@link Docks} city building. On the one hand it initialises
- * the view from the fxml-file and binds properties from the model to the view. On the other hand it provides methods to control the model to the
- * {@link Docks} cty building.
+ * The {@code DocksDelegate} handles the control and view of the {@link Docks} city building.
+ * <br>
+ * On the one hand, it initializes the view from the fxml-file and binds properties from the model to the view.
+ * <br>
+ * On the other hand, it provides methods to control the model to the {@link Docks} cty building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
  * @see CityBuildingController
@@ -47,15 +51,15 @@ public final class DocksDelegate implements Initializable
 	private static final ILogger LOGGER = new Logger(DocksDelegate.class.getSimpleName());
 
 	/**
+	 * The path to the respective fxml file of the delegate as a {@link String}.
+	 */
+	private static final String DOCKS_VIEW_FXML = "docks_view.fxml";
+
+	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */
 	private static final String TO_STRING_PATTERN = "DocksDelegate[fxml={0}]";
 
-	/**
-	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/game} and defines the properties (color etc.) of the GUI
-	 * elements.
-	 */
-	private static final String DOCKS_VIEW_FXML = "docks_view.fxml";
 
 	/**
 	 * The {@link AnchorPane} at the top-most position in the scene-tree.
@@ -69,19 +73,42 @@ public final class DocksDelegate implements Initializable
 	@FXML
 	private TabPane factionsTabPane;
 
+	/**
+	 * The {@link Button} which provides the capabilities to select the explorer faction.
+	 */
 	@FXML
 	private Button chooseExplorerFactionButton;
 
+	/**
+	 * The {@link Button} which provides the capabilities to select the militaristic faction.
+	 */
 	@FXML
 	private Button chooseMilitaryFactionButton;
 
 
+	/**
+	 * Calls a method to display the content stored in {@link DocksDelegate#DOCKS_VIEW_FXML} and initialized
+	 * by {@link DocksDelegate#initialize(URL, ResourceBundle)} on the main stage of this application
+	 * ({@link GameApplication#getStage()})
+	 *
+	 * @precondition The GameApplication has to have a stage.
+	 * @postcondition The initialized view is shown on the GameApplication Stage.
+	 */
 	public static void show ()
 	{
 		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(DocksDelegate.class, DOCKS_VIEW_FXML), DocksDelegate.class);
 	}
 
 
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Choose Explorer" {@link Button} in the GUI.
+	 * Sets the {@link Faction#EXPLORER_ASSOCIATION} faction to the selected faction of the player.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The selected faction of the player has been set to the {@link Faction#EXPLORER_ASSOCIATION} faction.
+	 */
 	@FXML
 	void onChooseExplorerFaction (final ActionEvent ignored)
 	{
@@ -89,6 +116,15 @@ public final class DocksDelegate implements Initializable
 	}
 
 
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Choose Militaristic" {@link Button} in the GUI.
+	 * Sets the {@link Faction#MILITARISTIC_GOVERNMENT} faction to the selected faction of the player.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The selected faction of the player has been set to the {@link Faction#MILITARISTIC_GOVERNMENT} faction.
+	 */
 	@FXML
 	void onChooseMilitaristicFaction (final ActionEvent ignored)
 	{
@@ -116,9 +152,13 @@ public final class DocksDelegate implements Initializable
 
 
 	/**
-	 * Method, that gets called when the user presses the "BACK"-Button. Resets the current view to the city view.
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Back" {@link Button} in the GUI.
+	 * Shows the scene of the {@link CityDelegate} on the main {@link Stage} of the application.
 	 *
-	 * @param ignored {@link ActionEvent}-parameter, that contains information about the event-caller.
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link CityDelegate}.
 	 */
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
@@ -128,9 +168,12 @@ public final class DocksDelegate implements Initializable
 
 
 	/**
-	 * Returns the instance of this class in a human-readable format by creating a string.
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the {@link DocksDelegate#TO_STRING_PATTERN}.
 	 *
-	 * @return The message in its string representation.
+	 * @return A {@link String} which has been formatted in the {@link DocksDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link DocksDelegate#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
