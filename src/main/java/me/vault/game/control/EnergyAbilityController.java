@@ -20,6 +20,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
+ * This class contains any methods that are responsible for controlling all the logic that's related to energy
+ * ability`s.
+ * <br>
+ * Currently, it's responsible for upgrading the artifacts to the next level.
  * @author Alexander Goethel, Vincent Wolf
  * @version 1.0.0
  * @see Upgrader
@@ -57,6 +61,8 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @pre.condition The singleton Instance exists.
+	 * @post.condition The singleton Instance can be accessed in the program.
 	 */
 	public static EnergyAbilityController getInstance ()
 	{
@@ -70,6 +76,8 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * This method should be invoked every time after the energy ability was upgraded.
 	 *
 	 * @param energy The instance of the {@link Energy} that was upgraded.
+	 * @pre.condition Energy ability values are not the maximal level.
+	 * @post.condition The values of the energy ability are updated to the value of the new level.
 	 */
 	@Override
 	public void updateValues (final Energy energy)
@@ -103,6 +111,8 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * @param energy The {@link Energy} instance which is checked if it can be upgraded to the next level.
 	 *
 	 * @return True if the {@link Energy} can be upgraded, otherwise false.
+	 * @pre.condition The energy ability exists.
+	 * @post.condition Gives back if the energy ability is upgradeable.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final @NotNull Energy energy)
@@ -130,6 +140,8 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * {@inheritDoc}
 	 *
 	 * @param energy The {@link Energy} instance that gets upgraded.
+	 * @pre.condition The energy ability exists and can be upgraded.
+	 * @post.condition The instance of the energy ability gets upgraded.
 	 */
 	@Override
 	public void upgrade (final Energy energy)
