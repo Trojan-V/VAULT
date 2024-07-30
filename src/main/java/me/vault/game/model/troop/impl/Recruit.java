@@ -20,7 +20,7 @@ import static me.vault.game.utility.constant.TroopConstants.Recruit.*;
 /**
  * This class is an implementation of {@link Troop}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Troop
  * @since 30.07.2024
@@ -31,7 +31,7 @@ public final class Recruit extends Troop
 	/**
 	 * The instance of the troop.
 	 */
-	private static final Recruit ALLY_INSTANCE;
+	private static final Recruit INSTANCE;
 
 
 	/**
@@ -78,7 +78,7 @@ public final class Recruit extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, RECRUIT_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, RECRUIT_SQUAD_STATISTICS);
 
-		ALLY_INSTANCE = new Recruit();
+		INSTANCE = new Recruit();
 	}
 
 
@@ -106,7 +106,7 @@ public final class Recruit extends Troop
 	 */
 	public static Recruit getInstance ()
 	{
-		return ALLY_INSTANCE;
+		return INSTANCE;
 	}
 
 

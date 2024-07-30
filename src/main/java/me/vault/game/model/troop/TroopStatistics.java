@@ -16,7 +16,7 @@ import java.text.MessageFormat;
  * The statistics are split into several "sub-statistics" such as {@link Dexterity}, {@link Defensive} and
  * {@link Offensive} statistics.
  *
- * @author Lasse-Leander Hillen, Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Troop
  * @see Dexterity

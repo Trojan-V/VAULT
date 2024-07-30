@@ -16,7 +16,7 @@ import java.text.MessageFormat;
  * <br>
  * Each faction consists of a different sprite as well as a different multiplier for the offensive, defensive and dexterity multiplier.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Displayable
  * @since 30.07.2024

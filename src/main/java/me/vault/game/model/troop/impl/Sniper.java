@@ -20,7 +20,7 @@ import static me.vault.game.utility.constant.TroopConstants.Sniper.*;
 /**
  * This class is an implementation of {@link Troop}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Troop
  * @since 30.07.2024
@@ -31,7 +31,7 @@ public final class Sniper extends Troop
 	/**
 	 * The instance of the troop.
 	 */
-	private static final Sniper ALLY_INSTANCE;
+	private static final Sniper INSTANCE;
 
 
 	/**
@@ -78,7 +78,7 @@ public final class Sniper extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, SNIPER_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, SNIPER_SQUAD_STATISTICS);
 
-		ALLY_INSTANCE = new Sniper();
+		INSTANCE = new Sniper();
 	}
 
 
@@ -106,7 +106,7 @@ public final class Sniper extends Troop
 	 */
 	public static Sniper getInstance ()
 	{
-		return ALLY_INSTANCE;
+		return INSTANCE;
 	}
 
 

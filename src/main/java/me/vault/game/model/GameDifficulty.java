@@ -7,9 +7,10 @@ import java.text.MessageFormat;
 /**
  * This enum provides all different game difficulties that are available.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @since 30.07.2024 */
+ * @since 30.07.2024
+ */
 public enum GameDifficulty
 {
 	/**
@@ -89,6 +90,7 @@ public enum GameDifficulty
 	 * {@link GameDifficulty#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link GameDifficulty#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link GameDifficulty#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

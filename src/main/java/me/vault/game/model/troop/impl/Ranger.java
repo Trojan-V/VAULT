@@ -20,7 +20,7 @@ import static me.vault.game.utility.constant.TroopConstants.Ranger.*;
 /**
  * This class is an implementation of {@link Troop}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Troop
  * @since 30.07.2024
@@ -31,7 +31,7 @@ public final class Ranger extends Troop
 	/**
 	 * The instance of the troop.
 	 */
-	private static final Ranger ALLY_INSTANCE;
+	private static final Ranger INSTANCE;
 
 
 	/**
@@ -78,7 +78,7 @@ public final class Ranger extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, RANGER_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, RANGER_SQUAD_STATISTICS);
 
-		ALLY_INSTANCE = new Ranger();
+		INSTANCE = new Ranger();
 	}
 
 
@@ -106,7 +106,7 @@ public final class Ranger extends Troop
 	 */
 	public static Ranger getInstance ()
 	{
-		return ALLY_INSTANCE;
+		return INSTANCE;
 	}
 
 

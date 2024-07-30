@@ -34,7 +34,7 @@ import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_MET
  * <br>
  * These selected troop models will then be spawned on the game board of the arena and can fight against each other.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Figure
  * @see Upgradable

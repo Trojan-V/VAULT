@@ -20,7 +20,7 @@ import static me.vault.game.utility.constant.TroopConstants.Guard.*;
 /**
  * This class is an implementation of {@link Troop}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Troop
  * @since 30.07.2024
