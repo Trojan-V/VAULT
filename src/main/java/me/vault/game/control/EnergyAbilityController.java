@@ -20,6 +20,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
+ * This class contains any methods that are responsible for controlling all the logic that's related to energy
+ * ability`s.
+ * <br>
+ * Currently, it's responsible for upgrading the artifacts to the next level.
  * @author Alexander Goethel, Vincent Wolf
  * @version 1.0.0
  * @see Upgrader
@@ -52,11 +56,26 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	{
 	}
 
+	/**
+	 * Checks if the supplied energy ability is at the maximum level. If yes, true is returned, otherwise false.
+	 *
+	 * @param energy The instance of {@link Energy} which is checked.
+	 *
+	 * @return True if the energy ability is maxed, otherwise false.
+	 * @pre.condition An energy ability exists.
+	 * @post.condition Says if the energy ability is at its maximum.
+	 */
+	private static boolean isEnergyAbilityMaxed (final Energy energy)
+	{
+		return energy.getLevel() == EnergyLevel.getMaximum();
+	}
 
 	/**
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @pre.condition The singleton Instance exists.
+	 * @post.condition The singleton Instance can be accessed in the program.
 	 */
 	public static EnergyAbilityController getInstance ()
 	{
@@ -65,16 +84,12 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 
 
 	/**
-	 * Updates the values within the energy ability to the new values of the new level.
-	 * <br>
-	 * This method should be invoked every time after the energy ability was upgraded.
-	 *
-	 * @param energy The instance of the {@link Energy} that was upgraded.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void updateValues (final Energy energy)
 	{
-		if (energy.getLevel() == EnergyLevel.getMaximum())
+		if (isEnergyAbilityMaxed(energy))
 		{
 			energy.setIsMaxLevel(true);
 		}
@@ -99,10 +114,6 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @param energy The {@link Energy} instance which is checked if it can be upgraded to the next level.
-	 *
-	 * @return True if the {@link Energy} can be upgraded, otherwise false.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final @NotNull Energy energy)
@@ -128,8 +139,6 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @param energy The {@link Energy} instance that gets upgraded.
 	 */
 	@Override
 	public void upgrade (final Energy energy)

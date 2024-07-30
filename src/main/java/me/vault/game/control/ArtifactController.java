@@ -28,7 +28,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Upgrader
  * @see Artifact
  * @see ArtifactLevel
- * @since 23.05.2024
+ * @since 30.07.2024
  */
 public final class ArtifactController implements Upgrader<Artifact, ArtifactLevel>
 {
@@ -62,6 +62,8 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @param artifact The instance of {@link Artifact} which is checked.
 	 *
 	 * @return True if the artifact is maxed, otherwise false.
+	 * @pre.condition An artifact exists.
+	 * @post.condition Says if the artifact is at its maximum.
 	 */
 	private static boolean isArtifactMaxed (final Artifact artifact)
 	{
@@ -73,6 +75,8 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @pre.condition The singleton Instance exists.
+	 * @post.condition The singleton Instance can be accessed in the program.
 	 */
 	public static ArtifactController getInstance ()
 	{
@@ -82,17 +86,11 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * Updates the values within the artifact to the new values of the new level.
-	 * <br>
-	 * This method should be invoked every time after the artifact was upgraded.
-	 *
-	 * @param artifact The instance of the {@link Artifact} that was upgraded.
 	 */
 	@Override
 	public void updateValues (final Artifact artifact)
 	{
-		if (artifact.getLevel() == ArtifactLevel.getMaximum())
+		if (isArtifactMaxed(artifact))
 		{
 			artifact.setIsMaxLevel(true);
 		}
@@ -117,10 +115,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @param artifact The {@link Artifact} instance which is checked if it can be upgraded to the next level.
-	 *
-	 * @return True if the {@link Artifact} can be upgraded, otherwise false.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final Artifact artifact)
@@ -146,8 +140,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @param artifact The {@link Artifact} instance that gets upgraded.
 	 */
 	@Override
 	public void upgrade (final Artifact artifact)

@@ -26,7 +26,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @see Currency
- * @since 21.05.2024
+ * @since 30.07.2024
  */
 public final class CurrencyController implements Initializable
 {
@@ -83,6 +83,8 @@ public final class CurrencyController implements Initializable
 	 * in the transaction.
 	 *
 	 * @param transaction The {@code CurrencyTransaction} object which is meant to be factored in.
+	 * @pre.condition
+	 * @post.condition
 	 */
 	public static void factorCurrency (final CurrencyTransaction transaction)
 	{
