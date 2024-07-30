@@ -40,6 +40,7 @@ public enum ArtifactLevel implements Level
 	 */
 	IMPROVED;
 
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -72,7 +73,6 @@ public enum ArtifactLevel implements Level
 	 * Checks if the supplied artifact level is the minimum level.
 	 *
 	 * @param level The level which is checked.
-	 *
 	 * @return True if the supplied level is the minimum level, otherwise false.
 	 */
 	private static boolean checkIsMinimumLevel (final ArtifactLevel level)
@@ -85,7 +85,6 @@ public enum ArtifactLevel implements Level
 	 * Checks if the supplied artifact level is the maximum level.
 	 *
 	 * @param level The level which is checked.
-	 *
 	 * @return True if the supplied level is the maximum level, otherwise false.
 	 */
 	private static boolean checkIsMaximumLevel (final ArtifactLevel level)
@@ -124,5 +123,19 @@ public enum ArtifactLevel implements Level
 			return this;
 		}
 		return values()[this.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL];
+	}
+
+
+	/**
+	 * Builds a {@link String}, which represents the object in a human-readable format.
+	 *
+	 * @return A {@link String} which represents the object in a human-readable format.
+	 * @precondition None.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
+	@Override
+	public String toString ()
+	{
+		return this.name();
 	}
 }

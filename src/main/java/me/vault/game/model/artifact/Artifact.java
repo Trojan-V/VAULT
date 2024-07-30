@@ -67,7 +67,6 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>, Nameable
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -75,9 +74,10 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * The pattern used to create the string which describes the class in a human-readable format.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Artifact#toString()} is
+	 * called.
 	 */
-	private static final String TO_STRING_PATTERN = "Artifact[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
+	private static final String TO_STRING_PATTERN = "Artifact[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}, isMaxLevel={5}]";
 
 
 	/**
@@ -95,7 +95,15 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
+
+	/**
+	 * This property is used to store and dynamically display if the artifact is at the maximum level.
+	 * If the data is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
+	 *
+	 * @see SimpleBooleanProperty
+	 */
 	private final SimpleBooleanProperty isMaxLevelProperty;
+
 
 	/**
 	 * This field contains the attribute modifiers, which are the status effects the player receives in the form of
@@ -184,7 +192,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * This method is invoked by {@link ArtifactController#updateValues(Artifact)}.
 	 *
 	 * @param level The artifact level whose map of attribute multipliers should be returned.
-	 *
 	 * @return The map of attribute multipliers for the supplied level.
 	 */
 	public Map<AttributeMultiplier.Type, Double> getAttributeMultipliers (final ArtifactLevel level)
@@ -223,7 +230,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Returns the name of the artifact for the supplied {@link ArtifactLevel}.
 	 *
 	 * @param level The artifact level whose name should be returned.
-	 *
 	 * @return The name of the artifact for the supplied {@link ArtifactLevel}.
 	 */
 	public String getName (final ArtifactLevel level)
@@ -268,7 +274,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Returns the sprite of the artifact for the supplied {@link ArtifactLevel}.
 	 *
 	 * @param level The artifact level whose sprite should be returned.
-	 *
 	 * @return The sprite of the artifact for the supplied {@link ArtifactLevel}.
 	 */
 	public MetaDataImage getSprite (final ArtifactLevel level)
@@ -314,15 +319,36 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	}
 
 
-	public SimpleBooleanProperty getIsMaxLevelProperty ()
+	/**
+	 * Returns true if the artifact is at the maximum level, otherwise false.
+	 *
+	 * @return True if the artifact is at the maximum level, otherwise false.
+	 */
+	public boolean getIsMaxLevel ()
 	{
-		return this.isMaxLevelProperty;
+		return this.isMaxLevelProperty.get();
 	}
 
 
+	/**
+	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
+	 *
+	 * @param value True if the artifact should isMaxLevel, otherwise false.
+	 */
 	public void setIsMaxLevel (final boolean value)
 	{
 		this.isMaxLevelProperty.set(value);
+	}
+
+
+	/**
+	 * Returns the property used to store the isMaxLevel data.
+	 *
+	 * @return The property used to store the isMaxLevel data.
+	 */
+	public SimpleBooleanProperty getIsMaxLevelProperty ()
+	{
+		return this.isMaxLevelProperty;
 	}
 
 
@@ -353,7 +379,6 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Sets the level of the artifact to a new level.
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link ArtifactLevel}.
-	 *
 	 * @see ArtifactLevel
 	 */
 	@Override
@@ -470,17 +495,18 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 
 
 	/**
-	 * Returns the instance of this class in a human-readable format by creating a string.
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link Artifact#TO_STRING_PATTERN}.
 	 *
-	 * @return The instance in its string representation.
+	 * @return A {@link String} which has been formatted in the {@link Artifact#TO_STRING_PATTERN}.
+	 * @precondition The {@link Artifact#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.currentLevel.name(), this.nameProperty.get(),
-			this.spriteProperty.get()
-				.toString(),
-			this.attributeMultiplier.toString(), this.currentUpgradeCost.toString());
+			this.spriteProperty.get().toString(), this.attributeMultiplier.toString(), this.currentUpgradeCost.toString(), this.isMaxLevelProperty.get());
 	}
 
 }

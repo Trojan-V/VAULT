@@ -34,7 +34,6 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
  */
 public final class DefenseArtifact extends Artifact
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */

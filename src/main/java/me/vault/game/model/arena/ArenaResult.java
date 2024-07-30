@@ -30,7 +30,7 @@ public enum ArenaResult
 
 
 	/**
-	 * Builds a formatted {@link String}, which represents the object in a human-readable format.
+	 * Builds a {@link String}, which represents the object in a human-readable format.
 	 *
 	 * @return A {@link String} which represents the object in a human-readable format.
 	 * @precondition None.

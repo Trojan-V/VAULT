@@ -14,9 +14,6 @@ import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSS
 import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 
 
-
-
-
 /**
  * This class is used as a data structure to store buffs and de-buffs in the form of multipliers which are then
  * applied to all players or troops that
@@ -120,7 +117,7 @@ public class AttributeMultiplier
 	 * this check isn't performed as part
 	 * of the validation.
 	 *
-	 * @exception InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
+	 * @throws InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
 	 */
 	private void validate () throws InvalidAttributeMultiplierException
 	{
@@ -258,7 +255,20 @@ public class AttributeMultiplier
 		/**
 		 * Attribute-multiplier type for the defense multiplier.
 		 */
-		DEFENSE
-	}
+		DEFENSE;
 
+
+		/**
+		 * Builds a {@link String}, which represents the object in a human-readable format.
+		 *
+		 * @return A {@link String} which represents the object in a human-readable format.
+		 * @precondition None.
+		 * @postcondition The method returned a {@link String} which represents the object.
+		 */
+		@Override
+		public String toString ()
+		{
+			return this.name();
+		}
+	}
 }
