@@ -1,23 +1,18 @@
 package me.vault.game.control;
 
 
-import me.vault.game.interfaces.Movable;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.arena.Tile;
-import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static me.vault.game.utility.constant.LoggingConstants.ArenaDelegate.ATTACKED_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-// TODO: PRE UND POST
+
 /**
  * Controller class to handle enemy actions in the arena, such as moving or attacking.
  * This class basically provides a very simple enemy engine to let the 'computer' enemies move by themselves in the
@@ -29,6 +24,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class EnemyController
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -40,21 +36,11 @@ public final class EnemyController
 	 * no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of EnemyController is created.
 	 */
 	private EnemyController () {}
-
-
-	/**
-	 * Moves the enemy to the supplied tile.
-	 *
-	 * @param arena       The instance of the arena where the encounter is happening.
-	 * @param tile        The tile the enemy should move to.
-	 * @param troopFigure The enemy {@link Figure}.
-	 */
-	public static void moveTo (final Arena arena, final Tile tile, final Movable troopFigure)
-	{
-		MovableController.move(arena.getGameBoard(), troopFigure, tile.getPosition());
-	}
 
 
 	/**
@@ -66,6 +52,9 @@ public final class EnemyController
 	 * @param troopFigure        The enemy {@link Figure}.
 	 *
 	 * @return True, if the enemy attacked an allied troop, otherwise false.
+	 *
+	 * @precondition An {@link Arena}, {@link Iterable}, and a {@link Figure} != null are passed into the method.
+	 * @postcondition The figure tried to attack an adjacent enemy, and the result of that process was returned.
 	 */
 	public static boolean tryAttackAdjacentTroop (final Arena arena, final Iterable<Tile> adjacentTroopTiles, final Figure troopFigure)
 	{
@@ -82,29 +71,16 @@ public final class EnemyController
 		return false;
 	}
 
-
-	/**
-	 * The level of the enemies is increased depending on the difficulty selected in the main menu.
-	 *
-	 * @param encounterEnemies A list of all enemies that appear in the encounter.
-	 *
-	 * @return A {@link List} of the supplied enemies with the adjusted difficulty level.
-	 */
-	public static ArrayList<? extends Troop> adjustEnemiesByDifficulty (final ArrayList<? extends Troop> encounterEnemies)
-	{
-		for (final Troop enemy : encounterEnemies)
-		{
-			enemy.setLevel(getEnemyLevelForDifficulty());
-			TroopController.getInstance().updateValues(enemy);
-		}
-		return encounterEnemies;
-	}
+	// TODO: Implement? ja oder nein?
 
 
 	/**
 	 * Returns the level the enemies should have depending on the configured difficulty.
 	 *
 	 * @return The level of the enemies depending on the configured difficulty.
+	 *
+	 * @precondition Method gets called.
+	 * @postcondition The corresponding TroopLevel for the selected game difficulty was returned.
 	 */
 	private static TroopLevel getEnemyLevelForDifficulty ()
 	{

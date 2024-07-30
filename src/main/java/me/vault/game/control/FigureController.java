@@ -24,11 +24,11 @@ import java.util.List;
 
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
-// TODO: Pre und POst
+
 /**
  * Controller class to handle enemy actions in the arena, such as attacking.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see EnemyController
  * @since 29.07.2024
@@ -72,10 +72,11 @@ public final class FigureController
 	 * no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class
+	 * @postcondition A new instance of FigureController is created.
 	 */
-	private FigureController ()
-	{
-	}
+	private FigureController () {}
 
 
 	/**
@@ -112,7 +113,6 @@ public final class FigureController
 				{
 					LOGGER.log(WARNING, e.getMessage());
 				}
-
 			}
 			defenderDefensiveStats.setHealth(newDefenderHealthPoints);
 		}
@@ -150,14 +150,21 @@ public final class FigureController
 		double dealtDamage = 0;
 		if (isAlly(arena, troopFigure))
 		{
-			dealtDamage = (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier) * meleeMultiplier;
+			dealtDamage = getDealtDamage(meleeDamage, armor, defenseMultiplier, damageMultiplier, meleeMultiplier);
 		}
 		else if (isEnemy(arena, troopFigure))
 		{
-			dealtDamage =
-				(meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER));
+			dealtDamage = (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER));
 		}
 		return (int) dealtDamage;
+	}
+
+
+	// TODO: JAVADOC
+
+	private static double getDealtDamage (final int meleeDamage, final int armor, final double defenseMultiplier, final double damageMultiplier, final double meleeMultiplier)
+	{
+		return (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier) * meleeMultiplier;
 	}
 
 
