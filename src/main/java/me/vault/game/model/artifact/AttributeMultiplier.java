@@ -117,7 +117,7 @@ public class AttributeMultiplier
 	 * this check isn't performed as part
 	 * of the validation.
 	 *
-	 * @throws InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
+	 * @exception InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
 	 */
 	private void validate () throws InvalidAttributeMultiplierException
 	{
@@ -257,4 +257,5 @@ public class AttributeMultiplier
 		 */
 		DEFENSE
 	}
+
 }

@@ -208,7 +208,7 @@ public final class ArenaDelegate
 
 	private boolean checkForFinish ()
 	{
-		final ArenaResult arenaResult = this.arena.getState();
+		final ArenaResult arenaResult = this.arena.getResult();
 		if (arenaResult == ArenaResult.LOST || arenaResult == ArenaResult.WON)
 		{
 			ArenaFinishedDialogDelegate.show(this.mission, this.arena);

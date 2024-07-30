@@ -26,6 +26,9 @@ public interface Nameable
 	 * Returns the name stored within the property of the nameable object as a {@link String}.
 	 *
 	 * @return The name of the nameable object.
+	 *
+	 * @precondition The method gets called.
+	 * @postcondition The name of the nameable object was returned as a {@link String}.
 	 */
 	String getName ();
 
@@ -34,6 +37,9 @@ public interface Nameable
 	 * Sets the name of the nameable object to the supplied name.
 	 *
 	 * @param name The new name for the nameable object.
+	 *
+	 * @precondition The method gets called and a valid name gets passed as a {@link String}.
+	 * @postcondition The name property of the nameable object was set to the passed {@link String}.
 	 */
 	void setName (final String name);
 
@@ -42,6 +48,9 @@ public interface Nameable
 	 * Returns the name property of the nameable object.
 	 *
 	 * @return The name property of the nameable object.
+	 *
+	 * @precondition The method gets called.
+	 * @postcondition The name property of the nameable object was returned as a {@link String}.
 	 */
 	SimpleStringProperty getNameProperty ();
 

@@ -1,7 +1,6 @@
 package me.vault.game.model.artifact.impl;
 
 
-import javafx.scene.image.Image;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.artifact.AttributeMultiplier;
@@ -33,6 +32,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class HealthArtifact extends Artifact
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -47,39 +47,24 @@ public final class HealthArtifact extends Artifact
 	/**
 	 * All possible names of the health artifact are stored in this map, with the {@link HealthArtifact} as key to denote which name corresponds to
 	 * which {@link HealthArtifact}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
 	 */
 	private static final Map<ArtifactLevel, String> NAMES;
 
 	/**
 	 * All possible sprites of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which sprite corresponds to
 	 * which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see Image
 	 */
 	private static final Map<ArtifactLevel, MetaDataImage> SPRITES;
 
 	/**
 	 * All possible modifier sets of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which set of
 	 * modifiers corresponds to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 */
 	private static final Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> MODIFIERS;
 
 	/**
 	 * All possible upgrade cost {@link CurrencyTransaction}'s of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to
 	 * denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
 	 */
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 
@@ -116,9 +101,6 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -142,9 +124,6 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of attribute modifiers for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -181,8 +160,6 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of names for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -206,8 +183,6 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of sprites for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
