@@ -2,6 +2,7 @@ package me.vault.game.utility.struct;
 
 
 import me.vault.game.exception.InvalidMapEntryException;
+import me.vault.game.model.artifact.Artifact;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
@@ -71,6 +72,12 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 */
 	public static class Entry<E, F> implements Map.Entry<E, F>
 	{
+		/**
+		 * The {@link MessageFormat} pattern, which is used, when the {@link Artifact#toString()} is
+		 * called.
+		 */
+		private static final String TO_STRING_PATTERN = "Entry'{'key={0}, value={1}'}'";
+
 
 		/**
 		 * The key of the entry.
@@ -145,6 +152,20 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 			return this.value;
 		}
 
+
+		/**
+		 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+		 * {@link Entry#TO_STRING_PATTERN}.
+		 *
+		 * @return A {@link String} which has been formatted in the {@link Entry#TO_STRING_PATTERN}.
+		 * @precondition The {@link Entry#TO_STRING_PATTERN} is {@code != null}.
+		 * @postcondition The method returned a {@link String} which represents the object.
+		 */
+		@Override
+		public String toString ()
+		{
+			return MessageFormat.format(TO_STRING_PATTERN, this.key.toString(), this.value.toString());
+		}
 	}
 
 }

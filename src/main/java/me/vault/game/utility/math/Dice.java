@@ -40,7 +40,7 @@ public final class Dice
 
 
 	/**
-	 * The dice used here is the D100 dice.
+	 * The dice used here's the D100 dice.
 	 * <br>
 	 * Therefore, an extra method is provided here for convenience.
 	 *
