@@ -23,6 +23,7 @@ import java.util.PriorityQueue;
  */
 public class FigureTimeline
 {
+
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link FigureTimeline#toString()} is
 	 * called.
@@ -43,6 +44,9 @@ public class FigureTimeline
 	 * Constructs an instance of this class.
 	 *
 	 * @param figures A {@link List} that contains all {@link Figure}s that should be added to the timeline.
+	 *
+	 * @precondition The {@link List} that contains all {@link Figure}s exists.
+	 * @postcondition The {@link Figure}s are added to the timeline.
 	 */
 	public FigureTimeline (final List<Figure> figures)
 	{
@@ -54,6 +58,9 @@ public class FigureTimeline
 	 * Returns a {@link List} which contains all elements of the timeline.
 	 *
 	 * @return A {@link List} which contains all elements of the timeline.
+	 *
+	 * @precondition The elements of the timeline exists.
+	 * @postcondition The {@link List} of the elements of the timeline
 	 */
 	public List<Figure> getFigureList ()
 	{
@@ -68,6 +75,9 @@ public class FigureTimeline
 	 * first move in the arena.
 	 *
 	 * @return A priority queue which contains all {@link FigureTimeline#elements}.
+	 *
+	 * @precondition The {@link FigureTimeline#elements} exists.
+	 * @postcondition The priority queue which contains all {@link FigureTimeline#elements} is created.
 	 */
 	public PriorityQueue<Figure> createPriorityQueue ()
 	{
@@ -82,12 +92,15 @@ public class FigureTimeline
 	 * Removes the supplied {@link Figure} from the timeline.
 	 *
 	 * @param figure The {@link Figure} which should be removed.
+	 *
+	 * @precondition The {@link Figure} that will be removed exists.
+	 * @postcondition The supplied {@link Figure} is removed from the timeline.
 	 */
 	public void removeFigure (final Figure figure)
 	{
 		if (!this.elements.contains(figure))
 		{
-			throw new NullPointerException(); // TODO: Add Exception Message
+			throw new NullPointerException();
 		}
 		this.elements.remove(figure);
 	}
@@ -98,6 +111,7 @@ public class FigureTimeline
 	 * {@link FigureTimeline#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link FigureTimeline#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link FigureTimeline#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -106,4 +120,5 @@ public class FigureTimeline
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, Arrays.deepToString(this.elements.toArray()));
 	}
+
 }

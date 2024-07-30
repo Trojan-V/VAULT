@@ -24,8 +24,9 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 /**
  * This class is an implementation of {@link Artifact}.
  * <br>
- * As this specification is a defense artifact, it mainly provides positive attribute modifiers towards the defense attribute. Other attribute
- * modifiers might be affected as well by the defense artifact, the highest multiplier is for the defense though for obvious reasons.
+ * As this specification is a defense artifact, it mainly provides positive attribute modifiers towards the defense attribute.
+ * Other attribute modifiers might be affected as well by the defense artifact, the highest multiplier is for the defense though
+ * for obvious reasons.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
@@ -34,53 +35,39 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
  */
 public final class DefenseArtifact extends Artifact
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
 	private static final ILogger LOGGER = new Logger(DefenseArtifact.class.getSimpleName());
 
 	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link DefenseArtifact}. Instead of using a singleton, the entire class
-	 * could've been created using solely static methods and fields.
+	 * Singleton instance, as there's never a reason to have more than one {@link DefenseArtifact}. Instead of using a singleton,
+	 * the entire class could've been created using solely static methods and fields.
 	 */
 	private static final DefenseArtifact INSTANCE;
 
 	/**
-	 * All possible names of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which name corresponds to
-	 * which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
+	 * All possible names of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which
+	 * name corresponds to which {@link ArtifactLevel}.
 	 */
 	private static final Map<ArtifactLevel, String> NAMES;
 
 	/**
-	 * All possible sprites of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which sprite corresponds
-	 * to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see Image
+	 * All possible sprites of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which
+	 * sprite corresponds to which {@link ArtifactLevel}.
 	 */
 	private static final Map<ArtifactLevel, MetaDataImage> SPRITES;
 
 	/**
-	 * All possible modifier sets of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which set of
-	 * modifiers corresponds to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
+	 * All possible modifier sets of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key to denote
+	 * which set of modifiers corresponds to which {@link ArtifactLevel}.
 	 */
 	private static final Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> MODIFIERS;
 
 	/**
-	 * All possible upgrade cost {@link CurrencyTransaction}'s of the defense artifact are stored in this map, with the {@link ArtifactLevel} as key
-	 * to denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the defense artifact are stored in this map, with the
+	 * {@link ArtifactLevel} as key to denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
 	 */
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 
@@ -120,6 +107,8 @@ public final class DefenseArtifact extends Artifact
 	 * @see Map
 	 * @see ArtifactLevel
 	 * @see CurrencyTransaction
+	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
+	 * @postcondition A map of upgrade costs for the {@link DefenseArtifact} is initialized.
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -146,6 +135,8 @@ public final class DefenseArtifact extends Artifact
 	 * @see Map
 	 * @see ArtifactLevel
 	 * @see AttributeMultiplier.Type
+	 * @precondition The attribute modifiers for the {@link DefenseArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of attribute modifiers for the {@link DefenseArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -184,6 +175,8 @@ public final class DefenseArtifact extends Artifact
 	 * @return The map of names for the defense artifact.
 	 * @see Map
 	 * @see ArtifactLevel
+	 * @precondition The names for the {@link DefenseArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the names for the {@link DefenseArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -209,6 +202,8 @@ public final class DefenseArtifact extends Artifact
 	 * @return The map of sprites for the defense artifact.
 	 * @see Map
 	 * @see ArtifactLevel
+	 * @precondition The sprites for the {@link DefenseArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the sprites for the {@link DefenseArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
@@ -228,6 +223,8 @@ public final class DefenseArtifact extends Artifact
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static DefenseArtifact getInstance ()
 	{

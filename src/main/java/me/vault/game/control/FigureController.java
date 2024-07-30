@@ -142,7 +142,7 @@ public final class FigureController
 		final Artifact currentArtifact = Player.getInstance().getSelectedArtifact();
 		final Energy currenrEnergy = Player.getInstance().getSelectedEnergy();
 		final Figure troopFigure = arena.getSelectedFigure();
-		final boolean meleeAbilityUsed = arena.getAbilityUsed();
+		final boolean meleeAbilityUsed = arena.isAbilityUsed();
 		final double damageMultiplier = currentArtifact.getAttributeMultipliers().getDamageMultiplierProperty().get();
 		final double defenseMultiplier = currentArtifact.getAttributeMultipliers().getDefenseMultiplierProperty().get();
 		final double meleeMultiplier = currenrEnergy.getAbilityMultiplier().getMeleeMultiplierProperty().get();

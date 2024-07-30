@@ -28,7 +28,6 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
 @ConstantInterface
 public interface ArenaConstants
 {
-
 	/**
 	 * The path to the respective fxml file of the arenas as a {@link String}.
 	 */
@@ -54,12 +53,12 @@ public interface ArenaConstants
 	@ConstantInterface
 	interface ArenaOne
 	{
-
 		/**
 		 * The path to the map-file that contains the board information for the first arena game board and the grid pane.
 		 */
 		@Constant
 		String ARENA_ONE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_1.txt";
+
 
 		/**
 		 * A list of figures that resemble the enemies the user has to fight in the first arena.
@@ -71,6 +70,7 @@ public interface ArenaConstants
 			this.add(new Figure(Sniper.getInstance()));
 			this.add(new Figure(Sniper.getInstance()));
 		}};
+
 
 		/**
 		 * The {@link Arena}, which represents the first playable arena of the game.
@@ -92,12 +92,12 @@ public interface ArenaConstants
 	@ConstantInterface
 	interface ArenaTwo
 	{
-
 		/**
 		 * The path to the map-file that contains the board information for the second arena game board and the grid pane.
 		 */
 		@Constant
 		String ARENA_TWO_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_2.txt";
+
 
 		/**
 		 * A list of figures that resemble the enemies the user has to fight in the second arena.
@@ -109,6 +109,7 @@ public interface ArenaConstants
 			this.add(new Figure(Ranger.getInstance()));
 			this.add(new Figure(Ranger.getInstance()));
 		}};
+
 
 		/**
 		 * The {@link Arena}, which represents the second playable arena of the game.
@@ -130,12 +131,12 @@ public interface ArenaConstants
 	@ConstantInterface
 	interface ArenaThree
 	{
-
 		/**
 		 * The path to the map-file that contains the board information for the three arena game board and the grid pane.
 		 */
 		@Constant
 		String ARENA_THREE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_3.txt";
+
 
 		/**
 		 * A list of figures that resemble the enemies the user has to fight in the third arena.
@@ -147,6 +148,7 @@ public interface ArenaConstants
 			this.add(new Figure(Lieutenant.getInstance()));
 			this.add(new Figure(Lieutenant.getInstance()));
 		}};
+
 
 		/**
 		 * The {@link Arena}, which represents the third playable arena of the game.
@@ -168,12 +170,12 @@ public interface ArenaConstants
 	@ConstantInterface
 	interface ArenaFour
 	{
-
 		/**
 		 * The path to the map-file that contains the board information for the fourth arena game board and the grid pane.
 		 */
 		@Constant
 		String ARENA_FOUR_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_4.txt";
+
 
 		/**
 		 * A list of figures that resemble the enemies the user has to fourth in the second arena.
@@ -186,6 +188,7 @@ public interface ArenaConstants
 			this.add(new Figure(Recruit.getInstance()));
 			this.add(new Figure(Recruit.getInstance()));
 		}};
+
 
 		/**
 		 * The {@link Arena}, which represents the fourth playable arena of the game.

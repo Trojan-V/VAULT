@@ -33,6 +33,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class HealthArtifact extends Artifact
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -47,39 +48,24 @@ public final class HealthArtifact extends Artifact
 	/**
 	 * All possible names of the health artifact are stored in this map, with the {@link HealthArtifact} as key to denote which name corresponds to
 	 * which {@link HealthArtifact}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
 	 */
 	private static final Map<ArtifactLevel, String> NAMES;
 
 	/**
 	 * All possible sprites of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which sprite corresponds to
 	 * which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see Image
 	 */
 	private static final Map<ArtifactLevel, MetaDataImage> SPRITES;
 
 	/**
 	 * All possible modifier sets of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to denote which set of
 	 * modifiers corresponds to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 */
 	private static final Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> MODIFIERS;
 
 	/**
 	 * All possible upgrade cost {@link CurrencyTransaction}'s of the health artifact are stored in this map, with the {@link ArtifactLevel} as key to
 	 * denote which set of upgrade costs corresponds to which {@link ArtifactLevel}.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
 	 */
 	private static final Map<ArtifactLevel, CurrencyTransaction> UPGRADE_COSTS;
 
@@ -119,6 +105,8 @@ public final class HealthArtifact extends Artifact
 	 * @see Map
 	 * @see ArtifactLevel
 	 * @see CurrencyTransaction
+	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
+	 * @postcondition A map of upgrade costs for the {@link HealthArtifact} is initialized.
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -145,6 +133,8 @@ public final class HealthArtifact extends Artifact
 	 * @see Map
 	 * @see ArtifactLevel
 	 * @see AttributeMultiplier.Type
+	 * @precondition The attribute modifiers for the {@link HealthArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of attribute modifiers for the {@link HealthArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -181,8 +171,8 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of names for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
+	 * @precondition The names for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the names for the {@link DamageArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -206,8 +196,8 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of sprites for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
+	 * @precondition The sprites for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the sprites for the {@link DamageArtifact} is initialised.
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
@@ -227,6 +217,8 @@ public final class HealthArtifact extends Artifact
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static HealthArtifact getInstance ()
 	{

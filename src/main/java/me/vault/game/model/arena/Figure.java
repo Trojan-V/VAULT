@@ -31,11 +31,11 @@ import java.text.MessageFormat;
  */
 public final class Figure implements Movable, Nameable
 {
+
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link Figure#toString()} is called.
 	 */
-	private static final String TO_STRING_PATTERN =
-		"Figure'{'troop={0}, name={1}, spriteProperty={2}, statistics={3}'}'";
+	private static final String TO_STRING_PATTERN = "Figure'{'troop={0}, name={1}, spriteProperty={2}, statistics={3}'}'";
 
 
 	/**
@@ -69,7 +69,6 @@ public final class Figure implements Movable, Nameable
 	private final TroopStatistics statistics;
 
 
-
 	/**
 	 * Constructs an instance of a figure by using the data from the specified {@link Troop}.
 	 * <br>
@@ -78,6 +77,9 @@ public final class Figure implements Movable, Nameable
 	 * the movable object on the {@link GameBoard} in the arena.
 	 *
 	 * @param troop The troop model whose statistics are used to create the corresponding figure to it.
+	 *
+	 * @precondition The {@link Troop} exists.
+	 * @postcondition The Figure is created from the {@link Troop}.
 	 */
 	public Figure (final Troop troop)
 	{
@@ -92,6 +94,9 @@ public final class Figure implements Movable, Nameable
 	 * Returns the troop whose statistics were used to create this figure instance.
 	 *
 	 * @return The troop whose statistics were used to create this figure instance.
+	 *
+	 * @precondition {@link Troop} exist.
+	 * @postcondition The {@link Troop} is accessible for the program.
 	 */
 	public Troop getTroop ()
 	{
@@ -103,6 +108,9 @@ public final class Figure implements Movable, Nameable
 	 * Returns the current statistics of the figure.
 	 *
 	 * @return The current statistics of the figure.
+	 *
+	 * @precondition The {@link TroopStatistics} for the figure.
+	 * @postcondition The statistics of the figure is accessible for the program.
 	 */
 	public TroopStatistics getStatistics ()
 	{
@@ -175,14 +183,14 @@ public final class Figure implements Movable, Nameable
 	 * {@link Figure#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link Figure#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link Figure#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.troop.toString(), this.name.get(),
-			this.spriteProperty.get()
-				.toString(), this.statistics.toString());
+		return MessageFormat.format(TO_STRING_PATTERN, this.troop.toString(), this.name.get(), this.spriteProperty.get().toString(), this.statistics.toString());
 	}
+
 }

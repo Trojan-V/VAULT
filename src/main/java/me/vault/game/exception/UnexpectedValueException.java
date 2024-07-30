@@ -5,7 +5,6 @@ import me.vault.game.utility.loading.Config;
 
 import java.text.MessageFormat;
 
-// TODO: Pre und post
 
 /**
  * This exception is thrown when an unexpected value was received for some reason.
@@ -21,6 +20,7 @@ import java.text.MessageFormat;
  */
 public class UnexpectedValueException extends Exception
 {
+
 	/**
 	 * The message which can be retrieved from the exception instance by invoking {@link UnexpectedValueException#getMessage()}.
 	 * Usually, this message should be printed into the console or some other logging destination to inform the user about the exception.
@@ -34,9 +34,13 @@ public class UnexpectedValueException extends Exception
 	 * The 'unexpectedValue' parameter gets appended to the exception message, so it can be printed out.
 	 *
 	 * @param unexpectedValue The value that was unexpected. Has to be in {@link String} format, so it can be printed out.
+	 *
+	 * @precondition The constructor of the exception gets called and a valid String is passed.
+	 * @postcondition A new instance of the exception is created.
 	 */
 	public UnexpectedValueException (final String unexpectedValue)
 	{
 		super(MessageFormat.format(MESSAGE_PATTERN, unexpectedValue));
 	}
+
 }

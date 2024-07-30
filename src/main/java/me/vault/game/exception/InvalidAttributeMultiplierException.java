@@ -5,7 +5,6 @@ import me.vault.game.model.artifact.AttributeMultiplier;
 
 import java.text.MessageFormat;
 
-// TODO: Pre und post
 
 /**
  * This exception is thrown whenever an invalid instance of {@link AttributeMultiplier} is attempted to be created.
@@ -34,6 +33,9 @@ public class InvalidAttributeMultiplierException extends Exception
 	 * This constructor takes the invalid modifier value as parameter and prints it into the console.
 	 *
 	 * @param modifier The modifier value which was invalid.
+	 *
+	 * @precondition The constructor of the exception gets called.
+	 * @postcondition A new instance of the exception is created.
 	 */
 	public InvalidAttributeMultiplierException (final double modifier)
 	{

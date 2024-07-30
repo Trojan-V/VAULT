@@ -6,7 +6,6 @@ import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import java.text.MessageFormat;
 import java.util.Map.Entry;
 
-// TODO: Pre und post
 
 /**
  * This exception is thrown when an invalid map entry was entered into the {@link ValidatedEntriesHashMap} data structure.
@@ -40,6 +39,9 @@ public class InvalidMapEntryException extends Exception
 	/**
 	 * The default constructor of the exception. Constructs a new instance of this exception and provides the default
 	 * {@link InvalidMapEntryException#MESSAGE}.
+	 *
+	 * @precondition The constructor of the exception gets called.
+	 * @postcondition A new instance of the exception is created.
 	 */
 	public InvalidMapEntryException ()
 	{
@@ -54,6 +56,9 @@ public class InvalidMapEntryException extends Exception
 	 * @param entry The entry which was detected as invalid.
 	 * @param <K>   The data type of the entry's key.
 	 * @param <V>   The data type of the entry's value.
+	 *
+	 * @precondition The constructor of the exception gets called and a valid {@link ValidatedEntriesHashMap.Entry} is passed.
+	 * @postcondition A new instance of the exception is created.
 	 */
 	public <K, V> InvalidMapEntryException (final Entry<K, V> entry)
 	{
