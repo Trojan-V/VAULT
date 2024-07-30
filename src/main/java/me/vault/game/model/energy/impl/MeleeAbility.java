@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.EnergyConstants.*;
-import static me.vault.game.utility.constant.EnergyConstants.DEFAULT;
+import static me.vault.game.utility.constant.EnergyConstants.DEFAULT_MULTIPLIER;
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
@@ -151,15 +151,15 @@ public class MeleeAbility extends Energy
 	{
 		// Create and fill the map with modifiers for the BASE energy ability level.
 		final Map<AbilityMultiplier.Type, Double> baseLevelModifiers = new HashMap<>();
-		baseLevelModifiers.put(AbilityMultiplier.Type.DODGE, DEFAULT);
-		baseLevelModifiers.put(AbilityMultiplier.Type.INITIATIVE, DEFAULT);
-		baseLevelModifiers.put(AbilityMultiplier.Type.MELEE, HIGH);
+		baseLevelModifiers.put(AbilityMultiplier.Type.DODGE, DEFAULT_MULTIPLIER);
+		baseLevelModifiers.put(AbilityMultiplier.Type.INITIATIVE, DEFAULT_MULTIPLIER);
+		baseLevelModifiers.put(AbilityMultiplier.Type.MELEE, HIGH_MULTIPLIER);
 
 		// Create and fill the map with modifiers for the IMPROVED energy ability level.
 		final Map<AbilityMultiplier.Type, Double> improvedLevelModifiers = new HashMap<>();
-		improvedLevelModifiers.put(AbilityMultiplier.Type.DODGE, DEFAULT);
-		improvedLevelModifiers.put(AbilityMultiplier.Type.INITIATIVE, DEFAULT);
-		improvedLevelModifiers.put(AbilityMultiplier.Type.MELEE, MAXIMUM);
+		improvedLevelModifiers.put(AbilityMultiplier.Type.DODGE, DEFAULT_MULTIPLIER);
+		improvedLevelModifiers.put(AbilityMultiplier.Type.INITIATIVE, DEFAULT_MULTIPLIER);
+		improvedLevelModifiers.put(AbilityMultiplier.Type.MELEE, MAXIMUM_MULTIPLIER);
 
 		// Insert the map of modifiers for the BASE and IMPROVED energy ability level into the map of modifiers which stores
 		// all modifier maps for the different energy ability levels.

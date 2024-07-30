@@ -140,15 +140,15 @@ public class InitiativeAbility extends Energy
 	{
 		// Create and fill the map with modifiers for the BASE energy ability level.
 		final Map<AbilityMultiplier.Type, Double> baseLevelModifiers = new HashMap<>();
-		baseLevelModifiers.put(AbilityMultiplier.Type.DODGE, DEFAULT);
-		baseLevelModifiers.put(AbilityMultiplier.Type.INITIATIVE, HIGH);
-		baseLevelModifiers.put(AbilityMultiplier.Type.MELEE, DEFAULT);
+		baseLevelModifiers.put(AbilityMultiplier.Type.DODGE, DEFAULT_MULTIPLIER);
+		baseLevelModifiers.put(AbilityMultiplier.Type.INITIATIVE, HIGH_MULTIPLIER);
+		baseLevelModifiers.put(AbilityMultiplier.Type.MELEE, DEFAULT_MULTIPLIER);
 
 		// Create and fill the map with modifiers for the IMPROVED energy ability level.
 		final Map<AbilityMultiplier.Type, Double> improvedLevelModifiers = new HashMap<>();
-		improvedLevelModifiers.put(AbilityMultiplier.Type.DODGE, DEFAULT);
-		improvedLevelModifiers.put(AbilityMultiplier.Type.INITIATIVE, MAXIMUM);
-		improvedLevelModifiers.put(AbilityMultiplier.Type.MELEE, DEFAULT);
+		improvedLevelModifiers.put(AbilityMultiplier.Type.DODGE, DEFAULT_MULTIPLIER);
+		improvedLevelModifiers.put(AbilityMultiplier.Type.INITIATIVE, MAXIMUM_MULTIPLIER);
+		improvedLevelModifiers.put(AbilityMultiplier.Type.MELEE, DEFAULT_MULTIPLIER);
 
 		// Insert the map of modifiers for the BASE and IMPROVED energy ability level into the map of modifiers which stores
 		// all modifier maps for the different energy ability levels.

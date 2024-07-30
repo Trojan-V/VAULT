@@ -89,6 +89,7 @@ public interface ArenaConstants
 	 * @version 5.0.0
 	 * @since 30.05.2024
 	 */
+	@ConstantInterface
 	interface ArenaTwo
 	{
 
@@ -126,6 +127,7 @@ public interface ArenaConstants
 	 * @version 5.0.0
 	 * @since 30.05.2024
 	 */
+	@ConstantInterface
 	interface ArenaThree
 	{
 
@@ -163,6 +165,7 @@ public interface ArenaConstants
 	 * @version 5.0.0
 	 * @since 30.05.2024
 	 */
+	@ConstantInterface
 	interface ArenaFour
 	{
 
