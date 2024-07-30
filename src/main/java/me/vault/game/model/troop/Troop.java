@@ -22,11 +22,11 @@ import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_MET
 
 /**
  * This class is a blueprint for troops.
- * Do not confuse troops with {@link Figure}s, these are not used for the same thing.
+ * Don't confuse troops with {@link Figure}s, these aren't used for the same thing.
  * <br>
- * A {@link Figure} is essentially a wrapper for a troop, so the data of the troop does not need to be manipulated, as the troop should constantly keep the
+ * A {@link Figure} is essentially a wrapper for a troop, so the data of the troop doesn't need to be manipulated, as the troop should constantly keep the
  * same set of data.
- * The troop is basically what's displayed in the city in the building where the troops can be selected (i.e., before selecting the mission).
+ * The troop is basically what's displayed in the city in the building where the troops can be selected (in other words, before selecting the mission).
  * {@link Figure}s on the other side carry the same statistics that the troop has, but the statistics of the {@link Figure}s are going to be manipulated
  * during the arena encounters to reflect attacks that happen in the battles.
  * <br>
@@ -52,8 +52,8 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * The {@link MessageFormat} pattern, which is used, when the {@link Troop#toString()} is
 	 * called.
 	 */
-	private static final String TO_STRING_PATTERN =
-		"Troop'{'nameProperty={0}, spriteProperty={1}, isMaxLevelProperty={2}, faction={3}, currentLevel={4}, statistics={5}, upgradeCost={6}'}'";
+	private static final String TO_STRING_PATTERN = "Troop'{'nameProperty={0}, spriteProperty={1}, isMaxLevelProperty={2}, " +
+	                                                "faction={3}, currentLevel={4}, statistics={5}, upgradeCost={6}'}'";
 
 
 	/**

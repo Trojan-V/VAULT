@@ -163,7 +163,7 @@ public final class Player implements Movable, Nameable
 	 *
 	 * @return The {@link Artifact} that's currently selected by the player.
 	 *
-	 * @precondition The selectedArtifact attribute has been set and contains a list.
+	 * @precondition The selectedArtifact attribute has been set and contains an Artifact.
 	 * @postcondition The selectedArtifact attribute of the instance was returned.
 	 */
 	public Artifact getSelectedArtifact ()
@@ -191,7 +191,7 @@ public final class Player implements Movable, Nameable
 	 *
 	 * @return The {@link EnergyAbility} that's currently selected by the player.
 	 *
-	 * @precondition The selectedEnergyAbility attribute has been set and contains a list.
+	 * @precondition The selectedEnergyAbility attribute has been set and contains an EnergyAbility.
 	 * @postcondition The selectedEnergyAbility attribute of the instance was returned.
 	 */
 	public EnergyAbility getSelectedEnergy ()

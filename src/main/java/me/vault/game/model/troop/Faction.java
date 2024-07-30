@@ -26,37 +26,32 @@ public enum Faction implements Displayable
 	/**
 	 * Very strong on dexterity.
 	 */
-	EXPLORER_ASSOCIATION(1.2f, 1.0f, 1.5f,
-		false, ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
+	EXPLORER_ASSOCIATION(1.2f, 1.0f, 1.5f, ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
 
 
 	/**
 	 * Very strong at the defense.
 	 */
-	MILITARISTIC_GOVERNMENT(1.25f, 1.5f, 1.0f,
-		false, ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
+	MILITARISTIC_GOVERNMENT(1.25f, 1.5f, 1.0f, ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
 
 
 	/**
 	 * Very strong on the offensive.
 	 */
-	MEGA_CORPORATION(1.5f, 1.25f, 1.25f,
-		false, ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
+	MEGA_CORPORATION(1.5f, 1.25f, 1.25f, ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png")),
 
 
 	/**
-	 * A balanced faction that's decent at all of the above three, but not great at any of those.
+	 * A balanced faction that's decent at all the preceding three, but not great at any of those.
 	 */
-	NEW_TERRA(1.25f, 1.25f, 1.25f,
-		false, ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png"));
+	NEW_TERRA(1.25f, 1.25f, 1.25f, ResourceLoader.loadImage("src/main/resources/me/vault/game/assets/Forge_Button_16x16.png"));
 
 
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link Artifact#toString()} is
 	 * called.
 	 */
-	private static final String TO_STRING_PATTERN =
-		"Faction'{'spriteProperty={0}, isSelectedProperty={1}, offensiveMultiplier={2}, defensiveMultiplier={3}, dexterityMultiplier={4}'}'";
+	private static final String TO_STRING_PATTERN = "Faction'{'spriteProperty={0}, isSelectedProperty={1}, offensiveMultiplier={2}, " + "defensiveMultiplier={3}, dexterityMultiplier={4}'}'";
 
 
 	/**
@@ -96,17 +91,14 @@ public enum Faction implements Displayable
 	 * @param offensiveMultiplier The multiplier that'll be used for the offensive statistics.
 	 * @param defensiveMultiplier The multiplier that'll be used for the defensive statistics.
 	 * @param dexterityMultiplier The multiplier that'll be used for the dexterity statistics.
-	 * @param isSelected          If the faction is currently selected or not.
 	 * @param sprite              The sprite that represents the faction.
 	 */
-	Faction (final float offensiveMultiplier, final float defensiveMultiplier, final float dexterityMultiplier,
-		final boolean isSelected,
-		final MetaDataImage sprite)
+	Faction (final float offensiveMultiplier, final float defensiveMultiplier, final float dexterityMultiplier, final MetaDataImage sprite)
 	{
 		this.offensiveMultiplier = offensiveMultiplier;
 		this.defensiveMultiplier = defensiveMultiplier;
 		this.dexterityMultiplier = dexterityMultiplier;
-		this.isSelectedProperty = new SimpleBooleanProperty(isSelected);
+		this.isSelectedProperty = new SimpleBooleanProperty(false);
 		this.spriteProperty = new SimpleObjectProperty<>(sprite);
 	}
 
@@ -115,6 +107,9 @@ public enum Faction implements Displayable
 	 * Returns the multiplier for the offensive statistics of the faction.
 	 *
 	 * @return The multiplier for the offensive statistics of the faction.
+	 *
+	 * @precondition The offensiveMultiplier attribute has been set and contains a float.
+	 * @postcondition The offensiveMultiplier attribute of the instance was returned.
 	 */
 	public float getOffensiveMultiplier ()
 	{
@@ -126,6 +121,9 @@ public enum Faction implements Displayable
 	 * Returns the multiplier for the defensive statistics of the faction.
 	 *
 	 * @return The multiplier for the defensive statistics of the faction.
+	 *
+	 * @precondition The defensiveMultiplier attribute has been set and contains a float.
+	 * @postcondition The defensiveMultiplier attribute of the instance was returned.
 	 */
 	public float getDefensiveMultiplier ()
 	{
@@ -137,6 +135,9 @@ public enum Faction implements Displayable
 	 * Returns the multiplier for the dexterity statistics of the faction.
 	 *
 	 * @return The multiplier for the dexterity statistics of the faction.
+	 *
+	 * @precondition The dexterityMultiplier attribute has been set and contains a float.
+	 * @postcondition The dexterityMultiplier attribute of the instance was returned.
 	 */
 	public float getDexterityMultiplier ()
 	{
@@ -148,6 +149,9 @@ public enum Faction implements Displayable
 	 * Returns the property used to store and dynamically display if the faction is selected or not.
 	 *
 	 * @return The property used to store and dynamically display if the faction is selected or not.
+	 *
+	 * @precondition The isSelectedProperty attribute has been set and contains a SimpleBooleanProperty.
+	 * @postcondition The isSelectedProperty attribute of the instance was returned.
 	 */
 	public SimpleBooleanProperty getIsSelectedProperty ()
 	{
@@ -159,6 +163,9 @@ public enum Faction implements Displayable
 	 * Returns true if the faction is currently selected, otherwise false.
 	 *
 	 * @return True if the faction is currently selected, otherwise false.
+	 *
+	 * @precondition The isSelectedProperty attribute has been set and contains a SimpleBooleanProperty.
+	 * @postcondition The boolean value of the isSelectedProperty attribute of the instance was returned.
 	 */
 	public boolean isSelected ()
 	{
@@ -170,6 +177,9 @@ public enum Faction implements Displayable
 	 * Sets the isSelected state of the faction to the supplied boolean parameter.
 	 *
 	 * @param isSelected If the faction should be marked as selected or not.
+	 *
+	 * @precondition The isSelectedProperty attribute has been set and contains a SimpleBooleanProperty.
+	 * @postcondition The boolean value of the isSelectedProperty attribute is set to the passed value.
 	 */
 	public void setIsSelected (final boolean isSelected)
 	{
@@ -178,7 +188,7 @@ public enum Faction implements Displayable
 
 
 	/**
-	 * Returns the sprite stored within the property of the displayable object as an {@link MetaDataImage}.
+	 * {@inheritDoc} Returns the sprite stored within the property of the displayable object as an {@link MetaDataImage}.
 	 *
 	 * @return The sprite of the displayable object.
 	 */
@@ -190,7 +200,7 @@ public enum Faction implements Displayable
 
 
 	/**
-	 * Sets the sprite of the displayable object to the supplied sprite.
+	 * {@inheritDoc} Sets the sprite of the displayable object to the supplied sprite.
 	 *
 	 * @param sprite The new sprite for the displayable object.
 	 */
@@ -202,7 +212,7 @@ public enum Faction implements Displayable
 
 
 	/**
-	 * Returns the sprite property of the displayable object.
+	 * {@inheritDoc} Returns the sprite property of the displayable object.
 	 *
 	 * @return The sprite property of the displayable object.
 	 */
@@ -226,8 +236,7 @@ public enum Faction implements Displayable
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.spriteProperty.get()
-				.toString(), this.isSelectedProperty.get(), this.offensiveMultiplier, this.defensiveMultiplier,
-			this.dexterityMultiplier);
+			.toString(), this.isSelectedProperty.get(), this.offensiveMultiplier, this.defensiveMultiplier, this.dexterityMultiplier);
 	}
 }
 
