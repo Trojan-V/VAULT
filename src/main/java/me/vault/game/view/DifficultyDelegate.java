@@ -3,7 +3,6 @@ package me.vault.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import me.vault.game.GameApplication;
@@ -15,11 +14,7 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 public final class DifficultyDelegate implements Initializable
@@ -36,11 +31,11 @@ public final class DifficultyDelegate implements Initializable
 	 */
 	private static final String DIFFICULTY_VIEW_FXML = "difficulty.fxml";
 
-	private static final Scene DIFFICULTY_MENU_SCENE = ResourceLoader.loadScene(DifficultyDelegate.class, DIFFICULTY_VIEW_FXML);
-
 
 	/**
+	 * Are used to facilitate the interaction between the user and the application
 	 *
+	 * @see Button
 	 */
 	@FXML
 	private Button easyDifficultyButton;
@@ -55,12 +50,46 @@ public final class DifficultyDelegate implements Initializable
 	private Button backButton;
 
 
+	/**
+	 * Calls a method to display the content stored in {@link DifficultyDelegate#DIFFICULTY_VIEW_FXML} and
+	 * initialized by {@link DifficultyDelegate#initialize(URL, ResourceBundle)} on the main stage of this
+	 * application ({@link GameApplication#getStage()}).
+	 *
+	 * @precondition The GameApplication has to have a stage
+	 * @postcondition The initialized difficulty scene is shown on the GameApplication Stage
+	 */
 	public static void show ()
 	{
-		ViewUtil.show(GameApplication.getStage(), DIFFICULTY_MENU_SCENE, DifficultyDelegate.class);
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(DifficultyDelegate.class, DIFFICULTY_VIEW_FXML), DifficultyDelegate.class);
 	}
 
 
+	/**
+	 * Handles the action "click" that is defined in the FXML-File.
+	 * <br>
+	 * <br>
+	 * The method differentiates between different action that can be triggered by clicking on the different buttons
+	 * of the scene.
+	 * <br>
+	 * <br>
+	 * The actions that are triggered by their respective {@link Button} are listed below:
+	 * <br>
+	 * If "easy" is clicked, the {@link DifficultyDelegate#setGameDifficultyAndContinue(GameDifficulty)}-method is
+	 * called with the parameter {@link GameDifficulty#EASY}.
+	 * <br>
+	 * If "normal" is clicked, the {@link DifficultyDelegate#setGameDifficultyAndContinue(GameDifficulty)}-method is
+	 * called with the parameter {@link GameDifficulty#NORMAL}.
+	 * <br>
+	 * If "hard" is clicked, the {@link DifficultyDelegate#setGameDifficultyAndContinue(GameDifficulty)}-method is
+	 * called with the parameter {@link GameDifficulty#HARD}.
+	 * <br>
+	 * If "back" is clicked the Main menu is displayed
+	 *
+	 * @param mouseEvent The MouseEvent that determines the triggered action(s)
+	 *
+	 * @precondition The Difficulty Scene has to be displayed on the active stage
+	 * @postcondition The specified actions as described by this documentation are executed
+	 */
 	@FXML
 	void click (final MouseEvent mouseEvent)
 	{
@@ -83,6 +112,14 @@ public final class DifficultyDelegate implements Initializable
 	}
 
 
+	/**
+	 * Sets the GameDifficulty in the {@link GameController} and displays the prologue scene.
+	 *
+	 * @param gameDifficulty the difficulty of the game
+	 *
+	 * @precondition the parameter must be from the {@link GameDifficulty} enumeration
+	 * @postcondition the desired gamedifficulty is set and the prologue scene is shown
+	 */
 	private void setGameDifficultyAndContinue (final GameDifficulty gameDifficulty)
 	{
 		GameController.setDifficulty(gameDifficulty);
