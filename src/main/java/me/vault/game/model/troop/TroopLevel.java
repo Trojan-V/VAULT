@@ -61,6 +61,9 @@ public enum TroopLevel implements Level
 	 * enum entry.
 	 *
 	 * @return The minimum level an {@link Troop} can have.
+	 *
+	 * @precondition The {@link Troop} can have multiple level and has a minimum level.
+	 * @postcondition The minimum level of a {@link Troop} is accessible for the program.
 	 */
 	public static TroopLevel getMinimum ()
 	{
@@ -72,6 +75,9 @@ public enum TroopLevel implements Level
 	 * Returns the maximum level an {@link Troop} can have. The maximum level is determined by the ordinal of the last enum entry.
 	 *
 	 * @return The maximum level an {@link Troop} can have.
+	 *
+	 * @precondition The {@link Troop} can have multiple level and has a maximum level.
+	 * @postcondition The minimum level of an {@link Troop} is accessible for the program.
 	 */
 	public static TroopLevel getMaximum ()
 	{

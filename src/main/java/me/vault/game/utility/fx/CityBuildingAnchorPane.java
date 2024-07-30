@@ -8,9 +8,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import me.vault.game.control.CityBuildingController;
+import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.building.CityBuilding;
+import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.city.*;
+import me.vault.game.view.ArenaFinishedDialogDelegate;
 import me.vault.game.view.UpgradeDialogDelegate;
+import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.city.building.*;
 
 import java.text.MessageFormat;
@@ -19,16 +23,39 @@ import java.text.MessageFormat;
 public final class CityBuildingAnchorPane extends AnchorPane
 {
 
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link ArenaFinishedDialogDelegate#toString()} is called.
+	 */
 	private static final String TO_STRING_PATTERN = "CityBuildingAnchorPane'{'cityBuilding={0}'}'";
 
+	/**
+	 * The upgrade button text of each city building in the city view.
+	 */
+	private static final String UPGRADE_BUTTON_TEXT = "Upgrade";
+
+	/**
+	 * The x and y dimensions of each city building grid in the city view.
+	 */
 	private static final int DIMENSION = 270;
 
+	/**
+	 * The x offset of each city building grid in the city view.
+	 */
 	private static final int X_OFFSET = 30;
 
+	/**
+	 * The city building button height of the city building grid.
+	 */
 	private static final int INTERACT_BUTTON_HEIGHT = 150;
 
+	/**
+	 * The upgrade button height of the city building grid.
+	 */
 	private static final int UPGRADE_BUTTON_HEIGHT = 40;
 
+	/**
+	 * The {@link CityBuilding} that is the template for the {@link CityBuildingAnchorPane}
+	 */
 	private final CityBuilding cityBuilding;
 
 
@@ -53,7 +80,7 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	private Button createUpgradeButton (final CityBuilding cityBuilding)
 	{
 		final Button upgradeButton = new Button();
-		upgradeButton.setText("UPGRADE");
+		upgradeButton.setText(UPGRADE_BUTTON_TEXT);
 		upgradeButton.setPrefWidth(DIMENSION);
 		upgradeButton.setPrefHeight(UPGRADE_BUTTON_HEIGHT);
 		upgradeButton.disableProperty().bind(cityBuilding.getIsMaxLevelProperty());
@@ -62,12 +89,9 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	}
 
 
-	private void handleUpgradeEvent (final CityBuilding cityBuilding)
+	private void handleUpgradeEvent (final Upgradable<CityBuildingLevel> cityBuilding)
 	{
-		if (CityBuildingController.getInstance().checkIsUpgradable(cityBuilding))
-		{
-			UpgradeDialogDelegate.show(cityBuilding, CityBuildingController.getInstance());
-		}
+		UpgradeDialogDelegate.show(cityBuilding, CityBuildingController.getInstance());
 	}
 
 
@@ -88,43 +112,29 @@ public final class CityBuildingAnchorPane extends AnchorPane
 
 	private void useCorrespondingDelegate (final CityBuilding cityBuilding)
 	{
-		// TODO: FIX !!! mach mal switch lasse
 		switch (cityBuilding)
 		{
+			case final Docks docks -> DocksDelegate.show();
+			case final Market market -> MarketDelegate.show();
 			case final Workshop workshop -> WorkshopDelegate.show();
 			case final Barracks barracks -> BarracksDelegate.show();
-			case null, default ->
-			{
-			}
-		}
-
-		if (cityBuilding == Laboratory.getInstance())
-		{
-			LaboratoryDelegate.show();
-		}
-		else if (cityBuilding == Market.getInstance())
-		{
-			MarketDelegate.show();
-		}
-		else if (cityBuilding == TrainingFacility.getInstance())
-		{
-			TrainingFacilityDelegate.show();
-		}
-		else if (cityBuilding == Docks.getInstance())
-		{
-			DocksDelegate.show();
-		}
-		else if (cityBuilding == CommandCenter.getInstance())
-		{
-			CommandCenterDelegate.show();
-		}
-		else if (cityBuilding == SpaceBar.getInstance())
-		{
-			SpaceBarDelegate.show();
+			case final SpaceBar spaceBarDelegate -> SpaceBarDelegate.show();
+			case final Laboratory laboratory -> LaboratoryDelegate.show();
+			case final CommandCenter commandCenter -> CommandCenterDelegate.show();
+			case final TrainingFacility trainingFacility -> TrainingFacilityDelegate.show();
+			case null, default -> CityDelegate.show();
 		}
 	}
 
 
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the {@link CityBuildingAnchorPane#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link CityBuildingAnchorPane#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link CityBuildingAnchorPane#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
 	@Override
 	public String toString ()
 	{

@@ -132,8 +132,7 @@ public class TroopStatistics
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.dexterity.toString(), this.defensive.toString(),
-			this.offensive.toString());
+		return MessageFormat.format(TO_STRING_PATTERN, this.dexterity.toString(), this.defensive.toString(), this.offensive.toString());
 	}
 
 
@@ -142,7 +141,7 @@ public class TroopStatistics
 	 * <br>
 	 * It provides getters and setters for these statistics that can be used to manipulate their values.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see TroopStatistics
 	 * @see SimpleIntegerProperty
@@ -155,8 +154,7 @@ public class TroopStatistics
 		 * The {@link MessageFormat} pattern, which is used, when the {@link Offensive#toString()} is
 		 * called.
 		 */
-		private static final String TO_STRING_PATTERN =
-			"Offensive'{'energyPoints={0}, meleeDamage={1}, grenadeDamage={2}, grenadeAmount={3}, grenadeRange={4}'}'";
+		private static final String TO_STRING_PATTERN = "Offensive'{'energyPoints={0}, meleeDamage={1}, grenadeDamage={2}, grenadeAmount={3}, grenadeRange={4}'}'";
 
 
 		/**
@@ -205,8 +203,7 @@ public class TroopStatistics
 		 * @param grenadeAmount The number of grenades that are available to the {@link Troop}.
 		 * @param grenadeRange  The range of the {@link Troop}'s grenades.
 		 */
-		public Offensive (final int energyPoints, final int meleeDamage, final int grenadeDamage,
-			final int grenadeAmount, final int grenadeRange)
+		public Offensive (final int energyPoints, final int meleeDamage, final int grenadeDamage, final int grenadeAmount, final int grenadeRange)
 		{
 			this.energyPoints = new SimpleIntegerProperty(energyPoints);
 			this.meleeDamage = new SimpleIntegerProperty(meleeDamage);
@@ -480,16 +477,18 @@ public class TroopStatistics
 
 
 		/**
-		 * Returns the instance of this class in a human-readable format by creating a string.
+		 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+		 * {@link Offensive#TO_STRING_PATTERN}.
 		 *
-		 * @return The instance in its string representation.
+		 * @return A {@link String} which has been formatted in the {@link Offensive#TO_STRING_PATTERN}.
+		 *
+		 * @precondition The {@link Offensive#TO_STRING_PATTERN} is {@code != null}.
+		 * @postcondition The method returned a {@link String} which represents the object.
 		 */
 		@Override
 		public String toString ()
 		{
-			return MessageFormat.format(TO_STRING_PATTERN, this.energyPoints.get(), this.meleeDamage.get(),
-				this.grenadeDamage.get(),
-				this.grenadeAmount.get(), this.grenadeRange.get());
+			return MessageFormat.format(TO_STRING_PATTERN, this.energyPoints.get(), this.meleeDamage.get(), this.grenadeDamage.get(), this.grenadeAmount.get(), this.grenadeRange.get());
 		}
 
 	}
@@ -500,7 +499,7 @@ public class TroopStatistics
 	 * <br>
 	 * It provides getters and setters for these statistics that can be used to manipulate their values.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see TroopStatistics
 	 * @see SimpleIntegerProperty
@@ -513,8 +512,7 @@ public class TroopStatistics
 		 * The {@link MessageFormat} pattern, which is used, when the {@link Defensive#toString()} is
 		 * called.
 		 */
-		private static final String TO_STRING_PATTERN =
-			"Defensive'{'health={0}, armor={1}, dodgeRate={2}, resistance={3}'}'";
+		private static final String TO_STRING_PATTERN = "Defensive'{'health={0}, armor={1}, dodgeRate={2}, resistance={3}'}'";
 
 
 		/**
@@ -554,8 +552,7 @@ public class TroopStatistics
 		 * @param dodgeRate  The dodge rate of the {@link Troop}.
 		 * @param resistance The number of resistance points that are available to the {@link Troop}.
 		 */
-		public Defensive (final int health, final int armor, final int dodgeRate,
-			final int resistance)
+		public Defensive (final int health, final int armor, final int dodgeRate, final int resistance)
 		{
 			this.health = new SimpleIntegerProperty(health);
 			this.armor = new SimpleIntegerProperty(armor);
@@ -778,15 +775,18 @@ public class TroopStatistics
 
 
 		/**
-		 * Returns the instance of this class in a human-readable format by creating a string.
+		 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+		 * {@link Defensive#TO_STRING_PATTERN}.
 		 *
-		 * @return The instance in its string representation.
+		 * @return A {@link String} which has been formatted in the {@link Defensive#TO_STRING_PATTERN}.
+		 *
+		 * @precondition The {@link Defensive#TO_STRING_PATTERN} is {@code != null}.
+		 * @postcondition The method returned a {@link String} which represents the object.
 		 */
 		@Override
 		public String toString ()
 		{
-			return MessageFormat.format(TO_STRING_PATTERN, this.health.get(), this.armor.get(), this.dodgeRate.get(),
-				this.resistance.get());
+			return MessageFormat.format(TO_STRING_PATTERN, this.health.get(), this.armor.get(), this.dodgeRate.get(), this.resistance.get());
 		}
 
 	}
@@ -797,7 +797,7 @@ public class TroopStatistics
 	 * <br>
 	 * It provides getters and setters for these statistics that can be used to manipulate their values.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see TroopStatistics
 	 * @see SimpleIntegerProperty
@@ -965,6 +965,15 @@ public class TroopStatistics
 		}
 
 
+		/**
+		 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+		 * {@link Dexterity#TO_STRING_PATTERN}.
+		 *
+		 * @return A {@link String} which has been formatted in the {@link Dexterity#TO_STRING_PATTERN}.
+		 *
+		 * @precondition The {@link Dexterity#TO_STRING_PATTERN} is {@code != null}.
+		 * @postcondition The method returned a {@link String} which represents the object.
+		 */
 		@Override
 		public String toString ()
 		{

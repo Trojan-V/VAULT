@@ -98,10 +98,8 @@ public final class TroopUpgradePane extends GridPane
 	private static void addDexterityStatistics (final Troop troop, final GridPane gridPane)
 	{
 		final TroopStatistics.Dexterity dexterity = troop.getStatistics().getDexterity();
-		gridPane.add(new SingleStatisticHBox(MOVEMENT_STATISTIC_ICON_PATH, MOVEMENT_STATISTIC_NAME, dexterity.getMovementTileProperty()),
-			MOVEMENT_STATISTIC_GRID_X, MOVEMENT_STATISTIC_GRID_Y);
-		gridPane.add(new SingleStatisticHBox(INITIATIVE_STATISTIC_ICON_PATH, INITIATIVE_STATISTIC_NAME, dexterity.getInitiativeProperty()),
-			INITIATIVE_STATISTIC_GRID_X, INITIATIVE_STATISTIC_GRID_Y);
+		gridPane.add(new SingleStatisticHBox(MOVEMENT_STATISTIC_ICON_PATH, MOVEMENT_STATISTIC_NAME, dexterity.getMovementTileProperty()), MOVEMENT_STATISTIC_GRID_X, MOVEMENT_STATISTIC_GRID_Y);
+		gridPane.add(new SingleStatisticHBox(INITIATIVE_STATISTIC_ICON_PATH, INITIATIVE_STATISTIC_NAME, dexterity.getInitiativeProperty()), INITIATIVE_STATISTIC_GRID_X, INITIATIVE_STATISTIC_GRID_Y);
 	}
 
 
@@ -114,14 +112,10 @@ public final class TroopUpgradePane extends GridPane
 	private static void addDefensiveStatistics (final Troop troop, final GridPane gridPane)
 	{
 		final TroopStatistics.Defensive defensive = troop.getStatistics().getDefensive();
-		gridPane.add(new SingleStatisticHBox(DODGE_STATISTIC_ICON_PATH, DODGE_STATISTIC_NAME, defensive.getDodgeRateProperty()), DODGE_STATISTIC_GRID_X,
-			DODGE_STATISTIC_GRID_Y);
-		gridPane.add(new SingleStatisticHBox(HEALTH_STATISTIC_ICON_PATH, HEALTH_STATISTIC_NAME, defensive.getHealthProperty()), HEALTH_STATISTIC_GRID_X,
-			HEALTH_STATISTIC_GRID_Y);
-		gridPane.add(new SingleStatisticHBox(ARMOR_STATISTIC_ICON_PATH, ARMOR_STATISTIC_NAME, defensive.getArmorProperty()), ARMOR_STATISTIC_GRID_X,
-			ARMOR_STATISTIC_GRID_Y);
-		gridPane.add(new SingleStatisticHBox(RESISTANCE_STATISTIC_ICON_PATH, RESISTANCE_STATISTIC_NAME, defensive.getResistanceProperty()),
-			RESISTANCE_STATISTIC_GRID_X, RESISTANCE_STATISTIC_GRID_Y);
+		gridPane.add(new SingleStatisticHBox(DODGE_STATISTIC_ICON_PATH, DODGE_STATISTIC_NAME, defensive.getDodgeRateProperty()), DODGE_STATISTIC_GRID_X, DODGE_STATISTIC_GRID_Y);
+		gridPane.add(new SingleStatisticHBox(HEALTH_STATISTIC_ICON_PATH, HEALTH_STATISTIC_NAME, defensive.getHealthProperty()), HEALTH_STATISTIC_GRID_X, HEALTH_STATISTIC_GRID_Y);
+		gridPane.add(new SingleStatisticHBox(ARMOR_STATISTIC_ICON_PATH, ARMOR_STATISTIC_NAME, defensive.getArmorProperty()), ARMOR_STATISTIC_GRID_X, ARMOR_STATISTIC_GRID_Y);
+		gridPane.add(new SingleStatisticHBox(RESISTANCE_STATISTIC_ICON_PATH, RESISTANCE_STATISTIC_NAME, defensive.getResistanceProperty()), RESISTANCE_STATISTIC_GRID_X, RESISTANCE_STATISTIC_GRID_Y);
 	}
 
 
@@ -134,20 +128,15 @@ public final class TroopUpgradePane extends GridPane
 	private static void addOffensiveStatistics (final Troop troop, final GridPane gridPane)
 	{
 		final TroopStatistics.Offensive offensive = troop.getStatistics().getOffensive();
-		gridPane.add(new SingleStatisticHBox(MELEE_ATTACK_STATISTIC_ICON_PATH, MELEE_STATISTIC_NAME, offensive.getMeleeDamageProperty()),
-			MELEE_ATTACK_STATISTIC_GRID_X,
+		gridPane.add(new SingleStatisticHBox(MELEE_ATTACK_STATISTIC_ICON_PATH, MELEE_STATISTIC_NAME, offensive.getMeleeDamageProperty()), MELEE_ATTACK_STATISTIC_GRID_X,
 			MELEE_ATTACK_STATISTIC_GRID_Y);
-		gridPane.add(new SingleStatisticHBox(GRENADE_ATTACK_STATISTIC_ICON_PATH, GRENADE_ATTACK_STATISTIC_NAME, offensive.getGrenadeDamageProperty()),
-			GRENADE_ATTACK_STATISTIC_GRID_X,
+		gridPane.add(new SingleStatisticHBox(GRENADE_ATTACK_STATISTIC_ICON_PATH, GRENADE_ATTACK_STATISTIC_NAME, offensive.getGrenadeDamageProperty()), GRENADE_ATTACK_STATISTIC_GRID_X,
 			GRENADE_ATTACK_STATISTIC_GRID_Y);
-		gridPane.add(new SingleStatisticHBox(GRENADE_AMOUNT_STATISTIC_ICON_PATH, GRENADE_AMOUNT_STATISTIC_NAME, offensive.getGrenadeAmountProperty()),
-			GRENADE_AMOUNT_STATISTIC_GRID_X,
+		gridPane.add(new SingleStatisticHBox(GRENADE_AMOUNT_STATISTIC_ICON_PATH, GRENADE_AMOUNT_STATISTIC_NAME, offensive.getGrenadeAmountProperty()), GRENADE_AMOUNT_STATISTIC_GRID_X,
 			GRENADE_AMOUNT_STATISTIC_GRID_Y);
-		gridPane.add(new SingleStatisticHBox(GRENADE_RANGE_STATISTIC_ICON_PATH, GRENADE_RANGE_STATISTIC_NAME, offensive.getGrenadeRangeProperty()),
-			GRENADE_RANGE_STATISTIC_GRID_X,
+		gridPane.add(new SingleStatisticHBox(GRENADE_RANGE_STATISTIC_ICON_PATH, GRENADE_RANGE_STATISTIC_NAME, offensive.getGrenadeRangeProperty()), GRENADE_RANGE_STATISTIC_GRID_X,
 			GRENADE_RANGE_STATISTIC_GRID_Y);
-		gridPane.add(new SingleStatisticHBox(ENERGY_STATISTIC_ICON_PATH, ENERGY_STATISTIC_NAME, offensive.getEnergyPointsProperty()), ENERGY_STATISTIC_GRID_X,
-			ENERGY_STATISTIC_GRID_Y);
+		gridPane.add(new SingleStatisticHBox(ENERGY_STATISTIC_ICON_PATH, ENERGY_STATISTIC_NAME, offensive.getEnergyPointsProperty()), ENERGY_STATISTIC_GRID_X, ENERGY_STATISTIC_GRID_Y);
 	}
 
 
