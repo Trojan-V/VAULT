@@ -22,6 +22,8 @@ public interface ILogger
 	 *
 	 * @param level   The desired logging level.
 	 * @param message The message that's about to get logged.
+	 * @precondition The logging level in form of a {@link ILogger.Level} and the logging message have to be supplied as parameters.
+	 * @postcondition The supplied message was logged at the specified logging level.
 	 */
 	void log (final Level level, final String message);
 
@@ -37,6 +39,8 @@ public interface ILogger
 	 * @param level     The logging level.
 	 * @param pattern   The message pattern that's about to get logged.
 	 * @param arguments The arguments that are applied to the message pattern before the message is logged.
+	 * @precondition The logging level in form of a {@link ILogger.Level} and the logging message pattern have to be supplied as parameters.
+	 *                  Additionally, the arguments that are going to be formatted by the logging message pattern have to be supplied as parameter.
 	 */
 	void logf (final Level level, final String pattern, final Object... arguments);
 
@@ -74,6 +78,10 @@ public interface ILogger
 		 */
 		ERROR(ConsoleColor.RED.toString());
 
+
+		/**
+		 * Represents the color code that is used to print a different color for different logging levels.
+		 */
 		private final String colorCode;
 
 
@@ -81,6 +89,8 @@ public interface ILogger
 		 * Constructs a level instance with the specified color code.
 		 *
 		 * @param colorCode The color code associated with the logging level.
+		 * @precondition A color code that represents the logging level was supplied as a parameter.
+		 * @postcondition An instance of this class was constructed.
 		 */
 		Level (final String colorCode)
 		{
@@ -92,6 +102,8 @@ public interface ILogger
 		 * The code returned here has to be printed into the console to change the color displayed in the console.
 		 *
 		 * @return The console color as ANSI string.
+		 * @precondition The {@link ILogger.Level#colorCode} is not equal to null.
+		 * @postcondition The string representation of the logging level was returned.
 		 */
 		@Override
 		public String toString ()
