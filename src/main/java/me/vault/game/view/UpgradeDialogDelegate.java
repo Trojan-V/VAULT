@@ -34,6 +34,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 //TODO: Java doc Lasse
 
+
 /**
  * The {@link UpgradeDialogDelegate} is responsible for the control (Controller) and display (view) of the dialog
  * that appears when something should be upgraded.
@@ -86,7 +87,7 @@ public final class UpgradeDialogDelegate implements Initializable
 
 
 	/**
-	 * The {@link Label} that shows the amount of composites needed for the upgrade.
+	 * The {@link Label} that shows the number of composites needed for the upgrade.
 	 */
 	@FXML
 	private Label compositeCostLabel;
@@ -107,7 +108,7 @@ public final class UpgradeDialogDelegate implements Initializable
 
 
 	/**
-	 * The {@link Label} that shows the number of science needed for the upgrade.
+	 * The {@link Label} that shows the number of sciences needed for the upgrade.
 	 */
 	@FXML
 	private Label scienceCostLabel;
@@ -184,7 +185,6 @@ public final class UpgradeDialogDelegate implements Initializable
 
 
 	/**
-	 *
 	 * @param ignored the {@link ActionEvent} is not used but required for the method.
 	 */
 	@FXML
@@ -213,6 +213,7 @@ public final class UpgradeDialogDelegate implements Initializable
 
 	/**
 	 * Shows the
+	 *
 	 * @param scene
 	 */
 	public void show (final Scene scene)
@@ -249,6 +250,7 @@ public final class UpgradeDialogDelegate implements Initializable
 		this.afterUpgradeLabel.setText(upgradable.getLevel().getNextHigherLevel().toString());
 	}
 
+
 	/**
 	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
 	 * {@link UpgradeDialogDelegate#TO_STRING_PATTERN}.
@@ -263,4 +265,5 @@ public final class UpgradeDialogDelegate implements Initializable
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.upgradable, this.upgrader, UPGRADE_DIALOG_VIEW_FXML);
 	}
+
 }

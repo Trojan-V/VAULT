@@ -55,6 +55,8 @@ public class GameBoard
 	 * Constructs an instance of this class. The two-dimensional {@link Tile} array has to be supplied to the constructor.
 	 *
 	 * @param gameBoard The two-dimensional array of {@link Tile}s.
+	 * @precondition The tiles exist.
+	 * @postcondition An instance of the {@link GameBoard} is created from the supplied tiles.
 	 */
 	public GameBoard (final Tile[][] gameBoard)
 	{
@@ -70,6 +72,8 @@ public class GameBoard
 	 * @param placeable The {@link Placeable} that'll be searched for.
 	 * @return The {@link Position} if the {@link Placeable} was found.
 	 * @throws ElementNotFoundOnGameBoardException If the {@link Placeable} element wasn't found on the game board.
+	 * @precondition On the {@link GameBoard} is a {@link Placeable} element.
+	 * @postcondition The {@link Position} if the {@link Placeable} was found and is accessible for the program.
 	 */
 	public Position getPosition (final Placeable placeable) throws ElementNotFoundOnGameBoardException
 	{
@@ -92,6 +96,8 @@ public class GameBoard
 	 *
 	 * @param position The position of the {@link Tile} that'll be returned.
 	 * @return The {@link Tile} at the supplied {@link Position}.
+	 * @precondition The position of the {@link Tile} that'll be returned exists.
+	 * @postcondition The {@link Tile} at the supplied {@link Position} is accessible for the program.
 	 */
 	public Tile getTile (final Position position)
 	{
@@ -107,6 +113,8 @@ public class GameBoard
 	 * @param position The {@link Position} whose {@link Figure} is going to be returned.
 	 * @return The {@link Figure} instance which is located at the supplied {@link Position}.
 	 * @throws NotAFigureException If there's no {@link Figure} at the supplied {@link Position} for some reason.
+	 * @precondition The {@link Figure} at the {@link Position} exists.
+	 * @postcondition The instance of the {@link Figure} which is at the {@link Position} is accessible for the program.
 	 */
 	public Figure getFigure (final Position position) throws NotAFigureException
 	{
@@ -125,6 +133,8 @@ public class GameBoard
 	 *
 	 * @param position  The {@link Position}.
 	 * @param placeable The {@link Placeable}.
+	 * @precondition The {@link Tile} is at the {@link Position} and is an {@link AccessibleTileAppearance}.
+	 * @postcondition The {@link Placeable} is placed on the {@link GameBoard} at the {@link Position}.
 	 */
 	public void placeIfAccessibleTile (final Position position, final Placeable placeable)
 	{
@@ -140,6 +150,8 @@ public class GameBoard
 	 *
 	 * @param position  The {@link Position}.
 	 * @param placeable The {@link Placeable}.
+	 * @precondition The {@link Placeable} is supplied and {@link Position} exists.
+	 * @postcondition The {@link Placeable} is placed on the {@link GameBoard} at the {@link Position}
 	 */
 	public void place (final Position position, final Placeable placeable)
 	{
@@ -155,6 +167,8 @@ public class GameBoard
 	 * @param position    The {@link Position} whose reachable {@link Tile}s should be determined.
 	 * @param attackRange The attack range of the {@link Figure}.
 	 * @return A {@link List} of all {@link Tile}s that can be reached.
+	 * @precondition The {@link Figure} has to have a supplied attack range and has to have a {@link Position}.
+	 * @postcondition The {@link List} of all {@link Tile}s that can be reached is accessible for the program.
 	 */
 	public List<Tile> getReachableTiles (final Position position, final int attackRange)
 	{
@@ -171,6 +185,10 @@ public class GameBoard
 	 *
 	 * @param position The {@link Position} whose adjacent {@link Tile}s should be determined.
 	 * @return A {@link List} of all tiles that are adjacent to the supplied {@link Position}.
+	 * @precondition The {@link Position} of the {@link Tile}s as well as the range of the {@link Figure} have to be
+	 * supplied.
+	 * @postcondition The {@link List} of all tiles that are adjacent to the supplied {@link Position} is accessible
+	 * for the program.
 	 */
 	public List<Tile> getAdjacentTiles (final Position position)
 	{
@@ -186,6 +204,10 @@ public class GameBoard
 	 * @param position The {@link Position} whose adjacent {@link Tile}s should be determined.
 	 * @param range    The range of the {@link Figure} at the supplied {@link Position}.
 	 * @return A {@link List} of all tiles that are adjacent to the supplied {@link Position}, while taking care of the supplied range parameter.
+	 * @precondition The {@link Position} of the {@link Tile}s as well as the range of the {@link Figure} have to be
+	 * supplied.
+	 * @postcondition The {@link List} of all {@link Tile}s that are adjacent to the supplied {@link Position} is accessible
+	 * for the program.
 	 */
 	public List<Tile> getAdjacentTiles (final Position position, final int range)
 	{
@@ -194,14 +216,7 @@ public class GameBoard
 		{
 			for (int j = position.y() - range; j <= position.y() + range; j++)
 			{
-				// TODO: remove this exception catch
-				try
-				{
 					adjacentTiles.add(this.gameBoard[i][j]);
-				}
-				catch (final IndexOutOfBoundsException _)
-				{
-				}
 			}
 		}
 		adjacentTiles.remove(this.gameBoard[position.x()][position.y()]);
@@ -214,6 +229,10 @@ public class GameBoard
 	 *
 	 * @param position The {@link Position} whose adjacent accessible {@link Tile}s should be determined.
 	 * @return A {@link List} of the tiles that are adjacent and accessible to the supplied {@link Position}.
+	 * @precondition The {@link Position} of the {@link Tile}s are supplied, and it has to be determined if the adjacent
+	 * {@link Tile} is accessible.
+	 * @postcondition The {@link List} of the {@link Tile}s that are adjacent and accessible to the supplied
+	 * {@link Position} are accessible to the program.
 	 */
 	public List<Tile> getAdjacentAccessibleTiles (final Position position)
 	{
@@ -229,6 +248,10 @@ public class GameBoard
 	 * @param position The {@link Position} whose adjacent accessible {@link Tile}s should be determined.
 	 * @param range    The range of the {@link Figure} at the supplied {@link Position}.
 	 * @return A {@link List} of the tiles that are adjacent and accessible to the supplied {@link Position}.
+	 * @precondition The {@link Position} of the {@link Tile}s as well as the range of the {@link Figure} are supplied, and it has to be determined
+	 * if the adjacent {@link Tile} is accessible.
+	 * @postcondition The {@link List} of the {@link Tile}s that are adjacent and accessible to the supplied
+	 * {@link Position} while factoring in the range of the {@link Figure} are accessible to the program.
 	 */
 	public List<Tile> getAdjacentAccessibleTiles (final Position position, final int range)
 	{
@@ -243,6 +266,9 @@ public class GameBoard
 	 *
 	 * @param placeable The {@link Placeable} that is going to get removed from the game board.
 	 * @throws ElementNotFoundOnGameBoardException If the supplied {@link Placeable} wasn't found on the game board.
+	 * @precondition The {@link Tile} on the {@link GameBoard} has to have a {@link Placeable}
+	 * @postcondition The {@link Placeable} is removed from the {@link GameBoard} and the {@link Tile} where the
+	 * {@link Placeable} were removed is now an {@link AccessibleTileAppearance}.
 	 */
 	public void remove (final Placeable placeable) throws ElementNotFoundOnGameBoardException
 	{

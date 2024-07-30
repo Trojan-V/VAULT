@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.control.TroopController;
+import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.interfaces.Upgradable;
@@ -41,19 +42,17 @@ import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_MET
  * @see TroopController
  * @see TroopLevel
  * @see TroopStatistics
+ * @see Displayable
  * @see Placeable
- * @see Nameable
  * @since 30.07.2024
  */
 public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameable
 {
 
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link Troop#toString()} is
-	 * called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Troop#toString()} is called.
 	 */
-	private static final String TO_STRING_PATTERN = "Troop'{'nameProperty={0}, spriteProperty={1}, isMaxLevelProperty={2}, " +
-	                                                "faction={3}, currentLevel={4}, statistics={5}, upgradeCost={6}'}'";
+	private static final String TO_STRING_PATTERN = "Troop'{'nameProperty={0}, spriteProperty={1}, isMaxLevelProperty={2}, " + "faction={3}, currentLevel={4}, statistics={5}, upgradeCost={6}'}'";
 
 
 	/**
@@ -94,7 +93,6 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 	/**
 	 * The statistics of the troop.
-	 * <br>
 	 * These are the values that are important in the arena encounters, as they decide how much damage is dealt, how much range the troop has, how fast it is,
 	 * etc.
 	 */
@@ -122,6 +120,9 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * <br>
 	 *
 	 * @param faction The {@link Faction} the troop is member of.
+	 *
+	 * @precondition Constructor gets called from a subclass with a valid faction.
+	 * @postcondition A new instance of Player is created.
 	 */
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected Troop (final Faction faction)
@@ -133,6 +134,124 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == TroopLevel.getMaximum());
 		this.statistics = this.getAllStatistics().get(this.currentLevel);
 		this.faction = faction;
+	}
+
+
+	/**
+	 * Returns the sprite of the troop for the supplied {@link TroopLevel}.
+	 *
+	 * @param level The {@link TroopLevel} whose sprite should be returned.
+	 *
+	 * @return The sprite of the troop for the supplied {@link TroopLevel}.
+	 *
+	 * @precondition The getAllSprites() method has been overwritten by a subclass.
+	 * @postcondition The corresponding sprite for the passed level is returned.
+	 */
+	public MetaDataImage getSprite (final TroopLevel level)
+	{
+		return this.getAllSprites().get(level);
+	}
+
+
+	/**
+	 * Returns the current statistics of the troop.
+	 *
+	 * @return The current statistics of the troop.
+	 *
+	 * @precondition The statistics attribute has been set and contains a TroopStatistics.
+	 * @postcondition The statistics attribute of the instance was returned.
+	 */
+	public TroopStatistics getStatistics ()
+	{
+		return this.statistics;
+	}
+
+
+	/**
+	 * Returns the current statistics of the troop for the supplied {@link TroopLevel}.
+	 *
+	 * @param level The {@link TroopLevel} whose statistics should be returned.
+	 *
+	 * @return The current statistics of the troop for the supplied {@link TroopLevel}.
+	 *
+	 * @precondition The getStatistics() method has been overwritten by a subclass.
+	 * @postcondition The corresponding TroopStatistics for the passed level is returned.
+	 */
+	public TroopStatistics getStatistics (final TroopLevel level)
+	{
+		return this.getAllStatistics().get(level);
+	}
+
+
+	/**
+	 * Sets the current statistics of the troop.
+	 *
+	 * @param statistics The statistics that'll be applied to the troop.
+	 *
+	 * @precondition The statistics attribute has been set and contains a TroopStatistics.
+	 * @postcondition The value of statistics attribute is set to the passed one.
+	 */
+	public void setStatistics (final TroopStatistics statistics)
+	{
+		this.statistics = statistics;
+	}
+
+
+	/**
+	 * Returns the property used to store the isMaxLevel data.
+	 *
+	 * @return The property used to store the isMaxLevel data.
+	 *
+	 * @precondition The isMaxLevelProperty attribute has been set and contains a SimpleBooleanProperty.
+	 * @postcondition The isMaxLevelProperty attribute of the instance was returned.
+	 */
+	public SimpleBooleanProperty getIsMaxLevelProperty ()
+	{
+		return this.isMaxLevelProperty;
+	}
+
+
+	/**
+	 * Sets the isMaxLevel status of the troop to the supplied boolean value.
+	 *
+	 * @param value True if the troop should be marked as max level, otherwise false.
+	 *
+	 * @precondition The isMaxLevelProperty attribute has been set and contains a SimpleBooleanProperty.
+	 * @postcondition The value of isMaxLevelProperty attribute is set to the passed one.
+	 */
+	public void setIsMaxLevel (final boolean value)
+	{
+		this.isMaxLevelProperty.set(value);
+	}
+
+
+	/**
+	 * Returns the current name of the troop. The name changes as it depends on the level of the troop.
+	 *
+	 * @param level The {@link TroopLevel} whose name should be returned.
+	 *
+	 * @return The current name of the troop.
+	 *
+	 * @precondition The getAllNames() method has been overwritten by a subclass.
+	 * @postcondition The corresponding Name-String for the passed level is returned.
+	 */
+	public String getName (final TroopLevel level)
+	{
+		return this.getAllNames().get(level);
+	}
+
+
+	/**
+	 * Returns the {@link Faction} the troop is member of.
+	 *
+	 * @return The {@link Faction} the troop is member of.
+	 *
+	 * @precondition The faction attribute has been set and contains a Faction.
+	 * @postcondition The faction attribute of the instance was returned.
+	 */
+	public Faction getFaction ()
+	{
+		return this.faction;
 	}
 
 
@@ -153,17 +272,6 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	public void setLevel (final TroopLevel level)
 	{
 		this.currentLevel = level;
-	}
-
-
-	/**
-	 * Returns the property used to store the isMaxLevel data.
-	 *
-	 * @return The property used to store the isMaxLevel data.
-	 */
-	public SimpleBooleanProperty getIsMaxLevelProperty ()
-	{
-		return this.isMaxLevelProperty;
 	}
 
 
@@ -218,19 +326,6 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * Returns the sprite of the troop for the supplied {@link TroopLevel}.
-	 *
-	 * @param level The {@link TroopLevel} whose sprite should be returned.
-	 *
-	 * @return The sprite of the troop for the supplied {@link TroopLevel}.
-	 */
-	public MetaDataImage getSprite (final TroopLevel level)
-	{
-		return this.getAllSprites().get(level);
-	}
-
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -261,36 +356,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * Returns the current name of the troop. The name changes as it depends on the level of the troop.
-	 *
-	 * @param level The {@link TroopLevel} whose name should be returned.
-	 *
-	 * @return The current name of the troop.
-	 */
-	public String getName (final TroopLevel level)
-	{
-		return this.getAllNames().get(level);
-	}
-
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public SimpleStringProperty getNameProperty ()
 	{
 		return this.nameProperty;
-	}
-
-
-	/**
-	 * Returns the {@link Faction} the troop is member of.
-	 *
-	 * @return The {@link Faction} the troop is member of.
-	 */
-	public Faction getFaction ()
-	{
-		return this.faction;
 	}
 
 
@@ -346,52 +417,6 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * Returns the current statistics of the troop.
-	 *
-	 * @return The current statistics of the troop.
-	 */
-	public TroopStatistics getStatistics ()
-	{
-		return this.statistics;
-	}
-
-
-	/**
-	 * Sets the current statistics of the troop.
-	 *
-	 * @param statistics The statistics that'll be applied to the troop.
-	 */
-	public void setStatistics (final TroopStatistics statistics)
-	{
-		this.statistics = statistics;
-	}
-
-
-	/**
-	 * Returns the current statistics of the troop for the supplied {@link TroopLevel}.
-	 *
-	 * @param level The {@link TroopLevel} whose statistics should be returned.
-	 *
-	 * @return The current statistics of the troop for the supplied {@link TroopLevel}.
-	 */
-	public TroopStatistics getStatistics (final TroopLevel level)
-	{
-		return this.getAllStatistics().get(level);
-	}
-
-
-	/**
-	 * Sets the isMaxLevel status of the troop to the supplied boolean value.
-	 *
-	 * @param value True if the troop should be marked as max level, otherwise false.
-	 */
-	public void setIsMaxLevel (final boolean value)
-	{
-		this.isMaxLevelProperty.set(value);
-	}
-
-
-	/**
 	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
 	 * {@link Troop#TO_STRING_PATTERN}.
 	 *
@@ -404,10 +429,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.nameProperty.get(), this.spriteProperty.get()
-				.toString(), this.isMaxLevelProperty.get(), this.faction.toString(),
-			this.currentLevel.toString(),
-			this.statistics.toString(),
-			this.upgradeCost.toString());
+			.toString(), this.isMaxLevelProperty.get(), this.faction.toString(), this.currentLevel.toString(), this.statistics.toString(), this.upgradeCost.toString());
 	}
 
 }
