@@ -2,10 +2,6 @@ package me.vault.game.utility.loading;
 
 
 import me.vault.game.control.*;
-import me.vault.game.control.ArtifactController;
-import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.GameController;
-import me.vault.game.control.TroopController;
 import me.vault.game.exception.UnexpectedValueException;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.artifact.ArtifactLevel;
@@ -274,14 +270,14 @@ public class Config
 
 	private void updateTroopLevelsFromModels ()
 	{
-		this.engineerLevel = Engineer.getAllyInstance().getLevel();
-		this.grenadierLevel = Grenadier.getAllyInstance().getLevel();
-		this.guardLevel = Guard.getAllyInstance().getLevel();
-		this.infantryLevel = Infantry.getAllyInstance().getLevel();
+		this.engineerLevel = Engineer.getInstance().getLevel();
+		this.grenadierLevel = Grenadier.getInstance().getLevel();
+		this.guardLevel = Guard.getInstance().getLevel();
+		this.infantryLevel = Infantry.getInstance().getLevel();
 		this.lieutenantLevel = Lieutenant.getInstance().getLevel();
-		this.medicLevel = Medic.getAllyInstance().getLevel();
-		this.officerLevel = Officer.getAllyInstance().getLevel();
-		this.precisionShooterLevel = PrecisionShooter.getAllyInstance().getLevel();
+		this.medicLevel = Medic.getInstance().getLevel();
+		this.officerLevel = Officer.getInstance().getLevel();
+		this.precisionShooterLevel = PrecisionShooter.getInstance().getLevel();
 		this.rangerLevel = Ranger.getInstance().getLevel();
 		this.recruitLevel = Recruit.getInstance().getLevel();
 		this.sniperLevel = Sniper.getInstance().getLevel();
@@ -291,27 +287,27 @@ public class Config
 
 	private void updateTroopLevelsFromConfig ()
 	{
-		Engineer.getAllyInstance().setLevel(this.engineerLevel);
-		Grenadier.getAllyInstance().setLevel(this.grenadierLevel);
-		Guard.getAllyInstance().setLevel(this.guardLevel);
-		Infantry.getAllyInstance().setLevel(this.infantryLevel);
+		Engineer.getInstance().setLevel(this.engineerLevel);
+		Grenadier.getInstance().setLevel(this.grenadierLevel);
+		Guard.getInstance().setLevel(this.guardLevel);
+		Infantry.getInstance().setLevel(this.infantryLevel);
 		Lieutenant.getInstance().setLevel(this.lieutenantLevel);
-		Medic.getAllyInstance().setLevel(this.medicLevel);
-		Officer.getAllyInstance().setLevel(this.officerLevel);
-		PrecisionShooter.getAllyInstance().setLevel(this.precisionShooterLevel);
+		Medic.getInstance().setLevel(this.medicLevel);
+		Officer.getInstance().setLevel(this.officerLevel);
+		PrecisionShooter.getInstance().setLevel(this.precisionShooterLevel);
 		Ranger.getInstance().setLevel(this.rangerLevel);
 		Recruit.getInstance().setLevel(this.recruitLevel);
 		Sniper.getInstance().setLevel(this.sniperLevel);
 		SpaceMarine.getInstance().setLevel(this.spaceMarineLevel);
 
-		TroopController.getInstance().updateValues(Engineer.getAllyInstance());
-		TroopController.getInstance().updateValues(Grenadier.getAllyInstance());
-		TroopController.getInstance().updateValues(Guard.getAllyInstance());
-		TroopController.getInstance().updateValues(Infantry.getAllyInstance());
+		TroopController.getInstance().updateValues(Engineer.getInstance());
+		TroopController.getInstance().updateValues(Grenadier.getInstance());
+		TroopController.getInstance().updateValues(Guard.getInstance());
+		TroopController.getInstance().updateValues(Infantry.getInstance());
 		TroopController.getInstance().updateValues(Lieutenant.getInstance());
-		TroopController.getInstance().updateValues(Medic.getAllyInstance());
-		TroopController.getInstance().updateValues(Officer.getAllyInstance());
-		TroopController.getInstance().updateValues(PrecisionShooter.getAllyInstance());
+		TroopController.getInstance().updateValues(Medic.getInstance());
+		TroopController.getInstance().updateValues(Officer.getInstance());
+		TroopController.getInstance().updateValues(PrecisionShooter.getInstance());
 		TroopController.getInstance().updateValues(Ranger.getInstance());
 		TroopController.getInstance().updateValues(Recruit.getInstance());
 		TroopController.getInstance().updateValues(Sniper.getInstance());
@@ -331,7 +327,7 @@ public class Config
 			GameController.setDifficulty(this.difficulty);
 			this.updateCurrencyAmountsFromConfig();
 		}
-		catch (UnexpectedValueException e)
+		catch (final UnexpectedValueException e)
 		{
 			LOGGER.log(ILogger.Level.WARNING, e.getMessage());
 		}
@@ -348,7 +344,7 @@ public class Config
 			this.difficulty = GameController.getDifficulty();
 			this.updateTroopLevelsFromModels();
 		}
-		catch (UnexpectedValueException e)
+		catch (final UnexpectedValueException e)
 		{
 			LOGGER.log(ILogger.Level.WARNING, e.getMessage());
 		}

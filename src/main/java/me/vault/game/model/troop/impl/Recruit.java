@@ -7,7 +7,6 @@ import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistics;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
@@ -18,18 +17,21 @@ import java.util.Map;
 import static me.vault.game.utility.constant.TroopConstants.Recruit.*;
 
 
+/**
+ * This class is an implementation of {@link Troop}.
+ *
+ * @author Vincent Wolf
+ * @version 1.0.0
+ * @see Troop
+ * @since 30.07.2024
+ */
 public final class Recruit extends Troop
 {
-
 	/**
-	 * The {@link Logger} object for this class used for writing to the console.
+	 * The allied instance.
 	 */
-	private static final Logger LOGGER = new Logger(Recruit.class.getSimpleName());
-
-
 	private static final Recruit ALLY_INSTANCE;
 
-	private static final Recruit ENEMY_INSTANCE;
 
 	/**
 	 * All possible names of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to denote which name corresponds to
@@ -50,6 +52,10 @@ public final class Recruit extends Troop
 	private static final Map<TroopLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
+	/**
+	 * All possible {@link TroopStatistics} of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to
+	 * denote which set of upgrade costs corresponds to which {@link TroopLevel}.
+	 */
 	private static final Map<TroopLevel, TroopStatistics> TROOP_STATISTICS = new HashMap<>();
 
 
@@ -72,10 +78,14 @@ public final class Recruit extends Troop
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, RECRUIT_SQUAD_STATISTICS);
 
 		ALLY_INSTANCE = new Recruit();
-		ENEMY_INSTANCE = new Recruit();
 	}
 
 
+	/**
+	 * Constructs an instance of this class.
+	 * <br>
+	 * The constructor is private because there should only ever be one instance of this class.
+	 */
 	private Recruit ()
 	{
 		super(Faction.MEGA_CORPORATION);
@@ -86,21 +96,13 @@ public final class Recruit extends Troop
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static Recruit getInstance ()
 	{
 		return ALLY_INSTANCE;
-	}
-
-
-	/**
-	 * Returns the singleton instance of this class.
-	 *
-	 * @return The singleton instance of this class.
-	 */
-	public static Recruit getEnemyInstance ()
-	{
-		return ENEMY_INSTANCE;
 	}
 
 
@@ -134,6 +136,9 @@ public final class Recruit extends Troop
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected @NotNull Map<TroopLevel, TroopStatistics> getAllStatistics ()
 	{
