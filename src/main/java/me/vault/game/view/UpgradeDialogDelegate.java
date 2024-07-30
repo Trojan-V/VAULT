@@ -128,10 +128,6 @@ public final class UpgradeDialogDelegate implements Initializable
 	private Button upgradeButton;
 
 
-	@FXML
-	private DialogPane upgradeDialogPane; //TODO: kann das raus?
-
-
 	/**
 	 * The {@link Stage} on which the upgrade dialog is shown.
 	 */

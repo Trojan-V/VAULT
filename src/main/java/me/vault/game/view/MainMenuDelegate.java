@@ -31,10 +31,11 @@ import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE
  * This class acts as the controller and view for the main menu.
  * <br>
  * The class provides methods to display the main menu {@link MainMenuDelegate#show()} as well as methods for
- * the user to interact with the application {@link MainMenuDelegate#click(Event)}.
+ * the player to interact with the application {@link MainMenuDelegate#click(Event)}.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 2.0.0
+ * @version 1.0.0
+ * @since 28.04.2024
  */
 public final class MainMenuDelegate implements Initializable
 {
@@ -176,8 +177,8 @@ public final class MainMenuDelegate implements Initializable
 	 *
 	 * @param event the Event that determines the triggered actions
 	 *
-	 * @precondition The MainMenu Scene has to be displayed on the active stage
-	 * @postcondition The specified actions as described by this documentation are executed
+	 * @precondition The MainMenu Scene has to be displayed on the active stage.
+	 * @postcondition The specified actions as described by this documentation are executed.
 	 */
 	@FXML
 	private void click (final Event event)

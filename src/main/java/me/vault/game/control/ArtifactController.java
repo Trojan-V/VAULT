@@ -50,7 +50,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
 	 *
-	 * @precondition Constructor gets called from within the class
+	 * @precondition Constructor gets called from within the class.
 	 * @postcondition A new instance of ArtifactController is created.
 	 */
 	private ArtifactController ()
@@ -65,7 +65,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @return True if the artifact is maxed, otherwise false.
 	 *
 	 * @precondition An artifact exists.
-	 * @post.condition Says if the artifact is at its maximum.
+	 * @postcondition Says if the artifact is at its maximum.
 	 */
 	private static boolean isArtifactMaxed (final Artifact artifact)
 	{
