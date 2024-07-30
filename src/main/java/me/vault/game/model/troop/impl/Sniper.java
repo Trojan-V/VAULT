@@ -29,7 +29,7 @@ public final class Sniper extends Troop
 {
 
 	/**
-	 * The allied instance.
+	 * The instance of the troop.
 	 */
 	private static final Sniper ALLY_INSTANCE;
 
@@ -86,6 +86,9 @@ public final class Sniper extends Troop
 	 * Constructs an instance of this class.
 	 * <br>
 	 * The constructor is private because there should only ever be one instance of this class.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of Sniper is created.
 	 */
 	private Sniper ()
 	{

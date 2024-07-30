@@ -26,8 +26,9 @@ import static me.vault.game.utility.constant.TroopConstants.Engineer.*;
  */
 public final class Engineer extends Troop
 {
+
 	/**
-	 * The allied instance.
+	 * The instance of the troop.
 	 */
 	private static final Engineer INSTANCE;
 
@@ -89,6 +90,9 @@ public final class Engineer extends Troop
 	 * Constructs an instance of this class.
 	 * <br>
 	 * The constructor is private because there should only ever be one instance of this class.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of Engineer is created.
 	 */
 	private Engineer ()
 	{

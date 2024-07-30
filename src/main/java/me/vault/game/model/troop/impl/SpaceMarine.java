@@ -27,10 +27,9 @@ import static me.vault.game.utility.constant.TroopConstants.SpaceMarine.*;
  */
 public final class SpaceMarine extends Troop
 {
+
 	/**
-	 * Singleton instance, as there's no reason to have more than one {@link SpaceMarine}.
-	 * <br>
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 * The instance of the troop.
 	 */
 	private static final SpaceMarine INSTANCE;
 
@@ -86,6 +85,9 @@ public final class SpaceMarine extends Troop
 	 * Constructs an instance of this class.
 	 * <br>
 	 * The constructor is private because there should only ever be one instance of this class.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of SpaceMarine is created.
 	 */
 	private SpaceMarine ()
 	{
@@ -145,4 +147,5 @@ public final class SpaceMarine extends Troop
 	{
 		return TROOP_STATISTICS;
 	}
+
 }

@@ -27,8 +27,9 @@ import static me.vault.game.utility.constant.TroopConstants.Guard.*;
  */
 public final class Guard extends Troop
 {
+
 	/**
-	 * The allied instance.
+	 * The instance of the troop.
 	 */
 	private static final Guard INSTANCE;
 
@@ -84,6 +85,9 @@ public final class Guard extends Troop
 	 * Constructs an instance of this class.
 	 * <br>
 	 * The constructor is private because there should only ever be one instance of this class.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of Guard is created.
 	 */
 	private Guard ()
 	{

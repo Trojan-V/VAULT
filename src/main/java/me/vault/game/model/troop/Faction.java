@@ -218,6 +218,7 @@ public enum Faction implements Displayable
 	 * {@link Faction#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link Faction#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link Faction#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

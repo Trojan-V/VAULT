@@ -29,7 +29,7 @@ public final class Infantry extends Troop
 {
 
 	/**
-	 * The allied instance.
+	 * The instance of the troop.
 	 */
 	private static final Infantry INSTANCE;
 
@@ -86,6 +86,9 @@ public final class Infantry extends Troop
 	 * Constructs an instance of this class.
 	 * <br>
 	 * The constructor is private because there should only ever be one instance of this class.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of Infantry is created.
 	 */
 	private Infantry ()
 	{

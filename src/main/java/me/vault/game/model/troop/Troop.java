@@ -221,6 +221,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * Returns the sprite of the troop for the supplied {@link TroopLevel}.
 	 *
 	 * @param level The {@link TroopLevel} whose sprite should be returned.
+	 *
 	 * @return The sprite of the troop for the supplied {@link TroopLevel}.
 	 */
 	public MetaDataImage getSprite (final TroopLevel level)
@@ -263,6 +264,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * Returns the current name of the troop. The name changes as it depends on the level of the troop.
 	 *
 	 * @param level The {@link TroopLevel} whose name should be returned.
+	 *
 	 * @return The current name of the troop.
 	 */
 	public String getName (final TroopLevel level)
@@ -369,6 +371,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * Returns the current statistics of the troop for the supplied {@link TroopLevel}.
 	 *
 	 * @param level The {@link TroopLevel} whose statistics should be returned.
+	 *
 	 * @return The current statistics of the troop for the supplied {@link TroopLevel}.
 	 */
 	public TroopStatistics getStatistics (final TroopLevel level)
@@ -393,6 +396,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * {@link Troop#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link Troop#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link Troop#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -405,4 +409,5 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 			this.statistics.toString(),
 			this.upgradeCost.toString());
 	}
+
 }

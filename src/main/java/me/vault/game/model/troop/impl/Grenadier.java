@@ -27,8 +27,9 @@ import static me.vault.game.utility.constant.TroopConstants.Grenadier.*;
  */
 public final class Grenadier extends Troop
 {
+
 	/**
-	 * The allied instance.
+	 * The instance of the troop.
 	 */
 	private static final Grenadier INSTANCE;
 
@@ -88,6 +89,9 @@ public final class Grenadier extends Troop
 	 * Constructs an instance of this class.
 	 * <br>
 	 * The constructor is private because there should only ever be one instance of this class.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of Grenadier is created.
 	 */
 	private Grenadier ()
 	{

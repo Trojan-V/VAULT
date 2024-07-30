@@ -26,6 +26,7 @@ import java.text.MessageFormat;
  */
 public class TroopStatistics
 {
+
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link TroopStatistics#toString()} is
 	 * called.
@@ -149,6 +150,7 @@ public class TroopStatistics
 	 */
 	public static class Offensive
 	{
+
 		/**
 		 * The {@link MessageFormat} pattern, which is used, when the {@link Offensive#toString()} is
 		 * called.
@@ -489,6 +491,7 @@ public class TroopStatistics
 				this.grenadeDamage.get(),
 				this.grenadeAmount.get(), this.grenadeRange.get());
 		}
+
 	}
 
 
@@ -505,6 +508,7 @@ public class TroopStatistics
 	 */
 	public static class Defensive
 	{
+
 		/**
 		 * The {@link MessageFormat} pattern, which is used, when the {@link Defensive#toString()} is
 		 * called.
@@ -784,6 +788,7 @@ public class TroopStatistics
 			return MessageFormat.format(TO_STRING_PATTERN, this.health.get(), this.armor.get(), this.dodgeRate.get(),
 				this.resistance.get());
 		}
+
 	}
 
 
@@ -800,6 +805,7 @@ public class TroopStatistics
 	 */
 	public static class Dexterity
 	{
+
 		/**
 		 * The {@link MessageFormat} pattern, which is used, when the {@link Dexterity#toString()} is
 		 * called.
@@ -964,5 +970,7 @@ public class TroopStatistics
 		{
 			return MessageFormat.format(TO_STRING_PATTERN, this.movementTiles.get(), this.initiative.get());
 		}
+
 	}
+
 }
