@@ -124,18 +124,4 @@ public enum ArtifactLevel implements Level
 		}
 		return values()[this.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL];
 	}
-
-
-	/**
-	 * Builds a {@link String}, which represents the object in a human-readable format.
-	 *
-	 * @return A {@link String} which represents the object in a human-readable format.
-	 * @precondition None.
-	 * @postcondition The method returned a {@link String} which represents the object.
-	 */
-	@Override
-	public String toString ()
-	{
-		return this.name();
-	}
 }

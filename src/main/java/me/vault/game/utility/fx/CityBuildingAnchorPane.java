@@ -56,7 +56,7 @@ public final class CityBuildingAnchorPane extends AnchorPane
 		upgradeButton.setText("UPGRADE");
 		upgradeButton.setPrefWidth(DIMENSION);
 		upgradeButton.setPrefHeight(UPGRADE_BUTTON_HEIGHT);
-		upgradeButton.disableProperty().bind(cityBuilding.getMaxLevelProperty());
+		upgradeButton.disableProperty().bind(cityBuilding.getIsMaxLevelProperty());
 		upgradeButton.setOnMouseClicked(_ -> this.handleUpgradeEvent(cityBuilding));
 		return upgradeButton;
 	}

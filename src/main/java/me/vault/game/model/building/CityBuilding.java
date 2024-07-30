@@ -12,6 +12,7 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.MessageFormat;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
@@ -28,6 +29,11 @@ import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METH
  */
 public abstract class CityBuilding implements Displayable, Nameable, Upgradable<CityBuildingLevel>
 {
+
+
+	private static final String TO_STRING_PATTERN =
+		"CityBuilding'{'nameProperty={0}, spriteProperty={1}, isMaxLevelProperty={2}, currentLevel={3}, currentUpgradeCost={4}'}'";
+
 
 	/**
 	 * This property is used to store and dynamically display the name of the city building.
@@ -46,6 +52,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * @see MetaDataImage
 	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
+
 
 	private final SimpleBooleanProperty isMaxLevelProperty;
 
@@ -133,7 +140,6 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * Returns the name for the supplied level of the city building.
 	 *
 	 * @param level The level whose name should be returned.
-	 *
 	 * @return The name for the supplied level.
 	 */
 	public String getName (final CityBuildingLevel level)
@@ -194,7 +200,6 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * Returns the sprite for the supplied level of the city building.
 	 *
 	 * @param level The level whose sprite should be returned.
-	 *
 	 * @return The sprite for the supplied level.
 	 */
 	public MetaDataImage getSprite (final CityBuildingLevel level)
@@ -203,19 +208,34 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	}
 
 
-	public boolean isMaxLevel ()
+	/**
+	 * Returns true if the city building is at the maximum level, otherwise false.
+	 *
+	 * @return True if the city building is at the maximum level, otherwise false.
+	 */
+	public boolean getIsMaxLevel ()
 	{
 		return this.isMaxLevelProperty.get();
 	}
 
 
+	/**
+	 * Sets the isMaxLevel status of the city building to the supplied boolean value.
+	 *
+	 * @param value True if the city building should be at the maximum level, otherwise false.
+	 */
 	public void setIsMaxLevel (final boolean value)
 	{
 		this.isMaxLevelProperty.set(value);
 	}
 
 
-	public SimpleBooleanProperty getMaxLevelProperty ()
+	/**
+	 * Returns the property used to store the isMaxLevel data.
+	 *
+	 * @return The property used to store the isMaxLevel data.
+	 */
+	public SimpleBooleanProperty getIsMaxLevelProperty ()
 	{
 		return this.isMaxLevelProperty;
 	}
@@ -241,6 +261,9 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	}
 
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public CurrencyTransaction getUpgradeCosts (final CityBuildingLevel level)
 	{
@@ -248,15 +271,77 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	}
 
 
+	/**
+	 * This method provides a {@link Map} of all {@link CurrencyTransaction}s which are mapped to the {@link CityBuildingLevel} they belong to.
+	 * These {@link CurrencyTransaction}s represent the upgrade costs to upgrade the city building to the next level.
+	 * <br>
+	 * It is important that the {@link Map} of {@link CurrencyTransaction}s that is returned by this method is ready before this method gets invoked.
+	 * <br>
+	 * As this method is invoked within the constructor of this class to extract the data from it, the map can't be created during the instantiation of the
+	 * subclass, as the constructor of this class will always be invoked first (because the first call in the constructor of a subclass is always a call to
+	 * the constructor of the superclass).
+	 * <br>
+	 * Therefore, this {@link Map} has to be created during class initialization instead of instance initialization.
+	 * <br>
+	 * Due to that,every subclass of this class declares a static block where the order of operations during the class initialization is written.
+	 * Note that the singleton instance of the subclass is getting created last, so it's ensured that this {@link Map} is filled with data.
+	 *
+	 * @return A {@link Map} of all {@link CurrencyTransaction}s which are mapped to the {@link CityBuildingLevel} they belong to.
+	 * These key-value combinations represent the upgrade costs to upgrade the city building to the next level.
+	 */
 	@NotNull
 	public abstract Map<CityBuildingLevel, CurrencyTransaction> getAllUpgradeCosts ();
 
 
+	/**
+	 * This method provides a {@link Map} of all {@link String}s that are mapped to the {@link CityBuildingLevel} they belong to.
+	 * These {@link String}s represent the name of the city building at the selected level.
+	 * <br>
+	 * It is important that the {@link Map} of {@link String}s that is returned by this method is ready before this method gets invoked.
+	 * <br>
+	 * As this method is invoked within the constructor of this class to extract the data from it, the map can't be created during the instantiation of the
+	 * subclass, as the constructor of this class will always be invoked first (because the first call in the constructor of a subclass is always a call to
+	 * the constructor of the superclass).
+	 * <br>
+	 * Therefore, this {@link Map} has to be created during class initialization instead of instance initialization.
+	 * <br>
+	 * Due to that,every subclass of this class declares a static block where the order of operations during the class initialization is written.
+	 * Note that the singleton instance of the subclass is getting created last, so it's ensured that this {@link Map} is filled with data.
+	 *
+	 * @return A {@link Map} of all {@link String}s which are mapped to the {@link CityBuildingLevel} they belong to.
+	 * These key-value combinations represent the name of the city building at the selected level.
+	 */
 	@NotNull
 	public abstract Map<CityBuildingLevel, String> getAllNames ();
 
 
+	/**
+	 * This method provides a {@link Map} of all {@link MetaDataImage}s that are mapped to the {@link CityBuildingLevel} they belong to.
+	 * These {@link MetaDataImage}s represent the sprite of the city building at the selected level.
+	 * <br>
+	 * It is important that the {@link Map} of {@link MetaDataImage}s that is returned by this method is ready before this method gets invoked.
+	 * <br>
+	 * As this method is invoked within the constructor of this class to extract the data from it, the map can't be created during the instantiation of the
+	 * subclass, as the constructor of this class will always be invoked first (because the first call in the constructor of a subclass is always a call to
+	 * the constructor of the superclass).
+	 * <br>
+	 * Therefore, this {@link Map} has to be created during class initialization instead of instance initialization.
+	 * <br>
+	 * Due to that,every subclass of this class declares a static block where the order of operations during the class initialization is written.
+	 * Note that the singleton instance of the subclass is getting created last, so it's ensured that this {@link Map} is filled with data.
+	 *
+	 * @return A {@link Map} of all {@link MetaDataImage}s which are mapped to the {@link CityBuildingLevel} they belong to.
+	 * These key-value combinations represent the sprite of the city building at the selected level.
+	 */
 	@NotNull
 	public abstract Map<CityBuildingLevel, MetaDataImage> getAllSprites ();
 
+
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, this.nameProperty.get(), this.spriteProperty.get()
+				.toString(), this.isMaxLevelProperty.get(), this.currentLevel.toString(),
+			this.currentUpgradeCost.toString());
+	}
 }

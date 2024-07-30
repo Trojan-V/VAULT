@@ -27,19 +27,5 @@ public enum ArenaResult
 	 * If the player won the arena encounter, this is the result.
 	 */
 	WON;
-
-
-	/**
-	 * Builds a {@link String}, which represents the object in a human-readable format.
-	 *
-	 * @return A {@link String} which represents the object in a human-readable format.
-	 * @precondition None.
-	 * @postcondition The method returned a {@link String} which represents the object.
-	 */
-	@Override
-	public String toString ()
-	{
-		return this.name();
-	}
 }
 

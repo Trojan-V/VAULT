@@ -255,20 +255,6 @@ public class AttributeMultiplier
 		/**
 		 * Attribute-multiplier type for the defense multiplier.
 		 */
-		DEFENSE;
-
-
-		/**
-		 * Builds a {@link String}, which represents the object in a human-readable format.
-		 *
-		 * @return A {@link String} which represents the object in a human-readable format.
-		 * @precondition None.
-		 * @postcondition The method returned a {@link String} which represents the object.
-		 */
-		@Override
-		public String toString ()
-		{
-			return this.name();
-		}
+		DEFENSE
 	}
 }
