@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 // TODO: Pre und post
 
+
 /**
  * Any class that's a nameable object should implement this interface.
  * It provides getters to access the name

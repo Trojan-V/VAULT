@@ -7,6 +7,7 @@ import static me.vault.game.utility.constant.MiscConstants.ZERO_INDEXED_LENGTH_C
 
 // TODO: Pre und post
 
+
 /**
  * An interface for levels which defines some methods that every level enum/class should provide.
  *
@@ -17,6 +18,7 @@ import static me.vault.game.utility.constant.MiscConstants.ZERO_INDEXED_LENGTH_C
  */
 public interface Level
 {
+
 	/**
 	 * Returns the next lower level for the current level instance.
 	 *
@@ -55,10 +57,12 @@ public interface Level
 	 * Basically just subtracts the length by one, as enums are zero-indexed.
 	 *
 	 * @param length The length of the enum.
+	 *
 	 * @return The last index of the enum where's still data that can be accessed.
 	 */
 	public static int getLastIndex (final int length)
 	{
 		return length - ZERO_INDEXED_LENGTH_CORRECTION_SUBTRACTION_ORDINAL;
 	}
+
 }

@@ -7,6 +7,7 @@ import me.vault.game.utility.struct.MetaDataImage;
 
 // TODO: Pre und post
 
+
 /**
  * Any class that's a displayable object should implement this interface.
  * It provides getters to access the sprite

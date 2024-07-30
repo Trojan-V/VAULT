@@ -7,6 +7,7 @@ import java.io.File;
 
 // TODO: Pre und post
 
+
 /**
  * An interface for any class that provides some kind of loading and saving functionality.
  *
@@ -17,6 +18,7 @@ import java.io.File;
  */
 public interface Loader
 {
+
 	/**
 	 * Saves the data the loader has in memory to the default location, so there's no need to specify a file.
 	 */

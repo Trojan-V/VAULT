@@ -159,7 +159,7 @@ public class Mission
 	}
 
 
-	public void removeAvailableArena (Arena arena)
+	public void removeAvailableArena (final Arena arena)
 	{
 		this.availableArenas.remove(arena);
 	}

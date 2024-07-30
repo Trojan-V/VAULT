@@ -5,6 +5,7 @@ import me.vault.game.model.currency.CurrencyTransaction;
 
 // TODO: Pre und post
 
+
 /**
  * Any class that's an upgradable object should implement this interface.
  * It provides getters to access the current level of the upgradable object and setters to be able to change it.
