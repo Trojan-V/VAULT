@@ -81,6 +81,10 @@ public final class ArenaDelegate
 
 	private Arena arena = null;
 
+
+	/**
+	 * Integer that keeps track of round number.
+	 */
 	private int round = 1;
 
 
@@ -105,6 +109,10 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 * @param mission
+	 */
 	private void setMission (final Mission mission)
 	{
 		this.mission = mission;
