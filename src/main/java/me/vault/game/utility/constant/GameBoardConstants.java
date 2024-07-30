@@ -29,6 +29,8 @@ public interface GameBoardConstants
 	@Constant
 	int GAME_BOARD_ROW_COUNT = 12;
 
+	@Constant
+	int GAME_BOARD_MAXIMUM_INDEX = 11;
 
 	@Constant
 	int GAME_BOARD_COLUMN_COUNT = 12;

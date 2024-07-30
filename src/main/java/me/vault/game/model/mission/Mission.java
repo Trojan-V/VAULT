@@ -25,10 +25,10 @@ public class Mission
 
 	static
 	{
-		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ARENA_ONE);
-		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ARENA_TWO);
-		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ARENA_THREE);
-		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ARENA_FOUR);
+		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ArenaOne.ARENA_ONE);
+		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ArenaTwo.ARENA_TWO);
+		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ArenaThree.ARENA_THREE);
+		AVAILABLE_ARENA_ENCOUNTERS.add(ArenaConstants.ArenaFour.ARENA_FOUR);
 	}
 
 

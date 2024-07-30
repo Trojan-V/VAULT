@@ -9,8 +9,8 @@ import me.vault.game.utility.fx.TimelineElementHBox;
 import java.text.MessageFormat;
 import java.util.*;
 
-import static me.vault.game.utility.constant.ArenaConstants.MULTIPLIER;
-import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
+import static me.vault.game.utility.constant.ArenaConstants.ENEMY_UNIT_TILE_OFFSET;
+import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_MAXIMUM_INDEX;
 
 
 /**
@@ -30,8 +30,7 @@ public class Arena
 	 * called.
 	 */
 	private static final String TO_STRING_PATTERN =
-		"Arena'{'gameBoard={0}, playerTwoFigures={1}, eliminatedFigures={2}, arenaResult={3}, troopTimeline={4}, " +
-		"playerOneFigures={5}, selectedFigure={6}'}'";
+		"Arena'{'gameBoard={0}, playerTwoFigures={1}, eliminatedFigures={2}, arenaResult={3}, troopTimeline={4}, " + "playerOneFigures={5}, selectedFigure={6}'}'";
 
 
 	/**
@@ -119,8 +118,7 @@ public class Arena
 	 *
 	 * @return An instance of {@link FigureTimeline} which contains the timeline for the encounter.
 	 */
-	private FigureTimeline createTimeline (final Collection<Figure> playerOneFigures,
-		final Collection<Figure> playerTwoFigures)
+	private FigureTimeline createTimeline (final Collection<Figure> playerOneFigures, final Collection<Figure> playerTwoFigures)
 	{
 		final ArrayList<Figure> troops = new ArrayList<>();
 		troops.addAll(playerOneFigures);
@@ -173,7 +171,7 @@ public class Arena
 	{
 		for (final Figure troop : this.playerTwoFigures)
 		{
-			this.placeFigureRandomly(troop, OFFSET);
+			this.placeFigureRandomly(troop, ENEMY_UNIT_TILE_OFFSET);
 		}
 	}
 
@@ -189,7 +187,9 @@ public class Arena
 	 */
 	private void placeFigureRandomly (final Figure figure, final int offset)
 	{
-		final Position randomPosition = new Position((int) Math.round(Math.random() + offset), (int) Math.round(Math.random() * MULTIPLIER));
+		final int xPosition = (int) Math.round(Math.random() + offset);
+		final int yPosition = (int) Math.round(Math.random() * GAME_BOARD_MAXIMUM_INDEX);
+		final Position randomPosition = new Position(xPosition, yPosition);
 		if (this.isAccessibleTile(randomPosition))
 		{
 			this.getGameBoard().place(randomPosition, figure);
@@ -356,11 +356,8 @@ public class Arena
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.gameBoard.toString(),
-			Arrays.deepToString(this.playerTwoFigures.toArray()),
-			Arrays.deepToString(this.eliminatedFigures.toArray()), this.arenaResult.toString(),
-			this.figureTimeline.toString(),
-			Arrays.deepToString(this.playerOneFigures.toArray()), this.selectedFigure.toString());
+		return MessageFormat.format(TO_STRING_PATTERN, this.gameBoard.toString(), Arrays.deepToString(this.playerTwoFigures.toArray()), Arrays.deepToString(this.eliminatedFigures.toArray()),
+			this.arenaResult.toString(), this.figureTimeline.toString(), Arrays.deepToString(this.playerOneFigures.toArray()), this.selectedFigure.toString());
 	}
 
 

@@ -16,80 +16,180 @@ import java.util.List;
 import static me.vault.game.utility.constant.ConstantInterface.Constant;
 
 
+/**
+ * This interface provides constants which contain information about the different playable arenas of the game.
+ * The interface is split into several subinterfaces to further differentiate between the different arenas.
+ * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 5.0.0
+ * @since 30.05.2024
+ */
 @ConstantInterface
 public interface ArenaConstants
 {
 
+	/**
+	 * The path to the respective fxml file of the arenas as a {@link String}.
+	 */
 	@Constant
 	String ARENA_FXML = "arena.fxml";
 
 
+	/**
+	 * The tile offset between the allied troops and the enemy troops on the game board and grid pane.
+	 */
 	@Constant
-	int MULTIPLIER = 11;
+	int ENEMY_UNIT_TILE_OFFSET = 10;
 
 
-	@Constant
-	int OFFSET = 10;
+	/**
+	 * This subinterface provides constants which contain information about the first playable arena of the game.
+	 * The subinterface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
+	 *
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 5.0.0
+	 * @since 30.05.2024
+	 */
+	@ConstantInterface
+	interface ArenaOne
+	{
+
+		/**
+		 * The path to the map-file that contains the board information for the first arena game board and the grid pane.
+		 */
+		@Constant
+		String ARENA_ONE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_1.txt";
+
+		/**
+		 * A list of figures that resemble the enemies the user has to fight in the first arena.
+		 */
+		@Constant
+		ArrayList<Figure> ARENA_ONE_ENEMIES = new ArrayList<>()
+		{{
+			this.add(new Figure(Sniper.getInstance()));
+			this.add(new Figure(Sniper.getInstance()));
+			this.add(new Figure(Sniper.getInstance()));
+		}};
+
+		/**
+		 * The {@link Arena}, which represents the first playable arena of the game.
+		 */
+		@Constant
+		Arena ARENA_ONE = new Arena(List.of(), ARENA_ONE_ENEMIES, new GameBoard(ResourceLoader.createTileArrayFromFile(ARENA_ONE_FILEPATH)));
+
+	}
 
 
-	@Constant
-	double TIMELINE_SPACING = 5.0;
+	/**
+	 * This subinterface provides constants which contain information about the second playable arena of the game.
+	 * The subinterface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
+	 *
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 5.0.0
+	 * @since 30.05.2024
+	 */
+	interface ArenaTwo
+	{
 
-	@Constant
-	String ARENA_ONE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_1.txt";
+		/**
+		 * The path to the map-file that contains the board information for the second arena game board and the grid pane.
+		 */
+		@Constant
+		String ARENA_TWO_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_2.txt";
 
-	@Constant
-	String ARENA_TWO_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_2.txt";
+		/**
+		 * A list of figures that resemble the enemies the user has to fight in the second arena.
+		 */
+		@Constant
+		ArrayList<Figure> ARENA_TWO_ENEMIES = new ArrayList<>()
+		{{
+			this.add(new Figure(Ranger.getInstance()));
+			this.add(new Figure(Ranger.getInstance()));
+			this.add(new Figure(Ranger.getInstance()));
+		}};
 
-	@Constant
-	String ARENA_THREE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_3.txt";
+		/**
+		 * The {@link Arena}, which represents the second playable arena of the game.
+		 */
+		@Constant
+		Arena ARENA_TWO = new Arena(List.of(), ARENA_TWO_ENEMIES, new GameBoard(ResourceLoader.createTileArrayFromFile(ARENA_TWO_FILEPATH)));
 
-	@Constant
-	String ARENA_FOUR_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_4.txt";
+	}
 
-	@Constant
-	ArrayList<Figure> ARENA_ONE_ENEMIES = new ArrayList<>()
-	{{
-		this.add(new Figure(Sniper.getInstance()));
-		this.add(new Figure(Sniper.getInstance()));
-		this.add(new Figure(Sniper.getInstance()));
-	}};
 
-	@Constant
-	ArrayList<Figure> ARENA_TWO_ENEMIES = new ArrayList<>()
-	{{
-		this.add(new Figure(Ranger.getInstance()));
-		this.add(new Figure(Ranger.getInstance()));
-		this.add(new Figure(Ranger.getInstance()));
-	}};
+	/**
+	 * This subinterface provides constants which contain information about the third playable arena of the game.
+	 * The subinterface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
+	 *
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 5.0.0
+	 * @since 30.05.2024
+	 */
+	interface ArenaThree
+	{
 
-	@Constant
-	ArrayList<Figure> ARENA_THREE_ENEMIES = new ArrayList<>()
-	{{
-		this.add(new Figure(Lieutenant.getInstance()));
-		this.add(new Figure(Lieutenant.getInstance()));
-		this.add(new Figure(Lieutenant.getInstance()));
-	}};
+		/**
+		 * The path to the map-file that contains the board information for the three arena game board and the grid pane.
+		 */
+		@Constant
+		String ARENA_THREE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_3.txt";
 
-	@Constant
-	ArrayList<Figure> ARENA_FOUR_ENEMIES = new ArrayList<>()
-	{{
-		this.add(new Figure(Recruit.getInstance()));
-		this.add(new Figure(Recruit.getInstance()));
-		this.add(new Figure(Recruit.getInstance()));
-		this.add(new Figure(Recruit.getInstance()));
-	}};
+		/**
+		 * A list of figures that resemble the enemies the user has to fight in the third arena.
+		 */
+		@Constant
+		ArrayList<Figure> ARENA_THREE_ENEMIES = new ArrayList<>()
+		{{
+			this.add(new Figure(Lieutenant.getInstance()));
+			this.add(new Figure(Lieutenant.getInstance()));
+			this.add(new Figure(Lieutenant.getInstance()));
+		}};
 
-	@Constant
-	Arena ARENA_ONE = new Arena(List.of(), ARENA_ONE_ENEMIES, new GameBoard(ResourceLoader.createTileArrayFromFile(ARENA_ONE_FILEPATH)));
+		/**
+		 * The {@link Arena}, which represents the third playable arena of the game.
+		 */
+		@Constant
+		Arena ARENA_THREE = new Arena(List.of(), ARENA_THREE_ENEMIES, new GameBoard(ResourceLoader.createTileArrayFromFile(ARENA_THREE_FILEPATH)));
 
-	@Constant
-	Arena ARENA_TWO = new Arena(List.of(), ARENA_TWO_ENEMIES, new GameBoard(ResourceLoader.createTileArrayFromFile(ARENA_TWO_FILEPATH)));
+	}
 
-	@Constant
-	Arena ARENA_THREE = new Arena(List.of(), ARENA_THREE_ENEMIES, new GameBoard(ResourceLoader.createTileArrayFromFile(ARENA_THREE_FILEPATH)));
 
-	@Constant
-	Arena ARENA_FOUR = new Arena(List.of(), ARENA_FOUR_ENEMIES, new GameBoard(ResourceLoader.createTileArrayFromFile(ARENA_FOUR_FILEPATH)));
+	/**
+	 * This subinterface provides constants which contain information about the fourth playable arena of the game.
+	 * The subinterface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
+	 *
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 5.0.0
+	 * @since 30.05.2024
+	 */
+	interface ArenaFour
+	{
+
+		/**
+		 * The path to the map-file that contains the board information for the fourth arena game board and the grid pane.
+		 */
+		@Constant
+		String ARENA_FOUR_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_4.txt";
+
+		/**
+		 * A list of figures that resemble the enemies the user has to fourth in the second arena.
+		 */
+		@Constant
+		ArrayList<Figure> ARENA_FOUR_ENEMIES = new ArrayList<>()
+		{{
+			this.add(new Figure(Recruit.getInstance()));
+			this.add(new Figure(Recruit.getInstance()));
+			this.add(new Figure(Recruit.getInstance()));
+			this.add(new Figure(Recruit.getInstance()));
+		}};
+
+		/**
+		 * The {@link Arena}, which represents the fourth playable arena of the game.
+		 */
+		@Constant
+		Arena ARENA_FOUR = new Arena(List.of(), ARENA_FOUR_ENEMIES, new GameBoard(ResourceLoader.createTileArrayFromFile(ARENA_FOUR_FILEPATH)));
+
+	}
 
 }

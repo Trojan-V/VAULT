@@ -33,7 +33,6 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
-import static me.vault.game.utility.constant.ArenaConstants.TIMELINE_SPACING;
 import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
 import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_ROW_COUNT;
 import static me.vault.game.utility.constant.LoggingConstants.ArenaDelegate.ARENA_DISPLAY_FAILED;
@@ -112,8 +111,7 @@ public final class ArenaDelegate
 			{
 				final Position position = new Position(i, j);
 				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(position).getCurrentElement());
-				button.setOnMouseClicked(_ ->
-				{
+				button.setOnMouseClicked(_ -> {
 					this.handleFigureInteraction(position);
 				});
 				this.arenaBoardGridPane.add(button, i, j);
@@ -131,7 +129,6 @@ public final class ArenaDelegate
 		{
 			this.timelineVBox.getChildren().add(new TimelineElementHBox(this.arena, Objects.requireNonNull(figurePriorityQueue.poll())));
 		}
-		this.timelineVBox.setSpacing(TIMELINE_SPACING);
 	}
 
 
@@ -142,8 +139,7 @@ public final class ArenaDelegate
 		final Placeable nextTileElement = arenaGameBoard.getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
-		if (nextTileElement instanceof AccessibleTileAppearance &&
-		    FigureController.canMoveToPosition(this.arena, attacker, position))
+		if (nextTileElement instanceof AccessibleTileAppearance && FigureController.canMoveToPosition(this.arena, attacker, position))
 		{
 			MovableController.move(arenaGameBoard, attacker, position);
 			interactionFailed = false;
@@ -216,8 +212,7 @@ public final class ArenaDelegate
 		}
 		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
 		{
-			MovableController.move(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst()
-				.getPosition());
+			MovableController.move(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst().getPosition());
 		}
 	}
 
