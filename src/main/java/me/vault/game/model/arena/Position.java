@@ -13,6 +13,7 @@ import java.text.MessageFormat;
  */
 public final record Position(int x, int y)
 {
+
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */

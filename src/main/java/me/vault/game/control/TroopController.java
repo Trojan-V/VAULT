@@ -2,7 +2,6 @@ package me.vault.game.control;
 
 
 import javafx.application.Platform;
-import me.vault.game.interfaces.Upgradable;
 import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.city.TrainingFacility;
@@ -12,9 +11,12 @@ import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.struct.UpgradeRunnable;
 import me.vault.game.view.city.building.TrainingFacilityDelegate;
+
 import static me.vault.game.model.troop.TroopStatistics.*;
 
 // TODO: Pre und post
+
+
 /**
  * Controller class to handle all different actions related to troops.
  * <br>
@@ -34,6 +36,7 @@ import static me.vault.game.model.troop.TroopStatistics.*;
  */
 public final class TroopController implements Upgrader<Troop, TroopLevel>
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link TroopController}.
 	 * <br>
@@ -53,6 +56,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
@@ -77,6 +81,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
+	 *
 	 * @precondition The {@link Dexterity} instance exists and can be upgraded.
 	 * @postcondition The {@link Dexterity} instances gets upgraded.
 	 */
@@ -105,6 +110,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
+	 *
 	 * @precondition The {@link Defensive} instance exists and can be upgraded.
 	 * @postcondition The {@link Defensive} instances gets upgraded.
 	 */
@@ -135,6 +141,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
+	 *
 	 * @precondition The {@link Offensive} instance exists and can be upgraded.
 	 * @postcondition The {@link Offensive} instances gets upgraded.
 	 */
