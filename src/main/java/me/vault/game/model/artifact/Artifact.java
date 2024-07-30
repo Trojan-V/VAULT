@@ -273,7 +273,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	/**
 	 * Returns the sprite of the artifact for the supplied {@link ArtifactLevel}.
 	 *
-	 * @param level The artifact level whose sprite should be returned.
+	 * @param level The {@link ArtifactLevel} whose sprite should be returned.
 	 * @return The sprite of the artifact for the supplied {@link ArtifactLevel}.
 	 */
 	public MetaDataImage getSprite (final ArtifactLevel level)
@@ -333,7 +333,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	/**
 	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
 	 *
-	 * @param value True if the artifact should isMaxLevel, otherwise false.
+	 * @param value True if the artifact should be marked as max level, otherwise false.
 	 */
 	public void setIsMaxLevel (final boolean value)
 	{
