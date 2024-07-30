@@ -11,6 +11,7 @@ import me.vault.game.view.TutorialDelegate;
  * @version 1.0.0
  *
  * @see TutorialDelegate
+ *
  * @since 30.07.2024
  */
 public interface TutorialConstants
