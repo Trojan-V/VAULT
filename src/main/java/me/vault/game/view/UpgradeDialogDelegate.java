@@ -21,18 +21,32 @@ import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.city.SaveCompleteDelegate;
 
 import java.io.IOException;
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAIL;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 // TODO: Anzeigen des dialog bearbeiten -> erst anzeigen und dann "upgrade" ausgrauen
 
+//TODO: Java doc Lasse
 
+/**
+ * The {@link UpgradeDialogDelegate} is responsible for the control (Controller) and display (view) of the dialog
+ * that appears when something should be upgraded.
+ *
+ * @author Lasse-Leander Hillen
+ * @see DialogPane
+ * @see Label
+ * @see Stage
+ * @see Upgrader
+ * @since 30.07.2024
+ */
 public final class UpgradeDialogDelegate implements Initializable
 {
 
@@ -41,44 +55,98 @@ public final class UpgradeDialogDelegate implements Initializable
 	 */
 	private static final ILogger LOGGER = new Logger(UpgradeDialogDelegate.class.getSimpleName());
 
+
+	/**
+	 * The {@link String} that is used as the window title.
+	 */
 	private static final String WINDOW_TITLE = "Upgrading...";
 
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link UpgradeDialogDelegate#toString()} is called.
+	 */
 	private static final String TO_STRING_PATTERN = "UpgradeDialogDelegate[upgradable={0}, upgrader={1}, fxml={2}]";
 
+	/**
+	 * The path to the respective fxml file of the delegate as a {@link String}.
+	 */
 	private static final String UPGRADE_DIALOG_VIEW_FXML = "upgradeDialog.fxml";
 
 
+	/**
+	 * The {@link Label} that shows the Level after the upgrade is completed.
+	 */
 	@FXML
 	private Label afterUpgradeLabel;
 
+
+	/**
+	 * The {@link Label} that shows the current Level.
+	 */
 	@FXML
 	private Label beforeUpgradeLabel;
 
+
+	/**
+	 * The {@link Label} that shows the amount of composites needed for the upgrade.
+	 */
 	@FXML
 	private Label compositeCostLabel;
 
+
+	/**
+	 * The {@link Label} that shows the number of energy credits needed for the upgrade.
+	 */
 	@FXML
 	private Label energyCreditCostLabel;
 
+
+	/**
+	 * The {@link Label} that shows the number of food rations needed for the upgrade.
+	 */
 	@FXML
 	private Label foodRationCostLabel;
 
+
+	/**
+	 * The {@link Label} that shows the number of science needed for the upgrade.
+	 */
 	@FXML
 	private Label scienceCostLabel;
 
+
+	/**
+	 * The {@link Label} that shows the amount of steel needed for the upgrade.
+	 */
 	@FXML
 	private Label steelCostLabel;
 
+
+	/**
+	 * The {@link Button} that allows the player to upgrade.
+	 */
 	@FXML
 	private Button upgradeButton;
 
-	@FXML
-	private DialogPane upgradeDialogPane;
 
+	@FXML
+	private DialogPane upgradeDialogPane; //TODO: kann das raus?
+
+
+	/**
+	 * The {@link Stage} on which the upgrade dialog is shown.
+	 */
 	private Stage stage = null;
 
+
+	/**
+	 *
+	 */
 	private Upgrader<Upgradable<Level>, Level> upgrader = null;
 
+
+	/**
+	 *
+	 */
 	private Upgradable<Level> upgradable = null;
 
 
@@ -120,6 +188,10 @@ public final class UpgradeDialogDelegate implements Initializable
 	}
 
 
+	/**
+	 *
+	 * @param ignored the {@link ActionEvent} is not used but required for the method.
+	 */
 	@FXML
 	void onCancelButtonAction (final ActionEvent ignored)
 	{
@@ -144,6 +216,10 @@ public final class UpgradeDialogDelegate implements Initializable
 	}
 
 
+	/**
+	 * Shows the
+	 * @param scene
+	 */
 	public void show (final Scene scene)
 	{
 		this.stage.setScene(scene);
@@ -178,11 +254,18 @@ public final class UpgradeDialogDelegate implements Initializable
 		this.afterUpgradeLabel.setText(upgradable.getLevel().getNextHigherLevel().toString());
 	}
 
-
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link UpgradeDialogDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link UpgradeDialogDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link UpgradeDialogDelegate#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
 	@Override
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.upgradable, this.upgrader, UPGRADE_DIALOG_VIEW_FXML);
 	}
-
 }
