@@ -63,7 +63,7 @@ public interface Level
 	 * @return True if the level of the current level instance is the minimum level, otherwise false.
 	 *
 	 * @precondition The method gets called.
-	 * @precondition The lowest level of the Level is returned.
+	 * @precondition If the level is the minimum, then true was returned.
 	 */
 	boolean isMinimum ();
 
@@ -74,7 +74,7 @@ public interface Level
 	 * @return True if the level of the current level instance is the maximum level, otherwise false.
 	 *
 	 * @precondition The method gets called.
-	 * @precondition The highest level of the Level is returned.
+	 * @precondition If the level is the maximum, then true was returned.
 	 */
 	boolean isMaximum ();
 

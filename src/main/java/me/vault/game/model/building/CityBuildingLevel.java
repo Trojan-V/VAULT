@@ -38,7 +38,7 @@ public enum CityBuildingLevel implements Level
 
 
 	/**
-	 * The third and maximum level (for now) a {@link CityBuilding} can have.
+	 * The third and maximum level a {@link CityBuilding} can have.
 	 * <br>
 	 * A {@link CityBuilding} reaches this level after upgrading it twice.
 	 */
@@ -49,6 +49,9 @@ public enum CityBuildingLevel implements Level
 	 * Returns the minimum level a {@link CityBuilding} can have. The minimum level is determined by the ordinal of the first enum entry.
 	 *
 	 * @return The minimum level a {@link CityBuilding} can have.
+	 *
+	 * @precondition The method gets called and CityBuildingLevel was initialized.
+	 * @postcondition The minimum of CityBuildingLevel was returned.
 	 */
 	public static CityBuildingLevel getMinimum ()
 	{
@@ -60,6 +63,9 @@ public enum CityBuildingLevel implements Level
 	 * Returns the maximum level a {@link CityBuilding} can have. The maximum level is determined by the ordinal of the last enum entry.
 	 *
 	 * @return The maximum level a {@link CityBuilding} can have.
+	 *
+	 * @precondition The method gets called and CityBuildingLevel was initialized.
+	 * @postcondition The maximum of CityBuildingLevel was returned.
 	 */
 	public static CityBuildingLevel getMaximum ()
 	{
