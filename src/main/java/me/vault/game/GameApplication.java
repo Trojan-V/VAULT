@@ -4,15 +4,11 @@ package me.vault.game;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import me.vault.game.utility.jvm.JvmArgumentParser;
-import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ExitGameDialogDelegate;
 import me.vault.game.view.MainMenuDelegate;
 
-import java.util.Arrays;
-
 import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
-import static me.vault.game.utility.constant.LoggingConstants.PROGRAM_START;
 
 
 /**

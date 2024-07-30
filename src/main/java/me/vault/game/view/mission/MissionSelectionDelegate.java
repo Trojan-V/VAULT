@@ -149,10 +149,10 @@ public final class MissionSelectionDelegate implements Initializable
 	{
 		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 
-		this.selectMissionOneButton.disableProperty().bind(MISSION_ONE.getCompletedProperty());
-		this.selectMissionTwoButton.disableProperty().bind(MISSION_TWO.getCompletedProperty());
-		this.selectMissionThreeButton.disableProperty().bind(MISSION_THREE.getCompletedProperty());
-		this.selectMissionFourButton.disableProperty().bind(MISSION_FOUR.getCompletedProperty());
+		this.selectMissionOneButton.disableProperty().bind(MISSION_ONE.getIsCompletedProperty());
+		this.selectMissionTwoButton.disableProperty().bind(MISSION_TWO.getIsCompletedProperty());
+		this.selectMissionThreeButton.disableProperty().bind(MISSION_THREE.getIsCompletedProperty());
+		this.selectMissionFourButton.disableProperty().bind(MISSION_FOUR.getIsCompletedProperty());
 
 		this.missionOneRewardPane.getChildren().add(new RewardGridPane(MISSION_ONE_REWARDS));
 		this.missionTwoRewardPane.getChildren().add(new RewardGridPane(MISSION_TWO_REWARDS));
