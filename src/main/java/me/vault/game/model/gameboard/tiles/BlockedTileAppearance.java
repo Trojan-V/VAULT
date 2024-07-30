@@ -21,7 +21,7 @@ import me.vault.game.utility.struct.MetaDataImage;
  * <br>
  * This tile type is available on the {@link GameBoard} of the {@link Mission} as well as the {@link Arena}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Placeable
  * @see GameBoard

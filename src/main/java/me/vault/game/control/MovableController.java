@@ -21,7 +21,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * <br>
  * Provides a move() method the Movable's can use to move on the {@link GameBoard}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Movable
  * @since 29.07.2024

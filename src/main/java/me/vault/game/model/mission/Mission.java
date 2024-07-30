@@ -21,7 +21,7 @@ import java.util.List;
  * rewards of the mission or the available arena encounters that are started when moving to an {@link ArenaStartTileAppearance} tile on the mission
  * {@link GameBoard}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Arena
  * @see GameBoard

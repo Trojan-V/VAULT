@@ -12,7 +12,7 @@ import java.text.MessageFormat;
  * <br>
  * In this project, it's thrown by the {@link Config#updateConfigFromModels()} and {@link Config#updateModelsFromConfig()} method.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Config#updateModelsFromConfig()
  * @see Config#updateConfigFromModels()

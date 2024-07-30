@@ -22,7 +22,7 @@ import java.util.List;
  * This class is a blueprint for a game board which represents the structure where the {@link Mission}s and {@link Arena} encounters take place.
  * The {@link Figure}s are deployed on the game board and can move on it or attack other {@link Figure}s.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Arena
  * @see Mission

@@ -16,7 +16,7 @@ import java.text.MessageFormat;
  * These elements range from accessible tiles where everyone can walk, arena tiles where an encounter will begin to collectible tiles and blocked tiles which
  * represent an obstacle where no-one can walk.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Position
  * @see Placeable
@@ -48,6 +48,8 @@ public class Tile
 	 *
 	 * @param position The position of the tile.
 	 * @param currentElement The {@link Placeable} element that's located on the tile.
+	 * @precondition A {@link Position} and {@link Placeable} for the tile exist.
+	 * @postcondition A new instance of a tile exists.
 	 */
 	public Tile (final Position position, final Placeable currentElement)
 	{
@@ -60,6 +62,8 @@ public class Tile
 	 * Returns the {@link Placeable} element that's located on the tile.
 	 *
 	 * @return The {@link Placeable} element that's located on the tile.
+	 * @precondition The {@link Placeable} element that's located on the tile exist.
+	 * @postcondition The {@link Placeable} element that`s located on the tile is accessible for the program.
 	 */
 	public Placeable getCurrentElement ()
 	{
@@ -71,6 +75,8 @@ public class Tile
 	 * Sets the {@link Placeable} element that's located on the tile.
 	 *
 	 * @param placeable The {@link Placeable} element that'll be set to the tile.
+	 * @precondition The {@link Placeable} element that's located on the tile exist.
+	 * @postcondition The {@link Placeable} element that`s located on the tile is set.
 	 */
 	public void setCurrentElement (final Placeable placeable)
 	{
@@ -97,6 +103,8 @@ public class Tile
 	 * Returns the {@link Position} of the tile.
 	 *
 	 * @return the {@link Position} of the tile.
+	 * @precondition
+	 * @postcondition The {@link Position} is accessible for the program.
 	 */
 	public Position getPosition ()
 	{

@@ -30,7 +30,7 @@ import java.util.List;
  * <br>
  * As there can only be one player at all time (at least in Singleplayer mode), the player class is written using the singleton pattern.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Movable
  * @see Nameable

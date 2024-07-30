@@ -65,7 +65,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @return True if the artifact is maxed, otherwise false.
 	 *
 	 * @precondition An artifact exists.
-	 * @post.condition Says if the artifact is at its maximum.
+	 * @postcondition Says if the artifact is at its maximum.
 	 */
 	private static boolean isArtifactMaxed (final Artifact artifact)
 	{
@@ -79,7 +79,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @return The singleton instance of this class.
 	 *
 	 * @precondition The singleton Instance exists.
-	 * @post.condition The singleton Instance can be accessed in the program.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static ArtifactController getInstance ()
 	{

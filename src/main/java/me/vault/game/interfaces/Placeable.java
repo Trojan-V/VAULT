@@ -13,7 +13,7 @@ import me.vault.game.model.player.Player;
  * <br>
  * There are a lot more placeable objects than these two, but they just serve as examples.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Figure
  * @see Player

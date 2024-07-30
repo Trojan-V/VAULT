@@ -15,7 +15,7 @@ import java.util.PriorityQueue;
  * The most important part here's the {@link FigureTimeline#createPriorityQueue()} method, which returns a priority queue that determines which {@link Figure}
  * is allowed to make the next move in the {@link Arena}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Figure
  * @see PriorityQueue

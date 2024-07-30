@@ -9,7 +9,7 @@ import me.vault.game.model.gameboard.GameBoard;
 /**
  * This exception is thrown when a {@link Placeable} element wasn't found on the {@link GameBoard}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see GameBoard#getPosition(Placeable)
  * @since 30.07.2024
