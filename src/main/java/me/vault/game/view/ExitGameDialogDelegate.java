@@ -18,7 +18,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_MSG;
+import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -89,7 +89,7 @@ public final class ExitGameDialogDelegate implements Initializable
 	public static void show ()
 	{
 		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, EXIT_GAME_DIALOG_VIEW_FXML));
-		LOGGER.logf(DEBUG, SHOWING_VIEW_MSG, ExitGameDialogDelegate.class.getSimpleName());
+		LOGGER.logf(DEBUG, SHOWING_VIEW_PATTERN, ExitGameDialogDelegate.class.getSimpleName());
 		STAGE.showAndWait();
 	}
 

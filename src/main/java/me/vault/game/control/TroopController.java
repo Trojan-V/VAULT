@@ -58,7 +58,7 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * @return The singleton instance of this class.
 	 *
 	 * @precondition The singleton Instance exists.
-	 * @postcondition The singleton Instance can be accessed in the program.
+	 * @postcondition The singleton Instance of this class has been returned.
 	 */
 	public static TroopController getInstance ()
 	{

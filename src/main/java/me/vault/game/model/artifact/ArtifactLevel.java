@@ -50,6 +50,8 @@ public enum ArtifactLevel implements Level
 	 * Returns the minimum level an {@link Artifact} can have. The minimum level is determined by the ordinal of the first enum entry.
 	 *
 	 * @return The minimum level an {@link Artifact} can have.
+	 * @precondition The {@link Artifact} can have multiple level and has a minimum level.
+	 * @postcondition The minimum level of an {@link Artifact} is accessible for the program.
 	 */
 	public static ArtifactLevel getMinimum ()
 	{
@@ -61,6 +63,8 @@ public enum ArtifactLevel implements Level
 	 * Returns the maximum level an {@link Artifact} can have. The maximum level is determined by the ordinal of the last enum entry.
 	 *
 	 * @return The maximum level an {@link Artifact} can have.
+	 * @precondition The {@link Artifact} can have multiple level and has a maximum level.
+	 * @postcondition The maximum level of an {@link Artifact} is accessible for the program.
 	 */
 	public static ArtifactLevel getMaximum ()
 	{

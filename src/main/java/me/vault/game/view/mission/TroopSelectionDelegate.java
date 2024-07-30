@@ -31,7 +31,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED;
+import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
@@ -144,7 +144,7 @@ public final class TroopSelectionDelegate implements Initializable
 		}
 		catch (final IOException e)
 		{
-			LOGGER.logf(WARNING, DISPLAY_FAILED, TroopSelectionDelegate.class.getSimpleName());
+			LOGGER.logf(WARNING, DISPLAY_FAILED_PATTERN, TroopSelectionDelegate.class.getSimpleName());
 		}
 	}
 

@@ -4,7 +4,7 @@ package me.vault.game.model.energy.impl;
 import javafx.scene.image.Image;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.AbilityMultiplier;
-import me.vault.game.model.energy.Energy;
+import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.energy.EnergyLevel;
 import me.vault.game.utility.constant.EnergyConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -22,17 +22,17 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * This class is an implementation of {@link Energy}.
+ * This class is an implementation of {@link EnergyAbility}.
  * <br>
  * As this specification is a dodge energy ability, it provides positive ability modifiers towards the dodge
  * ability.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see Energy
+ * @see EnergyAbility
  * @since 25.07.2024
  */
-public final class DodgeAbility extends Energy
+public final class DodgeAbility extends EnergyAbility
 {
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
@@ -110,9 +110,8 @@ public final class DodgeAbility extends Energy
 	 *
 	 * @return The map of upgrade costs for the dodge energy ability.
 	 *
-	 * @see Map
-	 * @see EnergyLevel
-	 * @see CurrencyTransaction
+	 * @precondition The upgrade costs for different {@link EnergyLevel} exists.
+	 * @postcondition A map of upgrade costs for the {@link DodgeAbility} is initialized.
 	 */
 	private static Map<EnergyLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -122,7 +121,7 @@ public final class DodgeAbility extends Energy
 		upgradeCostsMap.put(EnergyLevel.IMPROVED, EnergyConstants.Dodge.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
-		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET, upgradeCostsMap.toString());
+		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
 
 		return upgradeCostsMap;
 	}
@@ -138,9 +137,8 @@ public final class DodgeAbility extends Energy
 	 *
 	 * @return The map of ability modifiers for the dodge energy ability.
 	 *
-	 * @see Map
-	 * @see EnergyLevel
-	 * @see AbilityMultiplier.Type
+	 * @precondition The ability modifiers for the {@link DodgeAbility} exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of ability modifiers for the {@link DodgeAbility} is initialised.
 	 */
 	private static Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -163,7 +161,7 @@ public final class DodgeAbility extends Energy
 		abilityModifiersMap.put(EnergyLevel.IMPROVED, improvedLevelModifiers);
 
 		// Logging output
-		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET, abilityModifiersMap.toString());
+		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET_PATTERN, abilityModifiersMap.toString());
 
 		return abilityModifiersMap;
 	}
@@ -178,8 +176,8 @@ public final class DodgeAbility extends Energy
 	 *
 	 * @return The map of names for the dodge energy ability.
 	 *
-	 * @see Map
-	 * @see EnergyLevel
+	 * @precondition The names for the {@link DodgeAbility} exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of the names for the {@link DodgeAbility} is initialised.
 	 */
 	private static Map<EnergyLevel, String> initNamesMap ()
 	{
@@ -189,7 +187,7 @@ public final class DodgeAbility extends Energy
 		namesMap.put(EnergyLevel.IMPROVED, EnergyConstants.Dodge.IMPROVED_NAME);
 
 		// Logging output
-		LOGGER.logf(DEBUG, NAME_MAP_SET, namesMap.toString());
+		LOGGER.logf(DEBUG, NAME_MAP_SET_PATTERN, namesMap.toString());
 
 		return namesMap;
 	}
@@ -204,8 +202,8 @@ public final class DodgeAbility extends Energy
 	 *
 	 * @return The map of sprites for the dodge energy ability.
 	 *
-	 * @see Map
-	 * @see EnergyLevel
+	 * @precondition The sprites for the {@link DodgeAbility} exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of the sprites for the {@link DodgeAbility} is initialised.
 	 */
 	private static Map<EnergyLevel, MetaDataImage> initSpritesMap ()
 	{
@@ -215,7 +213,7 @@ public final class DodgeAbility extends Energy
 		spritesMap.put(EnergyLevel.IMPROVED, ResourceLoader.loadImage(EnergyConstants.Dodge.IMPROVED_SPRITE_PATH));
 
 		// Logging output
-		LOGGER.logf(DEBUG, SPRITE_MAP_SET, spritesMap.toString());
+		LOGGER.logf(DEBUG, SPRITE_MAP_SET_PATTERN, spritesMap.toString());
 
 		return spritesMap;
 	}
@@ -225,6 +223,8 @@ public final class DodgeAbility extends Energy
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static DodgeAbility getInstance ()
 	{

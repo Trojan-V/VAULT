@@ -170,13 +170,13 @@ public final class ResourceLoader
 	 * @precondition The directoryPath has to point to a valid directory (not null) and the fileEnding cannot be null
 	 * @postcondition All files with the specified ending are returned
 	 */
-	public static List<File> collectFilesWithSpecifiedEnding (final String directoryPath, String fileEnding)
+	public static List<File> collectFilesWithSpecifiedEnding (final String directoryPath, final String fileEnding)
 	{
 		final File[] allFiles = getDirectory(directoryPath).listFiles();
-		List<File> validFiles = new ArrayList<>();
+		final List<File> validFiles = new ArrayList<>();
 
 		//checks the file ending of all files in the directory.
-		for (File file: allFiles)
+		for (final File file: allFiles)
 		{
 			if (file.getName().endsWith(fileEnding))
 			{
@@ -199,12 +199,12 @@ public final class ResourceLoader
 	 * be null
 	 * @postcondition All files with the specified pattern in the filename are returned
 	 */
-	public static List<File> collectFilesContaining (final String directoryPath, String pattern)
+	public static List<File> collectFilesContaining (final String directoryPath, final String pattern)
 	{
 		final File[] allFiles = getDirectory(directoryPath).listFiles();
-		List<File> validFiles = new ArrayList<>();
+		final List<File> validFiles = new ArrayList<>();
 
-		for (File file: allFiles)
+		for (final File file: allFiles)
 		{
 			if (file.getName().contains(pattern))
 			{
@@ -225,11 +225,11 @@ public final class ResourceLoader
 	 * @precondition The directoryPath has to point to a valid directory (not null).
 	 * @postcondition The File with the specified fileName; null if there is no file with the corresponding fileName
 	 */
-	public static File getFile (final String directoryPath, String fileName)
+	public static File getFile (final String directoryPath, final String fileName)
 	{
 		final File[] files = getDirectory(directoryPath).listFiles();
 
-		for (File currentFile: files)
+		for (final File currentFile: files)
 		{
 			if (currentFile.getName().equals(fileName))
 			{
@@ -248,7 +248,7 @@ public final class ResourceLoader
 	 * and the number of characters in each line have to match
 	 * {@link me.vault.game.utility.constant.GameBoardConstants#GAME_BOARD_COLUMN_COUNT}. Furthermore, the file has
 	 * to contain valid Tile representations such as
-	 * {@link me.vault.game.utility.constant.GameBoardConstants#OBSTACLE_TILE}.
+	 * {@link me.vault.game.utility.constant.GameBoardConstants#BLOCKED_TILE}.
 	 *
 	 * @param filePath The path to the file from which the Tile-Array should be constructed
 	 * @return TileArray that represents the content of the specified file
@@ -282,7 +282,7 @@ public final class ResourceLoader
 			{
 				line = reader.readLine();
 			}
-			catch (IOException e)
+			catch (final IOException e)
 			{
 				throw new RuntimeException(e);
 			}
@@ -303,7 +303,7 @@ public final class ResourceLoader
 				//determines the tile that is added to the game board from the file with the help of characters
 				switch (charArray[column])
 				{
-					case OBSTACLE_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new BlockedTileAppearance());
+					case BLOCKED_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new BlockedTileAppearance());
 					case RESOURCE_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new ResourceTileAppearance());
 					case ARENA_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new ArenaStartTileAppearance());
 					case MISSION_FINISH_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new MissionFinishTileAppearance());
@@ -327,14 +327,14 @@ public final class ResourceLoader
 	 * @precondition filePath must point to a valid file (not null); file must adhere to the UTF-8 characterset
 	 * @postcondition number of lines in the file are returned
 	 */
-	public static int getNumberOfLinesInFile (String filePath)
+	public static int getNumberOfLinesInFile (final String filePath)
 	{
-		int numberOfLines;
+		final int numberOfLines;
 		try
 		{
 			numberOfLines = (int) Files.lines(new File(filePath).toPath(), StandardCharsets.UTF_8).count();
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
 			throw new RuntimeException(e);
 		}
@@ -350,13 +350,13 @@ public final class ResourceLoader
 	 * @precondition The filePath has to point to a valid file (not null); The file must contain only UTF-8 characters
 	 * @postcondition A BufferedReader of the specifiedFile
 	 */
-	public static BufferedReader createBufferedReaderFromFile (String filePath)
+	public static BufferedReader createBufferedReaderFromFile (final String filePath)
 	{
 		try
 		{
 			return new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8));
 		}
-		catch (FileNotFoundException e)
+		catch (final FileNotFoundException e)
 		{
 			throw new RuntimeException(e);
 		}

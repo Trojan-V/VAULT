@@ -17,6 +17,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 @ConstantInterface
 public interface ArtifactConstants
 {
+
 	/**
 	 * The minimum multiplier for the artifact statistics.
 	 */
@@ -55,13 +56,14 @@ public interface ArtifactConstants
 	/**
 	 * This interface provides constants for the defense artifact.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @since 30.07.2024
 	 */
 	@ConstantInterface
 	interface Defense
 	{
+
 		/**
 		 * The display name of the defense artifact at the base level.
 		 */
@@ -109,13 +111,14 @@ public interface ArtifactConstants
 	/**
 	 * This interface provides constants for the damage artifact.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @since 30.07.2024
 	 */
 	@ConstantInterface
 	interface Damage
 	{
+
 		/**
 		 * The display name of the damage artifact at the base level.
 		 */
@@ -163,13 +166,14 @@ public interface ArtifactConstants
 	/**
 	 * This interface provides constants for the health artifact.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @since 30.07.2024
 	 */
 	@ConstantInterface
 	interface Health
 	{
+
 		/**
 		 * The display name of the damage artifact at the base level.
 		 */
@@ -210,5 +214,7 @@ public interface ArtifactConstants
 		 */
 		@Constant
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
+
 	}
+
 }

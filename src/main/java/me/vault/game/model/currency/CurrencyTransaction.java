@@ -36,8 +36,7 @@ public class CurrencyTransaction
 {
 
 	/**
-	 * A constant for an empty currency transaction instance. This constant is solely for convenience to create empty
-	 * transactions.
+	 * A constant for an empty currency transaction instance. This constant is solely for convenience to create empty transactions.
 	 */
 	public static final CurrencyTransaction EMPTY = new CurrencyTransaction(0, 0, 0, 0, 0);
 
@@ -56,9 +55,8 @@ public class CurrencyTransaction
 
 	/**
 	 * The {@link HashMap} which contains the numbers of currencies that are changed by the transaction. The keys of
-	 * the {@code HashMap} represent the
-	 * {@link Currency} enum values and the values of the {@code HashMap} the corresponding amounts of each {@code
-	 * Currency} key.
+	 * the {@code HashMap} represent the {@link Currency} enum values and the values of the {@code HashMap} the corresponding
+	 * amounts of each {@code Currency} key.
 	 */
 	private final ValidatedEntriesHashMap<Currency, Integer> currencyAmountMap = new ValidatedEntriesHashMap<>();
 
@@ -70,9 +68,12 @@ public class CurrencyTransaction
 	 * of this ellipse to the internal data structure.
 	 * <br>
 	 * This method is annotated with the {@link SafeVarargs} annotation, which shows that the operations that are
-	 * invoked on the varargs (ellipse) parameter have been reviewed and are safe.
+	 * invoked on the varargs parameter have been reviewed and are safe.
 	 *
 	 * @param currencyAmountEntries The entries which are used to create the currency transaction.
+	 *
+	 * @precondition The varargs arguments are of the type Entry<Currency, Integer> and contain only valid Currencies and values.
+	 * @postcondition A new instance of CurrencyTransaction has been initialized.
 	 */
 	@SafeVarargs
 	public CurrencyTransaction (final Entry<Currency, Integer>... currencyAmountEntries)
@@ -86,17 +87,17 @@ public class CurrencyTransaction
 
 	/**
 	 * Constructs an instance of this class.
-	 * <br>
 	 *
 	 * @param steelAmount     The amount of steel the transaction consists of.
 	 * @param compositeAmount The amount of composite the transaction consists of.
 	 * @param scienceAmount   The amount of science the transaction consists of.
 	 * @param foodAmount      The amount of food the transaction consists of.
 	 * @param energyAmount    The amount of energy the transaction consists of.
+	 *
+	 * @precondition The passed parameters are only integers and contain the numbers of the currencies in the correct order.
+	 * @postcondition A new instance of CurrencyTransaction has been initialized.
 	 */
-	public CurrencyTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount,
-		final int foodAmount,
-		final int energyAmount)
+	public CurrencyTransaction (final int steelAmount, final int compositeAmount, final int scienceAmount, final int foodAmount, final int energyAmount)
 	{
 		try
 		{
@@ -120,7 +121,11 @@ public class CurrencyTransaction
 	 * the currency is returned.
 	 *
 	 * @param currency The currency whose absolute amount should be returned.
+	 *
 	 * @return The absolute amount of the currency.
+	 *
+	 * @precondition The amount attribute within the instance is set, and a valid Currency is passed into the method.
+	 * @postcondition The amountProperty attribute of the Currency instance was returned.
 	 */
 	public int getAbsoluteAmount (final Currency currency)
 	{
@@ -132,6 +137,7 @@ public class CurrencyTransaction
 	 * Returns the amount of the currency supplied as parameter.
 	 *
 	 * @param currency The currency whose amount should be returned.
+	 *
 	 * @return The amount of the currency.
 	 */
 	public int getAmount (final Currency currency)
@@ -141,10 +147,12 @@ public class CurrencyTransaction
 
 
 	/**
-	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with
-	 * its properties.
+	 * Builds a formatted {@link String}, which represents the object, and it's current state.
 	 *
-	 * @return A {@link String} value, which represents the object with its properties.
+	 * @return A {@link String} which represents the object, and it's current state.
+	 *
+	 * @precondition The object has been initialized.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()

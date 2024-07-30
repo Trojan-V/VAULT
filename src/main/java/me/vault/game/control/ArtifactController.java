@@ -13,7 +13,7 @@ import me.vault.game.utility.struct.UpgradeRunnable;
 
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
+import static me.vault.game.utility.constant.LoggingConstants.UPGRADING;
 
 
 /**
@@ -79,7 +79,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @return The singleton instance of this class.
 	 *
 	 * @precondition The singleton Instance exists.
-	 * @postcondition The singleton Instance can be accessed in the program.
+	 * @postcondition The singleton Instance of this class has been returned.
 	 */
 	public static ArtifactController getInstance ()
 	{

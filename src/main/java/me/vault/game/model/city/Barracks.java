@@ -21,7 +21,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.Barracks.*;
  * missions and encounters.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 2.0.0
+ * @version 1.0.0
  * @see CityBuilding
  * @see me.vault.game.interfaces.Upgradable
  * @since 09.06.2024
@@ -80,15 +80,20 @@ public final class Barracks extends CityBuilding
 
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of Barracks is created.
 	 */
-	private Barracks ()
-	{}
+	private Barracks () {}
 
 
 	/**
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance of this class has been returned.
 	 */
 	public static Barracks getInstance ()
 	{

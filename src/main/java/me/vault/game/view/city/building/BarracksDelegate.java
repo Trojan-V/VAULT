@@ -25,7 +25,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED;
+import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -136,7 +136,7 @@ public final class BarracksDelegate implements Initializable
 		this.chooseTerraFactionButton.disableProperty().bind(Faction.NEW_TERRA.getIsSelectedProperty());
 
 		// Logging the finalization of the initialization
-		LOGGER.logf(DEBUG, CLASS_INITIALIZED, BarracksDelegate.class.getSimpleName());
+		LOGGER.logf(DEBUG, CLASS_INITIALIZED_PATTERN, BarracksDelegate.class.getSimpleName());
 	}
 
 

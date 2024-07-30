@@ -3,6 +3,8 @@ package me.vault.game.model.energy;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import me.vault.game.exception.InvalidAttributeMultiplierException;
+import me.vault.game.model.artifact.Artifact;
+import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -17,12 +19,12 @@ import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
  * This class is used as a data structure to store buffs in the form of multipliers which are then
  * applied to all troops that are eligible to receive buffs.
  * <br>
- * For instance, these multipliers are used by the {@link Energy} class to store the buffs
+ * For instance, these multipliers are used by the {@link EnergyAbility} class to store the buffs
  * the energy ability provides.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @see Energy
+ * @see EnergyAbility
  * @see AbilityMultiplier
  * @since 25.07.2024
  */
@@ -77,6 +79,8 @@ public class AbilityMultiplier
 	 * information.
 	 *
 	 * @param modifiers The modifiers which are applied to the properties.
+	 * @precondition The map of the ability modifiers exists.
+	 * @postcondition Constructs an instance of {@link AbilityMultiplier} with the supplied modifies.
 	 */
 	public AbilityMultiplier (final Map<AbilityMultiplier.Type, Double> modifiers)
 	{
@@ -113,6 +117,8 @@ public class AbilityMultiplier
 	 * of the validation.
 	 *
 	 * @exception InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
+	 * @precondition The modifiers are supplied.
+	 * @postcondition The modifiers are validated.
 	 */
 	private void validate () throws InvalidAttributeMultiplierException
 	{
@@ -138,6 +144,8 @@ public class AbilityMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param dodgeMultiplier The new value for the dodge multiplier.
+	 * @precondition The property of the dodge multiplier exists.
+	 * @postcondition The property of the dodge multiplier is set.
 	 */
 	public void setDodgeMultiplier (final double dodgeMultiplier)
 	{
@@ -153,6 +161,8 @@ public class AbilityMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param initiativeMultiplier The new value for the initiative multiplier.
+	 * @precondition The property of the initiative multiplier exists.
+	 * @postcondition The property of the initiative multiplier is set.
 	 */
 	public void setInitiativeMultiplier (final double initiativeMultiplier)
 	{
@@ -168,6 +178,8 @@ public class AbilityMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param meleeMultiplier The new value for the melee multiplier.
+	 * @precondition The property of the melee multiplier exists.
+	 * @postcondition The property of the melee multiplier is set.
 	 */
 	public void setMeleeMultiplier (final double meleeMultiplier)
 	{
@@ -181,6 +193,8 @@ public class AbilityMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the dodge multiplier.
+	 * @precondition The property of the dodge multiplier exists.
+	 * @postcondition The property of the dodge multiplier is accessible for the program.
 	 */
 	public SimpleDoubleProperty getDodgeMultiplierProperty ()
 	{
@@ -194,6 +208,9 @@ public class AbilityMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the initiative multiplier.
+	 *
+	 * @precondition The property of the initiative multiplier exists.
+	 * @postcondition The property of the initiative multiplier is accessible for the program.
 	 */
 	public SimpleDoubleProperty getInitiativeMultiplierProperty ()
 	{
@@ -207,6 +224,8 @@ public class AbilityMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the melee multiplier.
+	 * @precondition The property of the melee multiplier exists.
+	 * @postcondition The property of the melee multiplier is accessible for the program.
 	 */
 	public SimpleDoubleProperty getMeleeMultiplierProperty ()
 	{
@@ -218,6 +237,8 @@ public class AbilityMultiplier
 	 * Returns the instance of this class in a human-readable format by creating a string.
 	 *
 	 * @return The message in its string representation.
+	 * @precondition The {@link Energy} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
@@ -229,9 +250,9 @@ public class AbilityMultiplier
 
 
 	/**
-	 * This enum consists of all different types of attribute modifiers.
+	 * This enum consists of all different types of ability modifiers.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see AbilityMultiplier
 	 * @since 26.07.2024

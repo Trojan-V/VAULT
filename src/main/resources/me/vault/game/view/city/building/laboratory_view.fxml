@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.vault.game.view.city.building.LaboratoryDelegate">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
@@ -41,7 +32,7 @@
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
                <image>
-                  <Image url="@../../../assets/energy/dodge_energyability.png" />
+                   <Image url="@../../../assets/energyAbility/dodge_energyability.png"/>
                </image>
                 </ImageView>
                 <ImageView fx:id="initiativeImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
@@ -49,7 +40,7 @@
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
                <image>
-                  <Image url="@../../../assets/energy/initiative_energyabiltiy.png" />
+                   <Image url="@../../../assets/energyAbility/initiative_energyabiltiy.png"/>
                </image>
                 </ImageView>
                 <ImageView fx:id="meleeImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
@@ -57,7 +48,7 @@
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
                <image>
-                  <Image url="@../../../assets/energy/melee_energyability.png" />
+                   <Image url="@../../../assets/energyAbility/melee_energyability.png"/>
                </image>
                 </ImageView>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">

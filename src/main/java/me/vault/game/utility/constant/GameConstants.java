@@ -9,7 +9,7 @@ import me.vault.game.utility.constant.ConstantInterface.Constant;
  * <br>
  * For instance, the path to asset files such as sprites is stored in a constant here.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 23.05.2024
  */
@@ -23,6 +23,10 @@ public interface GameConstants
 	@Constant
 	String ASSETS_PATH = "src/main/resources/me/vault/game/assets/";
 
+
+	/**
+	 * The path to the icon that is used for the window of this program.
+	 */
 	@Constant
 	String WINDOW_ICON_PATH = "src/main/resources/me/vault/game/assets/VAULT_Logo.png";
 
@@ -32,18 +36,39 @@ public interface GameConstants
 	@Constant
 	String WINDOW_TITLE = "VAULT Game";
 
+
+	/**
+	 * The style of the tab pane, used by JavaFX to set the tab pane style.
+	 */
 	@Constant
 	String TAB_PANE_STYLE = "floating";
 
-	@Constant
-	String GAME_SAVE_FOLDER_FILE_PATH = "src/main/resources/me/vault/game/config/";
 
+	/**
+	 * The path to the directory where the game saves are stored.
+	 */
+	@Constant
+	String GAME_SAVE_DIRECTORY_PATH = "src/main/resources/me/vault/game/config/";
+
+
+	/**
+	 * The name and extension of the configuration file.
+	 */
 	@Constant
 	String CONFIG_FILE = "config.json";
 
+
+	/**
+	 * The name and extension of the default configuration file.
+	 */
 	@Constant
 	String DEFAULT_CONFIG_FILE = "defaults.json";
 
+
+	/**
+	 * The name and extension of the button long.
+	 */
 	@Constant
-	String CSS_FILE_NAME = "button_long.css";
+	String BUTTON_LONG_CSS_FILE = "button_long.css";
+
 }

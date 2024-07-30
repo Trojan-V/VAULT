@@ -22,12 +22,13 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
  * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 5.0.0
+ * @version 1.0.0
  * @since 30.05.2024
  */
 @ConstantInterface
 public interface ArenaConstants
 {
+
 	/**
 	 * The path to the respective fxml file of the arenas as a {@link String}.
 	 */
@@ -47,12 +48,13 @@ public interface ArenaConstants
 	 * The subinterface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
 	interface ArenaOne
 	{
+
 		/**
 		 * The path to the map-file that contains the board information for the first arena game board and the grid pane.
 		 */
@@ -86,12 +88,13 @@ public interface ArenaConstants
 	 * The subinterface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
 	interface ArenaTwo
 	{
+
 		/**
 		 * The path to the map-file that contains the board information for the second arena game board and the grid pane.
 		 */
@@ -125,12 +128,13 @@ public interface ArenaConstants
 	 * The subinterface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
 	interface ArenaThree
 	{
+
 		/**
 		 * The path to the map-file that contains the board information for the three arena game board and the grid pane.
 		 */
@@ -164,12 +168,13 @@ public interface ArenaConstants
 	 * The subinterface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
 	interface ArenaFour
 	{
+
 		/**
 		 * The path to the map-file that contains the board information for the fourth arena game board and the grid pane.
 		 */

@@ -78,10 +78,11 @@ public class AttributeMultiplier
 	 * Constructs an instance of this class.
 	 * <br>
 	 * The instance is only created if the supplied modifiers were valid. Check the
-	 * {@link AttributeMultiplier#validate()} method for more
-	 * information.
+	 * {@link AttributeMultiplier#validate()} method for more information.
 	 *
 	 * @param modifiers The modifiers which are applied to the properties.
+	 * @precondition The map of the attribute modifiers exists.
+	 * @postcondition Constructs an instance of {@link AttributeMultiplier} with the supplied modifies.
 	 */
 	AttributeMultiplier (final Map<Type, Double> modifiers)
 	{
@@ -118,6 +119,8 @@ public class AttributeMultiplier
 	 * of the validation.
 	 *
 	 * @exception InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
+	 * @precondition The modifiers are supplied.
+	 * @postcondition The modifiers are validated.
 	 */
 	private void validate () throws InvalidAttributeMultiplierException
 	{
@@ -143,6 +146,8 @@ public class AttributeMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param damageMultiplier The new value for the damage multiplier.
+	 * @precondition The property of the damage multiplier exists.
+	 * @postcondition The property of the damage multiplier is set.
 	 */
 	public void setDamageMultiplier (final double damageMultiplier)
 	{
@@ -157,6 +162,8 @@ public class AttributeMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param healthMultiplier The new value for the health multiplier.
+	 * @precondition The property of the health multiplier exists.
+	 * @postcondition The property of the health multiplier is set.
 	 */
 	public void setHealthMultiplier (final double healthMultiplier)
 	{
@@ -171,6 +178,8 @@ public class AttributeMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param defenseMultiplier The new value for the defense multiplier.
+	 * @precondition The property of the defence multiplier exists.
+	 * @postcondition The property of the defence multiplier is set.
 	 */
 	public void setDefenseMultiplier (final double defenseMultiplier)
 	{
@@ -184,6 +193,8 @@ public class AttributeMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the damage multiplier.
+	 * @precondition The property of the damage multiplier exists.
+	 * @postcondition The property of the damage multiplier is accessible for the program.
 	 */
 	public SimpleDoubleProperty getDamageMultiplierProperty ()
 	{
@@ -197,6 +208,8 @@ public class AttributeMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the health multiplier.
+	 * @precondition The property of the health multiplier exists.
+	 * @postcondition The property of the health multiplier is accessible for the program.
 	 */
 	public SimpleDoubleProperty getHealthMultiplierProperty ()
 	{
@@ -210,6 +223,8 @@ public class AttributeMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the defense multiplier.
+	 * @precondition The property of the defense multiplier exists.
+	 * @postcondition The property of the defense multiplier is accessible for the program.
 	 */
 	public SimpleDoubleProperty getDefenseMultiplierProperty ()
 	{
@@ -221,6 +236,8 @@ public class AttributeMultiplier
 	 * Returns the instance of this class in a human-readable format by creating a string.
 	 *
 	 * @return The message in its string representation.
+	 * @precondition The {@link Artifact} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
@@ -233,7 +250,7 @@ public class AttributeMultiplier
 	/**
 	 * This enum consists of all different types of attribute modifiers.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see AttributeMultiplier
 	 * @since 08.06.2024

@@ -16,8 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import java.text.MessageFormat;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.SupressionConstants.OVERRIDABLE_METHOD_CALL;
-import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METHOD_CALL;
+import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
+import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
 
 
 /**

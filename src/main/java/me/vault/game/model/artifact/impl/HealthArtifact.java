@@ -102,9 +102,6 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
 	 * @postcondition A map of upgrade costs for the {@link HealthArtifact} is initialized.
 	 */
@@ -116,7 +113,7 @@ public final class HealthArtifact extends Artifact
 		upgradeCostsMap.put(ArtifactLevel.IMPROVED, Health.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
-		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET, upgradeCostsMap.toString());
+		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
 
 		return upgradeCostsMap;
 	}
@@ -130,9 +127,6 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of attribute modifiers for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 * @precondition The attribute modifiers for the {@link HealthArtifact} exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of attribute modifiers for the {@link HealthArtifact} is initialised.
 	 */
@@ -157,7 +151,7 @@ public final class HealthArtifact extends Artifact
 		attributeModifiersMap.put(ArtifactLevel.IMPROVED, improvedLevelModifiers);
 
 		// Logging output
-		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET, attributeModifiersMap.toString());
+		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET_PATTERN, attributeModifiersMap.toString());
 
 		return attributeModifiersMap;
 	}
@@ -182,7 +176,7 @@ public final class HealthArtifact extends Artifact
 		namesMap.put(ArtifactLevel.IMPROVED, Health.IMPROVED_NAME);
 
 		// Logging output
-		LOGGER.logf(DEBUG, NAME_MAP_SET, namesMap.toString());
+		LOGGER.logf(DEBUG, NAME_MAP_SET_PATTERN, namesMap.toString());
 
 		return namesMap;
 	}
@@ -207,7 +201,7 @@ public final class HealthArtifact extends Artifact
 		spritesMap.put(ArtifactLevel.IMPROVED, ResourceLoader.loadImage(Health.IMPROVED_SPRITE_PATH));
 
 		// Logging output
-		LOGGER.logf(DEBUG, SPRITE_MAP_SET, spritesMap.toString());
+		LOGGER.logf(DEBUG, SPRITE_MAP_SET_PATTERN, spritesMap.toString());
 
 		return spritesMap;
 	}

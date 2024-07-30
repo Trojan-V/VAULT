@@ -15,7 +15,7 @@ import me.vault.game.utility.loading.ResourceLoader;
  * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 5.0.0
+ * @version 1.0.0
  * @since 29.05.2024
  */
 @ConstantInterface
@@ -27,7 +27,7 @@ public interface MissionConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 29.05.2024
 	 */
 	@ConstantInterface
@@ -45,6 +45,7 @@ public interface MissionConstants
 		 */
 		@Constant
 		GameBoard MISSION_ONE_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_ONE_FILE_PATH));
+
 
 		/**
 		 * The {@link CurrencyTransaction}, which represents the rewards for the player, if the first mission is finished successfully.
@@ -66,7 +67,7 @@ public interface MissionConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 29.05.2024
 	 */
 	@ConstantInterface
@@ -84,6 +85,7 @@ public interface MissionConstants
 		 */
 		@Constant
 		GameBoard MISSION_TWO_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_TWO_FILE_PATH));
+
 
 		/**
 		 * The {@link CurrencyTransaction}, which represents the rewards for the player, if the second mission is finished successfully.
@@ -105,7 +107,7 @@ public interface MissionConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 29.05.2024
 	 */
 	@ConstantInterface
@@ -123,6 +125,7 @@ public interface MissionConstants
 		 */
 		@Constant
 		GameBoard MISSION_THREE_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_THREE_FILE_PATH));
+
 
 		/**
 		 * The {@link CurrencyTransaction}, which represents the rewards for the player, if the third mission is finished successfully.
@@ -144,7 +147,7 @@ public interface MissionConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 29.05.2024
 	 */
 	@ConstantInterface
@@ -162,6 +165,7 @@ public interface MissionConstants
 		 */
 		@Constant
 		GameBoard MISSION_FOUR_GAME_BOARD = new GameBoard(ResourceLoader.createTileArrayFromFile(MISSION_FOUR_FILE_PATH));
+
 
 		/**
 		 * The {@link CurrencyTransaction}, which represents the rewards for the player, if the fourth mission is finished successfully.

@@ -23,7 +23,7 @@ import java.text.MessageFormat;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED;
+import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED_PATTERN;
 import static me.vault.game.utility.constant.MissionConstants.MissionFour.MISSION_FOUR;
 import static me.vault.game.utility.constant.MissionConstants.MissionFour.MISSION_FOUR_REWARDS;
 import static me.vault.game.utility.constant.MissionConstants.MissionOne.MISSION_ONE;
@@ -159,7 +159,7 @@ public final class MissionSelectionDelegate implements Initializable
 		this.missionThreeRewardPane.getChildren().add(new RewardGridPane(MISSION_THREE_REWARDS));
 		this.missionFourRewardPane.getChildren().add(new RewardGridPane(MISSION_FOUR_REWARDS));
 
-		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALIZED, MissionSelectionDelegate.class.getSimpleName());
+		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALIZED_PATTERN, MissionSelectionDelegate.class.getSimpleName());
 	}
 
 

@@ -12,7 +12,7 @@ import me.vault.game.utility.struct.UpgradeRunnable;
 import me.vault.game.view.city.building.*;
 import org.jetbrains.annotations.NotNull;
 
-import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
+import static me.vault.game.utility.constant.LoggingConstants.UPGRADING;
 
 
 /**
@@ -69,7 +69,7 @@ public final class CityBuildingController implements Upgrader<CityBuilding, City
 	 * @return The singleton instance of this class.
 	 *
 	 * @precondition The singleton Instance exists.
-	 * @postcondition The singleton Instance can be accessed in the program.
+	 * @postcondition The singleton Instance of this class has been returned.
 	 */
 	public static CityBuildingController getInstance ()
 	{

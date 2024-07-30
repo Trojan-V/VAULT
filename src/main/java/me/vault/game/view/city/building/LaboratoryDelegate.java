@@ -17,7 +17,7 @@ import me.vault.game.control.EnergyAbilityController;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.city.Laboratory;
-import me.vault.game.model.energy.Energy;
+import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.energy.impl.DodgeAbility;
 import me.vault.game.model.energy.impl.InitiativeAbility;
 import me.vault.game.model.energy.impl.MeleeAbility;
@@ -175,7 +175,7 @@ public final class LaboratoryDelegate implements Initializable
 
 
 	/**
-	 * Binds the {@link Energy#getNameProperty()} of the abilities to the textProperty() of the ability labels on the GUI.
+	 * Binds the {@link EnergyAbility#getNameProperty()} of the abilities to the textProperty() of the ability labels on the GUI.
 	 * This causes that the user has feedback on the design of the laboratory when he upgrades an ability to the next level.
 	 *
 	 * @precondition The view has been initialized and the method got called.

@@ -16,7 +16,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 /**
  * This interface contains constants related to the {@link CityBuilding}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see CityBuildingConstants
  * @since 30.07.2024
@@ -24,10 +24,11 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 @ConstantInterface
 public interface CityBuildingConstants
 {
+
 	/**
 	 * The {@link Barracks} subinterface contains all the constants which apply to the {@link Barracks} city building.
 	 *
-	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see Barracks
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -35,6 +36,7 @@ public interface CityBuildingConstants
 	@ConstantInterface
 	interface Barracks
 	{
+
 		/**
 		 * The display name of the old barracks.
 		 */
@@ -96,7 +98,7 @@ public interface CityBuildingConstants
 	/**
 	 * The {@link Market} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.Market} city building.
 	 *
-	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Market
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -104,6 +106,7 @@ public interface CityBuildingConstants
 	@ConstantInterface
 	interface Market
 	{
+
 		/**
 		 * The price for one steel.
 		 */
@@ -206,13 +209,14 @@ public interface CityBuildingConstants
 		 */
 		@Constant
 		CurrencyTransaction NORMAL_UPGRADE_COSTS = new CurrencyTransaction(-2000, -2000, -5000, -1000, -400);
+
 	}
 
 
 	/**
 	 * The {@link CommandCenter} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.CommandCenter} city building.
 	 *
-	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.CommandCenter
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -220,6 +224,7 @@ public interface CityBuildingConstants
 	@ConstantInterface
 	interface CommandCenter
 	{
+
 		/**
 		 * The display name of the old command center.
 		 */
@@ -312,13 +317,14 @@ public interface CityBuildingConstants
 			this.add(RANDOM_NEWS_THREE);
 			this.add(RANDOM_NEWS_FOUR);
 		}};
+
 	}
 
 
 	/**
 	 * The {@link Docks} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.Docks} city building.
 	 *
-	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Docks
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -326,6 +332,7 @@ public interface CityBuildingConstants
 	@ConstantInterface
 	interface Docks
 	{
+
 		/**
 		 * The display name of the old docks.
 		 */
@@ -380,13 +387,14 @@ public interface CityBuildingConstants
 		 */
 		@Constant
 		CurrencyTransaction NORMAL_UPGRADE_COSTS = new CurrencyTransaction(-2000, -2000, -5000, -1000, -400);
+
 	}
 
 
 	/**
 	 * The {@link Laboratory} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.Laboratory} city building.
 	 *
-	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Laboratory
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -394,6 +402,7 @@ public interface CityBuildingConstants
 	@ConstantInterface
 	interface Laboratory
 	{
+
 		/**
 		 * The display name of the old laboratory.
 		 */
@@ -448,13 +457,14 @@ public interface CityBuildingConstants
 		 */
 		@Constant
 		CurrencyTransaction NORMAL_UPGRADE_COSTS = new CurrencyTransaction(-2000, -2000, -5000, -1000, -400);
+
 	}
 
 
 	/**
 	 * The {@link SpaceBar} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.SpaceBar} city building.
 	 *
-	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.SpaceBar
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -462,6 +472,7 @@ public interface CityBuildingConstants
 	@ConstantInterface
 	interface SpaceBar
 	{
+
 		/**
 		 * The display name of the old space bar.
 		 */
@@ -516,13 +527,14 @@ public interface CityBuildingConstants
 		 */
 		@Constant
 		CurrencyTransaction NORMAL_UPGRADE_COSTS = new CurrencyTransaction(-2000, -2000, -5000, -1000, -400);
+
 	}
 
 
 	/**
 	 * The {@link TrainingFacility} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.TrainingFacility} city building.
 	 *
-	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.TrainingFacility
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -530,6 +542,7 @@ public interface CityBuildingConstants
 	@ConstantInterface
 	interface TrainingFacility
 	{
+
 		/**
 		 * The display name of the old training facility.
 		 */
@@ -584,13 +597,14 @@ public interface CityBuildingConstants
 		 */
 		@Constant
 		CurrencyTransaction NORMAL_UPGRADE_COSTS = new CurrencyTransaction(-2000, -2000, -5000, -1000, -400);
+
 	}
 
 
 	/**
 	 * The {@link Workshop} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.Workshop} city building.
 	 *
-	 * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.city.Workshop
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -598,6 +612,7 @@ public interface CityBuildingConstants
 	@ConstantInterface
 	interface Workshop
 	{
+
 		/**
 		 * The display name of the old workshop.
 		 */
@@ -652,5 +667,7 @@ public interface CityBuildingConstants
 		 */
 		@Constant
 		CurrencyTransaction NORMAL_UPGRADE_COSTS = new CurrencyTransaction(-2000, -2000, -5000, -1000, -400);
+
 	}
+
 }

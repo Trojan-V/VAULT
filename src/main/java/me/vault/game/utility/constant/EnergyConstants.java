@@ -15,7 +15,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 5.0.0
+ * @version 1.0.0
  * @since 30.05.2024
  */
 @ConstantInterface
@@ -46,7 +46,7 @@ public interface EnergyConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
@@ -97,7 +97,7 @@ public interface EnergyConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
@@ -148,7 +148,7 @@ public interface EnergyConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface

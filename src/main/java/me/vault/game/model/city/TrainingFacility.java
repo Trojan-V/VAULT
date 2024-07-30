@@ -24,7 +24,7 @@ import static me.vault.game.utility.constant.CityBuildingConstants.TrainingFacil
  * @see me.vault.game.interfaces.Upgradable
  * @since 09.06.2024
  */
-public class TrainingFacility extends CityBuilding
+public final class TrainingFacility extends CityBuilding
 {
 
 	/**
@@ -73,9 +73,21 @@ public class TrainingFacility extends CityBuilding
 
 
 	/**
+	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of TrainingFacility is created.
+	 */
+	private TrainingFacility () {}
+
+
+	/**
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance of this class has been returned.
 	 */
 	public static TrainingFacility getInstance ()
 	{
