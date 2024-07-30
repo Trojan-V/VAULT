@@ -3,8 +3,6 @@ package me.vault.game.interfaces;
 
 import me.vault.game.model.currency.CurrencyTransaction;
 
-// TODO: Pre und post
-
 
 /**
  * Any class that's an upgradable object should implement this interface.
@@ -27,15 +25,20 @@ public interface Upgradable<T>
 	 * Returns the current level of the upgradable object.
 	 *
 	 * @return The current level.
+	 *
+	 * @precondition The upgradable object has a valid level attribute of type {@link T}.
+	 * @postcondition The current level of the upgradable object.
 	 */
 	T getLevel ();
 
 
 	/**
 	 * Sets the current level of the upgradable object to a new value.
-	 * <br>
 	 *
 	 * @param level The new level of the object.
+	 *
+	 * @precondition The upgradable object has a valid level attribute of type {@link T} and an object of type {@link T} is passed.
+	 * @postcondition The current level of the upgradable object is set to the passed one.
 	 */
 	void setLevel (final T level);
 
@@ -45,6 +48,9 @@ public interface Upgradable<T>
 	 * upgrade the upgradable object to the next level.
 	 *
 	 * @return The upgrade costs to upgrade the upgradable object to the next level.
+	 *
+	 * @precondition The upgradable object has a valid {@link CurrencyTransaction} attribute that resembles the upgrade cost.
+	 * @postcondition The {@link CurrencyTransaction} attribute that resembles the upgrade cost has been returned.
 	 */
 	CurrencyTransaction getUpgradeCosts ();
 
@@ -57,6 +63,10 @@ public interface Upgradable<T>
 	 * more expensive than the level previously upgraded to.
 	 *
 	 * @param upgradeCosts The upgrade costs to upgrade the upgradable object to the next level.
+	 *
+	 * @precondition The upgradable object has a valid {@link CurrencyTransaction} attribute that resembles the
+	 * upgrade cost and a {@link CurrencyTransaction} is passed.
+	 * @postcondition The {@link CurrencyTransaction} attribute of the upgradable object is set to the passed one.
 	 */
 	void setUpgradeCosts (final CurrencyTransaction upgradeCosts);
 
@@ -71,6 +81,10 @@ public interface Upgradable<T>
 	 * @param level The {@link Level} whose upgrade costs {@link CurrencyTransaction} should be returned.
 	 *
 	 * @return The upgrade costs to upgrade the upgradable object to the next level.
+	 *
+	 * @precondition The upgradable object has a valid {@link CurrencyTransaction} attribute that resembles the
+	 * upgrade cost and a level of type {@link T} is passed.
+	 * @postcondition The {@link CurrencyTransaction} attribute of the upgradable object at the level has been returned.
 	 */
 	CurrencyTransaction getUpgradeCosts (final T level);
 

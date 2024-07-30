@@ -26,7 +26,9 @@ public interface Displayable
 	 * Returns the sprite stored within the property of the displayable object as an {@link Image}.
 	 *
 	 * @return The sprite of the displayable object.
-	 * @precondition
+	 *
+	 * @precondition The sprite attribute of the Displayable has been set and is != null.
+	 * @postcondition The sprite attribute of the Displayable was returned.
 	 */
 	MetaDataImage getSprite ();
 
@@ -35,6 +37,9 @@ public interface Displayable
 	 * Sets the sprite of the displayable object to the supplied sprite.
 	 *
 	 * @param sprite The new sprite for the displayable object.
+	 *
+	 * @precondition A valid != null {@link MetaDataImage} has been passed into the method.
+	 * @postcondition The sprite attribute in the Displayable has been set to the passed {@link MetaDataImage}.
 	 */
 	void setSprite (final MetaDataImage sprite);
 
@@ -43,6 +48,9 @@ public interface Displayable
 	 * Returns the sprite property of the displayable object.
 	 *
 	 * @return The sprite property of the displayable object.
+	 *
+	 * @precondition The spriteProperty attribute of the Displayable has been set and is != null.
+	 * @postcondition The spriteProperty attribute of the Displayable was returned.
 	 */
 	SimpleObjectProperty<MetaDataImage> getSpriteProperty ();
 
