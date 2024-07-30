@@ -102,6 +102,29 @@ public final class ArenaDelegate
 		this.arenaBoardGridPane.setDisable(false);
 		this.executeTurn();
 	}
+	@FXML
+	boolean onDodgeAbilityClick (final ActionEvent actionEvent)
+	{
+		final Button sender = (Button) actionEvent.getSource();
+		sender.setDisable(true);
+		return true;
+	}
+
+	@FXML
+	boolean onInitiativeAbilityClick (final ActionEvent actionEvent)
+	{
+		final Button sender = (Button) actionEvent.getSource();
+		sender.setDisable(true);
+		return true;
+	}
+
+	@FXML
+	boolean onMeleeAbilityClick (final ActionEvent actionEvent)
+	{
+		final Button sender = (Button) actionEvent.getSource();
+		sender.setDisable(true);
+		return true;
+	}
 
 
 	private void initializeGameBoardGridPane ()

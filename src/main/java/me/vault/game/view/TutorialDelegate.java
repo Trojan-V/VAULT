@@ -71,7 +71,7 @@ public final class TutorialDelegate implements Initializable
 	private TabPane tutorialTabPane;
 
 
-	public static void show (final Stage stage)
+	public static void show ()
 	{
 		ViewUtil.show(GameApplication.getStage(), TUTORIAL_MENU_SCENE, TutorialDelegate.class);
 	}

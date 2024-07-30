@@ -59,7 +59,7 @@ public class GameApplication extends Application
 
 
 	/**
-	 * Loads the {@code .fxml} files which are located in {@code ./src/main/java/resources/me/vault/vaultgame} and starts the GUI powered by JavaFX.
+	 * Loads the {@code .fxml} files which are located in {@code ./src/main/java/resources/me/vault/game} and starts the GUI powered by JavaFX.
 	 *
 	 * @param stage The {@link Stage} which will be displayed in the GUI window which pops up.
 	 */

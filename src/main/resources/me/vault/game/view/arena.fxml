@@ -74,17 +74,20 @@
             <Font name="Segoe UI Semibold" size="22.0" />
          </font>
       </Button>
-      <Button defaultButton="true" layoutX="14.0" layoutY="505.0" mnemonicParsing="false" onAction="#onStartGameClick" prefHeight="48.0" prefWidth="159.0" style="-fx-background-color: lightblue; -fx-border-color: blue;" text="Dodge Ability" textAlignment="CENTER" underline="true" wrapText="true">
+      <Button defaultButton="true" layoutX="14.0" layoutY="505.0" mnemonicParsing="false" onAction="#onDodgeAbilityClick"
+              prefHeight="48.0" prefWidth="159.0" style="-fx-background-color: lightblue; -fx-border-color: blue;" text="Dodge Ability" textAlignment="CENTER" underline="true" wrapText="true">
           <font>
               <Font name="Segoe UI Semibold" size="14.0" />
           </font>
       </Button>
-      <Button defaultButton="true" layoutX="14.0" layoutY="572.0" mnemonicParsing="false" onAction="#onStartGameClick" prefHeight="48.0" prefWidth="159.0" style="-fx-background-color: lightblue; -fx-border-color: blue;" text= "Initiative Ability" textAlignment="CENTER" underline="true" wrapText="true">
+      <Button defaultButton="true" layoutX="14.0" layoutY="572.0" mnemonicParsing="false" onAction="#onInitiativeAbilityClick"
+              prefHeight="48.0" prefWidth="159.0" style="-fx-background-color: lightblue; -fx-border-color: blue;" text= "Initiative Ability" textAlignment="CENTER" underline="true" wrapText="true">
           <font>
               <Font name="Segoe UI Semibold" size="14.0" />
           </font>
       </Button>
-      <Button defaultButton="true" layoutX="14.0" layoutY="636.0" mnemonicParsing="false" onAction="#onStartGameClick" prefHeight="48.0" prefWidth="159.0" style="-fx-background-color: lightblue; -fx-border-color: blue;" text="Melee Ability" textAlignment="CENTER" underline="true" wrapText="true">
+      <Button defaultButton="true" layoutX="14.0" layoutY="636.0" mnemonicParsing="false" onAction="#onMeleeAbilityClick"
+              prefHeight="48.0" prefWidth="159.0" style="-fx-background-color: lightblue; -fx-border-color: blue;" text="Melee Ability" textAlignment="CENTER" underline="true" wrapText="true">
           <font>
               <Font name="Segoe UI Semibold" size="14.0" />
           </font>

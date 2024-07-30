@@ -72,7 +72,7 @@ public final class PrologueDelegate implements Initializable
 		}
 		else if (mouseEvent.getSource().equals(this.continueButton))
 		{
-			TutorialDelegate.show(GameApplication.getStage());
+			TutorialDelegate.show();
 		}
 	}
 

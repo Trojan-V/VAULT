@@ -36,7 +36,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 /**
- * The {@link TroopSelectionDelegate} is responsive for the control (Controller) and display (View) of the troop-selection section in the GUI.
+ * The {@link TroopSelectionDelegate} is responsible for the control (Controller) and display (View) of the troop-selection section in the GUI.
  * It provides methods to select different {@link Troop}s for an upcoming mission by providing an interactive GUI on the main {@link Stage}.
  * The delegate is also responsible for starting the correct {@link Mission} after the selection is complete.
  *

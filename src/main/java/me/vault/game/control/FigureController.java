@@ -35,6 +35,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  */
 public final class FigureController
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -53,8 +54,8 @@ public final class FigureController
 
 
 	/**
-	 * The divisor changes a natural number from zero to hundred to a rational number from zero to one. The Number
-	 * represent the armor value of the defending troop.
+	 * The divisor changes a natural number from zero to hundred to a rational number from zero to one.
+	 * The number represents the armor value of the defending troop.
 	 */
 	private static final int DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER = 100;
 
@@ -83,6 +84,9 @@ public final class FigureController
 	 * @param arena    The {@link Arena} instance where the encounter is happening.
 	 * @param attacker The {@link Figure} who is the attacker.
 	 * @param defender The {@link Figure} who is the defender.
+	 *
+	 * @precondition The attacking and defending unit stand on adjacent tiles.
+	 * @postcondition The attacking unit may or may not deal damage to the defending troop.
 	 */
 	public static void attack (final Arena arena, final Figure attacker,
 		final Figure defender)
@@ -93,7 +97,7 @@ public final class FigureController
 
 		if (dice >= defenderDefensiveStats.getDodgeRate())
 		{
-			final int calculatedDamage = calculateDamage(attacker, defender,arena);
+			final int calculatedDamage = calculateDamage(attacker, defender, arena);
 			final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;
 			if (newDefenderHealthPoints <= 0)
 			{
@@ -105,7 +109,7 @@ public final class FigureController
 					MovableController.move(arena.getGameBoard(), attacker, defenderPosition);
 					return;
 				}
-				catch (ElementNotFoundOnGameBoardException e)
+				catch (final ElementNotFoundOnGameBoardException e)
 				{
 					LOGGER.log(WARNING, e.getMessage());
 				}
@@ -122,17 +126,20 @@ public final class FigureController
 
 	/**
 	 * Calculates the damage the attacker will deal to the defender.
-	 * <br>
-	 * The formula takes the melee damage the attacker deals into account as well as the armor the defender has.
 	 *
 	 * @param attackerStats          The {@link Figure} statistics of the
 	 *                               attacking unit.
 	 * @param defenderDefensiveStats The {@link Figure} statistics of the
 	 *                               defensive unit.
+	 * @param arena                  The arena where the encounter takes place.
 	 *
 	 * @return The amount of damage the defender will receive.
+	 *
+	 * @precondition The attacker did hit the defender.
+	 * @postcondition The defender will receive damage.
 	 */
-	private static int calculateDamage (final Figure attackerStats, final Figure defenderDefensiveStats,final @NotNull Arena arena)
+	private static int calculateDamage (final Figure attackerStats, final Figure defenderDefensiveStats,
+		final @NotNull Arena arena)
 	{
 		final Artifact currentArtifact = Player.getInstance().getSelectedArtifact();
 		final Energy currenrEnergy = Player.getInstance().getSelectedEnergy();
@@ -143,12 +150,12 @@ public final class FigureController
 		final int meleeDamage = attackerStats.getStatistics().getOffensive().getMeleeDamage();
 		final int armor = defenderDefensiveStats.getStatistics().getDefensive().getArmor();
 		double dealtDamage = 0;
-		// TODO: Extract this arithmetic expression into one or several methods, so it's understandable by providing a descriptive name.
 		if (isAlly(arena, troopFigure))
 		{
-			dealtDamage = (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier * meleeMultiplier);
+			dealtDamage =
+				(meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier) * meleeMultiplier;
 		}
-		else if (isEnemy(arena,troopFigure))
+		else if (isEnemy(arena, troopFigure))
 		{
 			dealtDamage =
 				(meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER));
@@ -165,6 +172,9 @@ public final class FigureController
 	 * @param position    The position the {@link Figure} wants to move to.
 	 *
 	 * @return True if the {@link Figure} can move to the supplied {@link Position}, otherwise false.
+	 *
+	 * @precondition The parameters needed for the check do exist.
+	 * @postcondition Gives a boolean that states if the troop can move or not.
 	 */
 	public static boolean canMoveToPosition (final Arena arena, final Figure troopFigure, final Position position)
 	{
@@ -177,7 +187,7 @@ public final class FigureController
 			final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
 			return accessibleTiles.contains(arenaGameBoard.getTile(position));
 		}
-		catch (ElementNotFoundOnGameBoardException e)
+		catch (final ElementNotFoundOnGameBoardException e)
 		{
 			LOGGER.log(WARNING, e.getMessage());
 		}
@@ -195,6 +205,9 @@ public final class FigureController
 	 *
 	 * @return True if the {@link Figure} can attack the {@link Figure} at the supplied {@link Position}, otherwise
 	 * false.
+	 *
+	 * @precondition The parameters needed for the check do exist.
+	 * @postcondition Gives a boolean that states if the troop can attack or not.
 	 */
 	public static boolean canAttackAtPosition (final Arena arena, final Figure attackerFigure, final Position position)
 	{
@@ -224,6 +237,9 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} whose glow effect should be set. There are two checks happening:
 	 *                    If the {@link Figure} is an ally, the glow effect will be colored blue, if the {@link Figure} is
 	 *                    an enemy, the glow effect will be colored red.
+	 *
+	 * @precondition It's possible to differentiate between ally and enemy.
+	 * @postcondition The troops glow depending on if there are an ally or enemy.
 	 */
 	public static void setGlow (final @NotNull Arena arena, final @NotNull ImageView imageView, final @NotNull Figure troopFigure)
 	{
@@ -257,6 +273,9 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an enemy or not.
 	 *
 	 * @return True if the {@link Figure} is an enemy, otherwise false.
+	 *
+	 * @precondition Player Two exists.
+	 * @postcondition PlayerTwo is labeled as an enemy.
 	 */
 	private static boolean isEnemy (@NotNull final Arena arena, @NotNull final Figure troopFigure)
 	{
@@ -271,6 +290,8 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an ally or not.
 	 *
 	 * @return True if the {@link Figure} is an ally, otherwise false.
+	 * * @pre.condition Player Two exists.
+	 * * @post.condition PlayerTwo is labeled as an ally.
 	 */
 	private static boolean isAlly (@NotNull final Arena arena, @NotNull final Figure troopFigure)
 	{
