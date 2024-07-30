@@ -8,6 +8,7 @@ import me.vault.game.control.CityBuildingController;
 import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
+import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
@@ -29,8 +30,10 @@ import static me.vault.game.utility.constant.SupressionConstants.OVERRIDDEN_METH
  */
 public abstract class CityBuilding implements Displayable, Nameable, Upgradable<CityBuildingLevel>
 {
-
-
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Artifact#toString()} is
+	 * called.
+	 */
 	private static final String TO_STRING_PATTERN =
 		"CityBuilding'{'nameProperty={0}, spriteProperty={1}, isMaxLevelProperty={2}, currentLevel={3}, currentUpgradeCost={4}'}'";
 
@@ -54,6 +57,12 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
 
+	/**
+	 * This property is used to store and dynamically display if the city building is at the maximum level.
+	 * If the data is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
+	 *
+	 * @see SimpleBooleanProperty
+	 */
 	private final SimpleBooleanProperty isMaxLevelProperty;
 
 
@@ -213,7 +222,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 *
 	 * @return True if the city building is at the maximum level, otherwise false.
 	 */
-	public boolean getIsMaxLevel ()
+	public boolean isMaxLevel ()
 	{
 		return this.isMaxLevelProperty.get();
 	}
@@ -337,6 +346,14 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	public abstract Map<CityBuildingLevel, MetaDataImage> getAllSprites ();
 
 
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link CityBuilding#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link CityBuilding#TO_STRING_PATTERN}.
+	 * @precondition The {@link CityBuilding#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
 	@Override
 	public String toString ()
 	{

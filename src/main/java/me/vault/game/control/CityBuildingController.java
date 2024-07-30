@@ -80,7 +80,7 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	@Override
 	public boolean checkIsUpgradable (final @NotNull CityBuilding cityBuilding)
 	{
-		if (cityBuilding.getIsMaxLevel())
+		if (cityBuilding.isMaxLevel())
 		{
 			return false;
 		}
