@@ -101,8 +101,6 @@ public final class MainMenuDelegate implements Initializable
 	@FXML
 	private MenuItem arenaMenuItem;
 
-	//Methods ---------------------------------------------------------------------------------------
-
 
 	/**
 	 * Calls a method to display the content stored in {@link MainMenuDelegate#MAIN_MENU_VIEW_FXML} and initialized
@@ -167,7 +165,7 @@ public final class MainMenuDelegate implements Initializable
 			//TODO: update java Doc
 			this.loadGameFromFile();
 		}
-		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
+		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsMenuItem))
 		{
 			SettingsDelegate.show();
 		}

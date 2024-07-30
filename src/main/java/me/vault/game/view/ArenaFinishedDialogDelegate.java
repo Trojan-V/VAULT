@@ -99,6 +99,9 @@ public final class ArenaFinishedDialogDelegate
 	 */
 	private Arena arena = null;
 
+	/**
+	 * The {@link Mission} of the Dialog, which is needed to return the user into the Mission after the dialog is shown.
+	 */
 	private Mission mission = null;
 
 
@@ -130,6 +133,15 @@ public final class ArenaFinishedDialogDelegate
 	}
 
 
+	/**
+	 * Sets the {@link ArenaFinishedDialogDelegate#mission} attribute in the instance of {@link ArenaFinishedDialogDelegate} to the passed {@link Mission} object.
+	 *
+	 * @param mission The new {@link Mission} object, meant to replace the current attribute in the instance.
+	 *
+	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
+	 * @postcondition The {@link ArenaFinishedDialogDelegate} replaced the old {@link ArenaFinishedDialogDelegate#arena} attribute with the passed one.
+	 * The text of the {@link ArenaFinishedDialogDelegate#resultLabel} was replaced with a version of the {@link Mission} object.
+	 */
 	private void setMission (final Mission mission)
 	{
 		this.mission = mission;
