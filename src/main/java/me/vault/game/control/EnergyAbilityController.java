@@ -84,13 +84,7 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 
 
 	/**
-	 * Updates the values within the energy ability to the new values of the new level.
-	 * <br>
-	 * This method should be invoked every time after the energy ability was upgraded.
-	 *
-	 * @param energy The instance of the {@link Energy} that was upgraded.
-	 * @pre.condition Energy ability values are not the maximal level.
-	 * @post.condition The values of the energy ability are updated to the value of the new level.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void updateValues (final Energy energy)
@@ -120,12 +114,6 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @param energy The {@link Energy} instance which is checked if it can be upgraded to the next level.
-	 *
-	 * @return True if the {@link Energy} can be upgraded, otherwise false.
-	 * @pre.condition The energy ability exists.
-	 * @post.condition Gives back if the energy ability is upgradeable.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final @NotNull Energy energy)
@@ -151,10 +139,6 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @param energy The {@link Energy} instance that gets upgraded.
-	 * @pre.condition The energy ability exists and can be upgraded.
-	 * @post.condition The instance of the energy ability gets upgraded.
 	 */
 	@Override
 	public void upgrade (final Energy energy)

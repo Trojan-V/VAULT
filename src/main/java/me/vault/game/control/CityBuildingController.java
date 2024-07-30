@@ -55,6 +55,8 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @pre.condition The singleton Instance exists.
+	 * @post.condition The singleton Instance can be accessed in the program.
 	 */
 	public static CityBuildingController getInstance ()
 	{

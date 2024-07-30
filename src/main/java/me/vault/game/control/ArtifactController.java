@@ -28,7 +28,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Upgrader
  * @see Artifact
  * @see ArtifactLevel
- * @since 23.05.2024
+ * @since 30.07.2024
  */
 public final class ArtifactController implements Upgrader<Artifact, ArtifactLevel>
 {
@@ -86,14 +86,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * Updates the values within the artifact to the new values of the new level.
-	 * <br>
-	 * This method should be invoked every time after the artifact was upgraded.
-	 *
-	 * @param artifact The instance of the {@link Artifact} that was upgraded.
-	 * @pre.condition Artifact values are not the maximal level.
-	 * @post.condition The values of the artifact are updated to the value of the new level.
 	 */
 	@Override
 	public void updateValues (final Artifact artifact)
@@ -123,12 +115,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @param artifact The {@link Artifact} instance which is checked if it can be upgraded to the next level.
-	 *
-	 * @return True if the {@link Artifact} can be upgraded, otherwise false.
-	 * @pre.condition The artifact exists.
-	 * @post.condition Gives back if the artifact is upgradeable.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final Artifact artifact)
@@ -154,10 +140,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @param artifact The {@link Artifact} instance that gets upgraded.
-	 * @pre.condition The artifact exists and can be upgraded.
-	 * @post.condition The instance of the artifact gets upgraded.
 	 */
 	@Override
 	public void upgrade (final Artifact artifact)

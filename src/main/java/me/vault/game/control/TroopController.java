@@ -2,7 +2,7 @@ package me.vault.game.control;
 
 
 import javafx.application.Platform;
-import javafx.scene.layout.GridPane;
+import me.vault.game.interfaces.Upgradable;
 import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.building.CityBuildingLevel;
 import me.vault.game.model.city.TrainingFacility;
@@ -10,12 +10,9 @@ import me.vault.game.model.currency.Currency;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistics;
-import me.vault.game.utility.fx.SingleStatisticHBox;
 import me.vault.game.utility.struct.UpgradeRunnable;
 import me.vault.game.view.city.building.TrainingFacilityDelegate;
-
 import static me.vault.game.model.troop.TroopStatistics.*;
-import static me.vault.game.utility.constant.AttributeConstants.*;
 
 
 /**
@@ -28,7 +25,7 @@ import static me.vault.game.utility.constant.AttributeConstants.*;
  * Additionally, this controller provides methods to create the required GUI elements to display the
  * {@link TrainingFacility} accordingly.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Alexander Göthel
  * @version 1.0.0
  * @see TrainingFacility
  * @see TrainingFacilityDelegate
@@ -56,6 +53,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @pre.condition The singleton Instance exists.
+	 * @post.condition The singleton Instance can be accessed in the program.
 	 */
 	public static TroopController getInstance ()
 	{
@@ -78,6 +77,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
+	 * @pre.condition The {@link Dexterity} instance exists and can be upgraded.
+	 * @post.condition The {@link Dexterity} instances gets upgraded.
 	 */
 	private static void updateDexterityStatistics (final Troop troop)
 	{
@@ -104,6 +105,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
+	 * @pre.condition The {@link Defensive} instance exists and can be upgraded.
+	 * @post.condition The {@link Defensive} instances gets upgraded.
 	 */
 	private static void updateDefensiveStatistics (final Troop troop)
 	{
@@ -132,6 +135,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
+	 * @pre.condition The {@link Offensive} instance exists and can be upgraded.
+	 * @post.condition The {@link Offensive} instances gets upgraded.
 	 */
 	private static void updateOffensiveStatistics (final Troop troop)
 	{
