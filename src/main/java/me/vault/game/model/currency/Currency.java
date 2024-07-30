@@ -4,7 +4,7 @@ package me.vault.game.model.currency;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.interfaces.Displayable;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -20,12 +20,12 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 /**
  * The {@code Currency} enum represents the resources or currencies which the user can use to upgrade troops and
  * buildings. Currencies are earned by
- * completing missions and progressing in the story. The class in controlled by the {@link CurrencyController} class,
+ * completing missions and progressing in the story. The class in controlled by the {@link CurrencyDelegate} class,
  * which manages mission rewards
  * and building costs.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @see CurrencyController
+ * @see CurrencyDelegate
  * @since 21.05.2024
  */
 public enum Currency implements Displayable
@@ -121,7 +121,7 @@ public enum Currency implements Displayable
 	/**
 	 * Returns the property that contains the amount of the currency.
 	 * <br>
-	 * This property is bound to an element in the GUI. Check {@link CurrencyController#initialize(URL, ResourceBundle)}
+	 * This property is bound to an element in the GUI. Check {@link CurrencyDelegate#initialize(URL, ResourceBundle)}
 	 * to see the binding process.
 	 *
 	 * @return The property that contains the amount of the currency.

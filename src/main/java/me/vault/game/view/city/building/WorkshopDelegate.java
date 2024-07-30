@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.ArtifactController;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
@@ -150,7 +150,7 @@ public final class WorkshopDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.mainPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.bindArtifactTextProperties();
 		this.addMultiplierBoxes();
 		this.bindUpgradeButtonProperties();

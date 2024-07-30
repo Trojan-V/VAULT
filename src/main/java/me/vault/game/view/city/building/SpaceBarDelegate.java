@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.control.PlayerController;
 import me.vault.game.model.city.SpaceBar;
 import me.vault.game.model.player.Player;
@@ -23,9 +23,6 @@ import me.vault.game.view.city.CityDelegate;
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
-
-import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -98,7 +95,7 @@ public final class SpaceBarDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.spaceBarAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.spaceBarAnchorPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.chooseMegaCorporationButton.disableProperty().bind(Faction.MEGA_CORPORATION.getIsSelectedProperty());
 	}
 

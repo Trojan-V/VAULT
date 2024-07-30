@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.model.building.CityBuilding;
 import me.vault.game.model.city.*;
 import me.vault.game.utility.ViewUtil;
@@ -147,7 +147,7 @@ public class CityDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.cityAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.cityAnchorPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.initCityBuildingAnchorPane();
 	}
 

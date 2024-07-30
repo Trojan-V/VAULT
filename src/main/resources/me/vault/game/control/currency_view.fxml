@@ -8,7 +8,7 @@
 <?import javafx.scene.text.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0"
             prefWidth="1280.0" style="-fx-background-color: transparent;"
-            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.control.CurrencyController">
+            xmlns="http://javafx.com/javafx/21" fx:controller="me.vault.game.control.CurrencyDelegate">
     <children>
         <HBox prefHeight="100.0" prefWidth="1280.0">
             <children>

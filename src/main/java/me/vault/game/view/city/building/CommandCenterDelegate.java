@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.model.city.CommandCenter;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.ViewUtil;
@@ -125,7 +125,7 @@ public final class CommandCenterDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.mainAnchorPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.currentNewsLabel.setText(RANDOM_NEWS_LIST.get(new Random().nextInt(RANDOM_NEWS_LIST.size())));
 		this.selectedArtifactLabel.setText(Player.getInstance().getSelectedArtifact().getName());
 		this.selectedFactionLabel.setText(Player.getInstance().getSelectedFaction().name());

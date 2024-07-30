@@ -14,8 +14,6 @@ import me.vault.game.utility.struct.UpgradeRunnable;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.LoggingConstants.CityBuildingController.UPGRADING;
-import static me.vault.game.utility.constant.LoggingConstants.*;
-import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
@@ -51,6 +49,9 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * As this class is a singleton, no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class
+	 * @postcondition A new instance of ArtifactController is created.
 	 */
 	private ArtifactController ()
 	{}
@@ -62,8 +63,9 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * @param artifact The instance of {@link Artifact} which is checked.
 	 *
 	 * @return True if the artifact is maxed, otherwise false.
+	 *
 	 * @precondition An artifact exists.
-	 * @postcondition Says if the artifact is at its maximum.
+	 * @post.condition Says if the artifact is at its maximum.
 	 */
 	private static boolean isArtifactMaxed (final Artifact artifact)
 	{
@@ -75,8 +77,9 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
-	 * @postcondition The singleton Instance can be accessed in the program.
+	 * @post.condition The singleton Instance can be accessed in the program.
 	 */
 	public static ArtifactController getInstance ()
 	{
@@ -105,11 +108,6 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 		currentAttributeMultipliers.setDamageMultiplier(attributeMultipliersMap.get(AttributeMultiplier.Type.DAMAGE));
 		currentAttributeMultipliers.setHealthMultiplier(attributeMultipliersMap.get(AttributeMultiplier.Type.HEALTH));
 		currentAttributeMultipliers.setDefenseMultiplier(attributeMultipliersMap.get(AttributeMultiplier.Type.DEFENSE));
-
-		// Logging output
-		LOGGER.logf(DEBUG, NAME_PROPERTY_SET, artifact.getNameProperty().get());
-		LOGGER.logf(DEBUG, SPRITE_PROPERTY_SET, artifact.getSpriteProperty().get().toString());
-		LOGGER.logf(DEBUG, UPGRADE_COST_SET, artifact.getUpgradeCosts().toString());
 	}
 
 

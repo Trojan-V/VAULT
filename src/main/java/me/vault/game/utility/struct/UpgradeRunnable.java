@@ -1,7 +1,7 @@
 package me.vault.game.utility.struct;
 
 
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.interfaces.Level;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.interfaces.Upgrader;
@@ -43,7 +43,7 @@ public class UpgradeRunnable implements Runnable
 		final CurrencyTransaction upgradeCost = this.upgradable.getUpgradeCosts();
 		final Level beforeUpgradeLevel = this.upgradable.getLevel();
 		final Level afterUpgradeLevel = beforeUpgradeLevel.getNextHigherLevel();
-		CurrencyController.factorCurrency(upgradeCost);
+		CurrencyDelegate.factorCurrency(upgradeCost);
 		this.upgradable.setLevel(afterUpgradeLevel);
 		this.upgrader.updateValues(this.upgradable);
 	}

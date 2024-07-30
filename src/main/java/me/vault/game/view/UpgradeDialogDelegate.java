@@ -32,6 +32,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 // TODO: Anzeigen des dialog bearbeiten -> erst anzeigen und dann "upgrade" ausgrauen
 
+
 public final class UpgradeDialogDelegate implements Initializable
 {
 
@@ -154,6 +155,7 @@ public final class UpgradeDialogDelegate implements Initializable
 	{
 		this.upgradable = upgradable;
 		this.upgrader = upgrader;
+		this.upgradeButton.setDisable(!upgrader.checkIsUpgradable(upgradable));
 		this.setLevelChangeLabels(upgradable);
 		this.setUpgradeCostLabels(upgradable);
 	}
