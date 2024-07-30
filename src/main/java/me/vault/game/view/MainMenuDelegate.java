@@ -1,6 +1,7 @@
 package me.vault.game.view;
 
 
+import com.google.gson.JsonSyntaxException;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -19,6 +20,7 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,8 +51,6 @@ public final class MainMenuDelegate implements Initializable
 	 * As only this class needs access to this file, it is defined here, instead of in an interface
 	 */
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
-
-	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
 
 
 	/**
@@ -107,14 +107,14 @@ public final class MainMenuDelegate implements Initializable
 	/**
 	 * Calls a method to display the content stored in {@link MainMenuDelegate#MAIN_MENU_VIEW_FXML} and initialized
 	 * by {@link MainMenuDelegate#initialize(URL, ResourceBundle)} on the main stage
-	 * of this application ({@link GameApplication#getStage()})
+	 * of this application ({@link GameApplication#getStage()}).
 	 *
-	 * @precondition The GameApplication has to have a stage.
-	 * @postcondition The initialized main menu is shown on the GameApplication Stage.
+	 * @precondition The GameApplication has to have a stage
+	 * @postcondition The initialized main menu is shown on the GameApplication Stage
 	 */
 	public static void show ()
 	{
-		ViewUtil.show(GameApplication.getStage(), SCENE, MainMenuDelegate.class);
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML), MainMenuDelegate.class);
 	}
 
 
@@ -135,9 +135,9 @@ public final class MainMenuDelegate implements Initializable
 	 * <br>
 	 * If "continue" is clicked, the Save is loaded by the Config loader and the City-View is shown.
 	 * <br>
-	 * If "new game" is clicked, the Config File is reset and the Difficulty-View is shown.
+	 * If "new game" is clicked, the {@link MainMenuDelegate#createNewGame()} method is called.
 	 * <br>
-	 * If "load game" is clicked, the File-Chooser view is shown.
+	 * If "load game" is clicked, the {@link MainMenuDelegate#loadGameFromFile()} method is called.
 	 * <br>
 	 * If "settings" is clicked, the settings view is shown.
 	 * <br>
@@ -145,10 +145,10 @@ public final class MainMenuDelegate implements Initializable
 	 * <br>
 	 * If "arena" is clicked, the network connection dialog is shown.
 	 *
-	 * @param event the Event on which the method acts.
+	 * @param event the Event that determines the triggered actions
 	 *
-	 * @precondition The MainMenu Scene has to be displayed on a stage.
-	 * @postcondition The specified actions for each button are executed.
+	 * @precondition The MainMenu Scene has to be displayed on the active stage
+	 * @postcondition The specified actions as described by this documentation are executed
 	 */
 	@FXML
 	private void click (final Event event)
@@ -164,7 +164,6 @@ public final class MainMenuDelegate implements Initializable
 		}
 		else if (event.getSource().equals(this.loadGameButton) || event.getSource().equals(this.loadGameMenuItem))
 		{
-			//TODO: update java Doc
 			this.loadGameFromFile();
 		}
 		else if (event.getSource().equals(this.settingsButton) || event.getSource().equals(this.settingsButton))
@@ -186,11 +185,12 @@ public final class MainMenuDelegate implements Initializable
 
 	/**
 	 * Handles the creation of a new game. The method checks, if the current configuration is equivalent to the
-	 * default configuration. If this is not the case, the current configuration is saved and the configuartion is
-	 * resetted, before {@link DifficultyDelegate#show()} is called to start a new game.
+	 * default configuration. If this is not the case, the current configuration is saved and the configuration is
+	 * reset, before {@link DifficultyDelegate#show()} is called to start a new game.
 	 *
 	 * @precondition
-	 * @postcondition
+	 * @postcondition If the config file is not identical to the default config file the information from the config
+	 * file is saved in a new file; the config file is set to the default values and the difficulty (scene) is shown
 	 */
 	private void createNewGame ()
 	{
@@ -203,15 +203,39 @@ public final class MainMenuDelegate implements Initializable
 	}
 
 	/**
+	 * Handles the loading of a game file. The method checks, if the current configuration is equivalent to the
+	 * default configuration. If this is not the case, the current configuration is saved and the configuration is
+	 * reset, before {@link CityDelegate#show()} is called to continue with the game.
 	 *
+	 * @precondition
+	 * @postcondition If the config file is not identical to the default config file the information from the config
+	 * file is saved in a new file; the config file is updated with the information from the loaded file and the city
+	 * (scene) is shown
 	 */
 	private void loadGameFromFile ()
 	{
-		if (!ConfigLoader.getInstance().isConfigDefault())
+		File file;
+		try
 		{
-			ConfigLoader.getInstance().saveExistingGameToFile();
+			//The chosen file has to be a valid .json file
+			file = new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show();
+			if (file == null)
+			{
+				return;
+			}
+
+			if (!ConfigLoader.getInstance().isConfigDefault())
+			{
+				ConfigLoader.getInstance().saveExistingGameToFile();
+			}
+
+			ConfigLoader.getInstance().load(file);
 		}
-		ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
+		catch (JsonSyntaxException e)
+		{
+			this.loadGameFromFile();
+		}
+
 		CityDelegate.show();
 	}
 

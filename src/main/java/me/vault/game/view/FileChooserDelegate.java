@@ -44,6 +44,8 @@ public final class FileChooserDelegate
 	}
 
 
+
+
 	/**
 	 * Displays the {@link FileChooserDelegate#fileChooser} on the main {@link Stage} and returns the file that the user selects.
 	 *
@@ -58,6 +60,8 @@ public final class FileChooserDelegate
 		LOGGER.logf(DEBUG, "Config file selected in file chooser: {0}", chosenFile);
 		return chosenFile;
 	}
+
+
 
 
 	/**

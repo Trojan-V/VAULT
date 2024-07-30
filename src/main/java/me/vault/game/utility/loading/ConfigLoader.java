@@ -189,8 +189,11 @@ public final class ConfigLoader implements Loader
 	}
 
 
+	/**
+	 * @param configFile The configuration file the data is loaded from.
+	 */
 	@Override
-	public void load (final File configFile)
+	public void load (final File configFile) throws com.google.gson.JsonSyntaxException
 	{
 		try
 		{
