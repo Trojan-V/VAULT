@@ -16,13 +16,10 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.MetaDataImage;
-import me.vault.game.view.city.building.WorkshopDelegate;
 import org.jetbrains.annotations.NotNull;
 
-import java.net.URL;
 import java.text.MessageFormat;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET_PATTERN;
 import static me.vault.game.utility.constant.LoggingConstants.*;

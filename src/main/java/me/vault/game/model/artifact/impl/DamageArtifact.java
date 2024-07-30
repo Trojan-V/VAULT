@@ -108,10 +108,6 @@ public final class DamageArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the damage artifact.
-	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
 	 * @postcondition A map of upgrade costs for the {@link DamageArtifact} is initialized.
 	 */
@@ -140,9 +136,6 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of attribute modifiers for the damage artifact.
 	 *
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 * @precondition The attribute modifiers for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of attribute modifiers for the {@link DamageArtifact} is initialised.
 	 */
@@ -183,8 +176,6 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of names for the damage artifact.
 	 *
-	 * @see Map
-	 * @see ArtifactLevel
 	 * @precondition The names for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of the names for the {@link DamageArtifact} is initialised.
 	 */
@@ -212,8 +203,6 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of sprites for the damage artifact.
 	 *
-	 * @see Map
-	 * @see ArtifactLevel
 	 * @precondition The sprites for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of the sprites for the {@link DamageArtifact} is initialised.
 	 */

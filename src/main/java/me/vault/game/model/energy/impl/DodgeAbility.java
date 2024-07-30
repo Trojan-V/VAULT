@@ -110,9 +110,8 @@ public final class DodgeAbility extends EnergyAbility
 	 *
 	 * @return The map of upgrade costs for the dodge energy ability.
 	 *
-	 * @see Map
-	 * @see EnergyLevel
-	 * @see CurrencyTransaction
+	 * @precondition The upgrade costs for different {@link EnergyLevel} exists.
+	 * @postcondition A map of upgrade costs for the {@link DodgeAbility} is initialized.
 	 */
 	private static Map<EnergyLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -138,9 +137,8 @@ public final class DodgeAbility extends EnergyAbility
 	 *
 	 * @return The map of ability modifiers for the dodge energy ability.
 	 *
-	 * @see Map
-	 * @see EnergyLevel
-	 * @see AbilityMultiplier.Type
+	 * @precondition The ability modifiers for the {@link DodgeAbility} exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of ability modifiers for the {@link DodgeAbility} is initialised.
 	 */
 	private static Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -178,8 +176,8 @@ public final class DodgeAbility extends EnergyAbility
 	 *
 	 * @return The map of names for the dodge energy ability.
 	 *
-	 * @see Map
-	 * @see EnergyLevel
+	 * @precondition The names for the {@link DodgeAbility} exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of the names for the {@link DodgeAbility} is initialised.
 	 */
 	private static Map<EnergyLevel, String> initNamesMap ()
 	{
@@ -204,8 +202,8 @@ public final class DodgeAbility extends EnergyAbility
 	 *
 	 * @return The map of sprites for the dodge energy ability.
 	 *
-	 * @see Map
-	 * @see EnergyLevel
+	 * @precondition The sprites for the {@link DodgeAbility} exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of the sprites for the {@link DodgeAbility} is initialised.
 	 */
 	private static Map<EnergyLevel, MetaDataImage> initSpritesMap ()
 	{
@@ -225,6 +223,8 @@ public final class DodgeAbility extends EnergyAbility
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static DodgeAbility getInstance ()
 	{

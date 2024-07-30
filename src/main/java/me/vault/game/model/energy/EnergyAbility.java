@@ -10,6 +10,9 @@ import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.artifact.Artifact;
+import me.vault.game.model.artifact.ArtifactLevel;
+import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.impl.DodgeAbility;
 import me.vault.game.model.energy.impl.InitiativeAbility;
@@ -153,6 +156,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * data for the current level.
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
+	 * @precondition The attributes for the {@link EnergyAbility} exists.
+	 * @postcondition Constructs an {@link EnergyAbility} instance with the given attributes.
 	 */
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected EnergyAbility ()
@@ -179,7 +184,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @return The ability multipliers of the energy ability, which are the status effects the player receives in the
 	 * form of buffs.
-	 * @see AbilityMultiplier
+	 * @precondition The {@link AbilityMultiplier} exists.
+	 * @postcondition The {@link AbilityMultiplier}s are accessible for the program.
 	 */
 	public AbilityMultiplier getAbilityMultiplier ()
 	{
@@ -197,6 +203,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @param level The energy ability level whose map of ability multipliers should be returned.
 	 * @return The map of ability multipliers for the supplied level.
+	 * @precondition The {@link AbilityMultiplier} exists.
+	 * @postcondition The map of the {@link AbilityMultiplier}s are accessible for the program.
 	 */
 	public Map<AbilityMultiplier.Type, Double> getAbilityMultipliers (final EnergyLevel level)
 	{
@@ -205,9 +213,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * Returns the current name of the energy ability. The name changes as it depends on the level of the energy ability.
-	 *
-	 * @return The current name of the energy ability.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getName ()
@@ -217,11 +223,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * Sets the name of the energy ability to the supplied name.
-	 * <br>
-	 * The name is set within the {@link EnergyAbility#nameProperty}, so the name gets automatically updated in the GUI.
-	 *
-	 * @param name The new name for the energy ability.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setName (final String name)
@@ -231,10 +233,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * Returns the name of the energy ability for the supplied {@link EnergyLevel}.
-	 *
-	 * @param level The energy ability level whose name should be returned.
-	 * @return The name of the energy ability for the supplied {@link EnergyLevel}.
+	 * {@inheritDoc}
 	 */
 	public String getName (final EnergyLevel level)
 	{
@@ -243,14 +242,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * Returns the current sprite of the energy ability.
-	 * <br>
-	 * The sprite may or may not change. It technically depends on the level of the energy ability, but in some cases, the
-	 * same sprite is used for multiple
-	 * energy ability levels, hence why it doesn't change visually in that case.
-	 *
-	 * @return The current sprite of the energy ability.
-	 * @see MetaDataImage
+	 * {@inheritDoc}
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -260,12 +252,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * Sets the sprite of the energy ability to the supplied sprite.
-	 * <br>
-	 * The sprite is set within the {@link EnergyAbility#spriteProperty}, so the sprite gets automatically updated in the
-	 * GUI.
-	 *
-	 * @param sprite The new sprite for the energy ability.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
@@ -275,10 +262,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * Returns the sprite of the energy ability for the supplied {@link EnergyLevel}.
-	 *
-	 * @param level The energy ability level whose sprite should be returned.
-	 * @return The sprite of the energy ability for the supplied {@link EnergyLevel}.
+	 * {@inheritDoc}
 	 */
 	public MetaDataImage getSprite (final EnergyLevel level)
 	{
@@ -287,14 +271,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * Returns the property that contains the name of the energy ability.
-	 * <br>
-	 * This property is bound to an element in the GUI. Check {@link LaboratoryDelegate#initialize(URL, ResourceBundle)}
-	 * to see the binding process.
-	 *
-	 * @return The property that contains the name of the energy ability.
-	 * @see WorkshopDelegate
-	 * @see SimpleStringProperty
+	 * {@inheritDoc}
 	 */
 	@Override
 	public SimpleStringProperty getNameProperty ()
@@ -304,17 +281,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * Returns the current sprite property of the energy ability. The sprite may or may not change. It technically depends
-	 * on the level of the energy ability, but
-	 * in some cases, the same sprite is used for multiple energy ability levels, hence why it doesn't change visually in
-	 * that case.
-	 * <br>
-	 * This property is bound to an element in the GUI. Check {@link LaboratoryDelegate#initialize(URL, ResourceBundle)}
-	 * to see the binding process.
-	 *
-	 * @return The current sprite property of the energy ability.
-	 * @see SimpleObjectProperty
-	 * @see Image
+	 * {@inheritDoc}
 	 */
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
@@ -327,6 +294,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Returns the property used to store the isMaxLevel data.
 	 *
 	 * @return The property used to store the isMaxLevel data.
+	 * @precondition The data of isMaxLevel exists.
+	 * @postcondition The property used to store the isMaxLevel data is accessible for the program.
 	 */
 	public SimpleBooleanProperty getIsMaxLevelProperty ()
 	{
@@ -338,21 +307,12 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
 	 *
 	 * @param value True if the artifact should isMaxLevel, otherwise false.
+	 * @precondition The {@link EnergyAbility} can have multiple level.
+	 * @postcondition Sets if {@link EnergyLevel} is maximal.
 	 */
 	public void setIsMaxLevel (final boolean value)
 	{
 		this.isMaxLevelProperty.set(value);
-	}
-
-
-	/**
-	 * Returns true if the artifact is at the maximum level, otherwise false.
-	 *
-	 * @return True if the artifact is at the maximum level, otherwise false.
-	 */
-	public boolean isMaxLevel ()
-	{
-		return this.isMaxLevelProperty.get();
 	}
 
 
@@ -370,7 +330,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * {@link EnergyAbility#getAllModifiers()}.
 	 *
 	 * @return The current level of the energy ability.
-	 * @see EnergyLevel
+	 * @precondition The {@link EnergyAbility} has a level.
+	 * @postcondition The current level of the {@link EnergyAbility} is accessible for the program.
 	 */
 	@Override
 	public EnergyLevel getLevel ()
@@ -383,7 +344,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Sets the level of the energy ability to a new level.
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link EnergyLevel}.
-	 * @see EnergyLevel
+	 * @precondition The {@link EnergyAbility} has a level.
+	 * @postcondition The current level of the {@link EnergyAbility} is set.
 	 */
 	@Override
 	public void setLevel (final EnergyLevel level)
@@ -396,7 +358,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Returns the current price to upgrade the energy ability.
 	 *
 	 * @return The current price to upgrade the energy ability to the next level.
-	 * @see CurrencyTransaction
+	 * @precondition The {@link CurrencyTransaction} exists.
+	 * @postcondition The price for the {@link CurrencyTransaction} is accessible for the program.
 	 */
 	@Override
 	public CurrencyTransaction getUpgradeCosts ()
@@ -413,6 +376,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * higher the energy ability level gets.
 	 *
 	 * @param upgradeCosts The new upgrade costs the energy ability requires to be upgraded to the next level.
+	 * @precondition The {@link CurrencyTransaction} exists.
+	 * @postcondition The price for the {@link CurrencyTransaction} is set.
 	 */
 	@Override
 	public void setUpgradeCosts (final CurrencyTransaction upgradeCosts)
@@ -441,9 +406,9 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * this meaningful key ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all upgrade cost transactions for the energy ability.
-	 * @see Map
-	 * @see EnergyLevel
-	 * @see CurrencyTransaction
+	 * @precondition The {@link Map} which contains all upgrade cost transactions for the {@link EnergyLevel} exists.
+	 * @postcondition A {@link Map} which contains all upgrade cost transactions for the {@link EnergyLevel} is
+	 * accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<EnergyLevel, CurrencyTransaction> getAllUpgradeCosts ();
@@ -458,8 +423,9 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all names for the energy ability.
-	 * @see Map
-	 * @see EnergyLevel
+	 * @precondition The {@link Map} which contains all names for the {@link EnergyLevel} exists.
+	 * @postcondition A {@link Map} which contains all names for the {@link EnergyLevel} is
+	 * accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<EnergyLevel, String> getAllNames ();
@@ -474,9 +440,9 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all sprites for the energy ability.
-	 * @see Map
-	 * @see EnergyLevel
-	 * @see Image
+	 * @precondition The {@link Map} which contains all sprites for the {@link EnergyAbility} exists.
+	 * @postcondition A {@link Map} which contains all sprites for the {@link EnergyAbility} is
+	 * accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<EnergyLevel, MetaDataImage> getAllSprites ();
@@ -491,9 +457,9 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @return The {@link Map} which contains all different sets of modifiers the energy ability can have, depending on it's
 	 * level.
-	 * @see Map
-	 * @see EnergyLevel
-	 * @see AbilityMultiplier.Type
+	 * @precondition The {@link Map} which contains all modifiers for the {@link EnergyAbility} exists.
+	 * @postcondition A {@link Map} which contains all modifiers for the {@link EnergyAbility} is
+	 * accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> getAllModifiers ();

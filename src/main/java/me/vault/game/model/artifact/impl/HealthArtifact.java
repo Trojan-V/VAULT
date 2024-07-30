@@ -102,9 +102,6 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see CurrencyTransaction
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
 	 * @postcondition A map of upgrade costs for the {@link HealthArtifact} is initialized.
 	 */
@@ -130,9 +127,6 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of attribute modifiers for the health artifact.
-	 * @see Map
-	 * @see ArtifactLevel
-	 * @see AttributeMultiplier.Type
 	 * @precondition The attribute modifiers for the {@link HealthArtifact} exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of attribute modifiers for the {@link HealthArtifact} is initialised.
 	 */
