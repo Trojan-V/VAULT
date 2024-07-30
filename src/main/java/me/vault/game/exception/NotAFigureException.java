@@ -7,7 +7,6 @@ import me.vault.game.model.gameboard.GameBoard;
 
 import java.text.MessageFormat;
 
-// TODO: Pre und post
 
 /**
  * This exception is thrown when an element on the {@link GameBoard} wasn't a {@link Figure} for some reason.
@@ -19,11 +18,12 @@ import java.text.MessageFormat;
  */
 public class NotAFigureException extends Exception
 {
+
 	/**
 	 * The message which can be retrieved from the exception instance by invoking {@link NotAFigureException#getMessage()}.
 	 * Usually, this message should be printed into the console or some other logging destination to inform the user about the exception.
 	 */
-	private static final String MESSAGE = "The element on the game board is not a figure.";
+	private static final String MESSAGE = "The element on the game board isn't a figure.";
 
 
 	/**
@@ -37,6 +37,9 @@ public class NotAFigureException extends Exception
 	/**
 	 * The default constructor of the exception. Constructs a new instance of this exception and provides the default
 	 * {@link NotAFigureException#MESSAGE}.
+	 *
+	 * @precondition The constructor of the exception gets called.
+	 * @postcondition A new instance of the exception is created.
 	 */
 	public NotAFigureException ()
 	{
@@ -49,9 +52,13 @@ public class NotAFigureException extends Exception
 	 * {@link NotAFigureException#MESSAGE_APPENDIX_PATTERN} so more specific information can be given out to the user.
 	 *
 	 * @param dataTypeOfElement The datatype of the element that wasn't a {@link Figure}.
+	 *
+	 * @precondition The constructor of the exception gets called and a valid String is passed.
+	 * @postcondition A new instance of the exception is created.
 	 */
 	public NotAFigureException (final String dataTypeOfElement)
 	{
 		super(MESSAGE + MessageFormat.format(MESSAGE_APPENDIX_PATTERN, dataTypeOfElement));
 	}
+
 }

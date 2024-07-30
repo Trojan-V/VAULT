@@ -4,7 +4,6 @@ package me.vault.game.exception;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.gameboard.GameBoard;
 
-// TODO: Pre und post
 
 /**
  * This exception is thrown when a {@link Placeable} element wasn't found on the {@link GameBoard}.
@@ -16,6 +15,7 @@ import me.vault.game.model.gameboard.GameBoard;
  */
 public class ElementNotFoundOnGameBoardException extends Exception
 {
+
 	/**
 	 * The message which can be retrieved from the exception instance by invoking {@link NotAFigureException#getMessage()}.
 	 * Usually, this message should be printed into the console or some other logging destination to inform the user about the exception.
@@ -26,9 +26,13 @@ public class ElementNotFoundOnGameBoardException extends Exception
 	/**
 	 * The default constructor of the exception. Constructs a new instance of this exception and provides the default
 	 * {@link ElementNotFoundOnGameBoardException#MESSAGE}.
+	 *
+	 * @precondition The constructor of the exception gets called.
+	 * @postcondition A new instance of the exception is created.
 	 */
 	public ElementNotFoundOnGameBoardException ()
 	{
 		super(MESSAGE);
 	}
+
 }

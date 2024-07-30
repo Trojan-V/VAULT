@@ -4,7 +4,6 @@ package me.vault.game.exception;
 import me.vault.game.model.arena.ArenaResult;
 import me.vault.game.view.ArenaFinishedDialogDelegate;
 
-// TODO: Pre und post
 
 /**
  * This exception is thrown when the {@link ArenaResult} is undefined after the arena should be finished.
@@ -18,6 +17,7 @@ import me.vault.game.view.ArenaFinishedDialogDelegate;
  */
 public class UndefinedArenaResultException extends Exception
 {
+
 	/**
 	 * The message which can be retrieved from the exception instance by invoking {@link UndefinedArenaResultException#getMessage()}.
 	 * Usually, this message should be printed into the console or some other logging destination to inform the user about the exception.
@@ -28,6 +28,9 @@ public class UndefinedArenaResultException extends Exception
 	/**
 	 * The default constructor of the exception.
 	 * Constructs a new instance of this exception and provides the default {@link UndefinedArenaResultException#MESSAGE}.
+	 *
+	 * @precondition The constructor of the exception gets called.
+	 * @postcondition A new instance of the exception is created.
 	 */
 	public UndefinedArenaResultException ()
 	{
