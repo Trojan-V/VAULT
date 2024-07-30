@@ -8,14 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.EnergyAbilityController;
-import me.vault.game.model.energy.AbilityMultiplier;
 import me.vault.game.model.energy.impl.DodgeAbility;
 import me.vault.game.model.energy.impl.InitiativeAbility;
 import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.utility.ViewUtil;
+import me.vault.game.utility.fx.ModifierVBox;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -38,6 +39,15 @@ public final class LaboratoryDelegate implements Initializable
 
 	@FXML
 	private AnchorPane mainPane;
+
+	@FXML
+	private HBox meleeHBox;
+
+	@FXML
+	private HBox dodgeHBox;
+
+	@FXML
+	private HBox initiativeHBox;
 
 	@FXML
 	private ImageView dodgeImageView;
@@ -65,33 +75,6 @@ public final class LaboratoryDelegate implements Initializable
 
 	@FXML
 	private Button meleeUpgradeButton;
-
-	@FXML
-	private Label dodgeEnergyAbilityDodgeModifierLabel;
-
-	@FXML
-	private Label dodgeEnergyAbilityInitiativeModifierLabel;
-
-	@FXML
-	private Label dodgeEnergyAbilityMeleeModifierLabel;
-
-	@FXML
-	private Label initiativeEnergyAbilityDodgeModifierLabel;
-
-	@FXML
-	private Label initiativeEnergyAbilityInitiativeModifierLabel;
-
-	@FXML
-	private Label initiativeEnergyAbilityMeleeModifierLabel;
-
-	@FXML
-	private Label meleeEnergyAbilityDodgeModifierLabel;
-
-	@FXML
-	private Label meleeEnergyAbilityInitiativeModifierLabel;
-
-	@FXML
-	private Label meleeEnergyAbilityMeleeModifierLabel;
 
 
 	public static void show ()
@@ -143,7 +126,7 @@ public final class LaboratoryDelegate implements Initializable
 		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
 		this.bindEnergyTextProperties();
 		this.bindEnergyImageProperties();
-		this.bindEnergyMultiplierTextProperties();
+		this.addAttributeMultiplierHBoxes();
 		this.bindUpgradeButtonProperties();
 
 	}
@@ -173,22 +156,11 @@ public final class LaboratoryDelegate implements Initializable
 	}
 
 
-	private void bindEnergyMultiplierTextProperties ()
+	private void addAttributeMultiplierHBoxes ()
 	{
-		final AbilityMultiplier dodgeAbilityModifiers = DodgeAbility.getInstance().getAbilityMultiplier();
-		this.dodgeEnergyAbilityDodgeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getDodgeMultiplierProperty().asString());
-		this.dodgeEnergyAbilityInitiativeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getInitiativeMultiplierProperty().asString());
-		this.dodgeEnergyAbilityMeleeModifierLabel.textProperty().bind(dodgeAbilityModifiers.getMeleeMultiplierProperty().asString());
-
-		final AbilityMultiplier initiativeAbilityModifiers = InitiativeAbility.getInstance().getAbilityMultiplier();
-		this.initiativeEnergyAbilityDodgeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getDodgeMultiplierProperty().asString());
-		this.initiativeEnergyAbilityInitiativeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getInitiativeMultiplierProperty().asString());
-		this.initiativeEnergyAbilityMeleeModifierLabel.textProperty().bind(initiativeAbilityModifiers.getMeleeMultiplierProperty().asString());
-
-		final AbilityMultiplier meleeAbilityModifiers = MeleeAbility.getInstance().getAbilityMultiplier();
-		this.meleeEnergyAbilityDodgeModifierLabel.textProperty().bind(meleeAbilityModifiers.getDodgeMultiplierProperty().asString());
-		this.meleeEnergyAbilityInitiativeModifierLabel.textProperty().bind(meleeAbilityModifiers.getInitiativeMultiplierProperty().asString());
-		this.meleeEnergyAbilityMeleeModifierLabel.textProperty().bind(meleeAbilityModifiers.getMeleeMultiplierProperty().asString());
+		this.dodgeHBox.getChildren().add(new ModifierVBox(DodgeAbility.getInstance().getAbilityMultiplier()));
+		this.initiativeHBox.getChildren().add(new ModifierVBox(InitiativeAbility.getInstance().getAbilityMultiplier()));
+		this.meleeHBox.getChildren().add(new ModifierVBox(MeleeAbility.getInstance().getAbilityMultiplier()));
 	}
 
 

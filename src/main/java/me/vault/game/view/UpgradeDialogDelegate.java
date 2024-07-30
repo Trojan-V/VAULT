@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAIL;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
+// TODO: Anzeigen des dialog bearbeiten -> erst anzeigen und dann "upgrade" ausgrauen
 
 public final class UpgradeDialogDelegate implements Initializable
 {
