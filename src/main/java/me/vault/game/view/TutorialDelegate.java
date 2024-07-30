@@ -9,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import me.vault.game.GameApplication;
 import me.vault.game.utility.ViewUtil;
-import me.vault.game.utility.constant.StringConstants;
+import me.vault.game.utility.constant.TutorialConstants;
 import me.vault.game.utility.loading.Config;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -171,12 +171,12 @@ public final class TutorialDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		//sets the texts from the tutorial tab pane from the StringConstants interface
-		ViewUtil.setText(this.tutorialIntroductionText, StringConstants.tutorialIntroduction);
-		ViewUtil.setText(this.tutorialCityText, StringConstants.tutorialCity);
-		ViewUtil.setText(this.tutorialArtefactsText, StringConstants.tutorialArtifacts);
-		ViewUtil.setText(this.tutorialFactionsText, StringConstants.tutorialFactsions);
-		ViewUtil.setText(this.tutorialMissionsText, StringConstants.tutorialMissions);
-		ViewUtil.setText(this.tutorialFightsText, StringConstants.tutorialFights);
+		ViewUtil.setText(this.tutorialIntroductionText, TutorialConstants.TUTORIAL_INTRODUCTION);
+		ViewUtil.setText(this.tutorialCityText, TutorialConstants.TUTORIAL_CITY);
+		ViewUtil.setText(this.tutorialArtefactsText, TutorialConstants.TUTORIAL_ARTIFACTS);
+		ViewUtil.setText(this.tutorialFactionsText, TutorialConstants.TUTORIAL_FACTIONS);
+		ViewUtil.setText(this.tutorialMissionsText, TutorialConstants.TUTORIAL_MISSIONS);
+		ViewUtil.setText(this.tutorialFightsText, TutorialConstants.TUTORIAL_FIGHTS);
 
 		//sets the style for the tutorial tab pane
 		ViewUtil.setTabPaneStyle(this.tutorialTabPane, TAB_PANE_STYLE);

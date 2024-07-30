@@ -25,6 +25,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * and building costs.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CurrencyDelegate
  * @since 21.05.2024
  */
@@ -61,8 +62,7 @@ public enum Currency implements Displayable
 
 
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is
-	 * called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "Currency'{'sprite={0}, amount={1}'}'";
 
@@ -70,9 +70,6 @@ public enum Currency implements Displayable
 	/**
 	 * This property is used to store and dynamically display the sprite of the currency.
 	 * If the sprite is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
-	 *
-	 * @see SimpleObjectProperty
-	 * @see MetaDataImage
 	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
@@ -88,6 +85,9 @@ public enum Currency implements Displayable
 	 *
 	 * @param amountProperty The amount of the currency as an {@link Integer}.
 	 * @param image          The sprite of the currency as an {@link Image}.
+	 *
+	 * @precondition A SimpleIntegerProperty and MetaDataImage != null are passed into the method.
+	 * @postcondition A new instance of the class was created.
 	 */
 	Currency (final SimpleIntegerProperty amountProperty, final MetaDataImage image)
 	{
@@ -100,6 +100,9 @@ public enum Currency implements Displayable
 	 * Gets the current amount of the currency and returns it.
 	 *
 	 * @return The amount property of the currency object as an {@link Integer}.
+	 *
+	 * @precondition The amountProperty attribute within the instance is set.
+	 * @postcondition The current amount of the Currency instance was returned.
 	 */
 	public int getAmount ()
 	{
@@ -111,6 +114,9 @@ public enum Currency implements Displayable
 	 * Sets the amount property to a specified amount.
 	 *
 	 * @param amount The amount which the amount property from the currency is set to. As an {@link Integer}.
+	 *
+	 * @precondition The amountProperty attribute within the instance is set.
+	 * @postcondition The current amount of the Currency instance was set to the passed integer.
 	 */
 	public void setAmount (final int amount)
 	{
@@ -125,6 +131,9 @@ public enum Currency implements Displayable
 	 * to see the binding process.
 	 *
 	 * @return The property that contains the amount of the currency.
+	 *
+	 * @precondition The amountProperty attribute within the instance is set.
+	 * @postcondition The amountProperty attribute of the Currency instance was returned.
 	 */
 	public SimpleIntegerProperty getAmountProperty ()
 	{
@@ -136,6 +145,9 @@ public enum Currency implements Displayable
 	 * Adds the specified amount to the currency property.
 	 *
 	 * @param amount The amount which is added to the currency as an {@link Integer}.
+	 *
+	 * @precondition The amountProperty attribute within the instance is set.
+	 * @postcondition The current amount of the Currency instance was added to the amount within the instance.
 	 */
 	public void addAmount (final int amount)
 	{
@@ -144,10 +156,9 @@ public enum Currency implements Displayable
 
 
 	/**
-	 * Returns the current sprite of the currency.
+	 * {@inheritDoc} Returns the current sprite of the currency.
 	 *
 	 * @return The current sprite of the currency.
-	 * @see MetaDataImage
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -157,7 +168,7 @@ public enum Currency implements Displayable
 
 
 	/**
-	 * Sets the sprite of the currency to the supplied sprite.
+	 * {@inheritDoc} Sets the sprite of the currency to the supplied sprite.
 	 * <br>
 	 * The sprite is set within the {@link Currency#spriteProperty}, so the sprite gets automatically updated in the
 	 * GUI.
@@ -186,6 +197,7 @@ public enum Currency implements Displayable
 	 * {@link Currency#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link Currency#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link Currency#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

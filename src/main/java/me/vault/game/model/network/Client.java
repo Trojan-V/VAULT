@@ -2,7 +2,6 @@ package me.vault.game.model.network;
 
 
 import javafx.fxml.FXMLLoader;
-import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.view.ArenaDelegate;
 
 import java.io.IOException;
@@ -15,10 +14,18 @@ import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
 
 // TODO: Documentation and continuation of implementing the network stuff.
+
+
 public class Client implements Runnable
 {
-	private String hostName = null;
 
+	private static final String ERROR_SERVER_SOCKET = "Error with ServerSocket";
+
+	private static final String ERROR_ACCEPTING = "error accepting";
+
+	private static final String CLIENT_CONNECTED = "client connected";
+
+	private String hostName = null;
 
 	private int portNumber = -1;
 
@@ -46,12 +53,12 @@ public class Client implements Runnable
 		}
 		catch (final UnknownHostException e)
 		{
-			System.out.print(StringConstants.ERROR_ACCEPTING);
+			System.out.print(ERROR_ACCEPTING);
 			return null;
 		}
 		catch (final IOException e)
 		{
-			System.out.print(StringConstants.ERROR_ACCEPTING);
+			System.out.print(ERROR_ACCEPTING);
 			return null;
 		}
 	}
@@ -83,4 +90,5 @@ public class Client implements Runnable
 			System.out.println(e.toString());
 		}
 	}
+
 }

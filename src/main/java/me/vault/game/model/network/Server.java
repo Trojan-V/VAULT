@@ -3,7 +3,6 @@ package me.vault.game.model.network;
 
 import javafx.fxml.FXMLLoader;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.view.ArenaDelegate;
 
 import java.io.IOException;
@@ -18,6 +17,7 @@ import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
 public class Server implements Runnable
 {
+
 	private static final String ACCEPTED = "Accepted";
 
 	private static final String ERROR_ACCEPT = "Error accept!";
@@ -25,12 +25,6 @@ public class Server implements Runnable
 	private static final String WAIT_FOR_CONNECTIONREQUEST = "Wait for Connection request";
 
 	private static final String ERROR_SERVER_SOCKET_CONSTRUCTOR = "Error ServerSocket-Constructor!";
-
-	private static final String ERROR_SERVER_SOCKET = StringConstants.ERROR_SERVER_SOCKET;
-
-	private static final String ERROR_ACCEPTING = StringConstants.ERROR_ACCEPTING;
-
-	private static final String CLIENT_CONNECTED = StringConstants.CLIENT_CONNECTED;
 
 	private static boolean isAccepted = false;
 
@@ -128,4 +122,5 @@ public class Server implements Runnable
 	{
 		return this.in.readObject();
 	}
+
 }

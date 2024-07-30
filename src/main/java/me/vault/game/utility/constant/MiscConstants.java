@@ -63,4 +63,13 @@ public interface MiscConstants
 	@Constant
 	long FILE_MISMATCH_INDICATOR = -1L;
 
+	/**
+	 * This string contains the ending for the format JSON.
+	 */
+	String JSON_FILE_ENDING = ".json";
+
+	String SAVE_NAME = "save";
+
+	String DATE_TIME_PATTERN = "yyyyMMdd_HHmmss";
+
 }

@@ -8,15 +8,18 @@ import com.google.gson.stream.JsonReader;
 import me.vault.game.interfaces.Loader;
 import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.constant.MiscConstants;
-import me.vault.game.utility.constant.StringConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
+import java.util.Objects;
 
+import static me.vault.game.utility.constant.MiscConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
@@ -213,10 +216,9 @@ public final class ConfigLoader implements Loader
 	{
 		try
 		{
-			// TODO:SHORTEN Vincent
-			if (Files.mismatch(ResourceLoader.getFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, GameConstants.DEFAULT_CONFIG_FILE)
-				.toPath(), ResourceLoader.getFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, GameConstants.CONFIG_FILE).toPath()) ==
-			    MiscConstants.FILE_MISMATCH_INDICATOR)
+			final Path defaultConfigPath = Objects.requireNonNull(ResourceLoader.getFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, GameConstants.DEFAULT_CONFIG_FILE)).toPath();
+			final Path configPath = Objects.requireNonNull(ResourceLoader.getFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, GameConstants.CONFIG_FILE)).toPath();
+			if (Files.mismatch(defaultConfigPath, configPath) == MiscConstants.FILE_MISMATCH_INDICATOR)
 			{
 				return true;
 			}
@@ -234,10 +236,8 @@ public final class ConfigLoader implements Loader
 		this.save(this.configFile);
 		try
 		{
-			this.saveToFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, (StringConstants.SAVE_NAME +
-			                                                         new SimpleDateFormat(StringConstants.DATE_TIME_PATTERN).format(Calendar.getInstance()
-				                                                         .getTime()) +
-			                                                         StringConstants.JSON_FILE_ENDING));
+			final String fileName = SAVE_NAME + new SimpleDateFormat(DATE_TIME_PATTERN, Locale.GERMANY).format(Calendar.getInstance().getTime()) + JSON_FILE_ENDING;
+			this.saveToFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, fileName);
 		}
 		catch (final Exception e)
 		{

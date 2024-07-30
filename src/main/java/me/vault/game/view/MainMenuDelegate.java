@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import me.vault.game.GameApplication;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.constant.GameConstants;
-import me.vault.game.utility.constant.StringConstants;
+import me.vault.game.utility.constant.MiscConstants;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -25,6 +25,7 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_DIRECTORY_PATH;
+import static me.vault.game.utility.constant.MiscConstants.SAVE_NAME;
 
 
 /**
@@ -233,6 +234,7 @@ public final class MainMenuDelegate implements Initializable
 		DifficultyDelegate.show();
 	}
 
+
 	/**
 	 * Handles the loading of a game file. The method checks, if the current configuration is equivalent to the
 	 * default configuration. If this is not the case, the current configuration is saved and the configuration is
@@ -314,13 +316,13 @@ public final class MainMenuDelegate implements Initializable
 	 *
 	 * @precondition The main menu controller has to have been called.
 	 * @postcondition The {@link MainMenuDelegate#loadGameButton} and {@link MainMenuDelegate#loadGameMenuItem} are
-	 * set to inactive if there's no File with the {@link StringConstants#JSON_FILE_ENDING} ending in
+	 * set to inactive if there's no File with the {@link MiscConstants#JSON_FILE_ENDING} ending in
 	 * {@link GameConstants#GAME_SAVE_DIRECTORY_PATH}.
 	 */
 	@FXML
 	private void initializeLoadGame ()
 	{
-		if (ResourceLoader.collectFilesContaining(GAME_SAVE_DIRECTORY_PATH, StringConstants.SAVE_NAME).isEmpty())
+		if (ResourceLoader.collectFilesContaining(GAME_SAVE_DIRECTORY_PATH, SAVE_NAME).isEmpty())
 		{
 			ViewUtil.setMenuItemInactive(this.loadGameMenuItem);
 			ViewUtil.setButtonInactive(this.loadGameButton);
