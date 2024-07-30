@@ -36,7 +36,9 @@ public final class NetworkDelegate implements Initializable
 	 */
 	private static final String FXML_FILENAME = "network_connection_dialog.fxml";
 
-
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link NetworkDelegate#toString()} is called.
+	 */
 	private static final String TO_STRING_PATTERN = "NetworkDelegate[dialogPane={0}]";
 
 
@@ -105,7 +107,6 @@ public final class NetworkDelegate implements Initializable
 		{
 			System.out.println(e);
 		}
-
 	}
 
 	/**

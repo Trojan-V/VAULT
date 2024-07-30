@@ -77,10 +77,6 @@ public final class ArenaDelegate
 	 */
 	private PriorityQueue<Figure> currentQueue = null;
 
-
-	/**
-	 * {@link FigureTimeline} that contains all figures in this
-	 */
 	private FigureTimeline figureFigureTimeline = null;
 
 	private Arena arena = null;
