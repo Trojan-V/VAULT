@@ -36,6 +36,10 @@ public class Mission
 	private static final List<Arena> AVAILABLE_ARENA_ENCOUNTERS = new ArrayList<>();
 
 
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Mission#toString()} is
+	 * called.
+	 */
 	private static final String TO_STRING_PATTERN = "Mission'{'gameBoard={0}, missionReward={1}, isCompletedProperty={2}'}'";
 
 
@@ -149,6 +153,14 @@ public class Mission
 	}
 
 
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link Mission#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link Mission#TO_STRING_PATTERN}.
+	 * @precondition The {@link Mission#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
 	@Override
 	public String toString ()
 	{
