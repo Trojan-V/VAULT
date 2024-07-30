@@ -87,7 +87,7 @@ public final class Recruit extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Recruit getAllyInstance ()
+	public static Recruit getInstance ()
 	{
 		return ALLY_INSTANCE;
 	}

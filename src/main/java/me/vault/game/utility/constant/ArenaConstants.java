@@ -4,7 +4,10 @@ package me.vault.game.utility.constant;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.troop.impl.SpaceMarine;
+import me.vault.game.model.troop.impl.Lieutenant;
+import me.vault.game.model.troop.impl.Ranger;
+import me.vault.game.model.troop.impl.Recruit;
+import me.vault.game.model.troop.impl.Sniper;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.util.ArrayList;
@@ -23,7 +26,6 @@ public interface ArenaConstants
 
 	@Constant
 	int MULTIPLIER = 11;
-
 
 
 	@Constant
@@ -48,36 +50,34 @@ public interface ArenaConstants
 	@Constant
 	ArrayList<Figure> ARENA_ONE_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(Sniper.getInstance()));
+		this.add(new Figure(Sniper.getInstance()));
+		this.add(new Figure(Sniper.getInstance()));
 	}};
 
 	@Constant
 	ArrayList<Figure> ARENA_TWO_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(Ranger.getInstance()));
+		this.add(new Figure(Ranger.getInstance()));
+		this.add(new Figure(Ranger.getInstance()));
 	}};
 
 	@Constant
 	ArrayList<Figure> ARENA_THREE_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(Lieutenant.getInstance()));
+		this.add(new Figure(Lieutenant.getInstance()));
+		this.add(new Figure(Lieutenant.getInstance()));
 	}};
 
 	@Constant
 	ArrayList<Figure> ARENA_FOUR_ENEMIES = new ArrayList<>()
 	{{
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
-		this.add(new Figure(SpaceMarine.getAllyInstance()));
+		this.add(new Figure(Recruit.getInstance()));
+		this.add(new Figure(Recruit.getInstance()));
+		this.add(new Figure(Recruit.getInstance()));
+		this.add(new Figure(Recruit.getInstance()));
 	}};
 
 	@Constant

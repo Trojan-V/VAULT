@@ -24,6 +24,7 @@ import static me.vault.game.utility.constant.ArenaConstants.OFFSET;
  */
 public class Arena
 {
+
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is
 	 * called.
@@ -115,6 +116,7 @@ public class Arena
 	 *
 	 * @param playerOneFigures The {@link Figure}s that player one uses in the encounter.
 	 * @param playerTwoFigures The {@link Figure}s that player two uses in the encounter.
+	 *
 	 * @return An instance of {@link FigureTimeline} which contains the timeline for the encounter.
 	 */
 	private FigureTimeline createTimeline (final Collection<Figure> playerOneFigures,
@@ -202,6 +204,7 @@ public class Arena
 	 * Checks if the tile of the supplied position is an {@link AccessibleTileAppearance}.
 	 *
 	 * @param position The position which will be checked.
+	 *
 	 * @return True if the tile is an {@link AccessibleTileAppearance}, otherwise false.
 	 */
 	private boolean isAccessibleTile (final Position position)
@@ -310,6 +313,7 @@ public class Arena
 	 * {@link Arena#eliminatedFigures} {@link List}.
 	 *
 	 * @param playerFigures The {@link Figure}s of the {@link Player}.
+	 *
 	 * @return True if the player is eliminated, otherwise false.
 	 */
 	private boolean isPlayerEliminated (final Collection<Figure> playerFigures)
@@ -345,6 +349,7 @@ public class Arena
 	 * {@link Arena#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link Arena#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link Arena#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -357,4 +362,11 @@ public class Arena
 			this.figureTimeline.toString(),
 			Arrays.deepToString(this.playerOneFigures.toArray()), this.selectedFigure.toString());
 	}
+
+
+	public ArenaResult getResult ()
+	{
+		return this.arenaResult;
+	}
+
 }

@@ -95,7 +95,7 @@ public final class Sniper extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Sniper getAllyInstance ()
+	public static Sniper getInstance ()
 	{
 		return ALLY_INSTANCE;
 	}

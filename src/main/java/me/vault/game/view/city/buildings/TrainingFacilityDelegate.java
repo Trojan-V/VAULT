@@ -11,7 +11,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import me.vault.game.GameApplication;
-import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.control.TroopController;
 import me.vault.game.model.city.Barracks;
@@ -238,7 +237,7 @@ public final class TrainingFacilityDelegate implements Initializable
 	@FXML
 	void onLieutenantUpgrade (final ActionEvent ignored)
 	{
-		UpgradeDialogDelegate.show(Lieutenant.getAllyInstance(), TroopController.getInstance());
+		UpgradeDialogDelegate.show(Lieutenant.getInstance(), TroopController.getInstance());
 	}
 
 
@@ -266,21 +265,21 @@ public final class TrainingFacilityDelegate implements Initializable
 	@FXML
 	void onRangerUpgrade (final ActionEvent ignored)
 	{
-		UpgradeDialogDelegate.show(Ranger.getAllyInstance(), TroopController.getInstance());
+		UpgradeDialogDelegate.show(Ranger.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
 	void onRecruitUpgrade (final ActionEvent ignored)
 	{
-		UpgradeDialogDelegate.show(Recruit.getAllyInstance(), TroopController.getInstance());
+		UpgradeDialogDelegate.show(Recruit.getInstance(), TroopController.getInstance());
 	}
 
 
 	@FXML
 	void onSniperUpgrade (final ActionEvent ignored)
 	{
-		UpgradeDialogDelegate.show(Sniper.getAllyInstance(), TroopController.getInstance());
+		UpgradeDialogDelegate.show(Sniper.getInstance(), TroopController.getInstance());
 	}
 
 
@@ -312,16 +311,16 @@ public final class TrainingFacilityDelegate implements Initializable
 		this.initTroopSpecificControls(Engineer.getAllyInstance(), this.engineerLabel, this.engineerImageView, this.engineerUpgradeButton, this.engineerAttributePane);
 
 		this.initTroopSpecificControls(Medic.getAllyInstance(), this.medicLabel, this.medicImageView, this.medicUpgradeButton, this.medicAttributePane);
-		this.initTroopSpecificControls(Sniper.getAllyInstance(), this.sniperLabel, this.sniperImageView, this.sniperUpgradeButton, this.sniperAttributePane);
-		this.initTroopSpecificControls(Ranger.getAllyInstance(), this.rangerLabel, this.rangerImageView, this.rangerUpgradeButton, this.rangerAttributePane);
+		this.initTroopSpecificControls(Sniper.getInstance(), this.sniperLabel, this.sniperImageView, this.sniperUpgradeButton, this.sniperAttributePane);
+		this.initTroopSpecificControls(Ranger.getInstance(), this.rangerLabel, this.rangerImageView, this.rangerUpgradeButton, this.rangerAttributePane);
 
-		this.initTroopSpecificControls(Lieutenant.getAllyInstance(), this.lieutenantLabel, this.lieutenantImageView, this.lieutenantUpgradeButton, this.lieutenantAttributePane);
+		this.initTroopSpecificControls(Lieutenant.getInstance(), this.lieutenantLabel, this.lieutenantImageView, this.lieutenantUpgradeButton, this.lieutenantAttributePane);
 		this.initTroopSpecificControls(PrecisionShooter.getAllyInstance(), this.precShooterLabel, this.precShooterImageView, this.precShooterUpgradeButton, this.precShooterAttributePane);
 		this.initTroopSpecificControls(Infantry.getAllyInstance(), this.infantryLabel, this.infantryImageView, this.infantryUpgradeButton, this.infantryAttributePane);
 
 		this.initTroopSpecificControls(Guard.getAllyInstance(), this.guardLabel, this.guardImageView, this.guardUpgradeButton, this.guardAttributePane);
 		this.initTroopSpecificControls(Grenadier.getAllyInstance(), this.grenadierLabel, this.grenadierImageView, this.grenadierUpgradeButton, this.grenadierAttributePane);
-		this.initTroopSpecificControls(Recruit.getAllyInstance(), this.recruitLabel, this.recruitImageView, this.recruitUpgradeButton, this.recruitAttributePane);
+		this.initTroopSpecificControls(Recruit.getInstance(), this.recruitLabel, this.recruitImageView, this.recruitUpgradeButton, this.recruitAttributePane);
 	}
 
 

@@ -87,7 +87,7 @@ public final class Lieutenant extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Lieutenant getAllyInstance ()
+	public static Lieutenant getInstance ()
 	{
 		return ALLY_INSTANCE;
 	}

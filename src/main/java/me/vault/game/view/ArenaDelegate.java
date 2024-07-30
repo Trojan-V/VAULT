@@ -18,6 +18,7 @@ import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
+import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.GameBoardButton;
@@ -66,14 +67,17 @@ public final class ArenaDelegate
 	private int round = 1;
 
 
-	public static void show (final @NotNull Arena arena)
+	private Mission mission = null;
+
+
+	public static void show (final @NotNull Mission mission, final @NotNull Arena arena)
 	{
 		try
 		{
 			final FXMLLoader fxmlLoader = new FXMLLoader(ArenaDelegate.class.getResource(ARENA_FXML));
 			final Parent root = fxmlLoader.load();
 			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
-
+			arenaDelegate.setMission(mission);
 			arenaDelegate.setArena(arena);
 			ViewUtil.show(GameApplication.getStage(), new Scene(root), ArenaDelegate.class);
 		}
@@ -81,6 +85,12 @@ public final class ArenaDelegate
 		{
 			LOGGER.logf(WARNING, ARENA_DISPLAY_FAILED, arena.toString());
 		}
+	}
+
+
+	private void setMission (final Mission mission)
+	{
+		this.mission = mission;
 	}
 
 
@@ -181,7 +191,7 @@ public final class ArenaDelegate
 		final ArenaResult arenaResult = this.arena.getState();
 		if (arenaResult == ArenaResult.LOST || arenaResult == ArenaResult.WON)
 		{
-			ArenaFinishedDialogDelegate.show(this.arena.getState());
+			ArenaFinishedDialogDelegate.show(this.mission, this.arena);
 			return true;
 		}
 		return false;

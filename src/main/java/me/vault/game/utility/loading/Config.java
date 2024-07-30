@@ -22,7 +22,6 @@ import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.impl.*;
 import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 
@@ -279,13 +278,13 @@ public class Config
 		this.grenadierLevel = Grenadier.getAllyInstance().getLevel();
 		this.guardLevel = Guard.getAllyInstance().getLevel();
 		this.infantryLevel = Infantry.getAllyInstance().getLevel();
-		this.lieutenantLevel = Lieutenant.getAllyInstance().getLevel();
+		this.lieutenantLevel = Lieutenant.getInstance().getLevel();
 		this.medicLevel = Medic.getAllyInstance().getLevel();
 		this.officerLevel = Officer.getAllyInstance().getLevel();
 		this.precisionShooterLevel = PrecisionShooter.getAllyInstance().getLevel();
-		this.rangerLevel = Ranger.getAllyInstance().getLevel();
-		this.recruitLevel = Recruit.getAllyInstance().getLevel();
-		this.sniperLevel = Sniper.getAllyInstance().getLevel();
+		this.rangerLevel = Ranger.getInstance().getLevel();
+		this.recruitLevel = Recruit.getInstance().getLevel();
+		this.sniperLevel = Sniper.getInstance().getLevel();
 		this.spaceMarineLevel = SpaceMarine.getAllyInstance().getLevel();
 	}
 
@@ -296,26 +295,26 @@ public class Config
 		Grenadier.getAllyInstance().setLevel(this.grenadierLevel);
 		Guard.getAllyInstance().setLevel(this.guardLevel);
 		Infantry.getAllyInstance().setLevel(this.infantryLevel);
-		Lieutenant.getAllyInstance().setLevel(this.lieutenantLevel);
+		Lieutenant.getInstance().setLevel(this.lieutenantLevel);
 		Medic.getAllyInstance().setLevel(this.medicLevel);
 		Officer.getAllyInstance().setLevel(this.officerLevel);
 		PrecisionShooter.getAllyInstance().setLevel(this.precisionShooterLevel);
-		Ranger.getAllyInstance().setLevel(this.rangerLevel);
-		Recruit.getAllyInstance().setLevel(this.recruitLevel);
-		Sniper.getAllyInstance().setLevel(this.sniperLevel);
+		Ranger.getInstance().setLevel(this.rangerLevel);
+		Recruit.getInstance().setLevel(this.recruitLevel);
+		Sniper.getInstance().setLevel(this.sniperLevel);
 		SpaceMarine.getAllyInstance().setLevel(this.spaceMarineLevel);
 
 		TroopController.getInstance().updateValues(Engineer.getAllyInstance());
 		TroopController.getInstance().updateValues(Grenadier.getAllyInstance());
 		TroopController.getInstance().updateValues(Guard.getAllyInstance());
 		TroopController.getInstance().updateValues(Infantry.getAllyInstance());
-		TroopController.getInstance().updateValues(Lieutenant.getAllyInstance());
+		TroopController.getInstance().updateValues(Lieutenant.getInstance());
 		TroopController.getInstance().updateValues(Medic.getAllyInstance());
 		TroopController.getInstance().updateValues(Officer.getAllyInstance());
 		TroopController.getInstance().updateValues(PrecisionShooter.getAllyInstance());
-		TroopController.getInstance().updateValues(Ranger.getAllyInstance());
-		TroopController.getInstance().updateValues(Recruit.getAllyInstance());
-		TroopController.getInstance().updateValues(Sniper.getAllyInstance());
+		TroopController.getInstance().updateValues(Ranger.getInstance());
+		TroopController.getInstance().updateValues(Recruit.getInstance());
+		TroopController.getInstance().updateValues(Sniper.getInstance());
 		TroopController.getInstance().updateValues(SpaceMarine.getAllyInstance());
 	}
 

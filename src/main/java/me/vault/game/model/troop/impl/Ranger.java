@@ -87,7 +87,7 @@ public final class Ranger extends Troop
 	 *
 	 * @return The singleton instance of this class.
 	 */
-	public static Ranger getAllyInstance ()
+	public static Ranger getInstance ()
 	{
 		return ALLY_INSTANCE;
 	}

@@ -14,6 +14,7 @@ import me.vault.game.GameApplication;
 import me.vault.game.control.MovableController;
 import me.vault.game.control.PlayerController;
 import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Position;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.gameboard.GameBoard;
@@ -21,16 +22,17 @@ import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.gameboard.tiles.ArenaStartTileAppearance;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
+import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ArenaDelegate;
-import me.vault.game.utility.ViewUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.URL;
 import java.text.MessageFormat;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
@@ -209,7 +211,11 @@ public final class MissionDelegate implements Initializable
 		}
 		else if (nextTileElement instanceof ArenaStartTileAppearance && playerCanReach)
 		{
-			ArenaDelegate.show(this.mission.getAvailableArenaEncounters().removeFirst());
+
+			missionGameBoard.place(position, new AccessibleTileAppearance());
+			final int randomArenaIndex = new Random().nextInt(this.mission.getAvailableArenaEncounters().size()); // TODO: Literal
+			final Arena randomArena = this.mission.getAvailableArenaEncounters().get(randomArenaIndex);
+			ArenaDelegate.show(this.mission, randomArena);
 		}
 
 		this.missionBoardGridPane.getChildren().clear();
