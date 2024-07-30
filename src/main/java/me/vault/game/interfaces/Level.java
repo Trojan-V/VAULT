@@ -5,6 +5,7 @@ import me.vault.game.model.artifact.ArtifactLevel;
 
 import static me.vault.game.utility.constant.MiscConstants.ZERO_INDEXED_LENGTH_CORRECTION_SUBTRACTION_ORDINAL;
 
+// TODO: Pre und post
 
 /**
  * An interface for levels which defines some methods that every level enum/class should provide.

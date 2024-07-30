@@ -15,6 +15,7 @@ import java.util.List;
 
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
+// TODO: Pre und POst
 
 /**
  * Controller class to handle the movement of the player on the mission {@link GameBoard}.

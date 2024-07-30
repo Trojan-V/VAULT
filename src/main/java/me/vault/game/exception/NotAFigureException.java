@@ -7,6 +7,7 @@ import me.vault.game.model.gameboard.GameBoard;
 
 import java.text.MessageFormat;
 
+// TODO: Pre und post
 
 /**
  * This exception is thrown when an element on the {@link GameBoard} wasn't a {@link Figure} for some reason.

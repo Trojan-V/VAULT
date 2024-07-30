@@ -6,6 +6,7 @@ import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import java.text.MessageFormat;
 import java.util.Map.Entry;
 
+// TODO: Pre und post
 
 /**
  * This exception is thrown when an invalid map entry was entered into the {@link ValidatedEntriesHashMap} data structure.

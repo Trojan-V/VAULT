@@ -3,6 +3,7 @@ package me.vault.game.interfaces;
 
 import me.vault.game.model.currency.CurrencyTransaction;
 
+// TODO: Pre und post
 
 /**
  * Any class that's an upgradable object should implement this interface.

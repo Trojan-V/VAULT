@@ -4,6 +4,7 @@ package me.vault.game.exception;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.gameboard.GameBoard;
 
+// TODO: Pre und post
 
 /**
  * This exception is thrown when a {@link Placeable} element wasn't found on the {@link GameBoard}.

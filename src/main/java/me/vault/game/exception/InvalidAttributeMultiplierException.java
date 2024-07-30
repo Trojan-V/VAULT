@@ -5,6 +5,7 @@ import me.vault.game.model.artifact.AttributeMultiplier;
 
 import java.text.MessageFormat;
 
+// TODO: Pre und post
 
 /**
  * This exception is thrown whenever an invalid instance of {@link AttributeMultiplier} is attempted to be created.
