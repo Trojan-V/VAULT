@@ -11,6 +11,7 @@ import me.vault.game.utility.constant.MissionConstants;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -31,17 +32,15 @@ public class Mission
 {
 
 	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Mission#toString()} is called.
+	 */
+	private static final String TO_STRING_PATTERN = "Mission'{'gameBoard={0}, missionReward={1}, isCompletedProperty={2}, availableArenas={3}'}'";
+
+	/**
 	 * A list of all available {@link Arena} encounters.
 	 * These encounters are pre-defined and are located in the {@link ArenaConstants} constant interface.
 	 */
-	private static final List<Arena> AVAILABLE_ARENA_ENCOUNTERS = new ArrayList<>();
-
-
-	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link Mission#toString()} is
-	 * called.
-	 */
-	private static final String TO_STRING_PATTERN = "Mission'{'gameBoard={0}, missionReward={1}, isCompletedProperty={2}'}'";
+	private static final Collection<Arena> AVAILABLE_ARENA_ENCOUNTERS = new ArrayList<>();
 
 
 	static
@@ -58,12 +57,10 @@ public class Mission
 	 */
 	private final GameBoard gameBoard;
 
-
 	/**
 	 * The {@link CurrencyTransaction} which represents the mission completion rewards.
 	 */
 	private final CurrencyTransaction missionReward;
-
 
 	/**
 	 * This property is used to store and dynamically display if the mission is completed or not.
@@ -71,7 +68,9 @@ public class Mission
 	 */
 	private final SimpleBooleanProperty isCompletedProperty;
 
-
+	/**
+	 * The available Arenas of the current Mission instance.
+	 */
 	private final List<Arena> availableArenas;
 
 
@@ -82,6 +81,9 @@ public class Mission
 	 *
 	 * @param gameBoard     The {@link GameBoard} where the mission will take place.
 	 * @param missionReward The rewards the player receives upon completing the mission.
+	 *
+	 * @precondition A GameBoard and CurrencyTransaction != null are passed into the method.
+	 * @postcondition A new instance of the class was created
 	 */
 	public Mission (final GameBoard gameBoard, final CurrencyTransaction missionReward)
 	{
@@ -97,6 +99,9 @@ public class Mission
 	 * Returns true if the mission is completed, otherwise false.
 	 *
 	 * @return True if the mission is completed, otherwise false.
+	 *
+	 * @precondition Method gets called and the isCompletedProperty has been set within the instance.
+	 * @postcondition A boolean gets returned, that describes, if the Mission is already at the completed level.
 	 */
 	public boolean isCompleted ()
 	{
@@ -108,6 +113,9 @@ public class Mission
 	 * Sets the completed state of the mission to the supplied boolean parameter.
 	 *
 	 * @param completed Whether the completed state of the mission should be true or false.
+	 *
+	 * @precondition A valid boolean value is passed into the method.
+	 * @postcondition The isCompletedProperty attribute within the object is set to the passed value.
 	 */
 	public void setCompleted (final boolean completed)
 	{
@@ -119,6 +127,9 @@ public class Mission
 	 * Returns the property that encapsulates the isCompleted state of the mission and makes it dynamically displayable in the JavaFX GUI.
 	 *
 	 * @return The property that encapsulates the isCompleted state of the mission.
+	 *
+	 * @precondition Method gets called and the isCompletedProperty has been set within the instance.
+	 * @postcondition The isCompletedProperty of the object has been returned.
 	 */
 	public SimpleBooleanProperty getIsCompletedProperty ()
 	{
@@ -130,6 +141,9 @@ public class Mission
 	 * Returns the {@link GameBoard} where the mission takes place.
 	 *
 	 * @return The {@link GameBoard} where the mission takes place.
+	 *
+	 * @precondition Method gets called and the gameBoard has been set within the instance.
+	 * @postcondition The gameBoard attribute of the instance got returned.
 	 */
 	public GameBoard getGameBoard ()
 	{
@@ -141,6 +155,9 @@ public class Mission
 	 * Returns the {@link CurrencyTransaction} that represents the mission rewards the player receives upon mission completion.
 	 *
 	 * @return The {@link CurrencyTransaction} that represents the mission rewards the player receives upon mission completion.
+	 *
+	 * @precondition Method gets called and the missionReward has been set within the instance.
+	 * @postcondition The missionReward of the object has been returned.
 	 */
 	public CurrencyTransaction getMissionReward ()
 	{
@@ -152,6 +169,9 @@ public class Mission
 	 * Returns a {@link List} of all available encounters in the arena this mission has to offer.
 	 *
 	 * @return A {@link List} of all available encounters in the arena this mission has to offer.
+	 *
+	 * @precondition Method gets called and the availableArenas has been set within the instance.
+	 * @postcondition The availableArenas of the object has been returned.
 	 */
 	public List<Arena> getAvailableArenaEncounters ()
 	{
@@ -159,6 +179,14 @@ public class Mission
 	}
 
 
+	/**
+	 * Removes an Arena from the {@link List} of all available encounters in the arena this instance contains.
+	 *
+	 * @param arena The Arena object which is supposed to be removed from the availableArenas of the instance.
+	 *
+	 * @precondition Method gets called and the passed Arena is != null. availableArenas has been set within the instance.
+	 * @postcondition The Arena object has been removed from the availableArenas.
+	 */
 	public void removeAvailableArena (final Arena arena)
 	{
 		this.availableArenas.remove(arena);
@@ -177,7 +205,7 @@ public class Mission
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.gameBoard.toString(), this.missionReward.toString(), this.isCompletedProperty.get());
+		return MessageFormat.format(TO_STRING_PATTERN, this.gameBoard.toString(), this.missionReward.toString(), this.isCompletedProperty.get(), this.availableArenas);
 	}
 
 }

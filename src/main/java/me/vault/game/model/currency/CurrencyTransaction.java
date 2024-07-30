@@ -139,6 +139,9 @@ public class CurrencyTransaction
 	 * @param currency The currency whose amount should be returned.
 	 *
 	 * @return The amount of the currency.
+	 *
+	 * @precondition The amount attribute within the instance is set, and a valid Currency is passed into the method.
+	 * @postcondition The amount attribute of the Currency instance was returned.
 	 */
 	public int getAmount (final Currency currency)
 	{
