@@ -43,25 +43,27 @@ public enum TroopLevel implements Level
 	 */
 	public static TroopLevel getMaximum ()
 	{
-		return values()[values().length - ZERO_INDEXED_LENGTH_CORRECTION];
+		return values()[Level.getLastIndex(values().length)];
 	}
 
 
 	/**
 	 * {@inheritDoc}
 	 */
-	private static boolean checkIsMaximumLevel (final TroopLevel level)
+	@Override
+	public boolean isMinimum ()
 	{
-		return level.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL >= values().length;
+		return this.ordinal() == MINIMUM_LEVEL_ORDINAL;
 	}
 
 
 	/**
 	 * {@inheritDoc}
 	 */
-	private static boolean checkIsMinimumLevel (final TroopLevel level)
+	@Override
+	public boolean isMaximum ()
 	{
-		return level.ordinal() - ZERO_INDEXED_LENGTH_CORRECTION < MINIMUM_LEVEL_ORDINAL;
+		return this.ordinal() == Level.getLastIndex(values().length);
 	}
 
 
@@ -72,7 +74,7 @@ public enum TroopLevel implements Level
 	public TroopLevel getNextLowerLevel ()
 	{
 		// Check if the troop level is already the lowest level.
-		if (checkIsMinimumLevel(this))
+		if (this.isMinimum())
 		{
 			LOGGER.logf(DEBUG, TROOP_IS_LOWEST, this.name());
 			return this;
@@ -89,7 +91,7 @@ public enum TroopLevel implements Level
 	{
 		// Check if the last entry was already reached, so there would be no higher level for the troop as it's
 		// already at the maximum level.
-		if (checkIsMaximumLevel(this))
+		if (this.isMaximum())
 		{
 			LOGGER.logf(DEBUG, TROOP_MAXED, this.name());
 			return this;

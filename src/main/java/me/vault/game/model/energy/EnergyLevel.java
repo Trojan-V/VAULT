@@ -50,33 +50,27 @@ public enum EnergyLevel implements Level
 	 */
 	public static EnergyLevel getMaximum ()
 	{
-		return values()[values().length - ZERO_INDEXED_LENGTH_CORRECTION];
+		return values()[Level.getLastIndex(values().length)];
 	}
 
 
 	/**
-	 * Checks if the supplied energy ability level is the minimum level.
-	 *
-	 * @param level The level which is checked.
-	 *
-	 * @return True if the supplied level is the minimum level, otherwise false.
+	 * {@inheritDoc}
 	 */
-	private static boolean checkIsMinimumLevel (final EnergyLevel level)
+	@Override
+	public boolean isMinimum ()
 	{
-		return level.ordinal() - ZERO_INDEXED_LENGTH_CORRECTION < MINIMUM_LEVEL_ORDINAL;
+		return this.ordinal() == MINIMUM_LEVEL_ORDINAL;
 	}
 
 
 	/**
-	 * Checks if the supplied energy ability level is the maximum level.
-	 *
-	 * @param level The level which is checked.
-	 *
-	 * @return True if the supplied level is the maximum level, otherwise false.
+	 * {@inheritDoc}
 	 */
-	private static boolean checkIsMaximumLevel (final EnergyLevel level)
+	@Override
+	public boolean isMaximum ()
 	{
-		return level.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL >= values().length;
+		return this.ordinal() == Level.getLastIndex(values().length);
 	}
 
 
@@ -87,7 +81,7 @@ public enum EnergyLevel implements Level
 	public EnergyLevel getNextLowerLevel ()
 	{
 		// Check if the energy ability level is already the lowest level.
-		if (checkIsMinimumLevel(this))
+		if (this.isMinimum())
 		{
 			LOGGER.logf(DEBUG, ENERGY_IS_LOWEST, this.name());
 			return this;
@@ -104,7 +98,7 @@ public enum EnergyLevel implements Level
 	{
 		// Check if the last entry was already reached, so there would be no higher level for the energy ability as it's
 		// already at the maximum level.
-		if (checkIsMaximumLevel(this))
+		if (this.isMaximum())
 		{
 			LOGGER.logf(DEBUG, ENERGY_MAXED, this.name());
 			return this;

@@ -52,7 +52,7 @@ public interface Upgradable<T>
 	 * <br>
 	 * This method should usually be invoked whenever the upgradable object was upgraded, as the upgrade cost to
 	 * upgrade to the next level usually changes after the building was upgraded, because the next level is usually
-	 * more expensive than the level that was previously upgraded to.
+	 * more expensive than the level previously upgraded to.
 	 *
 	 * @param upgradeCosts The upgrade costs to upgrade the upgradable object to the next level.
 	 */

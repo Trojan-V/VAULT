@@ -18,8 +18,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <u>Technical note</u> <br>
  * It's important that the level entries in the enum are in the correct order, from minimum to maximum. This is required to ensure that the methods
  * {@link ArtifactLevel#getMinimum()}, {@link ArtifactLevel#getMaximum()} ,
- * {@link ArtifactLevel#checkIsMinimumLevel(ArtifactLevel)} and
- * {@link ArtifactLevel#checkIsMaximumLevel(ArtifactLevel)} function correctly.
+ * {@link Level#isMinimum()} and {@link Level#isMaximum()} function correctly.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
@@ -65,31 +64,27 @@ public enum ArtifactLevel implements Level
 	 */
 	public static ArtifactLevel getMaximum ()
 	{
-		return values()[values().length - ZERO_INDEXED_LENGTH_CORRECTION];
+		return values()[Level.getLastIndex(values().length)];
 	}
 
 
 	/**
-	 * Checks if the supplied artifact level is the minimum level.
-	 *
-	 * @param level The level which is checked.
-	 * @return True if the supplied level is the minimum level, otherwise false.
+	 * {@inheritDoc}
 	 */
-	private static boolean checkIsMinimumLevel (final ArtifactLevel level)
+	@Override
+	public boolean isMinimum ()
 	{
-		return level.ordinal() - ZERO_INDEXED_LENGTH_CORRECTION < MINIMUM_LEVEL_ORDINAL;
+		return this.ordinal() == MINIMUM_LEVEL_ORDINAL;
 	}
 
 
 	/**
-	 * Checks if the supplied artifact level is the maximum level.
-	 *
-	 * @param level The level which is checked.
-	 * @return True if the supplied level is the maximum level, otherwise false.
+	 * {@inheritDoc}
 	 */
-	private static boolean checkIsMaximumLevel (final ArtifactLevel level)
+	@Override
+	public boolean isMaximum ()
 	{
-		return level.ordinal() + NEXT_LEVEL_ADDITION_ORDINAL >= values().length;
+		return this.ordinal() == Level.getLastIndex(values().length);
 	}
 
 
@@ -100,7 +95,7 @@ public enum ArtifactLevel implements Level
 	public ArtifactLevel getNextLowerLevel ()
 	{
 		// Check if the artifact level is already the lowest level.
-		if (checkIsMinimumLevel(this))
+		if (isMinimum())
 		{
 			LOGGER.logf(DEBUG, ARTIFACT_IS_LOWEST, this.name());
 			return this;
@@ -117,7 +112,7 @@ public enum ArtifactLevel implements Level
 	{
 		// Check if the last entry was already reached, so there would be no higher level for the artifact as it's
 		// already at the maximum level.
-		if (checkIsMaximumLevel(this))
+		if (isMaximum())
 		{
 			LOGGER.logf(DEBUG, ARTIFACT_MAXED, this.name());
 			return this;
