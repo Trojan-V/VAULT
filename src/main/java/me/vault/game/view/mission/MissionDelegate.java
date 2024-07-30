@@ -42,7 +42,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 /**
- * The {@link MissionDelegate} is responsive for the control (Controller) and display (View) of the different {@link Mission} instances. It provides
+ * The {@link MissionDelegate} is responsible for the control (Controller) and display (View) of the different {@link Mission} instances. It provides
  * methods to create the mission game board, alter {@code Mission} instances and allows the player to move and progress in the different missions.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel

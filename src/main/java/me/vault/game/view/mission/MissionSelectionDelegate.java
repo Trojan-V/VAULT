@@ -35,7 +35,7 @@ import static me.vault.game.utility.constant.MissionConstants.MissionTwo.MISSION
 
 
 /**
- * The {@link MissionSelectionDelegate} is responsive for the control (Controller) and display (View) of the mission-selection section in the GUI.
+ * The {@link MissionSelectionDelegate} is responsible for the control (Controller) and display (View) of the mission-selection section in the GUI.
  * It provides methods to select different {@link Mission}s and start them by providing a GUI for the user to interact with.
  * The delegate is also responsible to display the different rewards each {@link Mission} has.
  *

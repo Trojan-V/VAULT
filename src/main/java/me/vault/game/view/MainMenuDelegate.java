@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
@@ -20,6 +19,7 @@ import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE_PATH;
@@ -31,7 +31,7 @@ import static me.vault.game.utility.constant.GameConstants.GAME_SAVE_FOLDER_FILE
  * The class provides methods to display the main menu {@link MainMenuDelegate#show()} as well as methods for
  * the user to interact with the application {@link MainMenuDelegate#click(Event)}.
  *
- * @author Timothy Hoegen-Jupp
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 2.0.0
  */
 public final class MainMenuDelegate implements Initializable
@@ -43,15 +43,11 @@ public final class MainMenuDelegate implements Initializable
 	private static final ILogger LOGGER = new Logger(MainMenuDelegate.class.getSimpleName());
 
 	/**
-	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/game} and defines the properties (color etc.) of the GUI
-	 * elements.
-	 * <br>
-	 * As only this class needs access to this file, it is defined here, instead of in an interface
+	 * The path to the respective fxml file of the delegate as a {@link String}.
 	 */
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
 
-	private static final Scene SCENE = ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML);
-
+	private static final String TO_STRING_PATTERN = "MainMenuDelegate'{'fxml={0}'}'";
 
 	/**
 	 * Are used to facilitate the interaction between the user and the application
@@ -112,7 +108,7 @@ public final class MainMenuDelegate implements Initializable
 	 */
 	public static void show ()
 	{
-		ViewUtil.show(GameApplication.getStage(), SCENE, MainMenuDelegate.class);
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(MainMenuDelegate.class, MAIN_MENU_VIEW_FXML), MainMenuDelegate.class);
 	}
 
 
@@ -200,9 +196,7 @@ public final class MainMenuDelegate implements Initializable
 		DifficultyDelegate.show();
 	}
 
-	/**
-	 *
-	 */
+
 	private void loadGameFromFile ()
 	{
 		if (!ConfigLoader.getInstance().isConfigDefault())
@@ -212,6 +206,7 @@ public final class MainMenuDelegate implements Initializable
 		ConfigLoader.getInstance().load(new FileChooserDelegate(GAME_SAVE_FOLDER_FILE_PATH).show());
 		CityDelegate.show();
 	}
+
 
 	/**
 	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
@@ -229,6 +224,7 @@ public final class MainMenuDelegate implements Initializable
 		this.initializeLoadGame();
 
 	}
+
 
 	/**
 	 * Checks, if the Config file is identical to the default (config) file. If the files are identical,
@@ -250,12 +246,12 @@ public final class MainMenuDelegate implements Initializable
 
 
 	/**
-	 * Checks, if there is at least one file with a ".json" ending in the specified folder.
-	 * If there is no file with a .json ending, the "load game"-button and menuItem is set to Inactive
+	 * Checks, if there's at least one file with a ".json" ending in the specified folder.
+	 * If there's no file with a .json ending, the "load game"-button and menuItem is set to Inactive
 	 *
 	 * @precondition The main menu controller has to have been called.
 	 * @postcondition The {@link MainMenuDelegate#loadGameButton} and {@link MainMenuDelegate#loadGameMenuItem} are
-	 * set to inactive if there is no File with the {@link StringConstants#JSON_FILE_ENDING} ending in
+	 * set to inactive if there's no File with the {@link StringConstants#JSON_FILE_ENDING} ending in
 	 * {@link GameConstants#GAME_SAVE_FOLDER_FILE_PATH}.
 	 */
 	@FXML
@@ -267,4 +263,20 @@ public final class MainMenuDelegate implements Initializable
 			ViewUtil.setButtonInactive(this.loadGameButton);
 		}
 	}
+
+
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the {@link MainMenuDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link MainMenuDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link MainMenuDelegate#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, MAIN_MENU_VIEW_FXML);
+	}
+
 }

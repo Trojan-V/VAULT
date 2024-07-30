@@ -34,7 +34,7 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 
 
 /**
- * The {@link MissionSelectionDelegate} is responsive for the control (Controller) and display (View) of the dialog after an arena ends.
+ * The {@link MissionSelectionDelegate} is responsible for the control (Controller) and display (View) of the dialog after an arena ends.
  * It provides methods to change the appearance of the {@link DialogPane} and thereby is able to notify the GUI user of the arena-result.
  * The dialog automatically gets displayed when an arena ends.
  *
@@ -108,7 +108,8 @@ public final class ArenaFinishedDialogDelegate
 	/**
 	 * Displays the a {@link DialogPane} based on the {@link Arena} instance on a new {@link Stage}.
 	 *
-	 * @param arenaResult The {@link Arena} object, which describes the arena and its resulr, that displayed this {@link DialogPane}.
+	 * @param mission The {@link Mission} object, which describes the mission the arena originated from.
+	 * @param arena   The {@link Arena} object, which describes the arena and its result, that displayed this {@link DialogPane}.
 	 *
 	 * @precondition A {@link Arena} object is passed into the method.
 	 * @postcondition The {@link DialogPane} is displayed on a new {@link Stage}.

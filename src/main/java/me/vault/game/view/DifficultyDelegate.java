@@ -26,8 +26,7 @@ public final class DifficultyDelegate implements Initializable
 	private static final ILogger LOGGER = new Logger(DifficultyDelegate.class.getSimpleName());
 
 	/**
-	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
-	 * elements.
+	 * The path to the respective fxml file of the delegate as a {@link String}.
 	 */
 	private static final String DIFFICULTY_VIEW_FXML = "difficulty.fxml";
 
