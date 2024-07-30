@@ -52,12 +52,18 @@ public final class FigureController
 	private static final double DROP_SHADOW_SPREAD = 0.5;
 
 
-	// TODO: Better identifier: What does the hundred stand for? HUNDRED is a bad identifier.
-	private static final int HUNDRED = 100;
+	/**
+	 * The divisor changes a natural number from zero to hundred to a rational number from zero to one. The Number
+	 * represent the armor value of the defending troop.
+	 */
+	private static final int DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER = 100;
 
 
-	// TODO: Better identifier: What does the one stand for? ONE is a bad identifier.
-	private static final int ONE = 1;
+	/**
+	 * A multiplier from which the armor of the defender will be subtracted before being multiplied with the melee
+	 * damage from the attacker.
+	 */
+	private static final int MULTIPLIER_FOR_DAMAGE = 1;
 
 
 	/**
@@ -78,15 +84,16 @@ public final class FigureController
 	 * @param attacker The {@link Figure} who is the attacker.
 	 * @param defender The {@link Figure} who is the defender.
 	 */
-	public static void attack (final Arena arena, final Figure attacker, final Figure defender)
+	public static void attack (final Arena arena, final Figure attacker,
+		final Figure defender)
 	{
 		// Get the statistics of the attacker and defender so the damage can be calculated.
 		final Defensive defenderDefensiveStats = defender.getStatistics().getDefensive();
-		final int dice = Dice.rollD20();
+		final int dice = Dice.rollD100();
 
 		if (dice >= defenderDefensiveStats.getDodgeRate())
 		{
-			final int calculatedDamage = calculateDamage(attacker, defender);
+			final int calculatedDamage = calculateDamage(attacker, defender,arena);
 			final int newDefenderHealthPoints = defenderDefensiveStats.getHealth() - calculatedDamage;
 			if (newDefenderHealthPoints <= 0)
 			{
@@ -125,18 +132,28 @@ public final class FigureController
 	 *
 	 * @return The amount of damage the defender will receive.
 	 */
-	private static int calculateDamage (final Figure attackerStats, final Figure defenderDefensiveStats)
-
+	private static int calculateDamage (final Figure attackerStats, final Figure defenderDefensiveStats,final @NotNull Arena arena)
 	{
 		final Artifact currentArtifact = Player.getInstance().getSelectedArtifact();
 		final Energy currenrEnergy = Player.getInstance().getSelectedEnergy();
+		final Figure troopFigure = arena.getSelectedFigure();
 		final double damageMultiplier = currentArtifact.getAttributeMultipliers().getDamageMultiplierProperty().get();
 		final double defenseMultiplier = currentArtifact.getAttributeMultipliers().getDefenseMultiplierProperty().get();
 		final double meleeMultiplier = currenrEnergy.getAbilityMultiplier().getMeleeMultiplierProperty().get();
 		final int meleeDamage = attackerStats.getStatistics().getOffensive().getMeleeDamage();
 		final int armor = defenderDefensiveStats.getStatistics().getDefensive().getArmor();
+		double dealtDamage = 0;
 		// TODO: Extract this arithmetic expression into one or several methods, so it's understandable by providing a descriptive name.
-		return (int) (meleeDamage * (ONE - (armor * defenseMultiplier) / HUNDRED) * damageMultiplier * meleeMultiplier);
+		if (isAlly(arena, troopFigure))
+		{
+			dealtDamage = (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier * meleeMultiplier);
+		}
+		else if (isEnemy(arena,troopFigure))
+		{
+			dealtDamage =
+				(meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER));
+		}
+		return (int) dealtDamage;
 	}
 
 

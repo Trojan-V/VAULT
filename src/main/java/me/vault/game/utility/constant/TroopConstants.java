@@ -94,7 +94,7 @@ public interface TroopConstants
 		TroopStatistics SNIPER_STATISTICS = new TroopStatistics(
 			new Dexterity(1, 2),
 			new Defensive(25, 5, 15, 20),
-			new Offensive(0, 24, 0, 0, 0));
+			new Offensive(0, 24, 0, 0, 2));
 
 		/**
 		 * A constant which represents the attributes of the engineer troop.

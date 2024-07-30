@@ -25,9 +25,10 @@ public final class Dice
 
 
 	/**
-	 * The upper bound of a D20. As the highest possible roll of a D20 is the number twenty, the upper bound has to be set to 20.
+	 * The upper bound of a D20. As the highest possible roll of a D100 is the number twenty, the upper bound has to
+	 * be set to 100.
 	 */
-	private static final int D20_UPPER_BOUND = 20;
+	private static final int D100_UPPER_BOUND = 100;
 
 
 	/**
@@ -39,15 +40,15 @@ public final class Dice
 
 
 	/**
-	 * A very common dice is the D20 dice.
+	 * The here used dice is the D100 dice.
 	 * <br>
 	 * Therefore, an extra method is provided here for convenience.
 	 *
-	 * @return An integer between one and 20.
+	 * @return An integer between one and 100.
 	 */
-	public static int rollD20 ()
+	public static int rollD100 ()
 	{
-		return roll(D20_UPPER_BOUND);
+		return roll(D100_UPPER_BOUND);
 	}
 
 
@@ -56,9 +57,9 @@ public final class Dice
 	 * <br>
 	 * The type of dice is determined by the supplied parameter.
 	 * <br>
-	 * For instance, if a 20 is supplied as a parameter, the roll corresponds to the well-known D20 dice.
+	 * For instance, if a 100 is supplied as a parameter, the roll corresponds to the lesser-known D100 dice.
 	 *
-	 * @param diceNumber The dice type. Passing a 20 here means rolling a D20 dice, for instance.
+	 * @param diceNumber The dice type. Passing a 100 here means rolling a D100 dice, for instance.
 	 * @return An integer between {@link Dice#LOWER_BOUND} and the supplied diceNumber parameter.
 	 */
 	public static int roll (final int diceNumber)
