@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 /**
  * This class acts as the controller and view for the settings.
  * <br>
- * The class provides methods to display the main menu {@link SettingsDelegate#show()} as well as methods for
+ * The class provides methods to display the settings {@link SettingsDelegate#show()} as well as methods for
  * the player to interact with the application ({@link SettingsDelegate#updateDifficulty(MouseEvent)} and
  * {@link SettingsDelegate#buttonClick(MouseEvent)}).
  *

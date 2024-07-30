@@ -3,9 +3,11 @@ package me.vault.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -23,7 +25,6 @@ import java.util.ResourceBundle;
  * It provides a GUI and methods to scroll and read through different sections of the game lore.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @see MainMenuDelegate
  * @since 29.07.2024
  */
 public final class PrologueDelegate implements Initializable
@@ -45,24 +46,60 @@ public final class PrologueDelegate implements Initializable
 	private static final String TO_STRING_PATTERN = "PrologueDelegate'{'fxml={0}'}'";
 
 	/**
-	 * The
+	 * {@link Button} that provides the player with the ability to continue to the tutorial.
 	 */
 	@FXML
 	private Button continueButton;
 
+
+	/**
+	 * {@link Button} that provides the player with the ability to return to difficulty selection.
+	 */
 	@FXML
 	private Button backButton;
 
+
+	/**
+	 * {@link Text} that displays the prolog of the game.
+	 */
 	@FXML
 	private Text storyText;
 
 
+	/**
+	 * Calls a method to display the content stored in {@link PrologueDelegate#PROLOG_VIEW_FXML} and initialized
+	 * by {@link PrologueDelegate#initialize(URL, ResourceBundle)} on the main stage of this application
+	 * ({@link GameApplication#getStage()})
+	 *
+	 * @see ViewUtil#show(Stage, Scene, Class)
+	 *
+	 * @precondition The GameApplication has to have a stage.
+	 * @postcondition The initialized prolog is shown on the GameApplication Stage.
+	 */
 	public static void show ()
 	{
 		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(PrologueDelegate.class, PROLOG_VIEW_FXML), PrologueDelegate.class);
 	}
 
-
+	/**
+	 * Handles the button action "click" that is defined in the FXML-File.
+	 * <br>
+	 * <br>
+	 * The method differentiates between different action that can be triggered by clicking on the different buttons
+	 * of the scene.
+	 * <br>
+	 * <br>
+	 * The actions that are triggered by their respective {@link Button} are listed below:
+	 * <br>
+	 * If the {@link PrologueDelegate#backButton} is clicked, the difficulty selection is shown.
+	 * <br>
+	 * If the {@link PrologueDelegate#continueButton} is clicked, the tutorial is shown.
+	 *
+	 * @param mouseEvent The MouseEvent that determines the triggered action(s)
+	 *
+	 * @precondition The prolog (scene) has to be displayed on the active stage.
+	 * @postcondition The specified actions ,as described by this documentation, are executed.
+	 */
 	@FXML
 	void click (final MouseEvent mouseEvent)
 	{
