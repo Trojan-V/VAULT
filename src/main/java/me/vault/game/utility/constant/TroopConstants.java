@@ -13,7 +13,7 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
 /**
  * This class provides constants for the unit statistics.
  *
- * @author Alexander Goethel, Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 29.05.2024
  */
@@ -24,7 +24,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Sniper} subinterface contains all constants, which apply to the Sniper troop class.
 	 *
-	 * @author Lasse-Leander Hille n
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Sniper
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 21.06.2024
@@ -120,7 +120,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Ranger} subinterface contains all constants, which apply to the Ranger troop class.
 	 *
-	 * @author Lasse-Leander Hillen
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Ranger
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 21.06.2024
@@ -217,7 +217,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Medic} subinterface contains all constants, which apply to the Medic troop class.
 	 *
-	 * @author Lasse-Leander Hillen
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Medic
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 21.06.2024
@@ -313,7 +313,7 @@ public interface TroopConstants
 	/**
 	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Space Marine troop class.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.SpaceMarine
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -412,7 +412,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Officer} subinterface contains all constants, which apply to the Officer troop class.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Officer
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -508,7 +508,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Engineer} subinterface contains all constants, which apply to the Engineer troop class.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Engineer
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -604,7 +604,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Guard} subinterface contains all constants, which apply to the Engineer troop class.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Guard
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -700,7 +700,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Grenadier} subinterface contains all constants, which apply to the Grenadier troop class.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Grenadier
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -796,7 +796,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Recruit} subinterface contains all constants, which apply to the Recruit troop class.
 	 *
-	 * @author Alexander Goethel, Lasse-Leander Hillen
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Recruit
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -892,7 +892,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Infantry} subinterface contains all constants, which apply to the Infantry troop class.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Infantry
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -988,7 +988,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Lieutenant} subinterface contains all constants, which apply to the Lieutenant troop class.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Lieutenant
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -1085,7 +1085,7 @@ public interface TroopConstants
 	 * The {@link PrecisionShooter} subinterface contains all constants, which apply to the Precision shooter troop
 	 * class.
 	 *
-	 * @author Alexander Goethel
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.PrecisionShooter
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024

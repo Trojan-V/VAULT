@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
  * To allow easy access to the constants the interface provides without having to specify the fully qualified name of the constant, static imports for
  * the desired constants can be used.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 15.05.2024
  */
@@ -26,6 +26,7 @@ import java.lang.annotation.Target;
 @Target (ElementType.TYPE)
 @interface ConstantInterface
 {
+
 	/**
 	 * Decorator that just clarifies that the element is a constant.
 	 *

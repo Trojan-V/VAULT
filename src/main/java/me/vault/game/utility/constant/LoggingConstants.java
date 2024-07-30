@@ -13,7 +13,7 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
  * <br>
  * There are several sub-interfaces in this class to organize the logging messages based on their category.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see ConstantInterface
  * @since 06.06.2024
@@ -21,6 +21,7 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
 @ConstantInterface
 public interface LoggingConstants
 {
+
 	/**
 	 * Divider that can be printed into the console to separate different pieces of information.
 	 */
@@ -101,13 +102,14 @@ public interface LoggingConstants
 	/**
 	 * This subinterface contains logging constants related to the {@link Artifact}.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see Artifact
 	 * @since 30.07.2024
 	 */
 	interface Artifact
 	{
+
 		/**
 		 * Message pattern to print out the attribute modifiers that an object was set to.
 		 */
@@ -183,19 +185,21 @@ public interface LoggingConstants
 		 */
 		@Constant
 		String ENERGY_IS_LOWEST = "The energy {0} is at the lowest level.";
+
 	}
 
 
 	/**
 	 * This subinterface contains logging constants related to {@link Currency}.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see Artifact
 	 * @since 30.07.2024
 	 */
 	interface Currency
 	{
+
 		/**
 		 * Message pattern to print out that a transaction was factored.
 		 */
@@ -215,13 +219,14 @@ public interface LoggingConstants
 	/**
 	 * This subinterface contains logging constants related to the {@link JvmArgument}s.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see Artifact
 	 * @since 30.07.2024
 	 */
 	interface JvmArgument
 	{
+
 		/**
 		 * The header message that introduces the console output of the JVM arguments.
 		 */
@@ -286,8 +291,7 @@ public interface LoggingConstants
 		 * Message pattern to print out that a construction error happened for a JVM argument.
 		 */
 		@Constant
-		String JVM_ARGUMENT_CONSTRUCTION_ERROR =
-			"The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" + " | actual = {1}]";
+		String JVM_ARGUMENT_CONSTRUCTION_ERROR = "The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" + " | actual = {1}]";
 
 	}
 
@@ -295,13 +299,14 @@ public interface LoggingConstants
 	/**
 	 * This subinterface contains logging constants related to the {@link me.vault.game.view.ArenaDelegate}.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see Artifact
 	 * @since 30.07.2024
 	 */
 	interface ArenaDelegate
 	{
+
 		/**
 		 * Message pattern to print out that the {@link me.vault.game.view.ArenaDelegate} couldn't be loaded.
 		 */
@@ -321,17 +326,20 @@ public interface LoggingConstants
 	/**
 	 * This subinterface contains logging constants related to the {@link me.vault.game.view.mission.MissionDelegate}.
 	 *
-	 * @author Vincent Wolf
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see Artifact
 	 * @since 30.07.2024
 	 */
 	interface MissionDelegate
 	{
+
 		/**
 		 * Message pattern to print out that the {@link me.vault.game.view.mission.MissionDelegate} couldn't be loaded.
 		 */
 		@Constant
 		String MISSION_DISPLAY_FAILED = "Failed to load MissionDelegate for a mission: {0}";
+
 	}
+
 }

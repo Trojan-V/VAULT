@@ -9,13 +9,14 @@ import static me.vault.game.utility.constant.ConstantInterface.Constant;
 /**
  * This interface contains constants related to the {@link GameBoard}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see GameBoard
  * @since 28.07.2024
  */
 public interface GameBoardConstants
 {
+
 	/**
 	 * The character that represents the player start tile in the game board map files.
 	 */
@@ -70,4 +71,5 @@ public interface GameBoardConstants
 	 */
 	@Constant
 	int GAME_BOARD_MAXIMUM_INDEX = 11;
+
 }

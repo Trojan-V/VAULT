@@ -18,6 +18,7 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
 @ConstantInterface
 public interface TroopStatisticConstants
 {
+
 	/**
 	 * The path to the assets for the {@link TroopStatistics}.
 	 */
@@ -331,4 +332,5 @@ public interface TroopStatisticConstants
 	 */
 	@Constant
 	Integer DODGE_STATISTIC_GRID_Y = 2;
+
 }

@@ -9,13 +9,14 @@ import me.vault.game.utility.constant.ConstantInterface.Constant;
  * <br>
  * For instance, the path to asset files such as sprites is stored in a constant here.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 23.05.2024
  */
 @ConstantInterface
 public interface GameConstants
 {
+
 	/**
 	 * The top level path to the assets directory which contains all sprites used within the game.
 	 */
@@ -69,4 +70,5 @@ public interface GameConstants
 	 */
 	@Constant
 	String BUTTON_LONG_CSS_FILE = "button_long.css";
+
 }

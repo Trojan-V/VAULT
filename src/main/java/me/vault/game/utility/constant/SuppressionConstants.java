@@ -8,15 +8,16 @@ package me.vault.game.utility.constant;
  * {@link SuppressWarnings} should only be used if the warnings have been reviewed carefully, and if it's certain that these warnings won't become an issue
  * during runtime.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see SuppressWarnings
  * @since 08.06.2024
  */
 public interface SuppressionConstants
 {
+
 	/**
-	 * Suppresses warnings related to overridden method calls during the object's construction.
+	 * Suppresses warnings related to overridden method call during the object's construction.
 	 */
 	String OVERRIDDEN_METHOD_CALL = "OverriddenMethodCallDuringObjectConstruction";
 

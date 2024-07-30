@@ -15,12 +15,13 @@ import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
  * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 5.0.0
+ * @version 1.0.0
  * @since 30.05.2024
  */
 @ConstantInterface
 public interface EnergyConstants
 {
+
 	/**
 	 * The default multiplier for the buffs of the different energy abilities.
 	 */
@@ -45,12 +46,13 @@ public interface EnergyConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
 	interface Dodge
 	{
+
 		/**
 		 * The standard/base name of the {@link DodgeAbility}.
 		 */
@@ -86,6 +88,7 @@ public interface EnergyConstants
 		 */
 		@Constant
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
+
 	}
 
 
@@ -94,12 +97,13 @@ public interface EnergyConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
 	interface Initiative
 	{
+
 		/**
 		 * The standard/base name of the {@link InitiativeAbility}.
 		 */
@@ -135,6 +139,7 @@ public interface EnergyConstants
 		 */
 		@Constant
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
+
 	}
 
 
@@ -143,12 +148,13 @@ public interface EnergyConstants
 	 * The interface uses the {@link ConstantInterface} annotation which is a marker annotation for interfaces that only contain constants.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @version 5.0.0
+	 * @version 1.0.0
 	 * @since 30.05.2024
 	 */
 	@ConstantInterface
 	interface Melee
 	{
+
 		/**
 		 * The standard/base name of the {@link MeleeAbility}.
 		 */
@@ -184,5 +190,7 @@ public interface EnergyConstants
 		 */
 		@Constant
 		CurrencyTransaction IMPROVED_TO_NONE_UPGRADE_COSTS = CurrencyTransaction.EMPTY;
+
 	}
+
 }

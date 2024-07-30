@@ -8,7 +8,7 @@ import me.vault.game.utility.constant.ConstantInterface.Constant;
  * This class provides miscellaneous constants which don't belong to one specific topic under which they could be bundled together, hence why these
  * constants are stored in a miscellaneous constant interface.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 27.05.2024
  */
@@ -68,8 +68,14 @@ public interface MiscConstants
 	 */
 	String JSON_FILE_ENDING = ".json";
 
+	/**
+	 * This string contains the starting phrase for the save files.
+	 */
 	String SAVE_NAME = "save";
 
+	/**
+	 * This string contains the date time pattern for the save files.
+	 */
 	String DATE_TIME_PATTERN = "yyyyMMdd_HHmmss";
 
 }
