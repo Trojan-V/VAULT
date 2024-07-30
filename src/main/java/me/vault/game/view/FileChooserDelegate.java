@@ -19,6 +19,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * wants to load a game from a save(file).
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see FileChooser
  * @since 30.07.2024
  */

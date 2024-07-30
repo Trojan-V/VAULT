@@ -3,8 +3,10 @@ package me.vault.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
@@ -24,7 +26,8 @@ import java.util.ResourceBundle;
  * the application.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 2.0.0
+ * @version 1.0.0
+ * @since 30.07.2024
  */
 public final class DifficultyDelegate implements Initializable
 {
@@ -41,19 +44,26 @@ public final class DifficultyDelegate implements Initializable
 
 
 	/**
-	 * Are used to facilitate the interaction between the user and the application
-	 *
-	 * @see Button
+	 * {@link Button} that provides the player with the ability to select the difficulty 'easy'.
 	 */
 	@FXML
 	private Button easyDifficultyButton;
 
+	/**
+	 * {@link Button} that provides the player with the ability to select the difficulty 'normal'.
+	 */
 	@FXML
 	private Button normalDifficultyButton;
 
+	/**
+	 * {@link Button} that provides the player with the ability to select the difficulty 'hard'.
+	 */
 	@FXML
 	private Button hardDifficultyButton;
 
+	/**
+	 * {@link Button} that provides the player with the ability to return to the main menu.
+	 */
 	@FXML
 	private Button backButton;
 
@@ -62,6 +72,8 @@ public final class DifficultyDelegate implements Initializable
 	 * Calls a method to display the content stored in {@link DifficultyDelegate#DIFFICULTY_VIEW_FXML} and
 	 * initialized by {@link DifficultyDelegate#initialize(URL, ResourceBundle)} on the main stage of this
 	 * application ({@link GameApplication#getStage()}).
+	 * 
+	 * @see ViewUtil#show(Stage, Scene, Class) 
 	 *
 	 * @precondition The GameApplication has to have a stage
 	 * @postcondition The initialized difficulty scene is shown on the GameApplication Stage

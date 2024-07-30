@@ -13,7 +13,6 @@ import me.vault.game.utility.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.mission.MissionDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
@@ -29,6 +28,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * It provides methods to stop the program from exiting if the user is unsure about leaving or to close the program if the user wants to exit.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see DialogPane
  * @see Stage
  * @since 29.07.2024
@@ -80,6 +80,8 @@ public final class ExitGameDialogDelegate implements Initializable
 
 	/**
 	 * Displays the {@link ExitGameDialogDelegate#exitGameDialogPane} on a new {@link Stage}.
+	 *
+	 * @see Stage#showAndWait()
 	 *
 	 * @precondition The method gets called and the fxml file points to the correct ressource.
 	 * @postcondition The {@link ExitGameDialogDelegate#exitGameDialogPane} is displayed on a new {@link Stage}.

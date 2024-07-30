@@ -48,18 +48,39 @@ public final class ArenaDelegate
 	 */
 	private static final ILogger LOGGER = new Logger(ArenaDelegate.class.getSimpleName());
 
+
+	/**
+	 * {@link GridPane} on which the gameboard is displayed.
+	 */
 	@FXML
 	private GridPane arenaBoardGridPane;
 
+
+	/**
+	 * {@link Label} that displays the round number.
+	 */
 	@FXML
 	private Label roundNumber;
 
+
+	/**
+	 * {@link VBox} that displays the timeline elements.
+	 *
+	 * @see TimelineElementHBox
+	 */
 	@FXML
 	private VBox timelineVBox;
 
 
+	/**
+	 * {@link PriorityQueue} that contains the (still) active {@link Figure}s for the current round
+	 */
 	private PriorityQueue<Figure> currentQueue = null;
 
+
+	/**
+	 * {@link FigureTimeline} that contains all figures in this
+	 */
 	private FigureTimeline figureFigureTimeline = null;
 
 	private Arena arena = null;
@@ -102,6 +123,7 @@ public final class ArenaDelegate
 		this.arenaBoardGridPane.setDisable(false);
 		this.executeTurn();
 	}
+
 	@FXML
 	boolean onDodgeAbilityClick (final ActionEvent actionEvent)
 	{

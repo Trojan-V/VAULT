@@ -16,6 +16,9 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 
+/**
+ *
+ */
 public final class NetworkDelegate implements Initializable
 {
 
@@ -156,7 +159,15 @@ public final class NetworkDelegate implements Initializable
 		}
 	}
 
-
+	/**
+	 * Builds a formatted {@link String} which represents the object, and it's current state using the
+	 * {@link NetworkDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link NetworkDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link NetworkDelegate#TO_STRING_PATTERN} is {@code != null} and both of the instance variables are set.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
 	@Override
 	public String toString ()
 	{

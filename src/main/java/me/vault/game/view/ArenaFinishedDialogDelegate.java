@@ -39,6 +39,7 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
  * The dialog automatically gets displayed when an arena ends.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Arena
  * @see Arena
  * @see MissionConstants
