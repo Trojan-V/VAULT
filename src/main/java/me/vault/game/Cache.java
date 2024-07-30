@@ -4,7 +4,7 @@ package me.vault.game;
 /**
  * This class serves as a cache for values that need to be stored in the memory of the program.
  * <br>
- * Currently, it only stores the information if the game was started with cheats enabled or turned off.
+ * Currently, it only stores the information if the game was started with cheats enabled or disabled.
  *
  * @author Vincent Wolf
  * @version 1.0.0
@@ -14,7 +14,7 @@ public final class Cache
 {
 
 	/**
-	 * Stores the information if cheats are enabled or turned off.
+	 * Stores the information if cheats are enabled or disabled.
 	 */
 	private static boolean areCheatsEnabled = false;
 
@@ -56,5 +56,4 @@ public final class Cache
 	{
 		areCheatsEnabled = enabled;
 	}
-
 }
