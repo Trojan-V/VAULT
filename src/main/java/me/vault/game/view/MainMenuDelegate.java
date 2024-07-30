@@ -179,9 +179,11 @@ public final class MainMenuDelegate implements Initializable
 
 
 	/**
-	 * Handles the creation of a new game. The method checks, if the current configuration is equivalent to the
-	 * default configuration. If this is not the case, the current configuration is saved and the configuartion is
-	 * resetted, before {@link DifficultyDelegate#show()} is called to start a new game.
+	 * Handles the creation of a new game.
+	 * <br>
+	 * The method checks if the current configuration is equivalent to the default configuration.
+	 * If this isn't the case, the current configuration is saved, and the configuration is reset,
+	 * before {@link DifficultyDelegate#show()} is called to start a new game.
 	 *
 	 * @precondition
 	 * @postcondition

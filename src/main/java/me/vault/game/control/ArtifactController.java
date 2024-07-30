@@ -32,6 +32,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class ArtifactController implements Upgrader<Artifact, ArtifactLevel>
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link ArtifactController}.
 	 * <br>
@@ -80,6 +81,8 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 
 
 	/**
+	 * {@inheritDoc}
+	 *
 	 * Updates the values within the artifact to the new values of the new level.
 	 * <br>
 	 * This method should be invoked every time after the artifact was upgraded.
