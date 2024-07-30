@@ -14,6 +14,14 @@ import java.text.MessageFormat;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
+/**
+ * The {@link FileChooserDelegate} is responsible for the display (view) of the dialog that appears, when a user
+ * wants to load a game from a save(file).
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @see FileChooser
+ * @since 30.07.2024
+ */
 public final class FileChooserDelegate
 {
 
@@ -33,17 +41,30 @@ public final class FileChooserDelegate
 	private static final String FILE_CHOOSER_TITLE = "Choose a game file to load";
 
 
+	/**
+	 * The {@link FileChooser} object for the user to choose a file
+	 */
 	private final FileChooser fileChooser;
 
 
+	/**
+	 * The constructor for the {@link FileChooserDelegate}.
+	 * <br>
+	 * It creates a new instance of the {@link FileChooserDelegate} class, with a new instance of {@link FileChooser}
+	 * that has a specified initial path and the title from {@link FileChooserDelegate#FILE_CHOOSER_TITLE}.
+	 *
+	 * @param initialFolderFilePath Path to the directory that is shown, when the file chooser is called.
+	 *
+	 * @precondition the initialFolderFilePath has to point to a valid directory
+	 * @postcondition a new FileChooserDelegate instance is created with a new FileChooser that has the specified
+	 * initialDirectory, and the title {@link FileChooserDelegate#FILE_CHOOSER_TITLE}
+	 */
 	public FileChooserDelegate (final String initialFolderFilePath)
 	{
 		this.fileChooser = new FileChooser();
 		this.fileChooser.setTitle(FILE_CHOOSER_TITLE);
 		this.fileChooser.setInitialDirectory(ResourceLoader.getDirectory(initialFolderFilePath));
 	}
-
-
 
 
 	/**
@@ -60,8 +81,6 @@ public final class FileChooserDelegate
 		LOGGER.logf(DEBUG, "Config file selected in file chooser: {0}", chosenFile);
 		return chosenFile;
 	}
-
-
 
 
 	/**

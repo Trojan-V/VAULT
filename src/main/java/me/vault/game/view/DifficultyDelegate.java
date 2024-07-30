@@ -117,13 +117,14 @@ public final class DifficultyDelegate implements Initializable
 	 * @param gameDifficulty the difficulty of the game
 	 *
 	 * @precondition the parameter must be from the {@link GameDifficulty} enumeration
-	 * @postcondition the desired gamedifficulty is set and the prologue scene is shown
+	 * @postcondition the desired {@link GameDifficulty} is set and the prologue scene is shown
 	 */
 	private void setGameDifficultyAndContinue (final GameDifficulty gameDifficulty)
 	{
 		GameController.setDifficulty(gameDifficulty);
 		PrologueDelegate.show();
 	}
+
 
 	/**
 	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
@@ -138,5 +139,4 @@ public final class DifficultyDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 	}
-
 }

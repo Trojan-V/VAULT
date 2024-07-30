@@ -36,6 +36,7 @@ public class InitiativeComparator implements Comparator<Figure>
 	 * @precondition both figures have to have the {@link TroopStatistics.Dexterity#getInitiativePoints()} method
 	 * @postcondition -1 is returned if the first figure InitiativePoints is smaller than the second one; 0 if they
 	 * are the same; 1 when the first figure InitiativePoints are greater than those of the second figure
+	 *
 	 * {@link TroopStatistics.Dexterity#getInitiativePoints()} method
 	 */
 	@Override

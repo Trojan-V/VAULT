@@ -24,7 +24,8 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * The {@link MissionDelegate} is responsive for the control (Controller) and display (View) of the dialog that appears when the user tries to close the game.
+ * The {@link ExitGameDialogDelegate} is responsive for the control (Controller) and display (View) of the dialog that appears when the
+ * user tries to close the game.
  * It provides methods to stop the program from exiting if the user is unsure about leaving or to close the program if the user wants to exit.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
