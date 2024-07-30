@@ -24,14 +24,19 @@ public final class Cache
 	 * it as there's no value that can be gained by allowing instantiation.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of ArtifactController is created.
 	 */
 	private Cache () {}
-
 
 	/**
 	 * Returns if the cheats are enabled or not.
 	 *
 	 * @return True, if the cheats are enabled, otherwise false.
+	 *
+	 * @precondition Method is called.
+	 * @postcondition {@link Cache#areCheatsEnabled} is returned.
 	 */
 	public static boolean areCheatsEnabled ()
 	{
@@ -43,6 +48,9 @@ public final class Cache
 	 * Sets cheats to be enabled or turn off depending on the supplied boolean parameter.
 	 *
 	 * @param enabled If the cheats should be enabled or not.
+	 *
+	 * @precondition the parameter must be true or false.
+	 * @postcondition {@link Cache#areCheatsEnabled} is set to the parameter.
 	 */
 	public static void setAreCheatsEnabled (final boolean enabled)
 	{
