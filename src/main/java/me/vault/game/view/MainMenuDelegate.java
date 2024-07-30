@@ -238,7 +238,7 @@ public final class MainMenuDelegate implements Initializable
 	 * default configuration. If this is not the case, the current configuration is saved and the configuration is
 	 * reset, before {@link CityDelegate#show()} is called to continue with the game.
 	 *
-	 * @precondition
+	 * @precondition The method is called.
 	 * @postcondition If the config file is not identical to the default config file the information from the config
 	 * file is saved in a new file; the config file is updated with the information from the loaded file and the city
 	 * (scene) is shown

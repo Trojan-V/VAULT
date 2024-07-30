@@ -1,9 +1,7 @@
 package me.vault.game.view;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
@@ -11,6 +9,7 @@ import me.vault.game.GameApplication;
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.utility.ViewUtil;
+import me.vault.game.utility.loading.Config;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -19,6 +18,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
+/**
+ * This class acts as the controller and view for the settings.
+ * <br>
+ * The class provides methods to display the main menu {@link SettingsDelegate#show()} as well as methods for
+ * the player to interact with the application ({@link SettingsDelegate#updateDifficulty(MouseEvent)} and
+ * {@link SettingsDelegate#buttonClick(MouseEvent)}).
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
+ * @since 28.04.2024
+ */
 public final class SettingsDelegate implements Initializable
 {
 	/**
@@ -32,54 +42,101 @@ public final class SettingsDelegate implements Initializable
 	 */
 	private static final String SETTINGS_FXML = "settings.fxml";
 
-	private static final Scene SCENE = ResourceLoader.loadScene(SettingsDelegate.class, SETTINGS_FXML);
-
-
+	/**
+	 * The integer that defines the easy difficulty position of the slider.
+	 */
 	private static final int EASY_SLIDER_INT = 0;
 
 
+	/**
+	 * The integer that defines the normal difficulty position of the slider.
+	 */
 	private static final int NORMAL_SLIDER_INT = 1;
 
 
+	/**
+	 * The integer that defines the hard difficulty position of the slider.
+	 */
 	private static final int HARD_SLIDER_INT = 2;
 
+
+	/**
+	 * {@link Button} that provides the player with the ability to return to the main menu.
+	 */
 	@FXML
 	private Button backButton;
 
+
+	/**
+	 * {@link Slider} that provides the player with the ability to change the difficulty.
+	 */
 	@FXML
 	private Slider difficultySlider;
 
 
 	/**
+	 * Calls a method to display the content stored in {@link SettingsDelegate#SETTINGS_FXML} and initialized
+	 * by {@link SettingsDelegate#initialize(URL, ResourceBundle)} on the main stage of this application
+	 * ({@link GameApplication#getStage()})
 	 *
+	 * @precondition The GameApplication has to have a stage.
+	 * @postcondition The initialized view is shown on the GameApplication Stage.
 	 */
 	public static void show ()
 	{
-		ViewUtil.show(GameApplication.getStage(), SCENE, SettingsDelegate.class);
+		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(SettingsDelegate.class, SETTINGS_FXML), SettingsDelegate.class);
 	}
 
 
+	/**
+	 * When the {@link SettingsDelegate#backButton} is pressed, the main menu is shown.
+	 *
+	 * @param mouseEvent The MouseEvent that triggers the method.
+	 *
+	 * @precondition The settings (scene) has to be displayed on the active stage.
+	 * @postcondition The main menu is shown if the source from the {@link MouseEvent} is the
+	 * {@link SettingsDelegate#backButton}.
+	 */
 	@FXML
 	void buttonClick (final MouseEvent mouseEvent)
 	{
-		MainMenuDelegate.show();
+		if (mouseEvent.getSource().equals(this.backButton))
+		{
+			MainMenuDelegate.show();
+		}
+
 	}
 
 
+	/**
+	 * Checks if the game difficulty is changed when the slider is clicked.
+	 *
+	 * @param mouseEvent The MouseEvent that triggers the method.
+	 *
+	 * @precondition The MainMenu Scene has to be displayed on the active stage.
+	 * @postcondition The game difficulty is set according to the position of the slider ({@link SettingsDelegate#EASY_SLIDER_INT} =
+	 * easy; {@link SettingsDelegate#NORMAL_SLIDER_INT} = normal; {@link SettingsDelegate#HARD_SLIDER_INT} = hard),
+	 * if the mouseEven source is the {@link SettingsDelegate#difficultySlider}.
+	 */
 	@FXML
 	void updateDifficulty (final MouseEvent mouseEvent)
 	{
-		switch (this.difficultySlider.valueProperty().intValue())
+		if (mouseEvent.getSource().equals(this.difficultySlider))
 		{
-			case EASY_SLIDER_INT:
-				GameController.setDifficulty(GameDifficulty.EASY);
-				break;
-			case NORMAL_SLIDER_INT:
-				GameController.setDifficulty(GameDifficulty.NORMAL);
-				break;
-			case HARD_SLIDER_INT:
-				GameController.setDifficulty(GameDifficulty.HARD);
-				break;
+			switch (this.difficultySlider.valueProperty().intValue())
+			{
+				case EASY_SLIDER_INT:
+					GameController.setDifficulty(GameDifficulty.EASY);
+					break;
+				case NORMAL_SLIDER_INT:
+					GameController.setDifficulty(GameDifficulty.NORMAL);
+					break;
+				case HARD_SLIDER_INT:
+					GameController.setDifficulty(GameDifficulty.HARD);
+					break;
+			}
+
+			Config.getInstance().updateConfigFromModels();
 		}
 	}
 
@@ -100,7 +157,16 @@ public final class SettingsDelegate implements Initializable
 	}
 
 
-	private void initializeDifficultySlider ()
+	/**
+	 * Sets the position of the {@link SettingsDelegate#difficultySlider} according to the game difficulty in the
+	 * {@link GameController}.
+	 *
+	 * @precondition The settings controller has to have been called.
+	 * @postcondition The {@link SettingsDelegate#difficultySlider}-position displays the difficult from the
+	 * {@link GameController} class ({@link SettingsDelegate#EASY_SLIDER_INT} = easy;
+	 * {@link SettingsDelegate#NORMAL_SLIDER_INT} = normal; {@link SettingsDelegate#HARD_SLIDER_INT} = hard).
+	 */
+	public void initializeDifficultySlider ()
 	{
 		switch (GameController.getDifficulty())
 		{

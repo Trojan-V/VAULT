@@ -6,7 +6,7 @@ package me.vault.game;
  * <br>
  * Currently, it only stores the information if the game was started with cheats enabled or disabled.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 05.06.2024
  */

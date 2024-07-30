@@ -40,7 +40,8 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * The {@link UpgradeDialogDelegate} is responsible for the control (Controller) and display (view) of the dialog
  * that appears when something should be upgraded.
  *
- * @author Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see DialogPane
  * @see Label
  * @see Stage

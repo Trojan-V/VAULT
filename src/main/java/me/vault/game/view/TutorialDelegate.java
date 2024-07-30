@@ -28,8 +28,8 @@ import static me.vault.game.utility.constant.GameConstants.TAB_PANE_STYLE;
  * The class provides methods to display the tutorial {@link TutorialDelegate#show()} as well as methods for the
  * player to interact with the application {@link TutorialDelegate#click(MouseEvent)}.
  *
- * @version 1.0.0
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @since 30.04.2024
  */
 public final class TutorialDelegate implements Initializable

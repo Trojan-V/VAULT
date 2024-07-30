@@ -19,7 +19,7 @@ import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
  * The entry point of the VAULT game application. This class launches the GUI window the player will interact with to. The class which inherits from
  * {@link Application} is responsible for loading any {@code .fxml} files.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Application
  * @since 24.04.2024
