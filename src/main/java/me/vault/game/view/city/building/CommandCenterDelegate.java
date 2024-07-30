@@ -4,10 +4,13 @@ package me.vault.game.view.city.building;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.CurrencyController;
@@ -62,18 +65,33 @@ public final class CommandCenterDelegate implements Initializable
 	@FXML
 	private AnchorPane mainAnchorPane;
 
-	@FXML
-	private Label currentNewsLabel;
-
+	/**
+	 * The {@link ImageView} on the GUI, that displays the sprite of the currently selected artifact.
+	 */
 	@FXML
 	private ImageView selectedArtifactImageView;
 
-	@FXML
-	private Label selectedArtifactLabel;
-
+	/**
+	 * The {@link ImageView} on the GUI, that displays the sprite of the currently selected faction.
+	 */
 	@FXML
 	private ImageView selectedFactionImageView;
 
+	/**
+	 * The {@link Label} on the GUI, that randomly displays news messages.
+	 */
+	@FXML
+	private Label currentNewsLabel;
+
+	/**
+	 * The {@link Label} on the GUI, that displays the name of the currently selected artifact.
+	 */
+	@FXML
+	private Label selectedArtifactLabel;
+
+	/**
+	 * The {@link Label} on the GUI, that displays the name of the currently selected faction.
+	 */
 	@FXML
 	private Label selectedFactionLabel;
 
@@ -104,28 +122,24 @@ public final class CommandCenterDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
+		// TODO: Random news generieren
 		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
-		this.setControlsFromPlayerInventory();
-	}
-
-
-	@Override
-	public String toString ()
-	{
-		return MessageFormat.format(TO_STRING_PATTERN, COMMAND_CENTER_VIEW_FXML);
-	}
-
-
-	private void setControlsFromPlayerInventory ()
-	{
 		this.selectedArtifactLabel.setText(Player.getInstance().getSelectedArtifact().getName());
 		this.selectedFactionLabel.setText(Player.getInstance().getSelectedFaction().name());
-		// TODO: Random news generieren
 		this.selectedArtifactImageView.setImage(Player.getInstance().getSelectedArtifact().getSprite());
 		this.selectedFactionImageView.setImage(Player.getInstance().getSelectedFaction().getSprite());
 	}
 
 
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the artifact image view in the GUI.
+	 * Shows the scene of the {@link WorkshopDelegate} on the main {@link Stage} of the application.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link ImageView} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link WorkshopDelegate}.
+	 */
 	@FXML
 	void onArtifactClick (final MouseEvent ignored)
 	{
@@ -133,6 +147,15 @@ public final class CommandCenterDelegate implements Initializable
 	}
 
 
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the mega corporation image view in the GUI.
+	 * Shows the scene of the {@link SpaceBarDelegate} on the main {@link Stage} of the application.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link ImageView} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link SpaceBarDelegate}.
+	 */
 	@FXML
 	void onMegaCorpClick (final MouseEvent ignored)
 	{
@@ -140,6 +163,15 @@ public final class CommandCenterDelegate implements Initializable
 	}
 
 
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the faction image view in the GUI.
+	 * Shows the scene of the {@link DocksDelegate} on the main {@link Stage} of the application.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link ImageView} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link DocksDelegate}.
+	 */
 	@FXML
 	void onFactionClick (final MouseEvent ignored)
 	{
@@ -147,6 +179,15 @@ public final class CommandCenterDelegate implements Initializable
 	}
 
 
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Back" {@link Button} in the GUI.
+	 * Shows the scene of the {@link CityDelegate} on the main {@link Stage} of the application.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link CityDelegate}.
+	 */
 	@FXML
 	void onBackToCityView (final ActionEvent ignored)
 	{
@@ -154,10 +195,34 @@ public final class CommandCenterDelegate implements Initializable
 	}
 
 
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Continue" {@link Button} in the GUI.
+	 * Shows the scene of the {@link MissionSelectionDelegate} on the main {@link Stage} of the application.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link MissionSelectionDelegate}.
+	 */
 	@FXML
 	void onGoToMissionBoard (final ActionEvent ignored)
 	{
 		MissionSelectionDelegate.show();
+	}
+
+
+	/**
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the {@link CommandCenterDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @return A {@link String} which has been formatted in the {@link CommandCenterDelegate#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link CommandCenterDelegate#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
+	 */
+	@Override
+	public String toString ()
+	{
+		return MessageFormat.format(TO_STRING_PATTERN, COMMAND_CENTER_VIEW_FXML);
 	}
 
 }
