@@ -36,7 +36,7 @@ public class GameBoard
 	{
 		for (int i = 0; i < this.gameBoard.length; i++)
 		{
-			for (int j = 0; j < this.gameBoard[0].length; j++)
+			for (int j = 0; j < this.gameBoard[i].length; j++)
 			{
 				if (this.gameBoard[i][j].getCurrentElement() == placeable)
 				{
@@ -66,8 +66,7 @@ public class GameBoard
 
 	public void placeIfAccessibleTile (final Position position, final Placeable troopFigure)
 	{
-		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() ==
-		    AccessibleTileAppearance.class)
+		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == AccessibleTileAppearance.class)
 		{
 			this.place(position, troopFigure);
 		}
