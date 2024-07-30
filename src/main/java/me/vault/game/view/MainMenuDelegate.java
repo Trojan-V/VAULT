@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
@@ -50,6 +49,9 @@ public final class MainMenuDelegate implements Initializable
 	 */
 	private static final String MAIN_MENU_VIEW_FXML = "mainMenu.fxml";
 
+	/**
+	 * The {@link MessageFormat} pattern, which is used, when the {@link MainMenuDelegate#toString()} is called.
+	 */
 	private static final String TO_STRING_PATTERN = "MainMenuDelegate'{'fxml={0}'}'";
 
 	/**
@@ -204,7 +206,6 @@ public final class MainMenuDelegate implements Initializable
 		else if (event.getSource().equals(this.arenaButton) || event.getSource().equals(this.arenaMenuItem))
 		{
 			//TODO: finish Arena
-			//TODO: update java Doc
 			NetworkDelegate.show();
 		}
 	}

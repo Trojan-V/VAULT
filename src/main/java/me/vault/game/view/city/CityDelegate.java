@@ -54,7 +54,7 @@ public class CityDelegate implements Initializable
 	private static final String CITY_VIEW_FXML = "city_view.fxml";
 
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link SaveCompleteDelegate#toString()} is called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link CityDelegate#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "CityDelegate'{'fxml={0}'}'";
 
