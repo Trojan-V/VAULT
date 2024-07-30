@@ -20,11 +20,11 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 /**
  * This class is the model for the arena where the encounters take place.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Alexander Goethel
  * @version 1.0.0
  * @see GameBoard
  * @see Figure
- * @since 29.07.2024
+ * @since 30.07.2024
  */
 public class Arena
 {
@@ -108,6 +108,8 @@ public class Arena
 	 *                         The {@link GameBoard} essentially is the interface for the player, so he can interact
 	 *                         with
 	 *                         the game.
+	 * @precondition The attributes for the arena exist.
+	 * @postcondition The Arena-instances were its attributes assigned.
 	 */
 	public Arena (final List<Figure> playerOneFigures, final List<Figure> playerTwoFigures, final GameBoard gameBoard)
 	{
@@ -125,6 +127,8 @@ public class Arena
 	 * @param playerTwoFigures The {@link Figure}s that player two uses in the encounter.
 	 *
 	 * @return An instance of {@link FigureTimeline} which contains the timeline for the encounter.
+	 * @precondition The Figures of player one and player one and two exist in the space of the encounter.
+	 * @postcondition An instance of {@link FigureTimeline} which contains the timeline for the encounter was created.
 	 */
 	private FigureTimeline createTimeline (final Collection<Figure> playerOneFigures, final Collection<Figure> playerTwoFigures)
 	{
@@ -140,6 +144,8 @@ public class Arena
 	 * Returns the {@link GameBoard} where the {@link Figure}s are deployed and can be moved/attack.
 	 *
 	 * @return The {@link GameBoard} where the {@link Figure}s are deployed and can be moved/attack.
+	 * @precondition The game board exist.
+	 * @postcondition The game board is accessible is the program.
 	 */
 	public GameBoard getGameBoard ()
 	{
@@ -153,6 +159,8 @@ public class Arena
 	 * The timeline determines which {@link Figure} is allowed to make the next move.
 	 *
 	 * @return The timeline that contains all {@link Figure}s that are currently on the {@link GameBoard}.
+	 * @precondition The timeline exist.
+	 * @postcondition The timeline is accessible in the program.
 	 */
 	public FigureTimeline getTimeline ()
 	{
@@ -162,6 +170,8 @@ public class Arena
 
 	/**
 	 * Places the supplied {@link Figure} of the first player at a randomized position.
+	 * @precondition The Figures of player one exist.
+	 * @postcondition The Figures of player one are placed randomly on the game board.
 	 */
 	public void placePlayerOneFiguresRandomly ()
 	{
@@ -174,6 +184,8 @@ public class Arena
 
 	/**
 	 * Places the supplied {@link Figure} of the second player at a randomized position.
+	 * @precondition The Figures of player two exist.
+	 * @postcondition The Figures of player two are placed randomly on the game board.
 	 */
 	public void placePlayerTwoFiguresRandomly ()
 	{
@@ -192,12 +204,15 @@ public class Arena
 	 *
 	 * @param figure The {@link Figure}s that'll be placed.
 	 * @param offset The offset that'll create some spacing between {@link Figure}s.
+	 * @precondition The Figures of the players exist.
+	 * @postcondition The Figures of players are placed randomly on the game board, each in a specified part of the
+	 * game board.
 	 */
 	private void placeFigureRandomly (final Figure figure, final int offset)
 	{
-		// TODO: Use random class instead of Math.random()
-		final int xPosition = (int) Math.round(Math.random() + offset);
-		final int yPosition = (int) Math.round(Math.random() * GAME_BOARD_MAXIMUM_INDEX);
+		final Random random = new Random();
+		final int xPosition = random.nextInt(offset,offset+1);
+		final int yPosition = random.nextInt(GAME_BOARD_MAXIMUM_INDEX);
 		final Position randomPosition = new Position(xPosition, yPosition);
 		if (this.isAccessibleTile(randomPosition))
 		{
@@ -215,6 +230,8 @@ public class Arena
 	 * @param position The position which will be checked.
 	 *
 	 * @return True if the tile is an {@link AccessibleTileAppearance}, otherwise false.
+	 * @precondition The tile that will be checkt if accessible have to exists.
+	 * @postcondition Says if the desirable tile is accessible.
 	 */
 	private boolean isAccessibleTile (final Position position)
 	{
@@ -226,6 +243,8 @@ public class Arena
 	 * Returns the {@link Figure} that is currently selected.
 	 *
 	 * @return The {@link Figure} that is currently selected.
+	 * @precondition The selected figure exist.
+	 * @postcondition The selected figure is accessible for the program.
 	 */
 	public Figure getSelectedFigure ()
 	{
@@ -234,9 +253,23 @@ public class Arena
 
 
 	/**
+	 * Returns a boolean that says if an ability was used.
+	 *
+	 * @return The used ability give a boolean that says if the ability was used.
+	 * @precondition The used ability exist.
+	 * @postcondition The boolean that says if the ability was used is accessible for the program.
+	 */
+	public boolean getAbilityUsed ()
+	{
+		return false;
+	}
+
+	/**
 	 * Sets the {@link Figure} that is currently selected.
 	 *
 	 * @param selectedFigure The {@link Figure} that'll be set as selected.
+	 * @precondition The selected figure exist.
+	 * @postcondition The selected figure was set to a new state.
 	 */
 	public void setSelectedFigure (final Figure selectedFigure)
 	{
@@ -250,6 +283,8 @@ public class Arena
 	 * In Singleplayer, this is the {@link Player} who plays the game.
 	 *
 	 * @return A {@link List} of all {@link Figure}s that belong to {@link Player} one.
+	 * @precondition The figure of player one exists.
+	 * @postcondition The Figure of player one is accessible ifor the program.
 	 */
 	public List<Figure> getPlayerOneFigures ()
 	{
@@ -263,6 +298,8 @@ public class Arena
 	 *
 	 * @param playerOneFigures A {@link List} of {@link Figure}s which will be set as the {@link Figure}s that belong
 	 *                         to the first player.
+	 * @precondition The selected figure of player one exist.
+	 * @postcondition The selected figure of player one was set to a new state.
 	 */
 	public void setPlayerOneFigures (final List<Figure> playerOneFigures)
 	{
@@ -277,6 +314,8 @@ public class Arena
 	 * In Singleplayer, this is the {@link Player} who plays the game.
 	 *
 	 * @return A {@link List} of all {@link Figure}s that belong to {@link Player} two.
+	 * @precondition The figure of player one exists.
+	 * @postcondition The Figure of player one is accessible for the program.
 	 */
 	public List<Figure> getPlayerTwoFigures ()
 	{
@@ -291,6 +330,9 @@ public class Arena
 	 * {@link Arena#eliminatedFigures}.
 	 *
 	 * @param figure The {@link Figure} that'll be removed.
+	 * @precondition The {@link Figure} exists in the scoop of the encounter.
+	 * @postcondition The eliminated {@link Figure} is removed from the timeline and game board and added to a {@link List} of
+	 * eliminated {@link Figure}s.
 	 */
 	public void eliminateFigure (final Figure figure)
 	{
@@ -310,6 +352,8 @@ public class Arena
 
 	/**
 	 * Adjusts the {@link Arena#result} if either the first or the second player is eliminated.
+	 * @precondition An encounter is active.
+	 * @postcondition Shows the result of the encounter to the player in the form of a displayed banner.
 	 */
 	private void adjustArenaResultIfNeeded ()
 	{
@@ -331,6 +375,8 @@ public class Arena
 	 * @param playerFigures The {@link Figure}s of the {@link Player}.
 	 *
 	 * @return True if the player is eliminated, otherwise false.
+	 * @precondition Figures exist.
+	 * @postcondition Gives a boolean that says if a player lost all of its troops.
 	 */
 	private boolean isPlayerEliminated (final Collection<Figure> playerFigures)
 	{
@@ -342,6 +388,8 @@ public class Arena
 	 * Returns a {@link List} of all {@link Figure}s that have been eliminated.
 	 *
 	 * @return A {@link List} of all {@link Figure}s that have been eliminated.
+	 * @precondition A {@link List} for the eliminated {@link Figure}s exist.
+	 * @postcondition The {@link List} of the eliminated {@link Figure}s is accessible for the program.
 	 */
 	public List<Figure> getEliminatedFigures ()
 	{
@@ -353,6 +401,8 @@ public class Arena
 	 * Returns the {@link ArenaResult}, which represents the current state of the encounter in the arena.
 	 *
 	 * @return The {@link ArenaResult}, which represents the current state of the encounter in the arena.
+	 * @precondition An encounter is active.
+	 * @postcondition The {@link ArenaResult} is accessible for the program.
 	 */
 	public ArenaResult getState ()
 	{
@@ -381,11 +431,13 @@ public class Arena
 	 * Returns the current value of the {@link Arena#result}.
 	 *
 	 * @return The current value of the {@link Arena#result}.
+	 * @precondition An encounter is active.
+	 * @postcondition The {@link ArenaResult} is accessible for the program.
 	 */
 	public ArenaResult getResult ()
 	{
 		return this.result;
 	}
-
+	// TODO: Was ist der Unterschied zu getState?
 	// TODO: Arena müssen nach jeder abgeschlossenen Arena resetted werden, sonst startet man mit mehr Truppen und ähnlichen
 }

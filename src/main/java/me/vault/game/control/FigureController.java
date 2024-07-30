@@ -142,6 +142,7 @@ public final class FigureController
 		final Artifact currentArtifact = Player.getInstance().getSelectedArtifact();
 		final Energy currenrEnergy = Player.getInstance().getSelectedEnergy();
 		final Figure troopFigure = arena.getSelectedFigure();
+		final boolean meleeAbilityUsed = arena.getAbilityUsed();
 		final double damageMultiplier = currentArtifact.getAttributeMultipliers().getDamageMultiplierProperty().get();
 		final double defenseMultiplier = currentArtifact.getAttributeMultipliers().getDefenseMultiplierProperty().get();
 		final double meleeMultiplier = currenrEnergy.getAbilityMultiplier().getMeleeMultiplierProperty().get();
@@ -150,21 +151,17 @@ public final class FigureController
 		double dealtDamage = 0;
 		if (isAlly(arena, troopFigure))
 		{
-			dealtDamage = getDealtDamage(meleeDamage, armor, defenseMultiplier, damageMultiplier, meleeMultiplier);
+			dealtDamage = (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier);
+		}
+		else if (isAlly(arena, troopFigure) && meleeAbilityUsed)
+		{
+			dealtDamage = (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier) * meleeMultiplier;
 		}
 		else if (isEnemy(arena, troopFigure))
 		{
 			dealtDamage = (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER));
 		}
 		return (int) dealtDamage;
-	}
-
-
-	// TODO: JAVADOC
-
-	private static double getDealtDamage (final int meleeDamage, final int armor, final double defenseMultiplier, final double damageMultiplier, final double meleeMultiplier)
-	{
-		return (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier) * meleeMultiplier;
 	}
 
 
