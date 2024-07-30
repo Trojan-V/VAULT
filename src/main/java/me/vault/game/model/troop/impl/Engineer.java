@@ -17,6 +17,17 @@ import java.util.Map;
 import static me.vault.game.utility.constant.TroopConstants.Engineer.*;
 
 
+/**
+ * This class is an implementation of {@link Troop}.
+ * <br>
+ * There are two available instances of this class.
+ * One instance is the allied engineer, and the other instance is there for the enemy engineer.
+ *
+ * @author Vincent Wolf
+ * @version 1.0.0
+ * @see Troop
+ * @since 30.07.2024
+ */
 public final class Engineer extends Troop
 {
 
@@ -25,12 +36,16 @@ public final class Engineer extends Troop
 	 */
 	private static final Logger LOGGER = new Logger(Engineer.class.getSimpleName());
 
+
 	/**
-	 * Singleton instance, as there's never a reason to have more than one {@link Engineer}.
-	 * Instead of using a singleton, the entire class could've been created using solely static methods and fields.
+	 * The allied instance.
 	 */
 	private static final Engineer ALLY_INSTANCE;
 
+
+	/**
+	 * The enemy instance.
+	 */
 	private static final Engineer ENEMY_INSTANCE;
 
 	/**
@@ -52,6 +67,10 @@ public final class Engineer extends Troop
 	private static final Map<TroopLevel, CurrencyTransaction> UPGRADE_COSTS = new ValidatedEntriesHashMap<>();
 
 
+	/**
+	 * All possible {@link TroopStatistics} of the troop are stored in this {@link Map}, with the {@link TroopLevel} as key to
+	 * denote which set of upgrade costs corresponds to which {@link TroopLevel}.
+	 */
 	private static final Map<TroopLevel, TroopStatistics> TROOP_STATISTICS = new ValidatedEntriesHashMap<>();
 
 
@@ -74,6 +93,7 @@ public final class Engineer extends Troop
 		TROOP_STATISTICS.put(TroopLevel.COUPLE, ENGINEER_COUPLE_STATISTICS);
 		TROOP_STATISTICS.put(TroopLevel.SQUAD, ENGINEER_SQUAD_STATISTICS);
 
+		// Create the singleton instance at last, so all maps are filled with values as the data in these maps is required to create an instance of this class.
 		ALLY_INSTANCE = new Engineer();
 		ENEMY_INSTANCE = new Engineer();
 	}
