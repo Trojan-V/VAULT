@@ -17,7 +17,7 @@ import java.util.List;
 import static me.vault.game.utility.constant.LoggingConstants.ArenaDelegate.ATTACKED_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-
+// TODO: PRE UND POST
 /**
  * Controller class to handle enemy actions in the arena, such as moving or attacking.
  * This class basically provides a very simple enemy engine to let the 'computer' enemies move by themselves in the

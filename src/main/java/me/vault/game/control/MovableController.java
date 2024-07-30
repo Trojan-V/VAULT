@@ -14,6 +14,7 @@ import me.vault.game.utility.logging.Logger;
 
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
+// TODO: Pre und POst
 
 /**
  * Controller class for any {@link Movable}s.

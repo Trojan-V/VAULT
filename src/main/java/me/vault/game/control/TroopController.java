@@ -14,18 +14,18 @@ import me.vault.game.utility.struct.UpgradeRunnable;
 import me.vault.game.view.city.building.TrainingFacilityDelegate;
 import static me.vault.game.model.troop.TroopStatistics.*;
 
-
+// TODO: Pre und post
 /**
  * Controller class to handle all different actions related to troops.
  * <br>
- * For instance, this class contains update methods so the values of troops can be updated after they have been
+ * For instance, this class contains update methods so the values of troops can be updated after they've been
  * upgraded to the next level. It's important that these methods actually get called after the upgrade, as otherwise
  * no changes will actually happen, neither in the model nor in the GUI.
  * <br>
  * Additionally, this controller provides methods to create the required GUI elements to display the
  * {@link TrainingFacility} accordingly.
  *
- * @author Vincent Wolf, Alexander Göthel
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see TrainingFacility
  * @see TrainingFacilityDelegate
@@ -53,8 +53,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
-	 * @pre.condition The singleton Instance exists.
-	 * @post.condition The singleton Instance can be accessed in the program.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static TroopController getInstance ()
 	{
@@ -77,8 +77,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
-	 * @pre.condition The {@link Dexterity} instance exists and can be upgraded.
-	 * @post.condition The {@link Dexterity} instances gets upgraded.
+	 * @precondition The {@link Dexterity} instance exists and can be upgraded.
+	 * @postcondition The {@link Dexterity} instances gets upgraded.
 	 */
 	private static void updateDexterityStatistics (final Troop troop)
 	{
@@ -105,8 +105,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
-	 * @pre.condition The {@link Defensive} instance exists and can be upgraded.
-	 * @post.condition The {@link Defensive} instances gets upgraded.
+	 * @precondition The {@link Defensive} instance exists and can be upgraded.
+	 * @postcondition The {@link Defensive} instances gets upgraded.
 	 */
 	private static void updateDefensiveStatistics (final Troop troop)
 	{
@@ -135,8 +135,8 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	 * change the internal accordingly to ensure the properties are still bound to the GUI.
 	 *
 	 * @param troop The {@link Troop} whose dexterity statistics should be updated.
-	 * @pre.condition The {@link Offensive} instance exists and can be upgraded.
-	 * @post.condition The {@link Offensive} instances gets upgraded.
+	 * @precondition The {@link Offensive} instance exists and can be upgraded.
+	 * @postcondition The {@link Offensive} instances gets upgraded.
 	 */
 	private static void updateOffensiveStatistics (final Troop troop)
 	{

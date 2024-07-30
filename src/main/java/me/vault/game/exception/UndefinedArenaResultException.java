@@ -4,6 +4,7 @@ package me.vault.game.exception;
 import me.vault.game.model.arena.ArenaResult;
 import me.vault.game.view.ArenaFinishedDialogDelegate;
 
+// TODO: Pre und post
 
 /**
  * This exception is thrown when the {@link ArenaResult} is undefined after the arena should be finished.

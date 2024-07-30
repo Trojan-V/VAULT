@@ -18,7 +18,7 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
 import static me.vault.game.utility.constant.LoggingConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
-
+// TODO: PRE UND POST
 /**
  * This class contains any methods that are responsible for controlling all the logic that's related to energy
  * ability`s.
@@ -62,8 +62,8 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * @param energy The instance of {@link Energy} which is checked.
 	 *
 	 * @return True if the energy ability is maxed, otherwise false.
-	 * @pre.condition An energy ability exists.
-	 * @post.condition Says if the energy ability is at its maximum.
+	 * @precondition An energy ability exists.
+	 * @postcondition Says if the energy ability is at its maximum.
 	 */
 	private static boolean isEnergyAbilityMaxed (final Energy energy)
 	{
@@ -74,8 +74,8 @@ public final class EnergyAbilityController implements Upgrader<Energy, EnergyLev
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
-	 * @pre.condition The singleton Instance exists.
-	 * @post.condition The singleton Instance can be accessed in the program.
+	 * @precondition The singleton Instance exists.
+	 * @postcondition The singleton Instance can be accessed in the program.
 	 */
 	public static EnergyAbilityController getInstance ()
 	{

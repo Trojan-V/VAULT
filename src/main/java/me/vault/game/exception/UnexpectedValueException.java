@@ -5,6 +5,7 @@ import me.vault.game.utility.loading.Config;
 
 import java.text.MessageFormat;
 
+// TODO: Pre und post
 
 /**
  * This exception is thrown when an unexpected value was received for some reason.

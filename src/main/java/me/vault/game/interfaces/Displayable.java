@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
 import me.vault.game.utility.struct.MetaDataImage;
 
+// TODO: Pre und post
 
 /**
  * Any class that's a displayable object should implement this interface.

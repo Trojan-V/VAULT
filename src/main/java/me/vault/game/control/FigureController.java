@@ -24,7 +24,7 @@ import java.util.List;
 
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
-
+// TODO: Pre und POst
 /**
  * Controller class to handle enemy actions in the arena, such as attacking.
  *
@@ -88,8 +88,7 @@ public final class FigureController
 	 * @precondition The attacking and defending unit stand on adjacent tiles.
 	 * @postcondition The attacking unit may or may not deal damage to the defending troop.
 	 */
-	public static void attack (final Arena arena, final Figure attacker,
-		final Figure defender)
+	public static void attack (final Arena arena, final Figure attacker, final Figure defender)
 	{
 		// Get the statistics of the attacker and defender so the damage can be calculated.
 		final Defensive defenderDefensiveStats = defender.getStatistics().getDefensive();
@@ -138,8 +137,7 @@ public final class FigureController
 	 * @precondition The attacker did hit the defender.
 	 * @postcondition The defender will receive damage.
 	 */
-	private static int calculateDamage (final Figure attackerStats, final Figure defenderDefensiveStats,
-		final @NotNull Arena arena)
+	private static int calculateDamage (final Figure attackerStats, final Figure defenderDefensiveStats, final @NotNull Arena arena)
 	{
 		final Artifact currentArtifact = Player.getInstance().getSelectedArtifact();
 		final Energy currenrEnergy = Player.getInstance().getSelectedEnergy();
@@ -152,8 +150,7 @@ public final class FigureController
 		double dealtDamage = 0;
 		if (isAlly(arena, troopFigure))
 		{
-			dealtDamage =
-				(meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier) * meleeMultiplier;
+			dealtDamage = (meleeDamage * (MULTIPLIER_FOR_DAMAGE - (armor * defenseMultiplier) / DIVISOR_TO_CHANGE_ARMOR_TO_A_PERCENT_NUMBER) * damageMultiplier) * meleeMultiplier;
 		}
 		else if (isEnemy(arena, troopFigure))
 		{
@@ -290,8 +287,9 @@ public final class FigureController
 	 * @param troopFigure The {@link Figure} which is checked if it's an ally or not.
 	 *
 	 * @return True if the {@link Figure} is an ally, otherwise false.
-	 * * @pre.condition Player Two exists.
-	 * * @post.condition PlayerTwo is labeled as an ally.
+	 *
+	 * @precondition Player Two exists.
+	 * @postcondition PlayerTwo is labeled as an ally.
 	 */
 	private static boolean isAlly (@NotNull final Arena arena, @NotNull final Figure troopFigure)
 	{

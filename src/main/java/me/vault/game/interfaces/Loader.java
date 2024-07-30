@@ -5,6 +5,7 @@ import me.vault.game.utility.loading.ConfigLoader;
 
 import java.io.File;
 
+// TODO: Pre und post
 
 /**
  * An interface for any class that provides some kind of loading and saving functionality.
