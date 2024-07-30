@@ -134,6 +134,7 @@ public final class NetworkDelegate implements Initializable
 	{
 		if (tabPane.getTabs().getFirst().isSelected())
 		{
+
 			NetworkController.runServer();
 			stage.close();
 		}
@@ -148,7 +149,6 @@ public final class NetworkDelegate implements Initializable
 			stage.close();
 		}
 	}
-
 
 	@Override
 	public String toString ()

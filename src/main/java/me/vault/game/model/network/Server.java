@@ -18,8 +18,6 @@ import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
 public class Server implements Runnable
 {
-
-
 	private static final String ACCEPTED = "Accepted";
 
 	private static final String ERROR_ACCEPT = "Error accept!";
@@ -30,17 +28,16 @@ public class Server implements Runnable
 
 	private static final String ERROR_SERVER_SOCKET = StringConstants.ERROR_SERVER_SOCKET;
 
-	private static final String ERROR_ACCEPTING = StringConstants.ERROR_ACCEPTING;
+	private static final String ERROR_ACCEPTING = StringConstants.EXCEPTION_SOCKET_CONSTRUCTOR_CLIENT;
 
 	private static final String CLIENT_CONNECTED = StringConstants.CLIENT_CONNECTED;
-
-	private static boolean isAccepted = false;
 
 	private ObjectInputStream in;
 
 	private ObjectOutputStream out;
 
-
+	//--------------------------------------------
+	private static boolean isAccepted = false;
 	private int portNumber = -1;
 
 
@@ -65,7 +62,6 @@ public class Server implements Runnable
 			answer.append(line.charAt(i));
 			answer.append(line.charAt(i));
 		}
-		System.out.println(answer);
 		return new String(answer);
 	}
 
@@ -73,19 +69,19 @@ public class Server implements Runnable
 	@Override
 	public void run ()
 	{
-		ServerSocket server = null;
+		java.net.ServerSocket server = null;
 
 		try
 		{
-			server = new ServerSocket(this.portNumber);
+			server = new java.net.ServerSocket(this.portNumber);
 		}
-		catch (final IOException e)
+		catch (final java.io.IOException e)
 		{
 			System.out.print(ERROR_SERVER_SOCKET_CONSTRUCTOR);
 			return;
 		}
 		System.out.println(WAIT_FOR_CONNECTIONREQUEST);
-		Socket aClient = null;
+		java.net.Socket aClient = null;
 
 		try
 		{
@@ -106,29 +102,28 @@ public class Server implements Runnable
 	{
 		try
 		{
-			final ObjectInputStream objectInputStream = new ObjectInputStream(aClient.getInputStream());
-			final ObjectOutputStream objectOutputStream = new ObjectOutputStream(aClient.getOutputStream());
+			java.io.BufferedReader in =
+				new java.io.BufferedReader(new java.io.InputStreamReader(aClient.getInputStream()));
 
-			final FXMLLoader fxmlLoader = (new FXMLLoader().load(Objects.requireNonNull(this.getClass()
-				.getResource(ARENA_FXML)).openStream()));
-			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
+			java.io.PrintWriter out = new java.io.PrintWriter(aClient.getOutputStream(), true);
 
-			arenaDelegate.setArena((Arena) objectInputStream.readObject());
+			String line;
 
-			objectInputStream.close();
-			objectOutputStream.close();
+			while ( (line = in.readLine()) != null)
+			{
+				if (line.length() > 0)
+				{
+					out.println(createDoubleEcho(line));
+				}
+			}
+
+			in.close();
+			out.close();
 			aClient.close();
 		}
-		catch (final IOException | ClassNotFoundException e)
+		catch (final IOException e)
 		{
 			throw new RuntimeException(e);
 		}
 	}
-
-
-	public Object getMessage () throws IOException, ClassNotFoundException
-	{
-		return this.in.readObject();
-	}
-
 }

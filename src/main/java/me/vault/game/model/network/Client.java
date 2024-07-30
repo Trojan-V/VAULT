@@ -1,17 +1,10 @@
 package me.vault.game.model.network;
 
-
-import javafx.fxml.FXMLLoader;
+import me.vault.game.utility.constant.CharacterConstants;
 import me.vault.game.utility.constant.StringConstants;
-import me.vault.game.view.ArenaDelegate;
+
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-import java.net.UnknownHostException;
-
-import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
 
 
 public class Client implements Runnable
@@ -38,44 +31,57 @@ public class Client implements Runnable
 	}
 
 
-	private Socket openSocket ()
+	private java.net.Socket openSocket ()
 	{
 		try
 		{
-			return new Socket(this.hostName, this.portNumber);
-		}
-		catch (final UnknownHostException e)
-		{
-			System.out.print(StringConstants.ERROR_ACCEPTING);
-			return null;
+			return new java.net.Socket(this.hostName, this.portNumber);
 		}
 		catch (final IOException e)
 		{
-			System.out.print(StringConstants.ERROR_ACCEPTING);
+			System.out.print(StringConstants.EXCEPTION_SOCKET_CONSTRUCTOR_CLIENT);
 			return null;
 		}
 	}
 
 
-	private void readAndSend (final Socket socket)
+	private void readAndSend (final java.net.Socket socket)
 	{
 		if (socket == null)
-		{return;}
+		{
+			return;
+		}
 
 		try
 		{
-			final ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
-			final ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-			String oneLine;
+			java.io.BufferedReader in =
+				new java.io.BufferedReader(new java.io.InputStreamReader(socket.getInputStream()));
 
-			final FXMLLoader fxmlLoader = (new FXMLLoader().load(this.getClass().getResource(ARENA_FXML).openStream()));
-			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
+			java.io.PrintWriter out = new java.io.PrintWriter(socket.getOutputStream(), true);
 
-			objectOutputStream.writeObject(arenaDelegate.getArena());
-			objectOutputStream.flush();
+			java.io.BufferedReader keyboard = new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
 
-			objectOutputStream.close();
-			objectInputStream.close();
+			System.out.println(StringConstants.ENTER_TEXT);
+
+			String inputLine;
+
+			while (true)
+			{
+				inputLine = keyboard.readLine();
+
+				if (inputLine.length() > 0)
+				{
+					out.println(inputLine);
+					System.out.println(StringConstants.ECHO + CharacterConstants.WHITESPACE + inputLine);
+				}
+				else
+				{
+					break;
+				}
+			}
+			out.close();
+			in.close();
+			keyboard.close();
 			socket.close();
 		}
 		catch (final IOException e)
@@ -83,5 +89,4 @@ public class Client implements Runnable
 			System.out.println(e.toString());
 		}
 	}
-
 }
