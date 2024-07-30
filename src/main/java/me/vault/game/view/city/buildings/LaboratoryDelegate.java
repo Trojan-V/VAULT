@@ -126,30 +126,26 @@ public final class LaboratoryDelegate implements Initializable
 		{
 			UpgradeDialogDelegate.show(DodgeAbility.getInstance(), EnergyAbilityController.getInstance());
 		}
-
-		// zum richtigen anzeigen der modifier melee
 	}
 
 
 	@FXML
 	private void onInitiativeAbilityUpgrade (final ActionEvent ignored)
 	{
-		if (EnergyAbilityController.getInstance().checkIsUpgradable(DodgeAbility.getInstance()))
+		if (EnergyAbilityController.getInstance().checkIsUpgradable(InitiativeAbility.getInstance()))
 		{
 			UpgradeDialogDelegate.show(InitiativeAbility.getInstance(), EnergyAbilityController.getInstance());
 		}
-		// zum richtigen anzeigen der modifier Dodge
 	}
 
 
 	@FXML
 	private void onMeleeAbilityUpgrade (final ActionEvent ignored)
 	{
-		if (EnergyAbilityController.getInstance().checkIsUpgradable(DodgeAbility.getInstance()))
+		if (EnergyAbilityController.getInstance().checkIsUpgradable(MeleeAbility.getInstance()))
 		{
 			UpgradeDialogDelegate.show(MeleeAbility.getInstance(), EnergyAbilityController.getInstance());
 		}
-		// zum richtigen anzeigen der modifier initiative
 	}
 
 
@@ -182,9 +178,9 @@ public final class LaboratoryDelegate implements Initializable
 
 	private void bindEnergyTextProperties ()
 	{
-		this.dodgeUpgradeButton.textProperty().bind(DodgeAbility.getInstance().getNameProperty());
-		this.initiativeUpgradeButton.textProperty().bind(InitiativeAbility.getInstance().getNameProperty());
-		this.meleeUpgradeButton.textProperty().bind(MeleeAbility.getInstance().getNameProperty());
+		this.dodgeLabel.textProperty().bind(DodgeAbility.getInstance().getNameProperty());
+		this.initiativeLabel.textProperty().bind(InitiativeAbility.getInstance().getNameProperty());
+		this.meleeLabel.textProperty().bind(MeleeAbility.getInstance().getNameProperty());
 	}
 
 
