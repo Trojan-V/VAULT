@@ -37,6 +37,7 @@ import static me.vault.game.utility.constant.LoggingConstants.CityBuildingContro
  */
 public class CityBuildingController implements Upgrader<CityBuilding, CityBuildingLevel>
 {
+
 	/**
 	 * Singleton instance, as there's no reason to have more than one {@link CityBuildingController}.
 	 * <br>
@@ -52,9 +53,21 @@ public class CityBuildingController implements Upgrader<CityBuilding, CityBuildi
 
 
 	/**
+	 * As this class is a singleton, no other class should be able to instantiate it.
+	 * <br>
+	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class
+	 * @postcondition A new instance of CityBuildingController is created.
+	 */
+	private CityBuildingController () {}
+
+
+	/**
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance can be accessed in the program.
 	 */

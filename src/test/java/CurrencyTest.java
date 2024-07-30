@@ -1,4 +1,4 @@
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
 import org.junit.jupiter.api.Assertions;
@@ -16,7 +16,7 @@ import static util.TestUtil.setStartingCurrencyAmounts;
  * @author Vincent Wolf
  * @version 1.0.0
  * @see Currency
- * @see CurrencyController
+ * @see CurrencyDelegate
  * @see CurrencyTransaction
  * @since 29.05.2024
  */
@@ -92,7 +92,7 @@ public final class CurrencyTest
 			new CurrencyTransaction(TEST_STEEL_AMOUNT, TEST_COMPOSITE_AMOUNT, TEST_SCIENCE_AMOUNT,
 				TEST_FOOD_RATION_AMOUNT, TEST_ENERGY_CREDIT_AMOUNT);
 
-		CurrencyController.factorCurrency(transaction);
+		CurrencyDelegate.factorCurrency(transaction);
 
 		Assertions.assertEquals(TEST_CURRENCY_STARTING_AMOUNT +
 		                        transaction.getAmount(STEEL), STEEL.getAmountProperty(),

@@ -13,7 +13,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.model.arena.Figure;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
@@ -161,7 +161,7 @@ public final class TroopSelectionDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.mainPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.selectedAlliesGridPane = new SelectedAlliesGridPane();
 		this.selectedTroopsPane.getChildren().add(this.selectedAlliesGridPane);
 	}

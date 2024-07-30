@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.control.EnergyAbilityController;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.impl.DamageArtifact;
@@ -152,11 +152,10 @@ public final class LaboratoryDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.mainPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.bindEnergyTextProperties();
 		this.addMultiplierBoxes();
 		this.bindUpgradeButtonProperties();
-
 	}
 
 
@@ -217,10 +216,8 @@ public final class LaboratoryDelegate implements Initializable
 	@FXML
 	private void onDodgeAbilityUpgrade (final ActionEvent ignored)
 	{
-		if (EnergyAbilityController.getInstance().checkIsUpgradable(DodgeAbility.getInstance()))
-		{
-			UpgradeDialogDelegate.show(DodgeAbility.getInstance(), EnergyAbilityController.getInstance());
-		}
+		UpgradeDialogDelegate.show(DodgeAbility.getInstance(), EnergyAbilityController.getInstance());
+
 	}
 
 
@@ -236,10 +233,7 @@ public final class LaboratoryDelegate implements Initializable
 	@FXML
 	private void onInitiativeAbilityUpgrade (final ActionEvent ignored)
 	{
-		if (EnergyAbilityController.getInstance().checkIsUpgradable(InitiativeAbility.getInstance()))
-		{
-			UpgradeDialogDelegate.show(InitiativeAbility.getInstance(), EnergyAbilityController.getInstance());
-		}
+		UpgradeDialogDelegate.show(InitiativeAbility.getInstance(), EnergyAbilityController.getInstance());
 	}
 
 
@@ -255,10 +249,8 @@ public final class LaboratoryDelegate implements Initializable
 	@FXML
 	private void onMeleeAbilityUpgrade (final ActionEvent ignored)
 	{
-		if (EnergyAbilityController.getInstance().checkIsUpgradable(MeleeAbility.getInstance()))
-		{
-			UpgradeDialogDelegate.show(MeleeAbility.getInstance(), EnergyAbilityController.getInstance());
-		}
+		UpgradeDialogDelegate.show(MeleeAbility.getInstance(), EnergyAbilityController.getInstance());
+
 	}
 
 

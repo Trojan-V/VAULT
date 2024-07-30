@@ -313,7 +313,7 @@ public interface TroopConstants
 	/**
 	 * The {@link SpaceMarine} subinterface contains all constants, which apply to the Space Marine troop class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.SpaceMarine
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
@@ -412,7 +412,7 @@ public interface TroopConstants
 	/**
 	 * The {@link Officer} subinterface contains all constants, which apply to the Officer troop class.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @see me.vault.game.model.troop.impl.Officer
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024

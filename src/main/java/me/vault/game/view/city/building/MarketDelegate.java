@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.model.city.Market;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.ViewUtil;
@@ -151,8 +151,8 @@ public final class MarketDelegate implements Initializable
 		{
 			final String amountString = textField.getText();
 			final int inputAmount = Integer.parseInt(amountString);
-			CurrencyController.factorCurrency(Currency.ENERGY_CREDIT, -inputAmount);
-			CurrencyController.factorCurrency(currency, inputAmount / price);
+			CurrencyDelegate.factorCurrency(Currency.ENERGY_CREDIT, -inputAmount);
+			CurrencyDelegate.factorCurrency(currency, inputAmount / price);
 		}
 		catch (final NumberFormatException e)
 		{
@@ -204,7 +204,7 @@ public final class MarketDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.mainPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.mainPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.foodOutputField.promptTextProperty().set(FOOD_PROMPT);
 		this.steelOutputField.promptTextProperty().set(STEEL_PROMPT);
 		this.compositeOutputField.promptTextProperty().set(COMPOSITE_PROMPT);

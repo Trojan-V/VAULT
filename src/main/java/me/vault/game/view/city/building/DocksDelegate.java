@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.control.PlayerController;
 import me.vault.game.model.city.Docks;
 import me.vault.game.model.player.Player;
@@ -113,7 +113,7 @@ public final class DocksDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
-		this.docksAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.docksAnchorPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.chooseExplorerFactionButton.disableProperty().bind(Faction.EXPLORER_ASSOCIATION.getIsSelectedProperty());
 		this.chooseMilitaryFactionButton.disableProperty().bind(Faction.MILITARISTIC_GOVERNMENT.getIsSelectedProperty());
 	}

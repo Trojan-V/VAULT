@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyController;
+import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.model.city.CommandCenter;
 import me.vault.game.model.city.TrainingFacility;
 import me.vault.game.model.troop.Faction;
@@ -127,7 +127,7 @@ public final class TrainingFacilityDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
-		this.mainAnchorPane.getChildren().add(CurrencyController.getCurrencyBannerScene().getRoot());
+		this.mainAnchorPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
 		this.militaristicPane.getChildren().add(new TroopUpgradePane(SpaceMarine.getInstance(), Officer.getAllyInstance(), Engineer.getAllyInstance()));
 		this.explorerPane.getChildren().add(new TroopUpgradePane(Ranger.getInstance(), Sniper.getInstance(), Medic.getAllyInstance()));
 		this.terraPane.getChildren().add(new TroopUpgradePane(Lieutenant.getInstance(), PrecisionShooter.getAllyInstance(), Infantry.getAllyInstance()));
