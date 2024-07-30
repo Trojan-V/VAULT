@@ -241,7 +241,7 @@ public final class JvmArgumentParser
 		LOGGER.log(NORMAL, DIVIDER);
 		LOGGER.log(NORMAL, HEADER);
 		LOGGER.log(NORMAL, MessageFormat.format(LOG_DEPTH_STATUS, Logger.getDepth().name()));
-		LOGGER.log(NORMAL, MessageFormat.format(CHEATS_STATUS, Cache.getAreCheatsEnabled()));
+		LOGGER.log(NORMAL, MessageFormat.format(CHEATS_STATUS, Cache.areCheatsEnabled()));
 		LOGGER.log(NORMAL, DIVIDER);
 	}
 

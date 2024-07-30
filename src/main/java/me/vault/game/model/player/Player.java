@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 public final class Player implements Movable, Nameable
 {
-
 	private static final Player INSTANCE = new Player();
 
 

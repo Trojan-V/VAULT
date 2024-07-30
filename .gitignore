@@ -40,3 +40,4 @@ build/
 ### Custom ###
 javadoc-gen/
 .idea/
+.mvn/wrapper/maven-wrapper.jar

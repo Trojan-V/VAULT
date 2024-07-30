@@ -19,8 +19,6 @@ import static me.vault.game.utility.constant.LoggingConstants.JvmArgument.JVM_AR
  */
 public class JvmArgumentParserTest
 {
-
-
 	private static final String EXPECTED_LOG_DEPTH_ARGUMENT_STRING = "-log_depth";
 
 
