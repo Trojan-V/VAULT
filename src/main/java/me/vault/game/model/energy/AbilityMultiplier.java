@@ -15,8 +15,7 @@ import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
 
 /**
  * This class is used as a data structure to store buffs in the form of multipliers which are then
- * applied to all troops that
- * are eligible to receive buffs.
+ * applied to all troops that are eligible to receive buffs.
  * <br>
  * For instance, these multipliers are used by the {@link Energy} class to store the buffs
  * the energy ability provides.
@@ -27,10 +26,8 @@ import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
  * @see AbilityMultiplier
  * @since 25.07.2024
  */
-
 public class AbilityMultiplier
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -96,7 +93,7 @@ public class AbilityMultiplier
 			LOGGER.log(ILogger.Level.ERROR, e.getMessage());
 			LOGGER.log(ILogger.Level.ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE);
 
-			// TODO: System.exit überarbeiten, Fenster vllt.
+			// TODO: System.exit ueberarbeiten, Fenster vielleicht.
 			System.exit(ERROR_EXIT_CODE);
 		}
 	}
@@ -234,7 +231,7 @@ public class AbilityMultiplier
 	/**
 	 * This enum consists of all different types of attribute modifiers.
 	 *
-	 * @author Alexander Göthel
+	 * @author Alexander Goethel
 	 * @version 1.0.0
 	 * @see AbilityMultiplier
 	 * @since 26.07.2024

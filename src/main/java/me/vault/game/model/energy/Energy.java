@@ -9,6 +9,7 @@ import me.vault.game.control.EnergyAbilityController;
 import me.vault.game.interfaces.Displayable;
 import me.vault.game.interfaces.Nameable;
 import me.vault.game.interfaces.Upgradable;
+import me.vault.game.model.arena.Arena;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.impl.DodgeAbility;
 import me.vault.game.model.energy.impl.InitiativeAbility;
@@ -57,7 +58,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br> <br>
  * To do so, a static initializer can be used whose last statement is {@code INSTANCE = new AbsEnergy();}.
  *
- * @author Alexander G&ouml;thel
+ * @author Alexander Goethel
  * @version 2.0.0
  * @see DodgeAbility
  * @see InitiativeAbility
@@ -67,10 +68,8 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see EnergyLevel
  * @since 25.07.2024
  */
-
 public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Nameable
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -78,16 +77,16 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 
 
 	/**
-	 * The pattern used to create the string which describes the class in a human-readable format.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is
+	 * called.
 	 */
-	private static final String TO_STRING_PATTERN = "Energy[level={0}, name={1}, sprite={2}, modifiers={3}, upgradeCost={4}]";
+	private static final String TO_STRING_PATTERN =
+		"Energy'{'nameProperty={0}, spriteProperty={1}, isMaxLevelProperty={2}, abilityMultiplier={3}, currentLevel={4}, currentUpgradeCost={5}'}'";
 
 
 	/**
-	 * This property is used to store and dynamically display the name of the energy ability. If the name is updated
-	 * within
-	 * this property, JavaFX instantly
-	 * applies the change, so it's visible in the GUI.
+	 * This property is used to store and dynamically display the name of the energy ability.
+	 * If the name is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
 	 *
 	 * @see SimpleStringProperty
 	 */
@@ -100,11 +99,20 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 */
 	private final SimpleObjectProperty<MetaDataImage> spriteProperty;
 
+
+	/**
+	 * This property is used to store and dynamically display if the energy is at the maximum level.
+	 * If the data is updated within this property, JavaFX instantly applies the change, so it's visible in the GUI.
+	 *
+	 * @see SimpleBooleanProperty
+	 */
 	private final SimpleBooleanProperty isMaxLevelProperty;
+
 
 	/**
 	 * This field contains the ability modifiers, which are the status effects the player receives in the form of
 	 * buffs on the energy ability.
+	 *
 	 * @see AbilityMultiplier
 	 */
 	private final AbilityMultiplier abilityMultiplier;
@@ -171,7 +179,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 *
 	 * @return The ability multipliers of the energy ability, which are the status effects the player receives in the
 	 * form of buffs.
-	 *
 	 * @see AbilityMultiplier
 	 */
 	public AbilityMultiplier getAbilityMultiplier ()
@@ -189,7 +196,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * This method is invoked by {@link EnergyAbilityController#updateValues(Energy)}.
 	 *
 	 * @param level The energy ability level whose map of ability multipliers should be returned.
-	 *
 	 * @return The map of ability multipliers for the supplied level.
 	 */
 	public Map<AbilityMultiplier.Type, Double> getAbilityMultipliers (final EnergyLevel level)
@@ -228,7 +234,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * Returns the name of the energy ability for the supplied {@link EnergyLevel}.
 	 *
 	 * @param level The energy ability level whose name should be returned.
-	 *
 	 * @return The name of the energy ability for the supplied {@link EnergyLevel}.
 	 */
 	public String getName (final EnergyLevel level)
@@ -245,7 +250,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * energy ability levels, hence why it doesn't change visually in that case.
 	 *
 	 * @return The current sprite of the energy ability.
-	 *
 	 * @see MetaDataImage
 	 */
 	@Override
@@ -274,7 +278,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * Returns the sprite of the energy ability for the supplied {@link EnergyLevel}.
 	 *
 	 * @param level The energy ability level whose sprite should be returned.
-	 *
 	 * @return The sprite of the energy ability for the supplied {@link EnergyLevel}.
 	 */
 	public MetaDataImage getSprite (final EnergyLevel level)
@@ -290,7 +293,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * to see the binding process.
 	 *
 	 * @return The property that contains the name of the energy ability.
-	 *
 	 * @see WorkshopDelegate
 	 * @see SimpleStringProperty
 	 */
@@ -311,7 +313,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * to see the binding process.
 	 *
 	 * @return The current sprite property of the energy ability.
-	 *
 	 * @see SimpleObjectProperty
 	 * @see Image
 	 */
@@ -322,15 +323,36 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	}
 
 
+	/**
+	 * Returns the property used to store the isMaxLevel data.
+	 *
+	 * @return The property used to store the isMaxLevel data.
+	 */
 	public SimpleBooleanProperty getIsMaxLevelProperty ()
 	{
 		return this.isMaxLevelProperty;
 	}
 
 
+	/**
+	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
+	 *
+	 * @param value True if the artifact should isMaxLevel, otherwise false.
+	 */
 	public void setIsMaxLevel (final boolean value)
 	{
 		this.isMaxLevelProperty.set(value);
+	}
+
+
+	/**
+	 * Returns true if the artifact is at the maximum level, otherwise false.
+	 *
+	 * @return True if the artifact is at the maximum level, otherwise false.
+	 */
+	public boolean isMaxLevel ()
+	{
+		return this.isMaxLevelProperty.get();
 	}
 
 
@@ -348,7 +370,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * {@link Energy#getAllModifiers()}.
 	 *
 	 * @return The current level of the energy ability.
-	 *
 	 * @see EnergyLevel
 	 */
 	@Override
@@ -362,7 +383,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * Sets the level of the energy ability to a new level.
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link EnergyLevel}.
-	 *
 	 * @see EnergyLevel
 	 */
 	@Override
@@ -376,7 +396,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * Returns the current price to upgrade the energy ability.
 	 *
 	 * @return The current price to upgrade the energy ability to the next level.
-	 *
 	 * @see CurrencyTransaction
 	 */
 	@Override
@@ -422,7 +441,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 * this meaningful key ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all upgrade cost transactions for the energy ability.
-	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 * @see CurrencyTransaction
@@ -432,14 +450,14 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 
 
 	/**
-	 * Returns all names the energy ability can have. An energy ability has different names depending on its level.
+	 * Returns all possible names the energy ability can have.
+	 * An energy ability has different names depending on its level.
 	 * <br>
 	 * Therefore, these names are sorted by the {@link EnergyLevel} as key in a {@link Map}, allowing for easy
 	 * access by using this meaningful key
 	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all names for the energy ability.
-	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 */
@@ -448,15 +466,14 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 
 
 	/**
-	 * Returns all sprites the energy ability can have. An energy ability can have, but doesn't always have, different sprites
-	 * depending on its level.
+	 * Returns all sprites the energy ability can have.
+	 * An energy ability can, but not necessarily, have different sprites depending on its level.
 	 * <br>
 	 * Therefore, these sprites are sorted by the {@link EnergyLevel} as key in a {@link Map}, allowing for easy
 	 * access by using this meaningful key
 	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all sprites for the energy ability.
-	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 * @see Image
@@ -474,7 +491,6 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 	 *
 	 * @return The {@link Map} which contains all different sets of modifiers the energy ability can have, depending on it's
 	 * level.
-	 *
 	 * @see Map
 	 * @see EnergyLevel
 	 * @see AbilityMultiplier.Type
@@ -484,15 +500,19 @@ public abstract class Energy implements Displayable, Upgradable<EnergyLevel>, Na
 
 
 	/**
-	 * Returns the instance of this class in a human-readable format by creating a string.
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link Energy#TO_STRING_PATTERN}.
 	 *
-	 * @return The message in its string representation.
+	 * @return A {@link String} which has been formatted in the {@link Energy#TO_STRING_PATTERN}.
+	 * @precondition The {@link Energy#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.currentLevel.name(), this.nameProperty.get(), this.spriteProperty.get()
-			.toString(), this.abilityMultiplier.toString(), this.currentUpgradeCost.toString());
+		return MessageFormat.format(TO_STRING_PATTERN, this.nameProperty.get(), this.spriteProperty.get()
+				.toString(), this.isMaxLevelProperty.get(), this.abilityMultiplier.toString(),
+			this.currentLevel.toString(),
+			this.currentUpgradeCost.toString());
 	}
-
 }

@@ -4,6 +4,7 @@ package me.vault.game.control;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import me.vault.game.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.exception.NotAFigureException;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.Figure;
@@ -37,7 +38,7 @@ public final class FigureController
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger LOGGER = new Logger(ArtifactController.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(FigureController.class.getSimpleName());
 
 	/**
 	 * The radius of the drop shadow effect that is rendered around the sprites which display the allied figures.
@@ -90,10 +91,18 @@ public final class FigureController
 			if (newDefenderHealthPoints <= 0)
 			{
 				// Remove the defender from the arena if his HP dropped to zero or below, as the unit died.
-				final Position defenderPosition = arena.getGameBoard().getPosition(defender);
-				arena.eliminateFigure(defender);
-				MovableController.move(arena.getGameBoard(), attacker, defenderPosition);
-				return;
+				try
+				{
+					final Position defenderPosition = arena.getGameBoard().getPosition(defender);
+					arena.eliminateFigure(defender);
+					MovableController.move(arena.getGameBoard(), attacker, defenderPosition);
+					return;
+				}
+				catch (ElementNotFoundOnGameBoardException e)
+				{
+					LOGGER.log(WARNING, e.getMessage());
+				}
+
 			}
 			defenderDefensiveStats.setHealth(newDefenderHealthPoints);
 		}
@@ -144,10 +153,19 @@ public final class FigureController
 	{
 		final GameBoard arenaGameBoard = arena.getGameBoard();
 
-		final Position previousTroopPosition = arenaGameBoard.getPosition(troopFigure);
-		final int troopMovementRange = troopFigure.getStatistics().getDexterity().getMovementTiles();
-		final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
-		return accessibleTiles.contains(arenaGameBoard.getTile(position));
+		try
+		{
+			final Position previousTroopPosition = arenaGameBoard.getPosition(troopFigure);
+			final int troopMovementRange = troopFigure.getStatistics().getDexterity().getMovementTiles();
+			final List<Tile> accessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(previousTroopPosition, troopMovementRange);
+			return accessibleTiles.contains(arenaGameBoard.getTile(position));
+		}
+		catch (ElementNotFoundOnGameBoardException e)
+		{
+			LOGGER.log(WARNING, e.getMessage());
+		}
+
+		return false;
 	}
 
 
@@ -173,7 +191,7 @@ public final class FigureController
 			final List<Figure> defenderGroup = arena.getPlayerOneFigures().contains(defender) ? arena.getPlayerOneFigures() : arena.getPlayerTwoFigures();
 			return !defenderGroup.contains(attackerFigure) && reachableTiles.contains(arenaGameBoard.getTile(position));
 		}
-		catch (final NotAFigureException e)
+		catch (final NotAFigureException | ElementNotFoundOnGameBoardException e)
 		{
 			LOGGER.log(WARNING, e.getMessage());
 			return false;

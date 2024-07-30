@@ -27,15 +27,13 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * initiative
  * ability.
  *
- * @author Alexander G&ouml;thel
+ * @author Alexander Goethel
  * @version 1.0.0
  * @see Energy
  * @since 25.07.2024
  */
-
-public class InitiativeAbility extends Energy
+public final class InitiativeAbility extends Energy
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */

@@ -1,14 +1,19 @@
 package me.vault.game.control;
 
 
+import me.vault.game.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.model.arena.Position;
 import me.vault.game.model.arena.Tile;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.mission.Mission;
 import me.vault.game.model.player.Player;
 import me.vault.game.model.troop.Faction;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 import java.util.List;
+
+import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 /**
@@ -25,6 +30,12 @@ import java.util.List;
  */
 public final class PlayerController
 {
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(PlayerController.class.getSimpleName());
+
+
 	/**
 	 * As this class solely contains static methods and therefore is a utility class,
 	 * no other class should be able to instantiate it.
@@ -69,9 +80,17 @@ public final class PlayerController
 	public static boolean canMoveToPosition (final GameBoard missionGameBoard, final Player player,
 		final Position position)
 	{
-		final Position previousTroopPosition = missionGameBoard.getPosition(player);
-		final List<Tile> accessibleTiles = missionGameBoard.getAdjacentAccessibleTiles(previousTroopPosition);
-		return accessibleTiles.contains(missionGameBoard.getTile(position));
+		try
+		{
+			final Position previousTroopPosition = missionGameBoard.getPosition(player);
+			final List<Tile> accessibleTiles = missionGameBoard.getAdjacentAccessibleTiles(previousTroopPosition);
+			return accessibleTiles.contains(missionGameBoard.getTile(position));
+		}
+		catch (final ElementNotFoundOnGameBoardException e)
+		{
+			LOGGER.log(WARNING, e.getMessage());
+		}
+		return false;
 	}
 
 
@@ -87,9 +106,17 @@ public final class PlayerController
 	public static boolean canReachPosition (final GameBoard missionGameBoard, final Player player,
 		final Position position)
 	{
-		final Position previousTroopPosition = missionGameBoard.getPosition(player);
-		final List<Tile> accessibleTiles = missionGameBoard.getAdjacentTiles(previousTroopPosition);
-		return accessibleTiles.contains(missionGameBoard.getTile(position));
+		try
+		{
+			final Position previousTroopPosition = missionGameBoard.getPosition(player);
+			final List<Tile> accessibleTiles = missionGameBoard.getAdjacentTiles(previousTroopPosition);
+			return accessibleTiles.contains(missionGameBoard.getTile(position));
+		}
+		catch (final ElementNotFoundOnGameBoardException e)
+		{
+			LOGGER.log(WARNING, e.getMessage());
+		}
+		return false;
 	}
 
 }

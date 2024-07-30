@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static me.vault.game.utility.constant.EnergyConstants.*;
-import static me.vault.game.utility.constant.EnergyConstants.DEFAULT_MULTIPLIER;
 import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
@@ -34,10 +33,8 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see Energy
  * @since 25.07.2024
  */
-
-public class MeleeAbility extends Energy
+public final class MeleeAbility extends Energy
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */

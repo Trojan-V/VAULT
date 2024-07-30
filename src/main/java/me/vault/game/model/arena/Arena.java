@@ -1,16 +1,20 @@
 package me.vault.game.model.arena;
 
 
+import me.vault.game.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.player.Player;
 import me.vault.game.utility.fx.TimelineElementHBox;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
 
 import java.text.MessageFormat;
 import java.util.*;
 
 import static me.vault.game.utility.constant.ArenaConstants.ENEMY_UNIT_TILE_OFFSET;
 import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_MAXIMUM_INDEX;
+import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 /**
@@ -24,6 +28,10 @@ import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_MAXIM
  */
 public class Arena
 {
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(Arena.class.getSimpleName());
 
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is
@@ -286,10 +294,17 @@ public class Arena
 	 */
 	public void eliminateFigure (final Figure figure)
 	{
-		this.gameBoard.remove(figure);
-		this.figureTimeline.removeFigure(figure);
-		this.eliminatedFigures.add(figure);
-		this.adjustArenaResultIfNeeded();
+		try
+		{
+			this.gameBoard.remove(figure);
+			this.figureTimeline.removeFigure(figure);
+			this.eliminatedFigures.add(figure);
+			this.adjustArenaResultIfNeeded();
+		}
+		catch (final ElementNotFoundOnGameBoardException e)
+		{
+			LOGGER.log(WARNING, e.getMessage());
+		}
 	}
 
 

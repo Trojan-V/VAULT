@@ -1,6 +1,7 @@
 package me.vault.game.model.energy;
 
 
+import me.vault.game.control.EnergyAbilityController;
 import me.vault.game.interfaces.Level;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -11,6 +12,21 @@ import static me.vault.game.utility.constant.MiscConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
+/**
+ * This enum provides all different levels an {@link Energy} can have.
+ * <br>
+ * <u>Technical note</u> <br>
+ * It's important that the level entries in the enum are in the correct order, from minimum to maximum.
+ * This is required to ensure that the methods {@link EnergyLevel#getMinimum()}, {@link EnergyLevel#getMaximum()},
+ * {@link Level#isMinimum()} and {@link Level#isMaximum()} function correctly.
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
+ * @see Energy
+ * // TODO: Abweichende Namen: Energy, EnergyLevel aber EnergyAbilityController? Vermutlich Umbenennung zu EnergyController.
+ * @see EnergyAbilityController
+ * @since 08.06.2024
+ */
 public enum EnergyLevel implements Level
 {
 	/**
@@ -23,6 +39,7 @@ public enum EnergyLevel implements Level
 	 * after upgrading an energy ability once.
 	 */
 	IMPROVED;
+
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.

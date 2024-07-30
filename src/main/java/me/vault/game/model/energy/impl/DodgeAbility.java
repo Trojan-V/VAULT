@@ -27,15 +27,13 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * As this specification is a dodge energy ability, it provides positive ability modifiers towards the dodge
  * ability.
  *
- * @author Alexander Göthel
+ * @author Alexander Goethel
  * @version 1.0.0
  * @see Energy
  * @since 25.07.2024
  */
-
-public class DodgeAbility extends Energy
+public final class DodgeAbility extends Energy
 {
-
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -71,7 +69,7 @@ public class DodgeAbility extends Energy
 	private static final Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> MODIFIERS;
 
 	/**
-	 * All possible upgrade cost {@link CurrencyTransaction}'s of the initiative energy ability  are stored in this {@link Map},
+	 * All possible upgrade cost {@link CurrencyTransaction}'s of the initiative energy ability are stored in this {@link Map},
 	 * with the {@link EnergyLevel} as key to
 	 * denote which set of upgrade costs corresponds to which {@link EnergyLevel}.
 	 */

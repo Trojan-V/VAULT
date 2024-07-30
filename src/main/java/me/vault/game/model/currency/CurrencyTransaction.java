@@ -5,6 +5,7 @@ import me.vault.game.exception.InvalidMapEntryException;
 import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.building.CityBuilding;
+import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap;
 import me.vault.game.utility.struct.ValidatedEntriesHashMap.Entry;
@@ -44,7 +45,7 @@ public class CurrencyTransaction
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final Logger LOGGER = new Logger(CurrencyTransaction.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(CurrencyTransaction.class.getSimpleName());
 
 
 	/**
@@ -66,7 +67,7 @@ public class CurrencyTransaction
 	 * Constructs an instance of this class.
 	 * <br>
 	 * This constructor takes an ellipse of {@link ValidatedEntriesHashMap.Entry} as parameter and applies the values
-	 * of this ellipse to the internal data structure of the instance of the currency transaction.
+	 * of this ellipse to the internal data structure.
 	 * <br>
 	 * This method is annotated with the {@link SafeVarargs} annotation, which shows that the operations that are
 	 * invoked on the varargs (ellipse) parameter have been reviewed and are safe.
@@ -115,12 +116,10 @@ public class CurrencyTransaction
 
 
 	/**
-	 * Returns the absolute amount of the currency supplied as parameter, which just means that the positive number of
-	 * the currency is
-	 * returned.
+	 * Returns the absolute amount of the currency supplied as parameter, which just means that the positive amount of
+	 * the currency is returned.
 	 *
 	 * @param currency The currency whose absolute amount should be returned.
-	 *
 	 * @return The absolute amount of the currency.
 	 */
 	public int getAbsoluteAmount (final Currency currency)
@@ -133,7 +132,6 @@ public class CurrencyTransaction
 	 * Returns the amount of the currency supplied as parameter.
 	 *
 	 * @param currency The currency whose amount should be returned.
-	 *
 	 * @return The amount of the currency.
 	 */
 	public int getAmount (final Currency currency)

@@ -14,6 +14,7 @@ import me.vault.game.GameApplication;
 import me.vault.game.control.EnemyController;
 import me.vault.game.control.FigureController;
 import me.vault.game.control.MovableController;
+import me.vault.game.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.*;
 import me.vault.game.model.gameboard.GameBoard;
@@ -198,21 +199,28 @@ public final class ArenaDelegate
 	{
 		final GameBoard arenaGameBoard = this.arena.getGameBoard();
 
-		final Position position = arenaGameBoard.getPosition(this.arena.getSelectedFigure());
-		final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensive().getGrenadeRange();
-		final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterity().getMovementTiles();
-
-		final List<Tile> reachableTroopFigureTiles = arenaGameBoard.getReachableTroopFigureTiles(position, attackRange);
-		final List<Tile> adjacentAccessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(position, movementRange);
-
-		boolean hasAttacked = false;
-		if (!reachableTroopFigureTiles.isEmpty())
+		try
 		{
-			hasAttacked = EnemyController.tryAttackAdjacentTroop(this.arena, reachableTroopFigureTiles, this.arena.getSelectedFigure());
+			final Position position = arenaGameBoard.getPosition(this.arena.getSelectedFigure());
+			final int attackRange = this.arena.getSelectedFigure().getStatistics().getOffensive().getGrenadeRange();
+			final int movementRange = this.arena.getSelectedFigure().getStatistics().getDexterity().getMovementTiles();
+
+			final List<Tile> reachableTroopFigureTiles = arenaGameBoard.getReachableTiles(position, attackRange);
+			final List<Tile> adjacentAccessibleTiles = arenaGameBoard.getAdjacentAccessibleTiles(position, movementRange);
+
+			boolean hasAttacked = false;
+			if (!reachableTroopFigureTiles.isEmpty())
+			{
+				hasAttacked = EnemyController.tryAttackAdjacentTroop(this.arena, reachableTroopFigureTiles, this.arena.getSelectedFigure());
+			}
+			if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
+			{
+				MovableController.move(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst().getPosition());
+			}
 		}
-		if (!adjacentAccessibleTiles.isEmpty() && !hasAttacked)
+		catch (ElementNotFoundOnGameBoardException e)
 		{
-			MovableController.move(arenaGameBoard, this.arena.getSelectedFigure(), adjacentAccessibleTiles.getFirst().getPosition());
+			LOGGER.log(WARNING, e.getMessage());
 		}
 	}
 

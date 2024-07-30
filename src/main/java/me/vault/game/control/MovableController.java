@@ -1,6 +1,7 @@
 package me.vault.game.control;
 
 
+import me.vault.game.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.interfaces.Movable;
 import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.Figure;
@@ -8,6 +9,10 @@ import me.vault.game.model.arena.Position;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
 import me.vault.game.model.player.Player;
+import me.vault.game.utility.logging.ILogger;
+import me.vault.game.utility.logging.Logger;
+
+import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 /**
@@ -22,6 +27,12 @@ import me.vault.game.model.player.Player;
  */
 public final class MovableController
 {
+	/**
+	 * The {@link Logger} object for this class used for writing to the console.
+	 */
+	private static final ILogger LOGGER = new Logger(MovableController.class.getSimpleName());
+
+
 	/**
 	 * As this class solely contains static methods and therefore is a utility class,
 	 * no other class should be able to instantiate it.
@@ -43,11 +54,19 @@ public final class MovableController
 	 */
 	public static void move (final GameBoard gameBoard, final Movable movable, final Position nextPosition)
 	{
-		final Position previousTroopPosition = gameBoard.getPosition(movable);
-		gameBoard.placeIfAccessibleTile(nextPosition, movable);
+		try
+		{
+			final Position previousTroopPosition = gameBoard.getPosition(movable);
+			gameBoard.placeIfAccessibleTile(nextPosition, movable);
 
-		// Set the previous position of the troop back to an accessible tile
-		// so the troop isn't displayed multiple times.
-		gameBoard.place(previousTroopPosition, new AccessibleTileAppearance());
+			// Set the previous position of the troop back to an accessible tile
+			// so the troop isn't displayed multiple times.
+			gameBoard.place(previousTroopPosition, new AccessibleTileAppearance());
+		}
+		catch (final ElementNotFoundOnGameBoardException e)
+		{
+			LOGGER.log(WARNING, e.getMessage());
+		}
+
 	}
 }

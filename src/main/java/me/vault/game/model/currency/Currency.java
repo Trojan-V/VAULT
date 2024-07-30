@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
 import me.vault.game.control.CurrencyController;
 import me.vault.game.interfaces.Displayable;
+import me.vault.game.model.arena.Arena;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.struct.MetaDataImage;
 
@@ -60,9 +61,10 @@ public enum Currency implements Displayable
 
 
 	/**
-	 * The pattern used to create the string which describes the class in a human-readable format.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link Arena#toString()} is
+	 * called.
 	 */
-	private static final String TO_STRING_PATTERN = "{0}[{1}]";
+	private static final String TO_STRING_PATTERN = "Currency'{'sprite={0}, amount={1}'}'";
 
 
 	/**
@@ -180,14 +182,16 @@ public enum Currency implements Displayable
 
 
 	/**
-	 * Overrides the {@link Object#toString()} method, that returns a {@link String}, which represents the object with
-	 * its properties.
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link Currency#TO_STRING_PATTERN}.
 	 *
-	 * @return A {@link String} value, which represents the object with its properties.
+	 * @return A {@link String} which has been formatted in the {@link Currency#TO_STRING_PATTERN}.
+	 * @precondition The {@link Currency#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
 	{
-		return MessageFormat.format(TO_STRING_PATTERN, this.name(), this.amountProperty.get());
+		return MessageFormat.format(TO_STRING_PATTERN, this.spriteProperty.get().toString(), this.amountProperty.get());
 	}
 }
