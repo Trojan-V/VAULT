@@ -294,7 +294,6 @@ public final class ResourceLoader
 			{
 				LOGGER.log(WARNING, e.getMessage());
 			}
-
 		}
 
 
