@@ -168,6 +168,20 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
+	 * Sets the current statistics of the troop.
+	 *
+	 * @param statistics The statistics that'll be applied to the troop.
+	 *
+	 * @precondition The statistics attribute has been set and contains a TroopStatistics.
+	 * @postcondition The value of statistics attribute is set to the passed one.
+	 */
+	public void setStatistics (final TroopStatistics statistics)
+	{
+		this.statistics = statistics;
+	}
+
+
+	/**
 	 * Returns the current statistics of the troop for the supplied {@link TroopLevel}.
 	 *
 	 * @param level The {@link TroopLevel} whose statistics should be returned.
@@ -180,20 +194,6 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	public TroopStatistics getStatistics (final TroopLevel level)
 	{
 		return this.getAllStatistics().get(level);
-	}
-
-
-	/**
-	 * Sets the current statistics of the troop.
-	 *
-	 * @param statistics The statistics that'll be applied to the troop.
-	 *
-	 * @precondition The statistics attribute has been set and contains a TroopStatistics.
-	 * @postcondition The value of statistics attribute is set to the passed one.
-	 */
-	public void setStatistics (final TroopStatistics statistics)
-	{
-		this.statistics = statistics;
 	}
 
 

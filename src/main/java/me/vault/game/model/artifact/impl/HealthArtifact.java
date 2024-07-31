@@ -103,6 +103,7 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the health artifact.
+	 *
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
 	 * @postcondition A map of upgrade costs for the  is initialized.
 	 */
@@ -128,6 +129,7 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of attribute modifiers for the health artifact.
+	 *
 	 * @precondition The attribute modifiers for the  exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of attribute modifiers for the  is initialised.
 	 */
@@ -166,6 +168,7 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of names for the health artifact.
+	 *
 	 * @precondition The names for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of the names for the {@link DamageArtifact} is initialised.
 	 */
@@ -191,6 +194,7 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of sprites for the health artifact.
+	 *
 	 * @precondition The sprites for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of the sprites for the {@link DamageArtifact} is initialised.
 	 */
@@ -212,6 +216,7 @@ public final class HealthArtifact extends Artifact
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance can be accessed in the program.
 	 */

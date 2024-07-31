@@ -32,6 +32,7 @@ import java.util.ResourceBundle;
  */
 public final class SettingsDelegate implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -176,4 +177,5 @@ public final class SettingsDelegate implements Initializable
 			case HARD -> this.difficultySlider.setValue(HARD_SLIDER_INT);
 		}
 	}
+
 }

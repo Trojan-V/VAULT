@@ -71,8 +71,6 @@ public final class EnemyController
 		return false;
 	}
 
-	// TODO: Implement? ja oder nein?
-
 
 	/**
 	 * Returns the level the enemies should have depending on the configured difficulty.

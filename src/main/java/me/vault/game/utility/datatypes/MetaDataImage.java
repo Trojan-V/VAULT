@@ -46,6 +46,7 @@ public class MetaDataImage extends Image
 	 * Returns the image in a human-readable format by its name.
 	 *
 	 * @return The image in a human-readable format by its name.
+	 *
 	 * @precondition The {@link Name} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

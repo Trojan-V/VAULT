@@ -29,6 +29,7 @@ import java.util.List;
  */
 public class GameBoard
 {
+
 	/**
 	 * The default range of a {@link Figure} if no other value is specified.
 	 */
@@ -54,6 +55,7 @@ public class GameBoard
 	 * Constructs an instance of this class. The two-dimensional {@link Tile} array has to be supplied to the constructor.
 	 *
 	 * @param gameBoard The two-dimensional array of {@link Tile}s.
+	 *
 	 * @precondition The tiles exist.
 	 * @postcondition An instance of the  is created from the supplied tiles.
 	 */
@@ -69,8 +71,10 @@ public class GameBoard
 	 * If the position is found, it'll be returned; otherwise an {@link ElementNotFoundOnGameBoardException} is thrown.
 	 *
 	 * @param placeable The {@link Placeable} that'll be searched for.
+	 *
 	 * @return The {@link Position} if the {@link Placeable} was found.
-	 * @throws ElementNotFoundOnGameBoardException If the {@link Placeable} element wasn't found on the game board.
+	 *
+	 * @exception ElementNotFoundOnGameBoardException If the {@link Placeable} element wasn't found on the game board.
 	 * @precondition On the  is a {@link Placeable} element.
 	 * @postcondition The {@link Position} if the {@link Placeable} was found and is accessible for the program.
 	 */
@@ -94,7 +98,9 @@ public class GameBoard
 	 * Returns the {@link Tile} instance that is located at the supplied {@link Position} on the game board.
 	 *
 	 * @param position The position of the {@link Tile} that'll be returned.
+	 *
 	 * @return The {@link Tile} at the supplied {@link Position}.
+	 *
 	 * @precondition The position of the {@link Tile} that'll be returned exists.
 	 * @postcondition The {@link Tile} at the supplied {@link Position} is accessible for the program.
 	 */
@@ -110,8 +116,10 @@ public class GameBoard
 	 * If there's no {@link Figure} at the supplied {@link Position} for some reason, a {@link NotAFigureException} will be thrown.
 	 *
 	 * @param position The {@link Position} whose {@link Figure} is going to be returned.
+	 *
 	 * @return The {@link Figure} instance which is located at the supplied {@link Position}.
-	 * @throws NotAFigureException If there's no {@link Figure} at the supplied {@link Position} for some reason.
+	 *
+	 * @exception NotAFigureException If there's no {@link Figure} at the supplied {@link Position} for some reason.
 	 * @precondition The {@link Figure} at the {@link Position} exists.
 	 * @postcondition The instance of the {@link Figure} which is at the {@link Position} is accessible for the program.
 	 */
@@ -132,6 +140,7 @@ public class GameBoard
 	 *
 	 * @param position  The {@link Position}.
 	 * @param placeable The {@link Placeable}.
+	 *
 	 * @precondition The {@link Tile} is at the {@link Position} and is an {@link AccessibleTileAppearance}.
 	 * @postcondition The {@link Placeable} is placed on the  at the {@link Position}.
 	 */
@@ -149,6 +158,7 @@ public class GameBoard
 	 *
 	 * @param position  The {@link Position}.
 	 * @param placeable The {@link Placeable}.
+	 *
 	 * @precondition The {@link Placeable} is supplied and {@link Position} exists.
 	 * @postcondition The {@link Placeable} is placed on the  at the {@link Position}
 	 */
@@ -165,7 +175,9 @@ public class GameBoard
 	 *
 	 * @param position    The {@link Position} whose reachable {@link Tile}s should be determined.
 	 * @param attackRange The attack range of the {@link Figure}.
+	 *
 	 * @return A {@link List} of all {@link Tile}s that can be reached.
+	 *
 	 * @precondition The {@link Figure} has to have a supplied attack range and has to have a {@link Position}.
 	 * @postcondition The {@link List} of all {@link Tile}s that can be reached is accessible for the program.
 	 */
@@ -183,7 +195,9 @@ public class GameBoard
 	 * This method uses the {@link GameBoard#DEFAULT_FIGURE_RANGE} to determine which tiles are adjacent.
 	 *
 	 * @param position The {@link Position} whose adjacent {@link Tile}s should be determined.
+	 *
 	 * @return A {@link List} of all tiles that are adjacent to the supplied {@link Position}.
+	 *
 	 * @precondition The {@link Position} of the {@link Tile}s as well as the range of the {@link Figure} have to be
 	 * supplied.
 	 * @postcondition The {@link List} of all tiles that are adjacent to the supplied {@link Position} is accessible
@@ -202,7 +216,9 @@ public class GameBoard
 	 *
 	 * @param position The {@link Position} whose adjacent {@link Tile}s should be determined.
 	 * @param range    The range of the {@link Figure} at the supplied {@link Position}.
+	 *
 	 * @return A {@link List} of all tiles that are adjacent to the supplied {@link Position}, while taking care of the supplied range parameter.
+	 *
 	 * @precondition The {@link Position} of the {@link Tile}s as well as the range of the {@link Figure} have to be
 	 * supplied.
 	 * @postcondition The {@link List} of all {@link Tile}s that are adjacent to the supplied {@link Position} is accessible
@@ -233,7 +249,9 @@ public class GameBoard
 	 * Returns a {@link List} of the tiles that are adjacent and accessible to the supplied {@link Position}.
 	 *
 	 * @param position The {@link Position} whose adjacent accessible {@link Tile}s should be determined.
+	 *
 	 * @return A {@link List} of the tiles that are adjacent and accessible to the supplied {@link Position}.
+	 *
 	 * @precondition The {@link Position} of the {@link Tile}s are supplied, and it has to be determined if the adjacent
 	 * {@link Tile} is accessible.
 	 * @postcondition The {@link List} of the {@link Tile}s that are adjacent and accessible to the supplied
@@ -252,7 +270,9 @@ public class GameBoard
 	 *
 	 * @param position The {@link Position} whose adjacent accessible {@link Tile}s should be determined.
 	 * @param range    The range of the {@link Figure} at the supplied {@link Position}.
+	 *
 	 * @return A {@link List} of the tiles that are adjacent and accessible to the supplied {@link Position}.
+	 *
 	 * @precondition The {@link Position} of the {@link Tile}s as well as the range of the {@link Figure} are supplied, and it has to be determined
 	 * if the adjacent {@link Tile} is accessible.
 	 * @postcondition The {@link List} of the {@link Tile}s that are adjacent and accessible to the supplied
@@ -270,7 +290,8 @@ public class GameBoard
 	 * Removes the supplied {@link Placeable} from the game board and replaces it with an {@link AccessibleTileAppearance}, which basically "clears" that tile.
 	 *
 	 * @param placeable The {@link Placeable} that is going to get removed from the game board.
-	 * @throws ElementNotFoundOnGameBoardException If the supplied {@link Placeable} wasn't found on the game board.
+	 *
+	 * @exception ElementNotFoundOnGameBoardException If the supplied {@link Placeable} wasn't found on the game board.
 	 * @precondition The {@link Tile} on the  has to have a {@link Placeable}
 	 * @postcondition The {@link Placeable} is removed from the  and the {@link Tile} where the
 	 * {@link Placeable} were removed is now an {@link AccessibleTileAppearance}.
@@ -286,6 +307,7 @@ public class GameBoard
 	 * {@link GameBoard#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link GameBoard#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link GameBoard#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -294,4 +316,5 @@ public class GameBoard
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, Arrays.toString(this.gameBoard));
 	}
+
 }

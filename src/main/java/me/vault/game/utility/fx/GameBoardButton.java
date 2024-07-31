@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 // TODO: Complete JavaDoc needed
 
+
 /**
  * The {@code GameBoardButton} represents one clickable button in the game board. It extends the standard {@link Button} and automatically
  * initializes the right graphic and design based on the {@link Arena} and {@link Placeable} object which are parsed

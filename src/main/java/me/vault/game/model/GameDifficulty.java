@@ -55,6 +55,7 @@ public enum GameDifficulty
 	 *
 	 * @param name       The name of the difficulty.
 	 * @param multiplier The multiplier added to the calculation of the enemies' statistics.
+	 *
 	 * @precondition The attributes for {@link GameDifficulty} are supplied.
 	 * @postcondition A new instance of {@link GameDifficulty} is created with the supplied attributes.
 	 */
@@ -69,6 +70,7 @@ public enum GameDifficulty
 	 * Returns the multiplier the difficulty adds to the calculation of the enemies' statistics.
 	 *
 	 * @return The multiplier the difficulty adds to the calculation of the enemies' statistics.
+	 *
 	 * @precondition The multiplier of the {@link GameDifficulty} is at least declared.
 	 * @postcondition The multiplier of the {@link GameDifficulty} is accessible for the program.
 	 */

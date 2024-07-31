@@ -219,7 +219,7 @@ public final class ConfigLoader implements Loader
 		{
 			final Path defaultConfigPath = Objects.requireNonNull(ResourceLoader.getFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, GameConstants.DEFAULT_CONFIG_FILE)).toPath();
 			final Path configPath = Objects.requireNonNull(ResourceLoader.getFile(GameConstants.GAME_SAVE_DIRECTORY_PATH, GameConstants.CONFIG_FILE)).toPath();
-			if (Files.mismatch(defaultConfigPath, configPath) == MiscConstants.FILE_MISMATCH_INDICATOR)
+			if (Files.mismatch(defaultConfigPath, configPath) == FILE_MISMATCH_INDICATOR)
 			{
 				return true;
 			}

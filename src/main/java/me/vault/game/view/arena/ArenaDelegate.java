@@ -44,6 +44,7 @@ import static me.vault.game.utility.interfaces.constant.GameBoardConstants.GAME_
 import static me.vault.game.utility.interfaces.constant.LoggingConstants.ArenaDelegate.ARENA_DISPLAY_FAILED;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
+
 // TODO: Complete JavaDoc needed
 public final class ArenaDelegate
 {
@@ -116,7 +117,6 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @param mission
 	 */
 	private void setMission (final Mission mission)
@@ -134,6 +134,7 @@ public final class ArenaDelegate
 		this.executeTurn();
 	}
 
+
 	@FXML
 	boolean onDodgeAbilityClick (final ActionEvent actionEvent)
 	{
@@ -142,6 +143,7 @@ public final class ArenaDelegate
 		return true;
 	}
 
+
 	@FXML
 	boolean onInitiativeAbilityClick (final ActionEvent actionEvent)
 	{
@@ -149,6 +151,7 @@ public final class ArenaDelegate
 		sender.setDisable(true);
 		return true;
 	}
+
 
 	@FXML
 	boolean onMeleeAbilityClick (final ActionEvent actionEvent)

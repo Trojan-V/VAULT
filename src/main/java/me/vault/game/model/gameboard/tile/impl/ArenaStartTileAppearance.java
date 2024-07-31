@@ -27,6 +27,7 @@ import me.vault.game.utility.loading.ResourceLoader;
  */
 public class ArenaStartTileAppearance implements Placeable
 {
+
 	/**
 	 * The path to the sprite that represents a start arena/start encounter tile.
 	 */
@@ -68,4 +69,5 @@ public class ArenaStartTileAppearance implements Placeable
 	{
 		return SPRITE_PROPERTY;
 	}
+
 }

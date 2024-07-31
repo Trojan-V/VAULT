@@ -109,6 +109,7 @@ public final class DamageArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of upgrade costs for the damage artifact.
+	 *
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
 	 * @postcondition A map of upgrade costs for the  is initialized.
 	 */
@@ -225,6 +226,7 @@ public final class DamageArtifact extends Artifact
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance can be accessed in the program.
 	 */

@@ -34,6 +34,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class DodgeAbility extends EnergyAbility
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -117,8 +118,8 @@ public final class DodgeAbility extends EnergyAbility
 	{
 		// Fill the map with the different upgrade cost transactions.
 		final Map<EnergyLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
-		upgradeCostsMap.put(EnergyLevel.BASE, EnergyConstants.Dodge.BASE_TO_IMPROVED_UPGRADE_COSTS);
-		upgradeCostsMap.put(EnergyLevel.IMPROVED, EnergyConstants.Dodge.IMPROVED_TO_NONE_UPGRADE_COSTS);
+		upgradeCostsMap.put(EnergyLevel.BASE, Dodge.BASE_TO_IMPROVED_UPGRADE_COSTS);
+		upgradeCostsMap.put(EnergyLevel.IMPROVED, Dodge.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
 		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
@@ -183,8 +184,8 @@ public final class DodgeAbility extends EnergyAbility
 	{
 		// Fill the map with the names.
 		final Map<EnergyLevel, String> namesMap = new HashMap<>();
-		namesMap.put(EnergyLevel.BASE, EnergyConstants.Dodge.BASE_NAME);
-		namesMap.put(EnergyLevel.IMPROVED, EnergyConstants.Dodge.IMPROVED_NAME);
+		namesMap.put(EnergyLevel.BASE, Dodge.BASE_NAME);
+		namesMap.put(EnergyLevel.IMPROVED, Dodge.IMPROVED_NAME);
 
 		// Logging output
 		LOGGER.logf(DEBUG, NAME_MAP_SET_PATTERN, namesMap.toString());
@@ -209,8 +210,8 @@ public final class DodgeAbility extends EnergyAbility
 	{
 		// Fill the map with the sprites.
 		final Map<EnergyLevel, MetaDataImage> spritesMap = new HashMap<>();
-		spritesMap.put(EnergyLevel.BASE, ResourceLoader.loadImage(EnergyConstants.Dodge.BASE_SPRITE_PATH));
-		spritesMap.put(EnergyLevel.IMPROVED, ResourceLoader.loadImage(EnergyConstants.Dodge.IMPROVED_SPRITE_PATH));
+		spritesMap.put(EnergyLevel.BASE, ResourceLoader.loadImage(Dodge.BASE_SPRITE_PATH));
+		spritesMap.put(EnergyLevel.IMPROVED, ResourceLoader.loadImage(Dodge.IMPROVED_SPRITE_PATH));
 
 		// Logging output
 		LOGGER.logf(DEBUG, SPRITE_MAP_SET_PATTERN, spritesMap.toString());
@@ -223,6 +224,7 @@ public final class DodgeAbility extends EnergyAbility
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance can be accessed in the program.
 	 */

@@ -35,6 +35,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class MeleeAbility extends EnergyAbility
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -119,8 +120,8 @@ public final class MeleeAbility extends EnergyAbility
 	{
 		// Fill the map with the different upgrade cost transactions.
 		final Map<EnergyLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
-		upgradeCostsMap.put(EnergyLevel.BASE, EnergyConstants.Melee.BASE_TO_IMPROVED_UPGRADE_COSTS);
-		upgradeCostsMap.put(EnergyLevel.IMPROVED, EnergyConstants.Melee.IMPROVED_TO_NONE_UPGRADE_COSTS);
+		upgradeCostsMap.put(EnergyLevel.BASE, Melee.BASE_TO_IMPROVED_UPGRADE_COSTS);
+		upgradeCostsMap.put(EnergyLevel.IMPROVED, Melee.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
 		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
@@ -185,8 +186,8 @@ public final class MeleeAbility extends EnergyAbility
 	{
 		// Fill the map with the names.
 		final Map<EnergyLevel, String> namesMap = new HashMap<>();
-		namesMap.put(EnergyLevel.BASE, EnergyConstants.Melee.BASE_NAME);
-		namesMap.put(EnergyLevel.IMPROVED, EnergyConstants.Melee.IMPROVED_NAME);
+		namesMap.put(EnergyLevel.BASE, Melee.BASE_NAME);
+		namesMap.put(EnergyLevel.IMPROVED, Melee.IMPROVED_NAME);
 
 		// Logging output
 		LOGGER.logf(DEBUG, NAME_MAP_SET_PATTERN, namesMap.toString());
@@ -211,8 +212,8 @@ public final class MeleeAbility extends EnergyAbility
 	{
 		// Fill the map with the sprites.
 		final Map<EnergyLevel, MetaDataImage> spritesMap = new HashMap<>();
-		spritesMap.put(EnergyLevel.BASE, ResourceLoader.loadImage(EnergyConstants.Melee.BASE_SPRITE_PATH));
-		spritesMap.put(EnergyLevel.IMPROVED, ResourceLoader.loadImage(EnergyConstants.Melee.IMPROVED_SPRITE_PATH));
+		spritesMap.put(EnergyLevel.BASE, ResourceLoader.loadImage(Melee.BASE_SPRITE_PATH));
+		spritesMap.put(EnergyLevel.IMPROVED, ResourceLoader.loadImage(Melee.IMPROVED_SPRITE_PATH));
 
 		// Logging output
 		LOGGER.logf(DEBUG, SPRITE_MAP_SET_PATTERN, spritesMap.toString());
@@ -225,6 +226,7 @@ public final class MeleeAbility extends EnergyAbility
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance can be accessed in the program.
 	 */

@@ -44,7 +44,6 @@ import static me.vault.game.utility.interfaces.constant.CityBuildingConstants.Ma
  */
 public final class MarketDelegate implements Initializable
 {
-	// TODO: man kann noch traden, auch wenn das geld nicht ausreicht
 
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.

@@ -52,6 +52,7 @@ public enum EnergyLevel implements Level
 	 * enum entry.
 	 *
 	 * @return The minimum level an {@link EnergyAbility} can have.
+	 *
 	 * @precondition The {@link EnergyAbility} can have multiple level and has a minimum level.
 	 * @postcondition The minimum level of an {@link EnergyAbility} is accessible for the program.
 	 */
@@ -66,6 +67,7 @@ public enum EnergyLevel implements Level
 	 * enum entry.
 	 *
 	 * @return The maximum level an {@link EnergyAbility} can have.
+	 *
 	 * @precondition The {@link EnergyAbility} can have multiple level and has a maximum level.
 	 * @postcondition The maximum level of an {@link EnergyAbility} is accessible for the program.
 	 */

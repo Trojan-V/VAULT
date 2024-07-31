@@ -29,6 +29,7 @@ import me.vault.game.utility.loading.ResourceLoader;
  */
 public class BlockedTileAppearance implements Placeable
 {
+
 	/**
 	 * The path to the sprite that represents a blocked tile.
 	 */
@@ -69,4 +70,5 @@ public class BlockedTileAppearance implements Placeable
 	{
 		return SPRITE_PROPERTY;
 	}
+
 }

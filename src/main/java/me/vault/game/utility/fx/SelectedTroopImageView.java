@@ -8,6 +8,7 @@ import me.vault.game.utility.loading.ResourceLoader;
 
 // TODO: Complete JavaDoc needed
 
+
 public class SelectedTroopImageView extends ImageView
 {
 

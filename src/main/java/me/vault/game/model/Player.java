@@ -70,6 +70,10 @@ public final class Player implements Movable, Nameable
 	 */
 	private static final String TO_STRING_PATTERN = "Player'{'selectedArtifact={0}, selectedEnergy={1}, selectedFaction={2}, selectedFigures={3}'}'";
 
+	/**
+	 * The {@link EnergyAbility} that's currently selected by the player.
+	 */
+	private final EnergyAbility selectedEnergyAbility;
 
 	/**
 	 * The {@link Artifact} that's currently selected by the player.
@@ -77,13 +81,6 @@ public final class Player implements Movable, Nameable
 	 * The buffs and nerfs this {@link Artifact} provides are applied.
 	 */
 	private Artifact selectedArtifact;
-
-
-	/**
-	 * The {@link EnergyAbility} that's currently selected by the player.
-	 */
-	private final EnergyAbility selectedEnergyAbility;
-
 
 	/**
 	 * The {@link Faction} that's currently selected by the player.

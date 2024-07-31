@@ -34,6 +34,7 @@ import static me.vault.game.utility.interfaces.constant.GameConstants.TAB_PANE_S
  */
 public final class TutorialDelegate implements Initializable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */

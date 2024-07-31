@@ -16,6 +16,7 @@ import java.util.Map;
 
 import static me.vault.game.utility.interfaces.constant.TroopConstants.Medic.*;
 
+
 /**
  * This class is an implementation of {@link Troop}.
  *

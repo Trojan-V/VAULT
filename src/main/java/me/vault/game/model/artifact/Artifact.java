@@ -139,6 +139,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * data for the current level.
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
+	 *
 	 * @precondition The attributes for the  exists.
 	 * @postcondition Constructs an  instance with the given attributes.
 	 */
@@ -166,6 +167,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The attribute multipliers of the artifact, which are the status effects the player receives in the form
 	 * of buffs or de-buffs depending on the equipped artifact.
+	 *
 	 * @precondition The {@link AttributeMultiplier} exists.
 	 * @postcondition The {@link AttributeMultiplier}s are accessible for the program.
 	 */
@@ -186,6 +188,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @param level The artifact level whose map of attribute multipliers should be returned.
 	 *
 	 * @return The map of attribute multipliers for the supplied level.
+	 *
 	 * @precondition The {@link AttributeMultiplier} exists.
 	 * @postcondition The map of the {@link AttributeMultiplier}s are accessible for the program.
 	 */
@@ -278,6 +281,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
 	 *
 	 * @param value True if the artifact should be marked as max level, otherwise false.
+	 *
 	 * @precondition The  can have multiple level.
 	 * @postcondition Sets if {@link ArtifactLevel} is maximal.
 	 */
@@ -291,6 +295,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Returns the property used to store the isMaxLevel data.
 	 *
 	 * @return The property used to store the isMaxLevel data.
+	 *
 	 * @precondition The data of isMaxLevel exists.
 	 * @postcondition The property used to store the isMaxLevel data is accessible for the program.
 	 */
@@ -314,6 +319,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * {@link Artifact#getAllModifiers()}.
 	 *
 	 * @return The current level of the artifact.
+	 *
 	 * @precondition The  has a level.
 	 * @postcondition The current level of the  is accessible for the program.
 	 */
@@ -362,6 +368,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * higher the artifact level gets.
 	 *
 	 * @param upgradeCosts The new upgrade costs the artifact requires to be upgraded to the next level.
+	 *
 	 * @precondition The {@link CurrencyTransaction} exists.
 	 * @postcondition The price for the {@link CurrencyTransaction} is set.
 	 */

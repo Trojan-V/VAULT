@@ -65,6 +65,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLevel>, Nameable
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -148,6 +149,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * data for the current level.
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
+	 *
 	 * @precondition The attributes for the  exists.
 	 * @postcondition Constructs an  instance with the given attributes.
 	 */
@@ -176,6 +178,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @return The ability multipliers of the energy ability, which are the status effects the player receives in the
 	 * form of buffs.
+	 *
 	 * @precondition The {@link AbilityMultiplier} exists.
 	 * @postcondition The {@link AbilityMultiplier}s are accessible for the program.
 	 */
@@ -194,7 +197,9 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * This method is invoked by {@link EnergyAbilityController#updateValues(EnergyAbility)}.
 	 *
 	 * @param level The energy ability level whose map of ability multipliers should be returned.
+	 *
 	 * @return The map of ability multipliers for the supplied level.
+	 *
 	 * @precondition The {@link AbilityMultiplier} exists.
 	 * @postcondition The map of the {@link AbilityMultiplier}s are accessible for the program.
 	 */
@@ -286,6 +291,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Returns the property used to store the isMaxLevel data.
 	 *
 	 * @return The property used to store the isMaxLevel data.
+	 *
 	 * @precondition The data of isMaxLevel exists.
 	 * @postcondition The property used to store the isMaxLevel data is accessible for the program.
 	 */
@@ -299,6 +305,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
 	 *
 	 * @param value True if the artifact should isMaxLevel, otherwise false.
+	 *
 	 * @precondition The  can have multiple level.
 	 * @postcondition Sets if {@link EnergyLevel} is maximal.
 	 */
@@ -322,6 +329,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * {@link EnergyAbility#getAllModifiers()}.
 	 *
 	 * @return The current level of the energy ability.
+	 *
 	 * @precondition The  has a level.
 	 * @postcondition The current level of the  is accessible for the program.
 	 */
@@ -336,6 +344,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Sets the level of the energy ability to a new level.
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link EnergyLevel}.
+	 *
 	 * @precondition The  has a level.
 	 * @postcondition The current level of the  is set.
 	 */
@@ -350,6 +359,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Returns the current price to upgrade the energy ability.
 	 *
 	 * @return The current price to upgrade the energy ability to the next level.
+	 *
 	 * @precondition The {@link CurrencyTransaction} exists.
 	 * @postcondition The price for the {@link CurrencyTransaction} is accessible for the program.
 	 */
@@ -368,6 +378,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * higher the energy ability level gets.
 	 *
 	 * @param upgradeCosts The new upgrade costs the energy ability requires to be upgraded to the next level.
+	 *
 	 * @precondition The {@link CurrencyTransaction} exists.
 	 * @postcondition The price for the {@link CurrencyTransaction} is set.
 	 */
@@ -398,6 +409,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * this meaningful key ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all upgrade cost transactions for the energy ability.
+	 *
 	 * @precondition The {@link Map} which contains all upgrade cost transactions for the {@link EnergyLevel} exists.
 	 * @postcondition A {@link Map} which contains all upgrade cost transactions for the {@link EnergyLevel} is
 	 * accessible for the program.
@@ -415,6 +427,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all names for the energy ability.
+	 *
 	 * @precondition The {@link Map} which contains all names for the {@link EnergyLevel} exists.
 	 * @postcondition A {@link Map} which contains all names for the {@link EnergyLevel} is
 	 * accessible for the program.
@@ -432,6 +445,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all sprites for the energy ability.
+	 *
 	 * @precondition The {@link Map} which contains all sprites for the  exists.
 	 * @postcondition A {@link Map} which contains all sprites for the  is
 	 * accessible for the program.
@@ -449,6 +463,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @return The {@link Map} which contains all different sets of modifiers the energy ability can have, depending on it's
 	 * level.
+	 *
 	 * @precondition The {@link Map} which contains all modifiers for the  exists.
 	 * @postcondition A {@link Map} which contains all modifiers for the  is
 	 * accessible for the program.
@@ -462,6 +477,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * {@link EnergyAbility#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link EnergyAbility#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link EnergyAbility#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -473,4 +489,5 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 			this.currentLevel.toString(),
 			this.currentUpgradeCost.toString());
 	}
+
 }

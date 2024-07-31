@@ -81,10 +81,9 @@ public final class ExitGameDialogDelegate implements Initializable
 	/**
 	 * Displays the {@link ExitGameDialogDelegate#exitGameDialogPane} on a new {@link Stage}.
 	 *
-	 * @see Stage#showAndWait()
-	 *
 	 * @precondition The method gets called and the fxml file points to the correct ressource.
 	 * @postcondition The {@link ExitGameDialogDelegate#exitGameDialogPane} is displayed on a new {@link Stage}.
+	 * @see Stage#showAndWait()
 	 */
 	public static void show ()
 	{

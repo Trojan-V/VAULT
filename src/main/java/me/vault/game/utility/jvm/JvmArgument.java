@@ -46,6 +46,7 @@ public enum JvmArgument
 	 * Constructs the enum object.
 	 *
 	 * @param argument The message stored as first entry in each enum entry.
+	 *
 	 * @precondition A string that describes how the argument can be passed into the program has to be supplied as parameter.
 	 * @postcondition An instance of this class was constructed.
 	 */
@@ -58,6 +59,7 @@ public enum JvmArgument
 
 	/**
 	 * @return The JVM argument in its string representation.
+	 *
 	 * @precondition The {@link JvmArgument#argument} is not equal to null.
 	 * @postcondition The string representation of the JVM argument was returned.
 	 */

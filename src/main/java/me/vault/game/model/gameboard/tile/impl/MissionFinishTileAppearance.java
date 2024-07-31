@@ -29,6 +29,7 @@ import me.vault.game.view.mission.MissionSelectionDelegate;
  */
 public class MissionFinishTileAppearance implements Placeable
 {
+
 	/**
 	 * The path to the sprite that represents a blocked tile.
 	 */
@@ -71,5 +72,6 @@ public class MissionFinishTileAppearance implements Placeable
 	{
 		return SPRITE_PROPERTY;
 	}
+
 }
 

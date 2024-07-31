@@ -3,6 +3,7 @@ package me.vault.game.model.network;
 
 public class NetworkController
 {
+
 	public static final int PORT_NUMBER = 13579;
 
 
@@ -37,4 +38,5 @@ public class NetworkController
 	{
 		(new Thread(new Client(hostName, portName))).start();
 	}
+
 }

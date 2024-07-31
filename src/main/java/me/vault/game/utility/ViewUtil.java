@@ -25,7 +25,6 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
  * This class is a utility class that provides methods to manipulate different GUI elements.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- *
  * @version 1.0.0
  * @see Button
  * @see ImageView
@@ -60,7 +59,7 @@ public final class ViewUtil
 	 * Sets the text of a given {@link Text}.
 	 *
 	 * @param textElement the GUI element, whose text should be set.
-	 * @param text the text that should be displayed by the GUI element.
+	 * @param text        the text that should be displayed by the GUI element.
 	 *
 	 * @precondition The textElement != null.
 	 * @postcondition The text from the textElement equals the text from the parameter text.
@@ -75,7 +74,7 @@ public final class ViewUtil
 	 * Sets the TabPane style of the given tabPane to the give style.
 	 *
 	 * @param tabPane The tab pane which style should be set.
-	 * @param style The style that the tab pane should be set to.
+	 * @param style   The style that the tab pane should be set to.
 	 *
 	 * @precondition tabPane != null and style must be a valid style.
 	 * @postcondition tabPane has the given style.

@@ -16,6 +16,7 @@ import java.text.MessageFormat;
 
 // TODO: Complete JavaDoc needed
 
+
 /**
  * An {@link HBox} which is used to display a single statistic.
  * <br>

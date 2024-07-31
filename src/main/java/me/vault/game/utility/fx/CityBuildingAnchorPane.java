@@ -21,6 +21,7 @@ import java.text.MessageFormat;
 
 // TODO: Complete JavaDoc needed
 
+
 public final class CityBuildingAnchorPane extends AnchorPane
 {
 

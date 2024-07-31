@@ -75,6 +75,7 @@ public class Logger implements ILogger
 	 * Constructs a Logger for a specific class name with the default logging level of DEBUG.
 	 *
 	 * @param className the name of the class for which the logger is being created.
+	 *
 	 * @precondition The name of the class this logger object will correspond to has to be supplied as a parameter.
 	 * @postcondition An instance of this class was constructed.
 	 */
@@ -88,6 +89,7 @@ public class Logger implements ILogger
 	 * Generates a timestamp for the current date and time.
 	 *
 	 * @return a string representation of the current timestamp
+	 *
 	 * @precondition None.
 	 * @postcondition The timestamp for the timezone that's configured on the local machine was returned in form of a {@link String}.
 	 */
@@ -101,6 +103,7 @@ public class Logger implements ILogger
 	 * Gets the current logging level.
 	 *
 	 * @return the logging level
+	 *
 	 * @precondition None.
 	 * @postcondition The configured logging depth was returned.
 	 */
@@ -114,6 +117,7 @@ public class Logger implements ILogger
 	 * Sets the logging depth to the supplied logging level.
 	 *
 	 * @param depth The new logging level.
+	 *
 	 * @precondition The desired logging depth has to be supplied as a parameter.
 	 * @postcondition The logging depth was set to the supplied value.
 	 */
@@ -127,6 +131,7 @@ public class Logger implements ILogger
 	 * Retrieves the method name of the currently executed method.
 	 *
 	 * @return The method name of the currently executed method.
+	 *
 	 * @precondition None.
 	 * @postcondition The name of the method that's currently of interest was returned.
 	 */
@@ -169,6 +174,7 @@ public class Logger implements ILogger
 	 * Generates a prefix for log messages including timestamp and class name.
 	 *
 	 * @return The prefix for log messages.
+	 *
 	 * @precondition None.
 	 * @postcondition The prefix that's used by the logger to print out the message was created and returned.
 	 */
@@ -182,6 +188,7 @@ public class Logger implements ILogger
 	 * Returns a string representation of the logger including class name and logging level.
 	 *
 	 * @return A string representation of the logger.
+	 *
 	 * @precondition None.
 	 * @postcondition The string representation of this class was returned.
 	 */
@@ -190,4 +197,5 @@ public class Logger implements ILogger
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.className, depth);
 	}
+
 }

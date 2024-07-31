@@ -28,6 +28,7 @@ import me.vault.game.utility.loading.ResourceLoader;
  */
 public class AccessibleTileAppearance implements Placeable
 {
+
 	/**
 	 * The path to the sprite that represents an accessible tile.
 	 */
@@ -68,4 +69,5 @@ public class AccessibleTileAppearance implements Placeable
 	{
 		return SPRITE_PROPERTY;
 	}
+
 }

@@ -28,6 +28,7 @@ import static me.vault.game.utility.interfaces.constant.MiscConstants.ERROR_EXIT
  */
 public class AbilityMultiplier
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -77,6 +78,7 @@ public class AbilityMultiplier
 	 * information.
 	 *
 	 * @param modifiers The modifiers which are applied to the properties.
+	 *
 	 * @precondition The map of the ability modifiers exists.
 	 * @postcondition Constructs an instance of  with the supplied modifies.
 	 */
@@ -142,6 +144,7 @@ public class AbilityMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param dodgeMultiplier The new value for the dodge multiplier.
+	 *
 	 * @precondition The property of the dodge multiplier exists.
 	 * @postcondition The property of the dodge multiplier is set.
 	 */
@@ -159,6 +162,7 @@ public class AbilityMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param initiativeMultiplier The new value for the initiative multiplier.
+	 *
 	 * @precondition The property of the initiative multiplier exists.
 	 * @postcondition The property of the initiative multiplier is set.
 	 */
@@ -176,6 +180,7 @@ public class AbilityMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param meleeMultiplier The new value for the melee multiplier.
+	 *
 	 * @precondition The property of the melee multiplier exists.
 	 * @postcondition The property of the melee multiplier is set.
 	 */
@@ -191,6 +196,7 @@ public class AbilityMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the dodge multiplier.
+	 *
 	 * @precondition The property of the dodge multiplier exists.
 	 * @postcondition The property of the dodge multiplier is accessible for the program.
 	 */
@@ -222,6 +228,7 @@ public class AbilityMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the melee multiplier.
+	 *
 	 * @precondition The property of the melee multiplier exists.
 	 * @postcondition The property of the melee multiplier is accessible for the program.
 	 */
@@ -235,6 +242,7 @@ public class AbilityMultiplier
 	 * Returns the instance of this class in a human-readable format by creating a string.
 	 *
 	 * @return The message in its string representation.
+	 *
 	 * @precondition The {@link Energy} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

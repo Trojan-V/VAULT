@@ -39,6 +39,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  */
 public final class ResourceLoader
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -61,6 +62,7 @@ public final class ResourceLoader
 	 * As this class is a singleton, no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
 	 * @precondition None.
 	 * @postcondition An instance of this class was constructed.
 	 */
@@ -71,6 +73,7 @@ public final class ResourceLoader
 	 * Loads an image from the supplied resourcePath.
 	 *
 	 * @param resourcePath The path from which the resource (the image) is loaded.
+	 *
 	 * @return An instance of {@link MetaDataImage}.
 	 *
 	 * @precondition
@@ -102,6 +105,7 @@ public final class ResourceLoader
 	 *                         that can be scenes to one datatype.
 	 * @param clazz            The class that corresponds to the view (fxml).
 	 * @param fxmlResourcePath The path from which the resource (the scene) is loaded.
+	 *
 	 * @return An instance of {@link Scene}.
 	 *
 	 * @precondition The specified resource Path has to point to a valid FXML-File (not null)
@@ -130,6 +134,7 @@ public final class ResourceLoader
 	 * Returns a new instance of {@link File} for the provided path.
 	 *
 	 * @param directoryPath The path of the file.
+	 *
 	 * @return An instance {@link File}.
 	 *
 	 * @precondition The directoryPath has to point to a valid directory (not null)
@@ -145,6 +150,7 @@ public final class ResourceLoader
 	 * Collects all files in the supplied directory and returns them as a {@link List}.
 	 *
 	 * @param directoryPath The path to the directory.
+	 *
 	 * @return The {@link List} of files.
 	 *
 	 * @precondition the directoryPath has to point to a valid directory (not null)
@@ -167,7 +173,8 @@ public final class ResourceLoader
 	 * {@link List}.
 	 *
 	 * @param directoryPath The path to the directory
-	 * @param fileEnding The ending of the files that should be returned
+	 * @param fileEnding    The ending of the files that should be returned
+	 *
 	 * @return A {@link List} of all files that have the specified ending
 	 *
 	 * @precondition The directoryPath has to point to a valid directory (not null) and the fileEnding cannot be null
@@ -179,7 +186,7 @@ public final class ResourceLoader
 		final List<File> validFiles = new ArrayList<>();
 
 		//checks the file ending of all files in the directory.
-		for (final File file: allFiles)
+		for (final File file : allFiles)
 		{
 			if (file.getName().endsWith(fileEnding))
 			{
@@ -195,7 +202,8 @@ public final class ResourceLoader
 	 * them as a {@link List}.
 	 *
 	 * @param directoryPath The path to the directory
-	 * @param pattern The pattern that should be contained within the filename
+	 * @param pattern       The pattern that should be contained within the filename
+	 *
 	 * @return A {@link List} containing all files with the specified pattern in their filename
 	 *
 	 * @precondition The directoryPath has to point to a valid directory (not null) and the specified pattern cannot
@@ -207,7 +215,7 @@ public final class ResourceLoader
 		final File[] allFiles = getDirectory(directoryPath).listFiles();
 		final List<File> validFiles = new ArrayList<>();
 
-		for (final File file: allFiles)
+		for (final File file : allFiles)
 		{
 			if (file.getName().contains(pattern))
 			{
@@ -222,7 +230,8 @@ public final class ResourceLoader
 	 * Retuns the specified {@link File}.
 	 *
 	 * @param directoryPath The path to the directory
-	 * @param fileName The name of the desired File
+	 * @param fileName      The name of the desired File
+	 *
 	 * @return The File with the specified fileName from the specified directory
 	 *
 	 * @precondition The directoryPath has to point to a valid directory (not null).
@@ -232,7 +241,7 @@ public final class ResourceLoader
 	{
 		final File[] files = getDirectory(directoryPath).listFiles();
 
-		for (final File currentFile: files)
+		for (final File currentFile : files)
 		{
 			if (currentFile.getName().equals(fileName))
 			{
@@ -254,16 +263,16 @@ public final class ResourceLoader
 	 * {@link GameBoardConstants#BLOCKED_TILE}.
 	 *
 	 * @param filePath The path to the file from which the Tile-Array should be constructed
-	 * @return TileArray that represents the content of the specified file
 	 *
-	 * @see GameBoardConstants
-	 * @see BufferedReader
-	 * @see Tile
+	 * @return TileArray that represents the content of the specified file
 	 *
 	 * @precondition The filePath has to point to a vaild file (not null) that is the right size and contains the
 	 * allowed characters and does not exceed the UTF-8 character range
 	 * @postcondition The Tile-Array representation of the file content is returned with the character-representations
 	 * having been exchanged for the Tile-Objects
+	 * @see GameBoardConstants
+	 * @see BufferedReader
+	 * @see Tile
 	 */
 	public static Tile[][] createTileArrayFromFile (final String filePath)
 	{
@@ -302,7 +311,6 @@ public final class ResourceLoader
 			//goes through each column of the gameboard
 			for (int column = 0; column < GAME_BOARD_COLUMN_COUNT; column++)
 			{
-				// TODO: bundle these classes into an enum or sth - vincent
 				//determines the tile that is added to the game board from the file with the help of characters
 				switch (charArray[column])
 				{
@@ -325,6 +333,7 @@ public final class ResourceLoader
 	 * Determines and returns the number of Lines that are in a given File.
 	 *
 	 * @param filePath The path to the file
+	 *
 	 * @return number of lines in the specified file
 	 *
 	 * @precondition filePath must point to a valid file (not null); file must adhere to the UTF-8 characterset
@@ -341,13 +350,15 @@ public final class ResourceLoader
 		{
 			throw new RuntimeException(e);
 		}
-		 return numberOfLines;
+		return numberOfLines;
 	}
+
 
 	/**
 	 * Creates a {@link BufferedReader} from the specified file
 	 *
 	 * @param filePath The Path to the file that should be converted to a {@link BufferedReader}
+	 *
 	 * @return {@link BufferedReader} of the specified File
 	 *
 	 * @precondition The filePath has to point to a valid file (not null); The file must contain only UTF-8 characters
@@ -364,4 +375,5 @@ public final class ResourceLoader
 			throw new RuntimeException(e);
 		}
 	}
+
 }

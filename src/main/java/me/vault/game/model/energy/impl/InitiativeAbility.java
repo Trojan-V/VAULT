@@ -36,6 +36,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  */
 public final class InitiativeAbility extends EnergyAbility
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -217,6 +218,7 @@ public final class InitiativeAbility extends EnergyAbility
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance can be accessed in the program.
 	 */

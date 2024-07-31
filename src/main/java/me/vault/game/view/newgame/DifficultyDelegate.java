@@ -73,11 +73,10 @@ public final class DifficultyDelegate implements Initializable
 	 * Calls a method to display the content stored in {@link DifficultyDelegate#DIFFICULTY_VIEW_FXML} and
 	 * initialized by {@link DifficultyDelegate#initialize(URL, ResourceBundle)} on the main stage of this
 	 * application ({@link GameApplication#getStage()}).
-	 * 
-	 * @see ViewUtil#show(Stage, Scene, Class) 
 	 *
 	 * @precondition The GameApplication has to have a stage
 	 * @postcondition The initialized difficulty scene is shown on the GameApplication Stage
+	 * @see ViewUtil#show(Stage, Scene, Class)
 	 */
 	public static void show ()
 	{
@@ -161,4 +160,5 @@ public final class DifficultyDelegate implements Initializable
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
 	}
+
 }

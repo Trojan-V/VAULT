@@ -35,6 +35,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 * @param entry The entry that's about to be inserted.
 	 *
 	 * @return The value of the inserted entry.
+	 *
 	 * @precondition The entry is supplied.
 	 * @postcondition The validated Hashmap contains thr supplied entry
 	 */
@@ -48,6 +49,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 * Returns a string representation of this validated {@link HashMap} including each entry in the map.
 	 *
 	 * @return A string representation of this validated {@link HashMap}.
+	 *
 	 * @precondition The {@link ValidatedEntriesHashMap#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -76,6 +78,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 */
 	public static class Entry<E, F> implements Map.Entry<E, F>
 	{
+
 		/**
 		 * The {@link MessageFormat} pattern, which is used, when the {@link Artifact#toString()} is
 		 * called.
@@ -167,6 +170,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 * {@link Entry#TO_STRING_PATTERN}.
 		 *
 		 * @return A {@link String} which has been formatted in the {@link Entry#TO_STRING_PATTERN}.
+		 *
 		 * @precondition The {@link Entry#TO_STRING_PATTERN} is {@code != null}.
 		 * @postcondition The method returned a {@link String} which represents the object.
 		 */
@@ -175,6 +179,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		{
 			return MessageFormat.format(TO_STRING_PATTERN, this.key.toString(), this.value.toString());
 		}
+
 	}
 
 }

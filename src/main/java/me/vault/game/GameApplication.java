@@ -87,4 +87,5 @@ public class GameApplication extends Application
 			ExitGameDialogDelegate.show();
 		});
 	}
+
 }

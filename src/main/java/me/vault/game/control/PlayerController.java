@@ -15,8 +15,6 @@ import java.util.List;
 
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
-// TODO: Pre und POst
-
 
 /**
  * Controller class to handle the movement of the player on the mission {@link GameBoard}.
@@ -56,6 +54,9 @@ public final class PlayerController
 	 *
 	 * @param player     The instance of the player whose {@link Faction} should be changed.
 	 * @param newFaction The new {@link Faction} the player changes to.
+	 *
+	 * @precondition The Player has been initialized and is able to set a selected faction.
+	 * @postcondition The currently selected faction in the player was changed.
 	 */
 	public static void changeSelectedFaction (final Player player, final Faction newFaction)
 	{

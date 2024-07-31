@@ -9,9 +9,7 @@ import me.vault.game.view.newgame.TutorialDelegate;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- *
  * @see TutorialDelegate
- *
  * @since 30.07.2024
  */
 public interface TutorialConstants

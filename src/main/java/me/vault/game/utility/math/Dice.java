@@ -14,6 +14,7 @@ import java.util.Random;
  */
 public final class Dice
 {
+
 	/**
 	 * The lower bound of a usual dice.
 	 * A usual dice always starts with the number one and doesn't have a zero or any negative numbers.
@@ -35,6 +36,7 @@ public final class Dice
 	 * As this class is a singleton, no other class should be able to instantiate it.
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
 	 * @precondition None.
 	 * @postcondition An instance of this class was constructed.
 	 */
@@ -47,6 +49,7 @@ public final class Dice
 	 * Therefore, an extra method is provided here for convenience.
 	 *
 	 * @return An integer between one and 100.
+	 *
 	 * @precondition None.
 	 * @postcondition An integer between {@link Dice#LOWER_BOUND} and {@link Dice#D100_UPPER_BOUND} was returned.
 	 */
@@ -64,7 +67,9 @@ public final class Dice
 	 * For instance, if a 100 is supplied as a parameter, the roll corresponds to the lesser-known D100 dice.
 	 *
 	 * @param diceSize The dice type. Passing a 100 here means rolling a D100 dice, for instance.
+	 *
 	 * @return An integer between {@link Dice#LOWER_BOUND} and the supplied diceSize parameter.
+	 *
 	 * @precondition An integer that determines the size of the dice has to be supplied as a parameter. This integer shouldn't be smaller than one.
 	 * @postcondition An integer between {@link Dice#LOWER_BOUND} and the supplied integer as parameter was returned.
 	 */
@@ -73,4 +78,5 @@ public final class Dice
 		final Random random = new Random();
 		return random.nextInt(LOWER_BOUND, diceSize);
 	}
+
 }

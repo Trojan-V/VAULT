@@ -33,6 +33,7 @@ import me.vault.game.utility.logging.Logger;
  */
 public class Config
 {
+
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
@@ -220,6 +221,7 @@ public class Config
 		ArtifactController.getInstance().updateValues(DamageArtifact.getInstance());
 		ArtifactController.getInstance().updateValues(DefenseArtifact.getInstance());
 	}
+
 
 	private void updateEnergyLevelsFromModels ()
 	{

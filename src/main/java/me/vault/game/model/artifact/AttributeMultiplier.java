@@ -81,6 +81,7 @@ public class AttributeMultiplier
 	 * {@link AttributeMultiplier#validate()} method for more information.
 	 *
 	 * @param modifiers The modifiers which are applied to the properties.
+	 *
 	 * @precondition The map of the attribute modifiers exists.
 	 * @postcondition Constructs an instance of  with the supplied modifies.
 	 */
@@ -146,6 +147,7 @@ public class AttributeMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param damageMultiplier The new value for the damage multiplier.
+	 *
 	 * @precondition The property of the damage multiplier exists.
 	 * @postcondition The property of the damage multiplier is set.
 	 */
@@ -162,6 +164,7 @@ public class AttributeMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param healthMultiplier The new value for the health multiplier.
+	 *
 	 * @precondition The property of the health multiplier exists.
 	 * @postcondition The property of the health multiplier is set.
 	 */
@@ -178,6 +181,7 @@ public class AttributeMultiplier
 	 * multiplier value gets automatically updated in the GUI.
 	 *
 	 * @param defenseMultiplier The new value for the defense multiplier.
+	 *
 	 * @precondition The property of the defence multiplier exists.
 	 * @postcondition The property of the defence multiplier is set.
 	 */
@@ -193,6 +197,7 @@ public class AttributeMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the damage multiplier.
+	 *
 	 * @precondition The property of the damage multiplier exists.
 	 * @postcondition The property of the damage multiplier is accessible for the program.
 	 */
@@ -208,6 +213,7 @@ public class AttributeMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the health multiplier.
+	 *
 	 * @precondition The property of the health multiplier exists.
 	 * @postcondition The property of the health multiplier is accessible for the program.
 	 */
@@ -223,6 +229,7 @@ public class AttributeMultiplier
 	 * for JavaFX to be able to update the data in the GUI element automatically.
 	 *
 	 * @return The property which is wrapped around the defense multiplier.
+	 *
 	 * @precondition The property of the defense multiplier exists.
 	 * @postcondition The property of the defense multiplier is accessible for the program.
 	 */
@@ -236,6 +243,7 @@ public class AttributeMultiplier
 	 * Returns the instance of this class in a human-readable format by creating a string.
 	 *
 	 * @return The message in its string representation.
+	 *
 	 * @precondition The {@link Artifact} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

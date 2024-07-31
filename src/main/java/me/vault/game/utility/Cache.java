@@ -30,6 +30,7 @@ public final class Cache
 	 */
 	private Cache () {}
 
+
 	/**
 	 * Returns if the cheats are enabled or not.
 	 *
@@ -56,4 +57,5 @@ public final class Cache
 	{
 		areCheatsEnabled = enabled;
 	}
+
 }

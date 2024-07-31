@@ -374,6 +374,7 @@ public enum ConsoleColor
 	 * Constructs an instance of the ConsoleColor enum entry.
 	 *
 	 * @param code The console color ANSI string which each enum entry holds as it's first parameter.
+	 *
 	 * @precondition An ANSI code that represents a color code that can be printed out in the console has to be supplied as a parameter.
 	 * @postcondition An instance of this class was constructed.
 	 */
@@ -387,6 +388,7 @@ public enum ConsoleColor
 	 * The code returned here has to be printed into the console to change the color displayed in the console.
 	 *
 	 * @return The console color as ANSI string.
+	 *
 	 * @precondition The {@link ConsoleColor#code} is not equal to null.
 	 * @postcondition The string representation of the console color code was returned.
 	 */

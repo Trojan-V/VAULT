@@ -23,6 +23,7 @@ import java.text.MessageFormat;
  */
 public class UpgradeRunnable implements Runnable
 {
+
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link Artifact#toString()} is
 	 * called.
@@ -46,7 +47,8 @@ public class UpgradeRunnable implements Runnable
 	 * Constructs an instance of this class.
 	 *
 	 * @param upgradable The {@link Upgradable} instance that'll be upgraded by the {@link Upgrader}.
-	 * @param upgrader The {@link Upgrader} that provides the upgrade() method to upgrade the {@link Upgradable}.
+	 * @param upgrader   The {@link Upgrader} that provides the upgrade() method to upgrade the {@link Upgradable}.
+	 *
 	 * @precondition The constructor is invoked and an {@link Upgradable} and {@link Upgrader} are supplied as parameter.
 	 * @postcondition An instance of this class was constructed.
 	 */

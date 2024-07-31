@@ -13,6 +13,7 @@ import me.vault.game.utility.logging.Logger;
 
 // TODO: Complete JavaDoc needed
 
+
 /**
  *
  */
@@ -60,4 +61,5 @@ public final class TimelineElementHBox extends HBox
 		this.getChildren().add(statistics);
 		this.setSpacing(H_BOX_OFFSET);
 	}
+
 }

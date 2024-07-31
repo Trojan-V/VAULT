@@ -72,15 +72,15 @@ public final class PrologueDelegate implements Initializable
 	 * by {@link PrologueDelegate#initialize(URL, ResourceBundle)} on the main stage of this application
 	 * ({@link GameApplication#getStage()})
 	 *
-	 * @see ViewUtil#show(Stage, Scene, Class)
-	 *
 	 * @precondition The GameApplication has to have a stage.
 	 * @postcondition The initialized prolog is shown on the GameApplication Stage.
+	 * @see ViewUtil#show(Stage, Scene, Class)
 	 */
 	public static void show ()
 	{
 		ViewUtil.show(GameApplication.getStage(), ResourceLoader.loadScene(PrologueDelegate.class, PROLOG_VIEW_FXML), PrologueDelegate.class);
 	}
+
 
 	/**
 	 * Handles the button action "click" that is defined in the FXML-File.

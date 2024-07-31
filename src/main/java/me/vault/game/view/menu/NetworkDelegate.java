@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 
 // TODO: Almost complete JavaDoc needed
 
+
 /**
  *
  */
@@ -50,7 +51,6 @@ public final class NetworkDelegate implements Initializable
 		STAGE.initModality(Modality.APPLICATION_MODAL);
 		STAGE.getIcons().add(ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH));
 	}
-
 
 
 	@FXML
@@ -110,6 +110,7 @@ public final class NetworkDelegate implements Initializable
 		}
 	}
 
+
 	/**
 	 * Initializes the fxml-view and sets program-specific bindings and properties. Gets called internally by JavaFX.
 	 *
@@ -160,6 +161,7 @@ public final class NetworkDelegate implements Initializable
 			stage.close();
 		}
 	}
+
 
 	/**
 	 * Builds a formatted {@link String} which represents the object, and it's current state using the

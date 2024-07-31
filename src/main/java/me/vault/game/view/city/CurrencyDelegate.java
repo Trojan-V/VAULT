@@ -20,6 +20,7 @@ import static me.vault.game.utility.interfaces.constant.LoggingConstants.Currenc
 import static me.vault.game.utility.interfaces.constant.LoggingConstants.Currency.NEW_CURRENCY_VALUES;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
+
 /**
  * Controller class for the {@link Currency} enum. Handles a ton of stuff related to factoring currencies or
  * displaying the banner scene that shows all currencies the player owns as the top bar of the GUI.
@@ -187,4 +188,5 @@ public final class CurrencyDelegate implements Initializable
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, BANNER_FXML_FILE_PATH);
 	}
+
 }

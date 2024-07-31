@@ -20,6 +20,7 @@ import static me.vault.game.utility.interfaces.constant.TroopStatisticConstants.
 
 // TODO: Complete JavaDoc needed
 
+
 public final class TroopUpgradePane extends GridPane
 {
 
@@ -52,17 +53,6 @@ public final class TroopUpgradePane extends GridPane
 		this.addTroopImageViews(troops);
 		this.addNameAndUpgradeControl(troops);
 		this.addAttributeGrids(troops);
-	}
-
-
-	private void addAttributeGrids (final Troop[] troops)
-	{
-		for (int i = 0; i < troops.length; i++)
-		{
-			final GridPane attributeGridPane = createAttributeGridPane(troops[i]);
-			this.add(attributeGridPane, 2, i);
-		}
-
 	}
 
 
@@ -141,23 +131,6 @@ public final class TroopUpgradePane extends GridPane
 	}
 
 
-	private void addNameAndUpgradeControl (final Troop[] troops)
-	{
-		for (int i = 0; i < troops.length; i++)
-		{
-			final AnchorPane troopNameUpgradeAnchorPane = new AnchorPane();
-
-			final Label troopNameLabel = createTroopNameLabel(troops[i]);
-			troopNameUpgradeAnchorPane.getChildren().add(troopNameLabel);
-
-			final Button upgradeButton = createUpgradeButton(troops, i);
-			troopNameUpgradeAnchorPane.getChildren().add(upgradeButton);
-
-			this.add(troopNameUpgradeAnchorPane, 1, i);
-		}
-	}
-
-
 	@NotNull
 	private static Button createUpgradeButton (final Troop[] troops, final int i)
 	{
@@ -180,6 +153,34 @@ public final class TroopUpgradePane extends GridPane
 		troopNameLabel.setLayoutX(X_OFFSET_NAME_LABEL);
 		troopNameLabel.setLayoutY(Y_OFFSET_NAME_LABEL);
 		return troopNameLabel;
+	}
+
+
+	private void addAttributeGrids (final Troop[] troops)
+	{
+		for (int i = 0; i < troops.length; i++)
+		{
+			final GridPane attributeGridPane = createAttributeGridPane(troops[i]);
+			this.add(attributeGridPane, 2, i);
+		}
+
+	}
+
+
+	private void addNameAndUpgradeControl (final Troop[] troops)
+	{
+		for (int i = 0; i < troops.length; i++)
+		{
+			final AnchorPane troopNameUpgradeAnchorPane = new AnchorPane();
+
+			final Label troopNameLabel = createTroopNameLabel(troops[i]);
+			troopNameUpgradeAnchorPane.getChildren().add(troopNameLabel);
+
+			final Button upgradeButton = createUpgradeButton(troops, i);
+			troopNameUpgradeAnchorPane.getChildren().add(upgradeButton);
+
+			this.add(troopNameUpgradeAnchorPane, 1, i);
+		}
 	}
 
 
