@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.gameboard.tile.impl.ArenaStartTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.ArenaStartTileAppearance;
 import me.vault.game.utility.interfaces.constant.ArenaConstants;
 import me.vault.game.utility.interfaces.constant.MissionConstants;
 

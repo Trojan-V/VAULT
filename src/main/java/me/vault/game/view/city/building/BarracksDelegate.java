@@ -12,7 +12,7 @@ import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.control.PlayerController;
 import me.vault.game.model.Player;
-import me.vault.game.model.city.impl.Barracks;
+import me.vault.game.model.city.implementation.Barracks;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;

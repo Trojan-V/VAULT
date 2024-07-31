@@ -27,7 +27,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Sniper
+	 * @see me.vault.game.model.troop.implementation.Sniper
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 21.06.2024
 	 */
@@ -124,7 +124,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Ranger
+	 * @see me.vault.game.model.troop.implementation.Ranger
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 21.06.2024
 	 */
@@ -222,7 +222,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Medic
+	 * @see me.vault.game.model.troop.implementation.Medic
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 21.06.2024
 	 */
@@ -319,7 +319,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.SpaceMarine
+	 * @see me.vault.game.model.troop.implementation.SpaceMarine
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */
@@ -419,7 +419,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Officer
+	 * @see me.vault.game.model.troop.implementation.Officer
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */
@@ -516,7 +516,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Engineer
+	 * @see me.vault.game.model.troop.implementation.Engineer
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */
@@ -613,7 +613,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Guard
+	 * @see me.vault.game.model.troop.implementation.Guard
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */
@@ -710,7 +710,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Grenadier
+	 * @see me.vault.game.model.troop.implementation.Grenadier
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */
@@ -807,7 +807,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Recruit
+	 * @see me.vault.game.model.troop.implementation.Recruit
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */
@@ -904,7 +904,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Infantry
+	 * @see me.vault.game.model.troop.implementation.Infantry
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */
@@ -1001,7 +1001,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.Lieutenant
+	 * @see me.vault.game.model.troop.implementation.Lieutenant
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */
@@ -1099,7 +1099,7 @@ public interface TroopConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.troop.impl.PrecisionShooter
+	 * @see me.vault.game.model.troop.implementation.PrecisionShooter
 	 * @see me.vault.game.model.troop.Troop
 	 * @since 23.06.2024
 	 */

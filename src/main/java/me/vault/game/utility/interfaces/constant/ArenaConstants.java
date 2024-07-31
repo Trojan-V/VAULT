@@ -4,10 +4,10 @@ package me.vault.game.utility.interfaces.constant;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.troop.impl.Lieutenant;
-import me.vault.game.model.troop.impl.Ranger;
-import me.vault.game.model.troop.impl.Recruit;
-import me.vault.game.model.troop.impl.Sniper;
+import me.vault.game.model.troop.implementation.Lieutenant;
+import me.vault.game.model.troop.implementation.Ranger;
+import me.vault.game.model.troop.implementation.Recruit;
+import me.vault.game.model.troop.implementation.Sniper;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.util.ArrayList;

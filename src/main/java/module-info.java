@@ -25,12 +25,12 @@ module me.vault.game {
 	exports me.vault.game.model.network;
 	exports me.vault.game.model.troop;
 
-	exports me.vault.game.model.artifact.impl;
-	exports me.vault.game.model.city.impl;
-	exports me.vault.game.model.energy.impl;
+	exports me.vault.game.model.artifact.implementation;
+	exports me.vault.game.model.city.implementation;
+	exports me.vault.game.model.energy.implementation;
 	exports me.vault.game.model.gameboard.tile;
-	exports me.vault.game.model.gameboard.tile.impl;
-	exports me.vault.game.model.troop.impl;
+	exports me.vault.game.model.gameboard.tile.implementation;
+	exports me.vault.game.model.troop.implementation;
 
 	exports me.vault.game.utility.comparators;
 	exports me.vault.game.utility.concurrency;
@@ -54,31 +54,46 @@ module me.vault.game {
 	exports me.vault.game.view.city.building;
 
 
+	opens me.vault.game to javafx.fxml, com.google.gson;
+	opens me.vault.game.control to javafx.fxml, com.google.gson;
+	opens me.vault.game.model to javafx.fxml, com.google.gson;
+	opens me.vault.game.view to javafx.fxml, com.google.gson;
+	opens me.vault.game.utility to javafx.fxml, com.google.gson;
 
+	opens me.vault.game.model.arena to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.artifact to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.city to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.currency to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.energy to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.gameboard to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.network to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.troop to javafx.fxml, com.google.gson;
 
+	opens me.vault.game.model.artifact.implementation to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.city.implementation to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.energy.implementation to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.gameboard.tile to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.gameboard.tile.implementation to javafx.fxml, com.google.gson;
+	opens me.vault.game.model.troop.implementation to javafx.fxml, com.google.gson;
 
-	opens me.vault.game to javafx.fxml;
+	opens me.vault.game.utility.comparators to javafx.fxml, com.google.gson;
+	opens me.vault.game.utility.concurrency to javafx.fxml, com.google.gson;
+	opens me.vault.game.utility.datatypes to javafx.fxml, com.google.gson;
+	opens me.vault.game.utility.exception to javafx.fxml, com.google.gson;
+	opens me.vault.game.utility.fx to javafx.fxml, com.google.gson;
+	opens me.vault.game.utility.interfaces to javafx.fxml, com.google.gson;
+	opens me.vault.game.utility.jvm to javafx.fxml, com.google.gson;
+	opens me.vault.game.utility.logging to javafx.fxml, com.google.gson;
 	opens me.vault.game.utility.loading to javafx.fxml, com.google.gson;
-	opens me.vault.game.model.artifact to javafx.fxml;
-	opens me.vault.game.model.currency to javafx.fxml;
-	opens me.vault.game.model.artifact.impl to javafx.fxml;
-	opens me.vault.game.view to javafx.fxml;
-	opens me.vault.game.control to javafx.fxml;
-	opens me.vault.game.model.city to javafx.fxml;
-	opens me.vault.game.view.city to javafx.fxml;
-	opens me.vault.game.view.city.building to javafx.fxml;
-	opens me.vault.game.view.mission to javafx.fxml;
-	opens me.vault.game.model.arena to javafx.fxml;
-	opens me.vault.game.model.energy to javafx.fxml;
-	opens me.vault.game.utility.fx to javafx.fxml;
-	opens me.vault.game.model.gameboard to javafx.fxml;
-	opens me.vault.game.model.gameboard.tile to javafx.fxml;
-	opens me.vault.game.model.gameboard.tile.impl to javafx.fxml;
-	opens me.vault.game.model.city.impl to javafx.fxml;
-	opens me.vault.game.model to javafx.fxml;
-	opens me.vault.game.utility to com.google.gson, javafx.fxml;
-	opens me.vault.game.utility.math to com.google.gson, javafx.fxml;
-	opens me.vault.game.view.arena to javafx.fxml;
-	opens me.vault.game.view.menu to javafx.fxml;
-	opens me.vault.game.view.newgame to javafx.fxml;
+	opens me.vault.game.utility.math to javafx.fxml, com.google.gson;
+
+	opens me.vault.game.utility.interfaces.constant to javafx.fxml, com.google.gson;
+
+	opens me.vault.game.view.arena to javafx.fxml, com.google.gson;
+	opens me.vault.game.view.city to javafx.fxml, com.google.gson;
+	opens me.vault.game.view.menu to javafx.fxml, com.google.gson;
+	opens me.vault.game.view.mission to javafx.fxml, com.google.gson;
+	opens me.vault.game.view.newgame to javafx.fxml, com.google.gson;
+
+	opens me.vault.game.view.city.building to javafx.fxml, com.google.gson;
 }

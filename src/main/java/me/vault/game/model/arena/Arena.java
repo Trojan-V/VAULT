@@ -4,7 +4,7 @@ package me.vault.game.model.arena;
 import me.vault.game.model.Player;
 import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.logging.ILogger;

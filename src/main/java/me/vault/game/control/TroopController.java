@@ -3,7 +3,7 @@ package me.vault.game.control;
 
 import javafx.application.Platform;
 import me.vault.game.model.city.CityBuildingLevel;
-import me.vault.game.model.city.impl.TrainingFacility;
+import me.vault.game.model.city.implementation.TrainingFacility;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;

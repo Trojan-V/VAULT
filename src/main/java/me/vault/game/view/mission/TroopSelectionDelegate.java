@@ -18,7 +18,7 @@ import me.vault.game.model.Player;
 import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
-import me.vault.game.model.troop.impl.*;
+import me.vault.game.model.troop.implementation.*;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.SelectedAlliesGridPane;
 import me.vault.game.utility.interfaces.constant.LoggingConstants;

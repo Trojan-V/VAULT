@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import me.vault.game.model.Player;
 import me.vault.game.model.gameboard.tile.Tile;
-import me.vault.game.model.gameboard.tile.impl.*;
+import me.vault.game.model.gameboard.tile.implementation.*;
 import me.vault.game.utility.datatypes.MetaDataImage;
 import me.vault.game.utility.exception.InvalidMapFileFormatException;
 import me.vault.game.utility.interfaces.constant.GameBoardConstants;
