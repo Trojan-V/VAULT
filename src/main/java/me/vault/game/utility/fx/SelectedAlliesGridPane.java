@@ -127,12 +127,6 @@ public final class SelectedAlliesGridPane extends GridPane
 	}
 
 
-	public Troop[] getSelectedTroops ()
-	{
-		return this.selectedTroops;
-	}
-
-
 	private void addControls ()
 	{
 		this.add(this.firstTroopLabel, 0, 0);
