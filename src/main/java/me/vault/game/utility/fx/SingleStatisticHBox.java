@@ -14,15 +14,13 @@ import me.vault.game.utility.loading.ResourceLoader;
 
 import java.text.MessageFormat;
 
-// TODO: Complete JavaDoc needed
-
 
 /**
  * An {@link HBox} which is used to display a single statistic.
  * <br>
- * These HBox'es are usually added to a {@link GridPane}.
+ * These HBoxes are usually added to a {@link GridPane}.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see GridPane
  * @see TroopController
@@ -37,30 +35,29 @@ public class SingleStatisticHBox extends HBox
 	 */
 	private static final int ATTRIBUTE_SPACING = 10;
 
-
 	/**
 	 * The pattern used to create the string which describes the class in a human-readable format.
 	 */
-	private static final String TO_STRING_PATTERN =
-		"SingleStatisticHBox'{'spritePath=''{0}'', name=''{1}'', property={2}'}'";
+	private static final String TO_STRING_PATTERN = "SingleStatisticHBox'{'spritePath=''{0}'', name=''{1}'', property={2}'}'";
 
+	/**
+	 * Te font size of the labels in the {@link SingleStatisticHBox}.
+	 */
+	private static final int FONT_SIZE = 18;
 
 	/**
 	 * The path to the sprite of the statistic that is displayed within this {@link HBox}.
 	 */
 	private final String spritePath;
 
-
 	/**
 	 * The name of the statistic that is displayed within this {@link HBox}.
 	 */
 	private final String name;
 
-
 	/**
 	 * The property that is bound to the JavaFX GUI to be able to update the data within the GUI, so it's visible to
-	 * the
-	 * player.
+	 * the player.
 	 */
 	private final NumberExpression property;
 
@@ -76,12 +73,17 @@ public class SingleStatisticHBox extends HBox
 	 * @param spritePath The path to the sprite of the statistic.
 	 * @param name       The name of the statistic.
 	 * @param property   The property that is bound to the JavaFX GUI.
+	 *
+	 * @precondition The constructor gets called and all parameters are != null.
+	 * @postcondition A new instance of {@link SingleStatisticHBox} was created.
 	 */
-	public SingleStatisticHBox (final String spritePath, final String name, final NumberExpression property)
+	SingleStatisticHBox (final String spritePath, final String name, final NumberExpression property)
 	{
 		this.spritePath = spritePath;
 		this.name = name;
 		this.property = property;
+		this.setAlignment(Pos.CENTER_LEFT);
+		this.setSpacing(ATTRIBUTE_SPACING);
 		this.addData();
 	}
 
@@ -90,17 +92,19 @@ public class SingleStatisticHBox extends HBox
 	 * Adds the supplied data to the {@link HBox}.
 	 * <br>
 	 * The added data consists of the statistic's sprite, name, and property.
+	 *
+	 * @precondition The method gets called and the instance of {@link SingleStatisticHBox} is != null.
+	 * @postcondition The relevant data of the statistic got added to the instance of {@link SingleStatisticHBox}.
 	 */
 	private void addData ()
 	{
-		this.setAlignment(Pos.CENTER_LEFT);
-		this.setSpacing(ATTRIBUTE_SPACING);
-
 		final Label attributeValueLabel = new Label();
-		attributeValueLabel.setFont(new Font(18));
+		attributeValueLabel.setFont(new Font(FONT_SIZE));
 		attributeValueLabel.textProperty().bind(this.property.asString());
+
 		final Label nameLabel = new Label(this.name);
-		nameLabel.setFont(new Font(18));
+		nameLabel.setFont(new Font(FONT_SIZE));
+
 		this.getChildren().add(new ImageView(ResourceLoader.loadImage(this.spritePath)));
 		this.getChildren().add(nameLabel);
 		this.getChildren().add(attributeValueLabel);
@@ -108,9 +112,12 @@ public class SingleStatisticHBox extends HBox
 
 
 	/**
-	 * Returns the instance of this class in a human-readable format by creating a string.
+	 * Builds a formatted {@link String} which represents the object, and it's current state using the {@link SingleStatisticHBox#TO_STRING_PATTERN}.
 	 *
-	 * @return The instance in its string representation.
+	 * @return A {@link String} which has been formatted in the {@link SingleStatisticHBox#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link SingleStatisticHBox#TO_STRING_PATTERN} is {@code != null} and both of the instance variables are set.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()

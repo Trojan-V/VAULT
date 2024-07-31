@@ -74,7 +74,7 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	/**
 	 * The {@link Position} of the "upgrade" button in the button grid.
 	 */
-	private static final Position UPGRADE_BUTTON_POSITION = new Position(0, 0);
+	private static final Position UPGRADE_BUTTON_POSITION = new Position(0, 1);
 
 	/**
 	 * The {@link CityBuilding} that is the template for the {@link CityBuildingAnchorPane}
@@ -93,9 +93,9 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	public CityBuildingAnchorPane (final CityBuilding cityBuilding)
 	{
 		this.cityBuilding = cityBuilding;
-		final Button interactButton = this.createInteractButton(cityBuilding);
-		final Button upgradeButton = this.createUpgradeButton(cityBuilding);
 		final GridPane buttonGrid = createButtonGridPane();
+		final Button upgradeButton = this.createUpgradeButton(cityBuilding);
+		final Button interactButton = this.createInteractButton(cityBuilding);
 
 		buttonGrid.add(interactButton, INTERACT_BUTTON_POSITION.x(), INTERACT_BUTTON_POSITION.y());
 		buttonGrid.add(upgradeButton, UPGRADE_BUTTON_POSITION.x(), UPGRADE_BUTTON_POSITION.y());
