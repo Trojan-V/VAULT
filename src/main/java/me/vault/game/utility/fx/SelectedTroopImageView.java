@@ -11,7 +11,7 @@ import me.vault.game.utility.loading.ResourceLoader;
 
 
 /**
- * The {@code SelectedTroopImageView} represents one building pane in the city delegate view.
+ * The {@code SelectedTroopImageView} represents one image view in the troop selection view.
  * It extends the standard {@link ImageView} and automatically initializes the right graphic and design.
  * The {@code SelectedTroopImageView} is mainly used in the troop selection view and handles the display of the already selected troops.
  *
