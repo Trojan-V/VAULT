@@ -13,7 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import me.vault.game.model.Mission;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.utility.fx.RewardGridPane;
+import me.vault.game.utility.fx.CurrencyTransactionGridPane;
 import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.interfaces.constant.LoggingConstants;
 import me.vault.game.utility.interfaces.constant.MissionConstants;
@@ -132,7 +132,7 @@ public final class MissionFinishedDialogDelegate
 	private void setMission (final Mission mission)
 	{
 		this.mission = mission;
-		this.rewardPane.getChildren().add(new RewardGridPane(this.mission.getMissionReward()));
+		this.rewardPane.getChildren().add(new CurrencyTransactionGridPane(this.mission.getMissionReward()));
 	}
 
 

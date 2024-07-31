@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.model.Mission;
 import me.vault.game.utility.ViewUtil;
-import me.vault.game.utility.fx.RewardGridPane;
+import me.vault.game.utility.fx.CurrencyTransactionGridPane;
 import me.vault.game.utility.interfaces.constant.LoggingConstants;
 import me.vault.game.utility.interfaces.constant.MissionConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -76,25 +76,25 @@ public final class MissionSelectionDelegate implements Initializable
 	private AnchorPane mainPane;
 
 	/**
-	 * The {@link AnchorPane} which contains the {@link RewardGridPane} for the first {@link Mission}.
+	 * The {@link AnchorPane} which contains the {@link CurrencyTransactionGridPane} for the first {@link Mission}.
 	 */
 	@FXML
 	private AnchorPane missionOneRewardPane;
 
 	/**
-	 * The {@link AnchorPane} which contains the {@link RewardGridPane} for the second {@link Mission}.
+	 * The {@link AnchorPane} which contains the {@link CurrencyTransactionGridPane} for the second {@link Mission}.
 	 */
 	@FXML
 	private AnchorPane missionTwoRewardPane;
 
 	/**
-	 * The {@link AnchorPane} which contains the {@link RewardGridPane} for the third {@link Mission}.
+	 * The {@link AnchorPane} which contains the {@link CurrencyTransactionGridPane} for the third {@link Mission}.
 	 */
 	@FXML
 	private AnchorPane missionThreeRewardPane;
 
 	/**
-	 * The {@link AnchorPane} which contains the {@link RewardGridPane} for the fourth {@link Mission}.
+	 * The {@link AnchorPane} which contains the {@link CurrencyTransactionGridPane} for the fourth {@link Mission}.
 	 */
 	@FXML
 	private AnchorPane missionFourRewardPane;
@@ -156,10 +156,10 @@ public final class MissionSelectionDelegate implements Initializable
 		this.selectMissionThreeButton.disableProperty().bind(MISSION_THREE.getIsCompletedProperty());
 		this.selectMissionFourButton.disableProperty().bind(MISSION_FOUR.getIsCompletedProperty());
 
-		this.missionOneRewardPane.getChildren().add(new RewardGridPane(MISSION_ONE_REWARDS));
-		this.missionTwoRewardPane.getChildren().add(new RewardGridPane(MISSION_TWO_REWARDS));
-		this.missionThreeRewardPane.getChildren().add(new RewardGridPane(MISSION_THREE_REWARDS));
-		this.missionFourRewardPane.getChildren().add(new RewardGridPane(MISSION_FOUR_REWARDS));
+		this.missionOneRewardPane.getChildren().add(new CurrencyTransactionGridPane(MISSION_ONE_REWARDS));
+		this.missionTwoRewardPane.getChildren().add(new CurrencyTransactionGridPane(MISSION_TWO_REWARDS));
+		this.missionThreeRewardPane.getChildren().add(new CurrencyTransactionGridPane(MISSION_THREE_REWARDS));
+		this.missionFourRewardPane.getChildren().add(new CurrencyTransactionGridPane(MISSION_FOUR_REWARDS));
 
 		LOGGER.logf(ILogger.Level.DEBUG, CLASS_INITIALIZED_PATTERN, MissionSelectionDelegate.class.getSimpleName());
 	}
