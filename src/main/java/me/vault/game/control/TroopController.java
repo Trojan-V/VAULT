@@ -14,6 +14,8 @@ import me.vault.game.view.city.building.TrainingFacilityDelegate;
 
 import static me.vault.game.model.troop.TroopStatistics.*;
 
+// TODO: Pre und post
+
 
 /**
  * Controller class to handle all different actions related to troops.

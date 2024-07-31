@@ -73,7 +73,7 @@ public final class FigureController
 	 * <br>
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
 	 *
-	 * @precondition Constructor gets called from within the class
+	 * @precondition Constructor gets called from within the class.
 	 * @postcondition A new instance of FigureController is created.
 	 */
 	private FigureController () {}
