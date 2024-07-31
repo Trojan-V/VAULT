@@ -6,7 +6,7 @@ import me.vault.game.model.gameboard.Figure;
 
 import java.text.MessageFormat;
 
-// TODO: PRE UND POST!
+
 /**
  * This class provides the model for all different statistics a {@link Troop} has.
  * <br>
@@ -59,6 +59,9 @@ public class TroopStatistics
 	 * @param dexterity The dexterity statistics of the troop.
 	 * @param defensive The defensive statistics of the troop.
 	 * @param offensive The offensive statistics of the troop.
+	 *
+	 * @precondition The parameters dexterity, defensive and offensive must be != null.
+	 * @precondition Constructs an instance with the provided parameters as attributes.
 	 */
 	public TroopStatistics (final Dexterity dexterity, final Defensive defensive, final Offensive offensive)
 	{
@@ -82,6 +85,9 @@ public class TroopStatistics
 	 *
 	 * @param troopStatistics The statistics of the troop which are essentially copied to create a new instance with
 	 *                        identical values.
+	 *
+	 * @precondition The parameter troopStatistics has to be != null.
+	 * @postcondition Constructs an instance that equals the provided parameter.
 	 */
 	public TroopStatistics (final TroopStatistics troopStatistics)
 	{
@@ -95,6 +101,9 @@ public class TroopStatistics
 	 * Returns the dexterity statistics of the {@link Troop}.
 	 *
 	 * @return The dexterity statistics of the {@link Troop}.
+	 *
+	 * @precondition none.
+	 * @postcondition The 'dexterity' attribute is returned.
 	 */
 	public Dexterity getDexterity ()
 	{
@@ -106,6 +115,9 @@ public class TroopStatistics
 	 * Returns the defensive statistics of the {@link Troop}.
 	 *
 	 * @return The defensive statistics of the {@link Troop}.
+	 *
+	 * @precondition none.
+	 * @postcondition The 'defensive' attribute is returned.
 	 */
 	public Defensive getDefensive ()
 	{
@@ -117,6 +129,9 @@ public class TroopStatistics
 	 * Returns the offensive statistics of the {@link Troop}.
 	 *
 	 * @return The offensive statistics of the {@link Troop}.
+	 *
+	 * @precondition none.
+	 * @postcondition The 'offensive' attribute is returned.
 	 */
 	public Offensive getOffensive ()
 	{
@@ -125,9 +140,13 @@ public class TroopStatistics
 
 
 	/**
-	 * Returns the instance of this class in a human-readable format by creating a string.
+	 * Builds a formatted {@link String}, which represents the object, and it's current state using the
+	 * {@link TroopStatistics#TO_STRING_PATTERN}.
 	 *
-	 * @return The instance in its string representation.
+	 * @return A {@link String} which has been formatted in the {@link TroopStatistics#TO_STRING_PATTERN}.
+	 *
+	 * @precondition The {@link TroopStatistics#TO_STRING_PATTERN} is {@code != null}.
+	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override
 	public String toString ()
@@ -202,6 +221,9 @@ public class TroopStatistics
 		 * @param grenadeDamage The number of grenade damage the {@link Troop} deals.
 		 * @param grenadeAmount The number of grenades that are available to the {@link Troop}.
 		 * @param grenadeRange  The range of the {@link Troop}'s grenades.
+		 *
+		 * @precondition The parameters must be != null.
+		 * @postcondition Creates a new Instance with the provided parameters as attributes.
 		 */
 		public Offensive (final int energyPoints, final int meleeDamage, final int grenadeDamage, final int grenadeAmount, final int grenadeRange)
 		{
@@ -228,6 +250,9 @@ public class TroopStatistics
 		 *
 		 * @param offensiveStatistics The offensive statistics of the troop which are essentially copied to create a
 		 *                            new instance with identical values.
+		 *
+		 * @precondition The parameter must be != null.
+		 * @postcondition Constructs an instance that is equal to the provided parameter.
 		 */
 		public Offensive (final Offensive offensiveStatistics)
 		{
@@ -243,6 +268,9 @@ public class TroopStatistics
 		 * Returns the number of energy points the {@link Troop} has available.
 		 *
 		 * @return The number of energy points the {@link Troop} has available.
+		 *
+		 * @precondition none
+		 * @postcondition The value of the 'energyPoints' attribute is returned.
 		 */
 		public int getEnergyPoints ()
 		{
@@ -254,6 +282,9 @@ public class TroopStatistics
 		 * Sets the number of energy points of the {@link Troop}.
 		 *
 		 * @param energyPoints The number of energy points.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @postcondition The value of the attribute 'energyPoints' is set to the value of the parameter.
 		 */
 		public void setEnergyPoints (final int energyPoints)
 		{
@@ -267,6 +298,10 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param energyPoints The number of energy points.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The value of the attribute 'energyPoints' is set to the rounded (integer) value of the
+		 * parameter.
 		 */
 		public void setEnergyPoints (final float energyPoints)
 		{
@@ -279,6 +314,9 @@ public class TroopStatistics
 		 * {@link Troop}.
 		 *
 		 * @return The property used to store and display the energy points that are available to the {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'energyPoints' attribute is returned as a {@link SimpleIntegerProperty}.
 		 */
 		public SimpleIntegerProperty getEnergyPointsProperty ()
 		{
@@ -290,6 +328,9 @@ public class TroopStatistics
 		 * Returns the number of melee damage the {@link Troop} deals to an enemy.
 		 *
 		 * @return The number of melee damage the {@link Troop} deals to an enemy.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'meleeDamage' is returned.
 		 */
 		public int getMeleeDamage ()
 		{
@@ -301,6 +342,9 @@ public class TroopStatistics
 		 * Sets the number of melee damage the {@link Troop} deals to an enemy.
 		 *
 		 * @param meleeDamage The number of melee damage the {@link Troop} deals to an enemy.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'meleeDamage'.
 		 */
 		public void setMeleeDamage (final int meleeDamage)
 		{
@@ -314,6 +358,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param meleeDamage The number of melee damage the {@link Troop} deals to an enemy.
+		 *
+		 * @precondition none.
+		 * @postcondition The rounded value (int) of the parameter is set as the value of the attribute 'meleeDamage'.
 		 */
 		public void setMeleeDamage (final float meleeDamage)
 		{
@@ -327,6 +374,9 @@ public class TroopStatistics
 		 *
 		 * @return The property used to store and display the number of melee damage the {@link Troop} deals to an
 		 * enemy.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'meleeDamage' is returned.
 		 */
 		public SimpleIntegerProperty getMeleeDamageProperty ()
 		{
@@ -338,6 +388,9 @@ public class TroopStatistics
 		 * Returns the amount of grenade damage the {@link Troop} deals to enemies.
 		 *
 		 * @return The amount of grenade damage the {@link Troop} deals to enemies.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'grenadeDamage' attribute is returned.
 		 */
 		public int getGrenadeDamage ()
 		{
@@ -349,6 +402,9 @@ public class TroopStatistics
 		 * Sets the amount of grenade damage the {@link Troop} deals to enemies.
 		 *
 		 * @param grenadeDamage The amount of grenade damage the {@link Troop} deals to enemies.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'grenadeDamage'.
 		 */
 		public void setGrenadeDamage (final int grenadeDamage)
 		{
@@ -362,6 +418,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param grenadeDamage The amount of grenade damage the {@link Troop} deals to enemies.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The rounded value (int) of the parameter is set as the value of the attribute 'grenadeDamage'.
 		 */
 		public void setGrenadeDamage (final float grenadeDamage)
 		{
@@ -375,6 +434,9 @@ public class TroopStatistics
 		 *
 		 * @return The property used to store and display the amount of grenade damage the {@link Troop} deals to
 		 * enemies.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'grenadeDamage' attribute is returned.
 		 */
 		public SimpleIntegerProperty getGrenadeDamageProperty ()
 		{
@@ -386,6 +448,9 @@ public class TroopStatistics
 		 * Returns the number of grenades that are available to the {@link Troop}.
 		 *
 		 * @return The number of grenades that are available to the {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'grenadeAmount' attribute is returned.
 		 */
 		public int getGrenadeAmount ()
 		{
@@ -397,6 +462,9 @@ public class TroopStatistics
 		 * Sets the number of grenades that are available to the {@link Troop}.
 		 *
 		 * @param grenadeAmount The number of grenades that are available to the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'grenadeAmount'.
 		 */
 		public void setGrenadeAmount (final int grenadeAmount)
 		{
@@ -410,6 +478,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param grenadeAmount The number of grenades that are available to the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'grenadeAmount'.
 		 */
 		public void setGrenadeAmount (final float grenadeAmount)
 		{
@@ -423,6 +494,9 @@ public class TroopStatistics
 		 *
 		 * @return The property used to store and display the number of grenades that are available to the
 		 * {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'grenadeAmount' attribute is returned.
 		 */
 		public SimpleIntegerProperty getGrenadeAmountProperty ()
 		{
@@ -434,6 +508,9 @@ public class TroopStatistics
 		 * Returns the grenade range.
 		 *
 		 * @return The grenade range.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'grenadeRange' attribute is returned.
 		 */
 		public int getGrenadeRange ()
 		{
@@ -445,6 +522,9 @@ public class TroopStatistics
 		 * Sets the grenade range.
 		 *
 		 * @param grenadeRange The grenade range.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'grenadeRange'.
 		 */
 		public void setGrenadeRange (final int grenadeRange)
 		{
@@ -458,6 +538,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param grenadeRange The grenade range.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'grenadeRange'.
 		 */
 		public void setGrenadeRange (final float grenadeRange)
 		{
@@ -469,6 +552,9 @@ public class TroopStatistics
 		 * Returns the property used to store and display the range of the grenades.
 		 *
 		 * @return The property used to store and display the range of the grenades.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'grenadeRange' is returned.
 		 */
 		public SimpleIntegerProperty getGrenadeRangeProperty ()
 		{
@@ -551,6 +637,10 @@ public class TroopStatistics
 		 * @param armor      The number of armor points that are available to the {@link Troop}.
 		 * @param dodgeRate  The dodge rate of the {@link Troop}.
 		 * @param resistance The number of resistance points that are available to the {@link Troop}.
+		 *
+		 * @precondition The parameters must be != null.
+		 * @postcondition Creates a new {@code Defensive}-Instance with the provided parameters values as attribute
+		 * values.
 		 */
 		public Defensive (final int health, final int armor, final int dodgeRate, final int resistance)
 		{
@@ -576,6 +666,9 @@ public class TroopStatistics
 		 *
 		 * @param defensiveStatistics The defensive statistics of the troop which are essentially copied to create a
 		 *                            new instance with identical values.
+		 *
+		 * @precondition The parameter must be != null.
+		 * @postcondition Creates a new {@code Defensive}-Instance that has the same values as the parameter.
 		 */
 		public Defensive (final Defensive defensiveStatistics)
 		{
@@ -590,6 +683,9 @@ public class TroopStatistics
 		 * Returns the number of health points the {@link Troop} has available.
 		 *
 		 * @return The number of health points the {@link Troop} has available.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'health' attribute is returned.
 		 */
 		public int getHealth ()
 		{
@@ -601,6 +697,9 @@ public class TroopStatistics
 		 * Sets the number of health points of the {@link Troop}.
 		 *
 		 * @param health The number of health points of the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @postcondition The value of the parameter is set as the value of the attribute.
 		 */
 		public void setHealth (final int health)
 		{
@@ -614,6 +713,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param health The number of health points of the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The rounded value of the parameter is set as the value of the attribute.
 		 */
 		public void setHealth (final float health)
 		{
@@ -626,6 +728,9 @@ public class TroopStatistics
 		 * {@link Troop}.
 		 *
 		 * @return The property used to store and display the health points that are available to the {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'health' attribute is returned.
 		 */
 		public SimpleIntegerProperty getHealthProperty ()
 		{
@@ -637,6 +742,9 @@ public class TroopStatistics
 		 * Returns the number of armor points the {@link Troop} has available.
 		 *
 		 * @return The number of armor points the {@link Troop} has available.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'armor' attribute is returned.
 		 */
 		public int getArmor ()
 		{
@@ -648,6 +756,9 @@ public class TroopStatistics
 		 * Sets the number of armor points of the {@link Troop}.
 		 *
 		 * @param armor The number of armor points of the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @precondition The value of the parameter is as the value of the attribute 'armor'.
 		 */
 		public void setArmor (final int armor)
 		{
@@ -661,6 +772,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param armor The number of armor points of the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The rounded value of the parameter is as the value of the attribute 'armor'.
 		 */
 		public void setArmor (final float armor)
 		{
@@ -673,6 +787,9 @@ public class TroopStatistics
 		 * {@link Troop}.
 		 *
 		 * @return The property used to store and display the armor points that are available to the {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'armor' is returned.
 		 */
 		public SimpleIntegerProperty getArmorProperty ()
 		{
@@ -684,6 +801,9 @@ public class TroopStatistics
 		 * Returns the dodge rate of the {@link Troop}.
 		 *
 		 * @return The dodge rate of the {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'dodgeRate' is returned.
 		 */
 		public int getDodgeRate ()
 		{
@@ -695,12 +815,14 @@ public class TroopStatistics
 		 * Sets the dodge rate of the {@link Troop}.
 		 *
 		 * @param dodgeRate The dodge rate of the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'dodgeRate'.
 		 */
 		public void setDodgeRate (final int dodgeRate)
 		{
 			this.dodgeRate.set(dodgeRate);
 		}
-
 
 		/**
 		 * Sets the dodge rate of the {@link Troop}.
@@ -708,6 +830,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param dodgeRate The dodge rate of the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The rounded value of the parameter is set as the value of the attribute 'dodgeRate'.
 		 */
 		public void setDodgeRate (final float dodgeRate)
 		{
@@ -719,6 +844,9 @@ public class TroopStatistics
 		 * Returns the property used to store and display the dodge rate of the {@link Troop}.
 		 *
 		 * @return The property used to store and display the dodge rate of the {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'dodgeRate' is returned.
 		 */
 		public SimpleIntegerProperty getDodgeRateProperty ()
 		{
@@ -730,6 +858,9 @@ public class TroopStatistics
 		 * Returns the number of resistance points the {@link Troop} has available.
 		 *
 		 * @return The number of resistance points the {@link Troop} has available.
+		 *
+		 * @precondition none.
+		 * @postcondition the value of the 'resistance' attribute is returned.
 		 */
 		public int getResistance ()
 		{
@@ -741,6 +872,9 @@ public class TroopStatistics
 		 * Sets the number of resistance points of the {@link Troop}.
 		 *
 		 * @param resistance The number of resistance points of the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'resistance'.
 		 */
 		public void setResistance (final int resistance)
 		{
@@ -754,6 +888,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param resistance The number of resistance points of the {@link Troop}.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The rounded value of the parameter is set as the value of the attribute 'resistance'.
 		 */
 		public void setResistance (final float resistance)
 		{
@@ -767,6 +904,9 @@ public class TroopStatistics
 		 *
 		 * @return The property used to store and display the resistance points that are available to the
 		 * {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'resistance' is returned.
 		 */
 		public SimpleIntegerProperty getResistanceProperty ()
 		{
@@ -840,6 +980,9 @@ public class TroopStatistics
 		 *
 		 * @param movementTiles The number of tiles the {@link Troop} is allowed to move in one turn.
 		 * @param initiative    The number of initiative points that are available to the {@link Troop}.
+		 *
+		 * @precondition The parameters must be != null.
+		 * @postcondition Creates a new {@code Dexterity}-Instance that has the same values as the parameters.
 		 */
 		public Dexterity (final int movementTiles, final int initiative)
 		{
@@ -863,6 +1006,9 @@ public class TroopStatistics
 		 *
 		 * @param dexterityStatistics The dexterity statistics of the troop which are essentially copied to create a
 		 *                            new instance with identical values.
+		 *
+		 * @precondition The parameter must be != null.
+		 * @postcondition Creates a new {@code Dexterity}-Instance that has the same values as the parameter.
 		 */
 		public Dexterity (final Dexterity dexterityStatistics)
 		{
@@ -875,6 +1021,9 @@ public class TroopStatistics
 		 * Returns the number of tiles the {@link Troop} can move in one turn.
 		 *
 		 * @return The number of tiles the {@link Troop} can move in one turn.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'movementTiles' is returned.
 		 */
 		public int getMovementTiles ()
 		{
@@ -886,12 +1035,14 @@ public class TroopStatistics
 		 * Sets the number of tiles the {@link Troop} can move in one turn.
 		 *
 		 * @param movementTiles The number of tiles the {@link Troop} can move in one turn.
+		 *
+		 * @precondition The parameter is >= 0.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'movementTiles'.
 		 */
 		public void setMovementTiles (final int movementTiles)
 		{
 			this.movementTiles.set(movementTiles);
 		}
-
 
 		/**
 		 * Sets the number of tiles the {@link Troop} can move in one turn.
@@ -899,6 +1050,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param movementTiles The number of tiles the {@link Troop} can move in one turn.
+		 *
+		 * @precondition The parameter is >= 0.0.
+		 * @postcondition The rounded value of the parameter is set as the value of the attribute 'movementTiles'.
 		 */
 		public void setMovementTiles (final float movementTiles)
 		{
@@ -910,6 +1064,9 @@ public class TroopStatistics
 		 * Returns the property used to store and display the number of tiles the {@link Troop} can move in one turn.
 		 *
 		 * @return The property used to store and display the number of tiles the {@link Troop} can move in one turn.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the attribute 'movementTiles' is returned.
 		 */
 		public SimpleIntegerProperty getMovementTileProperty ()
 		{
@@ -921,6 +1078,9 @@ public class TroopStatistics
 		 * Returns the number of initiative points that are available to the {@link Troop}.
 		 *
 		 * @return The number of initiative points that are available to the {@link Troop}.
+		 *
+		 * @precondition none
+		 * @postcondition The value of the 'initiative' attribute is returned.
 		 */
 		public int getInitiativePoints ()
 		{
@@ -932,6 +1092,9 @@ public class TroopStatistics
 		 * Sets the number of initiative points that are available to the {@link Troop}.
 		 *
 		 * @param initiative The number of initiative points that are available to the {@link Troop}.
+		 *
+		 * @precondition The parameter is != null.
+		 * @postcondition The value of the parameter is set as the value of the attribute 'initiative'.
 		 */
 		public void setInitiative (final int initiative)
 		{
@@ -945,6 +1108,9 @@ public class TroopStatistics
 		 * As the number is provided as float value, the float value will be rounded to an integer value.
 		 *
 		 * @param initiative The number of initiative points that are available to the {@link Troop}.
+		 *
+		 * @precondition The parameter is != null.
+		 * @postcondition The rounded value of the parameter is set as the value of the attribute 'initiative'.
 		 */
 		public void setInitiative (final float initiative)
 		{
@@ -958,6 +1124,9 @@ public class TroopStatistics
 		 *
 		 * @return The property used to store and display the number of initiative points that are available to the
 		 * {@link Troop}.
+		 *
+		 * @precondition none.
+		 * @postcondition The value of the 'initiative' attribute is returned.
 		 */
 		public SimpleIntegerProperty getInitiativeProperty ()
 		{
