@@ -39,7 +39,7 @@ public interface MissionConstants
 		 * The path to the map-file that contains the board information for the first mission game board and the grid pane.
 		 */
 		@Constant
-		String MISSION_ONE_FILE_PATH = "src/main/resources/me/vault/game/map/Story_1.txt";
+		String MISSION_ONE_FILE_PATH = "src/main/resources/me/vault/game/maps/Story_1.txt";
 
 		/**
 		 * The {@link GameBoard} of the first mission used to display and update the {@link GridPane} of the MissionDelegate.
@@ -79,7 +79,7 @@ public interface MissionConstants
 		 * The path to the map-file that contains the board information for the second mission game board and the grid pane.
 		 */
 		@Constant
-		String MISSION_TWO_FILE_PATH = "src/main/resources/me/vault/game/map/Story_2.txt";
+		String MISSION_TWO_FILE_PATH = "src/main/resources/me/vault/game/maps/Story_2.txt";
 
 		/**
 		 * The {@link GameBoard} of the second mission used to display and update the {@link GridPane} of the MissionDelegate.
@@ -119,7 +119,7 @@ public interface MissionConstants
 		 * The path to the map-file that contains the board information for the third mission game board and the grid pane.
 		 */
 		@Constant
-		String MISSION_THREE_FILE_PATH = "src/main/resources/me/vault/game/map/Repeatable_1.txt";
+		String MISSION_THREE_FILE_PATH = "src/main/resources/me/vault/game/maps/Repeatable_1.txt";
 
 		/**
 		 * The {@link GameBoard} of the third mission used to display and update the {@link GridPane} of the MissionDelegate.
@@ -159,7 +159,7 @@ public interface MissionConstants
 		 * The path to the map-file that contains the board information for the fourth mission game board and the grid pane.
 		 */
 		@Constant
-		String MISSION_FOUR_FILE_PATH = "src/main/resources/me/vault/game/map/Repeatable_2.txt";
+		String MISSION_FOUR_FILE_PATH = "src/main/resources/me/vault/game/maps/Repeatable_2.txt";
 
 		/**
 		 * The {@link GameBoard} of the fourth mission used to display and update the {@link GridPane} of the MissionDelegate.

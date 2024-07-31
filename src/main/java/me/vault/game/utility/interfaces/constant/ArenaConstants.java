@@ -59,7 +59,7 @@ public interface ArenaConstants
 		 * The path to the map-file that contains the board information for the first arena game board and the grid pane.
 		 */
 		@Constant
-		String ARENA_ONE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_1.txt";
+		String ARENA_ONE_FILEPATH = "src/main/resources/me/vault/game/maps/Encounter_1.txt";
 
 
 		/**
@@ -99,7 +99,7 @@ public interface ArenaConstants
 		 * The path to the map-file that contains the board information for the second arena game board and the grid pane.
 		 */
 		@Constant
-		String ARENA_TWO_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_2.txt";
+		String ARENA_TWO_FILEPATH = "src/main/resources/me/vault/game/maps/Encounter_2.txt";
 
 
 		/**
@@ -139,7 +139,7 @@ public interface ArenaConstants
 		 * The path to the map-file that contains the board information for the three arena game board and the grid pane.
 		 */
 		@Constant
-		String ARENA_THREE_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_3.txt";
+		String ARENA_THREE_FILEPATH = "src/main/resources/me/vault/game/maps/Encounter_3.txt";
 
 
 		/**
@@ -179,7 +179,7 @@ public interface ArenaConstants
 		 * The path to the map-file that contains the board information for the fourth arena game board and the grid pane.
 		 */
 		@Constant
-		String ARENA_FOUR_FILEPATH = "src/main/resources/me/vault/game/map/Encounter_4.txt";
+		String ARENA_FOUR_FILEPATH = "src/main/resources/me/vault/game/maps/Encounter_4.txt";
 
 
 		/**
