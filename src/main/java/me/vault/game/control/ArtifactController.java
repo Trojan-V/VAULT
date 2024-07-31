@@ -51,7 +51,7 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
 	 *
 	 * @precondition Constructor gets called from within the class.
-	 * @postcondition A new instance of ArtifactController is created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	private ArtifactController ()
 	{}

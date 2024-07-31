@@ -262,6 +262,7 @@ public interface LoggingConstants
 		@Constant
 		String ARGUMENT_AT_INDEX = "Argument at index {0}: {1}";
 
+
 		/**
 		 * Message pattern to print out that an argument is invalid.
 		 */
@@ -275,11 +276,13 @@ public interface LoggingConstants
 		@Constant
 		String VALID_ARGUMENT_LIST = "Valid arguments are: " + Arrays.toString(me.vault.game.utility.jvm.JvmArgument.values());
 
+
 		/**
 		 * Message pattern to print out the log_depth status.
 		 */
 		@Constant
 		String LOG_DEPTH_STATUS = ConsoleColor.MAGENTA_BOLD + "logDepth is set to: {0}" + ConsoleColor.RESET;
+
 
 		/**
 		 * Message pattern to print out the cheat status.
@@ -292,7 +295,8 @@ public interface LoggingConstants
 		 * Message pattern to print out that a construction error happened for a JVM argument.
 		 */
 		@Constant
-		String JVM_ARGUMENT_CONSTRUCTION_ERROR = "The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" + " | actual = {1}]";
+		String JVM_ARGUMENT_CONSTRUCTION_ERROR =
+			"The construction process of entries in the " + "JvmArgument enum is invalid. [expected = {0}" + " | actual = {1}]";
 
 	}
 
@@ -329,7 +333,7 @@ public interface LoggingConstants
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see Artifact
+	 * @see me.vault.game.view.mission.MissionDelegate
 	 * @since 30.07.2024
 	 */
 	interface MissionDelegate
@@ -341,6 +345,24 @@ public interface LoggingConstants
 		@Constant
 		String MISSION_DISPLAY_FAILED = "Failed to load MissionDelegate for a mission: {0}";
 
+	}
+
+
+	/**
+	 * This subinterface contains logging constants related to the {@link me.vault.game.utility.Config} and {@link me.vault.game.utility.loading.ConfigLoader}.
+	 *
+	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 1.0.0
+	 * @see me.vault.game.utility.Config
+	 * @see me.vault.game.utility.loading.ConfigLoader
+	 * @since 30.07.2024
+	 */
+	interface Config
+	{
+		/**
+		 * Message to print out that the default configuration file was created.
+		 */
+		String DEFAULT_FILE_CREATED = "Creating default configuration file.";
 	}
 
 }
