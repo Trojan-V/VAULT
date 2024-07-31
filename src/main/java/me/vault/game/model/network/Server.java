@@ -1,13 +1,15 @@
 package me.vault.game.model.network;
 
 
+import com.google.gson.Gson;
 import javafx.fxml.FXMLLoader;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.ArenaObject;
+import me.vault.game.utility.concurrency.ThreadUtil;
+import me.vault.game.utility.interfaces.constant.MiscConstants;
 import me.vault.game.view.arena.ArenaDelegate;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Objects;
@@ -34,6 +36,16 @@ public class Server implements Runnable
 
 
 	private int portNumber = -1;
+
+	private Socket socket = null;
+
+	private PrintWriter output = null;
+
+	private BufferedReader input = null;
+
+	private Boolean disconnect = false;
+
+	private Boolean turnOver = false;
 
 
 	public Server (final int portNumber)
@@ -66,6 +78,7 @@ public class Server implements Runnable
 	public void run ()
 	{
 		ServerSocket server = null;
+		Gson gson = new Gson();
 
 		try
 		{
@@ -90,7 +103,42 @@ public class Server implements Runnable
 			System.exit(0);
 		}
 		System.out.println(ACCEPTED);
-		this.serveClient(aClient);
+
+		do
+		{
+			sendArena(ArenaObject.getInstance().getArena().toJSON());
+			ThreadUtil.sleepThread(2000);
+			ArenaObject.getInstance().setArena(gson.fromJson(readInput(), Arena.class));
+			ArenaDelegate.show(ArenaObject.getInstance().getArena());
+			while(!turnOver)
+			{
+				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
+			}
+			turnOver = false;
+			ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
+		} while(!disconnect);
+
+	}
+
+	public void sendArena(String arenaJSON)
+	{
+		output.println(arenaJSON);
+		output.flush();
+		ThreadUtil.sleepThread(MiscConstants.TEN);
+	}
+
+	public String readInput()
+	{
+		String outputString = null;
+		try
+		{
+			outputString = input.readLine();
+		}
+		catch (IOException ioException)
+		{
+			ioException.printStackTrace();
+		}
+		return outputString;
 	}
 
 
