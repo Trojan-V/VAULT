@@ -22,6 +22,7 @@ import org.jetbrains.annotations.Nullable;
  * different troops on the field.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Button
  * @see Arena
  * @see Placeable

@@ -34,6 +34,8 @@ public class MetaDataImage extends Image
 	 *
 	 * @param imageInputStream The input stream from which the image gets loaded.
 	 * @param file             The corresponding file to the image.
+	 * @precondition The supplied parameter have to exist and be accessible.
+	 * @postcondition An instance of {@link MetaDataImage} is constructed with the supplied parameter.
 	 */
 	public MetaDataImage (final InputStream imageInputStream, final File file)
 	{

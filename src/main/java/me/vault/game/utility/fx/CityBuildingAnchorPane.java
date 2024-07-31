@@ -27,6 +27,7 @@ import java.text.MessageFormat;
  * different city buildings.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Button
  * @see CityBuilding
  * @see Placeable

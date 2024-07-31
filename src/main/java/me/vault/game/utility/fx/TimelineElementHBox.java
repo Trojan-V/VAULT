@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
  * It extends the standard {@link HBox} and automatically initializes the right graphic and design.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see HBox
  * @see Timeline
  * @see Placeable

@@ -15,6 +15,7 @@ import me.vault.game.view.mission.TroopSelectionDelegate;
  * The {@code SelectedTroopImageView} is mainly used in the troop selection view and handles the display of the already selected troops.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see ImageView
  * @see Troop
  * @see TroopSelectionDelegate

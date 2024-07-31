@@ -17,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
  * into the constructor.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see VBox
  * @see AttributeMultiplier
  * @see AbilityMultiplier

@@ -1,16 +1,33 @@
 package me.vault.game.utility.fx;
 
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import me.vault.game.model.arena.Arena;
+import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.utility.interfaces.Placeable;
 
-// TODO: Complete JavaDoc needed
 
-
+/**
+ * The {@link SelectedAlliesGridPane} represents one {@link Figure}s as a grid in the {@link Arena}.
+ * It extends the standard {@link GridPane} and automatically initializes the right graphic and design based
+ * on the {@link Figure} object which is parsed into the constructor.
+ * The {@code SelectedAlliesGridPane} is mainly used in combination with the {@link Arena} to display the
+ * {@link Figure}s in an encounter.
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
+ * @see Button
+ * @see CurrencyTransaction
+ * @see Placeable
+ * @since 31.07.2024
+ */
 public final class SelectedAlliesGridPane extends GridPane
 {
 
@@ -47,7 +64,7 @@ public final class SelectedAlliesGridPane extends GridPane
 	/**
 	 * The placeholder string for the name labels of the selected troops.
 	 */
-	private static final String PLACEHOLDER_STRING = "Nichts ausgewaehlt.";
+	private static final String PLACEHOLDER_STRING = "Nichts ausgewählt.";
 
 	/**
 	 * The index of the row which contains the name labels of the selected troops.
@@ -102,7 +119,7 @@ public final class SelectedAlliesGridPane extends GridPane
 
 	/**
 	 * Constructs a new instance of {@link SelectedAlliesGridPane}.
-	 * *
+	 *
 	 *
 	 * @precondition The constructor gets called.
 	 * @postcondition A new instance of {@link SelectedAlliesGridPane} was created.

@@ -18,6 +18,7 @@ import me.vault.game.utility.interfaces.Placeable;
  * The {@code CurrencyTransactionGridPane} is mainly used in combination with the {@link Mission}s to display their rewards.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Button
  * @see CurrencyTransaction
  * @see Placeable

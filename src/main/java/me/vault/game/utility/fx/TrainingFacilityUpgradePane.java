@@ -29,6 +29,7 @@ import static me.vault.game.utility.interfaces.constant.TroopStatisticConstants.
  * The {@code TrainingFacilityUpgradePane} is mainly used in combination with the {@link TrainingFacilityDelegate}.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see GridPane
  * @see TrainingFacility
  * @see Troop
