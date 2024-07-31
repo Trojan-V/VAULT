@@ -9,24 +9,35 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.city.CityBuilding;
-import me.vault.game.model.city.CityBuildingLevel;
 import me.vault.game.model.city.impl.*;
-import me.vault.game.utility.interfaces.Upgradable;
+import me.vault.game.utility.interfaces.Placeable;
+import me.vault.game.utility.math.Position;
 import me.vault.game.view.UpgradeDialogDelegate;
-import me.vault.game.view.arena.ArenaFinishedDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.city.building.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
 
-// TODO: Complete JavaDoc needed
 
-
+/**
+ * The {@code CityBuildingAnchorPane} represents one building pane in the city delegate view.
+ * It extends the standard {@link AnchorPane} and automatically initializes the right graphic and design based
+ * on the {@link CityBuilding} object which is parsed into the constructor.
+ * The {@code CityBuildingAnchorPane} is mainly used in the city delegate view and allows the player to upgrade and select
+ * different city buildings.
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @see Button
+ * @see CityBuilding
+ * @see Placeable
+ * @since 25.06.2024
+ */
 public final class CityBuildingAnchorPane extends AnchorPane
 {
 
 	/**
-	 * The {@link MessageFormat} pattern, which is used, when the {@link ArenaFinishedDialogDelegate#toString()} is called.
+	 * The {@link MessageFormat} pattern, which is used, when the {@link CityBuildingAnchorPane#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "CityBuildingAnchorPane'{'cityBuilding={0}'}'";
 
@@ -56,26 +67,53 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	private static final int UPGRADE_BUTTON_HEIGHT = 40;
 
 	/**
+	 * The {@link Position} of the "interact" button in the button grid.
+	 */
+	private static final Position INTERACT_BUTTON_POSITION = new Position(0, 0);
+
+	/**
+	 * The {@link Position} of the "upgrade" button in the button grid.
+	 */
+	private static final Position UPGRADE_BUTTON_POSITION = new Position(0, 0);
+
+	/**
 	 * The {@link CityBuilding} that is the template for the {@link CityBuildingAnchorPane}
 	 */
 	private final CityBuilding cityBuilding;
 
 
+	/**
+	 * Constructs a new instance of {@link CityBuildingAnchorPane} based on the passed city building.
+	 *
+	 * @param cityBuilding The {@link CityBuilding} which is the template for the new instance.
+	 *
+	 * @precondition The {@link CityBuilding} parameter is != null.
+	 * @postcondition A new instance of {@link CityBuildingAnchorPane} was created.
+	 */
 	public CityBuildingAnchorPane (final CityBuilding cityBuilding)
 	{
 		this.cityBuilding = cityBuilding;
-		final GridPane buttonGrid = new GridPane();
 		final Button interactButton = this.createInteractButton(cityBuilding);
 		final Button upgradeButton = this.createUpgradeButton(cityBuilding);
+		final GridPane buttonGrid = createButtonGridPane();
+
+		buttonGrid.add(interactButton, INTERACT_BUTTON_POSITION.x(), INTERACT_BUTTON_POSITION.y());
+		buttonGrid.add(upgradeButton, UPGRADE_BUTTON_POSITION.x(), UPGRADE_BUTTON_POSITION.y());
+		this.getChildren().add(buttonGrid);
+	}
+
+
+	@NotNull
+	private static GridPane createButtonGridPane ()
+	{
+		final GridPane buttonGrid = new GridPane();
 		buttonGrid.getRowConstraints().add(new RowConstraints());
 		buttonGrid.setAlignment(Pos.CENTER);
 		buttonGrid.setPrefWidth(DIMENSION);
 		buttonGrid.setPrefHeight(DIMENSION);
 		buttonGrid.setLayoutX(X_OFFSET);
 		buttonGrid.getRowConstraints().add(new RowConstraints());
-		buttonGrid.add(interactButton, 0, 0);
-		buttonGrid.add(upgradeButton, 0, 1);
-		this.getChildren().add(buttonGrid);
+		return buttonGrid;
 	}
 
 
@@ -86,14 +124,8 @@ public final class CityBuildingAnchorPane extends AnchorPane
 		upgradeButton.setPrefWidth(DIMENSION);
 		upgradeButton.setPrefHeight(UPGRADE_BUTTON_HEIGHT);
 		upgradeButton.disableProperty().bind(cityBuilding.getIsMaxLevelProperty());
-		upgradeButton.setOnMouseClicked(_ -> this.handleUpgradeEvent(cityBuilding));
+		upgradeButton.setOnMouseClicked(_ -> UpgradeDialogDelegate.show(cityBuilding, CityBuildingController.getInstance()));
 		return upgradeButton;
-	}
-
-
-	private void handleUpgradeEvent (final Upgradable<CityBuildingLevel> cityBuilding)
-	{
-		UpgradeDialogDelegate.show(cityBuilding, CityBuildingController.getInstance());
 	}
 
 
