@@ -14,8 +14,6 @@ import me.vault.game.view.city.building.TrainingFacilityDelegate;
 
 import static me.vault.game.model.troop.TroopStatistics.*;
 
-// TODO: Pre und post
-
 
 /**
  * Controller class to handle all different actions related to troops.
@@ -48,6 +46,9 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it.
 	 * To prohibit the instantiation from anywhere else but within the class, a private constructor is used.
+	 *
+	 * @precondition Constructor gets called from within the class
+	 * @postcondition A new instance of TroopController is created.
 	 */
 	private TroopController () {}
 

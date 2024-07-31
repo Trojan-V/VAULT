@@ -209,7 +209,6 @@ public final class MainMenuDelegate implements Initializable
 		}
 		else if (event.getSource().equals(this.arenaButton) || event.getSource().equals(this.arenaMenuItem))
 		{
-			//TODO: finish Arena
 			NetworkDelegate.show();
 		}
 	}
