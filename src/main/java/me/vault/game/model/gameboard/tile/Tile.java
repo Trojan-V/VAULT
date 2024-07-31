@@ -105,11 +105,11 @@ public class Tile
 
 
 	/**
-	 * Returns the {@link Position} of the tile.
+	 * Returns the {@link Position} of the {@link Tile}.
 	 *
-	 * @return the {@link Position} of the tile.
+	 * @return the {@link Position} of the {@link Tile}.
 	 *
-	 * @precondition
+	 * @precondition The {@link Tile} has to have a {@link Position}.
 	 * @postcondition The {@link Position} is accessible for the program.
 	 */
 	public Position getPosition ()
