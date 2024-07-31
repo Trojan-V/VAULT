@@ -177,7 +177,7 @@ public final class ArenaFinishedDialogDelegate
 	private void setArena (final @NotNull Arena arena)
 	{
 		this.arena = arena;
-		this.resultLabel.setText(MessageFormat.format(RESULT_LABEL_PATTERN, this.arena.toString()));
+		this.resultLabel.setText(MessageFormat.format(RESULT_LABEL_PATTERN, this.arena.getResult()));
 	}
 
 
