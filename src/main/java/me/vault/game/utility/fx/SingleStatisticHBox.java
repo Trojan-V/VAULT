@@ -22,6 +22,7 @@ import java.text.MessageFormat;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
+ * @see HBox
  * @see GridPane
  * @see TroopController
  * @see EnergyAbilityController
