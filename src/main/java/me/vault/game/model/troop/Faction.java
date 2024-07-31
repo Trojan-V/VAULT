@@ -92,6 +92,8 @@ public enum Faction implements Displayable
 	 * @param defensiveMultiplier The multiplier that'll be used for the defensive statistics.
 	 * @param dexterityMultiplier The multiplier that'll be used for the dexterity statistics.
 	 * @param sprite              The sprite that represents the faction.
+	 * @precondition The supplied parameter exist and are accessible.
+	 * @postcondition An instance of the {@link Faction} is created with the supplied parameter.
 	 */
 	Faction (final float offensiveMultiplier, final float defensiveMultiplier, final float dexterityMultiplier, final MetaDataImage sprite)
 	{
@@ -189,8 +191,6 @@ public enum Faction implements Displayable
 
 	/**
 	 * {@inheritDoc} Returns the sprite stored within the property of the displayable object as an {@link MetaDataImage}.
-	 *
-	 * @return The sprite of the displayable object.
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -200,9 +200,7 @@ public enum Faction implements Displayable
 
 
 	/**
-	 * {@inheritDoc} Sets the sprite of the displayable object to the supplied sprite.
-	 *
-	 * @param sprite The new sprite for the displayable object.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
@@ -212,9 +210,7 @@ public enum Faction implements Displayable
 
 
 	/**
-	 * {@inheritDoc} Returns the sprite property of the displayable object.
-	 *
-	 * @return The sprite property of the displayable object.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
