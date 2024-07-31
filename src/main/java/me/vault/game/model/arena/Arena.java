@@ -8,6 +8,9 @@ import me.vault.game.model.gameboard.tile.implementation.AccessibleElement;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.interfaces.SerializableJSON;
+import me.vault.game.utility.interfaces.constant.ArenaConstants;
+import me.vault.game.utility.interfaces.constant.MiscConstants;
+import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.math.Position;
@@ -122,6 +125,14 @@ public class Arena implements SerializableJSON
 		this.playerOneFigures = playerOneFigures;
 		this.playerTwoFigures = playerTwoFigures;
 		this.gameBoard = gameBoard;
+	}
+
+	//TODO:
+	public Arena()
+	{
+		this.playerOneFigures = new ArrayList<>();
+		this.playerTwoFigures = new ArrayList<>();
+		this.gameBoard = new GameBoard(ResourceLoader.createTileArrayFromFile(ArenaConstants.ArenaOne.ARENA_ONE_FILEPATH));
 	}
 
 
