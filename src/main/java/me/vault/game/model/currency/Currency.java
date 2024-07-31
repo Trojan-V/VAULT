@@ -156,9 +156,7 @@ public enum Currency implements Displayable
 
 
 	/**
-	 * {@inheritDoc} Returns the current sprite of the currency.
-	 *
-	 * @return The current sprite of the currency.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -168,12 +166,9 @@ public enum Currency implements Displayable
 
 
 	/**
-	 * {@inheritDoc} Sets the sprite of the currency to the supplied sprite.
-	 * <br>
+	 * {@inheritDoc}
 	 * The sprite is set within the {@link Currency#spriteProperty}, so the sprite gets automatically updated in the
 	 * GUI.
-	 *
-	 * @param sprite The new sprite for the currency.
 	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)

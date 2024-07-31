@@ -7,7 +7,6 @@ import me.vault.game.model.energy.AbilityMultiplier;
 import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.energy.EnergyLevel;
 import me.vault.game.utility.datatypes.MetaDataImage;
-import me.vault.game.utility.interfaces.constant.EnergyConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -97,6 +96,8 @@ public final class DodgeAbility extends EnergyAbility
 
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of DodgeAbility is created.
 	 */
 	private DodgeAbility () {}
 

@@ -54,7 +54,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * To do so, a static initializer can be used whose last statement is {@code INSTANCE = new AbsEnergy();}.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 2.0.0
+ * @version 1.0.0
  * @see DodgeAbility
  * @see InitiativeAbility
  * @see MeleeAbility
