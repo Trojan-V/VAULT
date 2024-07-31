@@ -20,7 +20,7 @@ import static me.vault.game.utility.interfaces.constant.CityBuildingConstants.Ma
  * The {@link Barracks} city buildings main usage is the conversion of currencies so that the player can upgrade and develop his city.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 2.0.0
+ * @version 1.0.0
  * @see CityBuilding
  * @see Upgradable
  * @since 09.06.2024

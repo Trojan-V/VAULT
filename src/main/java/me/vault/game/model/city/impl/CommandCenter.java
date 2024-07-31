@@ -20,7 +20,7 @@ import static me.vault.game.utility.interfaces.constant.CityBuildingConstants.Co
  * The {@link CommandCenter} city building is used by the player to select and start missions, where he can collect currencies and artifacts.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 2.0.0
+ * @version 1.0.0
  * @see CityBuilding
  * @see Upgradable
  * @since 09.06.2024
