@@ -209,11 +209,6 @@ public final class UpgradeDialogDelegate implements Initializable
 	}
 
 
-	/**
-	 * Shows the
-	 *
-	 * @param scene
-	 */
 	public void show (final Scene scene)
 	{
 		this.stage.setScene(scene);

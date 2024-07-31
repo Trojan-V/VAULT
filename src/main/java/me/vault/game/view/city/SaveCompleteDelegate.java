@@ -26,6 +26,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * It doesn't provide the actual methods to save the game to config but more so acts like a notification popup, that the user's input has been registered.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see DialogPane
  * @see Stage
  * @see ConfigLoader
@@ -55,7 +56,7 @@ public final class SaveCompleteDelegate implements Initializable
 	private static final String WINDOW_TITLE = "Save game complete.";
 
 	/**
-	 * The {@link Stage} of the {@link SaveCompleteDelegate}, which is needed because the {@link DialogPane} needs to be shown on a new window.
+	 * The {@link Stage} of the {@link SaveCompleteDelegate}, which is necessary because the {@link DialogPane} needs to be shown on a new window.
 	 */
 	private static final Stage STAGE = new Stage();
 

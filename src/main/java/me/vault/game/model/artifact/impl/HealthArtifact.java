@@ -107,7 +107,7 @@ public final class HealthArtifact extends Artifact
 	 * @return The map of upgrade costs for the health artifact.
 	 *
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
-	 * @postcondition A map of upgrade costs for the  is initialized.
+	 * @postcondition A map of upgrade costs for this artifact is initialized.
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -132,8 +132,8 @@ public final class HealthArtifact extends Artifact
 	 *
 	 * @return The map of attribute modifiers for the health artifact.
 	 *
-	 * @precondition The attribute modifiers for the  exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of attribute modifiers for the  is initialised.
+	 * @precondition The attribute modifiers for this artifact exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of attribute modifiers for this artifact is initialized.
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -172,7 +172,7 @@ public final class HealthArtifact extends Artifact
 	 * @return The map of names for the health artifact.
 	 *
 	 * @precondition The names for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of the names for the {@link DamageArtifact} is initialised.
+	 * @postcondition A map of the names for the {@link DamageArtifact} is initialized.
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -198,7 +198,7 @@ public final class HealthArtifact extends Artifact
 	 * @return The map of sprites for the health artifact.
 	 *
 	 * @precondition The sprites for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of the sprites for the {@link DamageArtifact} is initialised.
+	 * @postcondition A map of the sprites for the {@link DamageArtifact} is initialized.
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{

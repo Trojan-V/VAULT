@@ -83,7 +83,7 @@ public class AttributeMultiplier
 	 * @param modifiers The modifiers which are applied to the properties.
 	 *
 	 * @precondition The map of the attribute modifiers exists.
-	 * @postcondition Constructs an instance of  with the supplied modifies.
+	 * @postcondition Constructs an instance of this class with the supplied modifiers.
 	 */
 	AttributeMultiplier (final Map<Type, Double> modifiers)
 	{
@@ -182,8 +182,8 @@ public class AttributeMultiplier
 	 *
 	 * @param defenseMultiplier The new value for the defense multiplier.
 	 *
-	 * @precondition The property of the defence multiplier exists.
-	 * @postcondition The property of the defence multiplier is set.
+	 * @precondition The property of the defense multiplier exists.
+	 * @postcondition The property of the defense multiplier is set.
 	 */
 	public void setDefenseMultiplier (final double defenseMultiplier)
 	{

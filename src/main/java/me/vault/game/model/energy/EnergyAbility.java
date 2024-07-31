@@ -150,8 +150,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
 	 *
-	 * @precondition The attributes for the  exists.
-	 * @postcondition Constructs an  instance with the given attributes.
+	 * @precondition The attributes for the ability exist.
+	 * @postcondition An instance with the given attributes was constructed.
 	 */
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected EnergyAbility ()
@@ -306,7 +306,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @param value True if the artifact should isMaxLevel, otherwise false.
 	 *
-	 * @precondition The  can have multiple level.
+	 * @precondition The ability can have multiple level.
 	 * @postcondition Sets if {@link EnergyLevel} is maximal.
 	 */
 	public void setIsMaxLevel (final boolean value)
@@ -330,8 +330,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @return The current level of the energy ability.
 	 *
-	 * @precondition The  has a level.
-	 * @postcondition The current level of the  is accessible for the program.
+	 * @precondition The ability has a level.
+	 * @postcondition The current level of the ability is accessible for the program.
 	 */
 	@Override
 	public EnergyLevel getLevel ()
@@ -345,8 +345,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link EnergyLevel}.
 	 *
-	 * @precondition The  has a level.
-	 * @postcondition The current level of the  is set.
+	 * @precondition The ability has a level.
+	 * @postcondition The current level of the ability is set.
 	 */
 	@Override
 	public void setLevel (final EnergyLevel level)
@@ -446,9 +446,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @return The {@link Map} which contains all sprites for the energy ability.
 	 *
-	 * @precondition The {@link Map} which contains all sprites for the  exists.
-	 * @postcondition A {@link Map} which contains all sprites for the  is
-	 * accessible for the program.
+	 * @precondition The {@link Map} which contains all sprites for the ability exists.
+	 * @postcondition A {@link Map} which contains all sprites for the ability is accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<EnergyLevel, MetaDataImage> getAllSprites ();
@@ -464,9 +463,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * @return The {@link Map} which contains all different sets of modifiers the energy ability can have, depending on it's
 	 * level.
 	 *
-	 * @precondition The {@link Map} which contains all modifiers for the  exists.
-	 * @postcondition A {@link Map} which contains all modifiers for the  is
-	 * accessible for the program.
+	 * @precondition The {@link Map} which contains all modifiers for the ability exists.
+	 * @postcondition A {@link Map} which contains all modifiers for the ability is accessible for the program.
 	 */
 	@NotNull
 	protected abstract Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> getAllModifiers ();

@@ -17,8 +17,6 @@ import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.CityBuildingAnchorPane;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.menu.MainMenuDelegate;
 import me.vault.game.view.newgame.TutorialDelegate;
 
@@ -34,6 +32,7 @@ import java.util.ResourceBundle;
  * point of many game aspects.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see CityBuilding
@@ -41,11 +40,6 @@ import java.util.ResourceBundle;
  */
 public class CityDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(CityDelegate.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.
@@ -152,7 +146,7 @@ public class CityDelegate implements Initializable
 
 
 	/**
-	 * Initializes the different {@link CityBuildingAnchorPane}s for each city building and adds them to the grid of the .
+	 * Initializes the different {@link CityBuildingAnchorPane}s for each city building and adds them to the grid of the city building.
 	 *
 	 * @precondition {@link CityDelegate#cityGridPane} has at least two rows and four columns.
 	 * @postcondition All the different {@link CityBuildingAnchorPane}s have been initialized and were added to the grid.

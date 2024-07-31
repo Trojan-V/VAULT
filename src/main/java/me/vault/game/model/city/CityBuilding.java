@@ -127,7 +127,7 @@ public abstract class CityBuilding implements Displayable, Nameable, Upgradable<
 	 * @return True if the city building is at the maximum level, otherwise false.
 	 *
 	 * @precondition Method gets called and the isMaxLevelProperty has been set within the instance.
-	 * @postcondition A boolean gets returned, that describes, if the Citybuilding is already at the maximum level.
+	 * @postcondition A boolean gets returned, that describes, if the city building is already at the maximum level.
 	 */
 	public boolean isMaxLevel ()
 	{

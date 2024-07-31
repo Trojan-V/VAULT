@@ -3,16 +3,12 @@ package me.vault.game.view.newgame;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.arena.ArenaFinishedDialogDelegate;
 
 import java.net.URL;
@@ -26,15 +22,11 @@ import java.util.ResourceBundle;
  * It provides a GUI and methods to scroll and read through different sections of the game lore.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @since 29.07.2024
  */
 public final class PrologueDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(PrologueDelegate.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.
@@ -74,7 +66,7 @@ public final class PrologueDelegate implements Initializable
 	 *
 	 * @precondition The GameApplication has to have a stage.
 	 * @postcondition The initialized prolog is shown on the GameApplication Stage.
-	 * @see ViewUtil#show(Stage, Scene, Class)
+	 * @see ViewUtil#show (Stage, Scene, Class)
 	 */
 	public static void show ()
 	{
@@ -86,7 +78,7 @@ public final class PrologueDelegate implements Initializable
 	 * Handles the button action "click" that is defined in the FXML-File.
 	 * <br>
 	 * <br>
-	 * The method differentiates between different action that can be triggered by clicking on the different buttons
+	 * The method differentiates between different actions that can be triggered by clicking on the different buttons
 	 * of the scene.
 	 * <br>
 	 * <br>
@@ -96,10 +88,10 @@ public final class PrologueDelegate implements Initializable
 	 * <br>
 	 * If the {@link PrologueDelegate#continueButton} is clicked, the tutorial is shown.
 	 *
-	 * @param mouseEvent The MouseEvent that determines the triggered action(s)
+	 * @param mouseEvent The MouseEvent that determines the triggered actions.
 	 *
 	 * @precondition The prolog (scene) has to be displayed on the active stage.
-	 * @postcondition The specified actions ,as described by this documentation, are executed.
+	 * @postcondition The specified actions, as described by this documentation, are executed.
 	 */
 	@FXML
 	void click (final MouseEvent mouseEvent)

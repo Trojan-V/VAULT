@@ -7,6 +7,7 @@ import me.vault.game.model.Player;
 import me.vault.game.model.gameboard.tile.Tile;
 import me.vault.game.model.gameboard.tile.impl.*;
 import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.exception.InvalidMapFileFormatException;
 import me.vault.game.utility.interfaces.constant.GameBoardConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -49,13 +50,19 @@ public final class ResourceLoader
 	/**
 	 * The message which is printed into the console if the image couldn't be loaded.
 	 */
-	private static final String IMAGE_NOT_LOADED_MSG = "The image-resource \"{0}\" couldn't load.";
+	private static final String IMAGE_NOT_LOADED_MSG = "The image resource \"{0}\" could not load.";
 
 
 	/**
 	 * The message which is printed into the console if the scene couldn't be loaded.
 	 */
-	private static final String SCENE_NOT_LOADED_MSG = "The scene-resource \"{0}\" couldn't load.";
+	private static final String SCENE_NOT_LOADED_MSG = "The scene resource \"{0}\" could not load.";
+
+
+	/**
+	 * Represents the return value that gets returned if the number of lines read from the file was invalid.
+	 */
+	private static final int INVALID_NUMBER_OF_LINES = -1;
 
 
 	/**
@@ -76,8 +83,8 @@ public final class ResourceLoader
 	 *
 	 * @return An instance of {@link MetaDataImage}.
 	 *
-	 * @precondition
-	 * @postcondition the specified Image is returned; null if the resourcePath is not valid
+	 * @precondition A valid resource path has to be supplied as a parameter.
+	 * @postcondition the specified Image is returned; null if the resourcePath isn't valid.
 	 */
 	public static MetaDataImage loadImage (final String resourcePath)
 	{
@@ -108,15 +115,14 @@ public final class ResourceLoader
 	 *
 	 * @return An instance of {@link Scene}.
 	 *
-	 * @precondition The specified resource Path has to point to a valid FXML-File (not null)
-	 * @postcondition The specified Scene is returned
+	 * @precondition The specified resource Path has to point to a valid FXML file (not null).
+	 * @postcondition The specified Scene is returned.
 	 */
 	public static <T> Scene loadScene (final Class<T> clazz, final String fxmlResourcePath)
 	{
 
 		try
 		{
-			final Object x = clazz.getResource(fxmlResourcePath);
 			return new Scene(FXMLLoader.load(Objects.requireNonNull(clazz.getResource(fxmlResourcePath))));
 		}
 		catch (final IOException e)
@@ -124,7 +130,6 @@ public final class ResourceLoader
 			// Logs the corrupted method call before logging the exception
 			LOGGER.log(ERROR, MessageFormat.format(SCENE_NOT_LOADED_MSG, fxmlResourcePath));
 			LOGGER.log(ERROR, e.getMessage());
-			e.printStackTrace();
 			return null;
 		}
 	}
@@ -137,8 +142,8 @@ public final class ResourceLoader
 	 *
 	 * @return An instance {@link File}.
 	 *
-	 * @precondition The directoryPath has to point to a valid directory (not null)
-	 * @postcondition The directory is returned as a {@link File} Object
+	 * @precondition The directoryPath has to point to a valid directory (not null).
+	 * @postcondition The directory is returned as a {@link File} Object.
 	 */
 	public static File getDirectory (final String directoryPath)
 	{
@@ -153,8 +158,8 @@ public final class ResourceLoader
 	 *
 	 * @return The {@link List} of files.
 	 *
-	 * @precondition the directoryPath has to point to a valid directory (not null)
-	 * @postcondition all files in the directory are returned
+	 * @precondition the directoryPath has to point to a valid directory (not null).
+	 * @postcondition all files in the directory are returned.
 	 */
 	public static List<File> collectFiles (final String directoryPath)
 	{
@@ -169,7 +174,7 @@ public final class ResourceLoader
 
 
 	/**
-	 * Collects all file in the supplied directory that have the specified file-name ending and returns them as a
+	 * Collects all files in the supplied directory that end with the specified file extension and returns them as a
 	 * {@link List}.
 	 *
 	 * @param directoryPath The path to the directory
@@ -177,8 +182,8 @@ public final class ResourceLoader
 	 *
 	 * @return A {@link List} of all files that have the specified ending
 	 *
-	 * @precondition The directoryPath has to point to a valid directory (not null) and the fileEnding cannot be null
-	 * @postcondition All files with the specified ending are returned
+	 * @precondition The directoryPath has to point to a valid directory (not null) and the fileEnding can't be null.
+	 * @postcondition All files with the specified ending are returned.
 	 */
 	public static List<File> collectFilesWithSpecifiedEnding (final String directoryPath, final String fileEnding)
 	{
@@ -198,7 +203,7 @@ public final class ResourceLoader
 
 
 	/**
-	 * Collects all files in the supplied directory that contain the specified pattern in the file name and returns
+	 * Collects all files in the supplied directory that contain the specified pattern in the filename and returns
 	 * them as a {@link List}.
 	 *
 	 * @param directoryPath The path to the directory
@@ -206,9 +211,9 @@ public final class ResourceLoader
 	 *
 	 * @return A {@link List} containing all files with the specified pattern in their filename
 	 *
-	 * @precondition The directoryPath has to point to a valid directory (not null) and the specified pattern cannot
-	 * be null
-	 * @postcondition All files with the specified pattern in the filename are returned
+	 * @precondition The directoryPath has to point to a valid directory (not null), and the specified pattern can't
+	 * be null.
+	 * @postcondition All files with the specified pattern in the filename are returned.
 	 */
 	public static List<File> collectFilesContaining (final String directoryPath, final String pattern)
 	{
@@ -227,7 +232,7 @@ public final class ResourceLoader
 
 
 	/**
-	 * Retuns the specified {@link File}.
+	 * Returns the specified {@link File}.
 	 *
 	 * @param directoryPath The path to the directory
 	 * @param fileName      The name of the desired File
@@ -235,9 +240,9 @@ public final class ResourceLoader
 	 * @return The File with the specified fileName from the specified directory
 	 *
 	 * @precondition The directoryPath has to point to a valid directory (not null).
-	 * @postcondition The File with the specified fileName; null if there is no file with the corresponding fileName
+	 * @postcondition The File with the specified fileName; null if there's no file with the corresponding fileName.
 	 */
-	public static File getFile (final String directoryPath, final String fileName)
+	static File getFile (final String directoryPath, final String fileName)
 	{
 		final File[] files = getDirectory(directoryPath).listFiles();
 
@@ -253,11 +258,11 @@ public final class ResourceLoader
 
 
 	/**
-	 * Creates a Tile-Array (Gameboard) from the specified File.
+	 * Creates a Tile-Array (game board) from the specified File.
 	 * <br>
 	 * The file has to follow certain rules in order for this method to be able to properly read it. The number of
 	 * lines in the file has to match {@link GameBoardConstants#GAME_BOARD_ROW_COUNT}
-	 * and the number of characters in each line have to match
+	 * and the number of characters in each line is required to match
 	 * {@link GameBoardConstants#GAME_BOARD_COLUMN_COUNT}. Furthermore, the file has
 	 * to contain valid Tile representations such as
 	 * {@link GameBoardConstants#BLOCKED_TILE}.
@@ -266,26 +271,34 @@ public final class ResourceLoader
 	 *
 	 * @return TileArray that represents the content of the specified file
 	 *
-	 * @precondition The filePath has to point to a vaild file (not null) that is the right size and contains the
-	 * allowed characters and does not exceed the UTF-8 character range
+	 * @precondition The filePath has to point to a valid file (not null) that's the right size and contains the
+	 * allowed characters and doesn't exceed the UTF-8 character range.
 	 * @postcondition The Tile-Array representation of the file content is returned with the character-representations
-	 * having been exchanged for the Tile-Objects
+	 * having been exchanged for the Tile-Objects.
 	 * @see GameBoardConstants
 	 * @see BufferedReader
 	 * @see Tile
 	 */
 	public static Tile[][] createTileArrayFromFile (final String filePath)
 	{
-		final Tile[][] gameBoard = new Tile[GAME_BOARD_ROW_COUNT][GAME_BOARD_COLUMN_COUNT];
-		final BufferedReader reader = createBufferedReaderFromFile(filePath);
+		final BufferedReader reader = createBufferedReader(filePath);
 
-		//Throws an error if the number of lines in the file does not match the number of rows of the Gameboard
+		//Throws an error if the number of lines in the file doesn't match the number of rows on the game board
 		if (getNumberOfLinesInFile(filePath) != GAME_BOARD_ROW_COUNT)
 		{
-			throw new RuntimeException(); //TODO: Eigene Exception
+			try // TODO: ????????????????????????????????????????????????????????????????????????
+			{
+				throw new InvalidMapFileFormatException();
+			}
+			catch (final InvalidMapFileFormatException e)
+			{
+				LOGGER.log(WARNING, e.getMessage());
+			}
+
 		}
 
 
+		final Tile[][] gameBoard = new Tile[GAME_BOARD_ROW_COUNT][GAME_BOARD_COLUMN_COUNT];
 		for (int row = 0; row < GAME_BOARD_ROW_COUNT; row++)
 		{
 			final String line;
@@ -296,19 +309,26 @@ public final class ResourceLoader
 			}
 			catch (final IOException e)
 			{
-				throw new RuntimeException(e);
+				LOGGER.log(WARNING, e.getMessage());
+				return null;
 			}
 
-			//Throws an exception if the number of characters in a line does not match the number of columns of the
-			// Gameboard
+			// Throws an exception if the number of characters in a line doesn't match the number of columns on the game board.
 			if (line.length() != GAME_BOARD_ROW_COUNT)
 			{
-				throw new RuntimeException(); // TODO: EIGENE EXCEPTION
+				try
+				{
+					throw new InvalidMapFileFormatException();
+				}
+				catch (final InvalidMapFileFormatException e)
+				{
+					LOGGER.log(WARNING, e.getMessage());
+				}
 			}
 
 			final char[] charArray = line.toCharArray();
 
-			//goes through each column of the gameboard
+			//goes through each column of the game board
 			for (int column = 0; column < GAME_BOARD_COLUMN_COUNT; column++)
 			{
 				//determines the tile that is added to the game board from the file with the help of characters
@@ -336,21 +356,21 @@ public final class ResourceLoader
 	 *
 	 * @return number of lines in the specified file
 	 *
-	 * @precondition filePath must point to a valid file (not null); file must adhere to the UTF-8 characterset
-	 * @postcondition number of lines in the file are returned
+	 * @precondition filePath must point to a valid file (not null); The file must adhere to the UTF-8 character set.
+	 * @postcondition the number of lines in the file is returned.
 	 */
-	public static int getNumberOfLinesInFile (final String filePath)
+	private static int getNumberOfLinesInFile (final String filePath)
 	{
 		final int numberOfLines;
 		try
 		{
-			numberOfLines = (int) Files.lines(new File(filePath).toPath(), StandardCharsets.UTF_8).count();
+			return (int) Files.lines(new File(filePath).toPath(), StandardCharsets.UTF_8).count();
 		}
 		catch (final IOException e)
 		{
-			throw new RuntimeException(e);
+			LOGGER.log(WARNING, e.getMessage());
+			return INVALID_NUMBER_OF_LINES;
 		}
-		return numberOfLines;
 	}
 
 
@@ -361,10 +381,10 @@ public final class ResourceLoader
 	 *
 	 * @return {@link BufferedReader} of the specified File
 	 *
-	 * @precondition The filePath has to point to a valid file (not null); The file must contain only UTF-8 characters
-	 * @postcondition A BufferedReader of the specifiedFile
+	 * @precondition The filePath has to point to a valid file (not null); The file must contain only UTF-8 characters.
+	 * @postcondition A BufferedReader of the specifiedFile.
 	 */
-	public static BufferedReader createBufferedReaderFromFile (final String filePath)
+	private static BufferedReader createBufferedReader (final String filePath)
 	{
 		try
 		{
@@ -372,8 +392,8 @@ public final class ResourceLoader
 		}
 		catch (final FileNotFoundException e)
 		{
-			throw new RuntimeException(e);
+			LOGGER.log(WARNING, e.getMessage());
+			return null;
 		}
 	}
-
 }

@@ -37,7 +37,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 * @return The value of the inserted entry.
 	 *
 	 * @precondition The entry is supplied.
-	 * @postcondition The validated Hashmap contains thr supplied entry
+	 * @postcondition The validated {@link Map} contains the supplied entry.
 	 */
 	public V put (final Entry<K, V> entry)
 	{
@@ -107,8 +107,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 *
 		 * @exception InvalidMapEntryException When the key or the value of the key is equal to null.
 		 * @precondition The key and the value of it are supplied.
-		 * @postcondition An instance of an entry is constructed, and it is validated that neither the key nor the
-		 * value of it are null.
+		 * @postcondition An instance of an entry is constructed, and it is validated that neither the key nor the value of it is null.
 		 */
 		public Entry (final E key, final F value) throws InvalidMapEntryException
 		{
@@ -123,7 +122,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 *
 		 * @exception InvalidMapEntryException When the key or the value of the key is equal to null.
 		 * @precondition The key and the value of it are supplied.
-		 * @postcondition It is validated that neither the key nor the value of it are null.
+		 * @postcondition It is validated that neither the key nor the value of it is null.
 		 */
 		private void validate () throws InvalidMapEntryException
 		{

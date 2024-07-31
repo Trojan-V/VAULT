@@ -204,7 +204,7 @@ public final class ConfigLoader implements Loader
 	 * @precondition None.
 	 * @postcondition The default values were written to the default configuration file.
 	 */
-	public void writeToDefaultConfigFile ()
+	private void writeToDefaultConfigFile ()
 	{
 		try (final FileWriter writer = new FileWriter(this.defaultFile))
 		{
@@ -225,7 +225,7 @@ public final class ConfigLoader implements Loader
 	 * @precondition A valid directory path and filename has to be supplied as a parameter.
 	 * @postcondition The configuration data was saved to a file with the specified filename in the specified directory.
 	 */
-	public void saveToFile (final String directoryPath, final String fileName)
+	private void saveToFile (final String directoryPath, final String fileName)
 	{
 		final File directory = ResourceLoader.getDirectory(directoryPath);
 		final File save = new File(directory, fileName);

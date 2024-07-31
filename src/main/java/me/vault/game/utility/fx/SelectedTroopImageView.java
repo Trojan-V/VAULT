@@ -25,7 +25,7 @@ public final class SelectedTroopImageView extends ImageView
 {
 
 	/**
-	 * A {@link MetaDataImage} which is displayed in the {@link SelectedTroopImageView} if not troop has been selected.
+	 * A {@link MetaDataImage} which is displayed in this class if no troop has been selected.
 	 */
 	private static final MetaDataImage PLACEHOLDER_IMAGE = ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH);
 
@@ -36,10 +36,10 @@ public final class SelectedTroopImageView extends ImageView
 
 
 	/**
-	 * Constructs a new instance of {@link SelectedTroopImageView}.
+	 * Constructs a new instance of this class.
 	 *
 	 * @precondition The constructor gets called.
-	 * @postcondition A new instance of {@link SelectedTroopImageView} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public SelectedTroopImageView ()
 	{
@@ -50,7 +50,7 @@ public final class SelectedTroopImageView extends ImageView
 
 
 	/**
-	 * Returns the placeholder image from the {@link SelectedTroopImageView}.
+	 * Returns the placeholder image from this class.
 	 *
 	 * @return A {@link MetaDataImage} that represents the placeholder image.
 	 *

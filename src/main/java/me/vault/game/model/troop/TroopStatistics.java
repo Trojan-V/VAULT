@@ -74,9 +74,9 @@ public class TroopStatistics
 	/**
 	 * This constructor creates a new instance of this class by providing an instance of this class itself.
 	 * <br>
-	 * This is required for the {@link Figure}s in the arena as they have to have their own statistics and cannot use
+	 * This is required for the {@link Figure}s in the arena as they have to have their own statistics and can't use
 	 * the same instance as the {@link Troop} itself. The {@link Figure} is in the arena, while the troop is in the
-	 * selection screen that is part of the city.
+	 * selection screen that's part of the city.
 	 * <br>
 	 * This is due to Java objects are called by reference and not called by value, and therefore the {@link Troop}
 	 * would use
@@ -238,10 +238,10 @@ public class TroopStatistics
 		/**
 		 * This constructor creates a new instance of this class by providing an instance of this class itself.
 		 * <br>
-		 * This is required for the {@link Figure}s in the arena as they have to have their own statistics and cannot
+		 * This is required for the {@link Figure}s in the arena as they have to have their own statistics and can't
 		 * use
 		 * the same instance as the {@link Troop} itself. The {@link Figure} is in the arena, while the troop is in the
-		 * selection screen that is part of the city.
+		 * selection screen that's part of the city.
 		 * <br>
 		 * This is due to Java objects are called by reference and not called by value, and therefore the {@link Troop}
 		 * would use
@@ -654,10 +654,10 @@ public class TroopStatistics
 		/**
 		 * This constructor creates a new instance of this class by providing an instance of this class itself.
 		 * <br>
-		 * This is required for the {@link Figure}s in the arena as they have to have their own statistics and cannot
+		 * This is required for the {@link Figure}s in the arena as they have to have their own statistics and can't
 		 * use
 		 * the same instance as the {@link Troop} itself. The {@link Figure} is in the arena, while the troop is in the
-		 * selection screen that is part of the city.
+		 * selection screen that's part of the city.
 		 * <br>
 		 * This is due to Java objects are called by reference and not called by value, and therefore the {@link Troop}
 		 * would use
@@ -994,10 +994,10 @@ public class TroopStatistics
 		/**
 		 * This constructor creates a new instance of this class by providing an instance of this class itself.
 		 * <br>
-		 * This is required for the {@link Figure}s in the arena as they have to have their own statistics and cannot
+		 * This is required for the {@link Figure}s in the arena as they have to have their own statistics and can't
 		 * use
 		 * the same instance as the {@link Troop} itself. The {@link Figure} is in the arena, while the troop is in the
-		 * selection screen that is part of the city.
+		 * selection screen that's part of the city.
 		 * <br>
 		 * This is due to Java objects are called by reference and not called by value, and therefore the {@link Troop}
 		 * would use

@@ -23,8 +23,6 @@ import me.vault.game.model.energy.impl.MeleeAbility;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.MultiplierVBox;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.UpgradeDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.city.CurrencyDelegate;
@@ -42,6 +40,7 @@ import java.util.ResourceBundle;
  * On the other hand it provides methods to control the model to the {@link Laboratory} city building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see Laboratory
@@ -49,11 +48,6 @@ import java.util.ResourceBundle;
  */
 public final class LaboratoryDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(LaboratoryDelegate.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.

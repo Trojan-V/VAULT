@@ -119,13 +119,13 @@ public interface EnergyConstants
 		 * The path to the standard/base sprite of the {@link InitiativeAbility}.
 		 */
 		@Constant
-		String BASE_SPRITE_PATH = GameConstants.ASSETS_PATH + "energy/initiative_energyabiltiy.png";
+		String BASE_SPRITE_PATH = GameConstants.ASSETS_PATH + "energy/initiative_energyability.png";
 
 		/**
 		 * The path to the sprite of the improved sprite of the {@link InitiativeAbility}.
 		 */
 		@Constant
-		String IMPROVED_SPRITE_PATH = GameConstants.ASSETS_PATH + "energy/initiative_energyabiltiy.png";
+		String IMPROVED_SPRITE_PATH = GameConstants.ASSETS_PATH + "energy/initiative_energyability.png";
 
 		/**
 		 * The upgrade cost from the base version of the {@link InitiativeAbility} to the improved version.

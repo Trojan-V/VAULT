@@ -26,6 +26,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * displaying the banner scene that shows all currencies the player owns as the top bar of the GUI.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Currency
  * @since 30.07.2024
  */

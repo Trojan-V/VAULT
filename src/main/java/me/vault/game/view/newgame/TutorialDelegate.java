@@ -12,8 +12,6 @@ import me.vault.game.utility.Config;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.interfaces.constant.TutorialConstants;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 
 import java.net.URL;
@@ -34,11 +32,6 @@ import static me.vault.game.utility.interfaces.constant.GameConstants.TAB_PANE_S
  */
 public final class TutorialDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(TutorialDelegate.class.getSimpleName());
 
 
 	/**
@@ -77,28 +70,28 @@ public final class TutorialDelegate implements Initializable
 
 
 	/**
-	 * {@link Text} that is shown in the artefacts tab of the tutorial.
+	 * The {@link Text} that is shown in the artifact tab of the tutorial.
 	 */
 	@FXML
 	private Text tutorialArtefactsText;
 
 
 	/**
-	 * {@link Text} that is shown in the factions tab of the tutorial.
+	 * The {@link Text} that is shown in the faction tab of the tutorial.
 	 */
 	@FXML
 	private Text tutorialFactionsText;
 
 
 	/**
-	 * {@link Text} that is shown in the missions tab of the tutorial.
+	 * {@link Text} that is shown in the mission tab of the tutorial.
 	 */
 	@FXML
 	private Text tutorialMissionsText;
 
 
 	/**
-	 * {@link Text} that is shown in the fights tab of the tutorial.
+	 * The {@link Text} that is shown in the fight tab of the tutorial.
 	 */
 	@FXML
 	private Text tutorialFightsText;
@@ -129,7 +122,7 @@ public final class TutorialDelegate implements Initializable
 	 * Handles the button action "click" that is defined in the FXML-File.
 	 * <br>
 	 * <br>
-	 * The method differentiates between different action that can be triggered by clicking on the different buttons
+	 * The method differentiates between different actions that can be triggered by clicking on the different buttons
 	 * of the scene.
 	 * <br>
 	 * <br>
@@ -139,7 +132,7 @@ public final class TutorialDelegate implements Initializable
 	 * <br>
 	 * If the {@link TutorialDelegate#continueButton} is clicked, the config file is updated and the city is shown.
 	 *
-	 * @param mouseEvent The MouseEvent that determines the triggered action(s)
+	 * @param mouseEvent The MouseEvent that determines the triggered actions.
 	 *
 	 * @precondition The tutorial (scene) has to be displayed on the active stage.
 	 * @postcondition The specified actions as described by this documentation are executed.

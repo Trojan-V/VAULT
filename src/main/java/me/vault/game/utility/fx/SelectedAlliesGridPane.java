@@ -36,80 +36,96 @@ public final class SelectedAlliesGridPane extends GridPane
 	 */
 	private static final int WIDTH = 565;
 
+
 	/**
 	 * The height of the {@link SelectedAlliesGridPane}.
 	 */
 	private static final int HEIGHT = 340;
+
 
 	/**
 	 * The number of columns in the {@link SelectedAlliesGridPane}.
 	 */
 	private static final int COLUMN_AMOUNT = 3;
 
+
 	/**
 	 * The y offset of the {@link SelectedAlliesGridPane}.
 	 */
 	private static final int Y_OFFSET = 250;
+
 
 	/**
 	 * The height of the first row in the {@link SelectedAlliesGridPane}.
 	 */
 	private static final int FIRST_ROW_Y = 50;
 
+
 	/**
 	 * The height of the second row in the {@link SelectedAlliesGridPane}.
 	 */
 	private static final int SECOND_ROW_Y = 200;
 
+
 	/**
 	 * The placeholder string for the name labels of the selected troops.
 	 */
-	private static final String PLACEHOLDER_STRING = "Nichts ausgewählt.";
+	private static final String PLACEHOLDER_STRING = "Nothing chosen so far";
+
 
 	/**
 	 * The index of the row which contains the name labels of the selected troops.
 	 */
 	private static final int LABEL_ROW_INDEX = 0;
 
+
 	/**
 	 * The index of the row which contains the image views of the selected troops.
 	 */
 	private static final int IMAGE_VIEW_ROW_INDEX = 1;
+
 
 	/**
 	 * The index of the third column.
 	 */
 	private static final int THIRD_COLUMN_INDEX = 2;
 
+
 	/**
 	 * The first name label of the selected troops.
 	 */
 	private final Label firstTroopLabel = new Label(PLACEHOLDER_STRING);
+
 
 	/**
 	 * The second name label of the selected troops.
 	 */
 	private final Label secondTroopLabel = new Label(PLACEHOLDER_STRING);
 
+
 	/**
 	 * The third name label of the selected troops.
 	 */
 	private final Label thirdTroopLabel = new Label(PLACEHOLDER_STRING);
+
 
 	/**
 	 * The first image view of the selected troops.
 	 */
 	private final ImageView firstTroopImageView = new SelectedTroopImageView();
 
+
 	/**
 	 * The second image view of the selected troops.
 	 */
 	private final ImageView secondTroopImageView = new SelectedTroopImageView();
 
+
 	/**
 	 * The third image view of the selected troops.
 	 */
 	private final ImageView thirdTroopImageView = new SelectedTroopImageView();
+
 
 	/**
 	 * A counter used for swapping between the selected troops.
@@ -118,11 +134,10 @@ public final class SelectedAlliesGridPane extends GridPane
 
 
 	/**
-	 * Constructs a new instance of {@link SelectedAlliesGridPane}.
-	 *
+	 * Constructs a new instance of this class.
 	 *
 	 * @precondition The constructor gets called.
-	 * @postcondition A new instance of {@link SelectedAlliesGridPane} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public SelectedAlliesGridPane ()
 	{
@@ -139,10 +154,10 @@ public final class SelectedAlliesGridPane extends GridPane
 
 
 	/**
-	 * Designs the appearance of the {@link SelectedAlliesGridPane} by setting its properties.
+	 * Designs the appearance of this class by setting its properties.
 	 *
-	 * @precondition The instance of {@link SelectedAlliesGridPane} is != null and inherits from {@link GridPane}.
-	 * @postcondition the appearance of the instance of {@link SelectedAlliesGridPane} was designed.
+	 * @precondition The instance of this class is != null and inherits from {@link GridPane}.
+	 * @postcondition The appearance of the instance of this class was designed.
 	 */
 	private void designAppearance ()
 	{
@@ -167,7 +182,6 @@ public final class SelectedAlliesGridPane extends GridPane
 	 * Adds the properties of a troop to the grid.
 	 *
 	 * @param troop The troop whose properties should be added to the grid.
-	 *
 	 * @precondition The labels and views on the control have already been initialized.
 	 * @postcondition The properties of the troop were added to the grid.
 	 */

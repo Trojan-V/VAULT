@@ -105,7 +105,7 @@ public final class ExitGameDialogDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		// Closes the different stages of the program if the user presses YES
+		// Closes the different stages of the program if the user presses "YES".
 		this.exitGameDialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> {
 			STAGE.close();
 			GameApplication.getStage().close();

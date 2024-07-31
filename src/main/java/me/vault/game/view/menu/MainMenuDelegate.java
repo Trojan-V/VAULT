@@ -15,8 +15,6 @@ import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.interfaces.constant.MiscConstants;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ExitGameDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.newgame.DifficultyDelegate;
@@ -42,11 +40,6 @@ import static me.vault.game.utility.interfaces.constant.MiscConstants.SAVE_NAME;
  */
 public final class MainMenuDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(MainMenuDelegate.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.
@@ -159,7 +152,7 @@ public final class MainMenuDelegate implements Initializable
 	 * buttons or the MenuItems in the Scene.
 	 * <br>
 	 * <br>
-	 * Note: As both the MenuItems and the Buttons in the Scene have the same capabilities, they're combined in one
+	 * Note: as both the MenuItems and the Buttons in the Scene have the same capabilities, they're combined in one
 	 * method. However, as the buttons use an {@link MouseEvent} and the MenuItems use an {@link ActionEvent}, the
 	 * super-Class {@link Event} has been used to combine both in a single method.
 	 * <br>
@@ -172,13 +165,13 @@ public final class MainMenuDelegate implements Initializable
 	 * <br>
 	 * If "load game" is clicked, the {@link MainMenuDelegate#loadGameFromFile()} method is called.
 	 * <br>
-	 * If "settings" is clicked, the settings view is shown.
+	 * If "settings" is clicked, the settings view shows up.
 	 * <br>
-	 * If "exit game" is clicked, the exit dialog is shown.
+	 * If "exit game" is clicked, the exit dialog shows up.
 	 * <br>
-	 * If "arena" is clicked, the network connection dialog is shown.
+	 * If "arena" is clicked, the network connection dialog shows up.
 	 *
-	 * @param event the Event that determines the triggered actions
+	 * @param event The event that determines the triggered actions.
 	 *
 	 * @precondition The MainMenu Scene has to be displayed on the active stage.
 	 * @postcondition The specified actions as described by this documentation are executed.
@@ -222,8 +215,8 @@ public final class MainMenuDelegate implements Initializable
 	 * before {@link DifficultyDelegate#show()} is called to start a new game.
 	 *
 	 * @precondition The method gets called
-	 * @postcondition If the config file isn't identical to the default config file the information from the config
-	 * file is saved in a new file; the config file is set to the default values, and the difficulty (scene) is shown
+	 * @postcondition If the config file isn't identical to the default config file, the information from the config
+	 * file is saved in a new file; the config file is set to the default values, and the difficulty (scene) is shown.
 	 */
 	private void createNewGame ()
 	{
@@ -237,22 +230,22 @@ public final class MainMenuDelegate implements Initializable
 
 
 	/**
-	 * Handles the loading of a game file. The method checks, if the current configuration is equivalent to the
-	 * default configuration. If this is not the case, the current configuration is saved and the configuration is
+	 * Handles the loading of a game file.
+	 * The method checks if the current configuration is equivalent to the
+	 * default configuration. If this isn't the case, the current configuration is saved, and the configuration is
 	 * reset, before {@link CityDelegate#show()} is called to continue with the game.
 	 *
 	 * @precondition The method is called.
-	 * @postcondition If the config file is not identical to the default config file the information from the config
-	 * file is saved in a new file; the config file is updated with the information from the loaded file and the city
-	 * (scene) is shown
+	 * @postcondition If the config file isn't identical to the default config file, the information from the config
+	 * file is saved in a new file; the config file is updated with the information from the loaded file, and the city
+	 * (scene) is shown.
 	 */
 	private void loadGameFromFile ()
 	{
-		final File file;
 		try
 		{
 			//The chosen file has to be a valid .json file
-			file = new FileChooserDelegate(GAME_SAVE_DIRECTORY_PATH).show();
+			final File file = new FileChooserDelegate(GAME_SAVE_DIRECTORY_PATH).show();
 			if (file == null)
 			{
 				return;
@@ -294,11 +287,11 @@ public final class MainMenuDelegate implements Initializable
 
 	/**
 	 * Checks, if the Config file is identical to the default (config) file. If the files are identical,
-	 * {@link MainMenuDelegate#continueButton} and {@link MainMenuDelegate#continueMenuItem} is set to inactive
+	 * {@link MainMenuDelegate#continueButton} and {@link MainMenuDelegate#continueMenuItem} is set to inactive.
 	 *
 	 * @precondition The main menu controller has to have been called.
 	 * @postcondition The {@link MainMenuDelegate#continueButton} and {@link MainMenuDelegate#continueMenuItem} are
-	 * set to inactive if the Config file is identical to the default (config) file
+	 * set to inactive if the Config file is identical to the default (config) file.
 	 */
 	@FXML
 	private void initializeContinue ()

@@ -76,7 +76,7 @@ public final class SingleStatisticHBox extends HBox
 	 * @param property   The property that is bound to the JavaFX GUI.
 	 *
 	 * @precondition The constructor gets called and all parameters are != null.
-	 * @postcondition A new instance of {@link SingleStatisticHBox} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	SingleStatisticHBox (final String spritePath, final String name, final NumberExpression property)
 	{
@@ -94,8 +94,8 @@ public final class SingleStatisticHBox extends HBox
 	 * <br>
 	 * The added data consists of the statistic's sprite, name, and property.
 	 *
-	 * @precondition The method gets called and the instance of {@link SingleStatisticHBox} is != null.
-	 * @postcondition The relevant data of the statistic got added to the instance of {@link SingleStatisticHBox}.
+	 * @precondition The method gets called and the instance of this class is != null.
+	 * @postcondition The relevant data of the statistic got added to the instance of this class.
 	 */
 	private void addData ()
 	{

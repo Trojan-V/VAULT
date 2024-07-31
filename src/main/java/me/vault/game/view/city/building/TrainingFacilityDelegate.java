@@ -19,8 +19,6 @@ import me.vault.game.model.troop.impl.*;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.TrainingFacilityUpgradePane;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.city.CurrencyDelegate;
 import me.vault.game.view.mission.MissionSelectionDelegate;
@@ -40,6 +38,7 @@ import static me.vault.game.utility.interfaces.constant.GameConstants.TAB_PANE_S
  * On the other hand, it provides methods to control the model to the {@link TrainingFacility} city building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see CommandCenter
@@ -47,11 +46,6 @@ import static me.vault.game.utility.interfaces.constant.GameConstants.TAB_PANE_S
  */
 public final class TrainingFacilityDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(TrainingFacility.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.

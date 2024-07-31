@@ -46,6 +46,18 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
 // TODO: Complete JavaDoc needed
+
+
+/**
+ * The {@link ArenaDelegate} is responsible for the control (Controller) and display (View) for the encounter. It
+ * provides methods to change the appearance of the elements of the arena.
+ * The arena automatically gets displayed when the player is next to an encounter tile and interact with it.
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
+ * @see Arena
+ * @since 25.07.2024
+ */
 public final class ArenaDelegate
 {
 
@@ -98,6 +110,14 @@ public final class ArenaDelegate
 	private Mission mission = null;
 
 
+	/**
+	 * Displays the {@link Arena} instance.
+	 *
+	 * @param mission The {@link Mission} object, which describes the mission the arena originated from.
+	 * @param arena   The {@link Arena} object, which describes the arena.
+	 * @precondition The player moved on an encounter tile and the arena instance for the encounter is supplied.
+	 * @postcondition The arena is displayed for the user.
+	 */
 	public static void show (final @NotNull Mission mission, final @NotNull Arena arena)
 	{
 		try
@@ -117,7 +137,11 @@ public final class ArenaDelegate
 
 
 	/**
-	 * @param mission
+	 * Sets the instance of the {@link Mission} object.
+	 *
+	 * @param mission The new {@link Mission} object, meant to replace the current attribute in the instance.
+	 * @precondition A {@link NotNull} {@link Mission} object is passed into the method.
+	 * @postcondition
 	 */
 	private void setMission (final Mission mission)
 	{
@@ -125,6 +149,10 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 * @param actionEvent
+	 */
 	@FXML
 	void onStartGameClick (final ActionEvent actionEvent)
 	{
@@ -135,6 +163,12 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 * @param actionEvent
+	 * @return
+	 */
+
 	@FXML
 	boolean onDodgeAbilityClick (final ActionEvent actionEvent)
 	{
@@ -143,6 +177,12 @@ public final class ArenaDelegate
 		return true;
 	}
 
+
+	/**
+	 *
+	 * @param actionEvent
+	 * @return
+	 */
 
 	@FXML
 	boolean onInitiativeAbilityClick (final ActionEvent actionEvent)
@@ -153,6 +193,12 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 * @param actionEvent
+	 * @return
+	 */
+
 	@FXML
 	boolean onMeleeAbilityClick (final ActionEvent actionEvent)
 	{
@@ -162,6 +208,9 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 */
 	private void initializeGameBoardGridPane ()
 	{
 		for (int i = 0; i < GAME_BOARD_ROW_COUNT; i++)
@@ -170,15 +219,16 @@ public final class ArenaDelegate
 			{
 				final Position position = new Position(i, j);
 				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(position).getCurrentElement());
-				button.setOnMouseClicked(_ -> {
-					this.handleFigureInteraction(position);
-				});
+				button.setOnMouseClicked(_ -> this.handleFigureInteraction(position));
 				this.arenaBoardGridPane.add(button, i, j);
 			}
 		}
 	}
 
 
+	/**
+	 *
+	 */
 	private void initializeTimelineVbox ()
 	{
 		this.timelineVBox.getChildren().clear();
@@ -190,6 +240,11 @@ public final class ArenaDelegate
 		}
 	}
 
+
+	/**
+	 *
+	 * @param position
+	 */
 
 	private void handleFigureInteraction (final @NotNull Position position)
 	{
@@ -220,6 +275,10 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 */
+
 	private void executeTurn ()
 	{
 		final List<Figure> playerOneTroops = this.arena.getPlayerOneFigures();
@@ -228,6 +287,7 @@ public final class ArenaDelegate
 		final boolean finished = this.checkForFinish();
 		if (playerOneTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
+			// TODO: Empty method body.
 		}
 		else if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
@@ -241,6 +301,10 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 * @return
+	 */
 	private boolean checkForFinish ()
 	{
 		final ArenaResult arenaResult = this.arena.getResult();
@@ -252,6 +316,10 @@ public final class ArenaDelegate
 		return false;
 	}
 
+
+	/**
+	 *
+	 */
 
 	private void handleEnemyTurn ()
 	{
@@ -283,6 +351,10 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 */
+
 	private void updateTimeline ()
 	{
 		// Entfernt die oberste Truppe aus der Queue und f&uuml;llt die Queue ggf. wieder auf
@@ -306,6 +378,10 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 */
+
 	private void incrementRound ()
 	{
 		this.round++;
@@ -313,11 +389,21 @@ public final class ArenaDelegate
 	}
 
 
+	/**
+	 *
+	 * @return
+	 */
+
 	public Arena getArena ()
 	{
 		return this.arena;
 	}
 
+
+	/**
+	 *
+	 * @param arena
+	 */
 
 	public void setArena (final @NotNull Arena arena)
 	{

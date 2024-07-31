@@ -38,7 +38,7 @@ public interface Displayable
 	 *
 	 * @param sprite The new sprite for the displayable object.
 	 *
-	 * @precondition A valid != null {@link MetaDataImage} has been passed into the method.
+	 * @precondition A valid instance of {@link MetaDataImage} that isn't equal to null has been passed into the method.
 	 * @postcondition The sprite attribute in the Displayable has been set to the passed {@link MetaDataImage}.
 	 */
 	void setSprite (final MetaDataImage sprite);

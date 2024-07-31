@@ -37,6 +37,7 @@ import static me.vault.game.utility.interfaces.constant.CityBuildingConstants.Ma
  * On the other hand, it provides methods to control the model to the {@link Market} city building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see Market
@@ -48,7 +49,7 @@ public final class MarketDelegate implements Initializable
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final Logger LOGGER = new Logger(MarketDelegate.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(MarketDelegate.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.

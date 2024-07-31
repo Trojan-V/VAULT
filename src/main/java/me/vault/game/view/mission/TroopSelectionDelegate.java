@@ -43,6 +43,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * The delegate is also responsible for starting the correct {@link Mission} after the selection is complete.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Mission
  * @see MissionDelegate
  * @see MissionSelectionDelegate
@@ -124,7 +125,7 @@ public final class TroopSelectionDelegate implements Initializable
 
 
 	/**
-	 * Displays the {@link Scene} of the  on the main {@link Stage} of the application.
+	 * Displays the {@link Scene} of the instance on the main {@link Stage} of the application.
 	 *
 	 * @param mission The {@link Mission} object, which is meant to be displayed on the main {@link Stage} after the
 	 *                troop selection is finished.
@@ -185,11 +186,11 @@ public final class TroopSelectionDelegate implements Initializable
 
 
 	/**
-	 * Gets the {@link TroopSelectionDelegate#mission} attribute of the instance of .
+	 * Gets the {@link TroopSelectionDelegate#mission} attribute of the instance of this class.
 	 *
 	 * @return The {@link TroopSelectionDelegate#mission} attribute as a {@link Mission} object.
 	 *
-	 * @precondition The {@link TroopSelectionDelegate#mission} attribute has already been set in the .
+	 * @precondition The {@link TroopSelectionDelegate#mission} attribute has already been set in the instance of this class.
 	 * @postcondition The method returned the {@link Mission} attribute.
 	 */
 	public Mission getMission ()

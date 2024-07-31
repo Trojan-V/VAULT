@@ -120,12 +120,12 @@ public final class TrainingFacilityUpgradePane extends GridPane
 
 
 	/**
-	 * Constructs a new instance of {@link TrainingFacilityUpgradePane} with the passed parameters.
+	 * Constructs a new instance of this class with the passed parameters.
 	 *
-	 * @param troops A list of troops that is contained in the {@link TrainingFacilityUpgradePane}.
+	 * @param troops A list of troops that is contained in this instance.
 	 *
 	 * @precondition The constructor gets called and the parameters are != null.
-	 * @postcondition A new instance of {@link TrainingFacilityUpgradePane} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public TrainingFacilityUpgradePane (final Troop... troops)
 	{
@@ -267,12 +267,12 @@ public final class TrainingFacilityUpgradePane extends GridPane
 
 
 	/**
-	 * Adds the attribute grids of the troops to the {@link TrainingFacilityUpgradePane}.
+	 * Adds the attribute grids of the troops to the instance of this class.
 	 *
 	 * @param troops The list of troops that's been passed into the constructor.
 	 *
 	 * @precondition The list of troops isn't empty and != null.
-	 * @postcondition The attribute grids of the troops have been added to the {@link TrainingFacilityUpgradePane}.
+	 * @postcondition The attribute grids of the troops have been added to the instance of this class.
 	 */
 	private void addAttributeGrids (final Troop[] troops)
 	{
@@ -286,12 +286,12 @@ public final class TrainingFacilityUpgradePane extends GridPane
 
 
 	/**
-	 * Adds the name labels and upgrade buttons of the troops to the {@link TrainingFacilityUpgradePane}.
+	 * Adds the name labels and upgrade buttons of the troops to the instance of this class.
 	 *
 	 * @param troops The list of troops that's been passed into the constructor.
 	 *
 	 * @precondition The list of troops isn't empty and != null.
-	 * @postcondition The name labels and upgrade buttons of the troops have been added to the {@link TrainingFacilityUpgradePane}.
+	 * @postcondition The name labels and upgrade buttons of the troops have been added to the instance of this class.
 	 */
 	private void addNameAndUpgradeControl (final Troop[] troops)
 	{
@@ -309,12 +309,12 @@ public final class TrainingFacilityUpgradePane extends GridPane
 
 
 	/**
-	 * Adds the name image views of the troops to the {@link TrainingFacilityUpgradePane}.
+	 * Adds the name image views of the troops to the instance of this class.
 	 *
 	 * @param troops The list of troops that's been passed into the constructor.
 	 *
 	 * @precondition The list of troops isn't empty and != null.
-	 * @postcondition The image views of the troops have been added to the {@link TrainingFacilityUpgradePane}.
+	 * @postcondition The image views of the troops have been added to the instance of this class.
 	 */
 	private void addTroopImageViews (final Troop[] troops)
 	{
@@ -332,12 +332,12 @@ public final class TrainingFacilityUpgradePane extends GridPane
 
 
 	/**
-	 * Sets the grid constraints for the {@link TrainingFacilityUpgradePane}.
+	 * Sets the grid constraints for the instance of this class.
 	 *
 	 * @param troops The list of troops that's been passed into the constructor.
 	 *
 	 * @precondition The list of troops isn't empty and != null.
-	 * @postcondition The grid constraints have been set for the {@link TrainingFacilityUpgradePane}.
+	 * @postcondition The grid constraints have been set for the instance of this class.
 	 */
 	private void setGridConstraints (final Troop[] troops)
 	{

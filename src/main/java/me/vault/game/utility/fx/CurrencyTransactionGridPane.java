@@ -59,12 +59,12 @@ public final class CurrencyTransactionGridPane extends GridPane
 
 
 	/**
-	 * Constructs a new instance of {@link CurrencyTransactionGridPane} based on the passed CurrencyTransaction.
+	 * Constructs a new instance of this class based on the passed CurrencyTransaction.
 	 *
 	 * @param currencyTransaction The {@link CurrencyTransaction} which is the template for the new instance.
 	 *
 	 * @precondition The {@link CurrencyTransaction} parameter is != null.
-	 * @postcondition A new instance of {@link CurrencyTransactionGridPane} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public CurrencyTransactionGridPane (final CurrencyTransaction currencyTransaction)
 	{

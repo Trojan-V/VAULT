@@ -38,13 +38,13 @@ public final class GameBoardButton extends Button
 
 
 	/**
-	 * Constructs a new instance of {@link GameBoardButton} with the passed parameters.
+	 * Constructs a new instance of this class with the passed parameters.
 	 *
-	 * @param arena     The arena object, the {@link GameBoardButton} is related to.
-	 * @param placeable The Placeable that fills the {@link GameBoardButton} on the grid.
+	 * @param arena     The arena object this button is related to.
+	 * @param placeable The Placeable that fills the button on the grid.
 	 *
 	 * @precondition The constructor gets called and both parameters are != null.
-	 * @postcondition A new instance of {@link GameBoardButton} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public GameBoardButton (final Arena arena, final Placeable placeable)
 	{
@@ -54,12 +54,12 @@ public final class GameBoardButton extends Button
 
 
 	/**
-	 * Constructs a new instance of {@link GameBoardButton} with the passed parameters.
+	 * Constructs a new instance of this class with the passed parameters.
 	 *
-	 * @param placeable The Placeable that fills the {@link GameBoardButton} on the grid.
+	 * @param placeable The Placeable that fills the button on the grid.
 	 *
 	 * @precondition The constructor gets called and the parameter is != null.
-	 * @postcondition A new instance of {@link GameBoardButton} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public GameBoardButton (final Placeable placeable)
 	{
@@ -69,10 +69,10 @@ public final class GameBoardButton extends Button
 
 
 	/**
-	 * Designs the appearance of the {@link GameBoardButton} by setting its properties.
+	 * Designs the appearance of this class by setting its properties.
 	 *
-	 * @precondition The instance of {@link GameBoardButton} is != null and inherits from {@link Button}.
-	 * @postcondition the appearance of the instance of {@link GameBoardButton} was designed.
+	 * @precondition The instance of this class is != null and inherits from {@link Button}.
+	 * @postcondition The appearance of the instance of this class was designed.
 	 */
 	private void designAppearance ()
 	{
@@ -92,8 +92,8 @@ public final class GameBoardButton extends Button
 	 * @param arena     An arena object, used to decide what glow to apply to the placeable.
 	 * @param placeable The placeable object whose sprite will be displayed.
 	 *
-	 * @precondition A Placeable object is passed and != null. The instance of {@link GameBoardButton} is != null.
-	 * @postcondition The image view of the {@link GameBoardButton} was designed, and a glow was applied if an arena object was passed.
+	 * @precondition A Placeable object is passed and != null. The instance of this class is != null.
+	 * @postcondition The image view of this class was designed, and a glow was applied if an arena object was passed.
 	 */
 	private void designImageView (@Nullable final Arena arena, final Placeable placeable)
 	{
