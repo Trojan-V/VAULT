@@ -26,8 +26,6 @@ public final class SelectedAlliesGridPane extends GridPane
 
 	private static final int SECOND_ROW_Y = 200;
 
-	private static final int THIRD_ROW_Y = 50;
-
 	private static final String PLACEHOLDER_STRING = "Nichts ausgewaehlt.";
 
 	private final Label firstTroopLabel = new Label(PLACEHOLDER_STRING);
@@ -145,7 +143,6 @@ public final class SelectedAlliesGridPane extends GridPane
 
 		this.getRowConstraints().add(this.getRowConstraints().size(), new RowConstraints(FIRST_ROW_Y));
 		this.getRowConstraints().add(this.getRowConstraints().size(), new RowConstraints(SECOND_ROW_Y));
-		this.getRowConstraints().add(this.getRowConstraints().size(), new RowConstraints(THIRD_ROW_Y));
 	}
 
 }
