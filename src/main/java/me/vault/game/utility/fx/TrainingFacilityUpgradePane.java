@@ -14,13 +14,26 @@ import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.interfaces.Nameable;
 import me.vault.game.view.UpgradeDialogDelegate;
+import me.vault.game.view.city.building.TrainingFacilityDelegate;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 import static me.vault.game.utility.interfaces.constant.TroopStatisticConstants.*;
 
-// TODO: Complete JavaDoc needed
 
-
+/**
+ * The {@link TrainingFacilityUpgradePane} is used to show the different troops with their upgrade capability in the training facility view.
+ * It extends the standard {@link GridPane} and automatically initializes the right graphic and design based
+ * on the {@link List} of troop objects which is parsed into the constructor.
+ * The {@code TrainingFacilityUpgradePane} is mainly used in combination with the {@link TrainingFacilityDelegate}.
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @see GridPane
+ * @see TrainingFacility
+ * @see Troop
+ * @since 25.06.2024
+ */
 public final class TrainingFacilityUpgradePane extends GridPane
 {
 

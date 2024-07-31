@@ -27,7 +27,7 @@ import java.text.MessageFormat;
  * @see EnergyAbilityController
  * @since 29.07.2024
  */
-public class SingleStatisticHBox extends HBox
+public final class SingleStatisticHBox extends HBox
 {
 
 	/**

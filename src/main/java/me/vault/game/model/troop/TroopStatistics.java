@@ -6,7 +6,7 @@ import me.vault.game.model.gameboard.Figure;
 
 import java.text.MessageFormat;
 
-
+// TODO: PRE UND POST!
 /**
  * This class provides the model for all different statistics a {@link Troop} has.
  * <br>
