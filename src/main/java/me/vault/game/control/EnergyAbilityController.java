@@ -2,19 +2,19 @@ package me.vault.game.control;
 
 
 import javafx.application.Platform;
-import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.energy.AbilityMultiplier;
 import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.energy.EnergyLevel;
+import me.vault.game.utility.concurrency.UpgradeRunnable;
+import me.vault.game.utility.interfaces.Upgrader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.UpgradeRunnable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.UPGRADING;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.UPGRADING;
 
 
 /**

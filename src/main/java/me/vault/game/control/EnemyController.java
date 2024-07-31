@@ -3,13 +3,13 @@ package me.vault.game.control;
 
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.Figure;
-import me.vault.game.model.arena.Tile;
+import me.vault.game.model.gameboard.Figure;
+import me.vault.game.model.gameboard.tile.Tile;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import static me.vault.game.utility.constant.LoggingConstants.ArenaDelegate.ATTACKED_MSG;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.ArenaDelegate.ATTACKED_MSG;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 

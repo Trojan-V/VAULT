@@ -1,22 +1,23 @@
 package me.vault.game.model.artifact.impl;
 
 
-import javafx.scene.image.Image;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.utility.datatypes.MetaDataImage;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.ArtifactConstants.*;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
+import static me.vault.game.utility.interfaces.constant.ArtifactConstants.*;
+import static me.vault.game.utility.interfaces.constant.ArtifactConstants.Health.BASE_TO_IMPROVED_UPGRADE_COSTS;
+import static me.vault.game.utility.interfaces.constant.ArtifactConstants.Health.IMPROVED_TO_NONE_UPGRADE_COSTS;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -103,14 +104,14 @@ public final class HealthArtifact extends Artifact
 	 *
 	 * @return The map of upgrade costs for the health artifact.
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
-	 * @postcondition A map of upgrade costs for the {@link HealthArtifact} is initialized.
+	 * @postcondition A map of upgrade costs for the  is initialized.
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
 		// Fill the map with the different upgrade cost transactions.
 		final Map<ArtifactLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
-		upgradeCostsMap.put(ArtifactLevel.BASE, Health.BASE_TO_IMPROVED_UPGRADE_COSTS);
-		upgradeCostsMap.put(ArtifactLevel.IMPROVED, Health.IMPROVED_TO_NONE_UPGRADE_COSTS);
+		upgradeCostsMap.put(ArtifactLevel.BASE, BASE_TO_IMPROVED_UPGRADE_COSTS);
+		upgradeCostsMap.put(ArtifactLevel.IMPROVED, IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
 		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
@@ -127,8 +128,8 @@ public final class HealthArtifact extends Artifact
 	 * This method is invoked in the static initializer of this class.
 	 *
 	 * @return The map of attribute modifiers for the health artifact.
-	 * @precondition The attribute modifiers for the {@link HealthArtifact} exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of attribute modifiers for the {@link HealthArtifact} is initialised.
+	 * @precondition The attribute modifiers for the  exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of attribute modifiers for the  is initialised.
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{

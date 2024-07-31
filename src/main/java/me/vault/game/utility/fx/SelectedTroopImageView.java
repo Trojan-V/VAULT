@@ -2,9 +2,9 @@ package me.vault.game.utility.fx;
 
 
 import javafx.scene.image.ImageView;
-import me.vault.game.utility.constant.GameConstants;
+import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.struct.MetaDataImage;
 
 // TODO: Complete JavaDoc needed
 

@@ -5,14 +5,13 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import me.vault.game.utility.constant.GameConstants;
+import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.jvm.JvmArgument;
 import me.vault.game.utility.jvm.JvmArgumentParser;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.ExitGameDialogDelegate;
-import me.vault.game.view.MainMenuDelegate;
+import me.vault.game.view.menu.MainMenuDelegate;
 
-import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
+import static me.vault.game.utility.interfaces.constant.GameConstants.WINDOW_TITLE;
 
 
 /**
@@ -26,18 +25,6 @@ import static me.vault.game.utility.constant.GameConstants.WINDOW_TITLE;
  */
 public class GameApplication extends Application
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final Logger LOGGER = new Logger(GameApplication.class.getSimpleName());
-
-
-	/**
-	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/vaultgame} and defines the properties (color etc.) of the GUI
-	 * elements.
-	 */
-	private static final String FXML_FILENAME = "main.fxml";
 
 
 	/**
@@ -65,7 +52,7 @@ public class GameApplication extends Application
 	/**
 	 * Returns the {@link GameApplication#mainStage} of the application.
 	 *
-	 * @return mainStage of {@link GameApplication}
+	 * @return mainStage of
 	 *
 	 * @precondition the {@link GameApplication#start(Stage)} has been called.
 	 * @postcondition the current {@link GameApplication#mainStage} is returned.

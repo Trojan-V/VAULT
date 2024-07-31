@@ -2,7 +2,7 @@ package me.vault.game.model.artifact;
 
 
 import javafx.beans.property.SimpleDoubleProperty;
-import me.vault.game.exception.InvalidAttributeMultiplierException;
+import me.vault.game.utility.exception.InvalidAttributeMultiplierException;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.ILogger.Level;
 import me.vault.game.utility.logging.Logger;
@@ -10,8 +10,8 @@ import me.vault.game.utility.logging.Logger;
 import java.text.MessageFormat;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSSIBLE_ANYMORE;
-import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.EXECUTION_NOT_POSSIBLE_ANYMORE;
+import static me.vault.game.utility.interfaces.constant.MiscConstants.ERROR_EXIT_CODE;
 
 
 /**
@@ -82,7 +82,7 @@ public class AttributeMultiplier
 	 *
 	 * @param modifiers The modifiers which are applied to the properties.
 	 * @precondition The map of the attribute modifiers exists.
-	 * @postcondition Constructs an instance of {@link AttributeMultiplier} with the supplied modifies.
+	 * @postcondition Constructs an instance of  with the supplied modifies.
 	 */
 	AttributeMultiplier (final Map<Type, Double> modifiers)
 	{

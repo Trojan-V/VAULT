@@ -1,7 +1,7 @@
 package me.vault.game.utility.jvm;
 
 
-import static me.vault.game.utility.constant.CharacterConstants.DASH;
+import static me.vault.game.utility.interfaces.constant.CharacterConstants.DASH;
 
 
 /**

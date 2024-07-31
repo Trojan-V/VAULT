@@ -5,9 +5,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
-import me.vault.game.interfaces.Loader;
-import me.vault.game.utility.constant.GameConstants;
-import me.vault.game.utility.constant.MiscConstants;
+import me.vault.game.utility.Config;
+import me.vault.game.utility.interfaces.Loader;
+import me.vault.game.utility.interfaces.constant.GameConstants;
+import me.vault.game.utility.interfaces.constant.MiscConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
@@ -19,7 +20,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
 
-import static me.vault.game.utility.constant.MiscConstants.*;
+import static me.vault.game.utility.interfaces.constant.MiscConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 

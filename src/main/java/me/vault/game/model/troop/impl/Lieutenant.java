@@ -7,14 +7,14 @@ import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistics;
-import me.vault.game.utility.struct.MetaDataImage;
-import me.vault.game.utility.struct.ValidatedEntriesHashMap;
+import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.datatypes.ValidatedEntriesHashMap;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.TroopConstants.Lieutenant.*;
+import static me.vault.game.utility.interfaces.constant.TroopConstants.Lieutenant.*;
 
 
 /**

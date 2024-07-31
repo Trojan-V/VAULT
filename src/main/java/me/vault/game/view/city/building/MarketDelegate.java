@@ -12,21 +12,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyDelegate;
-import me.vault.game.model.city.Market;
+import me.vault.game.model.city.impl.Market;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.ViewUtil;
-import me.vault.game.utility.constant.CharacterConstants;
+import me.vault.game.utility.interfaces.constant.CharacterConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
+import me.vault.game.view.city.CurrencyDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.CityBuildingConstants.Market.*;
+import static me.vault.game.utility.interfaces.constant.CityBuildingConstants.Market.*;
 
 
 /**

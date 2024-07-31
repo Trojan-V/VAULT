@@ -6,17 +6,18 @@ import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.artifact.ArtifactLevel;
 import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.utility.datatypes.MetaDataImage;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.ArtifactConstants.*;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
+import static me.vault.game.utility.interfaces.constant.ArtifactConstants.Damage.*;
+import static me.vault.game.utility.interfaces.constant.ArtifactConstants.*;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -109,14 +110,14 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of upgrade costs for the damage artifact.
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
-	 * @postcondition A map of upgrade costs for the {@link DamageArtifact} is initialized.
+	 * @postcondition A map of upgrade costs for the  is initialized.
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
 		// Fill the map with the different upgrade cost transactions.
 		final Map<ArtifactLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
-		upgradeCostsMap.put(ArtifactLevel.BASE, Damage.BASE_TO_IMPROVED_UPGRADE_COSTS);
-		upgradeCostsMap.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_TO_NONE_UPGRADE_COSTS);
+		upgradeCostsMap.put(ArtifactLevel.BASE, BASE_TO_IMPROVED_UPGRADE_COSTS);
+		upgradeCostsMap.put(ArtifactLevel.IMPROVED, IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
 		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
@@ -136,8 +137,8 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of attribute modifiers for the damage artifact.
 	 *
-	 * @precondition The attribute modifiers for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of attribute modifiers for the {@link DamageArtifact} is initialised.
+	 * @precondition The attribute modifiers for the  exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of attribute modifiers for the  is initialised.
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -176,15 +177,15 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of names for the damage artifact.
 	 *
-	 * @precondition The names for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of the names for the {@link DamageArtifact} is initialised.
+	 * @precondition The names for the  exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the names for the  is initialised.
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
 		// Fill the map with the names.
 		final Map<ArtifactLevel, String> namesMap = new HashMap<>();
-		namesMap.put(ArtifactLevel.BASE, Damage.BASE_NAME);
-		namesMap.put(ArtifactLevel.IMPROVED, Damage.IMPROVED_NAME);
+		namesMap.put(ArtifactLevel.BASE, BASE_NAME);
+		namesMap.put(ArtifactLevel.IMPROVED, IMPROVED_NAME);
 
 		// Logging output
 		LOGGER.logf(DEBUG, NAME_MAP_SET_PATTERN, namesMap.toString());
@@ -203,15 +204,15 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of sprites for the damage artifact.
 	 *
-	 * @precondition The sprites for the {@link DamageArtifact} exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of the sprites for the {@link DamageArtifact} is initialised.
+	 * @precondition The sprites for the  exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the sprites for the  is initialised.
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
 		// Fill the map with the sprites.
 		final Map<ArtifactLevel, MetaDataImage> spritesMap = new HashMap<>();
-		spritesMap.put(ArtifactLevel.BASE, ResourceLoader.loadImage(Damage.BASE_SPRITE_PATH));
-		spritesMap.put(ArtifactLevel.IMPROVED, ResourceLoader.loadImage(Damage.IMPROVED_SPRITE_PATH));
+		spritesMap.put(ArtifactLevel.BASE, ResourceLoader.loadImage(BASE_SPRITE_PATH));
+		spritesMap.put(ArtifactLevel.IMPROVED, ResourceLoader.loadImage(IMPROVED_SPRITE_PATH));
 
 		// Logging output
 		LOGGER.logf(DEBUG, SPRITE_MAP_SET_PATTERN, spritesMap.toString());

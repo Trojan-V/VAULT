@@ -9,14 +9,14 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import me.vault.game.control.TroopController;
-import me.vault.game.interfaces.Nameable;
-import me.vault.game.model.city.TrainingFacility;
+import me.vault.game.model.city.impl.TrainingFacility;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopStatistics;
+import me.vault.game.utility.interfaces.Nameable;
 import me.vault.game.view.UpgradeDialogDelegate;
 import org.jetbrains.annotations.NotNull;
 
-import static me.vault.game.utility.constant.TroopStatisticConstants.*;
+import static me.vault.game.utility.interfaces.constant.TroopStatisticConstants.*;
 
 // TODO: Complete JavaDoc needed
 

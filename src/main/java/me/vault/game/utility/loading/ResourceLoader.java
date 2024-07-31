@@ -3,13 +3,14 @@ package me.vault.game.utility.loading;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import me.vault.game.model.arena.Position;
-import me.vault.game.model.arena.Tile;
-import me.vault.game.model.gameboard.tiles.*;
-import me.vault.game.model.player.Player;
+import me.vault.game.model.Player;
+import me.vault.game.model.gameboard.tile.Tile;
+import me.vault.game.model.gameboard.tile.impl.*;
+import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.interfaces.constant.GameBoardConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.MetaDataImage;
+import me.vault.game.utility.math.Position;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static me.vault.game.utility.constant.GameBoardConstants.*;
+import static me.vault.game.utility.interfaces.constant.GameBoardConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.ERROR;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
@@ -246,16 +247,16 @@ public final class ResourceLoader
 	 * Creates a Tile-Array (Gameboard) from the specified File.
 	 * <br>
 	 * The file has to follow certain rules in order for this method to be able to properly read it. The number of
-	 * lines in the file has to match {@link me.vault.game.utility.constant.GameBoardConstants#GAME_BOARD_ROW_COUNT}
+	 * lines in the file has to match {@link GameBoardConstants#GAME_BOARD_ROW_COUNT}
 	 * and the number of characters in each line have to match
-	 * {@link me.vault.game.utility.constant.GameBoardConstants#GAME_BOARD_COLUMN_COUNT}. Furthermore, the file has
+	 * {@link GameBoardConstants#GAME_BOARD_COLUMN_COUNT}. Furthermore, the file has
 	 * to contain valid Tile representations such as
-	 * {@link me.vault.game.utility.constant.GameBoardConstants#BLOCKED_TILE}.
+	 * {@link GameBoardConstants#BLOCKED_TILE}.
 	 *
 	 * @param filePath The path to the file from which the Tile-Array should be constructed
 	 * @return TileArray that represents the content of the specified file
 	 *
-	 * @see me.vault.game.utility.constant.GameBoardConstants
+	 * @see GameBoardConstants
 	 * @see BufferedReader
 	 * @see Tile
 	 *

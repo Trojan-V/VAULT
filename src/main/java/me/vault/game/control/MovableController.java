@@ -1,16 +1,16 @@
 package me.vault.game.control;
 
 
-import me.vault.game.exception.ElementNotFoundOnGameBoardException;
-import me.vault.game.interfaces.Movable;
-import me.vault.game.interfaces.Placeable;
-import me.vault.game.model.arena.Figure;
-import me.vault.game.model.arena.Position;
+import me.vault.game.model.Player;
+import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
-import me.vault.game.model.player.Player;
+import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
+import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
+import me.vault.game.utility.interfaces.Movable;
+import me.vault.game.utility.interfaces.Placeable;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.math.Position;
 
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 

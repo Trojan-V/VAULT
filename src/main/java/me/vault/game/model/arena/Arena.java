@@ -1,20 +1,22 @@
 package me.vault.game.model.arena;
 
 
-import me.vault.game.exception.ElementNotFoundOnGameBoardException;
+import me.vault.game.model.Player;
+import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
-import me.vault.game.model.player.Player;
+import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
+import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.math.Position;
 
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.random.RandomGenerator;
 
-import static me.vault.game.utility.constant.ArenaConstants.ENEMY_UNIT_TILE_OFFSET;
-import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_MAXIMUM_INDEX;
+import static me.vault.game.utility.interfaces.constant.ArenaConstants.ENEMY_UNIT_TILE_OFFSET;
+import static me.vault.game.utility.interfaces.constant.GameBoardConstants.GAME_BOARD_MAXIMUM_INDEX;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
@@ -83,7 +85,7 @@ public class Arena
 	 * <br>
 	 * For the GUI element, check {@link TimelineElementHBox}.
 	 */
-	private FigureTimeline figureTimeline = null;
+	private Timeline timeline = null;
 
 
 	/**
@@ -129,18 +131,18 @@ public class Arena
 	 * @param playerOneFigures The {@link Figure}s that player one uses in the encounter.
 	 * @param playerTwoFigures The {@link Figure}s that player two uses in the encounter.
 	 *
-	 * @return An instance of {@link FigureTimeline} which contains the timeline for the encounter.
+	 * @return An instance of {@link Timeline} which contains the timeline for the encounter.
 	 *
 	 * @precondition The Figures of player one and player one and two exist in the space of the encounter.
-	 * @postcondition An instance of {@link FigureTimeline} which contains the timeline for the encounter was created.
+	 * @postcondition An instance of {@link Timeline} which contains the timeline for the encounter was created.
 	 */
-	private FigureTimeline createTimeline (final Collection<Figure> playerOneFigures, final Collection<Figure> playerTwoFigures)
+	private Timeline createTimeline (final Collection<Figure> playerOneFigures, final Collection<Figure> playerTwoFigures)
 	{
 		final ArrayList<Figure> troops = new ArrayList<>();
 		troops.addAll(playerOneFigures);
 		troops.addAll(playerTwoFigures);
 
-		return new FigureTimeline(troops);
+		return new Timeline(troops);
 	}
 
 
@@ -168,9 +170,9 @@ public class Arena
 	 * @precondition The FigureTimeline exists.
 	 * @postcondition The timeline is accessible in the program.
 	 */
-	public FigureTimeline getTimeline ()
+	public Timeline getTimeline ()
 	{
-		return this.figureTimeline;
+		return this.timeline;
 	}
 
 
@@ -320,7 +322,7 @@ public class Arena
 	public void setPlayerOneFigures (final List<Figure> playerOneFigures)
 	{
 		this.playerOneFigures = playerOneFigures;
-		this.figureTimeline = this.createTimeline(playerOneFigures, this.playerTwoFigures);
+		this.timeline = this.createTimeline(playerOneFigures, this.playerTwoFigures);
 	}
 
 
@@ -341,7 +343,7 @@ public class Arena
 
 
 	/**
-	 * Removes a {@link Figure} from the {@link GameBoard} and from the {@link FigureTimeline}.
+	 * Removes a {@link Figure} from the {@link GameBoard} and from the {@link Timeline}.
 	 * <br>
 	 * Additionally, the {@link Figure} is added to the {@link List} of eliminated {@link Figure}s, so to
 	 * {@link Arena#eliminatedFigures}.
@@ -357,7 +359,7 @@ public class Arena
 		try
 		{
 			this.gameBoard.remove(figure);
-			this.figureTimeline.removeFigure(figure);
+			this.timeline.removeFigure(figure);
 			this.eliminatedFigures.add(figure);
 			this.adjustArenaResultIfNeeded();
 		}
@@ -431,7 +433,7 @@ public class Arena
 	public String toString ()
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.gameBoard.toString(), Arrays.deepToString(this.playerTwoFigures.toArray()), Arrays.deepToString(this.eliminatedFigures.toArray()),
-			this.result.toString(), this.figureTimeline.toString(), Arrays.deepToString(this.playerOneFigures.toArray()), this.selectedFigure.toString());
+			this.result.toString(), this.timeline.toString(), Arrays.deepToString(this.playerOneFigures.toArray()), this.selectedFigure.toString());
 	}
 
 

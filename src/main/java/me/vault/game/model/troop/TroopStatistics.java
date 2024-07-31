@@ -2,7 +2,7 @@ package me.vault.game.model.troop;
 
 
 import javafx.beans.property.SimpleIntegerProperty;
-import me.vault.game.model.arena.Figure;
+import me.vault.game.model.gameboard.Figure;
 
 import java.text.MessageFormat;
 

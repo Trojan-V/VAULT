@@ -3,10 +3,10 @@ package me.vault.game.model.troop;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import me.vault.game.interfaces.Displayable;
 import me.vault.game.model.artifact.Artifact;
+import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.interfaces.Displayable;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.struct.MetaDataImage;
 
 import java.text.MessageFormat;
 

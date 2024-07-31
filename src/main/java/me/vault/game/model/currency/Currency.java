@@ -4,17 +4,17 @@ package me.vault.game.model.currency;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.Image;
-import me.vault.game.control.CurrencyDelegate;
-import me.vault.game.interfaces.Displayable;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.interfaces.Displayable;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.struct.MetaDataImage;
+import me.vault.game.view.city.CurrencyDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.ASSETS_PATH;
+import static me.vault.game.utility.interfaces.constant.GameConstants.ASSETS_PATH;
 
 
 /**

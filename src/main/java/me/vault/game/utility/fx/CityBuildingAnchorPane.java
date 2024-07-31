@@ -8,12 +8,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.interfaces.Upgradable;
-import me.vault.game.model.building.CityBuilding;
-import me.vault.game.model.building.CityBuildingLevel;
-import me.vault.game.model.city.*;
-import me.vault.game.view.ArenaFinishedDialogDelegate;
+import me.vault.game.model.city.CityBuilding;
+import me.vault.game.model.city.CityBuildingLevel;
+import me.vault.game.model.city.impl.*;
+import me.vault.game.utility.interfaces.Upgradable;
 import me.vault.game.view.UpgradeDialogDelegate;
+import me.vault.game.view.arena.ArenaFinishedDialogDelegate;
 import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.city.building.*;
 

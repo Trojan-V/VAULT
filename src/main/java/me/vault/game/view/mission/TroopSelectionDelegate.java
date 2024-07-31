@@ -13,17 +13,19 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
-import me.vault.game.control.CurrencyDelegate;
-import me.vault.game.model.arena.Figure;
-import me.vault.game.model.mission.Mission;
-import me.vault.game.model.player.Player;
+import me.vault.game.model.Mission;
+import me.vault.game.model.Player;
+import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.impl.*;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.SelectedAlliesGridPane;
+import me.vault.game.utility.interfaces.constant.LoggingConstants;
+import me.vault.game.utility.interfaces.constant.MissionConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.view.city.CurrencyDelegate;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -31,7 +33,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.DISPLAY_FAILED_PATTERN;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.DISPLAY_FAILED_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
@@ -44,8 +46,8 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * @see Mission
  * @see MissionDelegate
  * @see MissionSelectionDelegate
- * @see me.vault.game.utility.constant.MissionConstants
- * @see me.vault.game.utility.constant.LoggingConstants.MissionDelegate
+ * @see MissionConstants
+ * @see LoggingConstants.MissionDelegate
  * @since 29.07.2024
  */
 public final class TroopSelectionDelegate implements Initializable

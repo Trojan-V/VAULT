@@ -10,22 +10,22 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.control.PlayerController;
-import me.vault.game.model.city.Barracks;
-import me.vault.game.model.player.Player;
+import me.vault.game.model.Player;
+import me.vault.game.model.city.impl.Barracks;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
+import me.vault.game.view.city.CurrencyDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED_PATTERN;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.CLASS_INITIALIZED_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 

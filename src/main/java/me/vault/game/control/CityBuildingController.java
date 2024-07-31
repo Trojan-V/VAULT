@@ -2,17 +2,17 @@ package me.vault.game.control;
 
 
 import javafx.application.Platform;
-import me.vault.game.interfaces.Upgrader;
-import me.vault.game.model.building.CityBuilding;
-import me.vault.game.model.building.CityBuildingLevel;
+import me.vault.game.model.city.CityBuilding;
+import me.vault.game.model.city.CityBuildingLevel;
 import me.vault.game.model.currency.Currency;
+import me.vault.game.utility.concurrency.UpgradeRunnable;
+import me.vault.game.utility.interfaces.Upgrader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.UpgradeRunnable;
 import me.vault.game.view.city.building.*;
 import org.jetbrains.annotations.NotNull;
 
-import static me.vault.game.utility.constant.LoggingConstants.UPGRADING;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.UPGRADING;
 
 
 /**

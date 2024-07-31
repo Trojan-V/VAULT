@@ -1,6 +1,6 @@
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
-import me.vault.game.utility.loading.Config;
+import me.vault.game.utility.Config;
 import me.vault.game.utility.loading.ConfigLoader;
 
 

@@ -3,7 +3,7 @@ package me.vault.game.model.network;
 
 import javafx.fxml.FXMLLoader;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.view.ArenaDelegate;
+import me.vault.game.view.arena.ArenaDelegate;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -12,7 +12,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Objects;
 
-import static me.vault.game.utility.constant.ArenaConstants.ARENA_FXML;
+import static me.vault.game.utility.interfaces.constant.ArenaConstants.ARENA_FXML;
 
 
 public class Server implements Runnable

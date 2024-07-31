@@ -4,27 +4,26 @@ package me.vault.game.model.artifact;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.image.Image;
 import me.vault.game.control.ArtifactController;
-import me.vault.game.interfaces.Displayable;
-import me.vault.game.interfaces.Nameable;
-import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.artifact.impl.DamageArtifact;
 import me.vault.game.model.artifact.impl.DefenseArtifact;
 import me.vault.game.model.artifact.impl.HealthArtifact;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.interfaces.Displayable;
+import me.vault.game.utility.interfaces.Nameable;
+import me.vault.game.utility.interfaces.Upgradable;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET_PATTERN;
-import static me.vault.game.utility.constant.LoggingConstants.*;
-import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
-import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET_PATTERN;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.*;
+import static me.vault.game.utility.interfaces.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
+import static me.vault.game.utility.interfaces.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -140,8 +139,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * data for the current level.
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
-	 * @precondition The attributes for the {@link Artifact} exists.
-	 * @postcondition Constructs an {@link Artifact} instance with the given attributes.
+	 * @precondition The attributes for the  exists.
+	 * @postcondition Constructs an  instance with the given attributes.
 	 */
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected Artifact ()
@@ -279,7 +278,7 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
 	 *
 	 * @param value True if the artifact should be marked as max level, otherwise false.
-	 * @precondition The {@link Artifact} can have multiple level.
+	 * @precondition The  can have multiple level.
 	 * @postcondition Sets if {@link ArtifactLevel} is maximal.
 	 */
 	public void setIsMaxLevel (final boolean value)
@@ -315,8 +314,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * {@link Artifact#getAllModifiers()}.
 	 *
 	 * @return The current level of the artifact.
-	 * @precondition The {@link Artifact} has a level.
-	 * @postcondition The current level of the {@link Artifact} is accessible for the program.
+	 * @precondition The  has a level.
+	 * @postcondition The current level of the  is accessible for the program.
 	 */
 	@Override
 	public ArtifactLevel getLevel ()
@@ -330,8 +329,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link ArtifactLevel}.
 	 *
-	 * @precondition The {@link Artifact} has a level.
-	 * @postcondition The current level of the {@link Artifact} is set.
+	 * @precondition The  has a level.
+	 * @postcondition The current level of the  is set.
 	 */
 	@Override
 	public void setLevel (final ArtifactLevel level)
@@ -394,8 +393,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The {@link Map} which contains all upgrade cost transactions for the artifact.
 	 *
-	 * @precondition The {@link Map} which contains all upgrade cost transactions for the {@link Artifact} exists.
-	 * @postcondition A {@link Map} which contains all upgrade cost transactions for the {@link Artifact} is
+	 * @precondition The {@link Map} which contains all upgrade cost transactions for the  exists.
+	 * @postcondition A {@link Map} which contains all upgrade cost transactions for the  is
 	 * accessible for the program.
 	 */
 	@NotNull
@@ -411,8 +410,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The {@link Map} which contains all names for the artifact.
 	 *
-	 * @precondition The {@link Map} which contains all names for the {@link Artifact} exists.
-	 * @postcondition A {@link Map} which contains all names for the {@link Artifact} is
+	 * @precondition The {@link Map} which contains all names for the  exists.
+	 * @postcondition A {@link Map} which contains all names for the  is
 	 * accessible for the program.
 	 */
 	@NotNull
@@ -429,8 +428,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 *
 	 * @return The {@link Map} which contains all sprites for the artifact.
 	 *
-	 * @precondition The {@link Map} which contains all sprites for the {@link Artifact} exists.
-	 * @postcondition A {@link Map} which contains all sprites for the {@link Artifact} is
+	 * @precondition The {@link Map} which contains all sprites for the  exists.
+	 * @postcondition A {@link Map} which contains all sprites for the  is
 	 * accessible for the program.
 	 */
 	@NotNull
@@ -447,8 +446,8 @@ public abstract class Artifact implements Displayable, Upgradable<ArtifactLevel>
 	 * @return The {@link Map} which contains all different sets of modifiers the artifact can have, depending on it's
 	 * level.
 	 *
-	 * @precondition The {@link Map} which contains all modifiers for the {@link Artifact} exists.
-	 * @postcondition A {@link Map} which contains all modifiers for the {@link Artifact} is
+	 * @precondition The {@link Map} which contains all modifiers for the  exists.
+	 * @postcondition A {@link Map} which contains all modifiers for the  is
 	 * accessible for the program.
 	 */
 	@NotNull

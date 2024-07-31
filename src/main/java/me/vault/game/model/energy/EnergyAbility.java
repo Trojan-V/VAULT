@@ -4,35 +4,27 @@ package me.vault.game.model.energy;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.image.Image;
 import me.vault.game.control.EnergyAbilityController;
-import me.vault.game.interfaces.Displayable;
-import me.vault.game.interfaces.Nameable;
-import me.vault.game.interfaces.Upgradable;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.artifact.Artifact;
-import me.vault.game.model.artifact.ArtifactLevel;
-import me.vault.game.model.artifact.AttributeMultiplier;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.impl.DodgeAbility;
 import me.vault.game.model.energy.impl.InitiativeAbility;
 import me.vault.game.model.energy.impl.MeleeAbility;
+import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.interfaces.Displayable;
+import me.vault.game.utility.interfaces.Nameable;
+import me.vault.game.utility.interfaces.Upgradable;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.MetaDataImage;
-import me.vault.game.view.city.building.LaboratoryDelegate;
-import me.vault.game.view.city.building.WorkshopDelegate;
 import org.jetbrains.annotations.NotNull;
 
-import java.net.URL;
 import java.text.MessageFormat;
 import java.util.Map;
-import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET_PATTERN;
-import static me.vault.game.utility.constant.LoggingConstants.*;
-import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
-import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.ATTRIBUTE_MODIFIERS_SET_PATTERN;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.*;
+import static me.vault.game.utility.interfaces.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
+import static me.vault.game.utility.interfaces.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -156,8 +148,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * data for the current level.
 	 * <br>
 	 * To understand the side effects of these method invocations, read the documentation of this class.
-	 * @precondition The attributes for the {@link EnergyAbility} exists.
-	 * @postcondition Constructs an {@link EnergyAbility} instance with the given attributes.
+	 * @precondition The attributes for the  exists.
+	 * @postcondition Constructs an  instance with the given attributes.
 	 */
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected EnergyAbility ()
@@ -307,7 +299,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Sets the isMaxLevel status of the artifact to the supplied boolean value.
 	 *
 	 * @param value True if the artifact should isMaxLevel, otherwise false.
-	 * @precondition The {@link EnergyAbility} can have multiple level.
+	 * @precondition The  can have multiple level.
 	 * @postcondition Sets if {@link EnergyLevel} is maximal.
 	 */
 	public void setIsMaxLevel (final boolean value)
@@ -330,8 +322,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * {@link EnergyAbility#getAllModifiers()}.
 	 *
 	 * @return The current level of the energy ability.
-	 * @precondition The {@link EnergyAbility} has a level.
-	 * @postcondition The current level of the {@link EnergyAbility} is accessible for the program.
+	 * @precondition The  has a level.
+	 * @postcondition The current level of the  is accessible for the program.
 	 */
 	@Override
 	public EnergyLevel getLevel ()
@@ -344,8 +336,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * Sets the level of the energy ability to a new level.
 	 *
 	 * @param level The new level of the artifact in form of an instance of {@link EnergyLevel}.
-	 * @precondition The {@link EnergyAbility} has a level.
-	 * @postcondition The current level of the {@link EnergyAbility} is set.
+	 * @precondition The  has a level.
+	 * @postcondition The current level of the  is set.
 	 */
 	@Override
 	public void setLevel (final EnergyLevel level)
@@ -440,8 +432,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * ({@link EnergyLevel}).
 	 *
 	 * @return The {@link Map} which contains all sprites for the energy ability.
-	 * @precondition The {@link Map} which contains all sprites for the {@link EnergyAbility} exists.
-	 * @postcondition A {@link Map} which contains all sprites for the {@link EnergyAbility} is
+	 * @precondition The {@link Map} which contains all sprites for the  exists.
+	 * @postcondition A {@link Map} which contains all sprites for the  is
 	 * accessible for the program.
 	 */
 	@NotNull
@@ -457,8 +449,8 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 *
 	 * @return The {@link Map} which contains all different sets of modifiers the energy ability can have, depending on it's
 	 * level.
-	 * @precondition The {@link Map} which contains all modifiers for the {@link EnergyAbility} exists.
-	 * @postcondition A {@link Map} which contains all modifiers for the {@link EnergyAbility} is
+	 * @precondition The {@link Map} which contains all modifiers for the  exists.
+	 * @postcondition A {@link Map} which contains all modifiers for the  is
 	 * accessible for the program.
 	 */
 	@NotNull

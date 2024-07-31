@@ -12,12 +12,12 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import me.vault.game.interfaces.Level;
-import me.vault.game.interfaces.Upgradable;
-import me.vault.game.interfaces.Upgrader;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.utility.constant.GameConstants;
+import me.vault.game.utility.interfaces.Level;
+import me.vault.game.utility.interfaces.Upgradable;
+import me.vault.game.utility.interfaces.Upgrader;
+import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -27,7 +27,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.UPGRADE_DIALOG_FAIL_PATTERN;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.UPGRADE_DIALOG_FAIL_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 // TODO: Anzeigen des dialog bearbeiten -> erst anzeigen und dann "upgrade" ausgrauen
@@ -69,7 +69,7 @@ public final class UpgradeDialogDelegate implements Initializable
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.
 	 */
-	private static final String UPGRADE_DIALOG_VIEW_FXML = "upgradeDialog.fxml";
+	private static final String UPGRADE_DIALOG_VIEW_FXML = "upgrade_dialog.fxml";
 
 
 	/**

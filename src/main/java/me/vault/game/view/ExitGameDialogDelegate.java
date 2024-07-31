@@ -9,7 +9,7 @@ import javafx.scene.control.DialogPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
-import me.vault.game.utility.constant.GameConstants;
+import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -44,7 +44,7 @@ public final class ExitGameDialogDelegate implements Initializable
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.
 	 */
-	private static final String EXIT_GAME_DIALOG_VIEW_FXML = "gameExitDialog.fxml";
+	private static final String EXIT_GAME_DIALOG_VIEW_FXML = "game_exit_dialog.fxml";
 
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link ExitGameDialogDelegate#toString()} is called.
@@ -57,7 +57,7 @@ public final class ExitGameDialogDelegate implements Initializable
 	private static final String WINDOW_TITLE = "Exit Game?";
 
 	/**
-	 * The {@link Stage} of the {@link ExitGameDialogDelegate}, which is needed because the {@link DialogPane} needs to be shown on a new window.
+	 * The {@link Stage} of the {@link ExitGameDialogDelegate}, which is necessary because the {@link DialogPane} needs to be shown on a new window.
 	 */
 	private static final Stage STAGE = new Stage();
 
@@ -88,7 +88,7 @@ public final class ExitGameDialogDelegate implements Initializable
 	 */
 	public static void show ()
 	{
-		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, EXIT_GAME_DIALOG_VIEW_FXML));
+		STAGE.setScene(ResourceLoader.loadScene(ExitGameDialogDelegate.class, EXIT_GAME_DIALOG_VIEW_FXML));
 		LOGGER.logf(DEBUG, SHOWING_VIEW_PATTERN, ExitGameDialogDelegate.class.getSimpleName());
 		STAGE.showAndWait();
 	}

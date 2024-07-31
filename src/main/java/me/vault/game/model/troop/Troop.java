@@ -5,20 +5,20 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import me.vault.game.control.TroopController;
-import me.vault.game.interfaces.Displayable;
-import me.vault.game.interfaces.Nameable;
-import me.vault.game.interfaces.Placeable;
-import me.vault.game.interfaces.Upgradable;
-import me.vault.game.model.arena.Figure;
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.utility.struct.MetaDataImage;
+import me.vault.game.model.gameboard.Figure;
+import me.vault.game.utility.datatypes.MetaDataImage;
+import me.vault.game.utility.interfaces.Displayable;
+import me.vault.game.utility.interfaces.Nameable;
+import me.vault.game.utility.interfaces.Placeable;
+import me.vault.game.utility.interfaces.Upgradable;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
-import static me.vault.game.utility.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
+import static me.vault.game.utility.interfaces.constant.SuppressionConstants.OVERRIDABLE_METHOD_CALL;
+import static me.vault.game.utility.interfaces.constant.SuppressionConstants.OVERRIDDEN_METHOD_CALL;
 
 
 /**

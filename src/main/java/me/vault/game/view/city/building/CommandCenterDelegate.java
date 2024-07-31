@@ -13,13 +13,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyDelegate;
-import me.vault.game.model.city.CommandCenter;
-import me.vault.game.model.player.Player;
+import me.vault.game.model.Player;
+import me.vault.game.model.city.impl.CommandCenter;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
+import me.vault.game.view.city.CurrencyDelegate;
 import me.vault.game.view.mission.MissionSelectionDelegate;
 
 import java.net.URL;
@@ -27,7 +27,7 @@ import java.text.MessageFormat;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.CityBuildingConstants.CommandCenter.RANDOM_NEWS_LIST;
+import static me.vault.game.utility.interfaces.constant.CityBuildingConstants.CommandCenter.RANDOM_NEWS_LIST;
 
 
 /**

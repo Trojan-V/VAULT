@@ -2,17 +2,15 @@ package me.vault.game.model.energy;
 
 
 import javafx.beans.property.SimpleDoubleProperty;
-import me.vault.game.exception.InvalidAttributeMultiplierException;
-import me.vault.game.model.artifact.Artifact;
-import me.vault.game.model.artifact.AttributeMultiplier;
+import me.vault.game.utility.exception.InvalidAttributeMultiplierException;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
 import java.text.MessageFormat;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.LoggingConstants.EXECUTION_NOT_POSSIBLE_ANYMORE;
-import static me.vault.game.utility.constant.MiscConstants.ERROR_EXIT_CODE;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.EXECUTION_NOT_POSSIBLE_ANYMORE;
+import static me.vault.game.utility.interfaces.constant.MiscConstants.ERROR_EXIT_CODE;
 
 
 /**
@@ -80,7 +78,7 @@ public class AbilityMultiplier
 	 *
 	 * @param modifiers The modifiers which are applied to the properties.
 	 * @precondition The map of the ability modifiers exists.
-	 * @postcondition Constructs an instance of {@link AbilityMultiplier} with the supplied modifies.
+	 * @postcondition Constructs an instance of  with the supplied modifies.
 	 */
 	public AbilityMultiplier (final Map<AbilityMultiplier.Type, Double> modifiers)
 	{

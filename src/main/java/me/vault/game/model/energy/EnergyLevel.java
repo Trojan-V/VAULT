@@ -2,13 +2,13 @@ package me.vault.game.model.energy;
 
 
 import me.vault.game.control.EnergyAbilityController;
-import me.vault.game.interfaces.Level;
+import me.vault.game.utility.interfaces.Level;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_ABILITY_MAXED;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.ENERGY_IS_LOWEST;
-import static me.vault.game.utility.constant.MiscConstants.*;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.ENERGY_ABILITY_MAXED;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.ENERGY_IS_LOWEST;
+import static me.vault.game.utility.interfaces.constant.MiscConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 

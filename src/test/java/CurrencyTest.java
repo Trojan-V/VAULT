@@ -1,6 +1,6 @@
-import me.vault.game.control.CurrencyDelegate;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.currency.CurrencyTransaction;
+import me.vault.game.view.city.CurrencyDelegate;
 import org.junit.jupiter.api.Assertions;
 
 import java.text.MessageFormat;

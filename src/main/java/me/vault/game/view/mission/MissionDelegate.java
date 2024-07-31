@@ -13,20 +13,22 @@ import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.MovableController;
 import me.vault.game.control.PlayerController;
-import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.Mission;
+import me.vault.game.model.Player;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.Position;
-import me.vault.game.model.arena.Tile;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
-import me.vault.game.model.gameboard.tiles.ArenaStartTileAppearance;
-import me.vault.game.model.mission.Mission;
-import me.vault.game.model.player.Player;
+import me.vault.game.model.gameboard.tile.Tile;
+import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
+import me.vault.game.model.gameboard.tile.impl.ArenaStartTileAppearance;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.GameBoardButton;
+import me.vault.game.utility.interfaces.Placeable;
+import me.vault.game.utility.interfaces.constant.LoggingConstants;
+import me.vault.game.utility.interfaces.constant.MissionConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.ArenaDelegate;
+import me.vault.game.utility.math.Position;
+import me.vault.game.view.arena.ArenaDelegate;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -35,9 +37,9 @@ import java.text.MessageFormat;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
-import static me.vault.game.utility.constant.GameBoardConstants.GAME_BOARD_ROW_COUNT;
-import static me.vault.game.utility.constant.LoggingConstants.MissionDelegate.MISSION_DISPLAY_FAILED;
+import static me.vault.game.utility.interfaces.constant.GameBoardConstants.GAME_BOARD_COLUMN_COUNT;
+import static me.vault.game.utility.interfaces.constant.GameBoardConstants.GAME_BOARD_ROW_COUNT;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.MissionDelegate.MISSION_DISPLAY_FAILED;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
 
@@ -47,8 +49,8 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @see Mission
- * @see me.vault.game.utility.constant.MissionConstants
- * @see me.vault.game.utility.constant.LoggingConstants.MissionDelegate
+ * @see MissionConstants
+ * @see LoggingConstants.MissionDelegate
  * @since 25.07.2024
  */
 public final class MissionDelegate implements Initializable

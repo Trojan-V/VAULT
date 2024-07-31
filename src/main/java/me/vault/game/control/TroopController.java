@@ -2,14 +2,14 @@ package me.vault.game.control;
 
 
 import javafx.application.Platform;
-import me.vault.game.interfaces.Upgrader;
-import me.vault.game.model.building.CityBuildingLevel;
-import me.vault.game.model.city.TrainingFacility;
+import me.vault.game.model.city.CityBuildingLevel;
+import me.vault.game.model.city.impl.TrainingFacility;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopLevel;
 import me.vault.game.model.troop.TroopStatistics;
-import me.vault.game.utility.struct.UpgradeRunnable;
+import me.vault.game.utility.concurrency.UpgradeRunnable;
+import me.vault.game.utility.interfaces.Upgrader;
 import me.vault.game.view.city.building.TrainingFacilityDelegate;
 
 import static me.vault.game.model.troop.TroopStatistics.*;

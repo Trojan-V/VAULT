@@ -9,29 +9,31 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
-import me.vault.game.control.CurrencyDelegate;
-import me.vault.game.model.mission.Mission;
+import me.vault.game.model.Mission;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.RewardGridPane;
+import me.vault.game.utility.interfaces.constant.LoggingConstants;
+import me.vault.game.utility.interfaces.constant.MissionConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
+import me.vault.game.view.city.CurrencyDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.LoggingConstants.CLASS_INITIALIZED_PATTERN;
-import static me.vault.game.utility.constant.MissionConstants.MissionFour.MISSION_FOUR;
-import static me.vault.game.utility.constant.MissionConstants.MissionFour.MISSION_FOUR_REWARDS;
-import static me.vault.game.utility.constant.MissionConstants.MissionOne.MISSION_ONE;
-import static me.vault.game.utility.constant.MissionConstants.MissionOne.MISSION_ONE_REWARDS;
-import static me.vault.game.utility.constant.MissionConstants.MissionThree.MISSION_THREE;
-import static me.vault.game.utility.constant.MissionConstants.MissionThree.MISSION_THREE_REWARDS;
-import static me.vault.game.utility.constant.MissionConstants.MissionTwo.MISSION_TWO;
-import static me.vault.game.utility.constant.MissionConstants.MissionTwo.MISSION_TWO_REWARDS;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.CLASS_INITIALIZED_PATTERN;
+import static me.vault.game.utility.interfaces.constant.MissionConstants.MissionFour.MISSION_FOUR;
+import static me.vault.game.utility.interfaces.constant.MissionConstants.MissionFour.MISSION_FOUR_REWARDS;
+import static me.vault.game.utility.interfaces.constant.MissionConstants.MissionOne.MISSION_ONE;
+import static me.vault.game.utility.interfaces.constant.MissionConstants.MissionOne.MISSION_ONE_REWARDS;
+import static me.vault.game.utility.interfaces.constant.MissionConstants.MissionThree.MISSION_THREE;
+import static me.vault.game.utility.interfaces.constant.MissionConstants.MissionThree.MISSION_THREE_REWARDS;
+import static me.vault.game.utility.interfaces.constant.MissionConstants.MissionTwo.MISSION_TWO;
+import static me.vault.game.utility.interfaces.constant.MissionConstants.MissionTwo.MISSION_TWO_REWARDS;
 
 
 /**
@@ -42,8 +44,8 @@ import static me.vault.game.utility.constant.MissionConstants.MissionTwo.MISSION
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @see Mission
  * @see MissionDelegate
- * @see me.vault.game.utility.constant.MissionConstants
- * @see me.vault.game.utility.constant.LoggingConstants.MissionDelegate
+ * @see MissionConstants
+ * @see LoggingConstants.MissionDelegate
  * @since 25.07.2024
  */
 public final class MissionSelectionDelegate implements Initializable

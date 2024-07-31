@@ -1,15 +1,15 @@
 package me.vault.game.control;
 
 
-import me.vault.game.exception.ElementNotFoundOnGameBoardException;
-import me.vault.game.model.arena.Position;
-import me.vault.game.model.arena.Tile;
+import me.vault.game.model.Mission;
+import me.vault.game.model.Player;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.mission.Mission;
-import me.vault.game.model.player.Player;
+import me.vault.game.model.gameboard.tile.Tile;
 import me.vault.game.model.troop.Faction;
+import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import me.vault.game.utility.math.Position;
 
 import java.util.List;
 

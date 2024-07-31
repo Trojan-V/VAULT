@@ -32,7 +32,7 @@
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
                <image>
-                   <Image url="@../../../assets/energyAbility/dodge_energyability.png"/>
+                   <Image url="@../../../assets/energy/dodge_energyability.png"/>
                </image>
                 </ImageView>
                 <ImageView fx:id="initiativeImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
@@ -40,7 +40,7 @@
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
                <image>
-                   <Image url="@../../../assets/energyAbility/initiative_energyabiltiy.png"/>
+                   <Image url="@../../../assets/energy/initiative_energyabiltiy.png"/>
                </image>
                 </ImageView>
                 <ImageView fx:id="meleeImageView" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
@@ -48,7 +48,7 @@
                         <Insets bottom="25.0" left="35.0" right="25.0" top="25.0" />
                     </GridPane.margin>
                <image>
-                   <Image url="@../../../assets/energyAbility/melee_energyability.png"/>
+                   <Image url="@../../../assets/energy/melee_energyability.png"/>
                </image>
                 </ImageView>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">

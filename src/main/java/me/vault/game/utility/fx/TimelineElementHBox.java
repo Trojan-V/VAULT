@@ -7,7 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import me.vault.game.control.FigureController;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.Figure;
+import me.vault.game.model.gameboard.Figure;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 

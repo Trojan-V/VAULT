@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
 
-import static me.vault.game.utility.constant.LoggingConstants.JvmArgument.JVM_ARGUMENT_CONSTRUCTION_ERROR;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.JvmArgument.JVM_ARGUMENT_CONSTRUCTION_ERROR;
 
 
 /**

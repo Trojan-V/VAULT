@@ -1,16 +1,15 @@
 package me.vault.game.model.gameboard;
 
 
-import me.vault.game.exception.ElementNotFoundOnGameBoardException;
-import me.vault.game.exception.NotAFigureException;
-import me.vault.game.interfaces.Placeable;
+import me.vault.game.model.Mission;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.Figure;
-import me.vault.game.model.arena.Position;
-import me.vault.game.model.arena.Tile;
 import me.vault.game.model.artifact.Artifact;
-import me.vault.game.model.gameboard.tiles.AccessibleTileAppearance;
-import me.vault.game.model.mission.Mission;
+import me.vault.game.model.gameboard.tile.Tile;
+import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
+import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
+import me.vault.game.utility.exception.NotAFigureException;
+import me.vault.game.utility.interfaces.Placeable;
+import me.vault.game.utility.math.Position;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class GameBoard
 	 *
 	 * @param gameBoard The two-dimensional array of {@link Tile}s.
 	 * @precondition The tiles exist.
-	 * @postcondition An instance of the {@link GameBoard} is created from the supplied tiles.
+	 * @postcondition An instance of the  is created from the supplied tiles.
 	 */
 	public GameBoard (final Tile[][] gameBoard)
 	{
@@ -72,7 +71,7 @@ public class GameBoard
 	 * @param placeable The {@link Placeable} that'll be searched for.
 	 * @return The {@link Position} if the {@link Placeable} was found.
 	 * @throws ElementNotFoundOnGameBoardException If the {@link Placeable} element wasn't found on the game board.
-	 * @precondition On the {@link GameBoard} is a {@link Placeable} element.
+	 * @precondition On the  is a {@link Placeable} element.
 	 * @postcondition The {@link Position} if the {@link Placeable} was found and is accessible for the program.
 	 */
 	public Position getPosition (final Placeable placeable) throws ElementNotFoundOnGameBoardException
@@ -134,7 +133,7 @@ public class GameBoard
 	 * @param position  The {@link Position}.
 	 * @param placeable The {@link Placeable}.
 	 * @precondition The {@link Tile} is at the {@link Position} and is an {@link AccessibleTileAppearance}.
-	 * @postcondition The {@link Placeable} is placed on the {@link GameBoard} at the {@link Position}.
+	 * @postcondition The {@link Placeable} is placed on the  at the {@link Position}.
 	 */
 	public void placeIfAccessibleTile (final Position position, final Placeable placeable)
 	{
@@ -151,7 +150,7 @@ public class GameBoard
 	 * @param position  The {@link Position}.
 	 * @param placeable The {@link Placeable}.
 	 * @precondition The {@link Placeable} is supplied and {@link Position} exists.
-	 * @postcondition The {@link Placeable} is placed on the {@link GameBoard} at the {@link Position}
+	 * @postcondition The {@link Placeable} is placed on the  at the {@link Position}
 	 */
 	public void place (final Position position, final Placeable placeable)
 	{
@@ -216,7 +215,13 @@ public class GameBoard
 		{
 			for (int j = position.y() - range; j <= position.y() + range; j++)
 			{
+				try
+				{
 					adjacentTiles.add(this.gameBoard[i][j]);
+				}
+				catch (final IndexOutOfBoundsException _)
+				{
+				}
 			}
 		}
 		adjacentTiles.remove(this.gameBoard[position.x()][position.y()]);
@@ -266,8 +271,8 @@ public class GameBoard
 	 *
 	 * @param placeable The {@link Placeable} that is going to get removed from the game board.
 	 * @throws ElementNotFoundOnGameBoardException If the supplied {@link Placeable} wasn't found on the game board.
-	 * @precondition The {@link Tile} on the {@link GameBoard} has to have a {@link Placeable}
-	 * @postcondition The {@link Placeable} is removed from the {@link GameBoard} and the {@link Tile} where the
+	 * @precondition The {@link Tile} on the  has to have a {@link Placeable}
+	 * @postcondition The {@link Placeable} is removed from the  and the {@link Tile} where the
 	 * {@link Placeable} were removed is now an {@link AccessibleTileAppearance}.
 	 */
 	public void remove (final Placeable placeable) throws ElementNotFoundOnGameBoardException

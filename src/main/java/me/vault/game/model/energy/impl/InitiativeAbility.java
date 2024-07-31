@@ -6,17 +6,19 @@ import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.AbilityMultiplier;
 import me.vault.game.model.energy.EnergyAbility;
 import me.vault.game.model.energy.EnergyLevel;
+import me.vault.game.utility.datatypes.MetaDataImage;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.utility.struct.MetaDataImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static me.vault.game.utility.constant.EnergyConstants.*;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.*;
+import static me.vault.game.utility.interfaces.constant.EnergyConstants.*;
+import static me.vault.game.utility.interfaces.constant.EnergyConstants.Initiative.BASE_TO_IMPROVED_UPGRADE_COSTS;
+import static me.vault.game.utility.interfaces.constant.EnergyConstants.Initiative.IMPROVED_TO_NONE_UPGRADE_COSTS;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
@@ -104,14 +106,14 @@ public final class InitiativeAbility extends EnergyAbility
 	 * @return The map of upgrade costs for the initiative energy ability.
 	 *
 	 * @precondition The upgrade costs for different {@link EnergyLevel} exists.
-	 * @postcondition A map of upgrade costs for the {@link InitiativeAbility} is initialized.
+	 * @postcondition A map of upgrade costs for the  is initialized.
 	 */
 	private static Map<EnergyLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
 		// Fill the map with the different upgrade cost transactions.
 		final Map<EnergyLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
-		upgradeCostsMap.put(EnergyLevel.BASE, Initiative.BASE_TO_IMPROVED_UPGRADE_COSTS);
-		upgradeCostsMap.put(EnergyLevel.IMPROVED, Initiative.IMPROVED_TO_NONE_UPGRADE_COSTS);
+		upgradeCostsMap.put(EnergyLevel.BASE, BASE_TO_IMPROVED_UPGRADE_COSTS);
+		upgradeCostsMap.put(EnergyLevel.IMPROVED, IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
 		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
@@ -129,8 +131,8 @@ public final class InitiativeAbility extends EnergyAbility
 	 *
 	 * @return The map of ability modifiers for the initiative energy ability.
 	 *
-	 * @precondition The ability modifiers for the {@link InitiativeAbility} exist for the different {@link EnergyLevel}.
-	 * @postcondition A map of ability modifiers for the {@link InitiativeAbility} is initialised.
+	 * @precondition The ability modifiers for the  exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of ability modifiers for the  is initialised.
 	 */
 	private static Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -168,8 +170,8 @@ public final class InitiativeAbility extends EnergyAbility
 	 *
 	 * @return The map of names for the initiative energy ability.
 	 *
-	 * @precondition The names for the {@link InitiativeAbility} exist for the different {@link EnergyLevel}.
-	 * @postcondition A map of the names for the {@link InitiativeAbility} is initialised.
+	 * @precondition The names for the  exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of the names for the  is initialised.
 	 */
 	private static Map<EnergyLevel, String> initNamesMap ()
 	{
@@ -194,8 +196,8 @@ public final class InitiativeAbility extends EnergyAbility
 	 *
 	 * @return The map of sprites for the initiative energy ability.
 	 *
-	 * @precondition The sprites for the {@link InitiativeAbility} exist for the different {@link EnergyLevel}.
-	 * @postcondition A map of the sprites for the {@link InitiativeAbility} is initialised.
+	 * @precondition The sprites for the  exist for the different {@link EnergyLevel}.
+	 * @postcondition A map of the sprites for the  is initialised.
 	 */
 	private static Map<EnergyLevel, MetaDataImage> initSpritesMap ()
 	{

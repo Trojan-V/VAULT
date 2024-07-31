@@ -1,8 +1,8 @@
 package me.vault.game.utility.jvm;
 
 
-import me.vault.game.Cache;
 import me.vault.game.model.currency.Currency;
+import me.vault.game.utility.Cache;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.ILogger.Level;
 import me.vault.game.utility.logging.Logger;
@@ -10,9 +10,9 @@ import me.vault.game.utility.logging.Logger;
 import java.text.MessageFormat;
 import java.util.Locale;
 
-import static me.vault.game.utility.constant.CharacterConstants.DASH;
-import static me.vault.game.utility.constant.LoggingConstants.DIVIDER;
-import static me.vault.game.utility.constant.LoggingConstants.JvmArgument.*;
+import static me.vault.game.utility.interfaces.constant.CharacterConstants.DASH;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.DIVIDER;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.JvmArgument.*;
 import static me.vault.game.utility.logging.ILogger.Level.*;
 
 

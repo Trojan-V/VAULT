@@ -2,14 +2,14 @@ package me.vault.game.model.troop;
 
 
 import me.vault.game.control.TroopController;
-import me.vault.game.interfaces.Level;
 import me.vault.game.model.artifact.ArtifactLevel;
+import me.vault.game.utility.interfaces.Level;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.TROOP_IS_LOWEST;
-import static me.vault.game.utility.constant.LoggingConstants.Artifact.TROOP_MAXED;
-import static me.vault.game.utility.constant.MiscConstants.*;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.TROOP_IS_LOWEST;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.Artifact.TROOP_MAXED;
+import static me.vault.game.utility.interfaces.constant.MiscConstants.*;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 

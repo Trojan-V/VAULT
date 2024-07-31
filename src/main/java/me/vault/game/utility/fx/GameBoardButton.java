@@ -9,10 +9,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import me.vault.game.control.FigureController;
-import me.vault.game.interfaces.Placeable;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.Figure;
+import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.troop.Troop;
+import me.vault.game.utility.interfaces.Placeable;
 import org.jetbrains.annotations.Nullable;
 
 // TODO: Complete JavaDoc needed

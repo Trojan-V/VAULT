@@ -11,17 +11,16 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.control.CurrencyDelegate;
-import me.vault.game.model.building.CityBuilding;
-import me.vault.game.model.city.*;
+import me.vault.game.model.city.CityBuilding;
+import me.vault.game.model.city.impl.*;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.CityBuildingAnchorPane;
 import me.vault.game.utility.loading.ConfigLoader;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
-import me.vault.game.view.MainMenuDelegate;
-import me.vault.game.view.TutorialDelegate;
+import me.vault.game.view.menu.MainMenuDelegate;
+import me.vault.game.view.newgame.TutorialDelegate;
 
 import java.net.URL;
 import java.text.MessageFormat;
@@ -153,7 +152,7 @@ public class CityDelegate implements Initializable
 
 
 	/**
-	 * Initializes the different {@link CityBuildingAnchorPane}s for each city building and adds them to the grid of the {@link CityDelegate}.
+	 * Initializes the different {@link CityBuildingAnchorPane}s for each city building and adds them to the grid of the .
 	 *
 	 * @precondition {@link CityDelegate#cityGridPane} has at least two rows and four columns.
 	 * @postcondition All the different {@link CityBuildingAnchorPane}s have been initialized and were added to the grid.

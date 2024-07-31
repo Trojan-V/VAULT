@@ -16,8 +16,8 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-import static me.vault.game.utility.constant.GameConstants.WINDOW_ICON_PATH;
-import static me.vault.game.utility.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
+import static me.vault.game.utility.interfaces.constant.GameConstants.WINDOW_ICON_PATH;
+import static me.vault.game.utility.interfaces.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
