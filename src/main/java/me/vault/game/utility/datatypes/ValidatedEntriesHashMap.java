@@ -71,12 +71,14 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 * Each entry runs the validate() method in its constructor to ensure neither the key nor the value of the key
 	 * are equal to null.
 	 *
+	 * @param <K> The datatype of the key.
+	 * @param <V> The datatype of the key's value.
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see ValidatedEntriesHashMap
 	 * @since 19.06.2024
 	 */
-	public static class Entry<E, F> implements Map.Entry<E, F>
+	public static class Entry<K, V> implements Map.Entry<K, V>
 	{
 
 		/**
@@ -89,13 +91,13 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		/**
 		 * The key of the entry.
 		 */
-		private final E key;
+		private final K key;
 
 
 		/**
 		 * The value of the entry.
 		 */
-		private F value;
+		private V value;
 
 
 		/**
@@ -109,7 +111,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 * @precondition The key and the value of it are supplied.
 		 * @postcondition An instance of an entry is constructed, and it is validated that neither the key nor the value of it is null.
 		 */
-		public Entry (final E key, final F value) throws InvalidMapEntryException
+		public Entry (final K key, final V value) throws InvalidMapEntryException
 		{
 			this.key = key;
 			this.value = value;
@@ -137,7 +139,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 * {@inheritDoc}
 		 */
 		@Override
-		public E getKey ()
+		public K getKey ()
 		{
 			return this.key;
 		}
@@ -147,7 +149,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 * {@inheritDoc}
 		 */
 		@Override
-		public F getValue ()
+		public V getValue ()
 		{
 			return this.value;
 		}
@@ -157,7 +159,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 		 * {@inheritDoc}
 		 */
 		@Override
-		public F setValue (final F value)
+		public V setValue (final V value)
 		{
 			this.value = value;
 			return this.value;
