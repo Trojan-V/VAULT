@@ -43,6 +43,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * The delegate is also responsible for starting the correct {@link Mission} after the selection is complete.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Mission
  * @see MissionDelegate
  * @see MissionSelectionDelegate

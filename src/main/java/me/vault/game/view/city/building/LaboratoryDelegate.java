@@ -42,6 +42,7 @@ import java.util.ResourceBundle;
  * On the other hand it provides methods to control the model to the {@link Laboratory} city building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see Laboratory

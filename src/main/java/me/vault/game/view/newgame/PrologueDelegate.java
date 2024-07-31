@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
  * It provides a GUI and methods to scroll and read through different sections of the game lore.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @since 29.07.2024
  */
 public final class PrologueDelegate implements Initializable

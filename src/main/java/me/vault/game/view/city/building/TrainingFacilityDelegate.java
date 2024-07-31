@@ -40,6 +40,7 @@ import static me.vault.game.utility.interfaces.constant.GameConstants.TAB_PANE_S
  * On the other hand, it provides methods to control the model to the {@link TrainingFacility} city building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see CommandCenter

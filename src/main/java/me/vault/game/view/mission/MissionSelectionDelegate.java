@@ -42,6 +42,7 @@ import static me.vault.game.utility.interfaces.constant.MissionConstants.Mission
  * The delegate is also responsible to display the different rewards each {@link Mission} has.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Mission
  * @see MissionDelegate
  * @see MissionConstants

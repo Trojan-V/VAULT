@@ -83,6 +83,10 @@ public final class NetworkDelegate implements Initializable
 	private int port = 0;
 
 
+	/**
+	 *
+	 */
+
 	public static void show ()
 	{
 		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, FXML_FILENAME));
@@ -90,12 +94,22 @@ public final class NetworkDelegate implements Initializable
 	}
 
 
+	/**
+	 *
+	 * @param ignored
+	 */
+
 	@FXML
 	void hostInputChanged (final KeyEvent ignored)
 	{
 		this.host = this.clientHost.getCharacters().toString();
 	}
 
+
+	/**
+	 *
+	 * @param ignored
+	 */
 
 	@FXML
 	void portInputChanged (final KeyEvent ignored)
@@ -129,6 +143,10 @@ public final class NetworkDelegate implements Initializable
 	}
 
 
+	/**
+	 *
+	 */
+
 	private void setButtonActions ()
 	{
 		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event ->
@@ -142,6 +160,12 @@ public final class NetworkDelegate implements Initializable
 		});
 	}
 
+
+	/**
+	 *
+	 * @param stage
+	 * @param tabPane
+	 */
 
 	private void connect (final Stage stage, final TabPane tabPane)
 	{

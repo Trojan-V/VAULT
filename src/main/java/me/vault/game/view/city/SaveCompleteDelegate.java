@@ -26,6 +26,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * It doesn't provide the actual methods to save the game to config but more so acts like a notification popup, that the user's input has been registered.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see DialogPane
  * @see Stage
  * @see ConfigLoader

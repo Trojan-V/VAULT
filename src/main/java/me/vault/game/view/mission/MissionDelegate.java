@@ -49,6 +49,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * methods to create the mission game board, alter {@code Mission} instances and allows the player to move and progress in the different missions.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Mission
  * @see MissionConstants
  * @see LoggingConstants.MissionDelegate

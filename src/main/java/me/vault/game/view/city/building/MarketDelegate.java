@@ -37,6 +37,7 @@ import static me.vault.game.utility.interfaces.constant.CityBuildingConstants.Ma
  * On the other hand, it provides methods to control the model to the {@link Market} city building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see Market

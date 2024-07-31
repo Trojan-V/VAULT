@@ -38,6 +38,7 @@ import static me.vault.game.utility.interfaces.constant.CityBuildingConstants.Co
  * On the other hand, it provides methods to control the model to the {@link CommandCenter} city building.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see CommandCenter

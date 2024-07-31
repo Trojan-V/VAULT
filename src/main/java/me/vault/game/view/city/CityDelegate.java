@@ -34,6 +34,7 @@ import java.util.ResourceBundle;
  * point of many game aspects.
  *
  * @author Lasse-Leander Hillen, Vincent Wolf, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see CityBuildingController
  * @see Initializable
  * @see CityBuilding

@@ -41,7 +41,6 @@ import static me.vault.game.utility.logging.ILogger.Level.ERROR;
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Arena
- * @see Arena
  * @see MissionConstants
  * @see LoggingConstants.MissionDelegate
  * @since 25.07.2024
