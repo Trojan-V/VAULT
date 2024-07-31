@@ -20,6 +20,7 @@ import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tile.Tile;
 import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
 import me.vault.game.model.gameboard.tile.impl.ArenaStartTileAppearance;
+import me.vault.game.model.gameboard.tile.impl.MissionFinishTileAppearance;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.interfaces.Placeable;
@@ -211,6 +212,10 @@ public final class MissionDelegate implements Initializable
 		{
 			MovableController.move(missionGameBoard, player, position);
 		}
+		else if (nextTileElement instanceof MissionFinishTileAppearance && playerCanReach)
+		{
+			MissionFinishedDialogDelegate.show(this.mission);
+		}
 		else if (nextTileElement instanceof ArenaStartTileAppearance && playerCanReach)
 		{
 
@@ -220,6 +225,7 @@ public final class MissionDelegate implements Initializable
 			this.mission.removeAvailableArena(randomArena);
 			ArenaDelegate.show(this.mission, randomArena);
 		}
+
 
 		this.missionBoardGridPane.getChildren().clear();
 		this.buildGameBoardGridPane();

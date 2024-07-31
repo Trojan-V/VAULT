@@ -151,6 +151,7 @@ public final class MissionFinishedDialogDelegate
 	{
 		STAGE.close();
 		CurrencyDelegate.factorCurrency(this.mission.getMissionReward());
+		CityDelegate.show();
 	}
 
 
