@@ -2,14 +2,18 @@ package me.vault.game.model.network;
 
 
 import javafx.fxml.FXMLLoader;
+import me.vault.game.model.arena.Arena;
+import me.vault.game.model.arena.ArenaObject;
+import me.vault.game.utility.concurrency.ThreadUtil;
+import me.vault.game.utility.interfaces.constant.LoggingConstants;
+import me.vault.game.utility.interfaces.constant.MiscConstants;
 import me.vault.game.view.arena.ArenaDelegate;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import com.google.gson.Gson;
 import static me.vault.game.utility.interfaces.constant.ArenaConstants.ARENA_FXML;
 
 
@@ -29,6 +33,16 @@ public class Client implements Runnable
 
 	private int portNumber = -1;
 
+	private Socket socket = null;
+
+	private PrintWriter output = null;
+
+	private BufferedReader input = null;
+
+	private Boolean disconnect = false;
+
+	private Boolean turnOver = false;
+
 
 	public Client (final String hostName, final int portNumber)
 	{
@@ -41,7 +55,32 @@ public class Client implements Runnable
 	@Override
 	public void run ()
 	{
-		this.readAndSend(this.openSocket());
+		Gson gson = new Gson();
+		socket = createConnection(hostName, portNumber);
+		try
+		{
+			output = new PrintWriter(socket.getOutputStream());
+			input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		}
+		catch (IOException ioException)
+		{
+			ioException.printStackTrace();
+		}
+		do
+		{
+			//TODO: write fucking method
+			ArenaObject.getInstance().setArena(gson.fromJson(readInput(), Arena.class));
+			ArenaDelegate.show(ArenaObject.getInstance().getArena());
+//			while(!turnOver)
+//			{
+//				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
+//			}
+			ThreadUtil.sleepThread(2000);
+			turnOver = false;
+			sendArena(ArenaObject.getInstance().getArena().toJSON());
+			ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
+		}
+		while (!disconnect);
 	}
 
 
@@ -91,4 +130,46 @@ public class Client implements Runnable
 		}
 	}
 
+	public void sendArena(String arenaJSON)
+	{
+		output.println(arenaJSON);
+		output.flush();
+		ThreadUtil.sleepThread(MiscConstants.TEN);
+	}
+
+	public String readInput()
+	{
+		String outputString = null;
+		try
+		{
+			outputString = input.readLine();
+		}
+		catch (IOException ioException)
+		{
+			ioException.printStackTrace();
+		}
+		return outputString;
+	}
+
+	private Socket createConnection(String serverIP, int serverPort)
+	{
+		Socket newSocket = null;
+		try
+		{
+			newSocket = new Socket(serverIP, serverPort);
+		}
+		catch (UnknownHostException unknownHostException)
+		{
+			unknownHostException.printStackTrace();
+		}
+		finally
+		{
+			return newSocket;
+		}
+	}
+
+	public void setTurnOver(Boolean turnOver)
+	{
+		this.turnOver = turnOver;
+	}
 }

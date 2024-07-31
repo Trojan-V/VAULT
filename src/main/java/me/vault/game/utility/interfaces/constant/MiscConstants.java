@@ -78,4 +78,9 @@ public interface MiscConstants
 	 */
 	String DATE_TIME_PATTERN = "yyyyMMdd_HHmmss";
 
+	//TODO: Javadoc
+	int TWO_HUNDRED = 200;
+
+	int TEN = 10;
+
 }

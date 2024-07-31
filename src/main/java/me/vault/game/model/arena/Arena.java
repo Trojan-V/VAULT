@@ -7,6 +7,7 @@ import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.TimelineElementHBox;
+import me.vault.game.utility.interfaces.SerializableJSON;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.math.Position;
@@ -29,7 +30,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * @see Figure
  * @since 30.07.2024
  */
-public class Arena
+public class Arena implements SerializableJSON
 {
 
 	/**
