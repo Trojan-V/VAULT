@@ -1,10 +1,9 @@
-package me.vault.game.view.arena;
+package me.vault.game.view.mission;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import me.vault.game.model.Mission;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.utility.fx.RewardGridPane;
 import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.interfaces.constant.LoggingConstants;
 import me.vault.game.utility.interfaces.constant.MissionConstants;
@@ -22,8 +22,6 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.city.CurrencyDelegate;
-import me.vault.game.view.mission.MissionDelegate;
-import me.vault.game.view.mission.MissionSelectionDelegate;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -97,7 +95,7 @@ public final class MissionFinishedDialogDelegate
 
 
 	/**
-	 * Displays the a {@link DialogPane} based on the {@link Arena} instance on a new {@link Stage}.
+	 * Displays the a {@link DialogPane} based on the finished {@link Mission} instance on a new {@link Stage}.
 	 *
 	 * @param mission The {@link Mission} object, which describes the mission the arena originated from.
 	 *
@@ -134,6 +132,7 @@ public final class MissionFinishedDialogDelegate
 	private void setMission (final Mission mission)
 	{
 		this.mission = mission;
+		this.rewardPane.getChildren().add(new RewardGridPane(this.mission.getMissionReward()));
 	}
 
 
