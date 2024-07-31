@@ -31,7 +31,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * <br>
  * It also allows writing the data stored in the program's memory in the {@link Config} file into the configuration file.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Config
  * @since 24.06.2024

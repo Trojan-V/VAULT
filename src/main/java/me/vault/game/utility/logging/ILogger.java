@@ -6,7 +6,7 @@ package me.vault.game.utility.logging;
  * <br>
  * For an implementation of this interface, check the {@link Logger} class.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Logger
  * @since 30.05.2024
@@ -43,6 +43,7 @@ public interface ILogger
 	 *
 	 * @precondition The logging level in form of a {@link ILogger.Level} and the logging message pattern have to be supplied as parameters.
 	 * Additionally, the arguments that are going to be formatted by the logging message pattern have to be supplied as parameter.
+	 * @postcondition A message is logged at the specified logging level.
 	 */
 	void logf (final Level level, final String pattern, final Object... arguments);
 

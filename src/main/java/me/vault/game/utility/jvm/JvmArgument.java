@@ -7,7 +7,8 @@ import static me.vault.game.utility.interfaces.constant.CharacterConstants.DASH;
 /**
  * This enum stores all JVM arguments supported by the program.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see JvmArgumentParser
  * @since 07.05.2024
  */

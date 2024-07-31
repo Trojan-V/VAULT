@@ -18,7 +18,8 @@ import static me.vault.game.utility.logging.ILogger.Level.NORMAL;
  * represent the different types of
  * logging messages.
  *
- * @author Lasse-Leander Hillen
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see Level
  * @since 28.05.2024
  */

@@ -17,7 +17,8 @@ package me.vault.game.utility.logging;
  * {@code System.out.print(ConsoleColor.RESET);}
  *
  * @author Prof. Dr. Ing. Heiko Mosemann
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  */
 public enum ConsoleColor
 {

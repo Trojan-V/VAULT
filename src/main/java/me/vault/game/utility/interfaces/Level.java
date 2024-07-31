@@ -9,7 +9,7 @@ import me.vault.game.utility.interfaces.constant.MiscConstants;
  * An interface for levels which defines some methods that every level enum/class should provide.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @version 1.0.1
+ * @version 1.0.0
  * @see ArtifactLevel
  * @since 08.06.2024
  */

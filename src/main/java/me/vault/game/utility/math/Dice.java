@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Utility class that provides a method to roll a dice to generate a "random" number.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Random
  * @since 30.07.2024

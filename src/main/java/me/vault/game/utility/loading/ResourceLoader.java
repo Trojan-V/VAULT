@@ -31,7 +31,7 @@ import static me.vault.game.utility.logging.ILogger.Level.WARNING;
  * After the loading process is complete, an instance of a Java object is returned to the method invoker.
  * This instance can be used to give JavaFX the proper data structure that it requires to load the image or scene.
  *
- * @author Vincent Wolf, Timothy Hoegen-Jupp
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see MetaDataImage
  * @see Scene

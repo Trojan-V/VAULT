@@ -19,7 +19,8 @@ import static me.vault.game.utility.logging.ILogger.Level.*;
 /**
  * This class is used to apply the JVM arguments which may be passed into the program on startup.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
  * @see JvmArgument
  * @since 07.05.2024
  */
