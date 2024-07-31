@@ -4,18 +4,14 @@ package me.vault.game.utility.fx;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import me.vault.game.control.FigureController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.gameboard.Figure;
-import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.interfaces.Placeable;
 import org.jetbrains.annotations.Nullable;
-
-// TODO: Complete JavaDoc needed
 
 
 /**
@@ -34,73 +30,84 @@ import org.jetbrains.annotations.Nullable;
 public final class GameBoardButton extends Button
 {
 
-	private static final int TILE_SIDE_LENGTH = 35;
+	/**
+	 * The side length of each game board button.
+	 */
+	private static final int BUTTON_LENGTH = 35;
 
 
-	private static final int DROP_SHADOW_RADIUS = 15;
-
-
-	private static final double DROP_SHADOW_SPREAD = 0.5;
-
-
+	/**
+	 * Constructs a new instance of {@link GameBoardButton} with the passed parameters.
+	 *
+	 * @param arena     The arena object, the {@link GameBoardButton} is related to.
+	 * @param placeable The Placeable that fills the {@link GameBoardButton} on the grid.
+	 *
+	 * @precondition The constructor gets called and both parameters are != null.
+	 * @postcondition A new instance of {@link GameBoardButton} was created.
+	 */
 	public GameBoardButton (final Arena arena, final Placeable placeable)
 	{
-		this.designButtonAppearance();
-		this.designButtonImageViewAppearance(arena, placeable);
+		this.designAppearance();
+		this.designImageView(arena, placeable);
 	}
 
 
+	/**
+	 * Constructs a new instance of {@link GameBoardButton} with the passed parameters.
+	 *
+	 * @param placeable The Placeable that fills the {@link GameBoardButton} on the grid.
+	 *
+	 * @precondition The constructor gets called and the parameter is != null.
+	 * @postcondition A new instance of {@link GameBoardButton} was created.
+	 */
 	public GameBoardButton (final Placeable placeable)
 	{
-		this.designButtonAppearance();
-		this.designButtonImageViewAppearance(null, placeable);
+		this.designAppearance();
+		this.designImageView(null, placeable);
 	}
 
 
-	private void designButtonImageViewAppearance (@Nullable final Arena arena, final Placeable placeable)
+	/**
+	 * Designs the appearance of the {@link GameBoardButton} by setting its properties.
+	 *
+	 * @precondition The instance of {@link GameBoardButton} is != null and inherits from {@link Button}.
+	 * @postcondition the appearance of the instance of {@link GameBoardButton} was designed.
+	 */
+	private void designAppearance ()
+	{
+		this.setTextFill(Color.TRANSPARENT);
+		this.setBackground(Background.fill(Color.TRANSPARENT));
+		this.setPrefSize(BUTTON_LENGTH, BUTTON_LENGTH);
+		this.setMaxSize(BUTTON_LENGTH, BUTTON_LENGTH);
+		this.setContentDisplay(ContentDisplay.CENTER);
+		this.setAlignment(Pos.CENTER);
+	}
+
+
+	/**
+	 * Designs an {@link ImageView} that contains the sprite of the Placeable passed into the method.
+	 * Sets the glow of the button if an Arena object was passed != null.
+	 *
+	 * @param arena     An arena object, used to decide what glow to apply to the placeable.
+	 * @param placeable The placeable object whose sprite will be displayed.
+	 *
+	 * @precondition A Placeable object is passed and != null. The instance of {@link GameBoardButton} is != null.
+	 * @postcondition The image view of the {@link GameBoardButton} was designed, and a glow was applied if an arena object was passed.
+	 */
+	private void designImageView (@Nullable final Arena arena, final Placeable placeable)
 	{
 		final ImageView imageView = new ImageView();
-		imageView.setFitHeight(TILE_SIDE_LENGTH);
-		imageView.setFitWidth(TILE_SIDE_LENGTH);
+		imageView.setFitHeight(BUTTON_LENGTH);
+		imageView.setFitWidth(BUTTON_LENGTH);
 		imageView.setPreserveRatio(false);
 		imageView.setImage(placeable.getSprite());
 
+		// the glow of the placeable is set if the related arena has been passed into the method.
 		if (arena != null && placeable instanceof final Figure figure)
 		{
 			FigureController.setGlow(arena, imageView, figure);
 		}
 		this.setGraphic(imageView);
-	}
-
-
-	private void setTroopGlow (final Arena arena, final ImageView imageView, final Placeable placeable)
-	{
-		if (placeable instanceof Troop)
-		{
-			if (arena.getPlayerOneFigures().contains(placeable))
-			{
-				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.BLUE);
-				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-				imageView.setEffect(playerIdentity);
-			}
-			else if (arena.getPlayerTwoFigures().contains(placeable))
-			{
-				final DropShadow playerIdentity = new DropShadow(DROP_SHADOW_RADIUS, Color.RED);
-				playerIdentity.setSpread(DROP_SHADOW_SPREAD);
-				imageView.setEffect(playerIdentity);
-			}
-		}
-	}
-
-
-	private void designButtonAppearance ()
-	{
-		this.setTextFill(Color.TRANSPARENT);
-		this.setBackground(Background.fill(Color.TRANSPARENT));
-		this.setPrefSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
-		this.setMaxSize(TILE_SIDE_LENGTH, TILE_SIDE_LENGTH);
-		this.setContentDisplay(ContentDisplay.CENTER);
-		this.setAlignment(Pos.CENTER);
 	}
 
 }
