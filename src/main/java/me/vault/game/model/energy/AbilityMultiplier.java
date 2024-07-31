@@ -96,8 +96,6 @@ public class AbilityMultiplier
 		{
 			LOGGER.log(ILogger.Level.ERROR, e.getMessage());
 			LOGGER.log(ILogger.Level.ERROR, EXECUTION_NOT_POSSIBLE_ANYMORE);
-
-			// TODO: System.exit ueberarbeiten, Fenster vielleicht.
 			System.exit(ERROR_EXIT_CODE);
 		}
 	}
@@ -243,7 +241,7 @@ public class AbilityMultiplier
 	 *
 	 * @return The message in its string representation.
 	 *
-	 * @precondition The {@link Energy} is {@code != null}.
+	 * @precondition The {@link AbilityMultiplier} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override

@@ -103,6 +103,14 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	}
 
 
+	/**
+	 * Creates and designs the grid pane for the "interact" und "upgrade" buttons.
+	 *
+	 * @return A {@link GridPane} for the buttons.
+	 *
+	 * @precondition The method is called.
+	 * @postcondition A GridPane with adjusted properties for the "interact" und "upgrade" buttons was returned.
+	 */
 	@NotNull
 	private static GridPane createButtonGridPane ()
 	{
@@ -117,6 +125,14 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	}
 
 
+	/**
+	 * Creates and designs the "upgrade" button of the {@link CityBuilding}.
+	 *
+	 * @return A {@link Button} for the {@link CityBuilding} upgrade.
+	 *
+	 * @precondition The method is called and a {@link CityBuilding} != null is passed.
+	 * @postcondition A {@link Button} with adjusted properties for the upgrade was returned.
+	 */
 	private Button createUpgradeButton (final CityBuilding cityBuilding)
 	{
 		final Button upgradeButton = new Button();
@@ -129,6 +145,14 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	}
 
 
+	/**
+	 * Creates and designs the "interact" button of the {@link CityBuilding}.
+	 *
+	 * @return A {@link Button} for the {@link CityBuilding} interaction.
+	 *
+	 * @precondition The method is called and a {@link CityBuilding} != null is passed.
+	 * @postcondition A {@link Button} with adjusted properties for the interaction was returned.
+	 */
 	private Button createInteractButton (final CityBuilding cityBuilding)
 	{
 		final Button interactButton = new Button();
@@ -144,6 +168,14 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	}
 
 
+	/**
+	 * Shows the view of the related CityBuilding delegate based on the passed CityBuilding.
+	 *
+	 * @param cityBuilding The CityBuilding whose view is supposed to be showed.
+	 *
+	 * @precondition A CityBuilding != null is passed into the method and all the delegates of the CityBuildings can be shown.
+	 * @postcondition The view of the passed CityBuilding was shown on the main stage.
+	 */
 	private void useCorrespondingDelegate (final CityBuilding cityBuilding)
 	{
 		switch (cityBuilding)
