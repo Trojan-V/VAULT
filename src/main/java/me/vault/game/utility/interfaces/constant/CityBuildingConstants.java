@@ -28,6 +28,7 @@ public interface CityBuildingConstants
 	 * The {@link Barracks} subinterface contains all the constants which apply to the {@link Barracks} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 1.0.0
 	 * @see Barracks
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -98,6 +99,7 @@ public interface CityBuildingConstants
 	 * The {@link Market} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.Market} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 1.0.0
 	 * @see me.vault.game.model.city.impl.Market
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -216,6 +218,7 @@ public interface CityBuildingConstants
 	 * The {@link CommandCenter} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.CommandCenter} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 1.0.0
 	 * @see me.vault.game.model.city.impl.CommandCenter
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -283,12 +286,14 @@ public interface CityBuildingConstants
 		/**
 		 * Some random news that gets displayed in the command center.
 		 */
+		@Constant
 		String RANDOM_NEWS_ONE = "Breaking: The System is cut off from the rest of the galaxy. Tensions are " + "high with small skirmishes occurring.";
 
 
 		/**
 		 * Some random news that gets displayed in the command center.
 		 */
+		@Constant
 		String RANDOM_NEWS_TWO =
 			"Breaking: Despite rising tension in the system, the Explorer-Association announces that " +
 			"ita members find more and more hints that this was a major Hitani system.";
@@ -297,18 +302,21 @@ public interface CityBuildingConstants
 		/**
 		 * Some random news that gets displayed in the command center.
 		 */
+		@Constant
 		String RANDOM_NEWS_THREE = "Breaking: The various factions in the system seem to employ the Mega Corporation soldiers more and more.";
 
 
 		/**
 		 * Some random news that gets displayed in the command center.
 		 */
+		@Constant
 		String RANDOM_NEWS_FOUR = "Breaking: The skirmishes escalate, and now it moves to capturing of outposts from each other.";
 
 
 		/**
 		 * A {@link List} that contains all random news.
 		 */
+		@Constant
 		ArrayList<String> RANDOM_NEWS_LIST = new ArrayList<>()
 		{{
 			this.add(RANDOM_NEWS_ONE);
@@ -321,10 +329,11 @@ public interface CityBuildingConstants
 
 
 	/**
-	 * The {@link Docks} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.Docks} city building.
+	 * The {@link Docks} subinterface contains all the constants which apply to the {@link Docks} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
-	 * @see me.vault.game.model.city.impl.Docks
+	 * @version 1.0.0
+	 * @see Docks
 	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
@@ -394,6 +403,7 @@ public interface CityBuildingConstants
 	 * The {@link Laboratory} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.Laboratory} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 1.0.0
 	 * @see me.vault.game.model.city.impl.Laboratory
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -464,6 +474,7 @@ public interface CityBuildingConstants
 	 * The {@link SpaceBar} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.SpaceBar} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 1.0.0
 	 * @see me.vault.game.model.city.impl.SpaceBar
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -535,6 +546,7 @@ public interface CityBuildingConstants
 	 * building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 1.0.0
 	 * @see me.vault.game.model.city.impl.TrainingFacility
 	 * @see CityBuilding
 	 * @since 20.06.2024
@@ -605,6 +617,7 @@ public interface CityBuildingConstants
 	 * The {@link Workshop} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.Workshop} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+	 * @version 1.0.0
 	 * @see me.vault.game.model.city.impl.Workshop
 	 * @see CityBuilding
 	 * @since 20.06.2024

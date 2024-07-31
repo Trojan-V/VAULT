@@ -14,6 +14,7 @@ import static me.vault.game.utility.interfaces.constant.ConstantInterface.Consta
  * @see GameBoard
  * @since 28.07.2024
  */
+@ConstantInterface
 public interface GameBoardConstants
 {
 

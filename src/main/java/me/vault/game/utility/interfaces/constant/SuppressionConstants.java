@@ -1,4 +1,5 @@
 package me.vault.game.utility.interfaces.constant;
+import static me.vault.game.utility.interfaces.constant.ConstantInterface.Constant;
 
 
 /**
@@ -13,18 +14,21 @@ package me.vault.game.utility.interfaces.constant;
  * @see SuppressWarnings
  * @since 08.06.2024
  */
+@ConstantInterface
 public interface SuppressionConstants
 {
 
 	/**
 	 * Suppresses warnings related to overridden method call during the object's construction.
 	 */
+	@Constant
 	String OVERRIDDEN_METHOD_CALL = "OverriddenMethodCallDuringObjectConstruction";
 
 
 	/**
 	 * Suppresses warnings related to overridable method calls during the object's construction.
 	 */
+	@Constant
 	String OVERRIDABLE_METHOD_CALL = "OverridableMethodCallDuringObjectConstruction";
 
 }

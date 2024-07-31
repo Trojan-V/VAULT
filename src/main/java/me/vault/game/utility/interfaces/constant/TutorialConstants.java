@@ -1,5 +1,6 @@
 package me.vault.game.utility.interfaces.constant;
 
+import static me.vault.game.utility.interfaces.constant.ConstantInterface.Constant;
 
 import me.vault.game.view.newgame.TutorialDelegate;
 
@@ -12,12 +13,14 @@ import me.vault.game.view.newgame.TutorialDelegate;
  * @see TutorialDelegate
  * @since 30.07.2024
  */
+@ConstantInterface
 public interface TutorialConstants
 {
 
 	/**
 	 * The {@link String} that contains the introduction text for the tutorial.
 	 */
+	@Constant
 	String TUTORIAL_INTRODUCTION = """
 		Hello dear player, first thank you for playing our little game. In the following tabs you can read the tutorials of the integral parts \
 		of the game. They describe what certain things are for and how the mechanics of this game work in a capacity that helps you understand \
@@ -27,6 +30,7 @@ public interface TutorialConstants
 	/**
 	 * The {@link String} that contains the tutorial text for the city.
 	 */
+	@Constant
 	String TUTORIAL_CITY = """
 		The City is the main hub. At the top of the screen, the current amount of resources one has in its possession is displayed. Below that there are the \
 		buildings of the space station. There are the barracks for the own faction, the docks and the space-bar for the other three factions, where one can \
@@ -39,6 +43,7 @@ public interface TutorialConstants
 	/**
 	 * The {@link String} that contains the tutorial text for the artifacts.
 	 */
+	@Constant
 	String TUTORIAL_ARTIFACTS = """
 		Artifacts are mysterious pieces of equipment that were left behind by the Hitani and survived the tests of time. These strange pieces of \
 		equipment seem to affect troops in battle positively. Artifacts are selected by the player per mission and buff damage, defense or health \
@@ -48,6 +53,7 @@ public interface TutorialConstants
 	/**
 	 * The {@link String} that contains the tutorial text for the factions.
 	 */
+	@Constant
 	String TUTORIAL_FACTIONS = """
 		In the system, there are three factions besides to player-faction. The troops of the factions can be used through different means and at \
 		different points in the game. At the same time, these factions also pose as the enemy combatants in the game, so it does pay off to learn \
@@ -57,6 +63,7 @@ public interface TutorialConstants
 	/**
 	 * The {@link String} that contains the tutorial text for the missions.
 	 */
+	@Constant
 	String TUTORIAL_MISSIONS = """
 		The missions in this game are divided in two categories. The first kind of missions are the story-missions. In these missions, you drive the \
 		story forward and get special rewards which one can't get in the other category of missions. The other category of missions is the repeatable \
@@ -67,6 +74,7 @@ public interface TutorialConstants
 	/**
 	 * The {@link String} that contains the tutorial text for the fights.
 	 */
+	@Constant
 	String TUTORIAL_FIGHTS = """
 		When you encounter enemies on the mission-map, you enter a fight. Fights in this game is turn-based and works on twelve times twelve grid with various \
 		environment-based obstacles. After a troop attacks a hostile entity, a twenty-sided dice is thrown to determine if the troop hits or if the \
