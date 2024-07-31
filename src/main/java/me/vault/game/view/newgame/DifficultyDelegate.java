@@ -3,17 +3,13 @@ package me.vault.game.view.newgame;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.GameController;
 import me.vault.game.model.GameDifficulty;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.menu.MainMenuDelegate;
 
 import java.net.URL;
@@ -32,11 +28,6 @@ import java.util.ResourceBundle;
  */
 public final class DifficultyDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(DifficultyDelegate.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.
@@ -76,7 +67,7 @@ public final class DifficultyDelegate implements Initializable
 	 *
 	 * @precondition The GameApplication has to have a stage
 	 * @postcondition The initialized difficulty scene is shown on the GameApplication Stage
-	 * @see ViewUtil#show(Stage, Scene, Class)
+	 * @see ViewUtil#show (Stage, Scene, Class)
 	 */
 	public static void show ()
 	{
@@ -88,7 +79,7 @@ public final class DifficultyDelegate implements Initializable
 	 * Handles the action "click" that is defined in the FXML-File.
 	 * <br>
 	 * <br>
-	 * The method differentiates between different action that can be triggered by clicking on the different buttons
+	 * The method differentiates between different actions that can be triggered by clicking on the different buttons
 	 * of the scene.
 	 * <br>
 	 * <br>
@@ -103,7 +94,7 @@ public final class DifficultyDelegate implements Initializable
 	 * If "hard" is clicked, the {@link DifficultyDelegate#setGameDifficultyAndContinue(GameDifficulty)}-method is
 	 * called with the parameter {@link GameDifficulty#HARD}.
 	 * <br>
-	 * If "back" is clicked the Main menu is displayed
+	 * If "back" is clicked, the main menu is displayed.
 	 *
 	 * @param mouseEvent The MouseEvent that determines the triggered action(s)
 	 *

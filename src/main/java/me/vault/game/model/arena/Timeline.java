@@ -101,7 +101,7 @@ public class Timeline
 	{
 		if (!this.elements.contains(figure))
 		{
-			throw new NullPointerException();
+			return;
 		}
 		this.elements.remove(figure);
 	}

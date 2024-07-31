@@ -93,12 +93,12 @@ public final class CityBuildingAnchorPane extends AnchorPane
 
 
 	/**
-	 * Constructs a new instance of {@link CityBuildingAnchorPane} based on the passed city building.
+	 * Constructs a new instance of this class based on the passed city building.
 	 *
 	 * @param cityBuilding The {@link CityBuilding} which is the template for the new instance.
 	 *
 	 * @precondition The {@link CityBuilding} parameter is != null.
-	 * @postcondition A new instance of {@link CityBuildingAnchorPane} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public CityBuildingAnchorPane (final CityBuilding cityBuilding)
 	{
@@ -138,6 +138,7 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	/**
 	 * Creates and designs the "upgrade" button of the {@link CityBuilding}.
 	 *
+	 * @param cityBuilding The city building.
 	 * @return A {@link Button} for the {@link CityBuilding} upgrade.
 	 *
 	 * @precondition The method is called and a {@link CityBuilding} != null is passed.
@@ -161,7 +162,7 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	 * Creates and designs the "interact" button of the {@link CityBuilding}.
 	 *
 	 * @return A {@link Button} for the {@link CityBuilding} interaction.
-	 *
+	 * @param cityBuilding The city building.
 	 * @precondition The method is called and a {@link CityBuilding} != null is passed.
 	 * @postcondition A {@link Button} with adjusted properties for the interaction was returned.
 	 */
@@ -194,14 +195,14 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	{
 		switch (cityBuilding)
 		{
-			case final Docks docks -> DocksDelegate.show();
-			case final Market market -> MarketDelegate.show();
-			case final Workshop workshop -> WorkshopDelegate.show();
-			case final Barracks barracks -> BarracksDelegate.show();
-			case final SpaceBar spaceBarDelegate -> SpaceBarDelegate.show();
-			case final Laboratory laboratory -> LaboratoryDelegate.show();
-			case final CommandCenter commandCenter -> CommandCenterDelegate.show();
-			case final TrainingFacility trainingFacility -> TrainingFacilityDelegate.show();
+			case final Docks _ -> DocksDelegate.show();
+			case final Market _ -> MarketDelegate.show();
+			case final Workshop _ -> WorkshopDelegate.show();
+			case final Barracks _ -> BarracksDelegate.show();
+			case final SpaceBar _ -> SpaceBarDelegate.show();
+			case final Laboratory _ -> LaboratoryDelegate.show();
+			case final CommandCenter _ -> CommandCenterDelegate.show();
+			case final TrainingFacility _ -> TrainingFacilityDelegate.show();
 			case null, default -> CityDelegate.show();
 		}
 	}

@@ -75,13 +75,13 @@ public final class TimelineElementHBox extends HBox
 
 
 	/**
-	 * Constructs a new instance of {@link TimelineElementHBox} with the passed parameters.
+	 * Constructs a new instance of this class with the passed parameters.
 	 *
-	 * @param arena       The arena, that is related to the {@link TimelineElementHBox}. Used to decide the glow and other properties.
-	 * @param troopFigure The figure whose sprite is supposed to be shown in the {@link TimelineElementHBox}
+	 * @param arena       The arena, that is related to this class. Used to decide the glow and other properties.
+	 * @param troopFigure The figure whose sprite is supposed to be shown in this class.
 	 *
 	 * @precondition The constructor gets called and the parameters are != null.
-	 * @postcondition A new instance of {@link TimelineElementHBox} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public TimelineElementHBox (final Arena arena, final Figure troopFigure)
 	{
@@ -96,7 +96,7 @@ public final class TimelineElementHBox extends HBox
 	/**
 	 * Creates the {@link ImageView} for the sprite of the passed figure
 	 *
-	 * @param arena       The arena, that is related to the {@link TimelineElementHBox}. Used to decide the glow and other properties.
+	 * @param arena       The arena, that is related to this class. Used to decide the glow and other properties.
 	 * @param troopFigure The figure whose sprite is supposed to be shown in the {@link ImageView}
 	 *
 	 * @return a {@link ImageView} that was filled and designed with the sprite of the {@link Figure}.

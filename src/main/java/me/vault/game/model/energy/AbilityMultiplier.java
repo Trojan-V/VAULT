@@ -80,7 +80,7 @@ public class AbilityMultiplier
 	 * @param modifiers The modifiers which are applied to the properties.
 	 *
 	 * @precondition The map of the ability modifiers exists.
-	 * @postcondition Constructs an instance of  with the supplied modifies.
+	 * @postcondition Constructs an instance of with the supplied modifies.
 	 */
 	public AbilityMultiplier (final Map<AbilityMultiplier.Type, Double> modifiers)
 	{
@@ -111,8 +111,7 @@ public class AbilityMultiplier
 	 * because
 	 * negative dodge or melee
 	 * values wouldn't make any sense. Zero initiative could technically be valid in niche cases, hence why
-	 * this check is not performed as part
-	 * of the validation.
+	 * this check isn't performed as part of the validation.
 	 *
 	 * @exception InvalidAttributeMultiplierException When one of the supplied modifiers was invalid.
 	 * @precondition The modifiers are supplied.
@@ -241,7 +240,7 @@ public class AbilityMultiplier
 	 *
 	 * @return The message in its string representation.
 	 *
-	 * @precondition The {@link AbilityMultiplier} is {@code != null}.
+	 * @precondition The instance of this class is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
 	@Override

@@ -57,7 +57,7 @@ public class GameBoard
 	 * @param gameBoard The two-dimensional array of {@link Tile}s.
 	 *
 	 * @precondition The tiles exist.
-	 * @postcondition An instance of the  is created from the supplied tiles.
+	 * @postcondition An instance of this class is created from the supplied tiles.
 	 */
 	public GameBoard (final Tile[][] gameBoard)
 	{
@@ -75,7 +75,7 @@ public class GameBoard
 	 * @return The {@link Position} if the {@link Placeable} was found.
 	 *
 	 * @exception ElementNotFoundOnGameBoardException If the {@link Placeable} element wasn't found on the game board.
-	 * @precondition On the  is a {@link Placeable} element.
+	 * @precondition A {@link Placeable} element was supplied as a parameter.
 	 * @postcondition The {@link Position} if the {@link Placeable} was found and is accessible for the program.
 	 */
 	public Position getPosition (final Placeable placeable) throws ElementNotFoundOnGameBoardException
@@ -142,7 +142,7 @@ public class GameBoard
 	 * @param placeable The {@link Placeable}.
 	 *
 	 * @precondition The {@link Tile} is at the {@link Position} and is an {@link AccessibleTileAppearance}.
-	 * @postcondition The {@link Placeable} is placed on the  at the {@link Position}.
+	 * @postcondition The {@link Placeable} is placed on the game board at the {@link Position}.
 	 */
 	public void placeIfAccessibleTile (final Position position, final Placeable placeable)
 	{
@@ -160,7 +160,7 @@ public class GameBoard
 	 * @param placeable The {@link Placeable}.
 	 *
 	 * @precondition The {@link Placeable} is supplied and {@link Position} exists.
-	 * @postcondition The {@link Placeable} is placed on the  at the {@link Position}
+	 * @postcondition The {@link Placeable} is placed on the game board at the {@link Position}
 	 */
 	public void place (final Position position, final Placeable placeable)
 	{
@@ -292,8 +292,8 @@ public class GameBoard
 	 * @param placeable The {@link Placeable} that is going to get removed from the game board.
 	 *
 	 * @exception ElementNotFoundOnGameBoardException If the supplied {@link Placeable} wasn't found on the game board.
-	 * @precondition The {@link Tile} on the  has to have a {@link Placeable}
-	 * @postcondition The {@link Placeable} is removed from the  and the {@link Tile} where the
+	 * @precondition The {@link Tile} on the game board has to have a {@link Placeable}
+	 * @postcondition The {@link Placeable} is removed from the game board and the {@link Tile} where the
 	 * {@link Placeable} were removed is now an {@link AccessibleTileAppearance}.
 	 */
 	public void remove (final Placeable placeable) throws ElementNotFoundOnGameBoardException

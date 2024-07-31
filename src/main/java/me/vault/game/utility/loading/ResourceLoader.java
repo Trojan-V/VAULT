@@ -50,13 +50,13 @@ public final class ResourceLoader
 	/**
 	 * The message which is printed into the console if the image couldn't be loaded.
 	 */
-	private static final String IMAGE_NOT_LOADED_MSG = "The image-resource \"{0}\" could not load.";
+	private static final String IMAGE_NOT_LOADED_MSG = "The image resource \"{0}\" could not load.";
 
 
 	/**
 	 * The message which is printed into the console if the scene couldn't be loaded.
 	 */
-	private static final String SCENE_NOT_LOADED_MSG = "The scene-resource \"{0}\" could not load.";
+	private static final String SCENE_NOT_LOADED_MSG = "The scene resource \"{0}\" could not load.";
 
 
 	/**
@@ -174,7 +174,7 @@ public final class ResourceLoader
 
 
 	/**
-	 * Collects all file in the supplied directory that have the specified file-name ending and returns them as a
+	 * Collects all files in the supplied directory that end with the specified file extension and returns them as a
 	 * {@link List}.
 	 *
 	 * @param directoryPath The path to the directory

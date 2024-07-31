@@ -244,7 +244,7 @@ public final class FigureController
 	 */
 	public static void setGlow (final @NotNull Arena arena, final @NotNull ImageView imageView, final @NotNull Figure troopFigure)
 	{
-		// Define the DropShadow (the glow) depending on the Figure's team: Blue glow means ally, red glow means enemy.
+		// Define the DropShadow (the glow) depending on the Figure's team: blue glow means ally, red glow means enemy.
 		final DropShadow playerIdentity;
 		if (isAlly(arena, troopFigure))
 		{

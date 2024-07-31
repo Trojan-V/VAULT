@@ -114,7 +114,7 @@ public final class DamageArtifact extends Artifact
 	 * @return The map of upgrade costs for the damage artifact.
 	 *
 	 * @precondition The upgrade costs for different {@link ArtifactLevel} exists.
-	 * @postcondition A map of upgrade costs for the  is initialized.
+	 * @postcondition A map of upgrade costs for this artifact is initialized.
 	 */
 	private static Map<ArtifactLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
@@ -141,8 +141,8 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of attribute modifiers for the damage artifact.
 	 *
-	 * @precondition The attribute modifiers for the  exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of attribute modifiers for the  is initialised.
+	 * @precondition The attribute modifiers for this artifact exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of attribute modifiers for this artifact is initialized.
 	 */
 	private static Map<ArtifactLevel, Map<AttributeMultiplier.Type, Double>> initModifiersMap ()
 	{
@@ -181,8 +181,8 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of names for the damage artifact.
 	 *
-	 * @precondition The names for the  exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of the names for the  is initialised.
+	 * @precondition The names for this artifact exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the names for this artifact is initialized.
 	 */
 	private static Map<ArtifactLevel, String> initNamesMap ()
 	{
@@ -208,8 +208,8 @@ public final class DamageArtifact extends Artifact
 	 *
 	 * @return The map of sprites for the damage artifact.
 	 *
-	 * @precondition The sprites for the  exist for the different {@link ArtifactLevel}.
-	 * @postcondition A map of the sprites for the  is initialised.
+	 * @precondition The sprites for this artifact exist for the different {@link ArtifactLevel}.
+	 * @postcondition A map of the sprites for this artifact is initialized.
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{

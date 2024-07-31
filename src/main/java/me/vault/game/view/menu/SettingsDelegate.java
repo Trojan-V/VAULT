@@ -12,8 +12,6 @@ import me.vault.game.model.GameDifficulty;
 import me.vault.game.utility.Config;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.ILogger;
-import me.vault.game.utility.logging.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,11 +30,6 @@ import java.util.ResourceBundle;
  */
 public final class SettingsDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final ILogger LOGGER = new Logger(SettingsDelegate.class.getSimpleName());
 
 	/**
 	 * This file is located in the directory {@code ./src/main/java/resources/me/vault/game} and defines the properties (color etc.) of the GUI
@@ -95,7 +88,7 @@ public final class SettingsDelegate implements Initializable
 	 *
 	 * @param mouseEvent The MouseEvent that triggers the method.
 	 *
-	 * @precondition The settings (scene) has to be displayed on the active stage.
+	 * @precondition The settings (scene) have to be displayed on the active stage.
 	 * @postcondition The main menu is shown if the source from the {@link MouseEvent} is the
 	 * {@link SettingsDelegate#backButton}.
 	 */
@@ -168,7 +161,7 @@ public final class SettingsDelegate implements Initializable
 	 * {@link GameController} class ({@link SettingsDelegate#EASY_SLIDER_INT} = easy;
 	 * {@link SettingsDelegate#NORMAL_SLIDER_INT} = normal; {@link SettingsDelegate#HARD_SLIDER_INT} = hard).
 	 */
-	public void initializeDifficultySlider ()
+	private void initializeDifficultySlider ()
 	{
 		switch (GameController.getDifficulty())
 		{

@@ -49,7 +49,7 @@ public final class MarketDelegate implements Initializable
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final Logger LOGGER = new Logger(MarketDelegate.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(MarketDelegate.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.

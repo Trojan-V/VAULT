@@ -189,6 +189,7 @@ public final class ArenaFinishedDialogDelegate
 	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
 	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link CityDelegate} if the user has lost the arena
 	 * or set to the {@link Scene} of the {@link MissionDelegate} if the user has won.
+	 * @throws UndefinedArenaResultException If the arena result is undefined.
 	 */
 	@FXML
 	void onContinue (final ActionEvent ignored) throws UndefinedArenaResultException

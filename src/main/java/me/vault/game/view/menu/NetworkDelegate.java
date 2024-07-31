@@ -38,6 +38,7 @@ public final class NetworkDelegate implements Initializable
 	 */
 	private static final String FXML_FILENAME = "network_connection_dialog.fxml";
 
+
 	/**
 	 * The {@link MessageFormat} pattern, which is used, when the {@link NetworkDelegate#toString()} is called.
 	 */
@@ -130,7 +131,6 @@ public final class NetworkDelegate implements Initializable
 	 *
 	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
 	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
-	 *
 	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
 	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
 	 */
@@ -149,15 +149,9 @@ public final class NetworkDelegate implements Initializable
 
 	private void setButtonActions ()
 	{
-		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(event ->
-		{
-			this.connect(STAGE, this.serverClientTabPane);
-		});
+		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> this.connect(STAGE, this.serverClientTabPane));
 
-		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(event ->
-		{
-			STAGE.close();
-		});
+		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(_ -> STAGE.close());
 	}
 
 
@@ -192,7 +186,6 @@ public final class NetworkDelegate implements Initializable
 	 * {@link NetworkDelegate#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link NetworkDelegate#TO_STRING_PATTERN}.
-	 *
 	 * @precondition The {@link NetworkDelegate#TO_STRING_PATTERN} is {@code != null} and both of the instance variables are set.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

@@ -16,7 +16,6 @@ import me.vault.game.model.city.impl.SpaceBar;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
-import me.vault.game.utility.logging.Logger;
 import me.vault.game.view.city.CityDelegate;
 import me.vault.game.view.city.CurrencyDelegate;
 
@@ -41,11 +40,6 @@ import java.util.ResourceBundle;
  */
 public final class SpaceBarDelegate implements Initializable
 {
-
-	/**
-	 * The {@link Logger} object for this class used for writing to the console.
-	 */
-	private static final Logger LOGGER = new Logger(SpaceBarDelegate.class.getSimpleName());
 
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.

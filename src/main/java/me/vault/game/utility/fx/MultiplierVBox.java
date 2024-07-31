@@ -48,12 +48,12 @@ public final class MultiplierVBox extends VBox
 
 
 	/**
-	 * Constructs a new instance of {@link MultiplierVBox} with the passed parameters.
+	 * Constructs a new instance of this class with the passed parameters.
 	 *
-	 * @param abilityMultiplier The {@link AbilityMultiplier} object, whose values are added to the {@link MultiplierVBox}.
+	 * @param abilityMultiplier The {@link AbilityMultiplier} object, whose values are added to the vbox.
 	 *
 	 * @precondition The constructor gets called and the parameter is != null.
-	 * @postcondition A new instance of {@link GameBoardButton} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public MultiplierVBox (final AbilityMultiplier abilityMultiplier)
 	{
@@ -72,12 +72,12 @@ public final class MultiplierVBox extends VBox
 
 
 	/**
-	 * Constructs a new instance of {@link MultiplierVBox} with the passed parameters.
+	 * Constructs a new instance of this class with the passed parameters.
 	 *
-	 * @param attributeMultiplier The {@link AttributeMultiplier} object, whose values are added to the {@link MultiplierVBox}.
+	 * @param attributeMultiplier The {@link AttributeMultiplier} object, whose values are added to this vbox.
 	 *
 	 * @precondition The constructor gets called and the parameter is != null.
-	 * @postcondition A new instance of {@link GameBoardButton} was created.
+	 * @postcondition A new instance of this class was created.
 	 */
 	public MultiplierVBox (final AttributeMultiplier attributeMultiplier)
 	{
@@ -103,7 +103,7 @@ public final class MultiplierVBox extends VBox
 	 * @return A {@link Label}, which has its text property bound to the value of the {@link NumberExpression}.
 	 *
 	 * @precondition A valid NumberExpression != null is passed into the method.
-	 * @postcondition A {@link Label} with a bound text property is returned.
+	 * @postcondition A {@link Label} with a bound text property was returned.
 	 */
 	@NotNull
 	private static Label createMultiplierLabel (final NumberExpression abilityMultiplier)

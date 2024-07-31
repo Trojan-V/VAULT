@@ -16,7 +16,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
 
 
 /**
- * The {@link FileChooserDelegate} is responsible for the display (view) of the dialog that appears, when a user
+ * The {@link FileChooserDelegate} is responsible for the display (view) of the dialog that appears when a user
  * wants to load a game from a save(file).
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
@@ -50,12 +50,12 @@ public final class FileChooserDelegate
 
 
 	/**
-	 * The constructor for the .
+	 * The constructor for this class.
 	 * <br>
-	 * It creates a new instance of the  class, with a new instance of {@link FileChooser}
+	 * It creates a new instance of the class, with a new instance of {@link FileChooser}
 	 * that has a specified initial path and the title from {@link FileChooserDelegate#FILE_CHOOSER_TITLE}.
 	 *
-	 * @param initialFolderFilePath Path to the directory that is shown, when the file chooser is called.
+	 * @param initialFolderFilePath The path to the directory that is shown when the file chooser is called.
 	 *
 	 * @precondition the initialFolderFilePath has to point to a valid directory
 	 * @postcondition a new FileChooserDelegate instance is created with a new FileChooser that has the specified

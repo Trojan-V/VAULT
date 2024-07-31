@@ -56,7 +56,7 @@ public final class SaveCompleteDelegate implements Initializable
 	private static final String WINDOW_TITLE = "Save game complete.";
 
 	/**
-	 * The {@link Stage} of the {@link SaveCompleteDelegate}, which is needed because the {@link DialogPane} needs to be shown on a new window.
+	 * The {@link Stage} of the {@link SaveCompleteDelegate}, which is necessary because the {@link DialogPane} needs to be shown on a new window.
 	 */
 	private static final Stage STAGE = new Stage();
 

@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -220,9 +219,7 @@ public final class ArenaDelegate
 			{
 				final Position position = new Position(i, j);
 				final GameBoardButton button = new GameBoardButton(this.arena, this.arena.getGameBoard().getTile(position).getCurrentElement());
-				button.setOnMouseClicked(_ -> {
-					this.handleFigureInteraction(position);
-				});
+				button.setOnMouseClicked(_ -> this.handleFigureInteraction(position));
 				this.arenaBoardGridPane.add(button, i, j);
 			}
 		}
@@ -290,6 +287,7 @@ public final class ArenaDelegate
 		final boolean finished = this.checkForFinish();
 		if (playerOneTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{
+			// TODO: Empty method body.
 		}
 		else if (playerTwoTroops.contains(this.arena.getSelectedFigure()) && !finished)
 		{

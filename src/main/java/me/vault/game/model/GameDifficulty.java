@@ -56,8 +56,8 @@ public enum GameDifficulty
 	 * @param name       The name of the difficulty.
 	 * @param multiplier The multiplier added to the calculation of the enemies' statistics.
 	 *
-	 * @precondition The attributes for {@link GameDifficulty} are supplied.
-	 * @postcondition A new instance of {@link GameDifficulty} is created with the supplied attributes.
+	 * @precondition The attributes for this class are supplied.
+	 * @postcondition A new instance of this class was created with the supplied attributes.
 	 */
 	GameDifficulty (final String name, final double multiplier)
 	{
@@ -71,8 +71,8 @@ public enum GameDifficulty
 	 *
 	 * @return The multiplier the difficulty adds to the calculation of the enemies' statistics.
 	 *
-	 * @precondition The multiplier of the {@link GameDifficulty} is at least declared.
-	 * @postcondition The multiplier of the {@link GameDifficulty} is accessible for the program.
+	 * @precondition The multiplier of this instance is at least declared.
+	 * @postcondition The multiplier of this class is accessible for the program.
 	 */
 	public double getMultiplier ()
 	{
