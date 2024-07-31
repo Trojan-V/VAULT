@@ -4,9 +4,8 @@ package me.vault.game.utility.fx;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.city.CityBuilding;
 import me.vault.game.model.city.impl.*;
@@ -77,6 +76,16 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	private static final Position UPGRADE_BUTTON_POSITION = new Position(0, 1);
 
 	/**
+	 * The {@link Background} of the controls in the {@link CityBuildingAnchorPane}
+	 */
+	private static final Background BACKGROUND = Background.fill(Paint.valueOf("lightblue"));
+
+	/**
+	 * The {@link Border} of the controls in the {@link CityBuildingAnchorPane}
+	 */
+	private static final Border BORDER = Border.stroke(Paint.valueOf("grey"));
+
+	/**
 	 * The {@link CityBuilding} that is the template for the {@link CityBuildingAnchorPane}
 	 */
 	private final CityBuilding cityBuilding;
@@ -136,6 +145,8 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	private Button createUpgradeButton (final CityBuilding cityBuilding)
 	{
 		final Button upgradeButton = new Button();
+		upgradeButton.setBorder(BORDER);
+		upgradeButton.setBackground(BACKGROUND);
 		upgradeButton.setText(UPGRADE_BUTTON_TEXT);
 		upgradeButton.setPrefWidth(DIMENSION);
 		upgradeButton.setPrefHeight(UPGRADE_BUTTON_HEIGHT);
@@ -156,6 +167,8 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	private Button createInteractButton (final CityBuilding cityBuilding)
 	{
 		final Button interactButton = new Button();
+		interactButton.setBorder(BORDER);
+		interactButton.setBackground(BACKGROUND);
 		interactButton.setPrefWidth(DIMENSION);
 		interactButton.setPrefHeight(INTERACT_BUTTON_HEIGHT);
 

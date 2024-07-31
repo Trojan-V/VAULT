@@ -28,9 +28,7 @@ public final class SelectedAlliesGridPane extends GridPane
 
 	private static final int THIRD_ROW_Y = 50;
 
-
-	private static final String PLACEHOLDER_STRING = "Nichts ausgew\u00E4hlt.";
-
+	private static final String PLACEHOLDER_STRING = "Nichts ausgewaehlt.";
 
 	private final Label firstTroopLabel = new Label(PLACEHOLDER_STRING);
 
@@ -38,19 +36,11 @@ public final class SelectedAlliesGridPane extends GridPane
 
 	private final Label thirdTroopLabel = new Label(PLACEHOLDER_STRING);
 
-
 	private final ImageView firstTroopImageView = new SelectedTroopImageView();
 
 	private final ImageView secondTroopImageView = new SelectedTroopImageView();
 
 	private final ImageView thirdTroopImageView = new SelectedTroopImageView();
-
-
-	private final TroopUnselectButton firstTroopButton = new TroopUnselectButton();
-
-	private final TroopUnselectButton secondTroopButton = new TroopUnselectButton();
-
-	private final TroopUnselectButton thirdTroopButton = new TroopUnselectButton();
 
 
 	private final Troop[] selectedTroops = new Troop[3];
@@ -136,10 +126,6 @@ public final class SelectedAlliesGridPane extends GridPane
 		this.add(this.firstTroopImageView, 0, 1);
 		this.add(this.secondTroopImageView, 1, 1);
 		this.add(this.thirdTroopImageView, 2, 1);
-
-		this.add(this.firstTroopButton, 0, 2);
-		this.add(this.secondTroopButton, 1, 2);
-		this.add(this.thirdTroopButton, 2, 2);
 	}
 
 

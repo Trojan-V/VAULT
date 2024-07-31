@@ -17,7 +17,7 @@ import me.vault.game.model.city.impl.TrainingFacility;
 import me.vault.game.model.troop.Faction;
 import me.vault.game.model.troop.impl.*;
 import me.vault.game.utility.ViewUtil;
-import me.vault.game.utility.fx.TroopUpgradePane;
+import me.vault.game.utility.fx.TrainingFacilityUpgradePane;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
@@ -70,25 +70,25 @@ public final class TrainingFacilityDelegate implements Initializable
 	private AnchorPane mainAnchorPane;
 
 	/**
-	 * The {@link AnchorPane}, which contains the {@link TroopUpgradePane} for the {@link Faction#MEGA_CORPORATION}
+	 * The {@link AnchorPane}, which contains the {@link TrainingFacilityUpgradePane} for the {@link Faction#MEGA_CORPORATION}
 	 */
 	@FXML
 	private AnchorPane corporationPane;
 
 	/**
-	 * The {@link AnchorPane}, which contains the {@link TroopUpgradePane} for the {@link Faction#MEGA_CORPORATION}
+	 * The {@link AnchorPane}, which contains the {@link TrainingFacilityUpgradePane} for the {@link Faction#MEGA_CORPORATION}
 	 */
 	@FXML
 	private AnchorPane explorerPane;
 
 	/**
-	 * The {@link AnchorPane}, which contains the {@link TroopUpgradePane} for the {@link Faction#MILITARISTIC_GOVERNMENT}
+	 * The {@link AnchorPane}, which contains the {@link TrainingFacilityUpgradePane} for the {@link Faction#MILITARISTIC_GOVERNMENT}
 	 */
 	@FXML
 	private AnchorPane militaristicPane;
 
 	/**
-	 * The {@link AnchorPane}, which contains the {@link TroopUpgradePane} for the {@link Faction#NEW_TERRA}
+	 * The {@link AnchorPane}, which contains the {@link TrainingFacilityUpgradePane} for the {@link Faction#NEW_TERRA}
 	 */
 	@FXML
 	private AnchorPane terraPane;
@@ -128,10 +128,10 @@ public final class TrainingFacilityDelegate implements Initializable
 	{
 		this.factionsTabPane.getStyleClass().add(TAB_PANE_STYLE);
 		this.mainAnchorPane.getChildren().add(CurrencyDelegate.getCurrencyBannerScene().getRoot());
-		this.militaristicPane.getChildren().add(new TroopUpgradePane(SpaceMarine.getInstance(), Officer.getInstance(), Engineer.getInstance()));
-		this.explorerPane.getChildren().add(new TroopUpgradePane(Ranger.getInstance(), Sniper.getInstance(), Medic.getInstance()));
-		this.terraPane.getChildren().add(new TroopUpgradePane(Lieutenant.getInstance(), PrecisionShooter.getInstance(), Infantry.getInstance()));
-		this.corporationPane.getChildren().add(new TroopUpgradePane(Guard.getInstance(), Grenadier.getInstance(), Recruit.getInstance()));
+		this.militaristicPane.getChildren().add(new TrainingFacilityUpgradePane(SpaceMarine.getInstance(), Officer.getInstance(), Engineer.getInstance()));
+		this.explorerPane.getChildren().add(new TrainingFacilityUpgradePane(Ranger.getInstance(), Sniper.getInstance(), Medic.getInstance()));
+		this.terraPane.getChildren().add(new TrainingFacilityUpgradePane(Lieutenant.getInstance(), PrecisionShooter.getInstance(), Infantry.getInstance()));
+		this.corporationPane.getChildren().add(new TrainingFacilityUpgradePane(Guard.getInstance(), Grenadier.getInstance(), Recruit.getInstance()));
 	}
 
 

@@ -21,35 +21,59 @@ import static me.vault.game.utility.interfaces.constant.TroopStatisticConstants.
 // TODO: Complete JavaDoc needed
 
 
-public final class TroopUpgradePane extends GridPane
+public final class TrainingFacilityUpgradePane extends GridPane
 {
+
+	/**
+	 * The {@link Background} of the controls in the {@link TrainingFacilityUpgradePane}
+	 */
+	private static final Background BACKGROUND = Background.fill(Paint.valueOf("lightblue"));
 
 	/**
 	 * Represents the spacing of the troop attributes in the attribute grid pane.
 	 */
 	private static final int ATTRIBUTE_SPACING = 10;
 
+	/**
+	 * The font of the Labels in the {@link TrainingFacilityUpgradePane}.
+	 */
 	private static final Font FONT = new Font(20);
 
-	private static final Background BACKGROUND = Background.fill(Paint.valueOf("lightblue"));
-
+	/**
+	 * The x offset of the Name Labels in the {@link TrainingFacilityUpgradePane}.
+	 */
 	private static final int X_OFFSET_NAME_LABEL = 15;
 
+	/**
+	 * The y offset of the Name Labels in the {@link TrainingFacilityUpgradePane}.
+	 */
 	private static final int Y_OFFSET_NAME_LABEL = 25;
 
+	/**
+	 * The x offset of the image view in the {@link TrainingFacilityUpgradePane}.
+	 */
 	private static final int X_OFFSET_IMAGE_VIEW = 50;
 
+	/**
+	 * The x offset of the button in the {@link TrainingFacilityUpgradePane}.
+	 */
 	private static final int X_OFFSET_BUTTON = 55;
 
+	/**
+	 * The y offset of the button in the {@link TrainingFacilityUpgradePane}.
+	 */
 	private static final int Y_OFFSET_BUTTON = 75;
 
+	/**
+	 * The text of the button in the {@link TrainingFacilityUpgradePane}.
+	 */
 	private static final String BUTTON_TEXT = "Upgrade troop";
 
 
-	public TroopUpgradePane (final Troop... troops)
+	public TrainingFacilityUpgradePane (final Troop... troops)
 	{
 		this.setBackground(BACKGROUND);
-		this.createGridConstraints(troops);
+		this.setGridConstraints(troops);
 		this.addTroopImageViews(troops);
 		this.addNameAndUpgradeControl(troops);
 		this.addAttributeGrids(troops);
@@ -195,7 +219,7 @@ public final class TroopUpgradePane extends GridPane
 	}
 
 
-	private void createGridConstraints (final Troop[] troops)
+	private void setGridConstraints (final Troop[] troops)
 	{
 		for (int i = 0; i < troops.length; i++)
 		{
