@@ -1,13 +1,12 @@
 package me.vault.game.utility.fx;
 
 
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import me.vault.game.model.city.CityBuilding;
+import me.vault.game.model.troop.Troop;
 import me.vault.game.utility.datatypes.MetaDataImage;
-import me.vault.game.utility.interfaces.Placeable;
 import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
+import me.vault.game.view.mission.TroopSelectionDelegate;
 
 
 /**
@@ -16,9 +15,9 @@ import me.vault.game.utility.loading.ResourceLoader;
  * The {@code SelectedTroopImageView} is mainly used in the troop selection view and handles the display of the already selected troops.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- * @see Button
- * @see CityBuilding
- * @see Placeable
+ * @see ImageView
+ * @see Troop
+ * @see TroopSelectionDelegate
  * @since 25.06.2024
  */
 public final class SelectedTroopImageView extends ImageView
