@@ -28,6 +28,7 @@ import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.interfaces.Placeable;
+import me.vault.game.utility.interfaces.constant.ArenaConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.math.Position;
@@ -150,9 +151,7 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 * @param actionEvent
-	 */
+
 	@FXML
 	void onStartGameClick (final ActionEvent actionEvent)
 	{
@@ -163,10 +162,6 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 * @param actionEvent
-	 * @return
-	 */
 
 	@FXML
 	boolean onDodgeAbilityClick (final ActionEvent actionEvent)
@@ -177,10 +172,6 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 * @param actionEvent
-	 * @return
-	 */
 
 	@FXML
 	boolean onInitiativeAbilityClick (final ActionEvent actionEvent)
@@ -191,10 +182,6 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 * @param actionEvent
-	 * @return
-	 */
 
 	@FXML
 	boolean onMeleeAbilityClick (final ActionEvent actionEvent)
@@ -205,9 +192,7 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 *
-	 */
+
 	private void initializeGameBoardGridPane ()
 	{
 		for (int i = 0; i < GAME_BOARD_ROW_COUNT; i++)
@@ -223,9 +208,7 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 *
-	 */
+
 	private void initializeTimelineVbox ()
 	{
 		this.timelineVBox.getChildren().clear();
@@ -238,9 +221,6 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 * @param position
-	 */
 
 	private void handleFigureInteraction (final @NotNull Position position)
 	{
@@ -297,9 +277,7 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 * @return
-	 */
+
 	private boolean checkForFinish ()
 	{
 		final ArenaResult arenaResult = this.arena.getResult();
@@ -312,9 +290,7 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 *
-	 */
+
 
 	private void handleEnemyTurn ()
 	{
@@ -346,9 +322,6 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 *
-	 */
 
 	private void updateTimeline ()
 	{
@@ -373,9 +346,6 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 *
-	 */
 
 	private void incrementRound ()
 	{
@@ -384,18 +354,14 @@ public final class ArenaDelegate
 	}
 
 
-	/**
-	 * @return
-	 */
+
 	public Arena getArena ()
 	{
 		return this.arena;
 	}
 
 
-	/**
-	 * @param arena
-	 */
+
 	public void setArena (final @NotNull Arena arena)
 	{
 		arena.setPlayerOneFigures(Player.getInstance().getSelectedFigures());
