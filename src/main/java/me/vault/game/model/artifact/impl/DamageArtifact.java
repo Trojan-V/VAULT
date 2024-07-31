@@ -96,6 +96,9 @@ public final class DamageArtifact extends Artifact
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used
 	 * here to prohibit that.
+	 *
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of DamageArtifact is created.
 	 */
 	private DamageArtifact () {}
 

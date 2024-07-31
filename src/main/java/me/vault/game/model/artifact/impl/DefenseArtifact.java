@@ -93,6 +93,8 @@ public final class DefenseArtifact extends Artifact
 
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 * @precondition Constructor gets called from within the class.
+	 * @postcondition A new instance of DefenceArtifact is created.
 	 */
 	private DefenseArtifact () {}
 
@@ -199,8 +201,6 @@ public final class DefenseArtifact extends Artifact
 	 *
 	 * @precondition The sprites for the  exist for the different {@link ArtifactLevel}.
 	 * @postcondition A map of the sprites for the  is initialised.
-	 * @see Map
-	 * @see ArtifactLevel
 	 */
 	private static Map<ArtifactLevel, MetaDataImage> initSpritesMap ()
 	{
