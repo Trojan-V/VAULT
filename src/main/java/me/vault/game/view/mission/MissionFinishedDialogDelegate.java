@@ -111,6 +111,7 @@ public final class MissionFinishedDialogDelegate
 
 			final MissionFinishedDialogDelegate dialogDelegate = fxmlLoader.getController();
 			dialogDelegate.setMission(mission);
+			STAGE.setOnCloseRequest(_ -> dialogDelegate.onContinue(new ActionEvent()));
 			STAGE.setScene(new Scene(root));
 			STAGE.showAndWait();
 		}
