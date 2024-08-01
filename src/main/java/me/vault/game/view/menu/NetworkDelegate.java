@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 public final class NetworkDelegate implements Initializable
 {
 
+
 	private static final Stage STAGE = new Stage();
 
 
@@ -46,6 +47,12 @@ public final class NetworkDelegate implements Initializable
 	 * The {@link MessageFormat} pattern, which is used, when the {@link NetworkDelegate#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "NetworkDelegate[dialogPane={0}]";
+
+
+	public static final String CONNECTION_ERRROR_OWN_SOCKET = "Cant connect to own socket!";
+
+
+	public static final String INVALID_CONNETCTION_ATTEMPT = "Invalid connetction attempt.";
 
 
 	static
@@ -162,6 +169,7 @@ public final class NetworkDelegate implements Initializable
 	{
 		if (Objects.equals(this.host, NetworkController.peer.getMyPeerHostName()) || this.port == NetworkController.peer.getMyPeerPortNumber())
 		{
+			System.out.print(CONNECTION_ERRROR_OWN_SOCKET);
 			return;
 		}
 		try
@@ -171,6 +179,7 @@ public final class NetworkDelegate implements Initializable
 		}
 		catch (IOException e)
 		{
+			System.out.println(INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
 		stage.close();
