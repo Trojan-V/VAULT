@@ -79,6 +79,7 @@
                </padding>
             </CheckBox>
             <Label alignment="CENTER" prefHeight="38.0" prefWidth="170.0" text="Do you want to connect?" />
+            <Label fx:id="errorMessage" alignment="CENTER" prefHeight="18.0" prefWidth="266.0" textFill="#c91a1a" />
          </children>
          <padding>
             <Insets bottom="40.0" left="20.0" right="20.0" />
