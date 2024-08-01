@@ -10,6 +10,7 @@ import me.vault.game.view.arena.ArenaDelegate;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -114,6 +115,31 @@ public class Peer implements Runnable
 					ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
 				}
 				turnOver = false;
+				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
+			}
+			while (!disconnect);
+		}
+		else
+		{
+			try
+			{
+				input = new BufferedReader(new InputStreamReader(otherPeer.getInputStream()));
+			}
+			catch (IOException ioException)
+			{
+				ioException.printStackTrace();
+			}
+			do
+			{
+				//TODO: write fucking method
+				ArenaObject.getInstance().setArena(gson.fromJson(readInput(), Arena.class));
+				ArenaDelegate.show(ArenaObject.getInstance().getArena());
+				//			while(!turnOver)
+				//			{
+				//				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
+				//			}
+				ThreadUtil.sleepThread(2000);
+				sendObjectAsJSON(ArenaObject.getInstance().getArena().toJSON());
 				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
 			}
 			while (!disconnect);
