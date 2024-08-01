@@ -49,9 +49,9 @@ public class Peer implements Runnable
 
 	private BufferedReader input = null;
 
-	private Boolean disconnect = false;
+	private boolean disconnect = false;
 
-	private Boolean turnOver = false;
+	private boolean turnOver = false;
 
 
 	public Peer ()
