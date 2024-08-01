@@ -9,14 +9,11 @@ import java.util.List;
 
 public class ArenaObject
 {
-	private static ArenaObject instance;
+	private static final ArenaObject instance = new ArenaObject();
 
-	private Arena arena;
+	private Arena arena = new Arena();
 
-	private ArenaObject (Arena arena)
-	{
-		this.arena = arena;
-	}
+	private ArenaObject () {}
 
 	public static ArenaObject getInstance()
 	{

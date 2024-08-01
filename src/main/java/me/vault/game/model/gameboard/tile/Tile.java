@@ -3,6 +3,7 @@ package me.vault.game.model.gameboard.tile;
 
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.utility.interfaces.Placeable;
+import me.vault.game.utility.interfaces.SerializableJSON;
 import me.vault.game.utility.math.Position;
 
 import java.text.MessageFormat;
@@ -23,7 +24,7 @@ import java.text.MessageFormat;
  * @see Placeable
  * @since 29.07.2024
  */
-public class Tile
+public class Tile implements SerializableJSON
 {
 
 	/**
