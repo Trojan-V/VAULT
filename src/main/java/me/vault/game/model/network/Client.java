@@ -29,11 +29,12 @@ public class Client implements Runnable
 
 	private static final String CLIENT_CONNECTED = "client connected";
 
-	private String hostName = null;
 
 	private int portNumber = -1;
 
 	private Socket socket = null;
+
+	private String hostName = socket.getLocalAddress().getHostName();
 
 	private PrintWriter output = null;
 

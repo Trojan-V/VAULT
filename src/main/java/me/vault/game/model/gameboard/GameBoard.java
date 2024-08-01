@@ -9,6 +9,7 @@ import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.exception.NotAFigureException;
 import me.vault.game.utility.interfaces.Placeable;
+import me.vault.game.utility.interfaces.SerializableJSON;
 import me.vault.game.utility.math.Position;
 
 import java.text.MessageFormat;
@@ -27,7 +28,7 @@ import java.util.List;
  * @see Mission
  * @since 30.07.2024
  */
-public class GameBoard
+public class GameBoard implements SerializableJSON
 {
 
 	/**
