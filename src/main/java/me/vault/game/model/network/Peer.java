@@ -69,7 +69,14 @@ public class Peer implements Runnable
 
 	public String getMyPeerHostName ()
 	{
-		return this.myPeerHostSocket.getInetAddress().getHostName();
+		try
+		{
+			return this.myPeerHostSocket.getInetAddress().getLocalHost().getHostAddress();
+		}
+		catch (UnknownHostException e)
+		{
+			throw new RuntimeException(e);
+		}
 	}
 
 	public int getMyPeerPortNumber ()
@@ -147,9 +154,9 @@ public class Peer implements Runnable
 
 	}
 
-	public void sendObjectAsJSON (String arenaJSON)
+	public void sendObjectAsJSON (String objectJSON)
 	{
-		this.output.println(arenaJSON);
+		this.output.println(objectJSON);
 		this.output.flush();
 		ThreadUtil.sleepThread(MiscConstants.TEN);
 	}
