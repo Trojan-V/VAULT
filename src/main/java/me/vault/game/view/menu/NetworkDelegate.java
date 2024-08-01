@@ -8,6 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import me.vault.game.model.network.NetworkController;
+import me.vault.game.utility.interfaces.constant.CharacterConstants;
 import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
@@ -75,6 +76,9 @@ public final class NetworkDelegate implements Initializable
 	@FXML
 	private Label serverPort;
 
+	@FXML
+	private Label errorMessage;
+
 
 	@FXML
 	private TextField clientHost;
@@ -87,7 +91,7 @@ public final class NetworkDelegate implements Initializable
 	@FXML
 	private CheckBox hostSelector;
 
-	private String host = null;
+	private String host;
 
 
 	private int port = 0;
@@ -113,6 +117,7 @@ public final class NetworkDelegate implements Initializable
 	void hostInputChanged (final KeyEvent ignored)
 	{
 		this.host = this.clientHost.getCharacters().toString();
+		this.errorMessage.setText(null);
 	}
 
 
@@ -127,6 +132,7 @@ public final class NetworkDelegate implements Initializable
 		try
 		{
 			this.port = Integer.parseInt(this.clientPort.getCharacters().toString());
+			this.errorMessage.setText(null);
 		}
 		catch (final NumberFormatException e)
 		{
@@ -167,19 +173,22 @@ public final class NetworkDelegate implements Initializable
 
 	private void connect (final Stage stage)
 	{
-		if (Objects.equals(this.host, NetworkController.peer.getMyPeerHostName()) || this.port == NetworkController.peer.getMyPeerPortNumber())
+		if (this.host == null || Objects.equals(this.host, NetworkController.peer.getMyPeerHostName()) ||
+		    this.port == NetworkController.peer.getMyPeerPortNumber()|| !this.host.contains(String.valueOf(CharacterConstants.DOT)))
 		{
-			System.out.print(CONNECTION_ERRROR_OWN_SOCKET);
+			errorMessage.setText(INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
+
 		try
 		{
 			NetworkController.peer.setIsMyPeerHost(this.hostSelector.isSelected());
 			NetworkController.peer.createConnection(this.host, this.port);
+			errorMessage.setText(null);
 		}
 		catch (IOException e)
 		{
-			System.out.println(INVALID_CONNETCTION_ATTEMPT);
+			errorMessage.setText(INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
 		stage.close();
