@@ -124,7 +124,9 @@ public final class ArenaFinishedDialogDelegate
 			final ArenaFinishedDialogDelegate dialogDelegate = fxmlLoader.getController();
 			dialogDelegate.setArena(arena);
 			dialogDelegate.setMission(mission);
-			STAGE.setScene(new Scene(root));
+			final Scene scene = new Scene(root);
+			STAGE.setOnCloseRequest(_ -> dialogDelegate.onContinue(new ActionEvent()));
+			STAGE.setScene(scene);
 			STAGE.showAndWait();
 		}
 		catch (final IOException e)
@@ -186,13 +188,13 @@ public final class ArenaFinishedDialogDelegate
 	 *
 	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
 	 *
+	 * @exception UndefinedArenaResultException If the arena result is undefined.
 	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
 	 * @postcondition The current {@link Scene} in the main {@link Stage} is set to the {@link Scene} of the {@link CityDelegate} if the user has lost the arena
 	 * or set to the {@link Scene} of the {@link MissionDelegate} if the user has won.
-	 * @throws UndefinedArenaResultException If the arena result is undefined.
 	 */
 	@FXML
-	void onContinue (final ActionEvent ignored) throws UndefinedArenaResultException
+	void onContinue (final ActionEvent ignored)
 	{
 		STAGE.close();
 		if (this.arena.getResult() == ArenaResult.LOST)
@@ -202,10 +204,6 @@ public final class ArenaFinishedDialogDelegate
 		else if (this.arena.getResult() == ArenaResult.WON)
 		{
 			MissionDelegate.show(this.mission);
-		}
-		else
-		{
-			throw new UndefinedArenaResultException();
 		}
 	}
 
