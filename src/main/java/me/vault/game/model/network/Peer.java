@@ -123,8 +123,8 @@ public class Peer implements Runnable
 
 	public void sendObjectAsJSON (String arenaJSON)
 	{
-		output.println(arenaJSON);
-		output.flush();
+		this.output.println(arenaJSON);
+		this.output.flush();
 		ThreadUtil.sleepThread(MiscConstants.TEN);
 	}
 
@@ -133,7 +133,7 @@ public class Peer implements Runnable
 		String outputString = null;
 		try
 		{
-			outputString = input.readLine();
+			outputString = this.input.readLine();
 		}
 		catch (IOException ioException)
 		{
@@ -144,6 +144,6 @@ public class Peer implements Runnable
 
 	public void createConnection (String serverIP, int serverPort) throws IOException
 	{
-		otherPeer= new Socket(serverIP, serverPort);
+		this.otherPeer = new Socket(serverIP, serverPort);
 	}
 }

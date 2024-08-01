@@ -14,13 +14,10 @@ import me.vault.game.utility.loading.ResourceLoader;
 
 import java.io.IOException;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.text.MessageFormat;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 // TODO: Almost complete JavaDoc needed
-
 
 /**
  *
@@ -190,6 +187,7 @@ public final class NetworkDelegate implements Initializable
 			errorMessage.setText(INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
+		NetworkController.runPeer();
 		stage.close();
 	}
 
