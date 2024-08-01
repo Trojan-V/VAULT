@@ -11,9 +11,11 @@ import me.vault.game.model.network.NetworkController;
 import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
+import java.io.IOException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.text.MessageFormat;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 // TODO: Almost complete JavaDoc needed
@@ -75,6 +77,8 @@ public final class NetworkDelegate implements Initializable
 	private TextField clientPort;
 
 
+	@FXML
+	private CheckBox hostSelector;
 
 	private String host = null;
 
@@ -129,6 +133,7 @@ public final class NetworkDelegate implements Initializable
 	 *
 	 * @param url            The {@link URL} object, which acts like a pointer to the ressource of the fxml-file.
 	 * @param resourceBundle A {@link ResourceBundle} object, which contains locale-specific objects.
+	 *
 	 * @precondition The passed parameters contain all relevant information needed to initialize the fxml-view.
 	 * @postcondition The fxml-view gets initialized and the procedure within the method is run at initialization.
 	 */
@@ -155,17 +160,18 @@ public final class NetworkDelegate implements Initializable
 
 	private void connect (final Stage stage)
 	{
-			if (this.host == null || this.port == 0)
-			{
-				return;
-			}
+		if (Objects.equals(this.host, NetworkController.peer.getMyPeerHostName()) || this.port == NetworkController.peer.getMyPeerPortNumber())
+		{
+			return;
+		}
 		try
 		{
+			NetworkController.peer.setIsMyPeerHost(this.hostSelector.isSelected());
 			NetworkController.peer.createConnection(this.host, this.port);
 		}
-		catch (UnknownHostException e)
+		catch (IOException e)
 		{
-			connect(stage);
+			return;
 		}
 		stage.close();
 	}
