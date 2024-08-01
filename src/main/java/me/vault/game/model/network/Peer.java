@@ -16,6 +16,14 @@ public class Peer implements Runnable
 
 	private static final String CLIENT_CONNECTED = "client connected";
 
+	private static final String ACCEPTED = "Accepted";
+
+	private static final String ERROR_ACCEPT = "Error accept!";
+
+	private static final String WAIT_FOR_CONNECTIONREQUEST = "Wait for Connection request";
+
+	private static final String ERROR_SERVER_SOCKET_CONSTRUCTOR = "Error ServerSocket-Constructor!";
+
 	// Own Peer information -----------------------------
 
 	private ServerSocket myPeerHostSocket;
@@ -42,6 +50,7 @@ public class Peer implements Runnable
 		try
 		{
 			this.otherPeer = new Socket(otherPeerHostName, otherPeerPortNumber);
+			System.out.print(CLIENT_CONNECTED);
 		}
 		catch (IOException e)
 		{
@@ -62,6 +71,16 @@ public class Peer implements Runnable
 	@Override
 	public void run ()
 	{
+		try
+		{
+			otherPeer = myPeerHostSocket.accept();
+		}
+		catch (final IOException e)
+		{
+			System.out.println(ERROR_ACCEPTING);
+			System.exit(0);
+		}
+		System.out.println(ACCEPTED);
 
 	}
 }
