@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -72,10 +73,15 @@
                   </TextField>
                </children>
             </VBox>
+            <CheckBox fx:id="hostSelector" mnemonicParsing="false" text="I am host">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </CheckBox>
             <Label alignment="CENTER" prefHeight="38.0" prefWidth="170.0" text="Do you want to connect?" />
          </children>
          <padding>
-            <Insets bottom="30.0" left="20.0" right="20.0" />
+            <Insets bottom="40.0" left="20.0" right="20.0" />
          </padding>
       </VBox>
    </content>
