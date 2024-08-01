@@ -173,8 +173,7 @@ public final class NetworkDelegate implements Initializable
 
 	private void connect (final Stage stage)
 	{
-		if (this.host == null || Objects.equals(this.host, NetworkController.peer.getMyPeerHostName()) ||
-		    this.port == NetworkController.peer.getMyPeerPortNumber()|| !this.host.contains(String.valueOf(CharacterConstants.DOT)))
+		if ( this.host == null || this.port == NetworkController.peer.getMyPeerPortNumber()|| !this.host.contains(String.valueOf(CharacterConstants.DOT)))
 		{
 			errorMessage.setText(INVALID_CONNETCTION_ATTEMPT);
 			return;
