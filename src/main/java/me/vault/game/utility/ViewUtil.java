@@ -15,6 +15,7 @@ import me.vault.game.utility.logging.Logger;
 
 import java.util.Objects;
 
+import static me.vault.game.utility.interfaces.constant.GameConstants.*;
 import static me.vault.game.utility.interfaces.constant.LoggingConstants.DISPLAY_FAILED_PATTERN;
 import static me.vault.game.utility.interfaces.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
@@ -130,7 +131,7 @@ public final class ViewUtil
 	{
 		try
 		{
-			scene.getStylesheets().add(Objects.requireNonNull(GameApplication.class.getResource(GameConstants.BUTTON_LONG_CSS_FILE)).toExternalForm());
+			scene.getStylesheets().add(GameApplication.class.getResource(BUTTON_LONG_CSS_FILE).toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 
@@ -140,7 +141,6 @@ public final class ViewUtil
 		{
 			LOGGER.logf(ERROR, DISPLAY_FAILED_PATTERN, clazz.getSimpleName());
 		}
-
 	}
 
 }

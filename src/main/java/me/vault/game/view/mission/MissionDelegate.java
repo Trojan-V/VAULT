@@ -16,11 +16,13 @@ import me.vault.game.control.PlayerController;
 import me.vault.game.model.Mission;
 import me.vault.game.model.Player;
 import me.vault.game.model.arena.Arena;
+import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tile.Tile;
 import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
 import me.vault.game.model.gameboard.tile.implementation.ArenaStartTileAppearance;
 import me.vault.game.model.gameboard.tile.implementation.MissionFinishTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.ResourceTileAppearance;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.interfaces.Placeable;
@@ -30,6 +32,7 @@ import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.math.Position;
 import me.vault.game.view.arena.ArenaDelegate;
+import me.vault.game.view.city.CurrencyDelegate;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -72,6 +75,8 @@ public final class MissionDelegate implements Initializable
 	 * The {@link MessageFormat} pattern, which is used, when the {@link MissionDelegate#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "MissionMapDelegate'{'missionBoardGridPane={0}, mission={1}'}'";
+
+	private static final int MAP_RESSOURCE_AMOUNT = 100;
 
 	/**
 	 * The {@link GridPane}, which contains the game board of the mission. It contains all the clickable tiles in the map.
@@ -216,6 +221,12 @@ public final class MissionDelegate implements Initializable
 		else if (nextTileElement instanceof MissionFinishTileAppearance && playerCanReach)
 		{
 			MissionFinishedDialogDelegate.show(this.mission);
+		}
+		else if (nextTileElement instanceof ResourceTileAppearance && playerCanReach)
+		{
+			missionGameBoard.place(position, new AccessibleTileAppearance());
+			CurrencyDelegate.factorCurrency(new CurrencyTransaction(MAP_RESSOURCE_AMOUNT,
+				MAP_RESSOURCE_AMOUNT, MAP_RESSOURCE_AMOUNT, MAP_RESSOURCE_AMOUNT, MAP_RESSOURCE_AMOUNT));
 		}
 		else if (nextTileElement instanceof ArenaStartTileAppearance && playerCanReach)
 		{

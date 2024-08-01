@@ -281,48 +281,48 @@ public final class ResourceLoader
 	 */
 	public static Tile[][] createTileArrayFromFile (final String filePath)
 	{
-		final BufferedReader reader = createBufferedReader(filePath);
-
-		//Throws an error if the number of lines in the file doesn't match the number of rows on the game board
-		if (getNumberOfLinesInFile(filePath) != GAME_BOARD_ROW_COUNT)
+		final Tile[][] gameBoard = new Tile[GAME_BOARD_ROW_COUNT][GAME_BOARD_COLUMN_COUNT];
+		try (final BufferedReader reader = createBufferedReader(filePath))
 		{
-			try // TODO: ????????????????????????????????????????????????????????????????????????
+			// Throws an error if the number of lines in the file doesn't match the number of rows on the game board
+			if (getNumberOfLinesInFile(filePath) != GAME_BOARD_ROW_COUNT)
 			{
 				throw new InvalidMapFileFormatException();
 			}
-			catch (final InvalidMapFileFormatException e)
-			{
-				LOGGER.log(WARNING, e.getMessage());
-			}
+
+			fillGameBoardTilesFromReader(reader, gameBoard);
+			return gameBoard;
 		}
+		catch (final InvalidMapFileFormatException | IOException e)
+		{
+			LOGGER.log(WARNING, e.getMessage());
+		}
+		return gameBoard;
+	}
 
 
-		final Tile[][] gameBoard = new Tile[GAME_BOARD_ROW_COUNT][GAME_BOARD_COLUMN_COUNT];
+	/**
+	 * Tries to fill the passed Tile[][] with the content of the passed BufferedReader.
+	 *
+	 * @param reader The BufferedReader which contains the content, that needs to be put inside the Tile[][].
+	 * @param gameBoard The Tile[][] that represents the game board, and needs to be filled from the BufferedReader.
+	 *
+	 * @exception IOException Throws an IOException if the conversion of a character fails or if the reader can't be read.
+	 * @exception InvalidMapFileFormatException Throws if the passed Tile[][] has an invalid format for a game board.
+	 *
+	 * @precondition The passed BufferedReader is != null and points to a map file. The Tile[][] is != null and has the correct format.
+	 * @postcondition The Tile[][] was filled with the map file of the BufferedReader
+	 */
+	private static void fillGameBoardTilesFromReader (final BufferedReader reader, final Tile[][] gameBoard) throws IOException, InvalidMapFileFormatException
+	{
 		for (int row = 0; row < GAME_BOARD_ROW_COUNT; row++)
 		{
-			final String line;
-
-			try
-			{
-				line = reader.readLine();
-			}
-			catch (final IOException e)
-			{
-				LOGGER.log(WARNING, e.getMessage());
-				return null;
-			}
+			final String line = Objects.requireNonNull(reader).readLine();
 
 			// Throws an exception if the number of characters in a line doesn't match the number of columns on the game board.
 			if (line.length() != GAME_BOARD_ROW_COUNT)
 			{
-				try
-				{
-					throw new InvalidMapFileFormatException();
-				}
-				catch (final InvalidMapFileFormatException e)
-				{
-					LOGGER.log(WARNING, e.getMessage());
-				}
+				throw new InvalidMapFileFormatException();
 			}
 
 			final char[] charArray = line.toCharArray();
@@ -344,7 +344,6 @@ public final class ResourceLoader
 				}
 			}
 		}
-		return gameBoard;
 	}
 
 
@@ -395,4 +394,5 @@ public final class ResourceLoader
 			return null;
 		}
 	}
+
 }
