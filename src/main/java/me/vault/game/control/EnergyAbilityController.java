@@ -21,7 +21,7 @@ import static me.vault.game.utility.interfaces.constant.LoggingConstants.UPGRADI
  * This class contains any methods that are responsible for controlling all the logic that's related to energy
  * ability's.
  * <br>
- * Currently, it's responsible for upgrading the artifacts to the next level.
+ * Currently, it's responsible for upgrading the energy ability to the next level.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
