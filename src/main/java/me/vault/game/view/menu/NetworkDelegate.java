@@ -12,6 +12,7 @@ import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
@@ -36,7 +37,7 @@ public final class NetworkDelegate implements Initializable
 	/**
 	 * The path to the respective fxml file of the delegate as a {@link String}.
 	 */
-	private static final String FXML_FILENAME = "network_connection_dialog.fxml";
+	private static final String FXML_FILENAME = "network_connection_dialog_peer.fxml";
 
 
 	/**
@@ -73,9 +74,6 @@ public final class NetworkDelegate implements Initializable
 	@FXML
 	private TextField clientPort;
 
-
-	@FXML
-	private TabPane serverClientTabPane;
 
 
 	private String host = null;
@@ -137,8 +135,8 @@ public final class NetworkDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.serverHost.setText(NetworkController.HOST_NAME);
-		this.serverPort.setText(String.valueOf(NetworkController.PORT_NUMBER));
+		this.serverHost.setText(NetworkController.peer.getMyPeerHostName());
+		this.serverPort.setText(String.valueOf(NetworkController.peer.getMyPeerPortNumber()));
 		this.setButtonActions();
 	}
 
@@ -149,35 +147,27 @@ public final class NetworkDelegate implements Initializable
 
 	private void setButtonActions ()
 	{
-		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> this.connect(STAGE, this.serverClientTabPane));
+		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> this.connect(STAGE));
 
 		this.dialogPane.lookupButton(ButtonType.NO).setOnMouseClicked(_ -> STAGE.close());
 	}
 
 
-	/**
-	 *
-	 * @param stage
-	 * @param tabPane
-	 */
-
-	private void connect (final Stage stage, final TabPane tabPane)
+	private void connect (final Stage stage)
 	{
-		if (tabPane.getTabs().getFirst().isSelected())
-		{
-			NetworkController.runServer();
-			stage.close();
-		}
-		else if (tabPane.getTabs().getLast().isSelected())
-		{
 			if (this.host == null || this.port == 0)
 			{
 				return;
 			}
-			NetworkController.runClient(this.host, this.port);
-			// ArenaDelegate.show(GameConstants.ARENA);
-			stage.close();
+		try
+		{
+			NetworkController.peer.createConnection(this.host, this.port);
 		}
+		catch (UnknownHostException e)
+		{
+			connect(stage);
+		}
+		stage.close();
 	}
 
 

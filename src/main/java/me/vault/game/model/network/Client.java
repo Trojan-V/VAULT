@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.ArenaObject;
 import me.vault.game.utility.concurrency.ThreadUtil;
-import me.vault.game.utility.interfaces.constant.LoggingConstants;
 import me.vault.game.utility.interfaces.constant.MiscConstants;
 import me.vault.game.view.arena.ArenaDelegate;
 
@@ -23,6 +22,7 @@ import static me.vault.game.utility.interfaces.constant.ArenaConstants.ARENA_FXM
 public class Client implements Runnable
 {
 
+	// Messages -------------------------
 	private static final String ERROR_SERVER_SOCKET = "Error with ServerSocket";
 
 	private static final String ERROR_ACCEPTING = "error accepting";
@@ -34,15 +34,16 @@ public class Client implements Runnable
 
 	private Socket socket = null;
 
-	private String hostName = socket.getLocalAddress().getHostName();
+	private String hostName;
 
-	private PrintWriter output = null;
+	private PrintWriter out = null;
 
-	private BufferedReader input = null;
+	private BufferedReader in = null;
 
 	private Boolean disconnect = false;
 
-	private Boolean turnOver = false;
+
+	private Boolean turnOver;
 
 
 	public Client (final String hostName, final int portNumber)
@@ -60,8 +61,8 @@ public class Client implements Runnable
 		socket = createConnection(hostName, portNumber);
 		try
 		{
-			output = new PrintWriter(socket.getOutputStream());
-			input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			out = new PrintWriter(socket.getOutputStream());
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		}
 		catch (IOException ioException)
 		{
@@ -77,8 +78,7 @@ public class Client implements Runnable
 //				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
 //			}
 			ThreadUtil.sleepThread(2000);
-			turnOver = false;
-			sendArena(ArenaObject.getInstance().getArena().toJSON());
+			sendObjectAsJSON(ArenaObject.getInstance().getArena().toJSON());
 			ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
 		}
 		while (!disconnect);
@@ -131,10 +131,10 @@ public class Client implements Runnable
 		}
 	}
 
-	public void sendArena(String arenaJSON)
+	public void sendObjectAsJSON (String arenaJSON)
 	{
-		output.println(arenaJSON);
-		output.flush();
+		out.println(arenaJSON);
+		out.flush();
 		ThreadUtil.sleepThread(MiscConstants.TEN);
 	}
 
@@ -143,7 +143,7 @@ public class Client implements Runnable
 		String outputString = null;
 		try
 		{
-			outputString = input.readLine();
+			outputString = in.readLine();
 		}
 		catch (IOException ioException)
 		{
