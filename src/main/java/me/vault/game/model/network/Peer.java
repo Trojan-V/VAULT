@@ -101,19 +101,23 @@ public class Peer implements Runnable
 		}
 		System.out.println(ACCEPTED);
 
-		do
+		if (isMyPeerHost)
 		{
-			sendObjectAsJSON(ArenaObject.getInstance().getArena().toJSON());
-			ThreadUtil.sleepThread(2000);
-			ArenaObject.getInstance().setArena(gson.fromJson(readInput(), Arena.class));
-			ArenaDelegate.show(ArenaObject.getInstance().getArena());
-			while(!turnOver)
+			do
 			{
+				sendObjectAsJSON(ArenaObject.getInstance().getArena().toJSON());
+				ThreadUtil.sleepThread(2000);
+				ArenaObject.getInstance().setArena(gson.fromJson(readInput(), Arena.class));
+				ArenaDelegate.show(ArenaObject.getInstance().getArena());
+				while (!turnOver)
+				{
+					ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
+				}
+				turnOver = false;
 				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
 			}
-			turnOver = false;
-			ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
-		} while(!disconnect);
+			while (!disconnect);
+		}
 
 	}
 
