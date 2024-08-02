@@ -167,7 +167,7 @@ public final class NetworkDelegate implements Initializable
 		try
 		{
 			PeerController.getInstance().getPeer().setIsMyPeerHost(this.hostSelector.isSelected());
-			PeerController.getInstance().getPeer().createConnection(this.host, this.port);
+			PeerController.getInstance().createConnection(this.host, this.port);
 			errorMessage.setText(null);
 		}
 		catch (IOException e)
