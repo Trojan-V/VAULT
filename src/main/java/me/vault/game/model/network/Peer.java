@@ -22,17 +22,17 @@ public class Peer implements Runnable
 
 	private final ServerSocket myPeerHostSocket;
 
-	private boolean isMyPeerHost;
+	private final PrintWriter output = null;
 
 	// Other Peer information ------------------------------
 
-	private Socket foreignPeer;
+	private final BufferedReader input = null;
 
 	//---------------------
 
-	private final PrintWriter output = null;
+	private boolean isMyPeerHost;
 
-	private final BufferedReader input = null;
+	private Socket foreignPeer;
 
 	private boolean connected = false;
 
