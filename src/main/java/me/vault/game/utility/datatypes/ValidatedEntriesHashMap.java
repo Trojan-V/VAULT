@@ -138,6 +138,9 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 
 		/**
 		 * {@inheritDoc}
+		 *
+		 * @precondition None.
+		 * @postcondition The key was returned.
 		 */
 		@Override
 		public K getKey ()
@@ -148,6 +151,9 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 
 		/**
 		 * {@inheritDoc}
+		 *
+		 * @precondition None.
+		 * @postcondition The value was returned.
 		 */
 		@Override
 		public V getValue ()
@@ -158,6 +164,9 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 
 		/**
 		 * {@inheritDoc}
+		 *
+		 * @precondition A valid value has to be supplied.
+		 * @postcondition The value was returned.
 		 */
 		@Override
 		public V setValue (final V value)

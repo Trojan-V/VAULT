@@ -21,6 +21,7 @@ import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.URL;
@@ -133,26 +134,26 @@ public final class UpgradeDialogDelegate implements Initializable
 
 
 	/**
-	 *
+	 * The {@link Upgrader} instance passed into the object
 	 */
 	private Upgrader<Upgradable<Level>, Level> upgrader = null;
 
 
 	/**
-	 *
+	 * The {@link Upgrader} instance passed into the object
 	 */
 	private Upgradable<Level> upgradable = null;
 
 
-	private static void initializeUpgradeDialogStage (final Stage stage)
-	{
-		stage.setResizable(false);
-		stage.setTitle(WINDOW_TITLE);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.getIcons().add(ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH));
-	}
-
-
+	/**
+	 * Displays the a {@link DialogPane} based on the {@link Upgradable} instance on a new {@link Stage}.
+	 *
+	 * @param upgradable The {@link Upgradable} object, which describes the upgradable object.
+	 * @param upgrader   The {@link Upgrader} object, which describes the upgrader of the upgradable object.
+	 *
+	 * @precondition A {@link Upgradable} object and the {@link Upgrader} is passed into the method.
+	 * @postcondition The {@link DialogPane} is displayed on a new {@link Stage}.
+	 */
 	public static void show (final Upgradable upgradable, final Upgrader upgrader)
 	{
 		try
@@ -171,6 +172,32 @@ public final class UpgradeDialogDelegate implements Initializable
 	}
 
 
+	/**
+	 * Initializes the stage of the dialog.
+	 *
+	 * @param stage The stage the dialog is supposed to be initialized on.
+	 *
+	 * @precondition A valid stage is passed into the method.
+	 * @postcondition The passed stage was successfully modified.
+	 */
+	private static void initializeUpgradeDialogStage (final Stage stage)
+	{
+		stage.setResizable(false);
+		stage.setTitle(WINDOW_TITLE);
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.getIcons().add(ResourceLoader.loadImage(GameConstants.WINDOW_ICON_PATH));
+	}
+
+
+	/**
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Upgrade" {@link Button} in the GUI.
+	 * Starts the upgrade process for the upgradable object within the delegate.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The upgrade process was started with the upgradable object.
+	 */
 	@FXML
 	void onUpgradeButtonAction (final ActionEvent ignored)
 	{
@@ -183,7 +210,13 @@ public final class UpgradeDialogDelegate implements Initializable
 
 
 	/**
-	 * @param ignored the {@link ActionEvent} is not used but required for the method.
+	 * Handles the {@code Click}-{@link ActionEvent} of the "Back" {@link Button} in the GUI.
+	 * Closes the dialog and returns to the main stage.
+	 *
+	 * @param ignored The {@link ActionEvent} which represents the action of the {@link Button} press. Not used in this case.
+	 *
+	 * @precondition The {@link Button} on the GUI gets clicked and JavaFx generates the {@link ActionEvent}.
+	 * @postcondition The dialog was closed and the main stage is accessible.
 	 */
 	@FXML
 	void onCancelButtonAction (final ActionEvent ignored)
@@ -209,6 +242,14 @@ public final class UpgradeDialogDelegate implements Initializable
 	}
 
 
+	/**
+	 * Displays the a {@link DialogPane} based on the {@link Scene} instance on a new {@link Stage}.
+	 *
+	 * @param scene The scene that is displayed on the stage.
+	 *
+	 * @precondition A {@link Scene} object and is passed into the method.
+	 * @postcondition The {@link Scene} is displayed on a new {@link Stage}.
+	 */
 	public void show (final Scene scene)
 	{
 		this.stage.setScene(scene);
@@ -216,6 +257,15 @@ public final class UpgradeDialogDelegate implements Initializable
 	}
 
 
+	/**
+	 * Sets the upgradable attributes in the instance of to the passed {@link Upgradable} and Upgrader objects.
+	 *
+	 * @param upgradable The new {@link Upgradable} object, meant to replace the current attribute in the instance.
+	 * @param upgrader   The new {@link Upgrader} object, meant to replace the current attribute in the instance.
+	 *
+	 * @precondition A {@link NotNull} {@link Upgrader} and Upgradable object is passed into the method.
+	 * @postcondition The replaced the old attributes with the passed ones.
+	 */
 	private void setUpgradable (final Upgradable<Level> upgradable, final Upgrader<Upgradable<Level>, Level> upgrader)
 	{
 		this.upgradable = upgradable;
@@ -226,6 +276,14 @@ public final class UpgradeDialogDelegate implements Initializable
 	}
 
 
+	/**
+	 * Sets the labels of the dialog pane to the respective values of the passed upgradable object.
+	 *
+	 * @param upgradable The new {@link Upgradable} object, whose values are used.
+	 *
+	 * @precondition A {@link Upgradable} object, whose values are used is passed into the method.
+	 * @postcondition The labels are set to the values of the passed object.
+	 */
 	private void setUpgradeCostLabels (final Upgradable<Level> upgradable)
 	{
 		final CurrencyTransaction upgradeCosts = upgradable.getUpgradeCosts();
@@ -237,6 +295,14 @@ public final class UpgradeDialogDelegate implements Initializable
 	}
 
 
+	/**
+	 * Sets the labels of the dialog pane change area to the respective values of the passed upgradable object.
+	 *
+	 * @param upgradable The new {@link Upgradable} object, whose values are used.
+	 *
+	 * @precondition A {@link Upgradable} object, whose values are used is passed into the method.
+	 * @postcondition The labels are set to the values of the passed object.
+	 */
 	private void setLevelChangeLabels (final Upgradable<Level> upgradable)
 	{
 		this.beforeUpgradeLabel.setText(upgradable.getLevel().toString());
