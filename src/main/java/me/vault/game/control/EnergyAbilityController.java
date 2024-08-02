@@ -89,7 +89,16 @@ public final class EnergyAbilityController implements Upgrader<EnergyAbility, En
 
 
 	/**
-	 * {@inheritDoc}
+	 * Updates the values of the {@link EnergyAbility}, so it contains the newest set of data.
+	 * <br>
+	 * This data is usually displayed in the GUI.
+	 * Most {@link EnergyAbility}'s contain JavaFX properties that are bound to the GUI,
+	 * so the data of them can be dynamically updated.
+	 *
+	 * @param energyAbility The {@link EnergyAbility} instance whose values should be updated.
+	 *
+	 * @precondition The {@link EnergyAbility} instance exists and can be upgraded.
+	 * @postcondition The instance of the {@link EnergyAbility} gets upgraded.
 	 */
 	@Override
 	public void updateValues (final EnergyAbility energyAbility)
@@ -113,7 +122,16 @@ public final class EnergyAbilityController implements Upgrader<EnergyAbility, En
 
 
 	/**
-	 * {@inheritDoc}
+	 * Checks if the {@link EnergyAbility} instance can be upgraded to the next level.
+	 * <br>
+	 * This method checks the constraints that need to be fulfilled to be able to upgrade the {@link EnergyAbility} to the next level.
+	 *
+	 * @param energyAbility The {@link EnergyAbility} instance which is checked if it can be upgraded to the next level.
+	 *
+	 * @return True if the {@link EnergyAbility} can be upgraded, otherwise false.
+	 *
+	 * @precondition The {@link EnergyAbility} exists.
+	 * @postcondition Gives back if the {@link EnergyAbility} is upgradable.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final @NotNull EnergyAbility energyAbility)
@@ -138,7 +156,12 @@ public final class EnergyAbilityController implements Upgrader<EnergyAbility, En
 
 
 	/**
-	 * {@inheritDoc}
+	 * Upgrades the {@link EnergyAbility} instance to the next level {@link EnergyAbilityLevel}.
+	 *
+	 * @param energyAbility The {@link EnergyAbility} instance that gets upgraded.
+	 *
+	 * @precondition The {@link EnergyAbility} exists and can be upgraded.
+	 * @postcondition The instance of the {@link EnergyAbility} gets upgraded.
 	 */
 	@Override
 	public void upgrade (final EnergyAbility energyAbility)
