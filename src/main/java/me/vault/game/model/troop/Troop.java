@@ -4,6 +4,7 @@ package me.vault.game.model.troop;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.image.Image;
 import me.vault.game.control.TroopController;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.gameboard.Figure;
@@ -253,7 +254,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the current level of the upgradable object.
+	 *
+	 * @return The current level.
+	 *
+	 * @precondition The upgradable object has a valid level attribute of type {@link TroopLevel}.
+	 * @postcondition The current level of the upgradable object.
 	 */
 	@Override
 	public TroopLevel getLevel ()
@@ -263,7 +269,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the current level of the upgradable object to a new value.
+	 *
+	 * @param level The new level of the object.
+	 *
+	 * @precondition The upgradable object has a valid level attribute of type {@link TroopLevel} and an object of type {@link TroopLevel} is passed.
+	 * @postcondition The current level of the upgradable object is set to the passed one.
 	 */
 	@Override
 	public void setLevel (final TroopLevel level)
@@ -273,7 +284,13 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns an instance of {@link CurrencyTransaction} that consists of the upgrade costs that are required to
+	 * upgrade the upgradable object to the next level.
+	 *
+	 * @return The upgrade costs to upgrade the upgradable object to the next level.
+	 *
+	 * @precondition The upgradable object has a valid {@link CurrencyTransaction} attribute that resembles the upgrade cost.
+	 * @postcondition The {@link CurrencyTransaction} attribute that resembles the upgrade cost has been returned.
 	 */
 	@Override
 	public CurrencyTransaction getUpgradeCosts ()
@@ -283,7 +300,17 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the current upgrade costs of the upgradable object to a new value.
+	 * <br>
+	 * This method should usually be invoked whenever the upgradable object was upgraded, as the upgrade cost to
+	 * upgrade to the next level usually changes after the building was upgraded, because the next level is usually
+	 * more expensive than the level previously upgraded to.
+	 *
+	 * @param upgradeCosts The upgrade costs to upgrade the upgradable object to the next level.
+	 *
+	 * @precondition The upgradable object has a valid {@link CurrencyTransaction} attribute that resembles the
+	 * upgrade cost and a {@link CurrencyTransaction} is passed.
+	 * @postcondition The {@link CurrencyTransaction} attribute of the upgradable object is set to the passed one.
 	 */
 	@Override
 	public void setUpgradeCosts (final CurrencyTransaction upgradeCosts)
@@ -293,7 +320,19 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns an instance of {@link CurrencyTransaction} that consists of the upgrade costs that are required to
+	 * upgrade the upgradable object to the next level.
+	 * <br>
+	 * Takes the supplied {@link Level} into account and returns the upgrade costs
+	 * {@link CurrencyTransaction} for the next level that comes after the supplied {@link Level}.
+	 *
+	 * @param level The {@link Level} whose upgrade costs {@link CurrencyTransaction} should be returned.
+	 *
+	 * @return The upgrade costs to upgrade the upgradable object to the next level.
+	 *
+	 * @precondition The upgradable object has a valid {@link CurrencyTransaction} attribute that resembles the
+	 * upgrade cost and a level of type {@link TroopLevel} is passed.
+	 * @postcondition The {@link CurrencyTransaction} attribute of the upgradable object at the level has been returned.
 	 */
 	@Override
 	public CurrencyTransaction getUpgradeCosts (final TroopLevel level)
@@ -303,7 +342,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the sprite stored within the property of the displayable object as an {@link Image}.
+	 *
+	 * @return The sprite of the displayable object.
+	 *
+	 * @precondition The sprite attribute of the Displayable has been set and is != null.
+	 * @postcondition The sprite attribute of the Displayable was returned.
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -313,7 +357,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the sprite of the displayable object to the supplied sprite.
+	 *
+	 * @param sprite The new sprite for the displayable object.
+	 *
+	 * @precondition A valid instance of {@link MetaDataImage} that isn't equal to null has been passed into the method.
+	 * @postcondition The sprite attribute in the Displayable has been set to the passed {@link MetaDataImage}.
 	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
@@ -323,7 +372,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the sprite property of the displayable object.
+	 *
+	 * @return The sprite property of the displayable object.
+	 *
+	 * @precondition The spriteProperty attribute of the Displayable has been set and is != null.
+	 * @postcondition The spriteProperty attribute of the Displayable was returned.
 	 */
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
@@ -333,7 +387,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the name stored within the property of the nameable object as a {@link String}.
+	 *
+	 * @return The name of the nameable object.
+	 *
+	 * @precondition The method gets called.
+	 * @postcondition The name of the nameable object was returned as a {@link String}.
 	 */
 	@Override
 	public String getName ()
@@ -343,7 +402,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the name of the nameable object to the supplied name.
+	 *
+	 * @param name The new name for the nameable object.
+	 *
+	 * @precondition The method gets called and a valid name gets passed as a {@link String}.
+	 * @postcondition The name property of the nameable object was set to the passed {@link String}.
 	 */
 	@Override
 	public void setName (final String name)
@@ -353,7 +417,12 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the name property of the nameable object.
+	 *
+	 * @return The name property of the nameable object.
+	 *
+	 * @precondition The method gets called.
+	 * @postcondition The name property of the nameable object was returned as a {@link String}.
 	 */
 	@Override
 	public SimpleStringProperty getNameProperty ()
