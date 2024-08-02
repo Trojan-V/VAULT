@@ -127,15 +127,6 @@ public class Arena implements SerializableJSON
 		this.gameBoard = gameBoard;
 	}
 
-	//TODO:
-	public Arena()
-	{
-		this.playerOneFigures = new ArrayList<>();
-		this.playerTwoFigures = new ArrayList<>();
-		this.gameBoard = new GameBoard(ResourceLoader.createTileArrayFromFile(ArenaConstants.ArenaOne.ARENA_ONE_FILEPATH));
-	}
-
-
 	/**
 	 * Creates the initial timeline by first placing all troops from player one on it and afterward placing all troops
 	 * from player two on it.

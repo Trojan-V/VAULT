@@ -1,6 +1,9 @@
 package me.vault.game.utility.interfaces.constant;
 
 
+/**
+ *
+ */
 public interface NetworkConstants
 {
 	int MINIMUM_PORT_NUMBER = 49152;
