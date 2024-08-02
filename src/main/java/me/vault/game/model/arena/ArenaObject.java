@@ -11,7 +11,7 @@ public class ArenaObject
 {
 	private static final ArenaObject instance = new ArenaObject();
 
-	private Arena arena = new Arena();
+	private Arena arena;
 
 	private ArenaObject () {}
 
