@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import me.vault.game.model.network.NetworkController;
+import me.vault.game.control.PeerController;
 import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.interfaces.constant.NetworkConstants;
 import me.vault.game.utility.loading.ResourceLoader;
@@ -144,8 +144,8 @@ public final class NetworkDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.serverHost.setText(NetworkController.getInstance().getPeer().getMyPeerHostName());
-		this.serverPort.setText(String.valueOf(NetworkController.getInstance().getPeer().getMyPeerPortNumber()));
+		this.serverHost.setText(PeerController.getInstance().getPeer().getMyPeerHostName());
+		this.serverPort.setText(String.valueOf(PeerController.getInstance().getPeer().getMyPeerPortNumber()));
 		this.setButtonActions();
 	}
 
@@ -166,8 +166,8 @@ public final class NetworkDelegate implements Initializable
 	{
 		try
 		{
-			NetworkController.getInstance().getPeer().setIsMyPeerHost(this.hostSelector.isSelected());
-			NetworkController.getInstance().getPeer().createConnection(this.host, this.port);
+			PeerController.getInstance().getPeer().setIsMyPeerHost(this.hostSelector.isSelected());
+			PeerController.getInstance().getPeer().createConnection(this.host, this.port);
 			errorMessage.setText(null);
 		}
 		catch (IOException e)
@@ -175,7 +175,7 @@ public final class NetworkDelegate implements Initializable
 			errorMessage.setText(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
-		NetworkController.getInstance().runPeer();
+		PeerController.getInstance().runPeer();
 		stage.close();
 	}
 

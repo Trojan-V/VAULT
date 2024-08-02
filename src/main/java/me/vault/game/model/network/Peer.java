@@ -2,6 +2,7 @@ package me.vault.game.model.network;
 
 
 import com.google.gson.Gson;
+import me.vault.game.control.PeerController;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.ArenaObject;
 import me.vault.game.utility.concurrency.ThreadUtil;
@@ -49,7 +50,7 @@ public class Peer implements Runnable
 	{
 		try
 		{
-			this.myPeerHostSocket = new ServerSocket(NetworkController.getInstance().getRandomPortNumber());
+			this.myPeerHostSocket = new ServerSocket(PeerController.getInstance().getRandomPortNumber());
 		}
 		catch (IOException e)
 		{
@@ -69,6 +70,11 @@ public class Peer implements Runnable
 		}
 	}
 
+	public ServerSocket getMyPeerHostSocket ()
+	{
+		return myPeerHostSocket;
+	}
+
 	public int getMyPeerPortNumber ()
 	{
 		return this.myPeerHostSocket.getLocalPort();
@@ -84,6 +90,26 @@ public class Peer implements Runnable
 		this.isMyPeerHost = isHost;
 	}
 
+	public boolean isConnected ()
+	{
+		return this.connected;
+	}
+
+	public Socket getOtherPeer ()
+	{
+		return this.otherPeer;
+	}
+
+	public void setOtherPeer (Socket otherPeer)
+	{
+		this.otherPeer = otherPeer;
+	}
+
+	public void setConnected (boolean connected)
+	{
+		this.connected = connected;
+	}
+
 
 
 	@Override
@@ -91,7 +117,7 @@ public class Peer implements Runnable
 	{
 		Gson gson =new Gson();
 
-		acceptConnection();
+		PeerController.getInstance().acceptConnection();
 		if (isMyPeerHost)
 		{
 			do
@@ -158,31 +184,4 @@ public class Peer implements Runnable
 		return outputString;
 	}
 
-	public void createConnection (String hostName, int portNumber) throws IOException, UnknownHostException
-	{
-		if ( hostName == null || portNumber == NetworkController.getInstance().getPeer().getMyPeerPortNumber()|| !hostName.contains(String.valueOf(CharacterConstants.DOT)))
-		{
-			System.out.println(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
-			throw new UnknownHostException();
-		}
-
-		this.otherPeer = new Socket(hostName, portNumber);
-		acceptConnection();
-
-	}
-
-	private void acceptConnection ()
-	{
-		try
-		{
-			otherPeer = myPeerHostSocket.accept();
-		}
-		catch (final IOException e)
-		{
-			System.out.println(NetworkConstants.ERROR_ACCEPTING);
-			System.exit(0);
-		}
-		this.connected = true;
-		System.out.println(NetworkConstants.ACCEPTED);
-	}
 }
