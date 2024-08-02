@@ -3,6 +3,7 @@ package me.vault.game.model.troop;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.image.Image;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.utility.datatypes.MetaDataImage;
 import me.vault.game.utility.interfaces.Displayable;
@@ -191,7 +192,12 @@ public enum Faction implements Displayable
 
 
 	/**
-	 * {@inheritDoc} Returns the sprite stored within the property of the displayable object as an {@link MetaDataImage}.
+	 * Returns the sprite stored within the property of the displayable object as an {@link Image}.
+	 *
+	 * @return The sprite of the displayable object.
+	 *
+	 * @precondition The sprite attribute of the Displayable has been set and is != null.
+	 * @postcondition The sprite attribute of the Displayable was returned.
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -201,7 +207,12 @@ public enum Faction implements Displayable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the sprite of the displayable object to the supplied sprite.
+	 *
+	 * @param sprite The new sprite for the displayable object.
+	 *
+	 * @precondition A valid instance of {@link MetaDataImage} that isn't equal to null has been passed into the method.
+	 * @postcondition The sprite attribute in the Displayable has been set to the passed {@link MetaDataImage}.
 	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
@@ -211,7 +222,12 @@ public enum Faction implements Displayable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the sprite property of the displayable object.
+	 *
+	 * @return The sprite property of the displayable object.
+	 *
+	 * @precondition The spriteProperty attribute of the Displayable has been set and is != null.
+	 * @postcondition The spriteProperty attribute of the Displayable was returned.
 	 */
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
