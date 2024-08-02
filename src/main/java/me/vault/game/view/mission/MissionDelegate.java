@@ -76,6 +76,9 @@ public final class MissionDelegate implements Initializable
 	 */
 	private static final String TO_STRING_PATTERN = "MissionMapDelegate'{'missionBoardGridPane={0}, mission={1}'}'";
 
+	/**
+	 * The amount of each ressource on the map.
+	 */
 	private static final int MAP_RESSOURCE_AMOUNT = 100;
 
 	/**
