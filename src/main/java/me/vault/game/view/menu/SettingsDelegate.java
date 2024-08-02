@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
- * @since 28.04.2024
+ * @since 28.07.2024
  */
 public final class SettingsDelegate implements Initializable
 {
