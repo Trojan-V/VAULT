@@ -3,6 +3,7 @@ package me.vault.game.model.gameboard;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.image.Image;
 import me.vault.game.model.Mission;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopStatistics;
@@ -118,7 +119,12 @@ public final class Figure implements Movable, Nameable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the sprite stored within the property of the displayable object as an {@link Image}.
+	 *
+	 * @return The sprite of the displayable object.
+	 *
+	 * @precondition The sprite attribute of the Displayable has been set and is != null.
+	 * @postcondition The sprite attribute of the Displayable was returned.
 	 */
 	@Override
 	public MetaDataImage getSprite ()
@@ -128,7 +134,12 @@ public final class Figure implements Movable, Nameable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the sprite of the displayable object to the supplied sprite.
+	 *
+	 * @param sprite The new sprite for the displayable object.
+	 *
+	 * @precondition A valid instance of {@link MetaDataImage} that isn't equal to null has been passed into the method.
+	 * @postcondition The sprite attribute in the Displayable has been set to the passed {@link MetaDataImage}.
 	 */
 	@Override
 	public void setSprite (final MetaDataImage sprite)
@@ -138,7 +149,12 @@ public final class Figure implements Movable, Nameable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the sprite property of the displayable object.
+	 *
+	 * @return The sprite property of the displayable object.
+	 *
+	 * @precondition The spriteProperty attribute of the Displayable has been set and is != null.
+	 * @postcondition The spriteProperty attribute of the Displayable was returned.
 	 */
 	@Override
 	public SimpleObjectProperty<MetaDataImage> getSpriteProperty ()
@@ -148,7 +164,12 @@ public final class Figure implements Movable, Nameable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the name stored within the property of the nameable object as a {@link String}.
+	 *
+	 * @return The name of the nameable object.
+	 *
+	 * @precondition The method gets called.
+	 * @postcondition The name of the nameable object was returned as a {@link String}.
 	 */
 	@Override
 	public String getName ()
@@ -158,7 +179,12 @@ public final class Figure implements Movable, Nameable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the name of the nameable object to the supplied name.
+	 *
+	 * @param name The new name for the nameable object.
+	 *
+	 * @precondition The method gets called and a valid name gets passed as a {@link String}.
+	 * @postcondition The name property of the nameable object was set to the passed {@link String}.
 	 */
 	@Override
 	public void setName (final String name)
@@ -168,7 +194,12 @@ public final class Figure implements Movable, Nameable
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the name property of the nameable object.
+	 *
+	 * @return The name property of the nameable object.
+	 *
+	 * @precondition The method gets called.
+	 * @postcondition The name property of the nameable object was returned as a {@link String}.
 	 */
 	@Override
 	public SimpleStringProperty getNameProperty ()

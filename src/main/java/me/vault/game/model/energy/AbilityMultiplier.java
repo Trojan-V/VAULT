@@ -260,7 +260,7 @@ public class AbilityMultiplier
 	 * @see AbilityMultiplier
 	 * @since 26.07.2024
 	 */
-	enum Type
+	public enum Type
 	{
 		/**
 		 * Ability-multiplier type for the dodge multiplier.
