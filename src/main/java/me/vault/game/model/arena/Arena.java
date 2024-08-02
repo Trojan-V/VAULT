@@ -8,9 +8,6 @@ import me.vault.game.model.gameboard.tile.implementation.AccessibleElement;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.interfaces.SerializableJSON;
-import me.vault.game.utility.interfaces.constant.ArenaConstants;
-import me.vault.game.utility.interfaces.constant.MiscConstants;
-import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.math.Position;
@@ -126,6 +123,7 @@ public class Arena implements SerializableJSON
 		this.playerTwoFigures = playerTwoFigures;
 		this.gameBoard = gameBoard;
 	}
+
 
 	/**
 	 * Creates the initial timeline by first placing all troops from player one on it and afterward placing all troops

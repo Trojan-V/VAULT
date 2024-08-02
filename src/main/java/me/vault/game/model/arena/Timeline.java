@@ -49,7 +49,7 @@ public class Timeline
 	 * @precondition The {@link List} that contains all {@link Figure}s exists.
 	 * @postcondition The {@link Figure}s are added to the timeline.
 	 */
-	public Timeline (final List<Figure> figures)
+	Timeline (final List<Figure> figures)
 	{
 		this.elements = figures;
 	}
@@ -60,7 +60,7 @@ public class Timeline
 	 *
 	 * @return A {@link List} which contains all elements of the timeline.
 	 *
-	 * @precondition The elements of the timeline exists.
+	 * @precondition The elements of the timeline exist.
 	 * @postcondition The {@link List} of the elements of the timeline
 	 */
 	public List<Figure> getFigureList ()
@@ -97,7 +97,7 @@ public class Timeline
 	 * @precondition The {@link Figure} that will be removed exists.
 	 * @postcondition The supplied {@link Figure} is removed from the timeline.
 	 */
-	public void removeFigure (final Figure figure)
+	void removeFigure (final Figure figure)
 	{
 		if (!this.elements.contains(figure))
 		{
