@@ -31,8 +31,6 @@ import java.util.ResourceBundle;
 import static me.vault.game.utility.interfaces.constant.LoggingConstants.UPGRADE_DIALOG_FAIL_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.WARNING;
 
-//TODO: Java doc Lasse
-
 
 /**
  * The {@link UpgradeDialogDelegate} is responsible for the control (Controller) and display (view) of the dialog
