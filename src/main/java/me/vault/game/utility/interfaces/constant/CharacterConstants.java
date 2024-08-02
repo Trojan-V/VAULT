@@ -50,4 +50,10 @@ public interface CharacterConstants
 	@Constant
 	String EMPTY_STRING = "";
 
+	/**
+	 * Represents the dot character.
+	 */
+	@Constant
+	char DOT = '.';
+
 }

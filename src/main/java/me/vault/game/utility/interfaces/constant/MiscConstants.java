@@ -78,4 +78,9 @@ public interface MiscConstants
 	 */
 	String DATE_TIME_PATTERN = "yyyyMMdd_HHmmss";
 
+
+	/**
+	 * This integer denotes the number ten.
+	 */
+	int SLEEP_TEN = 10;
 }
