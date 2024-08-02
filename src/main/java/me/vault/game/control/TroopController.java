@@ -14,8 +14,6 @@ import me.vault.game.view.city.building.TrainingFacilityDelegate;
 
 import static me.vault.game.model.troop.TroopStatistics.*;
 
-// TODO: Pre und post
-
 
 /**
  * Controller class to handle all different actions related to troops.
@@ -162,7 +160,12 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 
 	/**
-	 * {@inheritDoc}
+	 * Upgrades the {@link Troop} instance to the next level {@link TroopLevel}.
+	 *
+	 * @param troop The {@link Troop} instance that gets upgraded.
+	 *
+	 * @precondition The {@link Troop} exists and can be upgraded.
+	 * @postcondition The instance of the {@link Troop} gets upgraded.
 	 */
 	@Override
 	public void upgrade (final Troop troop)
@@ -172,7 +175,16 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 
 	/**
-	 * {@inheritDoc}
+	 * Checks if the {@link Troop} instance can be upgraded to the next level.
+	 * <br>
+	 * This method checks the constraints that need to be fulfilled to be able to upgrade the {@link Troop} to the next level.
+	 *
+	 * @param troop The {@link Troop} instance which is checked if it can be upgraded to the next level.
+	 *
+	 * @return True if the {@link Troop} can be upgraded, otherwise false.
+	 *
+	 * @precondition The {@link Troop} exists.
+	 * @postcondition Gives back if the {@link Troop} is upgradable.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final Troop troop)
@@ -193,7 +205,16 @@ public final class TroopController implements Upgrader<Troop, TroopLevel>
 
 
 	/**
-	 * {@inheritDoc}
+	 * Updates the values of the {@link Troop}, so it contains the newest set of data.
+	 * <br>
+	 * This data is usually displayed in the GUI.
+	 * Most {@link Troop}'s contain JavaFX properties that are bound to the GUI,
+	 * so the data of them can be dynamically updated.
+	 *
+	 * @param troop The {@link Troop} instance whose values should be updated.
+	 *
+	 * @precondition The {@link Troop} instance exists and can be upgraded.
+	 * @postcondition The instance of the {@link Troop} gets upgraded.
 	 */
 	@Override
 	public void updateValues (final Troop troop)
