@@ -14,6 +14,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+
+/**
+ * The Peer class provides the Model implementation for the network communication.
+ *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
+ * @since 29.07.2024
+ */
 public class Peer implements Runnable
 {
 	// Own Peer information -----------------------------
