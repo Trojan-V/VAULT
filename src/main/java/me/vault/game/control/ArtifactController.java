@@ -137,7 +137,12 @@ public final class ArtifactController implements Upgrader<Artifact, ArtifactLeve
 
 
 	/**
-	 * {@inheritDoc}
+	 * Upgrades the {@link Artifact} instance to the next level {@link ArtifactLevel}.
+	 *
+	 * @param artifact The {@link Artifact} instance that gets upgraded.
+	 *
+	 * @precondition The {@link Artifact} exists and can be upgraded.
+	 * @postcondition The instance of the {@link Artifact} gets upgraded.
 	 */
 	@Override
 	public void upgrade (final Artifact artifact)
