@@ -4,7 +4,6 @@ package me.vault.game.view.menu;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import me.vault.game.control.PeerController;
@@ -17,15 +16,22 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-// TODO: Almost complete JavaDoc needed
 
 /**
+ *This class acts as the controller and view for the network connection dialog.
+ * <br>
+ * The class provides methods to display the diaog and for the player to interact with the network dialog.
  *
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
+ * @since 28.07.2024
  */
 public final class NetworkDelegate implements Initializable
 {
 
-
+	/**
+	 * The {@link Stage} on which the network connection dialog is shown.
+	 */
 	private static final Stage STAGE = new Stage();
 
 
@@ -56,73 +62,112 @@ public final class NetworkDelegate implements Initializable
 	}
 
 
+	/**
+	 * The {@link DialogPane} that contains all the GUI elements used in the dialog.
+	 */
 	@FXML
 	private DialogPane dialogPane;
 
 
+	/**
+	 * The {@link Label} that displays the Hostname of this application to the user.
+	 */
 	@FXML
-	private Label serverHost;
+	private Label myPeerHostLabel;
 
-
+	/**
+	 * The {@link Label} that displays the Portnumber of this application to the user.
+	 */
 	@FXML
-	private Label serverPort;
+	private Label myPeerPortLabel;
 
+
+	/**
+	 * The {@link Label} that displays the error message to the user.
+	 */
 	@FXML
 	private Label errorMessage;
 
 
+	/**
+	 * The {@link TextField} that allows the user to input the Hostname of the other application instance.
+	 */
 	@FXML
-	private TextField clientHost;
-
-
-	@FXML
-	private TextField clientPort;
-
-
-	@FXML
-	private CheckBox hostSelector;
-
-	private String host;
-
-
-	private int port = 0;
+	private TextField foreignPeerHostNameTextField;
 
 
 	/**
-	 *
+	 * The {@link TextField} that allows the user to input the Portnumber of the other application instance.
 	 */
+	@FXML
+	private TextField foreignPeerPortNumberTextField;
 
+
+	/**
+	 * {@link CheckBox} that allows the player to specify if he is the host of the game.
+	 */
+	@FXML
+	private CheckBox hostSelector;
+
+
+	/**
+	 * The {@link String} that represents the host name of this application.
+	 */
+	private String foreignPeerHostNameString;
+
+
+	/**
+	 * The integer that represents the port of this application socket.
+	 */
+	private int foreignPeerPortNumberInt = 0;
+
+
+	/**
+	 * Displays the content stored in {@link NetworkDelegate#FXML_FILENAME} on the {@link NetworkDelegate#STAGE}. The
+	 * Stage then waits until it is closed before handing control back to the main Stage.
+	 *
+	 * @precondition The {@link NetworkDelegate#FXML_FILENAME} has to contain valid content.
+	 * @postcondition The initialized view is shown on a new stage.
+	 */
 	public static void show ()
 	{
 		STAGE.setScene(ResourceLoader.loadScene(MainMenuDelegate.class, FXML_FILENAME));
 		STAGE.showAndWait();
 	}
 
-
 	/**
+	 * Is called by FXML, when the input of the TextField changes, and sets the input of the textfield as the value
+	 * of {@link NetworkDelegate#foreignPeerHostNameString}.
 	 *
-	 * @param ignored
+	 * @precondition The TextField {@link NetworkDelegate#foreignPeerHostNameTextField} has to be included in the
+	 * Scene on the stage.
+	 * @postcondition The input from the TextField is set as the value for
+	 * {@link NetworkDelegate#foreignPeerHostNameString} and the error message label is set to null.
 	 */
-
 	@FXML
-	void hostInputChanged (final KeyEvent ignored)
+	void hostInputChanged ()
 	{
-		this.host = this.clientHost.getCharacters().toString();
+		this.foreignPeerHostNameString = this.foreignPeerHostNameTextField.getCharacters().toString();
 		this.errorMessage.setText(null);
 	}
 
 
 	/**
+	 * Is called by FXML, when the input of the TextField changes, and sets the input of the textfield as the value
+	 * of {@link NetworkDelegate#foreignPeerPortNumberInt}.
 	 *
-	 * @param ignored
+	 * @precondition The TextField {@link NetworkDelegate#foreignPeerPortNumberTextField} has to be included in the
+	 * Scene on the stage.
+	 * @postcondition The input from the TextField is converted to an integer and set as the value for
+	 * {@link NetworkDelegate#foreignPeerPortNumberInt}. If there is an exception an error message is displayed in
+	 * the terminal. The error message label is set to null.
 	 */
-
 	@FXML
-	void portInputChanged (final KeyEvent ignored)
+	void portInputChanged ()
 	{
 		try
 		{
-			this.port = Integer.parseInt(this.clientPort.getCharacters().toString());
+			this.foreignPeerPortNumberInt = Integer.parseInt(this.foreignPeerPortNumberTextField.getCharacters().toString());
 			this.errorMessage.setText(null);
 		}
 		catch (final NumberFormatException e)
@@ -144,12 +189,21 @@ public final class NetworkDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.serverHost.setText(PeerController.getInstance().getPeer().getMyPeerHostName());
-		this.serverPort.setText(String.valueOf(PeerController.getInstance().getPeer().getMyPeerPortNumber()));
+		this.myPeerHostLabel.setText(PeerController.getInstance().getPeer().getMyPeerHostName());
+		this.myPeerPortLabel.setText(String.valueOf(PeerController.getInstance().getPeer().getMyPeerPortNumber()));
 		this.setButtonActions();
 	}
 
 
+	/**
+	 * Set the button presses from the gui. If the "yes"-button is pressed a method to establish a new connection
+	 * is called. If the "no"-button is pressed the network connection dialog is closed.
+	 *
+	 * @precondition The scene must contain the {@link NetworkDelegate#dialogPane}.
+	 * @postcondition Sets the logic that when the yes-button is pressed a method to create a new connection is
+	 * called. If the no-button is pressed the network connection dialog is closed.
+	 */
+	@FXML
 	private void setButtonActions ()
 	{
 		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> this.connect(STAGE));
@@ -158,21 +212,30 @@ public final class NetworkDelegate implements Initializable
 	}
 
 
+	/**
+	 * Tries th establish a new network connection. If the connection is successful, a
+	 * {@link me.vault.game.model.network.Peer} instance is started on a new thread and the network
+	 * connection dialog is closed. If there is an error, it is displayed to the user and no connection is created.
+	 *
+	 * @param stage The network connection dialog.
+	 *
+	 * @precondition The stage has to contain the network connection dialog.
+	 * @postcondition If a connection could be established a {@Peer} instance is started on a new thread (see
+	 * {@link PeerController#runPeer()}) and the network connection dialg is closed. If there was an error, an error
+	 * message is displayed via the {@link NetworkDelegate#errorMessage} and the network connection dialog remains.
+	 */
 	private void connect (final Stage stage)
 	{
 		try
 		{
 			PeerController.getInstance().getPeer().setIsMyPeerHost(this.hostSelector.isSelected());
-			PeerController.getInstance().createConnection(this.host, this.port);
+			PeerController.getInstance().createConnection(this.foreignPeerHostNameString, this.foreignPeerPortNumberInt);
 			errorMessage.setText(null);
 		}
 		catch (IOException e)
 		{
 			errorMessage.setText(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			return;
-		}
-		while (!PeerController.getInstance().getPeer().isConnected())
-		{
 		}
 		PeerController.getInstance().runPeer();
 		stage.close();

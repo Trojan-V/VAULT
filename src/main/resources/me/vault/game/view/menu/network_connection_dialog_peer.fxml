@@ -44,13 +44,13 @@
                   <HBox prefHeight="20.0">
                      <children>
                         <Label prefHeight="30.0" prefWidth="82.0" text="Host:" />
-                        <Label fx:id="serverHost" prefHeight="30.0" prefWidth="209.0" />
+                        <Label fx:id="myPeerHostLabel" prefHeight="30.0" prefWidth="209.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="41.0" prefWidth="349.0">
                      <children>
                         <Label prefHeight="30.0" prefWidth="82.0" text="Port:" />
-                        <Label fx:id="serverPort" prefHeight="30.0" prefWidth="209.0" />
+                        <Label fx:id="myPeerPortLabel" prefHeight="30.0" prefWidth="209.0" />
                      </children>
                   </HBox>
                </children>
@@ -61,12 +61,12 @@
             <Label text="Other players information:" />
             <VBox prefHeight="98.0" prefWidth="294.0">
                <children>
-                  <TextField fx:id="clientHost" onKeyReleased="#hostInputChanged" promptText="Host">
+                  <TextField fx:id="foreignPeerHostNameTextField" onKeyReleased="#hostInputChanged" promptText="Hostname">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="clientPort" onKeyReleased="#portInputChanged" promptText="Port">
+                  <TextField fx:id="foreignPeerPortNumberTextField" onKeyReleased="#portInputChanged" promptText="Portnumber">
                      <font>
                         <Font size="16.0" />
                      </font>
