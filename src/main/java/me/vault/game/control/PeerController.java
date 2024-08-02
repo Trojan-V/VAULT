@@ -62,7 +62,7 @@ public class PeerController
 		}
 
 		this.getPeer().setOtherPeer(new Socket(hostName, portNumber));
-		acceptConnection();
+		this.acceptConnection();
 
 	}
 

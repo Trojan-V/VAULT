@@ -117,7 +117,7 @@ public class Peer implements Runnable
 	{
 		Gson gson =new Gson();
 
-		PeerController.getInstance().acceptConnection();
+		//PeerController.getInstance().acceptConnection();
 		if (isMyPeerHost)
 		{
 			do

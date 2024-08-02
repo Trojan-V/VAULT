@@ -175,6 +175,9 @@ public final class NetworkDelegate implements Initializable
 			errorMessage.setText(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
+		while (!PeerController.getInstance().getPeer().isConnected())
+		{
+		}
 		PeerController.getInstance().runPeer();
 		stage.close();
 	}
