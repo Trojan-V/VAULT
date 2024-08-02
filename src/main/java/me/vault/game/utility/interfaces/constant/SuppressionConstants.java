@@ -1,4 +1,6 @@
 package me.vault.game.utility.interfaces.constant;
+
+
 import static me.vault.game.utility.interfaces.constant.ConstantInterface.Constant;
 
 

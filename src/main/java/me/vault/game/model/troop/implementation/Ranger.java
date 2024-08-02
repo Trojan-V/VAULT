@@ -111,7 +111,17 @@ public final class Ranger extends Troop
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all upgrade cost {@link CurrencyTransaction}'s which are used to determine whether the player can or
+	 * can't upgrade the troop depending on the number of currencies he owns.
+	 * <br>
+	 * These {@link CurrencyTransaction}'s are sorted by the {@link TroopLevel} as key within this {@link Map},
+	 * allowing for easy access by using this meaningful key ({@link TroopLevel}).
+	 *
+	 * @return The {@link Map} which contains all upgrade cost transactions for the troop.
+	 *
+	 * @precondition The upgrade costs for the upgrade of the TroopLevel have to be supplied.
+	 * @postcondition The {@link Map} which contains all upgrade cost transactions for the troop is accessible for
+	 * the program.
 	 */
 	@Override
 	protected @NotNull Map<TroopLevel, CurrencyTransaction> getAllUpgradeCosts ()
@@ -121,7 +131,16 @@ public final class Ranger extends Troop
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all names the troop can have. A troop has different names depending on its level.
+	 * <br>
+	 * Therefore, these names are sorted by the {@link TroopLevel} as key in a {@link Map}, allowing for easy
+	 * access by using this meaningful key ({@link TroopLevel}).
+	 *
+	 * @return The {@link Map} which contains all names for the troop.
+	 *
+	 * @precondition The names of the TroopLevels have to be supplied.
+	 * @postcondition The {@link Map} which contains all names for the troop is accessible for
+	 * the program.
 	 */
 	@Override
 	protected @NotNull Map<TroopLevel, String> getAllNames ()
@@ -131,7 +150,17 @@ public final class Ranger extends Troop
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all sprites the troop can have. A troop can have, but doesn't always have, different sprites
+	 * depending on its level.
+	 * <br>
+	 * Therefore, these sprites are sorted by the {@link TroopLevel} as key in a {@link Map}, allowing for easy
+	 * access by using this meaningful key ({@link TroopLevel}).
+	 *
+	 * @return The {@link Map} which contains all sprites for the troop.
+	 *
+	 * @precondition The sprites of the TroopLevels have to be supplied.
+	 * @postcondition The {@link Map} which contains all sprites for the troop is accessible for
+	 * the program.
 	 */
 	@Override
 	protected @NotNull Map<TroopLevel, MetaDataImage> getAllSprites ()
@@ -141,7 +170,17 @@ public final class Ranger extends Troop
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all statistics the troop can have.
+	 * Depending on the level, the statistics of the troop change.
+	 * <br>
+	 * Therefore, these statistics are sorted by the {@link TroopLevel} as key in a {@link Map}, allowing for easy
+	 * access by using this meaningful key ({@link TroopLevel}).
+	 *
+	 * @return The {@link Map} which contains all statistics for the troop.
+	 *
+	 * @precondition The statistics for the troops of the TroopLevels have to be supplied.
+	 * @postcondition The {@link Map} which contains all statistics of the troops for the troop is accessible for
+	 * the program.
 	 */
 	@Override
 	protected @NotNull Map<TroopLevel, TroopStatistics> getAllStatistics ()

@@ -1,5 +1,6 @@
 package me.vault.game.control;
 
+
 import me.vault.game.model.network.Peer;
 import me.vault.game.utility.interfaces.constant.CharacterConstants;
 import me.vault.game.utility.interfaces.constant.NetworkConstants;
@@ -30,7 +31,7 @@ public class PeerController
 	/**
 	 * Instance of the Peer class that is used for networking.
 	 */
-	 private static Peer peer = new Peer();
+	 private static final Peer peer = new Peer();
 
 
 	/**
@@ -69,7 +70,7 @@ public class PeerController
 	 */
 	public Peer getPeer ()
 	{
-		return this.peer;
+		return peer;
 	}
 
 
@@ -115,8 +116,8 @@ public class PeerController
 	 */
 	public void createConnection (String hostName, int portNumber) throws IOException, UnknownHostException
 	{
-		if ( hostName == null || portNumber == 0 ||
-		     portNumber == this.getPeer().getMyPeerPortNumber() || !hostName.contains(String.valueOf(CharacterConstants.DOT)))
+		if (hostName == null || portNumber == 0 ||
+		    portNumber == this.getPeer().getMyPeerPortNumber() || !hostName.contains(String.valueOf(CharacterConstants.DOT)))
 		{
 			System.out.println(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			throw new UnknownHostException();

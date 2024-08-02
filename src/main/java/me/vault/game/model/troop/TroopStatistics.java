@@ -824,6 +824,7 @@ public class TroopStatistics
 			this.dodgeRate.set(dodgeRate);
 		}
 
+
 		/**
 		 * Sets the dodge rate of the {@link Troop}.
 		 * <br>
@@ -1044,6 +1045,7 @@ public class TroopStatistics
 			this.movementTiles.set(movementTiles);
 		}
 
+
 		/**
 		 * Sets the number of tiles the {@link Troop} can move in one turn.
 		 * <br>
@@ -1150,4 +1152,5 @@ public class TroopStatistics
 		}
 
 	}
+
 }

@@ -86,7 +86,12 @@ public enum TroopLevel implements Level
 
 
 	/**
-	 * {@inheritDoc}
+	 * Checks if the level of the current level instance is the minimum level.
+	 *
+	 * @return True if the level of the current level instance is the minimum level, otherwise false.
+	 *
+	 * @precondition The method gets called.
+	 * @precondition If the level is the minimum, then true was returned.
 	 */
 	@Override
 	public boolean isMinimum ()
@@ -96,7 +101,12 @@ public enum TroopLevel implements Level
 
 
 	/**
-	 * {@inheritDoc}
+	 * Checks if the level of the current level instance is the maximum level.
+	 *
+	 * @return True if the level of the current level instance is the maximum level, otherwise false.
+	 *
+	 * @precondition The method gets called.
+	 * @precondition If the level is the maximum, then true was returned.
 	 */
 	@Override
 	public boolean isMaximum ()
@@ -106,7 +116,12 @@ public enum TroopLevel implements Level
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the next lower level for the current level instance.
+	 *
+	 * @return The next lower level for the current level instance.
+	 *
+	 * @precondition The method gets called.
+	 * @precondition The next lower level of the Level is returned.
 	 */
 	@Override
 	public TroopLevel getNextLowerLevel ()
@@ -122,7 +137,12 @@ public enum TroopLevel implements Level
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the next higher level for the current level instance.
+	 *
+	 * @return The next higher level for the current level instance.
+	 *
+	 * @precondition The method gets called.
+	 * @precondition The next higher level of the Level is returned.
 	 */
 	@Override
 	public TroopLevel getNextHigherLevel ()

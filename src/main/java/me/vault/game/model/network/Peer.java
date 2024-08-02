@@ -9,6 +9,7 @@ import me.vault.game.utility.interfaces.constant.MiscConstants;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -19,7 +20,7 @@ public class Peer implements Runnable
 {
 	// Own Peer information -----------------------------
 
-	private ServerSocket myPeerHostSocket;
+	private final ServerSocket myPeerHostSocket;
 
 	private boolean isMyPeerHost;
 
@@ -29,11 +30,12 @@ public class Peer implements Runnable
 
 	//---------------------
 
-	private PrintWriter output = null;
+	private final PrintWriter output = null;
 
-	private BufferedReader input = null;
+	private final BufferedReader input = null;
 
 	private boolean connected = false;
+
 
 	public Peer ()
 	{
@@ -41,42 +43,46 @@ public class Peer implements Runnable
 		{
 			this.myPeerHostSocket = new ServerSocket(PeerController.getInstance().getRandomPortNumber());
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
 			throw new RuntimeException(e);
 		}
 	}
 
+
 	@Override
 	public void run ()
 	{
-		Gson gson =new Gson();
+		final Gson gson = new Gson();
 
-		if (isMyPeerHost)
+		if (this.isMyPeerHost)
 		{
 			//beginArenaMatch()
 		}
 		do
 		{
 			//game
-		}while (connected);
+		}
+		while (this.connected);
 	}
 
-	public void sendObjectAsJSON (String objectJSON)
+
+	public void sendObjectAsJSON (final String objectJSON)
 	{
 		this.output.println(objectJSON);
 		this.output.flush();
 		ThreadUtil.sleepThread(MiscConstants.SLEEP_TEN);
 	}
 
-	public String readInput()
+
+	public String readInput ()
 	{
 		String outputString = null;
 		try
 		{
 			outputString = this.input.readLine();
 		}
-		catch (IOException ioException)
+		catch (final IOException ioException)
 		{
 			ioException.printStackTrace();
 		}
@@ -85,53 +91,63 @@ public class Peer implements Runnable
 
 	// ------------------
 
+
 	public ServerSocket getMyPeerHostSocket ()
 	{
-		return myPeerHostSocket;
+		return this.myPeerHostSocket;
 	}
+
 
 	public int getMyPeerPortNumber ()
 	{
 		return this.myPeerHostSocket.getLocalPort();
 	}
 
+
 	public boolean getIsMyPeerHost ()
 	{
 		return this.isMyPeerHost;
 	}
 
-	public void setIsMyPeerHost ( boolean isHost)
+
+	public void setIsMyPeerHost (final boolean isHost)
 	{
 		this.isMyPeerHost = isHost;
 	}
+
 
 	public boolean isConnected ()
 	{
 		return this.connected;
 	}
 
+
+	public void setConnected (final boolean connected)
+	{
+		this.connected = connected;
+	}
+
+
 	public Socket getForeignPeer ()
 	{
 		return this.foreignPeer;
 	}
 
-	public void setForeignPeer (Socket foreignPeer)
+
+	public void setForeignPeer (final Socket foreignPeer)
 	{
 		this.foreignPeer = foreignPeer;
 	}
 
-	public void setConnected (boolean connected)
-	{
-		this.connected = connected;
-	}
 
 	public String getMyPeerHostName ()
 	{
 		try
 		{
-			return this.myPeerHostSocket.getInetAddress().getLocalHost().getHostAddress();
+			this.myPeerHostSocket.getInetAddress();
+			return InetAddress.getLocalHost().getHostAddress();
 		}
-		catch (UnknownHostException e)
+		catch (final UnknownHostException e)
 		{
 			throw new RuntimeException(e);
 		}

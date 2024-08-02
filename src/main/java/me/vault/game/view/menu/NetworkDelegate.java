@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 
 /**
- *This class acts as the controller and view for the network connection dialog.
+ * This class acts as the controller and view for the network connection dialog.
  * <br>
  * The class provides methods to display the diaog and for the player to interact with the network dialog.
  *
@@ -135,6 +135,7 @@ public final class NetworkDelegate implements Initializable
 		STAGE.showAndWait();
 	}
 
+
 	/**
 	 * Is called by FXML, when the input of the TextField changes, and sets the input of the textfield as the value
 	 * of {@link NetworkDelegate#foreignPeerHostNameString}.
@@ -230,11 +231,11 @@ public final class NetworkDelegate implements Initializable
 		{
 			PeerController.getInstance().getPeer().setIsMyPeerHost(this.hostSelector.isSelected());
 			PeerController.getInstance().createConnection(this.foreignPeerHostNameString, this.foreignPeerPortNumberInt);
-			errorMessage.setText(null);
+			this.errorMessage.setText(null);
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
-			errorMessage.setText(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
+			this.errorMessage.setText(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
 		PeerController.getInstance().runPeer();
@@ -247,6 +248,7 @@ public final class NetworkDelegate implements Initializable
 	 * {@link NetworkDelegate#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link NetworkDelegate#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link NetworkDelegate#TO_STRING_PATTERN} is {@code != null} and both of the instance variables are set.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */

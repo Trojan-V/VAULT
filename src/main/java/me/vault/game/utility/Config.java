@@ -285,6 +285,7 @@ public final class Config
 	 * Returns the current configuration instance.
 	 *
 	 * @return The current configuration instance.
+	 *
 	 * @precondition None.
 	 * @postcondition The current configuration instance was returned.
 	 */
@@ -298,6 +299,7 @@ public final class Config
 	 * Sets the configuration instance.
 	 *
 	 * @param config The configuration instance that'll be set.
+	 *
 	 * @precondition A valid instance of this class has to be supplied as a parameter.
 	 * @postcondition The configuration instance was set to the supplied value.
 	 */
@@ -310,7 +312,7 @@ public final class Config
 	/**
 	 * Updates the number of available currencies in the config by reading the data from the fields throughout the program.
 	 *
-	 * @throws UnexpectedValueException If the currency is invalid, should usually never be thrown.
+	 * @exception UnexpectedValueException If the currency is invalid, should usually never be thrown.
 	 * @precondition None.
 	 * @postcondition The number of available currencies in the config was updated by reading the data from the fields throughout the program.
 	 */
@@ -334,7 +336,7 @@ public final class Config
 	/**
 	 * Updates the number of available currencies from the fields in the config.
 	 *
-	 * @throws UnexpectedValueException If the currency is invalid, should usually never be thrown.
+	 * @exception UnexpectedValueException If the currency is invalid, should usually never be thrown.
 	 * @precondition None.
 	 * @postcondition The number of available currencies from the fields in the config was updated.
 	 */
@@ -578,6 +580,7 @@ public final class Config
 	 * {@link Config#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link Config#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link Config#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -594,4 +597,5 @@ public final class Config
 			this.lieutenantLevel.toString(), this.medicLevel.toString(), this.officerLevel.toString(), this.precisionShooterLevel.toString(),
 			this.rangerLevel.toString(), this.recruitLevel.toString(), this.sniperLevel.toString(), this.spaceMarineLevel.toString());
 	}
+
 }

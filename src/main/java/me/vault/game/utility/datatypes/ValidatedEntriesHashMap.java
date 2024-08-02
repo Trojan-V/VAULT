@@ -73,6 +73,7 @@ public class ValidatedEntriesHashMap<K, V> extends HashMap<K, V>
 	 *
 	 * @param <K> The datatype of the key.
 	 * @param <V> The datatype of the key's value.
+	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
 	 * @see ValidatedEntriesHashMap

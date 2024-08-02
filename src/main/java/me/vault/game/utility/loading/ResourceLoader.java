@@ -304,12 +304,11 @@ public final class ResourceLoader
 	/**
 	 * Tries to fill the passed Tile[][] with the content of the passed BufferedReader.
 	 *
-	 * @param reader The BufferedReader which contains the content, that needs to be put inside the Tile[][].
+	 * @param reader    The BufferedReader which contains the content, that needs to be put inside the Tile[][].
 	 * @param gameBoard The Tile[][] that represents the game board, and needs to be filled from the BufferedReader.
 	 *
-	 * @exception IOException Throws an IOException if the conversion of a character fails or if the reader can't be read.
+	 * @exception IOException                   Throws an IOException if the conversion of a character fails or if the reader can't be read.
 	 * @exception InvalidMapFileFormatException Throws if the passed Tile[][] has an invalid format for a game board.
-	 *
 	 * @precondition The passed BufferedReader is != null and points to a map file. The Tile[][] is != null and has the correct format.
 	 * @postcondition The Tile[][] was filled with the map file of the BufferedReader
 	 */

@@ -182,6 +182,7 @@ public final class SelectedAlliesGridPane extends GridPane
 	 * Adds the properties of a troop to the grid.
 	 *
 	 * @param troop The troop whose properties should be added to the grid.
+	 *
 	 * @precondition The labels and views on the control have already been initialized.
 	 * @postcondition The properties of the troop were added to the grid.
 	 */

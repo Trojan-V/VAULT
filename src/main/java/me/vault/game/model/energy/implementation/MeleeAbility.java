@@ -98,6 +98,7 @@ public final class MeleeAbility extends EnergyAbility
 
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 *
 	 * @precondition Constructor gets called from within the class.
 	 * @postcondition A new instance of MeleeAbility is created.
 	 */
@@ -238,7 +239,22 @@ public final class MeleeAbility extends EnergyAbility
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns the current level of the energy ability.
+	 * <br>
+	 * Many components of the energy ability are directly dependent on the level, for instance, the value of the
+	 * nameProperty and the spriteProperty.
+	 * Therefore, the level determines the data of other attributes, as the key in
+	 * the 'data maps' which the
+	 * subclasses of this class provide is this level and the data is extracted by using this key. The subclasses
+	 * provide this data by implementing
+	 * the abstract methods {@link EnergyAbility#getAllUpgradeCosts()}, {@link EnergyAbility#getAllNames()},
+	 * {@link EnergyAbility#getAllSprites()} and
+	 * {@link EnergyAbility#getAllModifiers()}.
+	 *
+	 * @return The current level of the energy ability.
+	 *
+	 * @precondition The ability has a level.
+	 * @postcondition The current level of the ability is accessible for the program.
 	 */
 	@Override
 	public @NotNull Map<EnergyAbilityLevel, CurrencyTransaction> getAllUpgradeCosts ()
@@ -248,7 +264,18 @@ public final class MeleeAbility extends EnergyAbility
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all possible names the energy ability can have.
+	 * An energy ability has different names depending on its level.
+	 * <br>
+	 * Therefore, these names are sorted by the {@link EnergyAbilityLevel} as key in a {@link Map}, allowing for easy
+	 * access by using this meaningful key
+	 * ({@link EnergyAbilityLevel}).
+	 *
+	 * @return The {@link Map} which contains all names for the energy ability.
+	 *
+	 * @precondition The {@link Map} which contains all names for the {@link EnergyAbilityLevel} exists.
+	 * @postcondition A {@link Map} which contains all names for the {@link EnergyAbilityLevel} is
+	 * accessible for the program.
 	 */
 	@Override
 	public @NotNull Map<EnergyAbilityLevel, String> getAllNames ()
@@ -258,7 +285,17 @@ public final class MeleeAbility extends EnergyAbility
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all sprites the energy ability can have.
+	 * An energy ability can, but not necessarily, have different sprites depending on its level.
+	 * <br>
+	 * Therefore, these sprites are sorted by the {@link EnergyAbilityLevel} as key in a {@link Map}, allowing for easy
+	 * access by using this meaningful key
+	 * ({@link EnergyAbilityLevel}).
+	 *
+	 * @return The {@link Map} which contains all sprites for the energy ability.
+	 *
+	 * @precondition The {@link Map} which contains all sprites for the ability exists.
+	 * @postcondition A {@link Map} which contains all sprites for the ability is accessible for the program.
 	 */
 	@Override
 	@NotNull
@@ -269,7 +306,17 @@ public final class MeleeAbility extends EnergyAbility
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all sets of modifiers the energy ability can have, depending on it's level.
+	 * <br>
+	 * Therefore, these sets of modifiers are sorted by the {@link EnergyAbilityLevel} as key in a {@link Map}, allowing
+	 * for easy access by using this
+	 * meaningful key ({@link EnergyAbilityLevel}).
+	 *
+	 * @return The {@link Map} which contains all different sets of modifiers the energy ability can have, depending on it's
+	 * level.
+	 *
+	 * @precondition The {@link Map} which contains all modifiers for the ability exists.
+	 * @postcondition A {@link Map} which contains all modifiers for the ability is accessible for the program.
 	 */
 	@Override
 	@NotNull

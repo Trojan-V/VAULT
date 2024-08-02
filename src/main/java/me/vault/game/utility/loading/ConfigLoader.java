@@ -125,6 +125,7 @@ public final class ConfigLoader implements Loader
 	 * Returns the singleton instance of this class.
 	 *
 	 * @return The singleton instance of this class.
+	 *
 	 * @precondition The singleton Instance exists.
 	 * @postcondition The singleton Instance of this class has been returned.
 	 */
@@ -138,7 +139,9 @@ public final class ConfigLoader implements Loader
 	 * Checks if the supplied {@link File} is empty and returns true or false based on that.
 	 *
 	 * @param file The {@link File} that'll be checked.
+	 *
 	 * @return True if the {@link File} is empty, otherwise false.
+	 *
 	 * @precondition A valid instance of {@link File} has to be supplied as parameter.
 	 * @postcondition It was returned if the file is or isn't empty.
 	 */
@@ -176,6 +179,7 @@ public final class ConfigLoader implements Loader
 	 * Saves the data from the {@link Config} to the {@link ConfigLoader#configFile}.
 	 *
 	 * @param configFile The configuration file that'll be written to.
+	 *
 	 * @precondition A valid instance of {@link File} has to be supplied as parameter.
 	 * @postcondition The configuration from the program's memory (in {@link Config}) was saved to the supplied configuration file.
 	 */
@@ -222,6 +226,7 @@ public final class ConfigLoader implements Loader
 	 *
 	 * @param directoryPath The path to the save file directory.
 	 * @param fileName      The name of the configuration file that'll be created.
+	 *
 	 * @precondition A valid directory path and filename has to be supplied as a parameter.
 	 * @postcondition The configuration data was saved to a file with the specified filename in the specified directory.
 	 */
@@ -237,6 +242,7 @@ public final class ConfigLoader implements Loader
 	 * Loads the data from the specified configuration file.
 	 *
 	 * @param configFile The configuration file the data is loaded from.
+	 *
 	 * @precondition A valid instance of {@link File} has to be supplied as parameter.
 	 * @postcondition The configuration data was loaded from the specified file.
 	 */
@@ -260,6 +266,7 @@ public final class ConfigLoader implements Loader
 	 * Checks if the current configuration is equal to the default configuration.
 	 *
 	 * @return True if the current configuration is equal to the default configuration.
+	 *
 	 * @precondition None.
 	 * @postcondition It was returned if the current configuration is equal to the default configuration.
 	 */
@@ -329,6 +336,7 @@ public final class ConfigLoader implements Loader
 	 * {@link ConfigLoader#TO_STRING_PATTERN}.
 	 *
 	 * @return A {@link String} which has been formatted in the {@link ConfigLoader#TO_STRING_PATTERN}.
+	 *
 	 * @precondition The {@link ConfigLoader#TO_STRING_PATTERN} is {@code != null}.
 	 * @postcondition The method returned a {@link String} which represents the object.
 	 */
@@ -337,4 +345,5 @@ public final class ConfigLoader implements Loader
 	{
 		return MessageFormat.format(TO_STRING_PATTERN, this.gson.toString(), this.configFile.toString(), this.defaultFile.toString());
 	}
+
 }
