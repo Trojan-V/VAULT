@@ -60,10 +60,10 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see MeleeAbility
  * @see AbilityMultiplier
  * @see AbilityMultiplier
- * @see EnergyLevel
+ * @see EnergyAbilityLevel
  * @since 25.07.2024
  */
-public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLevel>, Nameable
+public abstract class EnergyAbility implements Displayable, Upgradable<EnergyAbilityLevel>, Nameable
 {
 
 	/**
@@ -115,13 +115,13 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 
 
 	/**
-	 * This field stores the current {@link EnergyLevel} of the ability. The value of this field controls the values of many
+	 * This field stores the current {@link EnergyAbilityLevel} of the ability. The value of this field controls the values of many
 	 * attributes the ability consists of.
 	 * <br>
 	 * Check the constructor {@link EnergyAbility#EnergyAbility()} and the
 	 * {@link EnergyAbilityController#updateValues(EnergyAbility)} method to see the control flow.
 	 */
-	private EnergyLevel currentLevel;
+	private EnergyAbilityLevel currentLevel;
 
 
 	/**
@@ -156,13 +156,13 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	@SuppressWarnings ({OVERRIDDEN_METHOD_CALL, OVERRIDABLE_METHOD_CALL})
 	protected EnergyAbility ()
 	{
-		this.currentLevel = EnergyLevel.getMinimum();
+		this.currentLevel = EnergyAbilityLevel.getMinimum();
 
 		this.currentUpgradeCost = this.getAllUpgradeCosts().get(this.currentLevel);
-		this.abilityMultiplier = new AbilityMultiplier(this.getAllModifiers().get(EnergyLevel.getMinimum()));
+		this.abilityMultiplier = new AbilityMultiplier(this.getAllModifiers().get(EnergyAbilityLevel.getMinimum()));
 		this.spriteProperty = new SimpleObjectProperty<>(this.getAllSprites().get(this.currentLevel));
 		this.nameProperty = new SimpleStringProperty(this.getAllNames().get(this.currentLevel));
-		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == EnergyLevel.getMaximum());
+		this.isMaxLevelProperty = new SimpleBooleanProperty(this.currentLevel == EnergyAbilityLevel.getMaximum());
 
 		// Logging outputs
 		LOGGER.logf(DEBUG, LEVEL_SET_PATTERN, this.currentLevel.name());
@@ -203,7 +203,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * @precondition The {@link AbilityMultiplier} exists.
 	 * @postcondition The map of the {@link AbilityMultiplier}s are accessible for the program.
 	 */
-	public Map<AbilityMultiplier.Type, Double> getAbilityMultipliers (final EnergyLevel level)
+	public Map<AbilityMultiplier.Type, Double> getAbilityMultipliers (final EnergyAbilityLevel level)
 	{
 		return this.getAllModifiers().get(level);
 	}
@@ -232,7 +232,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	/**
 	 * {@inheritDoc}
 	 */
-	public String getName (final EnergyLevel level)
+	public String getName (final EnergyAbilityLevel level)
 	{
 		return this.getAllNames().get(level);
 	}
@@ -261,7 +261,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	/**
 	 * {@inheritDoc}
 	 */
-	public MetaDataImage getSprite (final EnergyLevel level)
+	public MetaDataImage getSprite (final EnergyAbilityLevel level)
 	{
 		return this.getAllSprites().get(level);
 	}
@@ -307,7 +307,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * @param value True if the artifact should isMaxLevel, otherwise false.
 	 *
 	 * @precondition The ability can have multiple level.
-	 * @postcondition Sets if {@link EnergyLevel} is maximal.
+	 * @postcondition Sets if {@link EnergyAbilityLevel} is maximal.
 	 */
 	public void setIsMaxLevel (final boolean value)
 	{
@@ -334,7 +334,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * @postcondition The current level of the ability is accessible for the program.
 	 */
 	@Override
-	public EnergyLevel getLevel ()
+	public EnergyAbilityLevel getLevel ()
 	{
 		return this.currentLevel;
 	}
@@ -343,13 +343,13 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	/**
 	 * Sets the level of the energy ability to a new level.
 	 *
-	 * @param level The new level of the artifact in form of an instance of {@link EnergyLevel}.
+	 * @param level The new level of the artifact in form of an instance of {@link EnergyAbilityLevel}.
 	 *
 	 * @precondition The ability has a level.
 	 * @postcondition The current level of the ability is set.
 	 */
 	@Override
-	public void setLevel (final EnergyLevel level)
+	public void setLevel (final EnergyAbilityLevel level)
 	{
 		this.currentLevel = level;
 	}
@@ -393,7 +393,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CurrencyTransaction getUpgradeCosts (final EnergyLevel level)
+	public CurrencyTransaction getUpgradeCosts (final EnergyAbilityLevel level)
 	{
 		return this.getAllUpgradeCosts().get(level);
 	}
@@ -404,45 +404,45 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * can't upgrade the energy ability
 	 * depending on the number of currencies he owns.
 	 * <br>
-	 * These {@link CurrencyTransaction}'s are sorted by the {@link EnergyLevel} as key within this {@link Map},
+	 * These {@link CurrencyTransaction}'s are sorted by the {@link EnergyAbilityLevel} as key within this {@link Map},
 	 * allowing for easy access by using
-	 * this meaningful key ({@link EnergyLevel}).
+	 * this meaningful key ({@link EnergyAbilityLevel}).
 	 *
 	 * @return The {@link Map} which contains all upgrade cost transactions for the energy ability.
 	 *
-	 * @precondition The {@link Map} which contains all upgrade cost transactions for the {@link EnergyLevel} exists.
-	 * @postcondition A {@link Map} which contains all upgrade cost transactions for the {@link EnergyLevel} is
+	 * @precondition The {@link Map} which contains all upgrade cost transactions for the {@link EnergyAbilityLevel} exists.
+	 * @postcondition A {@link Map} which contains all upgrade cost transactions for the {@link EnergyAbilityLevel} is
 	 * accessible for the program.
 	 */
 	@NotNull
-	protected abstract Map<EnergyLevel, CurrencyTransaction> getAllUpgradeCosts ();
+	protected abstract Map<EnergyAbilityLevel, CurrencyTransaction> getAllUpgradeCosts ();
 
 
 	/**
 	 * Returns all possible names the energy ability can have.
 	 * An energy ability has different names depending on its level.
 	 * <br>
-	 * Therefore, these names are sorted by the {@link EnergyLevel} as key in a {@link Map}, allowing for easy
+	 * Therefore, these names are sorted by the {@link EnergyAbilityLevel} as key in a {@link Map}, allowing for easy
 	 * access by using this meaningful key
-	 * ({@link EnergyLevel}).
+	 * ({@link EnergyAbilityLevel}).
 	 *
 	 * @return The {@link Map} which contains all names for the energy ability.
 	 *
-	 * @precondition The {@link Map} which contains all names for the {@link EnergyLevel} exists.
-	 * @postcondition A {@link Map} which contains all names for the {@link EnergyLevel} is
+	 * @precondition The {@link Map} which contains all names for the {@link EnergyAbilityLevel} exists.
+	 * @postcondition A {@link Map} which contains all names for the {@link EnergyAbilityLevel} is
 	 * accessible for the program.
 	 */
 	@NotNull
-	protected abstract Map<EnergyLevel, String> getAllNames ();
+	protected abstract Map<EnergyAbilityLevel, String> getAllNames ();
 
 
 	/**
 	 * Returns all sprites the energy ability can have.
 	 * An energy ability can, but not necessarily, have different sprites depending on its level.
 	 * <br>
-	 * Therefore, these sprites are sorted by the {@link EnergyLevel} as key in a {@link Map}, allowing for easy
+	 * Therefore, these sprites are sorted by the {@link EnergyAbilityLevel} as key in a {@link Map}, allowing for easy
 	 * access by using this meaningful key
-	 * ({@link EnergyLevel}).
+	 * ({@link EnergyAbilityLevel}).
 	 *
 	 * @return The {@link Map} which contains all sprites for the energy ability.
 	 *
@@ -450,15 +450,15 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * @postcondition A {@link Map} which contains all sprites for the ability is accessible for the program.
 	 */
 	@NotNull
-	protected abstract Map<EnergyLevel, MetaDataImage> getAllSprites ();
+	protected abstract Map<EnergyAbilityLevel, MetaDataImage> getAllSprites ();
 
 
 	/**
 	 * Returns all sets of modifiers the energy ability can have, depending on it's level.
 	 * <br>
-	 * Therefore, these sets of modifiers are sorted by the {@link EnergyLevel} as key in a {@link Map}, allowing
+	 * Therefore, these sets of modifiers are sorted by the {@link EnergyAbilityLevel} as key in a {@link Map}, allowing
 	 * for easy access by using this
-	 * meaningful key ({@link EnergyLevel}).
+	 * meaningful key ({@link EnergyAbilityLevel}).
 	 *
 	 * @return The {@link Map} which contains all different sets of modifiers the energy ability can have, depending on it's
 	 * level.
@@ -467,7 +467,7 @@ public abstract class EnergyAbility implements Displayable, Upgradable<EnergyLev
 	 * @postcondition A {@link Map} which contains all modifiers for the ability is accessible for the program.
 	 */
 	@NotNull
-	protected abstract Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> getAllModifiers ();
+	protected abstract Map<EnergyAbilityLevel, Map<AbilityMultiplier.Type, Double>> getAllModifiers ();
 
 
 	/**

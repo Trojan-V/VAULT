@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.energy.AbilityMultiplier;
 import me.vault.game.model.energy.EnergyAbility;
-import me.vault.game.model.energy.EnergyLevel;
+import me.vault.game.model.energy.EnergyAbilityLevel;
 import me.vault.game.utility.datatypes.MetaDataImage;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.utility.logging.ILogger;
@@ -48,32 +48,32 @@ public final class DodgeAbility extends EnergyAbility
 
 	/**
 	 * All possible names of the dodge energy ability are stored in this {@link Map}, with the
-	 * {@link EnergyLevel} as key to denote
+	 * {@link EnergyAbilityLevel} as key to denote
 	 * which name corresponds to
-	 * which {@link EnergyLevel}.
+	 * which {@link EnergyAbilityLevel}.
 	 */
-	private static final Map<EnergyLevel, String> NAMES;
+	private static final Map<EnergyAbilityLevel, String> NAMES;
 
 	/**
 	 * All possible sprites ({@link Image}) of the dodge energy ability are stored in this {@link Map}, with the
-	 * {@link EnergyLevel} as key to denote which sprite corresponds to
-	 * which {@link EnergyLevel}.
+	 * {@link EnergyAbilityLevel} as key to denote which sprite corresponds to
+	 * which {@link EnergyAbilityLevel}.
 	 */
-	private static final Map<EnergyLevel, MetaDataImage> SPRITES;
+	private static final Map<EnergyAbilityLevel, MetaDataImage> SPRITES;
 
 	/**
-	 * All possible modifier sets of the dodge energy ability are stored in this {@link Map}, with the {@link EnergyLevel} as
+	 * All possible modifier sets of the dodge energy ability are stored in this {@link Map}, with the {@link EnergyAbilityLevel} as
 	 * key to denote which set of
-	 * modifiers corresponds to which {@link EnergyLevel}.
+	 * modifiers corresponds to which {@link EnergyAbilityLevel}.
 	 */
-	private static final Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> MODIFIERS;
+	private static final Map<EnergyAbilityLevel, Map<AbilityMultiplier.Type, Double>> MODIFIERS;
 
 	/**
 	 * All possible upgrade cost {@link CurrencyTransaction}'s of the initiative energy ability are stored in this {@link Map},
-	 * with the {@link EnergyLevel} as key to
-	 * denote which set of upgrade costs corresponds to which {@link EnergyLevel}.
+	 * with the {@link EnergyAbilityLevel} as key to
+	 * denote which set of upgrade costs corresponds to which {@link EnergyAbilityLevel}.
 	 */
-	private static final Map<EnergyLevel, CurrencyTransaction> UPGRADE_COSTS;
+	private static final Map<EnergyAbilityLevel, CurrencyTransaction> UPGRADE_COSTS;
 
 
 	static
@@ -112,15 +112,15 @@ public final class DodgeAbility extends EnergyAbility
 	 *
 	 * @return The map of upgrade costs for the dodge energy ability.
 	 *
-	 * @precondition The upgrade costs for different {@link EnergyLevel} exists.
+	 * @precondition The upgrade costs for different {@link EnergyAbilityLevel} exists.
 	 * @postcondition A map of upgrade costs for this ability is initialized.
 	 */
-	private static Map<EnergyLevel, CurrencyTransaction> initUpgradeCostsMap ()
+	private static Map<EnergyAbilityLevel, CurrencyTransaction> initUpgradeCostsMap ()
 	{
 		// Fill the map with the different upgrade cost transactions.
-		final Map<EnergyLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
-		upgradeCostsMap.put(EnergyLevel.BASE, Dodge.BASE_TO_IMPROVED_UPGRADE_COSTS);
-		upgradeCostsMap.put(EnergyLevel.IMPROVED, Dodge.IMPROVED_TO_NONE_UPGRADE_COSTS);
+		final Map<EnergyAbilityLevel, CurrencyTransaction> upgradeCostsMap = new HashMap<>();
+		upgradeCostsMap.put(EnergyAbilityLevel.BASE, Dodge.BASE_TO_IMPROVED_UPGRADE_COSTS);
+		upgradeCostsMap.put(EnergyAbilityLevel.IMPROVED, Dodge.IMPROVED_TO_NONE_UPGRADE_COSTS);
 
 		// Logging output
 		LOGGER.logf(DEBUG, UPGRADE_COST_MAP_SET_PATTERN, upgradeCostsMap.toString());
@@ -139,10 +139,10 @@ public final class DodgeAbility extends EnergyAbility
 	 *
 	 * @return The map of ability modifiers for the dodge energy ability.
 	 *
-	 * @precondition The ability modifiers for this ability exist for the different {@link EnergyLevel}.
+	 * @precondition The ability modifiers for this ability exist for the different {@link EnergyAbilityLevel}.
 	 * @postcondition A map of ability modifiers for this ability is initialized.
 	 */
-	private static Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> initModifiersMap ()
+	private static Map<EnergyAbilityLevel, Map<AbilityMultiplier.Type, Double>> initModifiersMap ()
 	{
 		// Create and fill the map with modifiers for the BASE energy ability level.
 		final Map<AbilityMultiplier.Type, Double> baseLevelModifiers = new HashMap<>();
@@ -158,9 +158,9 @@ public final class DodgeAbility extends EnergyAbility
 
 		// Insert the map of modifiers for the BASE and IMPROVED energy ability level into the map of modifiers which stores
 		// all modifier maps for the different energy ability levels.
-		final Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> abilityModifiersMap = new HashMap<>();
-		abilityModifiersMap.put(EnergyLevel.BASE, baseLevelModifiers);
-		abilityModifiersMap.put(EnergyLevel.IMPROVED, improvedLevelModifiers);
+		final Map<EnergyAbilityLevel, Map<AbilityMultiplier.Type, Double>> abilityModifiersMap = new HashMap<>();
+		abilityModifiersMap.put(EnergyAbilityLevel.BASE, baseLevelModifiers);
+		abilityModifiersMap.put(EnergyAbilityLevel.IMPROVED, improvedLevelModifiers);
 
 		// Logging output
 		LOGGER.logf(DEBUG, MODIFIERS_MAP_SET_PATTERN, abilityModifiersMap.toString());
@@ -178,15 +178,15 @@ public final class DodgeAbility extends EnergyAbility
 	 *
 	 * @return The map of names for the dodge energy ability.
 	 *
-	 * @precondition The names for this ability exist for the different {@link EnergyLevel}.
+	 * @precondition The names for this ability exist for the different {@link EnergyAbilityLevel}.
 	 * @postcondition A map of the names for this ability is initialized.
 	 */
-	private static Map<EnergyLevel, String> initNamesMap ()
+	private static Map<EnergyAbilityLevel, String> initNamesMap ()
 	{
 		// Fill the map with the names.
-		final Map<EnergyLevel, String> namesMap = new HashMap<>();
-		namesMap.put(EnergyLevel.BASE, Dodge.BASE_NAME);
-		namesMap.put(EnergyLevel.IMPROVED, Dodge.IMPROVED_NAME);
+		final Map<EnergyAbilityLevel, String> namesMap = new HashMap<>();
+		namesMap.put(EnergyAbilityLevel.BASE, Dodge.BASE_NAME);
+		namesMap.put(EnergyAbilityLevel.IMPROVED, Dodge.IMPROVED_NAME);
 
 		// Logging output
 		LOGGER.logf(DEBUG, NAME_MAP_SET_PATTERN, namesMap.toString());
@@ -204,15 +204,15 @@ public final class DodgeAbility extends EnergyAbility
 	 *
 	 * @return The map of sprites for the dodge energy ability.
 	 *
-	 * @precondition The sprites for this ability exist for the different {@link EnergyLevel}.
+	 * @precondition The sprites for this ability exist for the different {@link EnergyAbilityLevel}.
 	 * @postcondition A map of the sprites for this ability is initialized.
 	 */
-	private static Map<EnergyLevel, MetaDataImage> initSpritesMap ()
+	private static Map<EnergyAbilityLevel, MetaDataImage> initSpritesMap ()
 	{
 		// Fill the map with the sprites.
-		final Map<EnergyLevel, MetaDataImage> spritesMap = new HashMap<>();
-		spritesMap.put(EnergyLevel.BASE, ResourceLoader.loadImage(Dodge.BASE_SPRITE_PATH));
-		spritesMap.put(EnergyLevel.IMPROVED, ResourceLoader.loadImage(Dodge.IMPROVED_SPRITE_PATH));
+		final Map<EnergyAbilityLevel, MetaDataImage> spritesMap = new HashMap<>();
+		spritesMap.put(EnergyAbilityLevel.BASE, ResourceLoader.loadImage(Dodge.BASE_SPRITE_PATH));
+		spritesMap.put(EnergyAbilityLevel.IMPROVED, ResourceLoader.loadImage(Dodge.IMPROVED_SPRITE_PATH));
 
 		// Logging output
 		LOGGER.logf(DEBUG, SPRITE_MAP_SET_PATTERN, spritesMap.toString());
@@ -239,7 +239,7 @@ public final class DodgeAbility extends EnergyAbility
 	 * {@inheritDoc}
 	 */
 	@Override
-	public @NotNull Map<EnergyLevel, CurrencyTransaction> getAllUpgradeCosts ()
+	public @NotNull Map<EnergyAbilityLevel, CurrencyTransaction> getAllUpgradeCosts ()
 	{
 		return UPGRADE_COSTS;
 	}
@@ -249,7 +249,7 @@ public final class DodgeAbility extends EnergyAbility
 	 * {@inheritDoc}
 	 */
 	@Override
-	public @NotNull Map<EnergyLevel, String> getAllNames ()
+	public @NotNull Map<EnergyAbilityLevel, String> getAllNames ()
 	{
 		return NAMES;
 	}
@@ -260,7 +260,7 @@ public final class DodgeAbility extends EnergyAbility
 	 */
 	@Override
 	@NotNull
-	public Map<EnergyLevel, MetaDataImage> getAllSprites ()
+	public Map<EnergyAbilityLevel, MetaDataImage> getAllSprites ()
 	{
 		return SPRITES;
 	}
@@ -271,7 +271,7 @@ public final class DodgeAbility extends EnergyAbility
 	 */
 	@Override
 	@NotNull
-	public Map<EnergyLevel, Map<AbilityMultiplier.Type, Double>> getAllModifiers ()
+	public Map<EnergyAbilityLevel, Map<AbilityMultiplier.Type, Double>> getAllModifiers ()
 	{
 		return MODIFIERS;
 	}

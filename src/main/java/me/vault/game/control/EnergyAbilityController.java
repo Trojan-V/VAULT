@@ -5,7 +5,7 @@ import javafx.application.Platform;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.model.energy.AbilityMultiplier;
 import me.vault.game.model.energy.EnergyAbility;
-import me.vault.game.model.energy.EnergyLevel;
+import me.vault.game.model.energy.EnergyAbilityLevel;
 import me.vault.game.utility.concurrency.UpgradeRunnable;
 import me.vault.game.utility.interfaces.Upgrader;
 import me.vault.game.utility.logging.ILogger;
@@ -27,10 +27,10 @@ import static me.vault.game.utility.interfaces.constant.LoggingConstants.UPGRADI
  * @version 1.0.0
  * @see Upgrader
  * @see EnergyAbility
- * @see EnergyLevel
+ * @see EnergyAbilityLevel
  * @since 25.07.2024
  */
-public final class EnergyAbilityController implements Upgrader<EnergyAbility, EnergyLevel>
+public final class EnergyAbilityController implements Upgrader<EnergyAbility, EnergyAbilityLevel>
 {
 
 	/**
@@ -70,7 +70,7 @@ public final class EnergyAbilityController implements Upgrader<EnergyAbility, En
 	 */
 	private static boolean isEnergyAbilityMaxed (final EnergyAbility energyAbility)
 	{
-		return energyAbility.getLevel() == EnergyLevel.getMaximum();
+		return energyAbility.getLevel() == EnergyAbilityLevel.getMaximum();
 	}
 
 
@@ -133,7 +133,7 @@ public final class EnergyAbilityController implements Upgrader<EnergyAbility, En
 				return false;
 			}
 		}
-		return energyAbility.getLevel().ordinal() < EnergyLevel.getMaximum().ordinal();
+		return energyAbility.getLevel().ordinal() < EnergyAbilityLevel.getMaximum().ordinal();
 	}
 
 

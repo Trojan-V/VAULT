@@ -11,7 +11,7 @@ import me.vault.game.model.artifact.implementation.HealthArtifact;
 import me.vault.game.model.city.CityBuildingLevel;
 import me.vault.game.model.city.implementation.*;
 import me.vault.game.model.currency.Currency;
-import me.vault.game.model.energy.EnergyLevel;
+import me.vault.game.model.energy.EnergyAbilityLevel;
 import me.vault.game.model.energy.implementation.DodgeAbility;
 import me.vault.game.model.energy.implementation.InitiativeAbility;
 import me.vault.game.model.energy.implementation.MeleeAbility;
@@ -137,19 +137,19 @@ public final class Config
 	/**
 	 * The level of the dodge energy ability.
 	 */
-	private EnergyLevel dodgeEnergyAbilityLevel = EnergyLevel.getMinimum();
+	private EnergyAbilityLevel dodgeEnergyAbilityLevel = EnergyAbilityLevel.getMinimum();
 
 
 	/**
 	 * The level of the initiative energy ability.
 	 */
-	private EnergyLevel initiativeEnergyAbilityLevel = EnergyLevel.getMinimum();
+	private EnergyAbilityLevel initiativeEnergyAbilityLevel = EnergyAbilityLevel.getMinimum();
 
 
 	/**
 	 * The level of the melee energy ability.
 	 */
-	private EnergyLevel meleeEnergyAbilityLevel = EnergyLevel.getMinimum();
+	private EnergyAbilityLevel meleeEnergyAbilityLevel = EnergyAbilityLevel.getMinimum();
 
 
 	/**

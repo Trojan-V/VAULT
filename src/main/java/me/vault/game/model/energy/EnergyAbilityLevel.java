@@ -17,7 +17,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * <br>
  * <u>Technical note</u> <br>
  * It's important that the level entries in the enum are in the correct order, from minimum to maximum.
- * This is required to ensure that the methods {@link EnergyLevel#getMinimum()}, {@link EnergyLevel#getMaximum()},
+ * This is required to ensure that the methods {@link EnergyAbilityLevel#getMinimum()}, {@link EnergyAbilityLevel#getMaximum()},
  * {@link Level#isMinimum()} and {@link Level#isMaximum()} function correctly.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
@@ -26,7 +26,7 @@ import static me.vault.game.utility.logging.ILogger.Level.DEBUG;
  * @see EnergyAbilityController
  * @since 08.06.2024
  */
-public enum EnergyLevel implements Level
+public enum EnergyAbilityLevel implements Level
 {
 	/**
 	 * The base energy ability level. This is the lowest possible energy ability level. Every energy ability starts with this level.
@@ -43,7 +43,7 @@ public enum EnergyLevel implements Level
 	/**
 	 * The {@link Logger} object for this class used for writing to the console.
 	 */
-	private static final ILogger LOGGER = new Logger(EnergyLevel.class.getSimpleName());
+	private static final ILogger LOGGER = new Logger(EnergyAbilityLevel.class.getSimpleName());
 
 
 	/**
@@ -56,7 +56,7 @@ public enum EnergyLevel implements Level
 	 * @precondition The {@link EnergyAbility} can have multiple level and has a minimum level.
 	 * @postcondition The minimum level of an {@link EnergyAbility} is accessible for the program.
 	 */
-	public static EnergyLevel getMinimum ()
+	public static EnergyAbilityLevel getMinimum ()
 	{
 		return values()[MINIMUM_LEVEL_ORDINAL];
 	}
@@ -71,7 +71,7 @@ public enum EnergyLevel implements Level
 	 * @precondition The {@link EnergyAbility} can have multiple level and has a maximum level.
 	 * @postcondition The maximum level of an {@link EnergyAbility} is accessible for the program.
 	 */
-	public static EnergyLevel getMaximum ()
+	public static EnergyAbilityLevel getMaximum ()
 	{
 		return values()[Level.getLastIndex(values().length)];
 	}
@@ -101,7 +101,7 @@ public enum EnergyLevel implements Level
 	 * {@inheritDoc}
 	 */
 	@Override
-	public EnergyLevel getNextLowerLevel ()
+	public EnergyAbilityLevel getNextLowerLevel ()
 	{
 		// Check if the energy ability level is already the lowest level.
 		if (this.isMinimum())
@@ -117,7 +117,7 @@ public enum EnergyLevel implements Level
 	 * {@inheritDoc}
 	 */
 	@Override
-	public EnergyLevel getNextHigherLevel ()
+	public EnergyAbilityLevel getNextHigherLevel ()
 	{
 		// Check if the last entry was already reached, so there would be no higher level for the energy ability as it's
 		// already at the maximum level.

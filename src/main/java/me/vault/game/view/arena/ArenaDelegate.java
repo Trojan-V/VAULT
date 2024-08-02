@@ -98,6 +98,7 @@ public final class ArenaDelegate
 
 	private Timeline figureTimeline = null;
 
+
 	private Arena arena = null;
 
 
@@ -150,7 +151,6 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @param actionEvent
 	 */
 	@FXML
@@ -164,7 +164,6 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @param actionEvent
 	 * @return
 	 */
@@ -179,7 +178,6 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @param actionEvent
 	 * @return
 	 */
@@ -194,7 +192,6 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @param actionEvent
 	 * @return
 	 */
@@ -242,7 +239,6 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @param position
 	 */
 
@@ -302,7 +298,6 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @return
 	 */
 	private boolean checkForFinish ()
@@ -390,10 +385,8 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @return
 	 */
-
 	public Arena getArena ()
 	{
 		return this.arena;
@@ -401,10 +394,8 @@ public final class ArenaDelegate
 
 
 	/**
-	 *
 	 * @param arena
 	 */
-
 	public void setArena (final @NotNull Arena arena)
 	{
 		arena.setPlayerOneFigures(Player.getInstance().getSelectedFigures());
