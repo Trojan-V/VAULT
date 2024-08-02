@@ -4,7 +4,7 @@ package me.vault.game.model.arena;
 import me.vault.game.model.Player;
 import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.AccessibleElement;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.logging.ILogger;
@@ -236,18 +236,18 @@ public class Arena
 
 
 	/**
-	 * Checks if the tile of the supplied position is an {@link AccessibleTileAppearance}.
+	 * Checks if the tile of the supplied position is an {@link AccessibleElement}.
 	 *
 	 * @param position The position which will be checked.
 	 *
-	 * @return True if the tile is an {@link AccessibleTileAppearance}, otherwise false.
+	 * @return True if the tile is an {@link AccessibleElement}, otherwise false.
 	 *
 	 * @precondition The tile that'll be checked for accessible content.
 	 * @postcondition Says if the desirable tile is accessible.
 	 */
 	private boolean isAccessibleTile (final Position position)
 	{
-		return this.gameBoard.getTile(position).getCurrentElement() instanceof AccessibleTileAppearance;
+		return this.gameBoard.getTile(position).getCurrentElement() instanceof AccessibleElement;
 	}
 
 

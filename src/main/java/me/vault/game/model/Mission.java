@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.gameboard.tile.implementation.ArenaStartTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.ArenaStartElement;
 import me.vault.game.utility.interfaces.constant.ArenaConstants;
 import me.vault.game.utility.interfaces.constant.MissionConstants;
 
@@ -19,7 +19,7 @@ import java.util.List;
  * This class is the model for the missions that can be played.
  * <br>
  * Missions basically take place on a {@link GameBoard}, this class contains this {@link GameBoard} as well as other data related to the mission, such as the
- * rewards of the mission or the available arena encounters that are started when moving to an {@link ArenaStartTileAppearance} tile on the mission
+ * rewards of the mission or the available arena encounters that are started when moving to an {@link ArenaStartElement} tile on the mission
  * {@link GameBoard}.
  *
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel

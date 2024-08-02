@@ -25,7 +25,7 @@ import me.vault.game.utility.loading.ResourceLoader;
  * @see GameBoard
  * @since 29.07.2024
  */
-public class ResourceTileAppearance implements Placeable
+public class ResourceElement implements Placeable
 {
 
 	/**

@@ -19,10 +19,10 @@ import me.vault.game.model.arena.Arena;
 import me.vault.game.model.currency.CurrencyTransaction;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tile.Tile;
-import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
-import me.vault.game.model.gameboard.tile.implementation.ArenaStartTileAppearance;
-import me.vault.game.model.gameboard.tile.implementation.MissionFinishTileAppearance;
-import me.vault.game.model.gameboard.tile.implementation.ResourceTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.AccessibleElement;
+import me.vault.game.model.gameboard.tile.implementation.ArenaStartElement;
+import me.vault.game.model.gameboard.tile.implementation.MissionFinishElement;
+import me.vault.game.model.gameboard.tile.implementation.ResourceElement;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.interfaces.Placeable;
@@ -214,24 +214,24 @@ public final class MissionDelegate implements Initializable
 		final boolean playerCanMove = PlayerController.canMoveToPosition(missionGameBoard, player, position);
 		final boolean playerCanReach = PlayerController.canReachPosition(missionGameBoard, player, position);
 
-		if (nextTileElement instanceof AccessibleTileAppearance && playerCanMove)
+		if (nextTileElement instanceof AccessibleElement && playerCanMove)
 		{
 			MovableController.move(missionGameBoard, player, position);
 		}
-		else if (nextTileElement instanceof MissionFinishTileAppearance && playerCanReach)
+		else if (nextTileElement instanceof MissionFinishElement && playerCanReach)
 		{
 			MissionFinishedDialogDelegate.show(this.mission);
 		}
-		else if (nextTileElement instanceof ResourceTileAppearance && playerCanReach)
+		else if (nextTileElement instanceof ResourceElement && playerCanReach)
 		{
-			missionGameBoard.place(position, new AccessibleTileAppearance());
+			missionGameBoard.place(position, new AccessibleElement());
 			CurrencyDelegate.factorCurrency(new CurrencyTransaction(MAP_RESSOURCE_AMOUNT,
 				MAP_RESSOURCE_AMOUNT, MAP_RESSOURCE_AMOUNT, MAP_RESSOURCE_AMOUNT, MAP_RESSOURCE_AMOUNT));
 		}
-		else if (nextTileElement instanceof ArenaStartTileAppearance && playerCanReach)
+		else if (nextTileElement instanceof ArenaStartElement && playerCanReach)
 		{
 
-			missionGameBoard.place(position, new AccessibleTileAppearance());
+			missionGameBoard.place(position, new AccessibleElement());
 			final int randomArenaIndex = new Random().nextInt(this.mission.getAvailableArenaEncounters().size());
 			final Arena randomArena = this.mission.getAvailableArenaEncounters().get(randomArenaIndex);
 			this.mission.removeAvailableArena(randomArena);

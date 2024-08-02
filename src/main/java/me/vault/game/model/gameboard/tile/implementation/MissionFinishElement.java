@@ -27,7 +27,7 @@ import me.vault.game.view.mission.MissionSelectionDelegate;
  * @see GameBoard
  * @since 29.07.2024
  */
-public class MissionFinishTileAppearance implements Placeable
+public class MissionFinishElement implements Placeable
 {
 
 	/**

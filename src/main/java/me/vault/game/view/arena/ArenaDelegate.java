@@ -22,7 +22,7 @@ import me.vault.game.model.arena.Timeline;
 import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tile.Tile;
-import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.AccessibleElement;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.GameBoardButton;
@@ -249,7 +249,7 @@ public final class ArenaDelegate
 		final Placeable nextTileElement = arenaGameBoard.getTile(position).getCurrentElement();
 
 		boolean interactionFailed = true;
-		if (nextTileElement instanceof AccessibleTileAppearance && FigureController.canMoveToPosition(this.arena, attacker, position))
+		if (nextTileElement instanceof AccessibleElement && FigureController.canMoveToPosition(this.arena, attacker, position))
 		{
 			MovableController.move(arenaGameBoard, attacker, position);
 			interactionFailed = false;

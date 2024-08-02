@@ -4,7 +4,7 @@ package me.vault.game.control;
 import me.vault.game.model.Player;
 import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.gameboard.GameBoard;
-import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.AccessibleElement;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.interfaces.Movable;
 import me.vault.game.utility.interfaces.Placeable;
@@ -66,7 +66,7 @@ public final class MovableController
 
 			// Set the previous position of the troop back to an accessible tile
 			// so the troop isn't displayed multiple times.
-			gameBoard.place(previousTroopPosition, new AccessibleTileAppearance());
+			gameBoard.place(previousTroopPosition, new AccessibleElement());
 		}
 		catch (final ElementNotFoundOnGameBoardException e)
 		{

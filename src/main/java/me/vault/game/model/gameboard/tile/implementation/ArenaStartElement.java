@@ -25,7 +25,7 @@ import me.vault.game.utility.loading.ResourceLoader;
  * @see GameBoard
  * @since 29.07.2024
  */
-public class ArenaStartTileAppearance implements Placeable
+public class ArenaStartElement implements Placeable
 {
 
 	/**

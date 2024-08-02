@@ -5,7 +5,7 @@ import me.vault.game.model.Mission;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.gameboard.tile.Tile;
-import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.AccessibleElement;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.exception.NotAFigureException;
 import me.vault.game.utility.interfaces.Placeable;
@@ -119,7 +119,7 @@ public class GameBoard
 	 *
 	 * @return The {@link Figure} instance which is located at the supplied {@link Position}.
 	 *
-	 * @exception NotAFigureException If there's no {@link Figure} at the supplied {@link Position} for some reason.
+	 * @throws NotAFigureException If there's no {@link Figure} at the supplied {@link Position} for some reason.
 	 * @precondition The {@link Figure} at the {@link Position} exists.
 	 * @postcondition The instance of the {@link Figure} which is at the {@link Position} is accessible for the program.
 	 */
@@ -136,17 +136,17 @@ public class GameBoard
 	/**
 	 * Places the supplied {@link Placeable} on the game board at the supplied {@link Position}.
 	 * <br>
-	 * Only places the {@link Placeable} if the {@link Tile} at the supplied {@link Position} is an {@link AccessibleTileAppearance}.
+	 * Only places the {@link Placeable} if the {@link Tile} at the supplied {@link Position} is an {@link AccessibleElement}.
 	 *
 	 * @param position  The {@link Position}.
 	 * @param placeable The {@link Placeable}.
 	 *
-	 * @precondition The {@link Tile} is at the {@link Position} and is an {@link AccessibleTileAppearance}.
+	 * @precondition The {@link Tile} is at the {@link Position} and is an {@link AccessibleElement}.
 	 * @postcondition The {@link Placeable} is placed on the game board at the {@link Position}.
 	 */
 	public void placeIfAccessibleTile (final Position position, final Placeable placeable)
 	{
-		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == AccessibleTileAppearance.class)
+		if (this.gameBoard[position.x()][position.y()].getCurrentElement().getClass() == AccessibleElement.class)
 		{
 			this.place(position, placeable);
 		}
@@ -260,7 +260,7 @@ public class GameBoard
 	public List<Tile> getAdjacentAccessibleTiles (final Position position)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof AccessibleTileAppearance));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof AccessibleElement));
 		return adjacentTiles;
 	}
 
@@ -281,24 +281,24 @@ public class GameBoard
 	public List<Tile> getAdjacentAccessibleTiles (final Position position, final int range)
 	{
 		final List<Tile> adjacentTiles = this.getAdjacentTiles(position, range);
-		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof AccessibleTileAppearance));
+		adjacentTiles.removeIf(tile -> !(tile.getCurrentElement() instanceof AccessibleElement));
 		return adjacentTiles;
 	}
 
 
 	/**
-	 * Removes the supplied {@link Placeable} from the game board and replaces it with an {@link AccessibleTileAppearance}, which basically "clears" that tile.
+	 * Removes the supplied {@link Placeable} from the game board and replaces it with an {@link AccessibleElement}, which basically "clears" that tile.
 	 *
 	 * @param placeable The {@link Placeable} that is going to get removed from the game board.
 	 *
 	 * @exception ElementNotFoundOnGameBoardException If the supplied {@link Placeable} wasn't found on the game board.
 	 * @precondition The {@link Tile} on the game board has to have a {@link Placeable}
 	 * @postcondition The {@link Placeable} is removed from the game board and the {@link Tile} where the
-	 * {@link Placeable} were removed is now an {@link AccessibleTileAppearance}.
+	 * {@link Placeable} were removed is now an {@link AccessibleElement}.
 	 */
 	public void remove (final Placeable placeable) throws ElementNotFoundOnGameBoardException
 	{
-		this.place(this.getPosition(placeable), new AccessibleTileAppearance());
+		this.place(this.getPosition(placeable), new AccessibleElement());
 	}
 
 

@@ -333,14 +333,14 @@ public final class ResourceLoader
 				//determines the tile that is added to the game board from the file with the help of characters
 				switch (charArray[column])
 				{
-					case BLOCKED_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new BlockedTileAppearance());
-					case RESOURCE_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new ResourceTileAppearance());
-					case ARENA_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new ArenaStartTileAppearance());
-					case MISSION_FINISH_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new MissionFinishTileAppearance());
+					case BLOCKED_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new BlockedElement());
+					case RESOURCE_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new ResourceElement());
+					case ARENA_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new ArenaStartElement());
+					case MISSION_FINISH_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), new MissionFinishElement());
 					case PLAYER_START_TILE -> gameBoard[column][row] = new Tile(new Position(column, row), Player.getInstance());
 
 					// any char besides the preceding reserved ones are accepted as placeholders.
-					default -> gameBoard[column][row] = new Tile(new Position(column, row), new AccessibleTileAppearance());
+					default -> gameBoard[column][row] = new Tile(new Position(column, row), new AccessibleElement());
 				}
 			}
 		}
