@@ -8,8 +8,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import me.vault.game.model.network.NetworkController;
-import me.vault.game.utility.interfaces.constant.CharacterConstants;
 import me.vault.game.utility.interfaces.constant.GameConstants;
+import me.vault.game.utility.interfaces.constant.NetworkConstants;
 import me.vault.game.utility.loading.ResourceLoader;
 
 import java.io.IOException;
@@ -45,12 +45,6 @@ public final class NetworkDelegate implements Initializable
 	 * The {@link MessageFormat} pattern, which is used, when the {@link NetworkDelegate#toString()} is called.
 	 */
 	private static final String TO_STRING_PATTERN = "NetworkDelegate[dialogPane={0}]";
-
-
-	public static final String CONNECTION_ERRROR_OWN_SOCKET = "Cant connect to own socket!";
-
-
-	public static final String INVALID_CONNETCTION_ATTEMPT = "Invalid connetction attempt.";
 
 
 	static
@@ -170,12 +164,6 @@ public final class NetworkDelegate implements Initializable
 
 	private void connect (final Stage stage)
 	{
-		if ( this.host == null || this.port == NetworkController.peer.getMyPeerPortNumber()|| !this.host.contains(String.valueOf(CharacterConstants.DOT)))
-		{
-			errorMessage.setText(INVALID_CONNETCTION_ATTEMPT);
-			return;
-		}
-
 		try
 		{
 			NetworkController.peer.setIsMyPeerHost(this.hostSelector.isSelected());
@@ -184,7 +172,7 @@ public final class NetworkDelegate implements Initializable
 		}
 		catch (IOException e)
 		{
-			errorMessage.setText(INVALID_CONNETCTION_ATTEMPT);
+			errorMessage.setText(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
 		NetworkController.runPeer();

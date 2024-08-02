@@ -5,7 +5,9 @@ import com.google.gson.Gson;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.arena.ArenaObject;
 import me.vault.game.utility.concurrency.ThreadUtil;
+import me.vault.game.utility.interfaces.constant.CharacterConstants;
 import me.vault.game.utility.interfaces.constant.MiscConstants;
+import me.vault.game.utility.interfaces.constant.NetworkConstants;
 import me.vault.game.view.arena.ArenaDelegate;
 
 import java.io.BufferedReader;
@@ -20,19 +22,7 @@ import java.net.UnknownHostException;
 public class Peer implements Runnable
 {
 	// Messages -------------------------------------------
-	private static final String ERROR_SERVER_SOCKET = "Error with ServerSocket";
 
-	private static final String ERROR_ACCEPTING = "error accepting";
-
-	private static final String CLIENT_CONNECTED = "client connected";
-
-	private static final String ACCEPTED = "Accepted";
-
-	private static final String ERROR_ACCEPT = "Error accept!";
-
-	private static final String WAIT_FOR_CONNECTIONREQUEST = "Wait for Connection request";
-
-	private static final String ERROR_SERVER_SOCKET_CONSTRUCTOR = "Error ServerSocket-Constructor!";
 
 	// Own Peer information -----------------------------
 
@@ -98,16 +88,6 @@ public class Peer implements Runnable
 	public void run ()
 	{
 		Gson gson =new Gson();
-		try
-		{
-			otherPeer = myPeerHostSocket.accept();
-		}
-		catch (final IOException e)
-		{
-			System.out.println(ERROR_ACCEPTING);
-			System.exit(0);
-		}
-		System.out.println(ACCEPTED);
 
 		if (isMyPeerHost)
 		{
@@ -175,8 +155,30 @@ public class Peer implements Runnable
 		return outputString;
 	}
 
-	public void createConnection (String serverIP, int serverPort) throws IOException
+	public void createConnection (String hostName, int portNumber) throws IOException, UnknownHostException
 	{
-		this.otherPeer = new Socket(serverIP, serverPort);
+		if ( hostName == null || portNumber == NetworkController.peer.getMyPeerPortNumber()|| !hostName.contains(String.valueOf(CharacterConstants.DOT)))
+		{
+			System.out.println(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
+			throw new UnknownHostException();
+		}
+
+		this.otherPeer = new Socket(hostName, portNumber);
+		acceptConnection();
+
+	}
+
+	private void acceptConnection ()
+	{
+		try
+		{
+			otherPeer = myPeerHostSocket.accept();
+		}
+		catch (final IOException e)
+		{
+			System.out.println(NetworkConstants.ERROR_ACCEPTING);
+			System.exit(0);
+		}
+		System.out.println(NetworkConstants.ACCEPTED);
 	}
 }
