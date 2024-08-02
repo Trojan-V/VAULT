@@ -78,7 +78,12 @@ public final class CityBuildingController implements Upgrader<CityBuilding, City
 
 
 	/**
-	 * {@inheritDoc}
+	 * Upgrades the {@link CityBuilding} instance to the next level {@link CityBuildingLevel}.
+	 *
+	 * @param cityBuilding The {@link CityBuilding} instance that gets upgraded.
+	 *
+	 * @precondition The {@link CityBuilding} exists and can be upgraded.
+	 * @postcondition The instance of the {@link CityBuilding} gets upgraded.
 	 */
 	@Override
 	public void upgrade (final CityBuilding cityBuilding)
@@ -89,7 +94,16 @@ public final class CityBuildingController implements Upgrader<CityBuilding, City
 
 
 	/**
-	 * {@inheritDoc}
+	 * Checks if the {@link CityBuilding} instance can be upgraded to the next level.
+	 * <br>
+	 * This method checks the constraints that need to be fulfilled to be able to upgrade the {@link CityBuilding} to the next level.
+	 *
+	 * @param cityBuilding The {@link CityBuilding} instance which is checked if it can be upgraded to the next level.
+	 *
+	 * @return True if the {@link CityBuilding} can be upgraded, otherwise false.
+	 *
+	 * @precondition The {@link CityBuilding} exists.
+	 * @postcondition Gives back if the {@link CityBuilding} is upgradable.
 	 */
 	@Override
 	public boolean checkIsUpgradable (final @NotNull CityBuilding cityBuilding)
@@ -110,7 +124,16 @@ public final class CityBuildingController implements Upgrader<CityBuilding, City
 
 
 	/**
-	 * {@inheritDoc}
+	 * Updates the values of the {@link CityBuilding}, so it contains the newest set of data.
+	 * <br>
+	 * This data is usually displayed in the GUI.
+	 * Most {@link CityBuilding}'s contain JavaFX properties that are bound to the GUI,
+	 * so the data of them can be dynamically updated.
+	 *
+	 * @param cityBuilding The {@link CityBuilding} instance whose values should be updated.
+	 *
+	 * @precondition The {@link CityBuilding} instance exists and can be upgraded.
+	 * @postcondition The instance of the {@link CityBuilding} gets upgraded.
 	 */
 	@Override
 	public void updateValues (final CityBuilding cityBuilding)
