@@ -70,7 +70,7 @@ public class PeerController
 	 */
 	public Peer getPeer ()
 	{
-		return peer;
+		return this.peer;
 	}
 
 
@@ -114,7 +114,7 @@ public class PeerController
 	 * @postcondition If the hostName and portNumber combination is valid, a new connection is established. Else
 	 * either an IOException or a UnknownHostException is thrown.
 	 */
-	public void createConnection (String hostName, int portNumber) throws IOException, UnknownHostException
+	public void createConnection (final String hostName, final int portNumber) throws IOException, UnknownHostException
 	{
 		if (hostName == null || portNumber == 0 ||
 		    portNumber == this.getPeer().getMyPeerPortNumber() || !hostName.contains(String.valueOf(CharacterConstants.DOT)))
