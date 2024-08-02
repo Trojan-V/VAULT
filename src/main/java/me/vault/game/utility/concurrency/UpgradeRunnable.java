@@ -16,7 +16,7 @@ import java.text.MessageFormat;
  * <br>
  * To achieve that behavior, this class implements the {@link Runnable} interface.
  *
- * @author Vincent Wolf
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @see Runnable
  * @since 30.07.2024

@@ -3,6 +3,7 @@ package me.vault.game.utility.concurrency;
 
 public class ThreadUtil
 {
+
 	public static void sleepThread(long sleepTime)
 	{
 		try
