@@ -22,7 +22,7 @@ import me.vault.game.model.arena.Timeline;
 import me.vault.game.model.gameboard.Figure;
 import me.vault.game.model.gameboard.GameBoard;
 import me.vault.game.model.gameboard.tile.Tile;
-import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.GameBoardButton;

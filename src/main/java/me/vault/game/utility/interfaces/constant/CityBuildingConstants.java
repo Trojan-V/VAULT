@@ -96,11 +96,11 @@ public interface CityBuildingConstants
 
 
 	/**
-	 * The {@link Market} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.Market} city building.
+	 * The {@link Market} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.implementation.Market} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.city.impl.Market
+	 * @see me.vault.game.model.city.implementation.Market
 	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
@@ -215,11 +215,11 @@ public interface CityBuildingConstants
 
 
 	/**
-	 * The {@link CommandCenter} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.CommandCenter} city building.
+	 * The {@link CommandCenter} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.implementation.CommandCenter} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.city.impl.CommandCenter
+	 * @see me.vault.game.model.city.implementation.CommandCenter
 	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
@@ -400,11 +400,11 @@ public interface CityBuildingConstants
 
 
 	/**
-	 * The {@link Laboratory} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.Laboratory} city building.
+	 * The {@link Laboratory} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.implementation.Laboratory} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.city.impl.Laboratory
+	 * @see me.vault.game.model.city.implementation.Laboratory
 	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
@@ -471,11 +471,11 @@ public interface CityBuildingConstants
 
 
 	/**
-	 * The {@link SpaceBar} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.SpaceBar} city building.
+	 * The {@link SpaceBar} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.implementation.SpaceBar} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.city.impl.SpaceBar
+	 * @see me.vault.game.model.city.implementation.SpaceBar
 	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
@@ -542,12 +542,12 @@ public interface CityBuildingConstants
 
 
 	/**
-	 * The {@link TrainingFacility} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.TrainingFacility} city
+	 * The {@link TrainingFacility} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.implementation.TrainingFacility} city
 	 * building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.city.impl.TrainingFacility
+	 * @see me.vault.game.model.city.implementation.TrainingFacility
 	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */
@@ -614,11 +614,11 @@ public interface CityBuildingConstants
 
 
 	/**
-	 * The {@link Workshop} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.impl.Workshop} city building.
+	 * The {@link Workshop} subinterface contains all the constants which apply to the {@link me.vault.game.model.city.implementation.Workshop} city building.
 	 *
 	 * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
 	 * @version 1.0.0
-	 * @see me.vault.game.model.city.impl.Workshop
+	 * @see me.vault.game.model.city.implementation.Workshop
 	 * @see CityBuilding
 	 * @since 20.06.2024
 	 */

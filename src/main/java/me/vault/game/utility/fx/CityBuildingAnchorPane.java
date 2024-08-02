@@ -8,7 +8,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.city.CityBuilding;
-import me.vault.game.model.city.impl.*;
+import me.vault.game.model.city.implementation.*;
 import me.vault.game.utility.interfaces.Placeable;
 import me.vault.game.utility.math.Position;
 import me.vault.game.view.UpgradeDialogDelegate;

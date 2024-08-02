@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
-import me.vault.game.model.city.impl.Market;
+import me.vault.game.model.city.implementation.Market;
 import me.vault.game.model.currency.Currency;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.interfaces.constant.CharacterConstants;

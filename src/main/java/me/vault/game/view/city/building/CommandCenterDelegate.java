@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import me.vault.game.GameApplication;
 import me.vault.game.control.CityBuildingController;
 import me.vault.game.model.Player;
-import me.vault.game.model.city.impl.CommandCenter;
+import me.vault.game.model.city.implementation.CommandCenter;
 import me.vault.game.utility.ViewUtil;
 import me.vault.game.utility.loading.ResourceLoader;
 import me.vault.game.view.city.CityDelegate;

@@ -2,9 +2,9 @@ package me.vault.game.utility.interfaces.constant;
 
 
 import me.vault.game.model.currency.CurrencyTransaction;
-import me.vault.game.model.energy.impl.DodgeAbility;
-import me.vault.game.model.energy.impl.InitiativeAbility;
-import me.vault.game.model.energy.impl.MeleeAbility;
+import me.vault.game.model.energy.implementation.DodgeAbility;
+import me.vault.game.model.energy.implementation.InitiativeAbility;
+import me.vault.game.model.energy.implementation.MeleeAbility;
 
 import static me.vault.game.utility.interfaces.constant.ConstantInterface.Constant;
 

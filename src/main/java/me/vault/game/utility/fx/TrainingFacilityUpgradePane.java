@@ -9,7 +9,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import me.vault.game.control.TroopController;
-import me.vault.game.model.city.impl.TrainingFacility;
+import me.vault.game.model.city.implementation.TrainingFacility;
 import me.vault.game.model.troop.Troop;
 import me.vault.game.model.troop.TroopStatistics;
 import me.vault.game.utility.interfaces.Nameable;

@@ -5,7 +5,7 @@ import me.vault.game.model.Mission;
 import me.vault.game.model.arena.Arena;
 import me.vault.game.model.artifact.Artifact;
 import me.vault.game.model.gameboard.tile.Tile;
-import me.vault.game.model.gameboard.tile.impl.AccessibleTileAppearance;
+import me.vault.game.model.gameboard.tile.implementation.AccessibleTileAppearance;
 import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.exception.NotAFigureException;
 import me.vault.game.utility.interfaces.Placeable;
