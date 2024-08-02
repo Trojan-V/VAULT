@@ -6,7 +6,8 @@ import java.text.MessageFormat;
 
 /**
  * A record that consists of an X and Y coordinate, which represents a position in the two-dimensional room.
- *
+ * @param x The x coordinate of the position
+ * @param y The y coordinate of the position
  * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
  * @version 1.0.0
  * @since 29.07.2024
