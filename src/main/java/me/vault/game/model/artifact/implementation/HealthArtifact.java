@@ -91,6 +91,7 @@ public final class HealthArtifact extends Artifact
 
 	/**
 	 * As this class is a singleton, no other class should be able to instantiate it, hence why a private constructor is used here to prohibit that.
+	 *
 	 * @precondition Constructor gets called from within the class.
 	 * @postcondition A new instance of HealthArtifact is created.
 	 */
@@ -229,7 +230,18 @@ public final class HealthArtifact extends Artifact
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all upgrade cost {@link CurrencyTransaction}'s which are used to determine whether the player can or
+	 * can't upgrade the artifact
+	 * depending on the number of currencies he owns.
+	 * <br>
+	 * These {@link CurrencyTransaction}'s are sorted by the {@link ArtifactLevel} as key within this {@link Map},
+	 * allowing for easy access by using
+	 * this meaningful key ({@link ArtifactLevel}).
+	 *
+	 * @return The {@link Map} which contains all upgrade cost transactions for the artifact.
+	 *
+	 * @precondition The {@link Map} which contains all upgrade cost transactions for the artifact exists.
+	 * @postcondition A {@link Map} which contains all upgrade cost transactions for the artifact is accessible for the program.
 	 */
 	@Override
 	@NotNull
@@ -240,7 +252,16 @@ public final class HealthArtifact extends Artifact
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all names the artifact can have. An artifact has different names depending on its level.
+	 * <br>
+	 * Therefore, these names are sorted by the {@link ArtifactLevel} as key in a {@link Map}, allowing for easy
+	 * access by using this meaningful key
+	 * ({@link ArtifactLevel}).
+	 *
+	 * @return The {@link Map} which contains all names for the artifact.
+	 *
+	 * @precondition The {@link Map} which contains all names for the artifact exists.
+	 * @postcondition A {@link Map} which contains all names for the artifact is accessible for the program.
 	 */
 	@Override
 	@NotNull
@@ -251,7 +272,17 @@ public final class HealthArtifact extends Artifact
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all sprites the artifact can have. An artifact can have, but doesn't always have, different sprites
+	 * depending on its level.
+	 * <br>
+	 * Therefore, these sprites are sorted by the {@link ArtifactLevel} as key in a {@link Map}, allowing for easy
+	 * access by using this meaningful key
+	 * ({@link ArtifactLevel}).
+	 *
+	 * @return The {@link Map} which contains all sprites for the artifact.
+	 *
+	 * @precondition The {@link Map} which contains all sprites for the artifact exists.
+	 * @postcondition A {@link Map} which contains all sprites for the artifact is accessible for the program.
 	 */
 	@Override
 	@NotNull
@@ -262,7 +293,17 @@ public final class HealthArtifact extends Artifact
 
 
 	/**
-	 * {@inheritDoc}
+	 * Returns all sets of modifiers the artifact can have, depending on it's level.
+	 * <br>
+	 * Therefore, these sets of modifiers are sorted by the {@link ArtifactLevel} as key in a {@link Map}, allowing
+	 * for easy access by using this
+	 * meaningful key ({@link ArtifactLevel}).
+	 *
+	 * @return The {@link Map} which contains all different sets of modifiers the artifact can have, depending on it's
+	 * level.
+	 *
+	 * @precondition The {@link Map} which contains all modifiers for the artifact exists.
+	 * @postcondition A {@link Map} which contains all modifiers for the artifact is accessible for the program.
 	 */
 	@Override
 	@NotNull
