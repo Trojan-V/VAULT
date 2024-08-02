@@ -17,7 +17,6 @@ import me.vault.game.control.MovableController;
 import me.vault.game.model.Mission;
 import me.vault.game.model.Player;
 import me.vault.game.model.arena.Arena;
-import me.vault.game.model.arena.ArenaObject;
 import me.vault.game.model.arena.ArenaResult;
 import me.vault.game.model.arena.Timeline;
 import me.vault.game.model.gameboard.Figure;
@@ -29,7 +28,6 @@ import me.vault.game.utility.exception.ElementNotFoundOnGameBoardException;
 import me.vault.game.utility.fx.GameBoardButton;
 import me.vault.game.utility.fx.TimelineElementHBox;
 import me.vault.game.utility.interfaces.Placeable;
-import me.vault.game.utility.interfaces.constant.ArenaConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 import me.vault.game.utility.math.Position;
@@ -100,7 +98,7 @@ public final class ArenaDelegate
 
 	private Timeline figureTimeline = null;
 
-	private Arena arena = ArenaObject.getInstance().getArena();
+	private Arena arena = null;
 
 
 	/**
@@ -130,8 +128,7 @@ public final class ArenaDelegate
 			final Parent root = fxmlLoader.load();
 			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
 			arenaDelegate.setMission(mission);
-			ArenaObject.getInstance().setArena(arena);
-			//arenaDelegate.setArena(arena);
+			arenaDelegate.setArena(arena);
 			ViewUtil.show(GameApplication.getStage(), new Scene(root), ArenaDelegate.class);
 		}
 		catch (final IOException e)
@@ -148,8 +145,7 @@ public final class ArenaDelegate
 			final Parent root = fxmlLoader.load();
 			final ArenaDelegate arenaDelegate = fxmlLoader.getController();
 			arenaDelegate.setMission(null);
-			ArenaObject.getInstance().setArena(arena);
-			//arenaDelegate.setArena(arena);
+			arenaDelegate.setArena(arena);
 			ViewUtil.show(GameApplication.getStage(), new Scene(root), ArenaDelegate.class);
 		}
 		catch (final IOException e)
