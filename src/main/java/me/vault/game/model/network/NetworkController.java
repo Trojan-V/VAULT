@@ -8,19 +8,41 @@ import java.util.Random;
 
 public class NetworkController
 {
-	public static final int SLEEP = 1000;
+	private static final NetworkController INSTANCE = new NetworkController();
 
-	public static Peer peer = new Peer();
 
+
+	private static Peer peer = new Peer();
+
+	private Thread peerThread;
+
+	private NetworkController ()
+	{
+	}
+	public static NetworkController getInstance ()
+	{
+		return INSTANCE;
+	}
+
+	public Peer getPeer ()
+	{
+		return this.peer;
+	}
+
+	public Thread getPeerThread ()
+	{
+		return this.peerThread;
+	}
 	/**
 	 *
 	 */
-	public static void runPeer ()
+	public void runPeer ()
 	{
-		(new Thread(peer)).start();
+		(peerThread = new Thread(peer)).start();
 	}
 
-	public static int getRandomPortNumber ()
+
+	public int getRandomPortNumber ()
 	{
 		return new Random().nextInt(NetworkConstants.MINIMUM_PORT_NUMBER, NetworkConstants.MAXIMUM_PORT_NUMBER);
 	}

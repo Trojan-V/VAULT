@@ -40,7 +40,7 @@ public class Peer implements Runnable
 
 	private BufferedReader input = null;
 
-	private boolean disconnect = false;
+	private boolean connected = false;
 
 	private boolean turnOver = false;
 
@@ -49,7 +49,7 @@ public class Peer implements Runnable
 	{
 		try
 		{
-			this.myPeerHostSocket = new ServerSocket(NetworkController.getRandomPortNumber());
+			this.myPeerHostSocket = new ServerSocket(NetworkController.getInstance().getRandomPortNumber());
 		}
 		catch (IOException e)
 		{
@@ -84,11 +84,14 @@ public class Peer implements Runnable
 		this.isMyPeerHost = isHost;
 	}
 
+
+
 	@Override
 	public void run ()
 	{
 		Gson gson =new Gson();
 
+		acceptConnection();
 		if (isMyPeerHost)
 		{
 			do
@@ -104,7 +107,7 @@ public class Peer implements Runnable
 				turnOver = false;
 				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
 			}
-			while (!disconnect);
+			while (!connected);
 		}
 		else
 		{
@@ -129,7 +132,7 @@ public class Peer implements Runnable
 				sendObjectAsJSON(ArenaObject.getInstance().getArena().toJSON());
 				ThreadUtil.sleepThread(MiscConstants.TWO_HUNDRED);
 			}
-			while (!disconnect);
+			while (connected);
 		}
 
 	}
@@ -157,7 +160,7 @@ public class Peer implements Runnable
 
 	public void createConnection (String hostName, int portNumber) throws IOException, UnknownHostException
 	{
-		if ( hostName == null || portNumber == NetworkController.peer.getMyPeerPortNumber()|| !hostName.contains(String.valueOf(CharacterConstants.DOT)))
+		if ( hostName == null || portNumber == NetworkController.getInstance().getPeer().getMyPeerPortNumber()|| !hostName.contains(String.valueOf(CharacterConstants.DOT)))
 		{
 			System.out.println(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			throw new UnknownHostException();
@@ -179,6 +182,7 @@ public class Peer implements Runnable
 			System.out.println(NetworkConstants.ERROR_ACCEPTING);
 			System.exit(0);
 		}
+		this.connected = true;
 		System.out.println(NetworkConstants.ACCEPTED);
 	}
 }

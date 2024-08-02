@@ -144,8 +144,8 @@ public final class NetworkDelegate implements Initializable
 	@Override
 	public void initialize (final URL url, final ResourceBundle resourceBundle)
 	{
-		this.serverHost.setText(NetworkController.peer.getMyPeerHostName());
-		this.serverPort.setText(String.valueOf(NetworkController.peer.getMyPeerPortNumber()));
+		this.serverHost.setText(NetworkController.getInstance().getPeer().getMyPeerHostName());
+		this.serverPort.setText(String.valueOf(NetworkController.getInstance().getPeer().getMyPeerPortNumber()));
 		this.setButtonActions();
 	}
 
@@ -166,8 +166,8 @@ public final class NetworkDelegate implements Initializable
 	{
 		try
 		{
-			NetworkController.peer.setIsMyPeerHost(this.hostSelector.isSelected());
-			NetworkController.peer.createConnection(this.host, this.port);
+			NetworkController.getInstance().getPeer().setIsMyPeerHost(this.hostSelector.isSelected());
+			NetworkController.getInstance().getPeer().createConnection(this.host, this.port);
 			errorMessage.setText(null);
 		}
 		catch (IOException e)
@@ -175,7 +175,7 @@ public final class NetworkDelegate implements Initializable
 			errorMessage.setText(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			return;
 		}
-		NetworkController.runPeer();
+		NetworkController.getInstance().runPeer();
 		stage.close();
 	}
 
