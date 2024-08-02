@@ -13,9 +13,7 @@ import me.vault.game.utility.interfaces.constant.GameConstants;
 import me.vault.game.utility.logging.ILogger;
 import me.vault.game.utility.logging.Logger;
 
-import java.util.Objects;
-
-import static me.vault.game.utility.interfaces.constant.GameConstants.*;
+import static me.vault.game.utility.interfaces.constant.GameConstants.BUTTON_LONG_CSS_FILE;
 import static me.vault.game.utility.interfaces.constant.LoggingConstants.DISPLAY_FAILED_PATTERN;
 import static me.vault.game.utility.interfaces.constant.LoggingConstants.SHOWING_VIEW_PATTERN;
 import static me.vault.game.utility.logging.ILogger.Level.DEBUG;

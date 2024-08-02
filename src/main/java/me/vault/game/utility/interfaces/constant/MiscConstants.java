@@ -83,4 +83,5 @@ public interface MiscConstants
 	 * This integer denotes the number ten.
 	 */
 	int SLEEP_TEN = 10;
+
 }

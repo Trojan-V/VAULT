@@ -1,8 +1,9 @@
 package me.vault.game.utility.interfaces.constant;
 
-import static me.vault.game.utility.interfaces.constant.ConstantInterface.Constant;
 
 import me.vault.game.view.newgame.TutorialDelegate;
+
+import static me.vault.game.utility.interfaces.constant.ConstantInterface.Constant;
 
 
 /**

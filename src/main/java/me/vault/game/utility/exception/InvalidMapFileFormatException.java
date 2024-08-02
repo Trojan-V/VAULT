@@ -11,6 +11,7 @@ package me.vault.game.utility.exception;
  */
 public class InvalidMapFileFormatException extends Exception
 {
+
 	/**
 	 * The message which can be retrieved from the exception instance by invoking {@link NotAFigureException#getMessage()}.
 	 * Usually, this message should be printed into the console or some other logging destination to inform the user about the exception.
@@ -29,4 +30,5 @@ public class InvalidMapFileFormatException extends Exception
 	{
 		super(MESSAGE);
 	}
+
 }

@@ -1,14 +1,16 @@
 package me.vault.game.utility.interfaces.constant;
 
+
 /**
  * This interface provides constants for the use in the networkimplementation of this application.
  *
- *  @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
- *  @version 1.0.0
- *  @since 02.08.2024
+ * @author Vincent Wolf, Lasse-Leander Hillen, Timothy Hoegen-Jupp, Alexander Goethel
+ * @version 1.0.0
+ * @since 02.08.2024
  */
 public interface NetworkConstants
 {
+
 	/**
 	 * The smallest ephemeral port (see https://en.wikipedia.org/wiki/Ephemeral_port).
 	 */
@@ -37,4 +39,5 @@ public interface NetworkConstants
 	 * Error message that is displayed to the user.
 	 */
 	String INVALID_CONNETCTION_ATTEMPT = "Invalid connetction attempt.";
+
 }

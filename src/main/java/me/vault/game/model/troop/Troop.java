@@ -370,6 +370,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * allowing for easy access by using this meaningful key ({@link TroopLevel}).
 	 *
 	 * @return The {@link Map} which contains all upgrade cost transactions for the troop.
+	 *
 	 * @precondition The upgrade costs for the upgrade of the TroopLevel have to be supplied.
 	 * @postcondition The {@link Map} which contains all upgrade cost transactions for the troop is accessible for
 	 * the program.
@@ -385,6 +386,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * access by using this meaningful key ({@link TroopLevel}).
 	 *
 	 * @return The {@link Map} which contains all names for the troop.
+	 *
 	 * @precondition The names of the TroopLevels have to be supplied.
 	 * @postcondition The {@link Map} which contains all names for the troop is accessible for
 	 * the program.
@@ -401,6 +403,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * access by using this meaningful key ({@link TroopLevel}).
 	 *
 	 * @return The {@link Map} which contains all sprites for the troop.
+	 *
 	 * @precondition The sprites of the TroopLevels have to be supplied.
 	 * @postcondition The {@link Map} which contains all sprites for the troop is accessible for
 	 * the program.
@@ -417,6 +420,7 @@ public abstract class Troop implements Upgradable<TroopLevel>, Placeable, Nameab
 	 * access by using this meaningful key ({@link TroopLevel}).
 	 *
 	 * @return The {@link Map} which contains all statistics for the troop.
+	 *
 	 * @precondition The statistics for the troops of the TroopLevels have to be supplied.
 	 * @postcondition The {@link Map} which contains all statistics of the troops for the troop is accessible for
 	 * the program.

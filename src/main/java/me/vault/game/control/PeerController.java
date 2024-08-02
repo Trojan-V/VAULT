@@ -16,22 +16,28 @@ import java.util.Random;
  */
 public class PeerController
 {
+
 	private static final PeerController INSTANCE = new PeerController();
 
-	private static Peer peer = new Peer();
+	private static final Peer peer = new Peer();
+
 
 	private PeerController ()
 	{
 	}
+
+
 	public static PeerController getInstance ()
 	{
 		return INSTANCE;
 	}
 
+
 	public Peer getPeer ()
 	{
-		return this.peer;
+		return peer;
 	}
+
 
 	public void runPeer ()
 	{
@@ -44,10 +50,11 @@ public class PeerController
 		return new Random().nextInt(NetworkConstants.MINIMUM_PORT_NUMBER, NetworkConstants.MAXIMUM_PORT_NUMBER);
 	}
 
-	public void createConnection (String hostName, int portNumber) throws IOException, UnknownHostException
+
+	public void createConnection (final String hostName, final int portNumber) throws IOException
 	{
-		if ( hostName == null || portNumber == 0 ||
-		     portNumber == this.getPeer().getMyPeerPortNumber() || !hostName.contains(String.valueOf(CharacterConstants.DOT)))
+		if (hostName == null || portNumber == 0 ||
+		    portNumber == this.getPeer().getMyPeerPortNumber() || !hostName.contains(String.valueOf(CharacterConstants.DOT)))
 		{
 			System.out.println(NetworkConstants.INVALID_CONNETCTION_ATTEMPT);
 			throw new UnknownHostException();
@@ -57,6 +64,7 @@ public class PeerController
 		this.acceptIncomingConnection();
 
 	}
+
 
 	public void acceptIncomingConnection ()
 	{
@@ -73,4 +81,5 @@ public class PeerController
 		this.getPeer().setConnected(true);
 		System.out.println(NetworkConstants.ACCEPTED);
 	}
+
 }

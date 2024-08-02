@@ -139,6 +139,7 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	 * Creates and designs the "upgrade" button of the {@link CityBuilding}.
 	 *
 	 * @param cityBuilding The city building.
+	 *
 	 * @return A {@link Button} for the {@link CityBuilding} upgrade.
 	 *
 	 * @precondition The method is called and a {@link CityBuilding} != null is passed.
@@ -161,8 +162,10 @@ public final class CityBuildingAnchorPane extends AnchorPane
 	/**
 	 * Creates and designs the "interact" button of the {@link CityBuilding}.
 	 *
-	 * @return A {@link Button} for the {@link CityBuilding} interaction.
 	 * @param cityBuilding The city building.
+	 *
+	 * @return A {@link Button} for the {@link CityBuilding} interaction.
+	 *
 	 * @precondition The method is called and a {@link CityBuilding} != null is passed.
 	 * @postcondition A {@link Button} with adjusted properties for the interaction was returned.
 	 */

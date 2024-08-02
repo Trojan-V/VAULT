@@ -120,7 +120,7 @@ public class GameBoard implements SerializableJSON
 	 *
 	 * @return The {@link Figure} instance which is located at the supplied {@link Position}.
 	 *
-	 * @throws NotAFigureException If there's no {@link Figure} at the supplied {@link Position} for some reason.
+	 * @exception NotAFigureException If there's no {@link Figure} at the supplied {@link Position} for some reason.
 	 * @precondition The {@link Figure} at the {@link Position} exists.
 	 * @postcondition The instance of the {@link Figure} which is at the {@link Position} is accessible for the program.
 	 */

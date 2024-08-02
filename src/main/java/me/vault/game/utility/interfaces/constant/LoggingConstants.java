@@ -359,10 +359,12 @@ public interface LoggingConstants
 	 */
 	interface Config
 	{
+
 		/**
 		 * Message to print out that the default configuration file was created.
 		 */
 		String DEFAULT_FILE_CREATED = "Creating default configuration file.";
+
 	}
 
 }

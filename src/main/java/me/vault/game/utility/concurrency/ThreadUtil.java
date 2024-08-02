@@ -10,6 +10,7 @@ package me.vault.game.utility.concurrency;
  */
 public class ThreadUtil
 {
+
 	/**
 	 * Lets the calling thread sleep for the specified amount of time.
 	 *
@@ -18,15 +19,16 @@ public class ThreadUtil
 	 * @precondition none.
 	 * @postcondition The calling thread sleeps (is unresponsive) for the specified amount of time.
 	 */
-	public static void sleepThread(long sleepTime)
+	public static void sleepThread (final long sleepTime)
 	{
 		try
 		{
 			Thread.sleep(sleepTime);
 		}
-		catch (InterruptedException interruptedException)
+		catch (final InterruptedException interruptedException)
 		{
 			interruptedException.printStackTrace();
 		}
 	}
+
 }

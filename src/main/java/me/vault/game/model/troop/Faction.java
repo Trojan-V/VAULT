@@ -92,6 +92,7 @@ public enum Faction implements Displayable
 	 * @param defensiveMultiplier The multiplier that'll be used for the defensive statistics.
 	 * @param dexterityMultiplier The multiplier that'll be used for the dexterity statistics.
 	 * @param sprite              The sprite that represents the faction.
+	 *
 	 * @precondition The supplied parameters exist and are accessible.
 	 * @postcondition An instance of this class is created with the supplied parameter.
 	 */
