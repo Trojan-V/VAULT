@@ -15,11 +15,7 @@ public class PeerController
 {
 	private static final PeerController INSTANCE = new PeerController();
 
-
-
 	private static Peer peer = new Peer();
-
-	private Thread peerThread;
 
 	private PeerController ()
 	{
@@ -34,16 +30,9 @@ public class PeerController
 		return this.peer;
 	}
 
-	public Thread getPeerThread ()
-	{
-		return this.peerThread;
-	}
-	/**
-	 *
-	 */
 	public void runPeer ()
 	{
-		(peerThread = new Thread(peer)).start();
+		(new Thread(peer)).start();
 	}
 
 
@@ -61,16 +50,17 @@ public class PeerController
 			throw new UnknownHostException();
 		}
 
-		this.getPeer().setOtherPeer(new Socket(hostName, portNumber));
-		this.acceptConnection();
+		this.getPeer().setForeignPeer(new Socket(hostName, portNumber));
+		this.acceptIncomingConnection();
 
 	}
 
-	public void acceptConnection ()
+	public void acceptIncomingConnection ()
 	{
 		try
 		{
-			this.getPeer().setOtherPeer(this.getPeer().getMyPeerHostSocket().accept());
+			this.getPeer().setForeignPeer(this.getPeer().getMyPeerHostSocket().accept());
+
 		}
 		catch (final IOException e)
 		{

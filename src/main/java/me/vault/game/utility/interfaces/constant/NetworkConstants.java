@@ -8,7 +8,7 @@ public interface NetworkConstants
 
 	int MAXIMUM_PORT_NUMBER = 65536;
 
-
+// Messages
 	String ERROR_SERVER_SOCKET = "Error with ServerSocket";
 
 	String ERROR_ACCEPTING = "error accepting";

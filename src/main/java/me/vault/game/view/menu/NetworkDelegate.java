@@ -150,10 +150,6 @@ public final class NetworkDelegate implements Initializable
 	}
 
 
-	/**
-	 *
-	 */
-
 	private void setButtonActions ()
 	{
 		this.dialogPane.lookupButton(ButtonType.YES).setOnMouseClicked(_ -> this.connect(STAGE));
